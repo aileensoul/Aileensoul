@@ -21,6 +21,8 @@ class Recruiter extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+        
+
         $contition_array = array('user_id' => $userid, 're_status' => '0');
         $artdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($artdata) {
@@ -50,6 +52,16 @@ class Recruiter extends MY_Controller {
     public function rec_basic_information() {
         // echo "hello";Die();
         $userid = $this->session->userdata('aileenuser');
+
+//          $contition_array = array('user_id'=> $userid,'re_status' => '0','is_delete'=> '0');
+
+//         $recruiter_deactive = $this->data['recruiter_deactive'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+// //echo "<pre>";print_r($recruiter_deactive);die();
+//         if( $recruiter_deactive)
+//         {
+//              redirect('dashboard');
+//         }
+
         $contition_array = array('user_id' => $userid, 're_status' => '1');
         $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -131,6 +143,14 @@ class Recruiter extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         // if($this->input->post('next')){  //echo "hii"; die();
+ // $contition_array = array('user_id'=> $userid,'re_status' => '0','is_delete'=> '0');
+
+ //        $recruiter_deactive = $this->data['recruiter_deactive'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+ //        if( $recruiter_deactive)
+ //        {
+ //             redirect('dashboard');
+ //        }
 
         $this->form_validation->set_rules('first_name', 'first Name', 'required');
         $this->form_validation->set_rules('last_name', 'last Name', 'required');

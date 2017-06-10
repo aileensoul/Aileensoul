@@ -68,13 +68,13 @@
                                 ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
                                 <li class="custom-none <?php
-                                if ($jobdata[0]['job_step'] < '7') {
+                                if ($jobdata[0]['job_step'] < '8') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
                                 <li class="custom-none <?php
-                                if ($jobdata[0]['job_step'] < '7') {
+                                if ($jobdata[0]['job_step'] < '9') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>

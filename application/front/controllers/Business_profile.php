@@ -193,8 +193,8 @@ class Business_profile extends MY_Controller {
             $result1[$key]['value'] = $value;
         }
 
-$contition_array = array('status' => '1');
-          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+// $contition_array = array('status' => '1');
+//           $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
           foreach ($citiesss as $key1) {
