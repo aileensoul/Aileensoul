@@ -385,8 +385,16 @@
                     </fieldset>
                <fieldset class="hs-submit full-width">
                   <!--   <input type="reset"> -->
+                    <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               
+                                 <a class="add_post_btns" onclick="return leave_page(9)">Cancel</a>
+                                 <?php }else{?>
+
+                                <a class="add_post_btns" href="javascript:history.back()">Cancel</a>Cancel</a>
+                                 <?php } ?>
                    
-                    <a class="add_post_btns" href="javascript:history.back()">Cancel</a>
+                   
                      <input type="submit" id="submit" class="add_post_btns" name="submit" value="save">                    
                 </fieldset>
             </div>
@@ -503,7 +511,7 @@ return home(clicked_id,searchkeyword,searchplace);
   {
   
                               
-      $('.biderror .mes').html("<div class='pop_content'> Are you sure to discard your changes?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to discard your changes?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
 
  }
