@@ -1,5 +1,5 @@
 /***  css   ***/
-/*.prev {
+.prev {
     background-color: rgba(0, 0, 0, 0.3);
 }
 .Follow_close {
@@ -19,7 +19,6 @@
     bottom: 0%;
     color: white;
     position: absolute;
-
     width: 335px;
     height: 252px;
     background: rgba(0, 0, 0, 0.5);
@@ -72,4 +71,4 @@
       
 
     }
-    .modal-content{display: table; width: 100%;}*/
+    .modal-content{display: table; width: 100%;}
