@@ -3430,16 +3430,24 @@ class Artistic extends MY_Controller {
                 $cmtcount = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">' .
                         count($allcomnt) . '</i></a>';
+                
+                $cntinsert =  '<span class="comment_count" >';
+                          if (count($allcomnt) > 0) {
+           $cntinsert .= '' . count($allcomnt) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+                                }
             }
         } else {
-            $cmtcount = '<a onClick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
-            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
-            $cmtcount .= '</i></a>';
+//            $cmtcount = '<a onClick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
+//            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+//            $cmtcount .= '</i></a>';
+            $cmtcount = '';
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "commentcount" => count($allcomnt)));
+                    "commentcount" => $cntinsert));
     }
 
     public function delete_commenttwo() {
@@ -3558,18 +3566,26 @@ class Artistic extends MY_Controller {
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($artdata) . '';
                 $cmtcount .= '</i></a>';
+                
+           $cntinsert =  '<span class="comment_count" >';
+                          if (count($artdata) > 0) {
+           $cntinsert .= '' . count($artdata) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+                                }
             }
         } else {
-            $idpost = $art['art_post_id'];
-            $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
-            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
-            $cmtcount .= '</i></a>';
+//            $idpost = $art['art_post_id'];
+//            $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
+//            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+//            $cmtcount .= '</i></a>';
+            $cmtcount .= '';
         }
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "commentcount" => count($artdata)));
+                    "commentcount" => $cntinsert));
     }
 
 //Artistic comment delete end
@@ -6090,6 +6106,8 @@ class Artistic extends MY_Controller {
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount));
     }
+    
+    
 
 // changes done 9-5
     public function delete_commenttwoimg() {

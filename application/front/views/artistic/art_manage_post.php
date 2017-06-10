@@ -1236,8 +1236,8 @@
                                                      <ul class="col-md-6 like_cmnt_count">
 
                                                               <li>
-                                                                <div class="like_count_ext">
-                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > 
+                                                                <div class="like_count_ext<?php echo $row['art_post_id']; ?>">
+                                                                    <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
                                                                             echo count($commnetcount); ?>
@@ -2176,7 +2176,8 @@
                         //alert('.' + 'insertcomment' + clicked_id);
                         //  alert(data.comment);
                         $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                        $('#' + 'insertcount' + post_delete.value).html(data.count);
+                     //   $('#' + 'insertcount' + post_delete.value).html(data.count);
+                     $('.like_count_ext' + post_delete.value).html(data.commentcount);
                         $('.post-design-commnet-box').show();
                     }
                 });
@@ -2203,7 +2204,8 @@
 
                         // $('.' + 'insertcomment' + post_delete.value).html(data);
                         $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                        $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                     //   $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                      $('.like_count_ext' + post_delete1.value).html(data.commentcount);
                         $('.post-design-commnet-box').show();
 
                     }
@@ -2362,8 +2364,9 @@
                             dataType: "json",
                             success: function (data) {
                                 //$('.' + 'insertcomment' + clicked_id).html(data);
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                           //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('.insertcomment' + clicked_id).html(data.comment);
+                                $('.like_count_ext' + clicked_id).html(data.commentcount);
                             }
                         });
 
@@ -2378,8 +2381,9 @@
                                 $('textarea').each(function () {
                                     $(this).val('');
                                 });
-                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                              //  $('#' + 'insertcount' + clicked_id).html(data.count);
                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                $('.like_count_ext' + clicked_id).html(data.commentcount);
                             }
                         });
 
@@ -2510,7 +2514,7 @@
                                     });
                                  //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                     $('.insertcomment' + clicked_id).html(data.comment);
-                                    $('.comment_count' + clicked_id).html(data.commentcount);
+                                $('.like_count_ext' + clicked_id).html(data.commentcount);
                                 }
                             });
                         } else {
@@ -2523,8 +2527,9 @@
                                     $('textarea').each(function () {
                                         $(this).val('');
                                     });
-                                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                                    //$('#' + 'insertcount' + clicked_id).html(data.count);
                                     $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                    $('.like_count_ext' + clicked_id).html(data.commentcount);
                                 }
                             });
                         }

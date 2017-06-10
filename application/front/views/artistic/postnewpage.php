@@ -1475,7 +1475,7 @@
                                 success: function (data) {
                                     $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
                                    //     $('#' + 'insertcount' + post_delete.value).html(data.count);
-                               $('.comment_count' + post_delete.value).html(data.commentcount);
+                                $('.like_count_ext' + post_delete.value).html(data.commentcount);
                                     $('.post-design-commnet-box').show();
                                 }
                             });
@@ -1572,8 +1572,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                   //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('.insertcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
 
                                     }
                                 });
@@ -1589,8 +1590,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                      //  $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
                                     }
                                 });
                             }
@@ -1711,7 +1713,7 @@
                                                 });
                                                //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                     $('.insertcomment' + clicked_id).html(data.comment);
-                                    $('.comment_count' + clicked_id).html(data.commentcount);
+                                    $('.like_count_ext' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     } else {
@@ -1726,7 +1728,7 @@
                                                 });
                                            //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                                                $('.comment_count' + clicked_id).html(data.commentcount);
+                                               $('.like_count_ext' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     }

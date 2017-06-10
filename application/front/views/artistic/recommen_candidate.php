@@ -584,8 +584,8 @@ if($status == 0 || $status == " "){?>
  <ul class="col-md-6 like_cmnt_count">
 
  <li>
-                                                                <div class="like_count_ext">
-                                                                    <span class="comment_count<?php echo $key['art_post_id']; ?>" > 
+                                                                <div class="like_count_ext<?php echo $row['art_post_id']; ?>">
+                                                                    <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
                                                                             echo count($commnetcount); ?>
@@ -1286,8 +1286,9 @@ if($status == 0 || $status == " "){?>
                                 success: function (data) {
                                     //alert('.' + 'insertcomment' + clicked_id);
                                     $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                                    $('#' + 'insertcount' + post_delete.value).html(data.count);
-                                    $('.post-design-commnet-box').show();
+                                  //  $('#' + 'insertcount' + post_delete.value).html(data.count);
+                                     $('.like_count_ext' + post_delete.value).html(data.commentcount);
+                                        $('.post-design-commnet-box').show();
                                 }
                             });
                         }
@@ -1312,8 +1313,9 @@ if($status == 0 || $status == " "){?>
 
                                     // $('.' + 'insertcomment' + post_delete.value).html(data);
                                     $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                                    $('#' + 'insertcount' + post_delete1.value).html(data.count);
-                                    $('.post-design-commnet-box').show();
+                                //    $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                                       $('.like_count_ext' + post_delete1.value).html(data.commentcount);
+                                      $('.post-design-commnet-box').show();
 
                                 }
                             });
@@ -1426,8 +1428,9 @@ if($status == 0 || $status == " "){?>
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                  //      $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('.insertcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
 
                                     }
                                 });
@@ -1443,8 +1446,9 @@ if($status == 0 || $status == " "){?>
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                              //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
                                     }
                                 });
                             }
@@ -1556,9 +1560,10 @@ if($status == 0 || $status == " "){?>
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                              //  $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('.insertcomment' + clicked_id).html(data.comment);
-                                            }
+                                               $('.like_count_ext' + clicked_id).html(data.commentcount);
+                                       }
                                         });
                                     } else {
                                         $.ajax({
@@ -1570,8 +1575,9 @@ if($status == 0 || $status == " "){?>
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                             //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                                $('.like_count_ext' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     }
