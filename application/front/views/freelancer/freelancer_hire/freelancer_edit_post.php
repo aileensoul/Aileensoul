@@ -12,6 +12,10 @@
      <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
+      <!-- This Css is used for call popup -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
+
      <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
@@ -313,7 +317,15 @@
 
                                 <!-- <input type="reset"> -->
                                 
-                                <a href="javascript:history.back()">Cancel</a>
+                             <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                                
+                               
+                                 <a class="add_post_btnc" onclick="return leave_page(9)">Cancel</a>
+                                 <?php }else{?>
+
+                                 <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
+                                 <?php } ?>
+                                 
                                 <input type="submit" id="submit" class="add_post_btns" name="submit" value="Save">
                                 
                             </fieldset>
@@ -328,6 +340,19 @@
         </div>
     </section>
 
+<!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+  <!-- Model Popup Close -->
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
@@ -339,6 +364,9 @@
    
         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
+<!-- This Js is used for call popup -->
+
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
 <script type="text/javascript">
@@ -423,6 +451,7 @@ $( "#searchplace" ).autocomplete({
 </script>
 
   <script type="text/javascript">
+
 function checkvalue(){
    //alert("hi");
   var searchkeyword=document.getElementById('tags').value;
@@ -434,6 +463,125 @@ function checkvalue(){
     return false;
   }
 }
+
+function checkvalue_search() {
+       
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
+        
+        if (searchkeyword == "" && searchplace == "") 
+        {
+          //  alert('Please enter Keyword');
+            return false;
+        }
+    }
+
+
+//Leave Page on add and edit post page start
+  function leave_page(clicked_id)
+{
+
+//alert(clicked_id);
+ 
+ 
+   var searchkeyword = document.getElementById('tags').value;
+    var searchplace = document.getElementById('searchplace').value;
+    
+ 
+   
+    if(clicked_id==4)
+    {
+       if(searchkeyword=="" && searchplace=="" )
+       {
+            return checkvalue_search;
+       }
+      
+    }
+   
+      return home(clicked_id,searchkeyword,searchplace);
+
+    }
+
+  function home(clicked_id,searchkeyword,searchplace) {
+  
+                        
+      $('.biderror .mes').html("<div class='pop_content'>Do you want to discard your changes??<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+
+ }
+
+ function home_profile(clicked_id,searchkeyword,searchplace){
+  
+  var  url,data;
+  
+  
+if (clicked_id == 4) {
+    url = '<?php echo base_url() . "search/freelancer_hire_search" ?>';
+
+   
+    data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
+    
+} 
+
+  
+                  $.ajax({
+                      type: 'POST',
+                      url: url,
+                      data: data,
+                        success: function (data) {
+                            if(clicked_id==1)
+                            {
+                              // alert("hsjdh");
+
+                                  window.location= "<?php echo base_url('freelancer/recommen_candidate'); ?>";    
+                            }
+                            else if(clicked_id==2)
+                            {
+                                window.location= "<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"; 
+                            }
+                            else if(clicked_id==3)
+                            {
+                                window.location= "<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>"; 
+                            }
+                            else if(clicked_id==4)
+                            {
+                                   
+                           
+                                 window.location= "<?php echo base_url() ?>search/freelancer_hire_search/"+searchkeyword+"/"+searchplace; 
+                                 
+                                
+                            }
+                             else if(clicked_id==5)
+                            {
+                                window.location= "<?php echo base_url('dashboard') ?>"; 
+                            }
+                             else if(clicked_id==6)
+                            {
+                                window.location= "<?php echo base_url() . 'profile' ?>"; 
+                            }
+                             else if(clicked_id==7)
+                            {
+                                window.location= "<?php echo base_url('registration/changepassword') ?>"; 
+                            }
+                             else if(clicked_id==8)
+                            {
+                                window.location= "<?php echo base_url('dashboard/logout') ?>"; 
+                            }
+                            else if(clicked_id==9)
+                            {
+                                        location.href = 'javascript:history.back()';
+                            }
+                            else
+                            {
+                                alert("edit profilw");
+                            }
+                                     
+                                }
+                            });
+
+
+ }
+ //Leave Page on add and edit post page End
 </script>
 
 

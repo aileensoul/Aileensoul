@@ -1212,21 +1212,33 @@ if ($searchkeyword == "" && $searchplace == "") {
         $this->load->view('freelancer_hire/freelancer_hire_search', $this->data);
     }
 
-    public function freelancer_hire_search() {
+    public function freelancer_hire_search($searchkeyword,$searchplace) {
         $userid = $this->session->userdata('aileenuser');
 
-        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") { 
+         if($this->input->post('search_submit'))
+        {
+           $searchkeyword=$this->input->post('skills');
+           $searchplace=$this->input->post('searchplace');
+        }
+        else
+        {
+             $searchkeyword= urldecode($searchkeyword);
+             $searchplace=urldecode($searchplace);
+            
+        }
+
+        if ($searchplace == "" && $searchkeyword == "") { 
         redirect('freelancer/recommen_candidate',refresh);
         }
 
         // Retrieve the posted search term.
         //echo "<pre>";print_r($_POST);die();
-        $search_skill = trim($this->input->post('skills'));
+        $search_skill = trim($searchkeyword);
         // echo $search_skill;die();   
         // $searchskill = implode(',',$search_skill);
         $this->data['keyword'] = $search_skill;
 
-        $search_place = $this->input->post('searchplace');
+        $search_place = $searchplace;
 
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
@@ -1255,13 +1267,13 @@ if ($searchkeyword == "" && $searchplace == "") {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
 
-        if ($this->input->post('skills') == "") { 
+        if ($searchkeyword == "") { 
 
         $contition_array = array('freelancer_post_city' => $cache_time, 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
-        elseif ($this->input->post('searchplace') == "") {
+        elseif ($searchplace == "") {
 
 
             $contition_array = array('type' => '1', 'status' => '1');

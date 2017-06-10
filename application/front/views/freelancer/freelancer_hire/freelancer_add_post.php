@@ -21,6 +21,9 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
+  <!-- This Css is used for call popup -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <!-- Calender Css Start-->
@@ -152,7 +155,7 @@
                     <fieldset class="full-width two-select-box fullwidth_experience" <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Experience:</label>
 
-                          <select name="year">
+                          <select name="year" id="year">
                              <option value="" selected option disabled>Year</option>
                         
                             <option value="0">0 Year</option>
@@ -320,8 +323,17 @@
                     <fieldset class="hs-submit full-width">
 
 <!--                        <input type="reset" value="cancel" >-->
+
+                       <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                                
+                               
+                                 <a class="add_post_btnc" onclick="return leave_page(9)">Cancel</a>
+                                 <?php }else{?>
+
+                                 <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
+                                 <?php } ?>
                     
-                       <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
+                      
                       <input type="submit" id="submit"  class="add_post_btns" name="submit" value="Post">    
                     
                     </fieldset>
@@ -350,7 +362,21 @@
                         </div>
                     </div>
     </section>
-    <footer>
+  
+
+ <!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+  <!-- Model Popup Close -->
 
         <footer>
             <?php echo $footer; ?>
@@ -370,6 +396,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.full.js
 "></script>
+
+<!-- This Js is used for call popup -->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
     <!-- Calender JS Start-->
 
 <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
@@ -488,39 +517,41 @@ function checkvalue(){
 //alert(clicked_id);
  
  var post_name = document.getElementById('post_name').value;
+ var post_desc = document.getElementById('post_desc').value;
+ var fields_req = document.getElementById('fields_req').value;
  var skills = document.getElementById('skills').value;
  var other_skill = document.getElementById('other_skill').value;
- var minyear = document.getElementById('minyear').value;
- var minmonth = document.getElementById('minmonth').value;
- var maxyear = document.getElementById('maxyear').value;
- var maxmonth = document.getElementById('maxmonth').value;
- var post_desc = document.getElementById('post_desc').value;
- var interview = document.getElementById('interview').value;
- var country = document.getElementById('country').value;
- var state = document.getElementById('state').value;
- var city = document.getElementById('city').value;
- var datepicker = document.getElementById('datepicker').value;
- var minsal = document.getElementById('minsal').value;
- var maxsal = document.getElementById('maxsal').value;
+ var year = document.getElementById('year').value;
+ var month = document.getElementById('month').value;
+ var rate = document.getElementById('rate').value;
  var currency = document.getElementById('currency').value;
+ var est_time = document.getElementById('est_time').value;
+ var datepicker = document.getElementById('datepicker').value;
+  var country = document.getElementById('country').value;
+ var city = document.getElementById('city').value;
+
+ 
  
    var searchkeyword = document.getElementById('tags').value;
     var searchplace = document.getElementById('searchplace').value;
+    // alert(searchkeyword);
+    // alert(searchplace);
        
- if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
+ if(post_name=="" && post_desc=="" && fields_req=="" && skills=="" && other_skill=="" && year=="" && month=="" && rate=="" && currency=="" && est_time=="" && datepicker=="" && country=="" && city=="" )
  {
     
     if(clicked_id==1)
     {
-            location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
+          
+            location.href = '<?php echo base_url('freelancer/recommen_candidate'); ?>';
     }
     if(clicked_id==2)
     {
-            location.href = '<?php echo base_url() ?>recruiter/rec_profile';
+            location.href = '<?php echo base_url('freelancer/freelancer_hire_profile'); ?>';
     }
     if(clicked_id==3)
     {
-            location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
+            location.href = '<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>';
     }
     if(clicked_id==4)
     {
@@ -530,7 +561,8 @@ function checkvalue(){
        }
        else
        {
-            location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
+            location.href = '<?php echo base_url() ?>search/freelancer_hire_search/'+searchkeyword+'/'+searchplace;
+
         }   
     }
      if(clicked_id==5)
@@ -558,7 +590,7 @@ function checkvalue(){
  }
  else
  {
-  
+    
 
       return home(clicked_id,searchkeyword,searchplace);
 
@@ -567,7 +599,7 @@ function checkvalue(){
     }
       function home(clicked_id,searchkeyword,searchplace) {
   
-                              
+                        
       $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
 
@@ -579,7 +611,7 @@ function checkvalue(){
   
   
 if (clicked_id == 4) {
-    url = '<?php echo base_url() . "search/recruiter_search" ?>';
+    url = '<?php echo base_url() . "search/freelancer_hire_search" ?>';
 
    
     data='id=' + clicked_id + '&skills=' + searchkeyword+ '&searchplace=' + searchplace;
@@ -596,21 +628,21 @@ if (clicked_id == 4) {
                             {
                               // alert("hsjdh");
 
-                                  window.location= "<?php echo base_url() ?>recruiter/recommen_candidate";    
+                                  window.location= "<?php echo base_url('freelancer/recommen_candidate'); ?>";    
                             }
                             else if(clicked_id==2)
                             {
-                                window.location= "<?php echo base_url() ?>recruiter/rec_profile"; 
+                                window.location= "<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"; 
                             }
                             else if(clicked_id==3)
                             {
-                                window.location= "<?php echo base_url() ?>recruiter/rec_basic_information"; 
+                                window.location= "<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>"; 
                             }
                             else if(clicked_id==4)
                             {
                                    
                            
-                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                 window.location= "<?php echo base_url() ?>search/freelancer_hire_search/"+searchkeyword+"/"+searchplace; 
                                  
                                 
                             }
