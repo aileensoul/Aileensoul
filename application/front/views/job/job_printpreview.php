@@ -395,7 +395,7 @@ echo $job_header2;
                                             {
                                                 ?>
                                                 <li><b> City</b> <span>
-                                               <?php echo PROFILENA;
+                                               <?php echo PROFILENA; 
                                                 
 
                                             }
