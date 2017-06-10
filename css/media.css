@@ -205,7 +205,7 @@
            .job_address_btn { min-width: 50px !important; font-size: 15px !important; padding: 5px 14px !important;}
            input[type=submit], input[type=button], button  { padding: 6px 22px 6px; font-size: 15px; }
             .hs-submit input { min-width: 110px; font-size: 15px; }
-            .tabordion section .label-d { font-size: 1em; padding: 11px 6px; }
+            .tabordion section .label-d { /*font-size: 1em;*/ padding: 11px 6px; }
             .tabordion h6 { font-size: 14px; }
             .job_add_head { font-size: 18px; }
             .job_add_head_pro { font-size: 18px; }
@@ -216,7 +216,7 @@
              .common-form1 h3 { padding: 3px 15px 3px; font-size: 18px; }
              .hs-submit a { font-size: 15px; padding: 8px 25px; }
              .freelancer_editpost_title { font-size: 23px; }
-             .action-buttons { padding: 1px; }
+             .action-buttons {/* padding: 1px; */}
             .select2-container-multi .select2-choices .select2-search-choice { padding: 2px 4px 4px 13px!important; }
             .fullwidth_experience select { width: 49%; margin-right: 4px; }
             .select2-search-choice-close { top: 3px; }

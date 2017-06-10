@@ -44,13 +44,13 @@
              $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
              if($jobdata[0]['job_step'] == 10){ ?>
-                <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
+                <div class="col-md-6 col-sm-12"><h3>You are updating your Job Profile.</h3></div>
             <?php  }else{
 
              ?>
 
 
-                      <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
+                      <div class="col-md-6 col-sm-12"><h3>You are making your Job Profile.</h3></div>
 
                       <?php }?>
             </div>
@@ -59,9 +59,9 @@
            <br>
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
+                            <ul class="left-form-each">
                                 <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?> ><a href="#">Basic Information</a></li>
 
                                 <li class="<?php if ($jobdata[0]['job_step'] < '1') {
@@ -104,7 +104,7 @@
                     </div>
 
                     <!-- middle section start -->
-                    <div class="col-md-6 col-sm-8">
+                    <div class="col-lg-6 col-md-6 col-sm-8">
 
                         <div>
                                 <?php
@@ -114,6 +114,9 @@
                                 if ($this->session->flashdata('success')) {
                                     echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                                 }
+                    
+                                
+                                
                                 ?>
                         </div>
                         <div class="clearfix">
@@ -626,6 +629,24 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 $(window).load(function(){
   $('#preloader').fadeOut('slow',function(){$(this).remove();});
 });
+
+    $('ul.left-form-each').each(function() {
+        var select = $(document.createElement('select')).insertBefore($(this).hide());
+        $('>li a', this).each(function() {
+            var a = $(this).click(function() {
+                if ($(this).attr('target')==='_blank') {
+                    window.open(this.href);
+                }
+                else {
+                    window.location.href = this.href;
+                }
+            }),
+            option = $(document.createElement('option')).appendTo(select).val(this.href).html($(this).html()).click(function() {
+                a.click();
+            });
+        });
+    });
+
 });
 </script>
 

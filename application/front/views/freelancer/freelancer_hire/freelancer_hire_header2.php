@@ -28,7 +28,19 @@
                        <div class="">
                             <ul class="">
                                
-                                  <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/recommen_candidate'); ?>">Home</a>
+                                  <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post')){?> class="active" <?php } ?>>
+
+                                   <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                                
+                               
+                                 <a href="javascript:void(0);" class="button" onclick="return leave_page(1)">Home</a>
+                                 <?php }else{?>
+
+                                <a href="<?php echo base_url('freelancer/recommen_candidate'); ?>">Home
+                                  </a>
+                                 <?php } ?>
+                                  
+
                                     </li>
     
                                 <!-- Friend Request Start-->
@@ -38,8 +50,24 @@
 <div class="dropdown_hover">
   <span id="art_profile">Employer Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
-    <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
-    <a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
+    <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                                
+                               
+
+                                  <a onclick="return leave_page(2)"><i class="fa fa-user" aria-hidden="true"></i>View Profile</a>
+                                 <?php }else{?>
+
+                                <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
+                                 <?php } ?>
+
+   <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+
+   <a onclick="return leave_page(3)"><i class="fa fa-pencil" aria-hidden="true"></i>Edit Profile</a>
+
+     <?php }else{?>
+     
+ <a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>      <?php } ?>
+   
      <?php
       $userid = $this->session->userdata('aileenuser');
       ?>

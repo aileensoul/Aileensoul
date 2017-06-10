@@ -63,7 +63,7 @@
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_address_info'); ?>">Address Information</a></li>
 
-                                <li class="<?php if ($freehiredata[0]['free_hire_step'] < '1') {
+                                <li class="<?php if ($freehiredata[0]['free_hire_step'] < '2') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_professional_info'); ?>">Professional Information</a></li>
 

@@ -375,7 +375,7 @@ $( document ).on( 'keydown', function ( e ) {
                             <ul class="">
 
 
-                                <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
                                 <li><a class=" action-button shadow animate" onclick="return leave_page(5)">All</a></li>
 
                                  <?php }else{?>
@@ -454,7 +454,7 @@ $( document ).on( 'keydown', function ( e ) {
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="myDropdown">
 
                                         <li>
-                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
                                 
                                <a  onclick="return leave_page(6)">
                                                 <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
@@ -467,7 +467,7 @@ $( document ).on( 'keydown', function ( e ) {
                                             
                                         </li>
                                         <li>
-                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
                                 
                                <a  onclick="return leave_page(7)">
                                                 <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
@@ -480,7 +480,7 @@ $( document ).on( 'keydown', function ( e ) {
                                             
                                         </li>
                                         <li class="logout">
-                                         <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                         <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
                                 
                                <a  onclick="return leave_page(8)">
                                                 <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
