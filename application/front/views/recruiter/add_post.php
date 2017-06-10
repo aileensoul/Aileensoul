@@ -865,7 +865,7 @@ else
   var  url,data;
   
   
-if (clicked_id === 4) {
+if (clicked_id == 4) {
     url = '<?php echo base_url() . "search/recruiter_search" ?>';
 
    
