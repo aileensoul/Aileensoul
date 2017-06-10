@@ -7704,7 +7704,7 @@ label.cameraButton input[accept*="camera"] {
     padding: 10px;
 }
 /* ^ job printprivew */
-}
+
 .profile-job-post-title-inside .profile_search {
     background-color: white!important;
 }
@@ -7935,11 +7935,11 @@ fieldset .add_post_btns {
     font-size: 16px;
     line-height: 16px;
 }
-/ Firefox 19+ / .header2 input::-moz-placeholder {
+/* Firefox 19+ */ .header2 input::-moz-placeholder {
     font-size: 14px;
     line-height: 3;
 }
-/ Firefox 18- / .profiletitle {
+/* Firefox 18- */ .profiletitle {
     font-size: 13px;
 }
 .required_field {
