@@ -3438,7 +3438,8 @@ class Artistic extends MY_Controller {
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => count($allcomnt)));
     }
 
     public function delete_commenttwo() {
@@ -3567,7 +3568,8 @@ class Artistic extends MY_Controller {
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => count($artdata)));
     }
 
 //Artistic comment delete end
@@ -3727,7 +3729,16 @@ class Artistic extends MY_Controller {
 
                 $cmtlikeuser .= '</a>';
 
-                $like_user_count = $commnetcount[0]['art_likes_count'];
+               // $like_user_count = $commnetcount[0]['art_likes_count'];
+                
+               // $like_user_count = $commnetcount[0]['art_likes_count'];
+             $like_user_count =  '<span class="comment_like_count">'; 
+               if ($commnetcount[0]['art_likes_count'] > 0) { 
+              $like_user_count .= '' . $commnetcount[0]['art_likes_count'] . ''; 
+              $like_user_count .=     '</span>'; 
+              $like_user_count .= '<span> Like</span>';
+               }
+              
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
@@ -3836,7 +3847,14 @@ class Artistic extends MY_Controller {
                 }
                 $cmtlikeuser .= '</a>';
 
-                $like_user_count = $commnetcount[0]['art_likes_count'];
+           //  $like_user_count = $commnetcount[0]['art_likes_count'];
+             $like_user_count =  '<span class="comment_like_count">'; 
+               if ($commnetcount[0]['art_likes_count'] > 0) { 
+              $like_user_count .= '' . $commnetcount[0]['art_likes_count'] . ''; 
+              $like_user_count .=     '</span>'; 
+              $like_user_count .= '<span> Like</span>';
+                 }
+                                                                      
 
                 echo json_encode(
                         array("like" => $cmtlike,
@@ -4001,7 +4019,8 @@ class Artistic extends MY_Controller {
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "comment" => $cmtinsert,
+                    "commentcount" => count($artdata)));
         // khyati chande 
     }
 

@@ -25,10 +25,8 @@
     <head>
         <style>
             div.panel {
-
-                display: none;
-
-            }
+                      display: none;
+                                  }
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script>
@@ -237,7 +235,8 @@
                                             $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_name;
                                             $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_lastname;
 
-
+                                            $designation = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->designation;
+                                            
                                             $userskill = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_skill;
                                             $aud = $userskill;
                                             $aud_res = explode(',', $aud);
@@ -270,14 +269,16 @@
 
                                                 <?php } ?>                 </li>
                                            
-                                            <li> 
-                                                <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-                                                    <a><?php print $this->common->make_links($art_data[0]['art_post']); ?></a>
-                                                </div>
-                                                <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
-                                                    <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" value="<?php echo $art_data[0]['art_post']; ?>">
-                                                </div>
-                                            </li>
+                                            
+                                            <li><div class="post-design-product">
+                                                                <a><?php if($designation)
+                                                                    {echo $designation;
+                                                                    
+                                                                    }else{
+                                                                        echo "Current Work.";
+                                                                       }?> </a>
+                                                                
+                                                            </div></li>
 
                                         </ul> 
                                     </div>  
@@ -329,6 +330,15 @@
                                     </div>
                                     <div class="post-design-desc">
                                         <span> 
+                                            
+                                             <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
+                                                            <a><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
+                                                        </div>
+
+                                                        <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                                                            <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $art_data[0]['art_post']; ?>">
+                                                        </div>
+                                            
                                             <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
                                                     <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
                                             </div>
@@ -336,7 +346,7 @@
                                                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $art_data[0]['art_description']; ?>
                                                 </div> 
                                             </div>
-                                            <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; "" onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
+                                            <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; " onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
 
                                         </span>
                                     </div> 
@@ -660,7 +670,7 @@
                                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
 
                                                                                             <?php } else { ?>
-                                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                             <?php } ?>
                                                                                             <span>
 
@@ -807,7 +817,7 @@
                                                         ?>               
                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
-                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                     <?php } ?>
                                                     <span  class="like_As_count">
                                                         <?php
@@ -825,11 +835,11 @@
                                                 ?>
                                                 <a title="Comment"  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
                                                         <?php
-                                                        if (count($commnetcount) > 0) {
-                                                            echo count($commnetcount);
-                                                        } else {
-                                                            
-                                                        }
+//                                                        if (count($commnetcount) > 0) {
+//                                                            echo count($commnetcount);
+//                                                        } else {
+//                                                            
+//                                                        }
                                                         ?>
                                                     </i> 
                                                 </a>
@@ -837,18 +847,33 @@
                                         </ul>
                                          <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span > 5 </span> 
-<span> Comment</span>
-</div>
-</li>
+                                                             <li>
+                                                                <div class="like_count_ext<?php echo $art_data[0]['art_post_id']; ?>">
+                                                                    <span class="comment_count" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
+                                                                    <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
+                                                                </div>
+                                                            </li>
 
-<li>
-<div class="comnt_count_ext">
-<span> 5 </span> 
-<span> Like</span>
-</div></li>
+                                                            <li>
+                                                                <div class="<?php echo 'comnt_count_ext' . $art_data[0]['art_post_id']; ?>">
+                                                                    <span class="comment_like_count"> 
+                                                                       <?php
+                                                                        if ($art_data[0]['art_likes_count'] > 0) { 
+                                                                            echo $art_data[0]['art_likes_count']; ?>
+                                                                   </span> 
+                                                                    <span> Like</span>
+                                                                <?php   }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1036,7 +1061,7 @@
                                                                         <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                     <?php }
                                                                     ?>
                                                                     <span>
@@ -1425,9 +1450,10 @@
                                 url: '<?php echo base_url() . "artistic/delete_comment" ?>',
                                 data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
                                 dataType: "json",
-                                success: function (data) {
+                                success: function (data) { alert(data.count);
                                     $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                                    $('#' + 'insertcount' + post_delete.value).html(data.count);
+                               //     $('#' + 'insertcount' + post_delete.value).html(data.count);
+                               $('.like_count_ext' + post_delete.value).html(data.commentcount);
                                     $('.post-design-commnet-box').show();
                                 }
                             });
@@ -1448,7 +1474,8 @@
                                 dataType: "json",
                                 success: function (data) {
                                     $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                                    $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                                   //     $('#' + 'insertcount' + post_delete.value).html(data.count);
+                               $('.comment_count' + post_delete.value).html(data.commentcount);
                                     $('.post-design-commnet-box').show();
                                 }
                             });
@@ -1682,8 +1709,9 @@
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcount' + clicked_id).html(data.count);
-                                                $('.insertcomment' + clicked_id).html(data.comment);
+                                               //   $('#' + 'insertcount' + clicked_id).html(data.count);
+                                    $('.insertcomment' + clicked_id).html(data.comment);
+                                    $('.comment_count' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     } else {
@@ -1696,8 +1724,9 @@
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcount' + clicked_id).html(data.count);
+                                           //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                                $('.comment_count' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     }
@@ -1939,17 +1968,25 @@
                     <!-- success message remove after some second end -->
                     <!-- edit post start -->
                     <script type="text/javascript">
-                        function editpost(abc)
-                        {
+                            
+            function editpost(abc)
+            {alert(abc);
+                //        document.getElementById('editpostdata' + abc).style.display = 'none';
+                //        document.getElementById('editpostbox' + abc).style.display = 'block';
+                //        document.getElementById('editpostdetails' + abc).style.display = 'none';
+                //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+                //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
 
+                $('div[id^=myDropdown]').hide().removeClass('show');
 
-                            document.getElementById('editpostdata' + abc).style.display = 'none';
-                            document.getElementById('editpostbox' + abc).style.display = 'block';
-                            document.getElementById('editpostdetails' + abc).style.display = 'none';
-                            document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-                            document.getElementById('editpostsubmit' + abc).style.display = 'block';
-                        }
-                    </script>
+               document.getElementById('editpostdata' + abc).style.display = 'none';
+                document.getElementById('editpostbox' + abc).style.display = 'block';
+                document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
+                document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+                document.getElementById('editpostsubmit' + abc).style.display = 'block';
+            }
+        </script>
+                  
                     <script type="text/javascript">
                         function edit_postinsert(abc)
                         {
@@ -2113,6 +2150,8 @@
                                 success: function (data) {
                                     $('.' + 'likepost' + clicked_id).html(data.like);
                                     $('.likeusername' + clicked_id).html(data.likeuser);
+                                    
+                                     $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
 
                                     $('.likeduserlist' + clicked_id).hide();
                                     if (data.like_user_count == '0') {

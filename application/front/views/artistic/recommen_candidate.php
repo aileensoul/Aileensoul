@@ -583,18 +583,33 @@ if($status == 0 || $status == " "){?>
                                                 </ul>
  <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span > 5 </span> 
-<span> Comment</span>
-</div>
-</li>
+ <li>
+                                                                <div class="like_count_ext">
+                                                                    <span class="comment_count<?php echo $key['art_post_id']; ?>" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
+                                                                    <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
+                                                                </div>
+                                                            </li>
 
-<li>
-<div class="comnt_count_ext">
-<span> 5 </span> 
-<span> Like</span>
-</div></li>
+                                                            <li>
+                                                                <div class="<?php echo 'comnt_count_ext' . $key['art_post_id']; ?>">
+                                                                    <span class="comment_like_count"> 
+                                                                       <?php
+                                                                        if ($key['art_likes_count'] > 0) { 
+                                                                            echo $key['art_likes_count']; ?>
+                                                                   </span> 
+                                                                    <span> Like</span>
+                                                                <?php   }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
                                         </ul>
                                             </div>
                                         </div>
@@ -1200,6 +1215,7 @@ if($status == 0 || $status == " "){?>
                                 success: function (data) {
                                     $('.' + 'likepost' + clicked_id).html(data.like);
                                     $('.likeusername' + clicked_id).html(data.likeuser);
+                                    $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
 
                                     $('.likeduserlist' + clicked_id).hide();
                                     if (data.like_user_count == '0') {

@@ -1197,26 +1197,31 @@
 
                                                             <li>
                                                                 <div class="like_count_ext">
-                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > <?php
+                                                                    <span class="comment_count<?php echo $row['art_post_id']; ?>" > 
+                                                                        <?php
                                                                         if (count($commnetcount) > 0) {
-                                                                            echo count($commnetcount);
-                                                                        }
-                                                                        ?> </span> 
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
                                                                     <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
                                                                 </div>
                                                             </li>
 
                                                             <li>
-                                                                <div class="comnt_count_ext">
-                                                                    <span class="<?php echo 'comment_like_count' . $row['art_post_id']; ?>"> 
+                                                                <div class="<?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
+                                                                    <span class="comment_like_count"> 
                                                                        <?php
-                                                                        if ($row['art_likes_count'] > 0) {
-                                                                            echo $row['art_likes_count'];
-                                                                        }
-                                                                        ?> 
-                                                                    </span> 
+                                                                        if ($row['art_likes_count'] > 0) { 
+                                                                            echo $row['art_likes_count']; ?>
+                                                                   </span> 
                                                                     <span> Like</span>
-                                                                </div></li>
+                                                                <?php   }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
                                                         </ul>
                                                         <!-- like comment div end -->
                                                     </div>
@@ -1931,7 +1936,7 @@
                                 success: function (data) {
                                     $('.' + 'likepost' + clicked_id).html(data.like);
                                     $('.likeusername' + clicked_id).html(data.likeuser);
-                                    $('.comment_like_count' + clicked_id).html(data.like_user_count);
+                                    $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
                                     
                                     $('.likeduserlist' + clicked_id).hide();
                                     if (data.like_user_count == '0') {
