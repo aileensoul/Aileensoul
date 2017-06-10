@@ -56,7 +56,7 @@ $(window).load(function(){
 <!-- script for fetch all unread notification start-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/script.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/select2_new.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script type="text/javascript" charset="utf-8">
 

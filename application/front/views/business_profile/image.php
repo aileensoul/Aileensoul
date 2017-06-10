@@ -96,7 +96,9 @@
                                     <?php if(count($busimage) > 0){
                                         $y = 0;
                                         foreach($busimage as $image){ 
-                                          $y = $y +1;?>
+                                          $y = $y +1;
+
+                                          //echo $image['image_id']; ?>
                                     <div class="job_work_edit_<?php echo $image['image_id']?>" id="image_main">
                                             <input type="hidden" name="filedata[]" id="filename" value="old">
                                             <input type="hidden" name="filename[]" id="filename" value="<?php echo $image['image_name']; ?>">
@@ -291,12 +293,14 @@ $('#searchplace').select2({
 
 <script type="text/javascript">
                         function delete_job_exp(grade_id) {
+                        //  alert(grade_id);
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "business_profile/bus_img_delete" ?>',
                                 data: 'grade_id=' + grade_id,
                                 // dataType: "html",
                                 success: function (data) {
+                                  //alert(data);
                                     if (data == 'ok') {
                                         $('.job_work_edit_' + grade_id).remove();
                                     }
