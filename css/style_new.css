@@ -99,3 +99,5 @@
 }
 
 .logo{display: inline-block;}
+
+.select2-container-multi .select2-search-choice-close{top:7px;}
