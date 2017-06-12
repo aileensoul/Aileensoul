@@ -935,7 +935,7 @@
 
                 <?php } else { ?>
 
-                                                                                        <!--<a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>-->
+                                                    <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
                                                                 <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
                                                             <?php
                                                             }
@@ -3482,17 +3482,13 @@
 
 <!-- all popup close close using esc start -->
  <script type="text/javascript">
-   
 
-  
-
-
-//     $( document ).on( 'keydown', function ( e ) {
-//     if ( e.keyCode === 27 ) {
-//         //$( "#bidmodal" ).hide();
-//         $('#bidmodal').modal('hide');
-//     }
-// });  
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
 
  </script>
  <!-- all popup close close using esc end -->

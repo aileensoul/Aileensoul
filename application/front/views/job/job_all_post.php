@@ -31,11 +31,10 @@
 
                 <div class="col-md-4 col-sm-4 profile-box profile-box-left">
                     <div class="">
-                                
-                        <div class="full-box-module">    
-                            <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">     
-          <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+             <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                             <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                         href="<?php echo base_url('job/job_printpreview'); ?>"
                                         tabindex="-1"
                                         aria-hidden="true"
@@ -54,10 +53,11 @@
                                              }
                                              ?>
                                     </a>
-                                </div>
-                                <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="buisness-profile-txext col-md-4">
-                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>" title="<?php echo $jobdata[0]['fname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>" title="<?php echo $jobdata[0]['fname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <?php
                                             if ($jobdata[0]['job_user_image']) {
                                                 ?>
@@ -71,35 +71,38 @@
                                             ?>
                                         </a>
                                     </div>
-   <div class="profile-box-user  profile-text-bui-user  fr col-sm-10  col-md-9">
-                                        <span class="profile-company-name ">
+                                    <div class="right_left_box_design ">
+                                      <span class="profile-company-name ">
+                                               <span class="profile-company-name ">
                                             <a   href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">  <?php echo ucfirst($jobdata[0]['fname']) . ' ' . ucfirst($jobdata[0]['lname']); ?></a>
                                         </span>
-                                        <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                        <div class="profile-boxProfile-name">
-                                            <a  href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><?php
+                                            </span>
+
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                            <div class="profile-boxProfile-name">
+                                                <a  href="<?php echo base_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><?php
                                                 if (ucwords($jobdata[0]['designation'])) {
                                                     echo ucwords($jobdata[0]['designation']);
                                                 } else {
                                                     echo "Current Work";
                                                 }
-                                                ?></a></div>
-                                    </div>
-                                    <div class="profile-box-job-menu  col-md-12">
-                                        <ul class="">
-                                            <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('job/job_printpreview'); ?>"> Details</a>
+                                                ?></a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                                <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>>
+                                                <a class="padding_less_left" title="Details" href="<?php echo base_url('job/job_printpreview'); ?>"> Details</a>
                                             </li>
                                             <?php if (($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
                                                 <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_save_post') { ?> class="active" <?php } ?>><a title="Saved Job" href="<?php echo base_url('job/job_save_post'); ?>">Saved </a>
                                                 </li>
-                                                <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_applied_post') { ?> class="active" <?php } ?>><a title="Applied Job" href="<?php echo base_url('job/job_applied_post'); ?>">Applied </a>
+                                                <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_applied_post') { ?> class="active" <?php } ?>><a class="padding_less_right" title="Applied Job" href="<?php echo base_url('job/job_applied_post'); ?>">Applied </a>
                                                 </li>
                                             <?php } ?>
-                                        </ul>
+                                            </ul>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                    </div>
+       </div>                             
+    </div>
                     </div>
                 </div>
 
