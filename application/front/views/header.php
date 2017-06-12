@@ -238,7 +238,7 @@ $(window).load(function(){
 
 <script type="text/javascript" >
 
-// 
+// click on escape notification & message drop down close start
 $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         $( "#notificationContainer" ).hide();
@@ -250,6 +250,8 @@ $( document ).on( 'keydown', function ( e ) {
         $( "#InboxContainer" ).hide();
     }
 });
+// click on escape notification & message drop down close start
+
 
     $(document).ready(function ()
     {
