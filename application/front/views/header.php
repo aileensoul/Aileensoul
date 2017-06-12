@@ -369,7 +369,7 @@ $( document ).on( 'keydown', function ( e ) {
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo">
-                            <a href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
+                            <a tabindex="-200" href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">

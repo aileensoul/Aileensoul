@@ -13,13 +13,13 @@
     <div class="container">
     <div class="row">
   <div class="col-md-6 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
+                        <div class="logo"><a tabindex="-200" href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
  
            <div class="col-md-6 col-sm-7 header-left-menu">
                    <ul class="fr">
                  <!--    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li> -->
-                    <li class=""><a class="login_butn button6"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
+                    <li class=""><a  class="login_butn button6" tabindex="8"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
                       
                     </ul>
 
@@ -49,13 +49,13 @@
                         
                           <fieldset class="col-md-12 lgn-s">
                           <label>Email Address</label>
-                                <input id="user_name" placeholder="Enter Email Address"  type="text" name="user_name" autocomplete="off"  />
+                                <input  id="user_name" tabindex="1" placeholder="Enter Email Address"  type="text" name="user_name" autocomplete="off" autofocus />
                             </fieldset>
 
 
                             <fieldset class="col-md-12 lgn-s">
                                  <label>Password</label>
-                                <input type="password" id="password" placeholder="Enter Password" name="password" class="showpassword"  style="padding-right: 8%;" 
+                                <input  type="password" id="password" tabindex="2" placeholder="Enter Password" name="password" class="showpassword"  style="padding-right: 8%;" 
                                />
                             </fieldset>
                             <fieldset class="col-md-12">
@@ -71,7 +71,7 @@
                             </fieldset>
 
 <fieldset class="col-md-12">
-     <button type="submit" id="btnShow" name="login" value="Login" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px;">Log In</button>
+     <button type="submit" id="btnShow" name="login" value="Login" tabindex="3" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px; ">Log In</button>
                            
 </fieldset>
     
@@ -99,10 +99,10 @@
                 <div class="footer-menu pull-right">
                     <nav>
                         <ul>
-                          <li> <b><a class="" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
-                                    <li><b><a class="" href="javascript:void(0);">Blog</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
+                          <li> <b><a class="" tabindex="4" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
+                                    <li> <b><a class="" tabindex="5" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
+                                    <li><b><a tabindex="6" class="" href="javascript:void(0);">Blog</a> </b></li>
+                                    <li> <b><a class="" tabindex="7" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
                         </ul>
                     </nav>
                 </div>

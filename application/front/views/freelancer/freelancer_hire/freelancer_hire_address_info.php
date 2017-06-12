@@ -102,7 +102,7 @@
                 
                                  <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                   <label>Country:<span class="red">*</span></label>
-                   <select name="country" id="country">
+                   <select tabindex="1" autofocus name="country" id="country">
                   <option value="">Select Country</option>
                   <?php
                                             if(count($countries) > 0){
