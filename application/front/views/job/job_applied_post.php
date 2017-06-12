@@ -668,6 +668,15 @@ $( "#searchplace" ).autocomplete({
 
         //alert(size);
 
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    savepopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+
         if (size > 4194304)
         {
             //show an alert to the user
@@ -806,7 +815,17 @@ $( "#searchplace" ).autocomplete({
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+      readURL(this);
+      //   profile = this.files;
+      // //alert(profile);
+      // if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+      //  //alert('not an image');
+      //   $('#profilepic').val('');
+      //    savepopup();
+      //    return false;
+      //     }else{
+      //     readURL(this);}
+
     });
 </script>
 
@@ -848,3 +867,11 @@ $( "#searchplace" ).autocomplete({
                 });
                    });
   </script>
+  <script>
+                        function savepopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

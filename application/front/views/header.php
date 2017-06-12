@@ -136,7 +136,7 @@ $(window).load(function(){
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css('background-color', '#FF4500');
+            $('#message_count').css({"background-color": "'#FF4500", "padding": "3px"});
             //alert("welcome");
         }
 

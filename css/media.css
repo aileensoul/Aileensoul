@@ -308,7 +308,7 @@
       
       /* menu  on */
        .left-side-menu {  width: 18%; float: left; }
-    .profile-main-rec-box-menu { /*height: 6.3%;*/ left: 1.5%; width: 96.8%; margin-top: -79px; }
+    .profile-main-rec-box-menu { /*height: 6.3%;*/  margin-top: -79px; }
      .right-side-menu { float: left; height: auto; }
     .profile-main-rec-box-menu li a { padding: 11px 15px 11px 15px; font-size: 13px; }
        .flw_msg_btn { margin-top: 0px; }
@@ -318,7 +318,7 @@
         /* menu  off */
 
         /* cover pic on */
-     #row2 { margin: auto 0px auto 0px;  width: 96.8% }
+     #row2 { margin: auto 0px auto 0px;  width: 100% }
      #row2 img {  height: 35%; width: 100%; }
      label.cameraButton i { font-size: 20px; }
      .cameraButton .tooltiptext  { padding: 5px 0px 5px; margin-top: 22px; width: 130px; }
