@@ -133,7 +133,7 @@ if ($this->session->flashdata('success')) {
                                     <label>keyskills<span class="red">*</span></label>
 
 
-                                    <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
+                                    <select name="skills[]" id ="skils" tabindex="1" autofocus class="keyskil" multiple="multiple" style="width:100%;">
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
@@ -152,7 +152,7 @@ if ($this->session->flashdata('success')) {
                                         if ($skill_other) {
                                             ?>
 
-                                            <input type="text" class="keyskil1" name="other_skill1" id="other_keyskill1" placeholder="Enter Other Skill" value=""> 
+                                            <input type="text" class="keyskil1" tabindex="2"  name="other_skill1" id="other_keyskill1" placeholder="Enter Other Skill" value=""> 
                                             <div class="action-buttons btn-group ">
                                                 <a href="javascript:void(0);" id="add_field1" ><i class="fa fa-plus" aria-hidden="true"></i></a>
                                             </div>
@@ -176,7 +176,7 @@ if ($this->session->flashdata('success')) {
 
 
 
-                                            <input type="text" class="keyskil" name="other_skill" id="other_keyskill" placeholder="Enter Other Skill" value=""> 
+                                            <input type="text"  class="keyskil" name="other_skill" id="other_keyskill" placeholder="Enter Other Skill" value=""> 
                                             <?php  echo form_error('other_skill'); ?>
                                           <!--   <input class="clearable" type="text" name="" value="" placeholder="Enter a Search term" /> -->
 
@@ -195,7 +195,7 @@ if ($this->session->flashdata('success')) {
                                 <fieldset class="hs-submit full-width">
 <!--                                    <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" value="next">
+                                    <input type="submit"  id="next" name="next" tabindex="3" value="next">
 
 
                                 </fieldset>

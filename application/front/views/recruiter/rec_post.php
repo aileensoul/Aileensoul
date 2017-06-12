@@ -985,7 +985,16 @@ if ($returnpage == 'job') {
                     files = this.files;
                     size = files[0].size;
 
+ // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
 
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
 
                     if (size > 4194304)
                     {
@@ -1172,7 +1181,18 @@ if ($returnpage == 'job') {
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+         // pallavi code for not supported file type 10/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
     });
 </script>
 
@@ -1214,3 +1234,11 @@ if ($returnpage == 'job') {
                 });
                    });
   </script>
+  <script>
+                        function picpopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

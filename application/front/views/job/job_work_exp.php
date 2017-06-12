@@ -105,7 +105,7 @@
                                         <div class="common-form common-form_border">
                                             <h3>Work Experience</h3>
                                             <div class="tablet-hi">
-                                                <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
+                                                <a href="javascript:void(0)" tabindex="1"  class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
                                                 <a href="javascript:void(0)"  class="tablinks active2" onclick="openCity(event, 'Paris')">Experience</a>
                                             </div>                                 
 
@@ -122,7 +122,7 @@
                                                 </label>
                                                 <fieldset class="hs-submit full-width left_nest">
 
-                                                    <input type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                                                    <input type="submit" id="next" tabindex="2" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
 
 
                                                 </fieldset>
@@ -169,7 +169,7 @@
 
                                                                 <fieldset class="two-select-box full-width" style="padding: 0px;"> 
                                                                     <label>Experience<span class="red">*</span></label>
-        <select style="width: 46%; margin-right: 43px; float: left;" name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
+        <select style="width: 46%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                                                         <option value="0 year" selected option disabled>Year</option>
                                                                         <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                                                         <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -195,7 +195,7 @@
 
                                                                     </select>
 
-   <select style="width: 46%;" name="experience_month[]" id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
+   <select style="width: 46%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
                                                                         <option value="" selected option disabled>Month</option>
                                                                         <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
                                                                         <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -217,7 +217,7 @@
                                                                 <?php echo form_error('experience_month'); ?>
 
                                                                 <label  style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
-                                                                <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
+                                                                <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                                                 if ($jobtitle1) {
                                                                     echo $jobtitle1;
                                                                 }
@@ -233,7 +233,7 @@
                                                                        <?php echo form_error('companyname'); ?>
 
                                                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Email</label>
-                                                                <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
+                                                                <input type="text" name="companyemail[]" tabindex="4" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                                                 if ($companyemail1) {
                                                                     echo $companyemail1;
                                                                 }
@@ -241,7 +241,7 @@
 
 
                                                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
-                                                                <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" value="<?php
+                                                                <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" tabindex="5" value="<?php
                                                                 if ($companyphn1) {
                                                                     echo $companyphn1;
                                                                 }
@@ -250,7 +250,7 @@
 
                                                                 <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
 
-                                                                <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                                                                <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
 
                                                                 <?php
                                                                 if ($work_certificate1) {
@@ -287,17 +287,17 @@
                                                     }
                                                     ?>
 
-                                                    <div class="hs-submit full-width fl" style=" width: 100%; text-align: center;">
+                                                    <div class="hs-submit full-width fl"  style=" width: 100%; text-align: center;">
 
-                                                        <input type="button" id="btnAdd" value=" + ">
-                                                        <input type="button" id="btnRemove" value=" - " disabled="disabled">
+                                                        <input type="button" tabindex="6" id="btnAdd" value=" + ">
+                                                        <input type="button" tabindex="7" id="btnRemove" value=" - " disabled="disabled">
                                                     </div>
                                                     <fieldset class="hs-submit full-width">
                <!--                                     <input type="reset">
                                                    <input type="submit"  id="previous" name="previous" value="previous">-->
                                                         <input style="position: absolute;
-    bottom: 8px;
-    right: -183px;" type="submit"  id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+    bottom: 8px; 
+    right: -183px;" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
                                                       <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
 
 

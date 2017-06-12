@@ -4196,7 +4196,7 @@ public function job_applied_post() {
 
     public function user_image_insert() {
 
-        echo "hello";die();
+       // echo "hello";die();
         
         $userid = $this->session->userdata('aileenuser');
 

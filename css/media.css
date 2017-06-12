@@ -230,7 +230,7 @@
     .profile-box-job-menu { margin-top: -17px; height: 6%; }
     .profile-box-job-menu ul { float: left; margin-left: 26%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
-    .profile-box-job-menu ul li a {  padding: 9px 8px 6px 8px; margin-right: 1px; font-size: 13px; }
+    .profile-box-job-menu ul li a {  padding: 2px 8px 2px; margin-right: 1px; font-size: 13px; }
     .profile-boxProfileCard-cover { height: 8%; }
     .profile-boxProfileCard-bg img { height: auto; width: 100%; }
     .profile-boxProfileCard-content .buisness-profile-txext a img { height: 100%; width: 100%; }
@@ -240,8 +240,8 @@
          /*job off */
 
           /* recruter on*/
-        .profile-box-rec-menu { margin-top: -17px; height: 6%; }
-      .profile-box-rec-menu ul { float: left; margin-left: 21%; }
+     .profile-box-rec-menu { margin-top: -17px; height: 6%; }
+     .profile-box-rec-menu ul { float: left; margin-left: 21%; }
      .profile-box-rec-menu ul li {     padding-left: 7px;  }
      .profile-box-rec-menu ul li a { padding: 9px 7px 6px 8px; font-size: 13px; }
      .job-menu-profile1 a h5 { font-size: 20px; }

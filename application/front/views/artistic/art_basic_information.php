@@ -96,34 +96,34 @@
 
                                 <fieldset <?php if($firstname) {  ?> class="error-msg" <?php } ?>>
                                     <label>First Name:<span style="color:red">*</span></label>
-                                    <input name="firstname" type="text" id="firstname" placeholder="Enter First Name" value="<?php if($firstname1){ echo $firstname1; } else { echo $art[0]['first_name']; }?>"/>
+                                    <input name="firstname" tabindex="1" autofocus type="text" id="firstname" placeholder="Enter First Name" value="<?php if($firstname1){ echo $firstname1; } else { echo $art[0]['first_name']; }?>"/>
                                     <?php echo form_error('firstname'); ?>
                                 </fieldset>
                                 
 
                                 <fieldset <?php if($lastname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Last Name:<span style="color:red">*</span></label>
-                                    <input name="lastname" type="text" id="lastname" placeholder="Enter Last Name" value="<?php if($lastname1){ echo $lastname1; } else { echo $art[0]['last_name']; } ?>"/>
+                                    <input name="lastname" type="text" id="lastname" tabindex="2" placeholder="Enter Last Name" value="<?php if($lastname1){ echo $lastname1; } else { echo $art[0]['last_name']; } ?>"/>
                                     <?php echo form_error('lastname'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if($email) {  ?> class="error-msg" <?php } ?>>
                                     <label>E-mail address:<span style="color:red">*</span></label>
-                                    <input name="email"  type="text" id="email" placeholder="Enter E-mail address" value="<?php if($email1){ echo $email1; } else { echo $art[0]['user_email']; } ?>">
+                                    <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter E-mail address" value="<?php if($email1){ echo $email1; } else { echo $art[0]['user_email']; } ?>">
                                      <?php echo form_error('email'); ?>
                                 </fieldset>
                                
 
                                 <fieldset <?php if($phoneno) {  ?> class="error-msg" <?php } ?>>
                                     <label>Phone number:<span style="color:red">*</span></label>
-                                    <input name="phoneno"  type="text" id="phoneno" placeholder="Enter Phone number" value="<?php if($phoneno1){ echo $phoneno1; } ?>">
+                                    <input name="phoneno"  type="text" id="phoneno" tabindex="4" placeholder="Enter Phone number" value="<?php if($phoneno1){ echo $phoneno1; } ?>">
                                     <?php echo form_error('phoneno'); ?><br/>
                                 </fieldset>
                                 
 
                                 <fieldset class="hs-submit full-width">
                                  
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" value="Next" tabindex="5">
                                     
                                 </fieldset>
 

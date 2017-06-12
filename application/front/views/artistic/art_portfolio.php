@@ -93,7 +93,7 @@
 
                       
 
- <label for="bestofmine" style="cursor: pointer;"><i class="fa fa-plus action-buttons btn-group" aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> Attachment</label> 
+ <label for="bestofmine" style="cursor: pointer;" tabindex="1" ><i class="fa fa-plus action-buttons btn-group"  aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> Attachment</label> 
  
 
  <span id ="filename" style="color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;"><?php echo $userdata[0]['art_bestofmine']; ?></span><span class="file_name"></span>
@@ -114,7 +114,7 @@
 
                                 <fieldset class="full-width">
                                  
-                              <div class="editable_text" contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
+                              <div tabindex="2"  class="editable_text"  contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?></div>
                                          <?php echo form_error('artportfolio'); ?>
                                  
                                 </fieldset>
@@ -124,7 +124,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                     
-                <input type="button"  id="submit" name="submit" value="submit" onclick="portfolio_form_submit();"  >
+                <input type="button" tabindex="3"   id="submit" name="submit" value="submit" onclick="portfolio_form_submit();"  >
                                    
                                     
                                 </fieldset>

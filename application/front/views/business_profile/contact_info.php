@@ -97,14 +97,14 @@
 
                                 <fieldset <?php if($contactname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Contact Person:<span style="color:red">*</span></label>
-                                    <input name="contactname" type="text" id="contactname" placeholder="Enter contact Name" value="<?php if($contactname1){ echo $contactname1; } ?>"/>
+                                    <input name="contactname" tabindex="1" autofocus type="text" id="contactname" placeholder="Enter contact Name" value="<?php if($contactname1){ echo $contactname1; } ?>"/>
                                     <?php echo form_error('contactname'); ?>
                                 </fieldset>
                                 
 
                                  <fieldset <?php if($contactmobile) {  ?> class="error-msg" <?php } ?>>
                                     <label>Contact Mobile:<span style="color:red">*</span></label>
-                                    <input name="contactmobile" type="text" id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
+                                    <input name="contactmobile" type="text" tabindex="2"  id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
                                      <?php echo form_error('contactmobile'); ?> 
                                 </fieldset>
                                
@@ -112,14 +112,14 @@
 
                                 <fieldset <?php if($contactemail) {  ?> class="error-msg" <?php } ?>>
                                     <label>Contact Email:<span style="color:red">*</span></label>
-                                    <input name="email" type="text" id="email" placeholder="Enter Contact Email" value="<?php if($contactemail1){ echo $contactemail1; } ?>"/>
+                                    <input name="email" type="text" id="email" tabindex="3"  placeholder="Enter Contact Email" value="<?php if($contactemail1){ echo $contactemail1; } ?>"/>
                                     <?php echo form_error('email'); ?>
                                 </fieldset>
                                 
 
                                 <fieldset>
                                     <label>Contact Website:</label>
-                                    <input name="contactwebsite" type="url" id="contactwebsite" placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
+                                    <input name="contactwebsite" type="url" id="contactwebsite" tabindex="4"  placeholder="Enter Contact website" value="<?php if($contactwebsite1){ echo $contactwebsite1; } ?>"/>
                                     <span class="website_hint" style="font-size: 13px; color: #1b8ab9;">Note : <i>Enter website url with http or https</i></span>                                 
                                 </fieldset>
                                 
@@ -128,7 +128,7 @@
                                    
 
                                      
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input tabindex="5"  type="submit"  id="next" name="next" value="Next">
                                     
                                    
                                 </fieldset>
