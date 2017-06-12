@@ -374,12 +374,12 @@ start head -->
                         </table>
                     </div>
                 </div>
-
+                <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module buisness_he_module" style="">
 
                         <div class="head_details">
-                            <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>"><h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5></a>
+                            <!-- <a href="<?php //echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>"> --><h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
                         </div>  
 
 
@@ -442,6 +442,7 @@ start head -->
 
                     </div>
                 </div>
+                </a>
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
                         <table class="business_data_table">
@@ -1743,7 +1744,7 @@ start head -->
 
   files = this.files;
         size = files[0].size;
-                    
+
 // pallavi code start for file type support
 if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     //alert('not an image');
