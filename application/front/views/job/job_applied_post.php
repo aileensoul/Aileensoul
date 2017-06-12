@@ -668,9 +668,20 @@ $( "#searchplace" ).autocomplete({
 
         //alert(size);
 
+
+ // pallavi code start for file type support
 if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     //alert('not an image');
     savepopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
@@ -815,16 +826,16 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     }
     
     $("#profilepic").change(function(){
-      readURL(this);
-      //   profile = this.files;
-      // //alert(profile);
-      // if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-      //  //alert('not an image');
-      //   $('#profilepic').val('');
-      //    savepopup();
-      //    return false;
-      //     }else{
-      //     readURL(this);}
+      
+        profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
 
     });
 </script>
@@ -868,7 +879,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                    });
   </script>
   <script>
-                        function savepopup() {
+                        function picpopup() {
                             
                       
             $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
