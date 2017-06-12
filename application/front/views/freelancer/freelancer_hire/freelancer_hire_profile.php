@@ -804,7 +804,7 @@ window.onclick = function(event) {
       profile = this.files;
       //alert(profile);
       if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-       alert('not an image');
+       //alert('not an image');
         $('#profilepic').val('');
          savepopup();
          return false;
