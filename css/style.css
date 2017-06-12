@@ -9908,6 +9908,7 @@ end zalak 9-6 css*/
     .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
     .user-pic { height: 125px; width: 115px; }
     .profile-main-rec-box-menu li a { padding: 11px 15px; font-size: 13px; }
+    .profile-box-job-menu ul li{margin-bottom: 0;}
 }
 @media screen and (max-width: 991px) {
     #padding_dash{padding-top:19px !important;}
@@ -9922,7 +9923,9 @@ end zalak 9-6 css*/
     #paddingtop_fixed.container{padding-left: 0; padding-right: 0;}
     #row2{width: 100%; border: none;}
     .container.tablate-container{padding-left: 0; padding-right: 0;}
-    .right-side-menu{margin-top: -2px;}
+    .right-side-menu{/*margin-top: -2px;*/}
+    .profile-box{width:40%;}
+    .custom-right{left: 40%;}
 }
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
