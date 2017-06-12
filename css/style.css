@@ -9890,6 +9890,7 @@ end zalak 9-6 css*/
 
 /***  12-6 h  ***/
 .clear{clear:both;}
+.custom-right{margin-left: 1%;}
 /***  media query  ***/
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
@@ -9925,7 +9926,7 @@ end zalak 9-6 css*/
     .container.tablate-container{padding-left: 0; padding-right: 0;}
     .right-side-menu{/*margin-top: -2px;*/}
     .profile-box{width:40%;}
-    .custom-right{left: 40%;}
+    .custom-right{margin-left: 3%;}
 }
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
@@ -9963,13 +9964,14 @@ end zalak 9-6 css*/
     position: absolute; top: -40px; width: 100%; z-index: 999;}
     .tabordion section article{left: 100%;}
     .profile-box{position: relative;}
-    .middle-part.container{padding: 50px 0 30px;}
+    .middle-part.container{padding: 30px 0 30px;}
     .job-menu-profile{width: 100%; padding-bottom: 30px;}
     #paddingtop_fixed{padding-top: 44px !important;}
-    .right-side-menu{padding-left: 10%;}
+    .right-side-menu{padding-left: 20%;}
+    .right-side-menu{float: none;}
 }
 @media screen and (max-width: 640px) {
-    .right-side-menu{padding-left: 20%;}
+    .right-side-menu{padding-left: 30%;}
 }
 @media screen and (max-width: 479px) {
     .fw-479{width: 100%;}
@@ -9986,8 +9988,8 @@ end zalak 9-6 css*/
     .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
-    .profile-main-rec-box-menu{margin-top: -57px;}
-    .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -23px;}
+    .profile-main-rec-box-menu{margin-top: -60px;}
+    .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
     .user-pic{width: 75px; height: 75px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}

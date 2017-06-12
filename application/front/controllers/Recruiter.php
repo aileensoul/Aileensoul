@@ -60,7 +60,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -151,7 +151,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -254,7 +254,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -306,7 +306,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -361,7 +361,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -458,7 +458,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -608,7 +608,7 @@ class Recruiter extends MY_Controller {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -754,7 +754,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -833,7 +833,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -942,7 +942,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -1049,7 +1049,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -1351,7 +1351,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -1412,7 +1412,7 @@ foreach($cities as $key){
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -1534,7 +1534,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
         //$skill=$this->input->post('skills');
@@ -1609,7 +1609,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -1713,7 +1713,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
        // echo $userid;
@@ -1841,7 +1841,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -2014,7 +2014,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
         // echo $userid;echo $id;die();
@@ -2111,7 +2111,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
         //echo $id;die();
@@ -2266,7 +2266,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -2323,7 +2323,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -2529,7 +2529,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
        // echo $userid;
@@ -2723,7 +2723,7 @@ $join_str1 = array(
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -2791,7 +2791,7 @@ $join_str1 = array(
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
@@ -2863,7 +2863,7 @@ public function ajax_designation() {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
         $data = array(
@@ -2891,7 +2891,7 @@ public function ajax_designation() {
 
         if( $recruiter_deactive)
         {
-             redirect('recruiter/index');
+             redirect('recruiter/');
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
       
