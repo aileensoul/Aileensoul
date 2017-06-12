@@ -82,8 +82,7 @@ echo $job_header2;
             </div>
         </div>
         </div>
-    </div>
-</div>   
+     
 
 <div class="container">       
     <div class="upload-img ">
