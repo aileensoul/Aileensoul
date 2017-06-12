@@ -29,7 +29,7 @@
         <div class="container" >
             <div class="row row4">
 
-                <div class="col-md-4 profile-box profile-box-left">
+                <div class="col-md-4 col-sm-4 profile-box profile-box-left">
                     <div class="">
                                 
                         <div class="full-box-module">    
