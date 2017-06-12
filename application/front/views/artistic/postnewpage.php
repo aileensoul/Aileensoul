@@ -284,7 +284,7 @@
                                     </div>  
 
                                     <div class="dropdown1">
-                                        <a onClick="myFunction(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
+                                        <a onClick="myFunctionone(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
                                         <div id="<?php echo "myDropdown" . $art_data[0]['art_post_id']; ?>" class="dropdown-content1">
 
 
@@ -1868,8 +1868,21 @@
                     <script>
                         /* When the user clicks on the button, 
                          toggle between hiding and showing the dropdown content */
-                        function myFunction(clicked_id) {
+                        function myFunctionone(clicked_id) {
                             document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+
+
+                              $( document ).on( 'keydown', function ( e ) {
+                                        if ( e.keyCode === 27 ) { 
+
+                                        document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                                         $(".dropdown-content1").removeClass('show');
+
+                            }
+                           
+                        }); 
+
                         }
                         // Close the dropdown if the user clicks outside of it
                         window.onclick = function (event) {
@@ -3438,3 +3451,17 @@
                         }
 
                     </script>
+
+
+                    <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->
