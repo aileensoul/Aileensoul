@@ -111,14 +111,14 @@
 							
 
                                        
-                                           <textarea name ="curricular" id="curricular" rows="4" cols="50" placeholder="Enter Curricular Activities" style="resize: none;"><?php if($curricular1){ echo $curricular1; } ?></textarea>
+                                           <textarea name ="curricular" tabindex="1" autofocus id="curricular" rows="4" cols="50" placeholder="Enter Curricular Activities" style="resize: none;"><?php if($curricular1){ echo $curricular1; } ?></textarea>
                                          <?php echo form_error('curricular'); ?>
                           </fieldset>
                                  <fieldset class="hs-submit full-width">
 
 <!--                                     <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" value="Next" tabindex="2">
                                   
                                    
                                 </fieldset>

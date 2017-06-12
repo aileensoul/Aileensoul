@@ -98,7 +98,7 @@
 										
                                          
 
-                                           <textarea name ="carrier" id="carrier" rows="4" cols="50" placeholder="Enter Carrier" style="resize: none;"><?php if($carrier1){ echo $carrier1; } ?></textarea>
+                                           <textarea tabindex="1" autofocus name ="carrier" id="carrier" rows="4" cols="50" placeholder="Enter Carrier" style="resize: none;"><?php if($carrier1){ echo $carrier1; } ?></textarea>
                                          <?php echo form_error('carrier'); ?>
                           	         </fieldset>
 
@@ -117,7 +117,7 @@
                                     <fieldset class="full-width">                           
                                      <b> Declaration: <span class="red">*</span> </b>
                                      <div class="job_carrier_checkbox">
-                                     <input type="checkbox" id="checkbox"  name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
+                                     <input type="checkbox" id="checkbox" tabindex="2" name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
                                          I here by Declare that all the above Information are true and correct to best of my knowledge                     
                                        
                                         <?php echo form_error('checkbox') ?>
@@ -131,7 +131,7 @@
 <!--                                  <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
                                     
-                                    <input type="submit"  id="submit" name="submit" value="Submit">
+                                    <input type="submit"  id="submit" name="submit" tabindex="3" value="Submit">
                                    
                                 </fieldset>
 

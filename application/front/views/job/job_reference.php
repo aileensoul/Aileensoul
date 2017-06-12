@@ -106,7 +106,7 @@
                                          
                                           
 
-                                          <textarea name ="interest" id="interest" rows="4" cols="50" placeholder="Enter Interest" style="resize: none;"><?php if($interest1){ echo $interest1; } ?></textarea>
+                                          <textarea tabindex="1" autofocus name ="interest" id="interest" rows="4" cols="50" placeholder="Enter Interest" style="resize: none;"><?php if($interest1){ echo $interest1; } ?></textarea>
                                          <?php echo form_error('interest'); ?>
 
                                         </fieldset>
@@ -114,14 +114,14 @@
                                          
                                         
 
-                                          <textarea name ="reference" id="reference" rows="4" cols="50" placeholder="Enter Reference" style="resize: none;"><?php if($reference1){ echo $reference1; } ?></textarea>
+                                          <textarea tabindex="2" name ="reference" id="reference" rows="4" cols="50" placeholder="Enter Reference" style="resize: none;"><?php if($reference1){ echo $reference1; } ?></textarea>
                                          <?php echo form_error('reference'); ?>
 
                                      </fieldset>
                                 <fieldset class="hs-submit full-width">
 <!--                                <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit" tabindex="3"  id="next" name="next" value="Next">
                                  
                                     
                                 </fieldset>

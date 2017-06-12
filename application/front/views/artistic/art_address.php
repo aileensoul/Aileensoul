@@ -92,7 +92,7 @@
                                 <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
 								<label>Country:<span style="color:red">*</span></label>
 								
-        								<select name="country" id="country">
+        								<select name="country" id="country" tabindex="1" autofocus>
             							<option value="">Select Country</option>
             							<?php
                                             if(count($countries) > 0){
@@ -121,7 +121,7 @@
                                 
                                 <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
 								    <label>state:<span style="color:red">*</span></label>
-    								<select name="state" id="state">
+    								<select name="state" id="state" tabindex="2">
         							<?php
                                           if($state1)
 
@@ -150,7 +150,7 @@
 
                                 <fieldset>
 								    <label> City:</label>
-									<select name="city" id="city">
+									<select name="city" id="city" tabindex="3">
     								<?php
 
                                          if($city1)
@@ -181,7 +181,7 @@
 
                                 <fieldset <?php if($pincode) {  ?> class="error-msg" <?php } ?>>
 									<label>Pincode:</label>
-									<input name="pincode"  type="text" id="pincode" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>"/><span id="pincode-error"></span>
+									<input name="pincode"  type="text" id="pincode" tabindex="4" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>"/><span id="pincode-error"></span>
                                     <?php echo form_error('pincode'); ?>
 									</fieldset>
 								
@@ -190,7 +190,7 @@
 									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
-                                <textarea id="textarea" name="address" style="resize: none;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
+                                <textarea id="textarea" name="address" tabindex="5" style="resize: none;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
                                     <?php echo form_error('address'); ?>
                                     <label id="address-error"></label>
 
@@ -203,7 +203,7 @@
                                    
                                   <!--   <a href="<?php //echo base_url('artistic/art_basic_information_update'); ?>">Previous</a> -->
                                     
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="6" value="Next">
                                    
                                 </fieldset>
 

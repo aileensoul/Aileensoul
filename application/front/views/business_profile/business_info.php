@@ -100,14 +100,14 @@
 
                                 <fieldset class="full-width" <?php if($companyname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Company Name:<span style="color:red">*</span></label>
-                                    <input name="companyname" type="text" id="companyname" placeholder="Enter Company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
+                                    <input name="companyname" tabindex="1" autofocus type="text" id="companyname" placeholder="Enter Company Name" value="<?php if($companyname1){ echo $companyname1; } ?>"/>
                                     <?php echo form_error('companyname'); ?>
                                 </fieldset>
                                 
 
                                 <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                                      <label>Country:<span style="color:red">*</span></label>
-                                    <select name="country" id="country">
+                                    <select name="country" id="country" tabindex="2" >
                                     <option value="">Select Country</option>
                                    <?php
                                             if(count($countries) > 0){
@@ -136,7 +136,7 @@
 
                                 <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
                                     <label>State:<span style="color:red">*</span></label>
-                                    <select name="state" id="state">
+                                    <select name="state" id="state" tabindex="3" >
                                    <?php
                                           
                                             foreach($states as $cnt){
@@ -166,7 +166,7 @@
 
                                 <fieldset>
                                     <label> City:</label>
-                                    <select name="city" id="city">
+                                    <select name="city" id="city" tabindex="4" >
                                     <?php
                                           foreach($cities as $cnt){
                                                 if($city1)
@@ -197,7 +197,7 @@
 
                                 <fieldset>
                                     <label>Pincode:</label>
-                                    <input name="pincode"  type="text" id="pincode" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>">
+                                    <input name="pincode" tabindex="5"   type="text" id="pincode" placeholder="Enter Pincode" value="<?php if($pincode1){ echo $pincode1; } ?>">
                                      
                                 </fieldset>
                                 
@@ -207,7 +207,7 @@
 
                                   
 
-                                     <textarea name ="business_address" id="business_address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php if($address1){ echo $address1; } ?></textarea>
+                                     <textarea name ="business_address" tabindex="6"  id="business_address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php if($address1){ echo $address1; } ?></textarea>
                                          <?php echo form_error('business_address'); ?>
                                     
                                 </fieldset>
@@ -216,7 +216,7 @@
                                 <fieldset class="hs-submit full-width">
 
                                    
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="7"  value="Next">
                                    
                                     
                                 </fieldset>

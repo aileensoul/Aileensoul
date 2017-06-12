@@ -102,7 +102,7 @@
                             
                             <fieldset <?php if ($business_type) { ?> class="error-msg" <?php } ?>>
                                 <label>Business Type:<span style="color:red">*</span></label>
-                                <select name="business_type" id="business_type" onchange="busSelectCheck(this);">
+                                <select name="business_type" tabindex="1" autofocus id="business_type" onchange="busSelectCheck(this);">
                                     <!-- <option value="" selected option disabled>Select Business type</option> -->
                                     <?php
                                     
@@ -148,7 +148,7 @@
                             <fieldset <?php if ($industriyal) { ?> class="error-msg" <?php } ?>>
                                 <label>Category:<span style="color:red">*</span></label>
 
-                                <select name="industriyal" id="industriyal" onchange="indSelectCheck(this);">
+                                <select name="industriyal" tabindex="2"  id="industriyal" onchange="indSelectCheck(this);">
 
 
 <!-- <option id="indOption" value="0" <?php if ($industriyal1 == 0) {
@@ -204,7 +204,7 @@
                                 <fieldset <?php if ($subindustrial) { ?> class="error-msg" <?php } ?> class="half-width" id="other-business" style="display:none;">
 <?php if ($business_type1 == 0) { ?>        <!-- <label id="bustype">Add Here Your Other Business type:<span style="color:red;" >*</span></label> --> <?php } ?>
                                     <label> Other Business Type: <span style="color:red;" >*</span></label>
-                                    <input type="text" name="bustype" id="bustype" value="<?php echo $other_business; ?>" style="<?php if ($business_type1 != 0) {
+                                    <input type="text" name="bustype"  tabindex="3"  id="bustype" value="<?php echo $other_business; ?>" style="<?php if ($business_type1 != 0) {
                                                echo 'display: none';
                                            } ?>" required="">
 <?php echo form_error('subindustriyal'); ?>
@@ -216,7 +216,7 @@
                                 <fieldset <?php if ($subindustrial) { ?> class="error-msg" <?php } ?> class="half-width" id="other-category" style="display:none;">
 <?php if ($industriyal1 == 0) { ?>    <!--  <label id="indtype">Add Here Your Other Category type:<span style="color:red">*</span></label> --> <?php } ?>
                                     <label> Other Category:<span style="color:red;" >*</span></label>
-                                    <input type="text" name="indtype" id="indtype" value="<?php echo $other_industry; ?>" 
+                                    <input type="text" name="indtype" id="indtype" tabindex="4"  value="<?php echo $other_industry; ?>" 
                                            style="<?php if ($industriyal1 != 0) {
     echo 'display: none';
 } ?>" required="">
@@ -232,7 +232,7 @@
                                 <label>Details of your business:<span style="color:red">*</span></label>
 
 
-                                <textarea name="business_details" id="business_details" rows="4" cols="50" placeholder="Enter Business Detail" style="resize: none;"><?php if ($business_details1) {
+                                <textarea name="business_details" id="business_details" rows="4" tabindex="5"  cols="50" placeholder="Enter Business Detail" style="resize: none;"><?php if ($business_details1) {
     echo $business_details1;
 } ?></textarea>
 <?php echo form_error('business_details'); ?>
@@ -244,7 +244,7 @@
                             <fieldset class="hs-submit full-width">
 
 
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" value="Next" tabindex="6" >
 
 
                             </fieldset>

@@ -114,7 +114,7 @@
                                     <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?> >
                                         <label>Art<span style="color:red">*</span></label>
                                        
-                                          <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
+                                          <select tabindex="1" autofocus name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
                                        <?php foreach ($skill as $ski) { ?>
                                       <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                                     <?php } ?>
@@ -126,14 +126,14 @@
 
                         <fieldset class="full-width">
                                 <label>Other Art:</label>
-                                <input type="text" class="keyskil" name="other_skill" id="other_skill" placeholder="Enter Other Skill" value="<?php if($otherskill1){ echo $otherskill1; }?>"> 
+                                <input type="text" class="keyskil" tabindex="2" name="other_skill" id="other_skill" placeholder="Enter Other Skill" value="<?php if($otherskill1){ echo $otherskill1; }?>"> 
                                 <?php echo form_error('other_skill'); ?>
                                 </fieldset>
 
 
                                 <fieldset class="full-width" <?php if($artname) {  ?> class="error-msg" <?php } ?>>
                                     <label>Speciality In Art:<span style="color:red">*</span></label>
-                                    <input name="artname" type="text" id="artname" placeholder="Enter Speciality" value="<?php if($artname1){ echo $artname1; } ?>"/><span id="artname-error"></span>
+                                    <input name="artname" type="text" id="artname" tabindex="3" placeholder="Enter Speciality" value="<?php if($artname1){ echo $artname1; } ?>"/><span id="artname-error"></span>
                                      <?php echo form_error('artname'); ?>
                                 </fieldset>
                                
@@ -143,7 +143,7 @@
                                 <fieldset  <?php if($desc_art) {  ?> class="error-msg" <?php } ?> class="full-width">
                                     <label>Description of your art:<span style="color:red">*</span></label>
 
-                                 <textarea id="textarea" name ="desc_art" id="desc_art" rows="4" cols="50" placeholder="Enter Description of Your Art" style="resize: none;"><?php if($desc_art1){ echo $desc_art1; } ?></textarea>
+                                 <textarea id="textarea" name ="desc_art" id="desc_art" tabindex="4" rows="4" cols="50" placeholder="Enter Description of Your Art" style="resize: none;"><?php if($desc_art1){ echo $desc_art1; } ?></textarea>
                                    
                                   <?php echo form_error('desc_art'); ?><br/> 
                                 </fieldset>
@@ -152,7 +152,7 @@
                                 <fieldset class="full-width">
                                     <label>How You are Inspire:</label>
                                 
-                                    <input name="inspire"  type="text" id="inspire" placeholder="Enter Inspire" value="<?php if($inspire1){ echo $inspire1; } ?>"/><span ></span>
+                                    <input name="inspire"  type="text" id="inspire" placeholder="Enter Inspire" tabindex="5" value="<?php if($inspire1){ echo $inspire1; } ?>"/><span ></span>
                                  
                                 </fieldset>
 
@@ -161,7 +161,7 @@
                                    
                                  
                                     
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" value="Next" tabindex="6">
                                    
                                 </fieldset>
                                 

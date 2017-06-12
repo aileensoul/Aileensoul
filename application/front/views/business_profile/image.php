@@ -91,7 +91,7 @@
 
                                 <fieldset class="full-width">
                                     <label>Images:</label>
-                                    <input type="file"  name="image1[]" id="image1" multiple/> 
+                                    <input type="file" tabindex="1" autofocus name="image1[]" id="image1" multiple/> 
 
                                     <?php if(count($busimage) > 0){
                                         $y = 0;
@@ -133,7 +133,7 @@
                                   
 
                                    
-                                    <input type="submit"  id="submit" name="submit" value="Submit">
+                                    <input type="submit"  id="submit" name="submit" tabindex="2"  value="Submit">
                                    
                                     
                                 </fieldset>
