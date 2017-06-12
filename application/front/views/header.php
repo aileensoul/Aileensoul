@@ -250,7 +250,7 @@ $( document ).on( 'keydown', function ( e ) {
         $( "#InboxContainer" ).hide();
     }
 });
-// click on escape notification & message drop down close start
+// click on escape notification & message drop down close end
 
 
     $(document).ready(function ()
