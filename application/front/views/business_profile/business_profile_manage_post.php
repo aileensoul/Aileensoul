@@ -4017,13 +4017,9 @@
  <script type="text/javascript">            
             // pop up open & close aarati code start 
 jQuery(document).mouseup(function (e) {
-            //var container3 = $("#myBtn1");
+           
              var container1 = $("#myModal3");
-            //container.show();
-            
-                //alert('bb');
-                //container1.show();
-                
+          
                     jQuery(document).mouseup(function (e)
                       {
                         var container = $("#close");
@@ -4032,7 +4028,7 @@ jQuery(document).mouseup(function (e) {
                 if (!container.is(e.target) // if the target of the click isn't the container...
                 && container.has(e.target).length === 0) // ... nor a descendant of the container
             {
-               // alert('aa');
+              
                 container1.hide();
             }
         });

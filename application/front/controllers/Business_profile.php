@@ -19,6 +19,8 @@ class Business_profile extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         
+
         $contition_array = array('user_id' => $userid, 'status' => '0');
         $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($businessdata) {
@@ -125,6 +127,17 @@ class Business_profile extends MY_Controller {
 
     public function business_information_update() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -270,6 +283,16 @@ class Business_profile extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         if ($this->input->post('next')) {
 
@@ -353,6 +376,17 @@ class Business_profile extends MY_Controller {
     public function contact_information() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -438,6 +472,17 @@ $contition_array = array('status' => '1');
 
     public function contact_information_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
 
         if ($this->input->post('previous')) {
@@ -525,6 +570,17 @@ $contition_array = array('status' => '1');
     public function description() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -618,7 +674,16 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+//if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
 
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         if ($this->input->post('next')) {
 
@@ -674,6 +739,17 @@ $contition_array = array('status' => '1');
     public function image() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -744,6 +820,17 @@ $contition_array = array('status' => '1');
 
         $userdata = $this->session->userdata();
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0');
         $business_slug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -916,6 +1003,17 @@ $contition_array = array('status' => '1');
     public function addmore() {
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -997,6 +1095,17 @@ $contition_array = array('status' => '1');
     public function addmore_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $data = array(
             'addmore' => $this->input->post('addmore'),
             'modified_date' => date('Y-m-d', time()),
@@ -1021,6 +1130,17 @@ $contition_array = array('status' => '1');
         $userid = $this->session->userdata('aileenuser');
 
         $user_name = $this->session->userdata('user_name');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
@@ -1281,6 +1401,17 @@ $contition_array = array('status' => '1');
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1397,6 +1528,18 @@ $contition_array = array('status' => '1');
 
     public function business_profile_addpost() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1406,6 +1549,17 @@ $contition_array = array('status' => '1');
     public function business_profile_addpost_insert($id = "", $para = "") {
         
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $para, 'status' => '1');
         $this->data['businessdataposted'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1640,6 +1794,17 @@ $contition_array = array('status' => '1');
     public function business_profile_contactperson($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $id, 'status' => '1');
         $this->data['contactperson'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1711,6 +1876,17 @@ $contition_array = array('status' => '1');
 
     public function business_profile_contactperson_query($id) {
         $userid = $this->session->userdata('aileenuser');
+
+//if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $id);
         $this->data['contactperson'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1784,7 +1960,16 @@ $contition_array = array('status' => '1');
     public function business_profile_save_post() {
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
+//if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
 
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid);
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1814,6 +1999,16 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         
         if ($this->input->post('cancel2')) {
             redirect('business_profile/business_profile_post', refresh);
@@ -1972,6 +2167,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2061,6 +2267,17 @@ $contition_array = array('status' => '1');
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2081,6 +2298,17 @@ $contition_array = array('status' => '1');
         $id = $_POST['business_profile_post_id'];
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('business_profile_save', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2138,6 +2366,17 @@ $contition_array = array('status' => '1');
         $id = $_POST['save_id'];
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $data = array(
             'business_save' => 0,
             'business_delete' => 1,
@@ -2173,6 +2412,17 @@ $contition_array = array('status' => '1');
 
     public function userlist() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $artdata = $this->data['artdata'] = $this->common->select_data_by_id('business_profile', 'user_id', $userid, $data = '*');
 
         $contition_array = array('user_id' => $userid);
@@ -2272,6 +2522,17 @@ $contition_array = array('status' => '1');
     public function follow() {
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $business_id = $_POST["follow_to"];
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
@@ -2358,6 +2619,17 @@ $contition_array = array('status' => '1');
     public function unfollow() {
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $business_id = $_POST["follow_to"];
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
@@ -2392,6 +2664,17 @@ $contition_array = array('status' => '1');
 
     public function follow_two() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $business_id = $_POST["follow_to"];
 
@@ -2477,6 +2760,16 @@ $contition_array = array('status' => '1');
 
     public function unfollow_two() {
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $business_id = $_POST["follow_to"];
 
@@ -2514,6 +2807,17 @@ $contition_array = array('status' => '1');
 
     public function unfollow_following() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $business_id = $_POST["follow_to"];
 
@@ -2565,6 +2869,16 @@ $contition_array = array('status' => '1');
 
     public function followers($id = "") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
 
@@ -2670,6 +2984,17 @@ $contition_array = array('status' => '1');
 
     public function following($id = "") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
 
@@ -3040,6 +3365,17 @@ $contition_array = array('status' => '1');
     public function like_comment() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
 
 
@@ -3169,6 +3505,17 @@ $contition_array = array('status' => '1');
     public function like_comment1() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
 
 
@@ -3298,6 +3645,16 @@ $contition_array = array('status' => '1');
 //Business_profile comment delete start
     public function delete_comment() {
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -3447,6 +3804,17 @@ $contition_array = array('status' => '1');
 
     public function delete_commenttwo() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -3593,6 +3961,17 @@ $contition_array = array('status' => '1');
     public function like_post() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
 
         $contition_array = array('business_profile_post_id' => $_POST["post_id"], 'status' => '1');
@@ -3867,6 +4246,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
@@ -4039,6 +4429,16 @@ $contition_array = array('status' => '1');
     public function insert_comment() {
 
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
@@ -4207,6 +4607,16 @@ $contition_array = array('status' => '1');
     public function edit_comment_insert() {
 
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
@@ -4237,6 +4647,16 @@ $contition_array = array('status' => '1');
     public function postnewpage($id) {
 
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4312,6 +4732,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_id = $_POST["business_profile_post_id"];
         $business_post = $_POST["product_name"];
         $business_description = $_POST["product_description"];
@@ -4374,6 +4805,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_id = $_POST['business_profile_post_id'];
 
         $contition_array = array('business_profile_post_id' => $post_id, 'status' => '1');
@@ -4404,6 +4846,17 @@ $contition_array = array('status' => '1');
     public function business_photos($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4514,6 +4967,17 @@ $contition_array = array('status' => '1');
 
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4606,6 +5070,17 @@ $contition_array = array('status' => '1');
 
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4701,6 +5176,17 @@ $contition_array = array('status' => '1');
 
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4790,6 +5276,17 @@ $contition_array = array('status' => '1');
     public function mulimg_like() {
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $contition_array = array('post_image_id' => $post_image, 'user_id' => $userid);
         $likeuser = $this->data['likeuser'] = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5070,6 +5567,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5251,6 +5759,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5425,6 +5944,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5597,6 +6127,17 @@ $contition_array = array('status' => '1');
 
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5767,6 +6308,17 @@ $contition_array = array('status' => '1');
     public function mulimg_comment_like() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_image_comment_id = $_POST["post_image_comment_id"];
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
@@ -5962,6 +6514,17 @@ $contition_array = array('status' => '1');
     public function mulimg_comment_liketwo() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_image_comment_id = $_POST["post_image_comment_id"];
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
@@ -6149,6 +6712,17 @@ $contition_array = array('status' => '1');
     public function mul_edit_com_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_comment = $_POST["comment"];
 
@@ -6174,6 +6748,17 @@ $contition_array = array('status' => '1');
 //multiple images commnet delete start
     public function mul_delete_comment() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
         $data = array(
@@ -6317,6 +6902,17 @@ $contition_array = array('status' => '1');
 
     public function mul_delete_commenttwo() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -6463,6 +7059,17 @@ $contition_array = array('status' => '1');
     public function fourcomment($postid) {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         //$post_id =  $postid; 
         $post_id = $_POST['bus_post_id'];
 
@@ -6567,6 +7174,17 @@ $contition_array = array('status' => '1');
     public function mulfourcomment($postid) {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         //$post_id =  $postid; 
         $post_id = $_POST['bus_post_id'];
 
@@ -6683,6 +7301,17 @@ $contition_array = array('status' => '1');
     public function pnfourcomment($postid) {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST['bus_post_id'];
 
         $fourdata = '<div class="insertcommenttwo' . $post_id . '">';
@@ -6875,6 +7504,16 @@ $contition_array = array('status' => '1');
     public function pninsert_commentthree() {
 
         $userid = $this->session->userdata('aileenuser');
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
@@ -7047,6 +7686,17 @@ $contition_array = array('status' => '1');
     public function pninsert_comment() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
 
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
@@ -7223,6 +7873,17 @@ $contition_array = array('status' => '1');
     //Business_profile comment delete start
     public function pndelete_comment() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -7497,6 +8158,17 @@ $contition_array = array('status' => '1');
 
     public function pndelete_commenttwo() {
         $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -7803,6 +8475,17 @@ $contition_array = array('status' => '1');
     public function contact_person(){
      $to_id = $_POST['toid']; 
      $userid = $this->session->userdata('aileenuser');
+
+     //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
      
      $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
      $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -7908,6 +8591,17 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      public function contact_notification(){
     
      $userid = $this->session->userdata('aileenuser');
+
+     //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
      
      $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
      $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -7973,6 +8667,17 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       $toid = $_POST['toid'];
       $status = $_POST['status'];
       $userid = $this->session->userdata('aileenuser');
+
+      //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
       
      $contition_array = array('contact_from_id' => $toid,'contact_to_id' => $userid, 'status' => 'pending');
      $person = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8052,6 +8757,17 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      public function contact_list(){
          
       $userid = $this->session->userdata('aileenuser');
+
+      //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
       $bussdata = $this->common->select_data_by_id('business_profile', 'user_id', $userid, $data = '*', $join_str = array());
     //  echo '<pre>'; print_r($bussdata); 
       
@@ -8084,6 +8800,17 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       $toid = $_POST['toid'];
       $status = $_POST['status'];
       $userid = $this->session->userdata('aileenuser');
+
+      //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
       
      $contition_array = array('contact_from_id' => $toid,'contact_to_id' => $userid, 'status' => 'pending');
      $person = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
