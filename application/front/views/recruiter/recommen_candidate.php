@@ -24,9 +24,10 @@
                 <div class="row row4">
                     <div class="col-md-4 profile-box profile-box-left"><div class="">
                            
-                            <div class="full-box-module">    
-                                <div class="profile-boxProfileCard  module">
-                 <div class="profile-boxProfileCard-cover">     <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
+                          <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                              <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
                  aria-hidden="true" rel="noopener">
                
                 <?php
@@ -47,8 +48,9 @@
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
-                                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                              <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
                                                 if ($recruiterdata1[0]['recruiter_user_image'] != '') {
@@ -63,11 +65,13 @@
                                    }
                              ?>
                                             </a>
-                                        </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
+                                    </div>
+                                    <div class="right_left_box_design ">
+                                     <span class="profile-company-name ">
                                                 <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
                                             </span>
+
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
                                                 <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
                                                     <?php
@@ -76,21 +80,21 @@
                                                     } else {
                                                         echo "Designation";
                                                     }
-                                                    ?></a></div>
-                                        </div>
-                                        <div class="profile-box-rec-menu  col-md-12">
-                                            <ul class="">
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
+                                                    ?></a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                               <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Details" href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
                                                 </li>                                
                                                 <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a title="Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
                                                 </li>
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
+                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" class="padding_less_right" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                                                 </li>
+                                          
                                             </ul>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    </div>
+       </div>                             
+    </div>
                         <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
                         </div>
