@@ -95,7 +95,7 @@
                     <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                         <label>Country:<span class="red">*</span></label>
                                 
-                                        <select name="country" id="country">
+                                        <select tabindex="1" autofocus name="country" id="country">
                                         <option value="">Select Country</option>
                                          <?php
                                             if(count($countries) > 0){
@@ -124,7 +124,7 @@
 
                    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
                         <label>state:<span class="red">*</span></label>
-                        <select name="state" id="state">
+                        <select name="state" id="state" tabindex="2">
                          <?php
                                           
                                             foreach($states as $cnt){
@@ -155,7 +155,7 @@
 
                       <fieldset <?php if($city) {  ?> class="error-msg" <?php } ?> class="full-width">
                         <label> City:</label>
-                                    <select name="city" id="city">
+                                    <select name="city" id="city" tabindex="3">
                                      <?php
                                           foreach($cities as $cnt){
                                                 if($city1)
@@ -184,7 +184,7 @@
                     
                     <fieldset <?php if($postal_address) {  ?> class="error-msg" <?php } ?> class="full-width">
                         <label> Postal address:<span class="red">*</span></label>
-                        <textarea name="postal_address" id="postal_address" rows="4" cols="50"  placeholder="Enter Address" style="resize: none;"><?php if($postal_address1){ echo $postal_address1; } ?></textarea>                        
+                        <textarea name="postal_address" id="postal_address" tabindex="4" rows="4" cols="50"  placeholder="Enter Address" style="resize: none;"><?php if($postal_address1){ echo $postal_address1; } ?></textarea>                        
                         <?php echo form_error('postal_address'); ?> 
                     </fieldset>
 
@@ -194,7 +194,7 @@
 
                                 
                                    
-                                    <input type="submit"  id="submit" name="submit" value="Submit">
+                                    <input type="submit"  id="submit" name="submit" tabindex="5" value="Submit">
                                     
                     </fieldset>
 
