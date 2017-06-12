@@ -778,23 +778,6 @@
                                             <div class="post-design-top col-md-12" id= "showpost">  
                                                 <div class="post-design-pro-img col-md-2"> 
 
-
-
-                                                    <!-- pop up box start-->
-                                                    <div id="popup1" class="overlay">
-                                                        <div class="popup">
-
-                                                            <div class="pop_content">
-                                                                Your Post is Successfully Saved.
-                                                                <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- pop up box end-->
-
-
-
                                                     <?php
                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id'], 'status' => 1))->row()->art_user_image;
 
@@ -3067,14 +3050,14 @@
 
                     <script type="text/javascript">
                         function remove_post(abc)
-                        {
+                        { 
 
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
                                 data: 'art_post_id=' + abc,
                                 //alert(data);
-                                success: function (data) {
+                                success: function (data) { 
 
                                     $('#' + 'removepost' + abc).html(data);
 
