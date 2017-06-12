@@ -19,9 +19,7 @@ class Freelancer_hire extends MY_Controller {
          
       $userid  = $this->session->userdata('aileenuser'); 
 
-   //if user deactive profile then redirect to recruiter/index untill active profile start
-        
-     //if user deactive profile then redirect to recruiter/index untill active profile End
+  
           $contition_array = array('user_id' => $userid,  'status' =>'0');
          $freelancerhiredata = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
          if($freelancerhiredata){
@@ -63,7 +61,8 @@ class Freelancer_hire extends MY_Controller {
          $userid = $this->session->userdata('aileenuser'); 
 
 
-
+ //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+  
  $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
         $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -72,6 +71,8 @@ class Freelancer_hire extends MY_Controller {
         {
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+
          $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
          $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
  
@@ -298,14 +299,19 @@ public function check_email() {
     {
           $userid = $this->session->userdata('aileenuser'); 
 
-       $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+          
+
+      //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+  
+ $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
         $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         if( $freelancerhire_deactive)
         {
-             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
 
         $contition_array = array('status' => 1);
       $this->data['countries'] =  $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
@@ -538,14 +544,17 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
     {
          $userid = $this->session->userdata('aileenuser'); 
 
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+  
  $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
         $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         if( $freelancerhire_deactive)
         {
-             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
 
          $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
          $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
