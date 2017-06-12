@@ -807,7 +807,7 @@ footer {
     border-radius: 4px;
     padding: 4px 20px 4px;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
 }
 .apply-btn a:hover {
@@ -910,7 +910,7 @@ ul.dropdown-menu li a i {
 .common-form input[type=radio],
 .common-form input[type=checkbox] {
     width: auto;
-    margin: 0 2px;
+    margin: 0 1px;
     vertical-align: middle;
     display: inline-block;
 }
@@ -9887,7 +9887,8 @@ end zalak 9-6 css*/
 .tabordion section .label-d{padding: 5px 7px !important}
 .contact-frnd-post1 label{margin-bottom: 3px}
 .tabordion input[name="sections"]:checked + label:after{top:7px;}
-
+.profile-boxProfileCard .profile-box-freehire-menu ul li{margin-left: -2px;}
+.profile-boxProfileCard .profile-box-freehire-menu ul li a{    margin-right: 27px !important;}
 /***  12-6 h  ***/
 .clear{clear:both;}
 .custom-right{margin-left: 1%;}
