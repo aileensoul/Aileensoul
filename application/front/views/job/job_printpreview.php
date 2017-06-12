@@ -83,8 +83,8 @@ echo $job_header2;
         </div>
         </div>
      
-
-<div class="container">       
+        
+<div class="container tablate-container">       
     <div class="upload-img ">
 
         <?php if($returnpage == ''){ ?>
@@ -117,6 +117,8 @@ echo $job_header2;
         </div>
         <?php echo $job_menubar; ?>   
     </div>
+</div>
+<div class="middle-part container">
     <div class="job-menu-profile">
         <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> 
             <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
@@ -166,7 +168,7 @@ echo $job_header2;
 
     </div>
 
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-8 col-sm-8 mob-clear">
     <div class="row">
         <div class="common-form">
             <div class="job-saved-box">
@@ -1561,7 +1563,13 @@ else
                                
                             </div>
                         </div>
-                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="clearfix"></div>
+    </section>
 
                         <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">

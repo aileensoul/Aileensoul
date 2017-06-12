@@ -9888,7 +9888,8 @@ end zalak 9-6 css*/
 .contact-frnd-post1 label{margin-bottom: 3px}
 .tabordion input[name="sections"]:checked + label:after{top:7px;}
 
-
+/***  12-6 h  ***/
+.clear{clear:both;}
 /***  media query  ***/
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
@@ -9914,8 +9915,10 @@ end zalak 9-6 css*/
     .left-side-bar ul li.active::after{top:6px;}
     #paddingtop_fixed.container{padding-left: 0; padding-right: 0;}
     #row2{width: 100%; border: none;}
+    .container.tablate-container{padding-left: 0; padding-right: 0;}
 }
 @media screen and (max-width: 767px) {
+    .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
     #notificationLink span{top:-5px; right:7px;}
     .header ul li a{padding:5px 10px !important;}
