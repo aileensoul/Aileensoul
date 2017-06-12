@@ -102,7 +102,7 @@ $pincode = form_error('pincode');
 
                             <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
                                 <label>Country:<span class="red">*</span></label>
-                                <select name="country" id="country">
+                                <select tabindex="1" autofocus name="country" id="country">
                                     <option value="">Select Country</option>
                                     <?php
                                     if (count($countries) > 0) {
@@ -128,7 +128,7 @@ $pincode = form_error('pincode');
 
                             <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
                                 <label>State:<span class="red">*</span></label>
-                                <select name="state" id="state">
+                                <select tabindex="2" name="state" id="state">
                                     <?php
                                     foreach ($states as $cnt) {
                                         if ($state1) {
@@ -152,7 +152,7 @@ $pincode = form_error('pincode');
 
                             <fieldset>
                                 <label>City:</label>
-                                <select name="city" id="city">
+                                <select name="city" tabindex="3" id="city">
                                     <?php
                                     foreach ($cities as $cnt) {
                                         if ($city1) {
@@ -177,7 +177,7 @@ $pincode = form_error('pincode');
 
                             <fieldset>
                                 <label>Pincode:</label>
-                                <input type="text" name="pincode" placeholder="Enter pincode" value="<?php if ($pincode1) {
+                                <input type="text" name="pincode" tabindex="4" placeholder="Enter pincode" value="<?php if ($pincode1) {
                                         echo $pincode1;
                                     } ?>">
 
@@ -186,7 +186,7 @@ $pincode = form_error('pincode');
                             <fieldset class="full-width">
                                 <label>Postal address:<span class="red">*</span></label>
 
-                                <textarea name ="postaladdress" id="postaladdress" rows="4" cols="50" placeholder="Enter postal address" style="resize: none;"><?php if ($address1) {
+                                <textarea name ="postaladdress" id="postaladdress" tabindex="5" rows="4" cols="50" placeholder="Enter postal address" style="resize: none;"><?php if ($address1) {
                                         echo $address1;
                                     } ?></textarea>
 <?php echo form_error('postaladdress'); ?>
@@ -197,7 +197,7 @@ $pincode = form_error('pincode');
 <!--                                <input type="reset">
                                 <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"> Previous</a>-->
 <!-- @nk!y 07-04-2017 end -->
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" value="Next" tabindex="6">
 
 
                             </fieldset>

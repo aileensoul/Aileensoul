@@ -99,10 +99,10 @@ $work_hour = form_error('work_hour');
 
                             <fieldset class="col-md-4" <?php if ($inweek) { ?> class="error-msg" <?php } ?>>
                             <label> Working As</label>
-                                <input type="radio" name="job_type" id="job_type" value="Full Time" <?php if ($job_type1 == 'Full Time') {
+                                <input type="radio" tabindex="1" autofocus name="job_type" id="job_type" value="Full Time" <?php if ($job_type1 == 'Full Time') {
                                     echo 'checked';
                                 } ?>>Full Time
-                                <input type="radio" name="job_type" id="job_type" value="Part Time" <?php if ($job_type1 == 'Part Time') {
+                                <input type="radio" tabindex="1" name="job_type" id="job_type" value="Part Time" <?php if ($job_type1 == 'Part Time') {
                                     echo 'checked';
                                 } ?>>Part Time
 <?php echo form_error('job_type'); ?>
@@ -111,7 +111,7 @@ $work_hour = form_error('work_hour');
 
                             <fieldset class=""<?php if ($work_hour) { ?> class="error-msg" <?php } ?>>
                                 <label>Working hours per week:</label>
-                                <input type="number" name="work_hour" placeholder="Enter working hour" value="<?php if ($work_hour1) {
+                                <input type="number" name="work_hour" tabindex="2" placeholder="Enter working hour" value="<?php if ($work_hour1) {
     echo $work_hour1;
 } ?>">
 <?php echo form_error('work_hour'); ?>
@@ -124,7 +124,7 @@ $work_hour = form_error('work_hour');
 <!--                                <input type="reset">
                                 <a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Previous</a>-->
 
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" value="Next" tabindex="3">
 
 
                             </fieldset>

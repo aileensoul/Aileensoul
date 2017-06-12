@@ -98,7 +98,7 @@
 
                             <fieldset <?php if ($degree) { ?> class="error-msg" <?php } ?>>
                                 <label>Higher Degree:<!-- <span style="color:red">*</span> --></label>
-                                <select name="degree" id="degree">
+                                <select name="degree" tabindex="1" autofocus id="degree">
                                     <option value="">Select your degree</option>
 
                                     <?php
@@ -125,7 +125,7 @@
 
                             <fieldset <?php if ($stream) { ?> class="error-msg" <?php } ?>>
                                 <label>Stream:<!-- <span style="color:red">*</span> --></label>
-                                <select name="stream" id="stream">
+                                <select name="stream" id="stream" tabindex="2">
                                     <?php
                                     foreach ($stream_data as $cnt) {
                                         if ($stream1) {
@@ -146,7 +146,7 @@
 
                             <fieldset <?php if ($univercity) { ?> class="error-msg" <?php } ?>>
                                 <label>University:<!-- <span style="color:red">*</span> --></label>
-                                <select name="university" id="university" >
+                                <select name="university" id="university" tabindex="3" >
                                     <option value="" selected option disabled>Select your University</option>
 <?php
 if (count($university_data) > 0) {
@@ -172,7 +172,7 @@ if (count($university_data) > 0) {
 
                             <fieldset <?php if ($college) { ?> class="error-msg" <?php } ?>>
                                 <label>College:<!-- <span style="color:red">*</span> --></label>
-                                <input type="text" name="college" id="college" placeholder="Enter college"  value="<?php if ($college1) {
+                                <input type="text" name="college" id="college" tabindex="4" placeholder="Enter college"  value="<?php if ($college1) {
                                         echo $college1;
                                     } ?>">
 <?php echo form_error('college'); ?> 
@@ -180,7 +180,7 @@ if (count($university_data) > 0) {
 
                             <fieldset <?php if ($percentage) { ?> class="error-msg" <?php } ?>>
                                 <label>Percentage:<!-- <span style="color:red">*</span> --></label>
-                                <input type="number" name="percentage" placeholder="Enter percentage" value="<?php if ($percentage1) {
+                                <input type="number" name="percentage" placeholder="Enter percentage" tabindex="5" value="<?php if ($percentage1) {
     echo $percentage1;
 } ?>">
                                 <?php echo form_error('percentage'); ?>
@@ -188,7 +188,7 @@ if (count($university_data) > 0) {
 
                             <fieldset <?php if ($passingyear) { ?> class="error-msg" <?php } ?>>
                                 <label>Year of passing:<!-- <span style="color:red">*</span> --></label>
-                                <select name="passingyear">
+                                <select name="passingyear" tabindex="6">
                                     <option value="" selected option disabled>Select your Passing year</option>
                                     <?php
                                     $curYear = date('Y');
@@ -221,7 +221,7 @@ if (count($university_data) > 0) {
 
 <!--                                <input type="reset">
                                 <a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">Previous</a>-->
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  tabindex="7" id="next" name="next" value="Next">
 
 
                             </fieldset>

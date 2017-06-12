@@ -102,7 +102,7 @@
                 
                                  <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                   <label>Country:<span class="red">*</span></label>
-                   <select tabindex="1" autofocus name="country" id="country">
+                   <select tabindex="1"  name="country" id="country" autofocus>
                   <option value="">Select Country</option>
                   <?php
                                             if(count($countries) > 0){
@@ -132,7 +132,7 @@
 
                   <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
                   <label>State:<span class="red">*</span></label>
-                   <select name="state" id="state">
+                   <select tabindex="2" name="state" id="state">
                   <?php
                                           if($state1)
 
@@ -163,7 +163,7 @@
                 
                                 <fieldset>
                   <label>City:</label>
-                  <select name="city" id="city">
+                  <select name="city" tabindex="3" id="city">
                     <?php
 
                                         if($city1)
@@ -195,14 +195,14 @@
 
                                 <fieldset>
                   <label>Pincode:</span></label>
-                  <input type="text" name="pincode" id="pincode" placeholder="Enter Pincode"  value="<?php if($pincode1){ echo $pincode1; } ?>">
+                  <input type="text" name="pincode" tabindex="4" id="pincode" placeholder="Enter Pincode"  value="<?php if($pincode1){ echo $pincode1; } ?>">
                 </fieldset>
                  <?php  ?>
 
                 
                 <fieldset class="full-width">
                   <label>Postal Address:<span class="red">*</span></label>
-                   <textarea name="address" id="address" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
+                   <textarea name="address" id="address" tabindex="5" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
                                      <?php echo form_error('address'); ?>
                 </fieldset>
                  
@@ -211,7 +211,7 @@
                                 <fieldset class="hs-submit full-width">
                                    
 
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" tabindex="6" name="next" value="Next">
                                    
                                    
                                 </fieldset>

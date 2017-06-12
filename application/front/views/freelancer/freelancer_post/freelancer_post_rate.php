@@ -92,7 +92,7 @@
 
                             <fieldset <?php if ($hourly) { ?> class="error-msg" <?php } ?>>
                                 <label>Hourly:</label>
-                                <input type="text" name="hourly" placeholder="Enter hourly Rate"  value="<?php if ($hourly1) {
+                                <input type="text" name="hourly" tabindex="1" autofocus placeholder="Enter hourly Rate"  value="<?php if ($hourly1) {
                                     echo $hourly1;
                                 } ?>">
                                     <?php echo form_error('hourly'); ?>
@@ -100,7 +100,7 @@
 
                             <fieldset>
                                 <label>Currency:</label>
-                                <select name="state">
+                                <select name="state" tabindex="2">
                                     <option value="" selected option disabled>Select your currency</option>
 
                                     <?php
@@ -129,11 +129,11 @@
                                 if ($fixed_rate1 == 1) {
                                     ?>
 
-                                    <input type="checkbox" name="fixed_rate" value="1" checked> Work On Fixed Rate<br>
+                                    <input type="checkbox" tabindex="3" name="fixed_rate" value="1" checked> Work On Fixed Rate<br>
                                     <?php
                                 } else {
                                     ?>
-                                    <input type="checkbox" name="fixed_rate" value="1"> Also Work On Fixed Rate<br>
+                                    <input type="checkbox" tabindex="3" name="fixed_rate" value="1"> Also Work On Fixed Rate<br>
     <?php
 }
 ?>
@@ -146,7 +146,7 @@
 <!--                                <input type="reset">
                                 <a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Previous</a>-->
 
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" tabindex="4" value="Next">
 
 
                             </fieldset>

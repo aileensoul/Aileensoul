@@ -89,7 +89,7 @@
 
                          <fieldset> 
                                         <label>Attachment</label>
-                                         <input type="file" name="portfolio_attachment" id="portfolio_attachment1" class="portfolio_attachment" placeholder="PORTFOLIO ATTACHMENT" multiple="" />&nbsp;&nbsp;&nbsp; 
+                                         <input type="file" name="portfolio_attachment" id="portfolio_attachment1" class="portfolio_attachment" tabindex="1" autofocus placeholder="PORTFOLIO ATTACHMENT" multiple="" />&nbsp;&nbsp;&nbsp; 
 
                                          <?php 
 
@@ -102,13 +102,13 @@
                                       <?php 
                                     }
                                     ?>
-                            <input type="hidden" name="image_hidden_portfolio" value="<?php if($portfolio_attachment1){ echo $portfolio_attachment1; } ?>">
+                            <input type="hidden" tabindex="2" name="image_hidden_portfolio" value="<?php if($portfolio_attachment1){ echo $portfolio_attachment1; } ?>">
 
                                 </fieldset>   
 
                             <fieldset class="full-width">
                             <label>Description:</label>
-                                <textarea name ="portfolio" id="portfolio" rows="4" cols="50" placeholder="Enter description" style="resize: none;"><?php if($portfolio1){ echo $portfolio1; } ?></textarea>
+                                <textarea name ="portfolio" tabindex="3" id="portfolio" rows="4" cols="50" placeholder="Enter description" style="resize: none;"><?php if($portfolio1){ echo $portfolio1; } ?></textarea>
                                 <?php echo form_error('portfolio'); ?> 
                             </fieldset>
 
@@ -116,7 +116,7 @@
                                     
 <!--                                    <input type="reset">
  <a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>">Previous</a>-->
-                                    <input type="submit"  id="submit" name="submit" value="Submit">
+                                    <input type="submit"  id="submit" tabindex="4" name="submit" value="Submit">
                                     
                                 </fieldset>
 

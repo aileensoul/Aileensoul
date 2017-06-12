@@ -135,7 +135,7 @@
                             <fieldset class="full-width" <?php if ($field) { ?> class="error-msg" <?php } ?>>
                                 <label>What is your field ? :<span class="red">*</span></label> 
 
-                                <select name="field" id="field">
+                                <select tabindex="1" autofocus name="field" id="field">
                                     <option value="">Select Fields of Requirement</option>
                                     <?php
                                     if (count($category) > 0) {
@@ -164,7 +164,7 @@
                                 <label>What is your skills ? :<span class="red">*</span></label>
 
 
-                                <select name="skills[]" id ="skill1" class="keyskil" multiple="multiple" style="width:100%;" >
+                                <select name="skills[]" id ="skill1" tabindex="2" class="keyskil" multiple="multiple" style="width:100%;" >
 
                                     <?php foreach ($skill1 as $skill) { ?>
                                     <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
@@ -179,14 +179,14 @@
 
                             <fieldset>
                                 <label>Other skill :</label>          
-                                <input type="text" class="keyskil" name="otherskill" id="otherskill" value="<?php echo $otherskill1; ?>" placeholder="Enter other skill" >
+                                <input type="text" class="keyskil" name="otherskill" tabindex="3" id="otherskill" value="<?php echo $otherskill1; ?>" placeholder="Enter other skill" >
                             </fieldset>
 
 
                             <fieldset  class="full-width">
                                 <label>Describe your skill in brief :<span class="red">*</span></label>
 
-                                <textarea name ="skill_description" id="skill_description" rows="4" cols="50" placeholder="Enter skill description" style="resize: none;"><?php
+                                <textarea name ="skill_description" tabindex="4" id="skill_description" rows="4" cols="50" placeholder="Enter skill description" style="resize: none;"><?php
                                     if ($skill_description1) {
                                         echo $skill_description1;
                                     }
@@ -196,7 +196,7 @@
                             </fieldset>
 
                             <fieldset  class="" <?php if ($experience_year) { ?> class="error-msg" <?php } ?>>
-                                <label>Total experience :<span class="red">*</span></label>  <select name="experience_year" placeholder="Year" id="experience_year" class="experience_year col-md-5 day" style="margin-right: 5px;">
+                                <label>Total experience :<span class="red">*</span></label>  <select name="experience_year" placeholder="Year" tabindex="5" id="experience_year" class="experience_year col-md-5 day" style="margin-right: 5px;">
 
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 Year</option>
@@ -224,7 +224,7 @@
                                 </select>
 
 
-                                <select name="experience_month" id="experience_month" placeholder="Month" class="experience_month col-md-5 day" style="margin-right: 5px;">
+                                <select name="experience_month" tabindex="6" id="experience_month" placeholder="Month" class="experience_month col-md-5 day" style="margin-right: 5px;">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 Month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 Month</option>
@@ -250,7 +250,7 @@
 
 <!--                                <input type="reset">
                                 <a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Previous</a>-->
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" tabindex="7" value="Next">
 
 
                             </fieldset>

@@ -91,7 +91,7 @@
                             	<fieldset class="full-width">
 									<label>Professional Info:<span class="red">*</span></label>
 									
-									<textarea name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
+									<textarea tabindex="1" autofocus name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
 									 <?php echo form_error('professional_info'); ?> 
 									 
 								</fieldset>
@@ -99,7 +99,7 @@
                                     
 
                                     
-                                    <input type="submit"  id="next" name="next" value="Submit">
+                                    <input type="submit" tabindex="2" id="next" name="next" value="Submit">
                                    
                                    
                                 </fieldset>
