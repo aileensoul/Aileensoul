@@ -46,37 +46,37 @@
 	top:300px !important;
 }*/
 
-.bui_images_view_more {
+/*.bui_images_view_more {
     right: 21px;
     bottom: 0%;
     color: white;
-    position: absolute;
-    /* left: 14px; */
-    width: 334px;
+    position: absolute;*/
+     /*left: 14px; */
+ /*   width: 334px;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
     padding: 68px;
-}
+}*/
 
-.profile-box-job-menu ul li a{margin-right: 25px;}
+/*.profile-box-job-menu ul li a{margin-right: 25px;}*/
 
-.button:hover{background-color: #156f95;}
-.profile-job-post-detail  .post-design-box{border:none;}
+/*.button:hover{background-color: #156f95;}*/
+/*.profile-job-post-detail  .post-design-box{border:none;}*/
 
-.post-design-commnet-box .editable_text{min-height: 37px !important}
-.notifications li .notification-data-inside div{padding-top: 3px!important  }
-.profile-box-job-menu ul li a{margin-right: 7px !important;}
+/*.post-design-commnet-box .editable_text{min-height: 37px !important}*/
+/*.notifications li .notification-data-inside div{padding-top: 3px!important  }*/
+/*.profile-box-job-menu ul li a{margin-right: 7px !important;}*/
 
-.comment-edit-butn button {
+/*.comment-edit-butn button {
     padding: 7.5px 10px 7.5px;
     border-radius: 3px;
     letter-spacing: 0px;
-    /* margin-left: -11px; */
+ */   /* margin-left: -11px; 
     position: absolute;
     bottom: 11px;
-}
-.pop_content .cnclbtn:hover{background-color: #156f95 !important}
+}*/
+/*.pop_content .cnclbtn:hover{background-color: #156f95 !important}
 .pop_content .okbtn:hover{background-color: #156f95 !important}
 .tabordion section .label-d{padding: 5px 7px !important}
 .contact-frnd-post1 label{margin-bottom: 3px}
-.tabordion input[name="sections"]:checked + label:after{top:7px;}
+.tabordion input[name="sections"]:checked + label:after{top:7px;}*/

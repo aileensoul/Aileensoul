@@ -361,8 +361,19 @@ function text2link($text){
 
        <?php echo $footer;?>
         </footer>
-
-
+<!-- model for popup start -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model for popup -->
 <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
                             <div class="modal-dialog modal-lm">
@@ -657,9 +668,18 @@ $('#upload').on('change', function () {
  fd.append( "image", $("#upload")[0].files[0]);
 
  files = this.files;
-     size = files[0].size;
+ size = files[0].size;
+    
+// pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    savepopup();
 
-     //alert(size);
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
 
      if (size > 4194304)
         {
@@ -674,6 +694,7 @@ $('#upload').on('change', function () {
            return false;
         }
 
+
  
     $.ajax({
 
@@ -687,6 +708,7 @@ $('#upload').on('change', function () {
 
         }
       });
+    //alert(789);
   });
 
 //aarati code end
@@ -777,8 +799,20 @@ window.onclick = function(event) {
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
-    });
+
+      // pallavi code for not supported file type 10/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       alert('not an image');
+        $('#profilepic').val('');
+         savepopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
+       });
 </script>
 
 <!-- script for profile pic end -->
@@ -819,3 +853,13 @@ window.onclick = function(event) {
                 });
                    });
   </script>
+  <!-- popup for file type -->
+  <script>
+                        function savepopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+                   
