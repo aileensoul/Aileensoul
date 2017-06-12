@@ -47,12 +47,12 @@
     <div class="container">
     <div class="row">
   <div class="col-md-6 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
+                        <div class="logo"><a tabindex="-20" href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
  
            <div class="col-md-6 col-sm-7 header-left-menu">
                    <ul class="fr">
-                    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li>
+                    <li class=""><a class="login_butn" tabindex="15"  href="<?php echo base_url('login') ?>">Login</a></li>
                       
                     </ul>
 
@@ -90,22 +90,22 @@
             
                 <fieldset class="col-md-6 par-3">
                     <label>First Name</label>
-                    <input type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="Enter First name">
+                    <input tabindex="1" type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="Enter First name">
                       <?php echo form_error('fname'); ?>
                 </fieldset>
                  <fieldset class="col-md-6 pal-3">
                     <label>Last Name</label>
-                     <input type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="Enter Last name">
+                     <input  tabindex="2" type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="Enter Last name">
                       <?php echo form_error('lname'); ?>
                 </fieldset>
                  <fieldset class="col-md-12">
                     <label>Email Address</label>
-                     <input type="text" name="email" id="email" placeholder="Enter Email address" value="">
+                     <input type="text" name="email" tabindex="3" id="email" placeholder="Enter Email address" value="">
               <?php echo form_error('email'); ?>
                 </fieldset>
  <fieldset class="col-md-12">
                     <label>Password</label>
-                    <input type="password" name="password" id="password" placeholder="Enter Password" class="showpassword2" placeholder="">
+                    <input type="password" tabindex="4" name="password" id="password" placeholder="Enter Password" class="showpassword2" placeholder="">
                       <?php echo form_error('password'); ?>
              <div>
     <label for="checkbox_eye" class="rela_eye"  >
@@ -119,7 +119,7 @@
                 <fieldset class="col-md-9 date_tm">
                     <label>Date Of Birth</label>
 
-   <select name="date">
+   <select name="date" tabindex="5">
     <option value="">  DD  </option>  
     <option value="01"> 1 </option>  
     <option value="02"> 2 </option> 
@@ -155,7 +155,7 @@
 
 
 </select>
-<select name="month">
+<select name="month" tabindex="6">
     <option value="">  MM  </option>
     <option value="01">  Jan  </option>
     <option value="02">  Feb  </option>
@@ -169,8 +169,8 @@
     <option value="10"> Oct  </option>
     <option value="11"> Nov  </option>
     <option value="12"> Dec  </option>
-</select>
-<select name="year">
+</select> 
+<select name="year" tabindex="7">
     <option value=""> YYYY </option>
  <?php  for ($i = date('Y'); $i > 1899 ; $i--) {?>
     <option value="<?php echo $i ?>"> <?php echo $i ?> </option>
@@ -184,7 +184,7 @@
                 <fieldset class="col-md-3 date_tm" style="padding-left: 50px;">
                     <label>Gender</label>
 
-<select name="gen" id="gen" style="padding-right: 0px!important;">
+<select name="gen" id="gen" style="padding-right: 0px!important;" tabindex="8">
     <option value=""> Gender </option>
     <option value="M" <?php if($gender == 'M'){ echo 'selected'; }?>> Male </option>
     <option value="F" <?php if($gender == 'F'){ echo 'selected'; }?>> FeMale </option>
@@ -193,15 +193,15 @@
                 </fieldset>
 <div class="col-md-12 terms">
     <p >By Clicking on create an account button you agree our
-  <a href="#">Terms and Condition</a> and <a href="">Privacy Policy</a>
+  <a href="#" tabindex="-11">Terms and Condition</a> and <a tabindex="-10" href="">Privacy Policy</a>
     </p>
     
 </div>
 
-     <input type="submit" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
+     <input type="submit" tabindex="9" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
           <div class="or"> <span>or</span></div>
            </form>
-          <button class="button3 button-block3 facebook_ac" >Sign Up With Facebook</button>
+          <button class="button3 button-block3 facebook_ac" tabindex="10">Sign Up With Facebook</button>
             </div>
           </div> 
 </div>           
@@ -211,17 +211,17 @@
             <div class="row">
                 <div class="col-md-6" style="padding-bottom: 1px!important; padding: 12px;">
                 <div class="footer-menu pull-left">
-                    <p style="color: #fff;">&copy; 2017 | by <a href="#" style="color: #fff;">Aileensoul</a></p>
+                    <p style="color: #fff;">&copy; 2017 | by <a tabindex="-100" href="#" style="color: #fff;">Aileensoul</a></p>
                 </div>
                 </div>
                 <div class="col-md-6">
                 <div class="footer-menu pull-right">
                     <nav>
                         <ul>
-                          <li> <b><a class="" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
-                                    <li><b><a class="" href="javascript:void(0);">Blog</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
+                          <li> <b><a class="" tabindex="11" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
+                                    <li> <b><a tabindex="12" class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
+                                    <li><b><a tabindex="13" class="" href="javascript:void(0);">Blog</a> </b></li>
+                                    <li> <b><a tabindex="14" class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
                         </ul>
                     </nav>
                 </div>
