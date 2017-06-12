@@ -1,4 +1,4 @@
-<!-- start head -->
+start head -->
 <?php echo $head; ?>
 
 
@@ -1740,6 +1740,33 @@
 
                     var fd = new FormData();
                     fd.append("image", $("#upload")[0].files[0]);
+
+  files = this.files;
+        size = files[0].size;
+                    
+// pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+if (size > 4194304)
+        {
+            //show an alert to the user
+            alert("Allowed file size exceeded. (Max. 4 MB)")
+
+            document.getElementById('row1').style.display = "none";
+            document.getElementById('row2').style.display = "block";
+
+            // window.location.href = "https://www.aileensoul.com/dashboard"
+            //reset file upload control
+            return false;
+        }
+
 
                     $.ajax({
 
@@ -3980,7 +4007,15 @@
             }
 
             $("#profilepic").change(function () {
-                readURL(this);
+                profile = this.files;
+                   //alert(profile);
+                      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+                       //alert('not an image');
+                  $('#profilepic').val('');
+                   picpopup();
+                     return false;
+                   }else{
+                      readURL(this);}
             });
         </script>
 
@@ -4038,8 +4073,15 @@
             }
 
         </script>
+<!-- popup open when profile pic and cover pic formate wrong -->
+<script>
+     function picpopup() {
 
-
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+      </script>
+      <!-- popup end -->
         <!-- all popup close close using esc start -->
  <script type="text/javascript">
 
@@ -4051,4 +4093,4 @@
 });  
 
  </script>
- <!-- all popup close close using esc end -->
+ <!-- all popup close close using esc end
