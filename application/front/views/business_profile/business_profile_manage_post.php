@@ -842,7 +842,7 @@
                     <div class="modal-content-post">
                         <span class="close3">&times;</span>
 
-                        <div class="post-editor col-md-12">
+                        <div class="post-editor col-md-12" id="close">
 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
@@ -4013,3 +4013,31 @@
                 }
 
             </script>
+
+ <script type="text/javascript">            
+            // pop up open & close aarati code start 
+jQuery(document).mouseup(function (e) {
+            //var container3 = $("#myBtn1");
+             var container1 = $("#myModal3");
+            //container.show();
+            
+                //alert('bb');
+                //container1.show();
+                
+                    jQuery(document).mouseup(function (e)
+                      {
+                        var container = $("#close");
+
+            //container.show();
+                if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+               // alert('aa');
+                container1.hide();
+            }
+        });
+               
+        });
+
+// pop up open & close aarati code end
+</script>
