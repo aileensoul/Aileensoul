@@ -380,9 +380,9 @@
 
 
                                     <div id="myModal1" class="modal2">
-                                        <span class="close2 cursor" onclick="closeModal()">&times;</span>
+                                       
                                         <div class="modal-content2">
-
+ <span class="close2 cursor" onclick="closeModal()">&times;</span>
                                             <!-- khyati chnages start-->
 
 
@@ -413,7 +413,7 @@
                                                             <ul class="col-md-6">
 
                                                                 <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
-                                                                    <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
+                                                                    <a id="<?php echo $artdata['image_id']; ?>" class="ripple like_h_w" onClick="post_likeimg(this.id)">
 
                                                                         <?php
                                                                         $userid = $this->session->userdata('aileenuser');
@@ -634,8 +634,8 @@
 
                                                                             <div class="edit-comment-box">
                                                                                 <div class="inputtype-edit-comment">
-                                                                                    <div contenteditable="true"  class="editable_text edit_cpmment_edit" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
-                                                                                    <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
+                                                                                    <div contenteditable="true"  class="editable_text edit_cpmment_edit dis-n" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
+                                                                                    <span class="comment-edit-button"><button class="save_photos_a" id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
                                                                                 </div>
                                                                             </div>
 
@@ -771,7 +771,7 @@
                                             <!-- khyati chnages end-->
                                         </div>
 
-                                        <a class="prev" style="left: 230px;" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="prev" style="left:0px;" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
                                         <div class="caption-container">

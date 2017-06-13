@@ -1223,7 +1223,7 @@ $('#datepicker').datetimepicker({
   border: 3px solid #f00 !important;
 
 }
-#skills-error{margin-top: 34px !important;}
+#skills-error{margin-top: 40px !important;}
 #minmonth-error{margin-top: 42px !important;}
 #minyear-error{margin-top: 42px !important;}
 #maxmonth-error{margin-top: 42px !important;}

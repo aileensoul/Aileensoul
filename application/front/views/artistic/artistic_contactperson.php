@@ -51,7 +51,7 @@
                             <?php echo form_open_multipart(base_url('artistic/artistic_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix cntact-ss')); ?>
                              <ul class="artistic_pf_ct_person_detail">
                                     <li style="padding-top: 7px;"><b>Contact Person: </b><span><?php echo $contactperson[0]['art_name'];?></span></li>
-                                    <li><b>Email Id: </b><?php echo $contactperson[0]['art_email'];?></li>
+                                    <li><b>Email Id: </b><span><?php echo $contactperson[0]['art_email'];?></span></li>
                                     <li><b >Phone No: </b><span><?php echo $contactperson[0]['art_phnno'];?></span></li>
                                 </ul>
 

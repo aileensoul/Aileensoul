@@ -821,6 +821,10 @@ $contition_array = array('status' => '1');
         $userdata = $this->session->userdata();
         $userid = $this->session->userdata('aileenuser');
 
+        $contition_array = array('user_id'=> $userid,'status' => '1','is_deleted'=> '0');
+
+        $busin_step_redirect = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
         //if user deactive profile then redirect to business_profile/index untill active profile start
          $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
 
@@ -979,17 +983,17 @@ $contition_array = array('status' => '1');
             if ($updatdata) {
                 $this->session->set_flashdata('success', 'Image updated successfully');
 
-                // if($userdatacon[0]['business_step'] == 4){
+             if($busin_step_redirect[0]['business_step'] == 4){
                 if($business_slug != ''){
                     redirect('business_profile/business_resume/'.$business_slug, refresh);
                 }
                 else{
                     redirect('business_profile/business_resume', refresh);
                 }
-                //   }
-                // } else{
-                //    redirect('business_profile/business_profile_post', refresh);
-                //  }
+                   }
+                 else{
+                    redirect('business_profile/business_profile_post', refresh);
+                 }
             } else {
                 $this->session->flashdata('error', 'Your data not inserted');
                 redirect('business_profile/image', refresh);

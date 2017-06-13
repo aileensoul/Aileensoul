@@ -4273,9 +4273,8 @@ border-bottom: 1px solid #000033;
 }
 .profile-main-rec-box-menu {
     margin-top: -80px;
-    border-left: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    border-right: 1px solid #d9d9d9;
+    border: 1px solid #d9d9d9;
+    
     z-index: -1;
 }
 .profile-main-rec-box-menu ul {
@@ -8469,12 +8468,14 @@ label.cameraButton input[accept*="camera"] {
     border: 1px solid #d9d9d9!important;
 }
 .edit_cpmment_edit {
-    display: inline-block;
+   
     width: 81%;
     min-height: 37px !important;
     margin-top: 0px !important;
     margin-left: 1.5% !important;
 }
+.right_left_box_design{padding: 10px 10px 10px 16px !important;}
+.left_box_menubar li:last-child a{text-align: center;}
 /*Vishang 25-5 on */
 
 .job_education_submitbox {
@@ -9901,9 +9902,9 @@ end zalak 9-6 css*/
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
 #row2{border-left: 0;}
 
-.tabordion section .label-d{width: 70px; height: 70px; border-radius: 100%; margin: 0 auto; padding: 22px 0 !important;
-text-align: center;}
+.tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
+.tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 2px solid #156f95; }
 .like_cmnt_count{padding-top: 7px !important;}
 
 /***  eduction tabbing  ***/

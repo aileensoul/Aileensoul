@@ -393,7 +393,7 @@
                                                 ?>
 
                                                 <div class="basic-responsive-image" >
-                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 
                                                 </div>
@@ -459,7 +459,7 @@
                                                                 <ul class="col-md-6">
 
                                                                     <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
-                                                                        <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
+                                                                        <a id="<?php echo $artdata['image_id']; ?>" class="ripple like_h_w" onClick="post_likeimg(this.id)">
 
                                                                             <?php
                                                                             $userid = $this->session->userdata('aileenuser');
@@ -837,7 +837,7 @@
                                     <div class="post-design-menu">
                                         <ul class="col-md-6">
                                             <li class="<?php echo 'likepost' . $art_data[0]['art_post_id']; ?>">
-                                                <a title="Like" id="<?php echo $art_data[0]['art_post_id']; ?>"   onClick="post_like(this.id)">
+                                                <a title="Like" id="<?php echo $art_data[0]['art_post_id']; ?>"  class="ripple like_h_w" onClick="post_like(this.id)">
                                                     <?php
                                                     $userid = $this->session->userdata('aileenuser');
                                                     $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1');
