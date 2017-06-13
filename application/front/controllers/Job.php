@@ -30,6 +30,7 @@ $this->load->view('business_profile/temp');
  }
     public function index() {
 
+      
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -231,8 +232,12 @@ $this->load->view('business_profile/temp');
         $bod = str_replace('/', '-', $bod);
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('job/index');
+
+           // echo "hi"; die();
+                $this->load->view('job/index', $this->data);
+        
         } else {
+           // echo "hello"; die();
             //get data by id only
 
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
