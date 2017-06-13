@@ -9892,6 +9892,8 @@ end zalak 9-6 css*/
 /***  12-6 h  ***/
 .clear{clear:both;}
 .custom-right{margin-left: 1%;}
+.custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
+#row2{border-left: 0;}
 /***  media query  ***/
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
@@ -9915,6 +9917,7 @@ end zalak 9-6 css*/
     .profile-boxProfile-name{line-height: 1;}
     .profile-boxProfile-name a{font-size: 14px;}
     .profile-company-name a{font-size: 16px;}
+    .left_box_menubar li a{padding-bottom: 0 !important;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -9934,6 +9937,12 @@ end zalak 9-6 css*/
     .container.tablate-container{padding-left: 0; padding-right: 0;}
     .right-side-menu{/*margin-top: -2px;*/}
     .custom-right{margin-left: 8%;}
+    .profile-boxProfilebuisness-avatarLink2{margin: 15px 0 0 5px;}
+    .profile-company-name a{font-size: 13px;}
+    .profile-boxProfile-name a{font-size: 11px;}
+    .profile-boxProfileCard-content::before{top: 50px !important;}
+    .right-side-menu{float: none;}
+   
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
@@ -9977,11 +9986,13 @@ end zalak 9-6 css*/
     position: absolute; top: -40px; width: 100%; z-index: 999;}
     .tabordion section article{left: 100%;}
     .profile-box{position: relative;}
-    .middle-part.container{padding: 30px 0 30px;}
-    .job-menu-profile{width: 100%; padding-bottom: 30px;}
+    .middle-part.container{padding: 40px 0 0px;}
+    .job-menu-profile{width: 100%; padding-bottom: 20px;}
     #paddingtop_fixed{padding-top: 44px !important;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
+    .buisness-profile-txext{width: 21%;}
+    .right_left_box_design{width: 79% !important;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 30%;}
@@ -10006,6 +10017,7 @@ end zalak 9-6 css*/
     .user-pic{width: 75px; height: 75px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
+    .profile-job-profile-menu ul li{padding-left: 0;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
