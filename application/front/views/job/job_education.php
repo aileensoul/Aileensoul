@@ -1577,7 +1577,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     //     required: true,
                                     //     regx:/^[a-zA-Z+-]/
 
-                                    // },
+                                     },
                                     'percentage[]': {
 
                                         required: true,
