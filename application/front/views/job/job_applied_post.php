@@ -18,15 +18,15 @@
 
 
 
-<body   class="page-container-bg-solid page-boxed">
+<body   class="page-container-bg-solid page-boxed custom-border">
     <!-- start header -->
 <?php echo $header; ?>
 <!-- End header -->
 
 <!-- END HEADER -->
-<?php echo $job_header2; ?>
+<?php echo $job_header2_border; ?>
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed_job">
 
             <div class="row" id="row1" style="display:none;">
@@ -57,8 +57,8 @@
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                      if($this->uri->segment(3) == $userid){
@@ -88,7 +88,7 @@
         </div>
        
 
-<div class="container">  
+<div class="container tablate-container">  
  
     <div class="upload-img">
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -116,7 +116,7 @@
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-9">  
+            <div class="right-side-menu col-md-9 padding_less_right">  
                 <ul class="">
                     <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('job/job_printpreview'); ?>"> Details</a>
                     </li>
@@ -133,6 +133,9 @@
             </div>
         </div>
     </div>
+    
+    </div> 
+    <div class="middle-part container">
     <div class="job-menu-profile">
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <div class="profile-text" >
@@ -155,7 +158,7 @@
             <!-- text head end -->
         </div>
     </div>
-    <div class="col-md-7 col-sm-7 follow_mid">
+    <div class="col-md-8 col-sm-8 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Applied Job</h3>
