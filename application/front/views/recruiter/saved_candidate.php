@@ -200,7 +200,7 @@
 
             <div  class="add-post-button">
         <?php if($returnpage == '') {?>
-        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+        <a class="btn btn-3 btn-3b" style="" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
         <?php } ?>
   </div>
   
