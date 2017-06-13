@@ -187,3 +187,10 @@ padding: 10px 10px 10px 10px ;}
     background-color: rgba(0, 0, 0, .3);
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
+.comment-details{color: black;}
+.comment-name{color: #1b8ab9;}
+.dis-n{display: none;}
+.comment-edit-butn button{margin: 0px;}
+/*.inputtype-edit-comment{position: relative;}
+.inputtype-edit-comment .comment-edit-button button{bottom: 0; margin-top: 0;}
+*/
