@@ -99,12 +99,10 @@
                     <div class="col-md-4 profile-box profile-box-left">
                     <div class="">
                    
-
-                            <div class="full-box-module">    
-
-                                <div class="profile-boxProfileCard  module">
- <div class="profile-boxProfileCard-cover"> 
-   <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+             <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
      href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>"  tabindex="-1" aria-hidden="true" rel="noopener" 
       title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
 
@@ -129,10 +127,10 @@
 
                                         </a>
                                     </div>
-
                                     <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
-                                <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>""  tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">
                                                 <?php
                                                 if ($freehiredata[0]['freelancer_hire_user_image']) {
                                                     ?>
@@ -146,38 +144,33 @@
                                                 }
                                                 ?>
                                             </a>
-                                        </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
+                                    </div>
+                                    <div class="right_left_box_design ">
+                                      <span class="profile-company-name ">
                                                 <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></a>  
                                             </span>
 
 
-       <div class="profile-boxProfile-name">
-          <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                            <div class="profile-boxProfile-name">
+                                               <a href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" title="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"><?php
            if ($freehiredata[0]['designation']) {
             echo $freehiredata[0]['designation'];
                  } else {
             echo "Designation";
                 }
-           ?></a></div>
-       </div>
-
-          <div class="profile-box-job-menu col-md-12 ">
-
-                                            <ul class="">
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a></li>
+           ?></a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                              <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a title="Employer Details"  class="padding_less_left" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>" > Details</a></li>
                                                 <li><a title="Post" href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Posts</a></li>
-<!--                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save'); ?>">Message</a>
-                                                </li>-->
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a title="Saved Freelancer" href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a></li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')) { ?> class="active" <?php } ?>><a title="Saved Freelancer"  class="padding_less_right" href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved</a></li>
+                                          
                                             </ul>
-
-                                        </div>
-
                                     </div>
-                                </div>
-                            </div>
+                                    </div>
+       </div>                             
+    </div>
                               <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
                         </div>

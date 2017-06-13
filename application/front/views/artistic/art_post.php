@@ -112,30 +112,7 @@
             });
 
 
-            // $(document).ready(function(){
-            //     $('.dropdown_hover').click(function(event){
-            //         event.stopPropagation();
-            //          $(".dropdown-content_hover").slideToggle("fast");
-            //     });
-            //     $(".dropdown-content_hover").on("dropdown_hover", function (event) {
-            //         event.stopPropagation();
-            //     });
-            // });
-
-            // $(document).on("dropdown_hover", function () {
-            //     $(".dropdown-content_hover").hide();
-            // });
-
-            // $(document).ready(function() {
-            //      $("body").click(function(event) {
-            //         $(".dropdown-content_hover").hide();
-            //         event.stopPropagation();
-            //     });
-
-            // });
-
-
-
+          
         </script>
     </head>
     <body>
@@ -148,11 +125,10 @@
                     <div class="profile-art-box profile-box-left col-md-4">
                         <?php ?>
 
-                        <div class="full-box-module">    
-
-                            <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">     
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                 <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
                                         <?php if ($artisticdata[0]['profile_background']) { ?>
                                             <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
                                             </div>
@@ -162,11 +138,11 @@
 
                                             </div>                                             <?php } ?>
                                     </a>
-                                </div>
-
-                                <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="buisness-profile-txext col-md-4">
-                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
                                             <?php if ($artisticdata[0]['art_user_image']) { ?>
                                                 <div class="data_img_2">   
@@ -180,43 +156,46 @@
                                             <!-- box image end -->
                                         </a>
                                     </div>
-                                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                        <span class="profile-company-name ">
-                                            <a  class="ml-4" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                    <div class="right_left_box_design ">
+                                    <span class="profile-company-name ">
+                                            <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                          
                                         <div class="profile-boxProfile-name">
-                                            <a class="pl-4" href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                                            <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
                                                 if ($artisticdata[0]['designation']) {
                                                     echo ucwords($artisticdata[0]['designation']);
                                                 } else {
                                                     echo "Designation";
                                                 }
-                                                ?></a></div>
+                                                ?>
+                                                  
+
+                                                </a>
 
 
-                                    </div>
+                                                </div>
 
-                                    <div class="profile-box-bui-menu  col-md-12">
 
-                                        <ul class="">
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
+                                               <ul class=" left_box_menubar">
+                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
                                             </li>
 
                                             <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
                                             </li>
 
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
+                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a class="padding_less_right"  title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
                                             </li>
-                                        </ul>
-
+                                          
+                                            </ul>
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
+                                    </div>
+       </div>                             
+    </div>
                         <div class="full-box-module_follow">
 
                             <!-- follower list start  -->  
@@ -1521,14 +1500,15 @@
                             ?>
 
 
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                            </div>
-
 
 
                         <?php } ?>
                         <!-- like commnet end -->
+                        
+                            <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
+                            </div>
+
                     </div>
                     </section>
                     <footer>

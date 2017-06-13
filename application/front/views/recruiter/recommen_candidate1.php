@@ -34,85 +34,77 @@
 
 
                     <div class="col-md-4 profile-box profile-box-left"><div class="">
-                            <div class="full-box-module">    
-
-                                <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">  
-                                        <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('recruiter/rec_profile'); ?>"
-                                           tabindex="-1"
-                                           aria-hidden="true"
-                                           rel="noopener">
-                                           
-                                            <!-- rash code start 12-4 -->
-
-                                       <?php
-                                       if ($recdata[0]['profile_background'] != '') {
-                                           ?>
-                                        <!-- box image start -->
-                                        <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path')  . $recdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                        <!-- box image end -->
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"  style="height: 95px;
-                                             width: 100%;">
-                                             <?php
-                                         }
-                                         ?>
-                                            <!-- rash code end 12-4 -->
-
-
-
-                                        </a></div>
-                                  
-                                     <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
-                                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                              <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
+                 aria-hidden="true" rel="noopener">
+               
+                <?php
+                 $image_ori = $recruiterdata1[0]['profile_background'];
+                if ($image_ori) {
+                        //echo "hii"; die();
+                                                                                              ?>
+                   <!-- box image start -->
+               <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path') . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                    <!-- box image end -->
+                         <?php
+                   } else {
+                             ?>
+                  <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
+                                <?php
+                             }
+                                 ?>
+                                        </a>
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                              <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
-                                                if ($recdata[0]['recruiter_user_image'] != '') {
+                                                if ($recruiterdata1[0]['recruiter_user_image'] != '') {
                                                     // echo "hii"; die();
                                                     ?>
-                       <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" >
+                       <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
                                    <?php
                               } else {
                            ?>
-                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
+                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
                             <?php
                                    }
                              ?>
                                             </a>
-                                        </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
-                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recdata['rec_firstname'] . ' ' . $recdata['rec_lastname']; ?>">   <?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></a>
+                                    </div>
+                                    <div class="right_left_box_design ">
+                                     <span class="profile-company-name ">
+                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
                                             </span>
+
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo ucwords($recdata[0]['designation']); ?>">
+                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
                                                     <?php
-                                                    if (ucwords($recdata[0]['designation'])) {
-                                                        echo ucwords($recdata[0]['designation']);
+                                                    if (ucwords($recruiterdata1[0]['designation'])) {
+                                                        echo ucwords($recruiterdata1[0]['designation']);
                                                     } else {
                                                         echo "Designation";
                                                     }
-                                                    ?></a></div>
-                                        </div>
-                                        <div class="profile-box-rec-menu  col-md-12">
-                                            <ul class="">
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/rec_profile'); ?>"> Profile</a>
-                                                </li>                                                
-                                                <li <?php if ($this->uri->segment(1) == 'filefilefilefilefilefilefilefilefilefilerecruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a title="Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
+                                                    ?></a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                               <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Details" href="<?php echo base_url('recruiter/rec_profile'); ?>"> Details</a>
+                                                </li>                                
+                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post') { ?> class="active" <?php } ?>><a title="Post" href="<?php echo base_url('recruiter/rec_post'); ?>">Post</a>
                                                 </li>
-                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
+                                                <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate') { ?> class="active" <?php } ?>><a title="Saved Candidate" class="padding_less_right" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                                                 </li>
+                                          
                                             </ul>
-                                        </div>
                                     </div>
-                                </div>
-
-                            </div>
+                                    </div>
+       </div>                             
+    </div>
                                <div  class="add-post-button">
 
                             <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>

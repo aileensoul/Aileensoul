@@ -452,12 +452,12 @@
 
 
                     <!-- user iamges start-->
-
+                    <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
-                                <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5></a>
+                                <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
                             </div>
 
                             <?php
@@ -519,7 +519,7 @@
 
                         </div>
                     </div>
-
+                    </a>
                     <!-- user images end-->
 
 
