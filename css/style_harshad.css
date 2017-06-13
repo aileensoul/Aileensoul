@@ -191,3 +191,6 @@ padding: 10px 10px 10px 10px ;}
 .comment-name{color: #1b8ab9;}
 .dis-n{display: none;}
 .comment-edit-butn button{margin: 0px;}
+/*.inputtype-edit-comment{position: relative;}
+.inputtype-edit-comment .comment-edit-button button{bottom: 0; margin-top: 0;}
+*/

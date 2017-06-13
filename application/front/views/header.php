@@ -639,7 +639,7 @@ $( document ).on( 'keydown', function ( e ) {
             }
             
             
-           /*$(function () {
+           $(function () {
                 $('a[href="#search"]').on('click', function(event) {
                     event.preventDefault();
                     $('#search').addClass('open');
@@ -652,13 +652,7 @@ $( document ).on( 'keydown', function ( e ) {
                     }
                 });
 
-
-                //Do not include! This prevents the form from submitting for DEMO purposes only!
-                $('form').submit(function(event) {
-                    event.preventDefault();
-                    return false;
-                })
-            });*/
+            });
         });
     </script>
     <!-- script for update all read notification end -->
