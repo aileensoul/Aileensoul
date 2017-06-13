@@ -5629,11 +5629,22 @@ class Artistic extends MY_Controller {
                         $cmtlikeuser .= '&nbsp;';
                         $cmtlikeuser .= 'others';
                     }
+                    
+                    
 
                     $cmtlikeuser .= '</div>';
                     $cmtlikeuser .= '</a>';
+                    
+                     $like_user_count =  '<span class="comment_like_count">'; 
+               if (count($commnetcount) > 0) { 
+              $like_user_count .= '' . count($commnetcount) . ''; 
+              $like_user_count .=     '</span>'; 
+              $like_user_count .= '<span> Like</span>';
+               }
+              
+              
                     //    echo "123456789"; die();           
-                    $like_user_count = count($commnetcount);
+                //    $like_user_count = count($commnetcount);
                     echo json_encode(
                             array("like" => $imglike1,
                                 "likeuser" => $cmtlikeuser,
@@ -5701,7 +5712,7 @@ class Artistic extends MY_Controller {
 
                     $imglike1 = '<li>';
                     $imglike1 .= '<a id="' . $post_image . '" onClick="post_likeimg(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
@@ -5749,7 +5760,14 @@ class Artistic extends MY_Controller {
                     $cmtlikeuser .= '</div>';
                     $cmtlikeuser .= '</a>';
                     //  echo $cmtlikeuser; die();  
-                    $like_user_count = count($commnetcount);
+               $like_user_count =  '<span class="comment_like_count">'; 
+               if (count($commnetcount) > 0) { 
+              $like_user_count .= '' . count($commnetcount) . ''; 
+              $like_user_count .=     '</span>'; 
+              $like_user_count .= '<span> Like</span>';
+               }
+              
+                   // $like_user_count = count($commnetcount);
                     echo json_encode(
                             array("like" => $imglike1,
                                 "likeuser" => $cmtlikeuser,
@@ -5942,11 +5960,20 @@ class Artistic extends MY_Controller {
                 $cmtcount .= '</i></a>';
             }
             // comment count variable end 
+            
+             $cntinsert =  '<span class="comment_count" >';
+     if (count($artcont) > 0) {
+           $cntinsert .= '' . count($artcont) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
         }
         //   echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => $cntinsert));
     }
 
     public function mulimg_comment() {
@@ -6690,11 +6717,22 @@ class Artistic extends MY_Controller {
                 $cmtcount .= '</i></a>';
             }
             // comment count variable end 
+            
+            
+             $cntinsert =  '<span class="comment_count" >';
+     if (count($artcont) > 0) {
+           $cntinsert .= '' . count($artcont) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
         }
         //   echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => $cntinsert,
+                    ));
     }
     
     
@@ -6844,10 +6882,20 @@ class Artistic extends MY_Controller {
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
             $cmtcount .= '</i></a>';
         }
+        
+         $cntinsert =  '<span class="comment_count" >';
+     if (count($artcomment) > 0) {
+           $cntinsert .= '' . count($artcomment) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => $cntinsert
+                    ));
     }
 
     //mulitple images commnet delete end 
@@ -7337,12 +7385,22 @@ class Artistic extends MY_Controller {
                 $cmtcount .= '</i></a>';
             }
             // comment count variable end 
+            
+              $cntinsert =  '<span class="comment_count" >';
+     if (count($artcont) > 0) {
+           $cntinsert .= '' . count($artcont) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+        
+           }
         }
         $cmtinsert .= '</div>';
         //   echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
-                    "count" => $cmtcount));
+                    "count" => $cmtcount,
+                    "commentcount" => $cntinsert
+                    ));
     }
 
     // khyati changes end 19-5
