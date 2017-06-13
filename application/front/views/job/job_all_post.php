@@ -782,3 +782,18 @@ $( "#searchplace" ).autocomplete({
                         $('#bidmodal').modal('show');
                     }
                 </script>
+
+
+                <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->
