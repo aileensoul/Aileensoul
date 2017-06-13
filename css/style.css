@@ -5243,7 +5243,7 @@ label.cameraButton input[accept*="camera"] {
     font-size: 16px;
 }
 .post-design-name {
-    padding-left: 12;
+    padding-left: 0;
 }
 .post-design-product span {
     padding: 0;

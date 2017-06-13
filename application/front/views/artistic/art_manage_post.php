@@ -1,4 +1,4 @@
-start head -->
+<!--start head -->
 <?php echo $head; ?>
 
 
