@@ -26,7 +26,7 @@
         <style>
             div.panel {
                       display: none;
-                                  }
+                        }
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script>
@@ -469,7 +469,7 @@
 
                                                                             if ($activedata) {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php } else { ?>
                                                                                 <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                                             <?php } ?>
@@ -507,18 +507,33 @@
                                                                 </ul>
                                                                  <ul class="col-md-6 like_cmnt_count">
 
-<li>
-<div class="like_count_ext">
-<span > 5 </span> 
-<span> Comment</span>
-</div>
-</li>
+ <li>
+                                                                <div class="like_cmmt_space like_count_ext_img<?php echo $artdata['image_id']; ?>">
+                                                                    <span class="comment_count" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
+                                                                    <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
+                                                                </div>
+                                                            </li>
 
-<li>
-<div class="comnt_count_ext">
-<span> 5 </span> 
-<span> Like</span>
-</div></li>
+                                                            <li>
+                                                                <div class="<?php echo 'comnt_count_ext_img' . $artdata['image_id']; ?>">
+                                                                    <span class="comment_like_count"> 
+                                                                       <?php
+                                                                        if (count($likecount) > 0) { 
+                                                                            echo count($likecount); ?>
+                                                                   </span> 
+                                                                    <span> Like</span>
+                                                                <?php   }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
                                         </ul>
                                                                 <!-- like comment div end -->
                                                             </div>
@@ -2656,8 +2671,9 @@
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                             //   $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                                 $('.insertcommentimg' + clicked_id).html(data.comment);
+                                                $('.like_count_ext_img' + clicked_id).html(data.commentcount);
 
                                             }
                                         });
@@ -2673,8 +2689,11 @@
                                                 $('textarea').each(function () {
                                                     $(this).val('');
                                                 });
-                                                $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                                
+                                                alert(clicked_id);
+                                             //   $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                                 $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                                $('.like_count_ext_img' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     }
@@ -2943,9 +2962,10 @@
                                 dataType: 'json',
                                 data: 'post_image_id=' + clicked_id,
                                 success: function (data) {
-                                    ;
+                                    
                                     $('.' + 'likepostimg' + clicked_id).html(data.like);
                                     $('.likeusernameimg' + clicked_id).html(data.likeuser);
+                                    $('.comnt_count_ext_img' + clicked_id).html(data.like_user_count);
 
                                     $('.likeduserlistimg' + clicked_id).hide();
                                     if (data.like_user_count == '0') {
@@ -3055,7 +3075,8 @@
                                 success: function (data) {
                                     //alert('.' + 'insertcomment' + clicked_id);
                                     $('.' + 'insertcommentimg' + post_delete.value).html(data.comment);
-                                    $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+                                  //  $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+                                    $('.like_count_ext_img' + post_delete.value).html(data.commentcount);
                                     $('.post-design-commnet-box').show();
                                 }
                             });
@@ -3089,8 +3110,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                                      //  $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                         $('.insertcommentimg' + clicked_id).html(data.comment);
+                                        $('.like_count_ext_img' + clicked_id).html(data.commentcount);
 
                                     }
                                 });
@@ -3106,8 +3128,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
+//                                        $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                         $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                                        $('.like_count_ext_img' + clicked_id).html(data.commentcount);
                                     }
                                 });
                             }
@@ -3208,7 +3231,9 @@
                                 success: function (data) {// alert(data);
 
                                     $('.' + 'insertcommentimgtwo' + post_delete1.value).html(data.comment);
-                                    $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
+                                  //  $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
+                                    $('.like_count_ext_img' + post_delete1.value).html(data.commentcount);
+                                  
                                     $('.post-design-commnet-box').show();
 
                                 }

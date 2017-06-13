@@ -116,7 +116,10 @@
                         <div class="common-form">
                             <div class="job-saved-boxe_2" >
                                 <h3>Educational  Qualification</h3>
-                                <div class="contact-frnd-post1" style="padding: 10px; height: 100%;">
+                                
+                              
+                                
+                                <div class="contact-frnd-post1" style="padding: 30px 20px 0; height: 100%;">
 
                                     <div class="tabordion">
 
@@ -241,7 +244,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option2" class="label-d">Secondary</label>
+                                            <label for="option2" class="label-d">S.S.C</label>
                                     <article class="none_aaaart">
                                     <h3>Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
@@ -360,7 +363,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option3" class="label-d">Higher Secondary</label>
+                                            <label for="option3" class="label-d">H.S.C</label>
                                       <article class="none_aaaart">
                                       <h3>Higher Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
@@ -489,7 +492,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option4" class="label-d">Graduation</label>
+                                            <label for="option4" class="label-d">Degree</label>
                                             <article class="none_aaaart">
                                             <h3>Graduation</h3>
                                   <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>

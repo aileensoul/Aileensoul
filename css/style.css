@@ -5563,6 +5563,8 @@ label.cameraButton input[accept*="camera"] {
 }
 .tabordion section {
     display: block;
+    width: 24%;
+    float: left;
 }
 .tabordion section .label-d {
     background: #1b8ab9!important;
@@ -5579,11 +5581,13 @@ label.cameraButton input[accept*="camera"] {
 }
 .tabordion section article {
     display: none;
-    left: 230px;
+   /* left: 230px;*/
     min-width: 300px;
-    padding: 0 0 0 21px;
+    padding: 0;
     position: absolute;
-    top: 0;
+    top: 95px;
+    width: 100%;
+    left: 0;
 }
 /*
 .tabordion section article:after {
@@ -9894,6 +9898,15 @@ end zalak 9-6 css*/
 .custom-right{margin-left: 1%;}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
 #row2{border-left: 0;}
+
+.tabordion section .label-d{width: 70px; height: 70px; border-radius: 100%; margin: 0 auto; padding: 22px 0 !important;
+text-align: center;}
+.tabordion input[name="sections"]:checked + label::after{font-size: 0;}
+.like_cmnt_count{padding-top: 7px !important;}
+
+/***  eduction tabbing  ***/
+
+
 /***  media query  ***/
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
@@ -9993,6 +10006,7 @@ end zalak 9-6 css*/
     .profile-box{position: relative;}
     .job-menu-profile{width: 100%; padding-bottom: 20px;}
     #paddingtop_fixed{padding-top: 44px !important;}
+    #paddingtop_fixed_job{padding-top: 44px !important;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
     .buisness-profile-txext{width: 21%;}
