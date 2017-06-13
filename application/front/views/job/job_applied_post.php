@@ -17,13 +17,14 @@
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 
-<!-- start header -->
+
+<body   class="page-container-bg-solid page-boxed">
+    <!-- start header -->
 <?php echo $header; ?>
 <!-- End header -->
 
 <!-- END HEADER -->
 <?php echo $job_header2; ?>
-<body   class="page-container-bg-solid page-boxed">
 
     <section>
         <div class="container" id="paddingtop_fixed_job">
