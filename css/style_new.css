@@ -118,5 +118,7 @@
 /*.post-design-product .else_post_d{padding: 0px 5px;
     padding-right: 0;}*/
 
-input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px;
-}
+input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px;}
+
+.profile-company-name a{margin-left: 6px !important;}
+.mar_left{margin-left: 6px !important;}
