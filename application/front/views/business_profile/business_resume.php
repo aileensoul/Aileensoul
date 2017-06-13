@@ -610,8 +610,7 @@
                                                 </div>
                                             </div>
                                             <div class="profile-job-profile-menu">
-                                                <ul class="clearfix">
-                                                    <li>
+                                              
                                                         <div  class="buisness-profile-pic">
                          <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);  ?>" alt="" > -->
                                                             <!-- 
@@ -635,9 +634,12 @@
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                        </div></div>
-                                                                    <div class="view_bui"> view all</div>
+                                                                        <div class="view_bui"> <a >view all</a></div>
 
+                                                                        </div>
+
+                                                                        </div>
+                                                                    
 
 
                                                                 <?php
@@ -680,8 +682,7 @@ foreach ($busimagedata as $image) {
 
                                                             <!-- 
                                                             popup -->
-                                                    </li>
-                                                </ul>
+                                                  
                                             </div>
                                         </div> 
                                         <?php

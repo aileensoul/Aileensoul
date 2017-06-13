@@ -1,397 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 
-<style>
-
-    .okk{
-        text-align: center;
-    }
-
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-<!--post save success pop up style strat -->
-<style>
-
-    /* The Modal (background) */
-    .modal2 {
-        display: none;
-        position: fixed;
-        /*  z-index: 9999999;*/
-        padding-top: 35px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-
-    /* Modal Content */
-    .modal-content2 {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 65%;
-        max-width: 1200px;
-    }
-
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-
-    /* The Close Button */
-    .close2 {
-        color: white;
-        position: absolute;
-        top: 10px;
-        right: 196px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-
-    .close2:hover,
-    .close2:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-
-
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
-    }
-
-    .demo {
-        opacity: 0.6;
-    }
-
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-
-
-    .hover-shadow:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    }
-    /*!
-     * bootstrap-vertical-tabs - v1.2.2
-     * https://dbtek.github.io/bootstrap-vertical-tabs
-     * 2016-12-02
-     * Copyright (c) 2016 İsmail Demirbilek
-     * License: MIT
-     */
-    .tabs-left, .tabs-right {
-        border-bottom: none;
-        padding-top: 2px;
-    }
-    .tabs-left {
-        /*border-right: 1px solid #ddd;*/
-        padding-top: 15px;
-        height: 100%;
-    }
-    .tabs-right {
-        border-left: 1px solid #ddd;
-    }
-    .tabs-left>li, .tabs-right>li {
-        float: none;
-        margin-bottom: 2px;
-    }
-    .tabs-left>li {
-        margin-right: -1px;
-        padding: 0;
-    }
-    .tabs-right>li {
-        margin-left: -1px;
-    }
-    .tabs-left>li.active>a,
-    .tabs-left>li.active>a:hover,
-    .tabs-left>li.active>a:focus {
-        border-bottom-color: #ddd;
-        border-right-color: transparent;
-    }
-
-    .tabs-right>li.active>a,
-    .tabs-right>li.active>a:hover,
-    .tabs-right>li.active>a:focus {
-        border-bottom: 1px solid #ddd;
-        border-left-color: transparent;
-    }
-    .tabs-left>li>a {
-        /*border-radius: 4px 0 0 4px;*/
-        margin-right: 0;
-        display:block;
-        letter-spacing: 2px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .tabs-right>li>a {
-        border-radius: 0 4px 4px 0;
-        margin-right: 0;
-
-    }
-    .sideways {
-        margin-top:50px;
-        border: none;
-        position: relative;
-    }
-    .sideways>li {
-        height: 20px;
-        width: 120px;
-        margin-bottom: 100px;
-    }
-    .sideways>li>a {
-        border-bottom: 1px solid #ddd;
-        border-right-color: transparent;
-        text-align: center;
-        border-radius: 4px 4px 0px 0px;
-    }
-    .sideways>li.active>a,
-    .sideways>li.active>a:hover,
-    .sideways>li.active>a:focus {
-        border-bottom-color: transparent;
-        border-right-color: #ddd;
-        border-left-color: #ddd;
-    }
-    .sideways.tabs-left {
-        left: -50px;
-    }
-    .sideways.tabs-right {
-        right: -50px;
-    }
-    .sideways.tabs-right>li {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-    .sideways.tabs-left>li {
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-
-    .okk{
-        text-align: center;
-    }
-
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    .popup .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
-
-<!--post save success pop up style end -->
-
-<style type="text/css">
-
-    .thumb {
-        width:99px;
-        height: 99px;
-        margin: 0.2em -0.7em 0 0;
-    }
-    .remove_thumb {
-        position: relative;
-        top: -38px;
-        right: 5px;
-        background: black;
-        color: white;
-        border-radius: 50px;
-        font-size: 1.5em;
-        padding: 0 0.3em 0;
-        text-align: center;
-        cursor: pointer;
-    }
-    .remove_thumb:before {
-        content: "×";
-    }
-    .popup-textarea .description{
-        width: 100%;
-        height: 90px;
-        color: #999999;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-        font-size: 16px;
-        resize: none;
-    }
-
-
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -506,80 +115,90 @@
                 <div class="row">
 
 
-                    <div class="col-md-4"><div class="profile-box profile-box-left">
+                    <div class="col-md-4 profile-box profile-box-left"><div class="">
 
-                            <div class="full-box-module">    
-                                <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">    
-                                        <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                            <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                             <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                            href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
                                            tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                             <!-- box image start -->
                                             <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <img src="<?php echo base_url(BUSBGIMG . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%; ">
-                                                <?php
+                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php
                                             } else {
                                                 ?>
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>"  style="height: 95px; width: 100%;">
-                                            <?php } ?>
+                                                <div> 
+                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php } ?>
                                         </a>
                                     </div>
                                     <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <img  src="<?php echo base_url(USERIMAGE . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                    <div class="left_iner_img_profile"> 
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                    </div>
                                                 <?php } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                <?php } ?>                           
+                                                  <div class="left_iner_img_profile">  
+                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                    </div>  <?php } ?>                           
                                                 <!-- 
                         <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
                         width: 68px;">
                                                 -->
                                             </a>
-                                        </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
-                                                <a style="margin-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                    </div>
+                                    <div class="right_left_box_design ">
+                                      <span class="profile-company-name ">
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
                                                     <?php echo ucwords($businessdata[0]['company_name']); ?>
                                                 </a> 
                                             </span>
-                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+
+                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a style="padding-left: 1px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                     <?php echo $category; ?>
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                    <?php
+                                                    if ($category) {
+                                                        echo $category;
+                                                    } else {
+                                                        echo $businessdata[0]['other_industrial'];
+                                                    }
+                                                    ?>
                                                 </a>
                                             </div>
-                                        </div>
-                                        <div class="profile-box-bui-menu  col-md-12">
-                                            <ul class="">
-                                                <li 
+                                               <ul class=" left_box_menubar">
+                                                <li
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                                                    <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
                                                     </a>
                                                 </li>
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
                                                         <br> (<?php echo (count($businessfollowerdata)); ?>)
                                                     </a>
                                                 </li>
-                                                <li 
+                                                <li  
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
                                                     <?php } ?>>
-                                                    <a href="<?php echo base_url('business_profile/following'); ?>">Following 
+                                                    <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    </div>
+       </div>                             
+    </div>
 
 
                             <!--  <div  class="add-post-button">
@@ -595,7 +214,9 @@
                     -->
                     <!-- The Modal -->
 
-                    <div class="col-md-7 col-sm-7 all-form-content ">
+                       <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+
+                   
 
                         <!-- body content start-->
 
@@ -745,7 +366,7 @@
 
 
                                                 <div id="two_images_bui" >
-                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url(BUSPOSTIMAGE . $data['image_name']) ?>" onclick="openModal();
                                                                     currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                 </div>
 
@@ -756,9 +377,9 @@
                                             <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                 <!-- one pdf start -->
-                                                <div>
+                                                     <div id="basic-responsive-image">
                                                     <a href="<?php echo base_url('business_profile/creat_pdf/' . $data['image_id']) ?>"><div class="pdf_img">
-                                                            <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
+                                                            <img src="<?php echo base_url('images/PDF.jpg') ?>" >
                                                         </div></a>
                                                 </div>
                                                 <!-- one pdf end -->
@@ -824,8 +445,8 @@
 
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <div>
-                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                    <div class="slider_img">
+                                                        <img src="<?php echo base_url(BUSPOSTIMAGE . $busdata['image_name']) ?>" >
                                                     </div>
 
                                                     <!-- like comment start -->
