@@ -48,11 +48,11 @@
                                 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix')); ?>
                             <ul class="business_pf_ct_person_detail">
-                                <li><b>Comapny Name: </b> <span><?php echo $contactperson[0]['company_name'];?></span></li>
-                                <li><b>Contact Person: </b><span><?php echo $contactperson[0]['contact_person'];?></span></li>
-                                <li><b >Phone No: </b><?php echo $contactperson[0]['contact_mobile'];?></li>
-                                <li><b>WebSite: </b><?php echo $contactperson[0]['contact_website'];?></li>
-                                <li><b>Email Id: </b> <?php echo $contactperson[0]['contact_email'];?></li>
+                                <li><b>Comapny Name </b> <span><?php echo $contactperson[0]['company_name'];?></span></li>
+                                <li><b>Contact Person </b><span><?php echo $contactperson[0]['contact_person'];?></span></li>
+                                <li><b >Phone No </b><span><?php echo $contactperson[0]['contact_mobile'];?></span></li>
+                                <li><b>WebSite </b><span><?php echo $contactperson[0]['contact_website'];?></span></li>
+                                <li><b>Email Id </b><span> <?php echo $contactperson[0]['contact_email'];?></span></li>
                                
                             </ul>
                             <div class="business_pf_ct_ clearfix">

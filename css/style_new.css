@@ -122,3 +122,20 @@ input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px
 
 .profile-company-name a{margin-left: 6px !important;}
 .mar_left{margin-left: 6px !important;}
+
+
+.business_pf_ct_person_form form  ul li span{
+    word-wrap: break-word;
+    word-break: break-word;
+    /* text-align: justify; */
+    padding-right: 10px !important;
+    display: flex !important;
+    float: right;
+    width: 65% !important;
+    /* display: inline-block; */
+}
+.business_pf_ct_person_form form  ul li span::before {
+  content: " :";
+    padding-right: 20px;
+    float: left;
+}
