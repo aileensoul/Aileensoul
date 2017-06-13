@@ -1,4 +1,4 @@
-start head -->
+<!--start head -->
 
 <?php echo $head; ?>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
