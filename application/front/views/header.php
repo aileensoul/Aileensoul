@@ -639,7 +639,7 @@ $( document ).on( 'keydown', function ( e ) {
             }
             
             
-            $(function () {
+           /*$(function () {
                 $('a[href="#search"]').on('click', function(event) {
                     event.preventDefault();
                     $('#search').addClass('open');
@@ -658,7 +658,7 @@ $( document ).on( 'keydown', function ( e ) {
                     event.preventDefault();
                     return false;
                 })
-            });
+            });*/
         });
     </script>
     <!-- script for update all read notification end -->
