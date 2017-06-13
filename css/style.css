@@ -9900,7 +9900,7 @@ end zalak 9-6 css*/
 }
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
-    #paddingtop_fixed_job{padding-top:20px !important; }
+    #paddingtop_fixed_job{padding-top:54px !important; }
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
 }
@@ -9933,6 +9933,7 @@ end zalak 9-6 css*/
     .job_edu_graduation_nextbtnbox{position: inherit !important; margin-top: 30px;}
     .left-side-bar ul li.active::after{top:6px;}
     #paddingtop_fixed.container{padding-left: 0; padding-right: 0;}
+    #paddingtop_fixed_job.container{padding-left: 0; padding-right: 0;}
     #row2{width: 100%; border: none;}
     .container.tablate-container{padding-left: 0; padding-right: 0;}
     .right-side-menu{/*margin-top: -2px;*/}
@@ -9950,9 +9951,13 @@ end zalak 9-6 css*/
 @media screen and (max-width: 800px) {
     .custom-right{margin-left: 0%;}
 }
+@media screen and (max-width: 768px) {
+    .middle-part.container{padding: 40px 0 0px;}
+}
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
+    .profile-main-rec-box-menu li a{padding: 11px 13px;}
     #notificationLink span{top:-5px; right:7px;}
     .header ul li a{padding:5px 10px !important;}
     .main-menu-right{padding-top:6px;}
@@ -9986,7 +9991,6 @@ end zalak 9-6 css*/
     position: absolute; top: -40px; width: 100%; z-index: 999;}
     .tabordion section article{left: 100%;}
     .profile-box{position: relative;}
-    .middle-part.container{padding: 40px 0 0px;}
     .job-menu-profile{width: 100%; padding-bottom: 20px;}
     #paddingtop_fixed{padding-top: 44px !important;}
     .right-side-menu{padding-left: 20%;}
