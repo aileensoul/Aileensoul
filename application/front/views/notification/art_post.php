@@ -3,554 +3,6 @@
 <?php echo $head; ?>
 
 
-<style>
-    /*body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    */
-    .okk{
-        text-align: center;
-    }
-
-    /*   .popup .okbtn{
-           position: absolute;
-           transition: all 200ms;
-           font-size: 18px;
-           font-weight: bold;
-           text-decoration: none;
-           color: #fff;
-           padding: 8px 18px;
-           background-color: darkcyan;
-           left: 25px;
-           margin-top: 15px;
-           width: 100px; 
-           border-radius: 8px;
-       }
-    */
-    .pop_content .okbtn{
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        left: 170px;
-        margin-top: 8px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-
-    /*  .popup .cnclbtn {
-          position: absolute;
-          transition: all 200ms;
-          font-size: 18px;
-          font-weight: bold;
-          text-decoration: none;
-          color: #fff;
-          padding: 8px 18px;
-          background-color: darkcyan;
-          right: 25px;
-          margin-top: 15px;
-          width: 100px;
-          border-radius: 8px;
-      } */
-    .pop_content .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: #0A2C5D;
-        right: 170px;
-        margin-top: 8px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    .model_ok_cancel{
-        width:200px !important;
-    }
-
-    /*
-        @media screen and (max-width: 700px){
-            .box{
-                width: 70%;
-            }
-            .popup{
-                width: 70%;
-            }
-        } */
-
-
-</style>
-<!--post save success pop up style strat -->
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-size: cover;
-        height: 100vh;
-    }
-    /* The Modal (background) */
-    .modal2 {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-    /* Modal Content */
-    .modal-content2 {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 65%;
-        max-width: 1200px;
-    }
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-    /* The Close Button */
-    .close2 {
-        color: white;
-        position: absolute;
-        top: 75px;
-        right: 196px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-    .close2:hover,
-    .close2:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
-    }
-    .demo {
-        opacity: 0.6;
-    }
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-    .hover-shadow:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    }
-    /*!
-     * bootstrap-vertical-tabs - v1.2.2
-     * https://dbtek.github.io/bootstrap-vertical-tabs
-     * 2016-12-02
-     * Copyright (c) 2016 İsmail Demirbilek
-     * License: MIT
-     */
-    .tabs-left, .tabs-right {
-        border-bottom: none;
-        padding-top: 2px;
-    }
-    .tabs-left {
-        /*border-right: 1px solid #ddd;*/
-        padding-top: 15px;
-        height: 100%;
-    }
-    .tabs-right {
-        border-left: 1px solid #ddd;
-    }
-    .tabs-left>li, .tabs-right>li {
-        float: none;
-        margin-bottom: 2px;
-    }
-    .tabs-left>li {
-        margin-right: -1px;
-        padding: 0;
-    }
-    .tabs-right>li {
-        margin-left: -1px;
-    }
-    .tabs-left>li.active>a,
-    .tabs-left>li.active>a:hover,
-    .tabs-left>li.active>a:focus {
-        border-bottom-color: #ddd;
-        border-right-color: transparent;
-    }
-    .tabs-right>li.active>a,
-    .tabs-right>li.active>a:hover,
-    .tabs-right>li.active>a:focus {
-        border-bottom: 1px solid #ddd;
-        border-left-color: transparent;
-    }
-    .tabs-left>li>a {
-        /*border-radius: 4px 0 0 4px;*/
-        margin-right: 0;
-        display:block;
-        letter-spacing: 2px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .tabs-right>li>a {
-        border-radius: 0 4px 4px 0;
-        margin-right: 0;
-    }
-    .sideways {
-        margin-top:50px;
-        border: none;
-        position: relative;
-    }
-    .sideways>li {
-        height: 20px;
-        width: 120px;
-        margin-bottom: 100px;
-    }
-    .sideways>li>a {
-        border-bottom: 1px solid #ddd;
-        border-right-color: transparent;
-        text-align: center;
-        border-radius: 4px 4px 0px 0px;
-    }
-    .sideways>li.active>a,
-    .sideways>li.active>a:hover,
-    .sideways>li.active>a:focus {
-        border-bottom-color: transparent;
-        border-right-color: #ddd;
-        border-left-color: #ddd;
-    }
-    .sideways.tabs-left {
-        left: -50px;
-    }
-    .sideways.tabs-right {
-        right: -50px;
-    }
-    .sideways.tabs-right>li {
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-    }
-    .sideways.tabs-left>li {
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
-    }
-    .box {
-        width: 40%;
-        margin: 0 auto;
-        background: rgba(255,255,255,0.2);
-        padding: 35px;
-        border: 2px solid #fff;
-        border-radius: 20px/50px;
-        background-clip: padding-box;
-        text-align: center;
-    }
-    .overlay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.3);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-        z-index: 10;
-    }
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-    }
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
-        width: 30%;
-        height: 200px;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    .okk{
-        text-align: center;
-    }.row > .column {
-        padding: 0 8px;
-    }
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .column {
-        float: left;
-        width: 25%;
-    }
-    /* The Modal (background) */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: black;
-    }
-    /* Modal Content */
-    .modal-content {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 0;
-        width: 90%;
-        max-width: 1200px;
-    }
-    /* The Close Button */
-    .close {
-        color: white;
-        position: absolute;
-        top: 10px;
-        right: 25px;
-        font-size: 35px;
-        font-weight: bold;
-    }
-    .close:hover,
-    .close:focus {
-        color: #999;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .mySlides {
-        display: none;
-    }
-    .cursor {
-        cursor: pointer
-    }
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -50px;
-        color: white;
-        font-weight: bold;
-        font-size: 20px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-        -webkit-user-select: none;
-    }
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    /* Number text (1/3 etc) */
-    .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-    }
-    img {
-        margin-bottom: -4px;
-    }
-    .caption-container {
-        text-align: center;
-        background-color: black;
-        padding: 2px 16px;
-        color: white;
-    }
-    .demo {
-        opacity: 0.6;
-    }
-    .active,
-    .demo:hover {
-        opacity: 1;
-    }
-    img.hover-shadow {
-        transition: 0.3s
-    }
-    .hover-shadow:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-    }
-    .popup .okbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        left: 25px;
-        margin-top: 15px;
-        width: 100px; 
-        border-radius: 8px;
-    }
-    .popup .cnclbtn {
-        position: absolute;
-        transition: all 200ms;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        padding: 8px 18px;
-        background-color: darkcyan;
-        right: 25px;
-        margin-top: 15px;
-        width: 100px;
-        border-radius: 8px;
-    }
-    .popup .pop_content {
-        text-align: center;
-        margin-top: 40px;
-
-    }
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-</style>
-<!--post save success pop up style end -->
-<style type="text/css">
-
-    .thumb {
-        width:99px;
-        height: 99px;
-        margin: 0.2em -0.7em 0 0;
-    }
-    .remove_thumb {
-        position: relative;
-        top: -38px;
-        right: 5px;
-        background: black;
-        color: white;
-        border-radius: 50px;
-        font-size: 1.5em;
-        padding: 0 0.3em 0;
-        text-align: center;
-        cursor: pointer;
-    }
-    .remove_thumb:before {
-        content: "×";
-    }
-    .popup-textarea .description{
-        width: 100%;
-        height: 90px;
-        color: #999999;
-        padding: 12px 20px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f8f8f8;
-        font-size: 16px;
-        resize: none;
-    }
-</style>
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -648,78 +100,79 @@
             <div class="container">
                 <div class="row">
 
-                   <div class="col-md-4"> <div class="profile-box profile-box-left ">
+                   <div class="col-md-4 profile-box profile-box-left "> <div class="">
 
-                        <div class="full-box-module">    
-
-                            <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">     
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                   <?php if ($artisticdata[0]['profile_background']) { ?>
-                                      <div class="data-img">  <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path')  . $artisticdata[0]['profile_background']); ?>" class="bgImage" style="height: 95px; width: 393px; " >
-                                      </div>
-                                         <?php } else { ?>
+                     <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                        <?php if ($artisticdata[0]['profile_background']) { ?>
+                                            <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
+                                            </div>
+                                        <?php } else { ?>
                                             <div class="data_img">
-                                            <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
 
                                             </div>                                             <?php } ?>
-                                   
                                     </a>
-                                </div>
-
-                                <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="buisness-profile-txext col-md-4">
-                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
                                             <?php if ($artisticdata[0]['art_user_image']) { ?>
-                                             <div class="data_img_2">   
-                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
-                                             </div>
-                                                 <?php } else { ?> 
-                                            <div class="data_img_2">
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                                            </div>
-                                                    <?php } ?>
+                                                <div class="data_img_2">   
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                                </div>
+                                            <?php } else { ?> 
+                                                <div class="data_img_2">
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                                </div>
+                                            <?php } ?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
-                                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                        <span class="profile-company-name ">
-                                            <a style="margin-left: 8px;" href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                    <div class="right_left_box_design ">
+                                    <span class="profile-company-name ">
+                                            <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                          
                                         <div class="profile-boxProfile-name">
-                                            <a style="padding-left: 7px;" href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                                            <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
                                                 if ($artisticdata[0]['designation']) {
                                                     echo ucwords($artisticdata[0]['designation']);
                                                 } else {
                                                     echo "Designation";
                                                 }
-                                                ?></a></div>
+                                                ?>
+                                                  
+
+                                                </a>
 
 
+                                                </div>
+
+
+                                               <ul class=" left_box_menubar">
+                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
+                                            </li>
+
+                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
+                                            </li>
+
+                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a class="padding_less_right"  title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
+                                            </li>
+                                          
+                                            </ul>
                                     </div>
-
-                                    <div class="profile-box-bui-menu  col-md-12">
-
-                                        <ul class="">
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                                            </li>
-                                        </ul>
-
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
+       </div>                             
+    </div>
                     </div>
                     <!-- cover pic end -->
                     <?php
@@ -770,8 +223,7 @@
 
 
                     
-                    <div class="col-md-7 col-sm-7 all-form-content">
-
+                      <div class="col-md-7 col-sm-7 col-md-push-4 col-md-push-4 custom-right">
                         <div class="col-md-12 col-sm-12 post-design-box">
 
                             <div class=" ">
@@ -968,7 +420,7 @@
                                                                                     ?>
                                                                                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                                                 <?php } else { ?>
-                                                                                    <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                   <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                                                 <?php } ?>
 
 
