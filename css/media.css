@@ -308,7 +308,7 @@
       /* menu  on */
        .left-side-menu {  width: 18%; float: left; }
     .profile-main-rec-box-menu { /*height: 6.3%;*/  margin-top: -79px; }
-     .right-side-menu { float: left; height: auto; }
+     .right-side-menu { /*float: left; height: auto;*/ }
     
        .flw_msg_btn { margin-top: 0px; }
        .flw_msg_btn ul li a { padding: 6px 11px; font-size: 12px; margin-top: 5px; }

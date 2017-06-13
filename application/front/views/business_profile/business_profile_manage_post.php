@@ -3198,6 +3198,17 @@
                     } else {
                         $('.dropdown-content2').removeClass('show');
                     }
+
+
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) { 
+
+                    document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                    $(".dropdown-content2").removeClass('show');
+
+                            }
+                           
+                        }); 
                 }
 
                 // Close the dropdown if the user clicks outside of it
@@ -3220,6 +3231,17 @@
                  toggle between hiding and showing the dropdown content */
                 function myFunction(clicked_id) {
                     document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+
+                    $( document ).on( 'keydown', function ( e ) {
+                                        if ( e.keyCode === 27 ) { 
+
+                    document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                    $(".dropdown-content2").removeClass('show');
+
+                            }
+                           
+                        }); 
                 }
 
                 // Close the dropdown if the user clicks outside of it
@@ -4056,10 +4078,35 @@ jQuery(document).mouseup(function (e) {
 // pop up open & close aarati code end
 </script>
  <script>
-                        function picpopup() {
+    function picpopup() {
                             
                       
+     $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+      $('#bidmodal').modal('show');
+        }
+ </script>
+
+
+ <!-- popup open when profile pic and cover pic formate wrong -->
+<script>
+     function picpopup() {
+
             $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
             $('#bidmodal').modal('show');
                         }
-                    </script>
+      </script>
+      <!-- popup end -->
+
+
+ <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end

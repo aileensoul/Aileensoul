@@ -325,7 +325,7 @@ function text2link($text){
                                         if($returnpage == ''){
                                         ?>  
                                            <li><b> City</b> <span>
-                                   <?php echo PROFILENA; }else{}?></span></li>
+                                   <?php echo PROFILENA;?> </span></li> <}?phpelse{}?>
                                                                
                                                             
                                                 <?php }?>
@@ -334,7 +334,7 @@ function text2link($text){
                                         if($returnpage == ''){
                                         ?>  
                                            <li><b>Pincode</b> <span>
-                                   <?php echo PROFILENA; }else{}?></span></li>
+                                   <?php echo PROFILENA; ?> </span></li><?php }else{}?>
                                                                
                                                             
                                                 <?php }?>

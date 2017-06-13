@@ -371,13 +371,30 @@ if ($artisticdata[0]['user_id'] === $userid) {
                                             <li> <b>State </b><span> <?php echo
 $this->db->get_where('states', array('state_id' => $artisticdata[0]['art_state']))->row()->state_name;
 ?> </span>
+
+<?php if($artisticdata[0]['art_city']){?>
                                             </li>
                                             <li><b> City</b> <span><?php echo
 $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))->row()->city_name;
+echo "jjjj";
 ?></span> </li>
+<?php }  else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b> City</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>
 
+
+                                            <?php if($artisticdata[0]['art_pincode']){ ?>
                                             <li> <b>Pincode </b><span> <?php echo $artisticdata[0]['art_pincode']; ?></span>
                                             </li>
+                                            <?php } else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b>Pincode</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>
                                             <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
                                             </li>
 
@@ -446,10 +463,24 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                             </li>
 
 
-
+                                <?php if($artisticdata[0]['art_desc_art']){ ?>
 
                                             <li><b> Description of your art</b> <span><?php echo $this->common->make_links($artisticdata[0]['art_desc_art']); ?></span> </li>
-                                            <li><b> How You are Inspire</b> <span><?php echo $artisticdata[0]['art_inspire']; ?></span> </li>   
+                                            <?php } else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b>Description of your art</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>
+
+                                        <?php if($artisticdata[0]['art_inspire']){?>
+                                         <li><b> How You are Inspire</b> <span><?php echo $artisticdata[0]['art_inspire']; ?></span> </li>
+                                         <?php } else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b>Description of your art</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>  
 
                                         </ul>
                                     </div>
@@ -469,12 +500,12 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                 </div>
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-
-                                        <li><b>Attachment</b> <span>
-                                                <div class="buisness-profile-pic">
-<?php
+                                        <?php
 if ($artisticdata[0]['art_bestofmine']) {
     ?>
+                                        <li><b>Attachment</b> <span>
+                                                <div class="buisness-profile-pic">
+
 
 
     <?php
@@ -490,27 +521,23 @@ if ($artisticdata[0]['art_bestofmine']) {
 
     if (in_array($ext, $allowed)) {
         ?>
-                                                            <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
-                                                        <?php } elseif (in_array($ext, $allowespdf)) {
-                                                            ?>
-                                                            <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
-                                                        <?php
-                                                        } elseif (in_array($ext, $allowesvideo)) {
-                                                            ?> 
+              <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
+         <?php } elseif (in_array($ext, $allowespdf)) { ?>
+        <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
+         <?php
+         } elseif (in_array($ext, $allowesvideo)) { ?> 
 
-                                                            <video width="320" height="240" controls>
-                                                                <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
-                                                                <source src="movie.ogg" type="video/ogg">
-                                                                Your browser does not support the video tag.
-                                                            </video>
-                                                            <?php
-                                                        } elseif (in_array($ext, $allowesaudio)) {
-                                                            ?>
-                                                            <audio width="120" height="100" controls>
+                     <video width="320" height="240" controls>
+                 <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
+                     <source src="movie.ogg" type="video/ogg">
+                         Your browser does not support the video tag.
+                             </video>
+             <?php  } elseif (in_array($ext, $allowesaudio)) { ?>
+              <audio width="120" height="100" controls>
 
-                                                                <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
-                                                                <source src="movie.ogg" type="audio/ogg">
-                                                                Your browser does not support the audio tag.
+          <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
+              <source src="movie.ogg" type="audio/ogg">
+             Your browser does not support the audio tag.
 
                                                             </audio>
 
@@ -576,8 +603,14 @@ if ($artisticdata[0]['art_bestofmine']) {
                                             </span>
                                             </div>
                                         </li> -->
-                                        <li> <b>Details of Portfolio </b> <span> <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?> </span>
-                                        </li>
+                         <?php if($artisticdata[0]['art_portfolio']){ ?>
+                 <li> <b>Details of Portfolio </b> <span> <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?> </span></li>
+                         <?php } else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b>Details of Portfolio</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>  
 
                                     </ul>
                                 </div>

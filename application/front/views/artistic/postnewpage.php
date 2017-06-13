@@ -429,8 +429,9 @@
 
                                     <!-- silder start -->
                                     <div id="myModal1" class="modal2">
-                                        <span class="close2 cursor" onclick="closeModal()">&times;</span>
+                                     
                                         <div class="modal-content2">
+                                           <span class="close2 cursor" onclick="closeModal()">&times;</span>
                                             <!--  multiple image start -->
                                             <?php
                                             $i = 1;
@@ -446,7 +447,7 @@
                                                 ?>
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <div class="imge_psot">
+                                                     <div class="slider_img">
                                                         <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artdata['image_name']) ?>">
                                                     </div>
                                                     <!-- 9-5 like comment start -->

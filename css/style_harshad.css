@@ -101,3 +101,23 @@ padding: 10px;}
     padding-left: 16px;
     color: #808080;
 }
+.rio{display: inline-block; width: 100%;}
+#responsive-images_2-breakpoints {
+    float: left;
+    height: 250px;
+    width: 323px!important;
+    margin: 1;
+    display: inline-block;
+}
+#responsive-images_3-breakpoints {
+    float: left;
+    height: 250px;
+    position: relative;
+    width: 324px;
+    margin: 1px;
+    display: inline-block;
+}
+
+.like_cmmt_space{padding-top: 10px;}
+.post-design-mid{padding-top: 0px!important;}
+.post-design-desc{padding: 5px 20px 0px 20px !important;}

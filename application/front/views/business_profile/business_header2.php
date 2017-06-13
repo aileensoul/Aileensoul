@@ -140,7 +140,7 @@
 
     <!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                        <div class="modal-dialog modal-lm">
+                        <div class="modal-dialog modal-lm deactive">
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                 <div class="modal-body">
@@ -204,3 +204,24 @@ $(document).ready(function() {
 
  }
  </script>
+
+
+ <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+
+ $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#dropdown-content_hover" ).hide();
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end
