@@ -1713,8 +1713,9 @@ label.error {
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
-    padding: 4px 6.9px;
+    padding: 4px 8.9px;
     font-size: 12px;
+    padding-right: 4.9px;
 }
 /*#popup-form { display: none; width: 616px; height: 250px; }*/
 
@@ -3970,6 +3971,7 @@ width: 100%;
 }
 .post-design-product {
     /*padding-top: 6px;*/
+    padding-bottom: 5px;
 }
 .profile-box-user .profile-boxProfile-name a {
     padding-left: 8px;
@@ -5167,7 +5169,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-menu {
     border-top: 1px solid #efefef;
-    border-bottom: 1px solid #efefef;
+    /*border-bottom: 1px solid #efefef;*/
     width: 100%;
     float: left;
 }
@@ -5243,6 +5245,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-name {
     padding-left: 0;
+    bottom: -3px;
 }
 .post-design-product span {
     padding: 0;
@@ -5260,16 +5263,18 @@ label.cameraButton input[accept*="camera"] {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-right: 3px;
+    padding-bottom: 0px;
     position: relative;
 }
 .post-design-name ul li a {
-    color: #000000;
-    font-size: 16px;
+    color: #91949d;
+    font-size: 13px;
     /*    margin-top: 10px;
     */
     
     padding: 0px 8px;
-    font-weight: 600;
+    /*font-weight: 600;*/
     line-height: 16px;
     display: block;
 }
@@ -9897,6 +9902,15 @@ end zalak 9-6 css*/
 .profile-boxProfileCard .profile-box-freehire-menu ul li{margin-left: -2px;}
 .profile-boxProfileCard .profile-box-freehire-menu ul li a{    margin-right: 27px !important;}
 /***  12-6 h  ***/
+
+/*Dhaval 13/6*/
+.custom-row .user-pic:hover a{ padding: 4px 4.4px; }
+.logo{display: inline-block;}
+.select2-container-multi .select2-search-choice-close{top:7px;}
+.profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}
+/*end*/
+
+
 .clear{clear:both;}
 .custom-right{margin-left: 1%;}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}

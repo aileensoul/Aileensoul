@@ -86,7 +86,7 @@
 
 
  
-.user-pic:hover a {
+/*.user-pic:hover a {
 
     display: block;
     bottom: 0;
@@ -97,14 +97,14 @@
     padding-right: 4.9px;
 
 }
+*/
+/*.custom-row .user-pic:hover a{ padding: 4px 4.4px; }*/
 
-.custom-row .user-pic:hover a{ padding: 4px 4.4px; }
+/*.logo{display: inline-block;}*/
 
-.logo{display: inline-block;}
+/*.select2-container-multi .select2-search-choice-close{top:7px;}*/
 
-.select2-container-multi .select2-search-choice-close{top:7px;}
-
-.profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}
+/*.profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}*/
 .profile-box-job-menu ul li a{margin-right: 15px !important;}
 .profile-box-job-menu ul li{padding-left: 13px !important;}
 .like_cmmt_space{margin-left: 6px;}
@@ -149,3 +149,6 @@
 .btn-3b{border-radius: 4px !important;    
     font-size: 18px!important;}
     .add-post-button{margin-top: 30px;}
+
+
+

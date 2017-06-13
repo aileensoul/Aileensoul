@@ -88,7 +88,7 @@
 padding: 10px 10px 10px 10px ;}
     .left_side_box_img{float: left;}
     .left_box_menubar{ width: 100%; padding: 0px; margin: 0px; float: left;}
-    .left_box_menubar li{list-style: none; float: left; text-align: center; padding: 0px; margin: 0px; width: 28.33%; }
+    .left_box_menubar li{list-style: none; float: left; text-align: center; padding: 0px; margin: 0px; width: 32.33%; }
     .left_box_menubar li a{  padding: 10px; display: inline-block; }
     .left_box_menubar li:first-child{text-align: left;}
      .left_box_menubar li:last-child{text-align: right;}
