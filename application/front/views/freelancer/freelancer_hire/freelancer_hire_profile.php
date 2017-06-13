@@ -288,17 +288,9 @@ function text2link($text){
                                                        
                                                         <li> <b>Email </b><span> <?php echo $freelancerhiredata[0]['email'];?></span>
                                                         </li>
-                                  <?php if($freelancerhiredata['skyupid']){?>
-                               <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
-                                     <li> <b>Skype Id </b> <span> <?php echo $freelancerhiredata[0]['skyupid'];?>  </span>
-                                      </li>  <?php } else {
-                                        if($returnpage == ''){
-                                        ?>  
-                                           <li><b>Skype Id</b> <span>
-                                   <?php echo PROFILENA; }else{}?></span></li>
-                                                               
-                                                            
-                                                <?php }?>       
+                                                        <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
+                                                             <li> <b>Skype Id </b> <span> <?php echo $freelancerhiredata[0]['skyupid'];?> </span>
+                                                        </li> 
                                                     </ul>
                                                 </div>
                                                  <div class="profile-job-post-title clearfix">
@@ -318,26 +310,11 @@ function text2link($text){
                                                         <li> <b>State </b><span><?php echo  
                                                         $this->db->get_where('states',array('state_id' => $freelancerhiredata[0]['state']))->row()->state_name;  ?> </span>
                                                         </li>
-                                <?php if($freelancerhiredata[0]['city']){ ?>
-                                         <li><b> City</b> <span><?php echo  
+                                                        <li><b> City</b> <span><?php echo  
                                                         $this->db->get_where('cities',array('city_id' => $freelancerhiredata[0]['city']))->row()->city_name;  ?></span> </li>
-                                                         <?php } else {
-                                        if($returnpage == ''){
-                                        ?>  
-                                           <li><b> City</b> <span>
-                                   <?php echo PROFILENA;?> </span></li> <}?phpelse{}?>
-                                                               
-                                                            
-                                                <?php }?>
-                        <?php if($freelancerhiredata[0]['pincode']){?>                                   
-                  <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span> </li> <?php } else {
-                                        if($returnpage == ''){
-                                        ?>  
-                                           <li><b>Pincode</b> <span>
-                                   <?php echo PROFILENA; ?> </span></li><?php }else{}?>
-                                                               
-                                                            
-                                                <?php }?>
+                                                           
+                                                         <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span>
+                                                        </li>
                  <li> <b>Postal Address </b><span><p> <?php echo $freelancerhiredata[0]['address'];?> 
                  </p></span>
                  </li>
