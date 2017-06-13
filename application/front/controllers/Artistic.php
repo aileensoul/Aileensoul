@@ -479,7 +479,7 @@ class Artistic extends MY_Controller {
             $this->form_validation->set_rules('state', 'State', 'required');
             $this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('pincode', 'Pincode', 'numeric');
-
+           // echo $this->input->post('pincode');die();
             if ($this->form_validation->run() == FALSE) {
                 $this->load->view('artistic/art_address');
             } else {

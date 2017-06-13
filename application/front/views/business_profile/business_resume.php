@@ -414,7 +414,7 @@
                                                         ?> </span>
                                                 </li>
 
-                                                <?php if (!$userid) {
+                                                <?php if ($businessdata1[0]['user_id'] == $userid) {
                                                 if ($businessdata1[0]['city']) {
                                                     
                                                
@@ -425,9 +425,11 @@
                                                         ?></span> </li>
                                                         <?php }
                                                          else
-                                                         {
-                                                            echo "";
-                                                         }
+                                                         { ?>
+                                                             <li><b> City:</b> <span>
+                                                           <?php echo PROFILENA; ?>
+                                                </span> </li>
+                                                       <?php  }
                                                 }
                                                 else
                                                 { 
@@ -439,17 +441,45 @@
                                                         ?></span> </li>
                                                         <?php }
                                                          else
-                                                         { ?>
-                                                      <li><b> City:</b> <span>
-                                                           <?php echo PROFILENA; ?>
-                                                </span> </li>
-                                                <?php
+                                                         { 
+                                                                echo "";
+                                                
                                                          }
                                                 }
                                                 ?>
 
+                                                <?php if ($businessdata1[0]['user_id'] == $userid) {
+                                                if ($businessdata1[0]['pincode']) {
+                                                    
+                                               
+                                                ?>
                                                 <li> <b>Pincode</b><span><?php echo $businessdata1[0]['pincode']; ?></span>
                                                 </li>
+                                                        <?php }
+                                                         else
+                                                         { ?>
+                                                             <li><b> Pincode:</b> <span>
+                                                           <?php echo PROFILENA; ?>
+                                                </span> </li>
+                                                       <?php  }
+                                                }
+                                                else
+                                                { 
+                                                    if ($businessdata1[0]['pincode']) {
+                                                        ?>
+                                                  <li> <b>Pincode</b><span><?php echo $businessdata1[0]['pincode']; ?></span>
+                                                </li>
+                                                        <?php }
+                                                         else
+                                                         { 
+                                                                echo "";
+                                                
+                                                         }
+                                                }
+                                                ?>
+
+
+                                                
                                                 <li> <b>Postal Address</b><span> <?php echo $businessdata1[0]['address']; ?> </span>
                                                 </li>
                                             </ul>
@@ -474,11 +504,40 @@
                                                     <li> <b>Contact Mobile</b><span> <?php echo $businessdata1[0]['contact_mobile']; ?> </span>
                                                     </li>
                                                     <li><b> Contact Email</b> <span><?php echo $businessdata1[0]['contact_email']; ?></span> </li>
-
-                                                    <li> <b>Contact Website</b><span>
+                                                      <?php if ($businessdata1[0]['user_id'] == $userid) {
+                                                if ($businessdata1[0]['contact_website']) {
+                                                    
+                                               
+                                                ?>
+                                                <li> <b>Contact Website</b><span>
                                                             <!--<a href="https://<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span>-->
                                                             <a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $businessdata1[0]['contact_website']; ?></a></span>
                                                     </li>
+                                                        <?php }
+                                                         else
+                                                         { ?>
+                                                             <li><b> Contact Website:</b> <span>
+                                                           <?php echo PROFILENA; ?>
+                                                </span> </li>
+                                                       <?php  }
+                                                }
+                                                else
+                                                { 
+                                                    if ($businessdata1[0]['contact_website']) {
+                                                        ?>
+                                                  <li> <b>Contact Website</b><span>
+                                                            <!--<a href="https://<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $this->common->make_links($businessdata1[0]['contact_website']); ?></a></span>-->
+                                                            <a href="<?php echo $businessdata1[0]['contact_website']; ?>" target="_blank"><?php echo $businessdata1[0]['contact_website']; ?></a></span>
+                                                    </li>
+                                                        <?php }
+                                                         else
+                                                         { 
+                                                                echo "";
+                                                
+                                                         }
+                                                }
+                                                ?>
+
 
                                                 </ul>
                                             </div>
@@ -533,7 +592,147 @@
                                                 </ul>
                                             </div>
                                         </div> 
+
+                                    <?php
+                                    if ($businessdata1[0]['user_id'] == $userid) {
+
+                                      
+                                           
+                                       
+                                    ?>
                                         <div class="profile-job-post-title clearfix">
+                                            <div class="profile-job-profile-button clearfix">
+                                                <div class="profile-job-details">
+                                                    <ul>
+                                                        <li><p class="details_all_tital "> Images</p> </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="profile-job-profile-menu">
+                                              
+                                                        <div  class="buisness-profile-pic">
+                         <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);  ?>" alt="" > -->
+                                                            <!-- 
+                                                            popup -->
+
+
+
+
+
+                                                            <?php
+                                                            $i = 1;
+
+                                                            if(count($busimagedata) > 3){
+
+
+                                                                foreach ($busimagedata as $image) {
+
+                                                                if ($i <= 2) {
+                                                                    ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                                                                        </div>
+                                                                    </div>
+    <?php } else { ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">  
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        <div class="view_bui"> <a >view all</a></div>
+
+                                                                        </div>
+
+                                                                        </div>
+                                                                    
+
+
+                                                                <?php
+                                                                } $i++;
+                                                                if ($i == 4) {
+                                                                    break;
+                                                                }
+                                                            } 
+
+
+                                                            }else{
+                                                            foreach ($busimagedata as $image) {
+
+                                                                if ($i <= 2) {
+                                                                    ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                                                                        </div>
+                                                                    </div>
+    <?php } else { ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">  
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        <!-- <div class="view_bui"> <a >view all</a></div> -->
+
+                                                                        </div>
+
+                                                                        </div>
+                                                                    
+
+
+                                                                <?php
+                                                                } $i++;
+                                                                if ($i == 4) {
+                                                                    break;
+                                                                }
+                                                            } }
+                                                            ?>
+
+
+                                                            <div id="myModal1" class="modal2">
+                                   
+                                                                
+                                                                 <div class="modal-content2"> 
+                                                                 <span class="close2 cursor" onclick="closeModal()">&times;</span>  
+<?php
+$i = 1;
+foreach ($busimagedata as $image) {
+    ?>
+                                                                        <div class="mySlides">
+                                                                            <div class="numbertext"><?php echo $i ?> / <?php echo count($busimagedata); ?></div>
+                                                                               <div class="slider_img">
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path') . $image['image_name']); ?> " >
+                                                                            </div>
+                                                                        </div>
+
+    <?php $i++;
+}
+?>
+
+                                                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                                                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                                                                    <div class="caption-container">
+                                                                        <p id="caption"></p>
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- 
+                                                            popup -->
+                                                  
+                                            </div>
+                                        </div> 
+                                        <?php
+                                    
+                                        }
+                                    
+                                       else
+                                       { 
+                                        if ($busimagedata) {
+                                            
+                                        
+                                        ?>
+                                         <div class="profile-job-post-title clearfix">
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="profile-job-details">
                                                     <ul>
@@ -617,6 +816,8 @@ foreach ($busimagedata as $image) {
                                                 </ul>
                                             </div>
                                         </div> 
+                                       
+                                      <?php } } ?>
                                         <div class="profile-job-post-title clearfix">
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="profile-job-details">
@@ -1019,11 +1220,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             <!-- script for profile pic end -->
             <script>
                 function openModal() {
-                    document.getElementById('myModal').style.display = "block";
+                    document.getElementById('myModal1').style.display = "block";
                 }
 
                 function closeModal() {
-                    document.getElementById('myModal').style.display = "none";
+                    document.getElementById('myModal1').style.display = "none";
                 }
 
                 var slideIndex = 1;

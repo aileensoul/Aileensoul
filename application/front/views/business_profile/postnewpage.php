@@ -2684,6 +2684,17 @@
 <script>
     function myFunction(clicked_id) {
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+
+        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) { 
+
+                    document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                    $(".dropdown-content1").removeClass('show');
+
+                            }
+                           
+                        }); 
     }
     window.onclick = function (event) {
         if (!event.target.matches('.dropbtn1')) {
@@ -3636,4 +3647,18 @@
     }
 
 </script>
+
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end
 

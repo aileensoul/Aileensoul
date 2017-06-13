@@ -14,14 +14,15 @@
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
-<!-- start header -->
+
+<body   class="page-container-bg-solid page-boxed custom-border">
+    <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
 
-<?php echo $job_header2; ?>
-<body   class="page-container-bg-solid page-boxed">
+<?php echo $job_header2_border; ?>
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -50,8 +51,8 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                      if($this->uri->segment(3) == $userid){
@@ -76,18 +77,17 @@
                     } else {
                         ?>
                        
-                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
+              
                     <?php }
                     ?>
 
                 
             </div>
         </div>
-    </div>
-</div>
-</div>   
-
-<div class="container">    
+    
+  </div>
+<div class="container tablate-container">    
     <div class="upload-img">
 
 
@@ -124,7 +124,7 @@
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-9">  
+            <div class="right-side-menu col-md-9 padding_less_right">  
                 <ul class="">
                     <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('job/job_printpreview'); ?>"> Details</a>
                     </li>
@@ -148,6 +148,8 @@
       </div>
     </div>
 
+</div> 
+        <div class="middle-part container">
     <div class="job-menu-profile">
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <!-- text head start -->
@@ -174,8 +176,8 @@
         <!-- text head end -->
 
 
-    <div class="col-md-7 col-sm-7">
-    <div class="row">
+    <div class="col-md-8 col-sm-8 mob-clear">
+    <div class="">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Job</h3>
@@ -390,7 +392,7 @@
 </div>
 </div>
 
-</div>
+
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
@@ -963,3 +965,18 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+
+                    <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

@@ -136,7 +136,7 @@
 
  <!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                        <div class="modal-dialog modal-lm">
+                        <div class="modal-dialog modal-lm deactive">
                             <div class="modal-content">
                                 <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
                                 <div class="modal-body">
@@ -179,7 +179,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 
   function deactivate(clicked_id) { 
-      $('.biderror .mes').html("<div class='pop_content'> Are you sure you want to deactive your job_profile?.<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+      $('.biderror .mes').html("<div class='pop_content'> Are you sure you want to deactive your job profile?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
  }
 
@@ -199,3 +199,25 @@ $(document).ready(function() {
 
  }
  </script>
+
+
+ <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+   $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#dropdown-content_hover" ).hide();
+    }
+});  
+
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->
