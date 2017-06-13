@@ -596,4 +596,17 @@
             $('#bidmodal').modal('show');
                         }
                     </script>
-                    <!-- pallavi changes end 15-4
+                    <!-- pallavi changes end 15-4 -->
+
+ <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

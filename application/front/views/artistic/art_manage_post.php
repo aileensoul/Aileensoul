@@ -762,7 +762,7 @@
                 <div class="modal-content-post">
                     <span class="close3">&times;</span>
 
-                    <div class="post-editor col-md-12">
+                    <div class="post-editor col-md-12" id="close">
 
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
@@ -4083,15 +4083,38 @@ if (size > 4194304)
                         }
       </script>
       <!-- popup end -->
-        <!-- all popup close close using esc start -->
+        
  <script type="text/javascript">
-
+//all popup close close using esc start 
     $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
     }
-});  
+}); 
+// all popup close close using esc end 
+
+ // pop up open & close aarati code start 
+jQuery(document).mouseup(function (e) {
+            
+             var container1 = $("#myModal3");
+            
+                    jQuery(document).mouseup(function (e)
+                      {
+                        var container = $("#close");
+
+          
+                if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+              
+                container1.hide();
+            }
+        });
+               
+        });
+
+// pop up open & close aarati code end
 
  </script>
- <!-- all popup close close using esc end
+ 
