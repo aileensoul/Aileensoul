@@ -1189,9 +1189,9 @@
                                                                 <span class="like_As_count">
 
                                                                     <?php
-                                                                    if ($row['art_likes_count'] > 0) {
-                                                                        echo $row['art_likes_count'];
-                                                                    }
+//                                                                    if ($row['art_likes_count'] > 0) {
+//                                                                        echo $row['art_likes_count'];
+//                                                                    }
                                                                     ?>
 
                                                                 </span> 

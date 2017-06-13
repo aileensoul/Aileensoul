@@ -479,9 +479,9 @@
                                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
                                                                                 $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                                if ($likecount) {
-                                                                                    echo count($likecount);
-                                                                                }
+//                                                                                if ($likecount) {
+//                                                                                    echo count($likecount);
+//                                                                                }
                                                                                 ?>
 
                                                                             </span>
@@ -497,9 +497,9 @@
                                                                         <a onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
                                                                             <i class="fa fa-comment-o" aria-hidden="true">
                                                                                 <?php
-                                                                                if (count($commnetcount) > 0) {
-                                                                                    echo count($commnetcount);
-                                                                                }
+//                                                                                if (count($commnetcount) > 0) {
+//                                                                                    echo count($commnetcount);
+//                                                                                }
                                                                                 ?>
                                                                             </i> 
                                                                         </a>
@@ -852,9 +852,9 @@
                                                     <?php } ?>
                                                     <span  class="like_As_count">
                                                         <?php
-                                                        if ($art_data[0]['art_likes_count'] > 0) {
-                                                            echo $art_data[0]['art_likes_count'];
-                                                        }
+//                                                        if ($art_data[0]['art_likes_count'] > 0) {
+//                                                            echo $art_data[0]['art_likes_count'];
+//                                                        }
                                                         ?>
                                                     </span>
                                                 </a>

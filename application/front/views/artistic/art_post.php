@@ -1144,10 +1144,10 @@ $(document).ready(function(){
                                                                         ?>
                                                                     <span>
                                                                         <?php
-                                                                        if ($row['art_likes_count'] > 0) {
-                                                                            echo $row['art_likes_count'];
-                                                                        }
-                                                                        ?>
+//                                                                        if ($row['art_likes_count'] > 0) {
+//                                                                            echo $row['art_likes_count'];
+//                                                                        }
+//                                                                        ?>
                                                                     </span>
                                                                 </a>
                                                             </li>

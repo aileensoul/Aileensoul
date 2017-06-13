@@ -563,9 +563,9 @@ if($status == 0 || $status == " "){?>
                                                             ?>
                                                             <span>
                                                                 <?php
-                                                                if ($key['art_likes_count'] > 0) {
-                                                                    echo $key['art_likes_count'];
-                                                                }
+//                                                                if ($key['art_likes_count'] > 0) {
+//                                                                    echo $key['art_likes_count'];
+//                                                                }
                                                                 ?>
                                                             </span>
                                                         </a>
@@ -577,7 +577,7 @@ if($status == 0 || $status == " "){?>
                                                         ?>
                                                         <a  onClick="commentall(this.id)" id="<?php echo $key['art_post_id']; ?>">
                                                             <i class="fa fa-comment-o" aria-hidden="true">
-                                                                <?php echo count($commnetcount); ?>
+                                                                <?php echo// count($commnetcount); ?>
                                                             </i>  
                                                         </a>
                                                     </li>

@@ -7,9 +7,6 @@
 
 <!--post save success pop up style end -->
 
-
-
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
@@ -128,13 +125,8 @@
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                     <?php } ?>
 
-
-
                 </div>
-
-
-            </div>
-
+           </div>
          
             <!-- PICKUP -->
             <!-- menubar -->
@@ -418,7 +410,7 @@
                                                     <div class="post-design-like-box col-md-12">
                                                         <div class="post-design-menu">
                                                             <!-- like comment div start -->
-                                                            <ul>
+                                                            <ul class="col-md-6">
 
                                                                 <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
                                                                     <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
@@ -431,7 +423,7 @@
 
                                                                         if ($activedata) {
                                                                             ?>
-                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                            <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                         <?php } else { ?>
                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
     <?php } ?>
@@ -441,10 +433,10 @@
                                                                             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
                                                                             $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                                            if ($likecount) {
-                                                                                echo count($likecount);
-                                                                            }
-                                                                            ?>
+//                                                                            if ($likecount) {
+//                                                                                echo count($likecount);
+//                                                                            }
+//                                                                            ?>
 
                                                                         </span>
                                                                     </a>
@@ -460,14 +452,45 @@
                                                                     <a onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
                                                                         <i class="fa fa-comment-o" aria-hidden="true">
                                                                             <?php
-                                                                            if (count($commnetcount) > 0) {
-                                                                                echo count($commnetcount);
-                                                                            }
+//                                                                            if (count($commnetcount) > 0) {
+//                                                                                echo count($commnetcount);
+//                                                                            }
                                                                             ?>
                                                                         </i> 
                                                                     </a>
                                                                 </li>
                                                             </ul>
+                                                            
+                                                             <ul class="col-md-6 like_cmnt_count">
+
+ <li>
+                                                                <div class="like_cmmt_space like_count_ext_img<?php echo $artdata['image_id']; ?>">
+                                                                    <span class="comment_count" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
+                                                                    <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="<?php echo 'comnt_count_ext_img' . $artdata['image_id']; ?>">
+                                                                    <span class="comment_like_count"> 
+                                                                       <?php
+                                                                        if (count($likecount) > 0) { 
+                                                                            echo count($likecount); ?>
+                                                                   </span> 
+                                                                    <span> Like</span>
+                                                                <?php  }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
+                                        </ul>
                                                             <!-- like comment div end -->
                                                         </div>
                                                     </div>
@@ -632,7 +655,7 @@
                                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
 
                                                                                         <?php } else { ?>
-                                                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                            <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
             <?php } ?>
                                                                                         <span>
 
@@ -1861,7 +1884,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcommentimg' + post_delete.value).html(data.comment);
-                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+             //   $('#' + 'insertcountimg' + post_delete.value).html(data.count);
+                  $('.like_count_ext_img' + post_delete.value).html(data.commentcount);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -1906,8 +1930,9 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                      //      $('#' + 'insertcountimg' + clicked_id).html(data.count);
                             $('.insertcommentimg' + clicked_id).html(data.comment);
+                            $('.like_count_ext_img' + clicked_id).html(data.commentcount);
 
                         }
                     });
@@ -1923,9 +1948,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             $('textarea').each(function () {
                                 $(this).val('');
                             });
-                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                          //  $('#' + 'insertcountimg' + clicked_id).html(data.count);
                             $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
-                        }
+                            $('.like_count_ext_img' + clicked_id).html(data.commentcount);
+    
+                    }
                     });
                 }
             }
@@ -1964,8 +1991,9 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                //    $('#' + 'insertcountimg' + clicked_id).html(data.count);
                     $('.insertcommentimg' + clicked_id).html(data.comment);
+                    $('.like_count_ext_img' + clicked_id).html(data.commentcount);
 
                 }
             });
@@ -1981,8 +2009,9 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                  //  $('#' + 'insertcountimg' + clicked_id).html(data.count);
                     $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
+                    $('.like_count_ext_img' + clicked_id).html(data.commentcount);
                 }
             });
         }
@@ -2077,7 +2106,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             success: function (data) {
 
                 $('.' + 'insertcommentimgtwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
+               // $('#' + 'insertcountimg' + post_delete1.value).html(data.count);
+                 $('.like_count_ext_img' + post_delete1.value).html(data.commentcount);
                 $('.post-design-commnet-box').show();
 
             }
