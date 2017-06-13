@@ -643,7 +643,7 @@
                                                                         <a   id="myBtn">view all</a>
 
 </div>
- <div class="modal fade" id="myModal" role="dialog">
+ <div class="modal fade" id="myModal" role="dialog" style="z-index: 1003">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -711,7 +711,7 @@
                                                             ?>
 
 
-                                                            <div id="myModal1" class="modal2">
+                                                            <div id="myModal1" class="modal2" style="padding-top: 7%;">
                                    
                                                                 
                                                                  <div class="modal-content2"> 
