@@ -226,7 +226,7 @@
   	 /*profile leftbar start*/
 
   	     /*job on */
-    .buisness-profile-txext {   max-width: 21% !important; }
+    .buisness-profile-txext {  /* max-width: 21% !important; */}
     .profile-box-job-menu { margin-top: -17px; height: 6%; }
     .profile-box-job-menu ul { float: left; margin-left: 26%; }
     .profile-box-job-menu ul li { padding-left: 0px; }
@@ -234,7 +234,7 @@
     .profile-boxProfileCard-cover { height: 8%; }
     .profile-boxProfileCard-bg img { height: auto; width: 100%; }
     .profile-boxProfileCard-content .buisness-profile-txext a img { height: 100%; width: 100%; }
-     .profile-boxProfilebuisness-avatarLink2 { height: 10%; width: 96%; }
+     .profile-boxProfilebuisness-avatarLink2 {/* height: 10%; width: 96%;*/ }
      .left-side-bar ul li a { font-size: 12px; }
       .profile-text-bui-user { padding-top: 7px; }
          /*job off */

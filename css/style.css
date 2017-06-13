@@ -9904,13 +9904,20 @@ end zalak 9-6 css*/
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{top:3px; right:5px;}
-    #paddingtop_fixed{padding-top: 52px !important;}
     .profile-main-rec-box-menu{height: 41px;}
     header .header2{margin-left: 16px; margin-right: 16px;}
     .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
     .user-pic { height: 125px; width: 115px; }
     .profile-main-rec-box-menu li a { padding: 11px 15px; font-size: 13px; }
     .profile-box-job-menu ul li{margin-bottom: 0;}
+    .buisness-profile-txext{width:28%;}
+    .right_left_box_design{width: 72% !important;}
+    .profile-boxProfile-name{line-height: 1;}
+    .profile-boxProfile-name a{font-size: 14px;}
+    .profile-company-name a{font-size: 16px;}
+}
+@media screen and (max-width: 1023px) {
+    #paddingtop_fixed{padding-top: 52px !important;}
 }
 @media screen and (max-width: 991px) {
     #padding_dash{padding-top:19px !important;}
@@ -9926,8 +9933,13 @@ end zalak 9-6 css*/
     #row2{width: 100%; border: none;}
     .container.tablate-container{padding-left: 0; padding-right: 0;}
     .right-side-menu{/*margin-top: -2px;*/}
-    .profile-box{width:40%;}
-    .custom-right{margin-left: 3%;}
+    .custom-right{margin-left: 8%;}
+}
+@media screen and (max-width: 900px) {
+    .custom-right{margin-left: 4%;}
+}
+@media screen and (max-width: 800px) {
+    .custom-right{margin-left: 0%;}
 }
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
