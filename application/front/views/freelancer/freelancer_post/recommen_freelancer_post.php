@@ -112,11 +112,10 @@
 
                     <div class="col-md-4 profile-box profile-box-left"><div class="">
 
-                        <div class="full-box-module">    
-      
+                               <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
-<div class="profile-boxProfileCard-cover">   
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                    <div class="profile-boxProfileCard-cover"> 
+                                         <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
                                        href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"
                                        tabindex="-1"
                                        aria-hidden="true"
@@ -127,76 +126,71 @@
                                            ?>
                                         <!-- box image start -->
                                         <div class="data_img">
-                                        <img src="<?php echo base_url($this->config->item('free_post_bg_main_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  ></div>
+                                        <img src="<?php echo base_url($this->config->item('free_post_bg_thumb_upload_path') . $freepostdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" >
+                                        </div>
                                         <!-- box image end -->
                                         <?php
                                     } else {
                                         ?>
-                                           <div class="data_img">
-                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  ></div>
+                                        <div class="data_img">
+                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo  $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  >
+                                        </div>
                                              <?php
                                          }
                                          ?>
                                         </a>
- </div>
-  
-    <div class="profile-boxProfileCard-content clearfix">
-<div class="buisness-profile-txext col-md-4">
-       
-                                                              <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
                                                               href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                    <?php
-                                            if ($freepostdata[0]['freelancer_post_user_image']) {
+                                            if ($freelancerdata[0]['freelancer_post_user_image']) {
                                                 ?>
+
                                                 <div class="data_img_2">
-                                                 <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freepostdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freepostdata[0]['freelancer_post_fullname']. ' ' . $freepostdata[0]['freelancer_post_username']; ?>"  >
-                                                 </div>
+                     <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                     </div>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <div class="data_img_2">
-                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freepostdata[0]['freelancer_post_fullname']. ' ' . $freepostdata[0]['freelancer_post_username']; ?>"   >
-                                                 </div> <?php
+                                                <div class="data_img_2"> 
+                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                                                     </div> <?php
                                             }
                                             ?>
                                         </a>
-</div>
-<div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-            <span class="profile-company-name ">
-                                         <a class="rec_Fre" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                    </div>
+                                    <div class="right_left_box_design ">
+                                         <span class="profile-company-name ">
+                                         <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
                                         </span>
-       
-         
-         <div class="profile-boxProfile-name">
-        <a class="rec_Fre" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
+
+
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                            <div class="profile-boxProfile-name">
+                                               <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
 if ($freepostdata[0]['designation']) {
     echo ucwords($freepostdata[0]['designation']);
 } else {
     echo "Current Work";
 }
-?></a></div>
-     
-     
+?></a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                            
+                                            <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a  class="padding_less_left"  title="freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
+                                                </li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
+                                                </li>
+                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post"  class="padding_less_right"  href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                    </div>
+       </div>                             
     </div>
-   
-          <div class="profile-box-job-menu  col-md-12">
-         
-                                    <ul class="">
-                                             <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
-                                                </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved </a>
-                                                </li>
-                                                <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied</a>
-                                                </li>
-                                </ul>
-     
-      </div>
-     
-  </div>
-  </div>
-  </div>
-           
-
                         </div>
 
                     </div>
