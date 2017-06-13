@@ -844,12 +844,15 @@
                                                     $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
                                                     ?>
 
-                                                    <?php if ($row['posted_user_id']) { echo "hi"; ?>
+                                                    <?php if ($row['posted_user_id']) {  ?>
                                                         <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                        <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
-
-                                                    <?php } else { echo "hee";   ?>
+                                                       
+                                                      <?php   if ($userimageposted) {    ?>
+                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
+                                                        <?php  }else{?>
+                                                          <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                       <?php   }?>
+                                                    <?php } else {   ?>
 
 
                                                         <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">

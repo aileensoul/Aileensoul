@@ -393,7 +393,7 @@
                                                 ?>
 
                                                 <div class="basic-responsive-image" >
-                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                    <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 
                                                 </div>
