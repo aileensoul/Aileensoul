@@ -93,7 +93,7 @@
 
                         <fieldset class="full-width" <?php if($post_name) {  ?> class="error-msg" <?php } ?>>
                         <label >Post Title:<span style="color:red">*</span></label>                 
-                        <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name"/>
+                        <input name="post_name" type="text" id="post_name" autofocus tabindex="1" placeholder="Enter Post Name"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>
                         </fieldset>
@@ -101,15 +101,15 @@
                          <fieldset class="full-width">
                         <label>Post Description :<span style="color:red">*</span></label>
 
-                        <textarea style="resize: none;height: 22%;overflow: auto;" name="post_desc" id="post_desc" placeholder="Enter Description"></textarea>
+                        <textarea style="resize: none;height: 22%;overflow: auto;" name="post_desc" id="post_desc" placeholder="Enter Description" tabindex="2"></textarea>
                         
                         <?php echo form_error('post_desc'); ?>
                       </fieldset>
 
                        <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
                   <label>Fields Of Requirement:<span style="color:red">*</span></label>
-                   <select name="fields_req" id="fields_req">
-                     <option value="" selected option disabled>Select Fields of Requirement</option>
+                   <select tabindex="3" name="fields_req" id="fields_req">
+                     <option  value="" selected option disabled>Select Fields of Requirement</option>
                   
                   <?php
                                             if(count($category) > 0){
@@ -139,14 +139,14 @@
 
                   <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?>>
                         <label>Skills of Requirements:<span style="color:red">*</span></label>
-                         <select class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
+                         <select tabindex="4" class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
                         <span id="fullname-error"></span>
                         <?php echo form_error('skills'); ?>
                        </fieldset>
 
                         <fieldset class="full-width" <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
-                            <input name="other_skill" class="keyskil"  type="text" id="other_skill" placeholder="Enter Your Other Skill" />
+                            <input name="other_skill" class="keyskil"  type="text" id="other_skill" tabindex="5" placeholder="Enter Your Other Skill" />
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('other_skill'); ?>
                         </fieldset>
@@ -155,7 +155,7 @@
                     <fieldset class="full-width two-select-box fullwidth_experience" <?php if($month) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Experience:</label>
 
-                          <select name="year" id="year">
+                          <select tabindex="6" name="year" id="year">
                              <option value="" selected option disabled>Year</option>
                         
                             <option value="0">0 Year</option>
@@ -183,7 +183,7 @@
                             <span id="fullname-error"></span>
                             <?php echo form_error('year'); ?>
 
-                            <select class="margin-month " name="month" id="month">
+                            <select class="margin-month " tabindex="7" name="month" id="month">
                                <option value="" selected option disabled>Month</option>
                          
                             <option value="0">0 Month</option>
@@ -207,8 +207,8 @@
                          </fieldset>
                          
                           <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
-                            <label class="control-label">Rate:<span style="color:red">*</span></label>
-                            <input name="rate" type="number" id="rate" placeholder="Enter Your rate" />
+                            <label  class="control-label">Rate:<span style="color:red">*</span></label>
+                            <input tabindex="8" name="rate" type="number" id="rate" placeholder="Enter Your rate" />
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('rate'); ?>
                         </fieldset>
@@ -216,8 +216,8 @@
 
                           <fieldset class="col-md-4" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:<span class="red">*</span></label>
-                            <select name="currency" id="currency">
-                              <option value="" selected option disabled>Select Currency</option>
+                            <select tabindex="9" name="currency" id="currency">
+                              <option  value="" selected option disabled>Select Currency</option>
                             <?php foreach($currency as $cur){ ?>
                              <option value="<?php echo $cur['currency_id']; ?>"><?php echo $cur['currency_name']; ?></option>
                              <?php } ?>
@@ -229,8 +229,8 @@
 
 <fieldset class="col-md-4">
 
-<label> Work Type</label>  <input type="radio" name="rating" value="0" checked> Hourly
-  <input type="radio" name="rating" value="1"> Fixed
+<label> Work Type</label>  <input type="radio" tabindex="10" name="rating" value="0" checked> Hourly
+  <input type="radio"  name="rating" value="1"> Fixed
   <?php echo form_error('rating'); ?>
                                </fieldset>
 
@@ -238,14 +238,14 @@
 
                          <fieldset <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
                         <label>Estimated time of project:</label>
-                        <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
+                        <input tabindex="11" name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
                         <?php echo form_error('est_time'); ?>
                          </fieldset>                        
 
                    
                     <fieldset <?php if($last_date) {  ?> class="error-msg" <?php } ?>>
                         <label>Last date for apply:<span style="color:red">*</span></label>
-                        <input type="text" name="last_date" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="" >
+                        <input tabindex="12" type="text" name="last_date" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="" >
 
                         <?php echo form_error('last_date'); ?> 
                     </fieldset>
@@ -260,7 +260,7 @@
                     <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                 <label>Country:<span style="color:red">*</span></label>
                 
-                        <select name="country" id="country">
+                        <select tabindex="13" name="country" id="country">
                          <option value="" selected option disabled>Select Country</option>
                           <?php
                                             if(count($countries) > 0){
@@ -289,7 +289,7 @@
 
                   <fieldset>
                     <label> City:</label>
-                  <select name="city" id="city">
+                  <select tabindex="14" name="city" id="city">
                     <?php
 
                                          if($city1)
@@ -324,17 +324,17 @@
 
 <!--                        <input type="reset" value="cancel" >-->
 
-                       <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                       <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancerlancer_edit_post')){?>
                                 
                                
-                                 <a class="add_post_btnc" onclick="return leave_page(9)">Cancel</a>
+                                 <a class="add_post_btnc"  onclick="return leave_page(9)">Cancel</a>
                                  <?php }else{?>
 
-                                 <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
+                                 <a class="add_post_btnc"   href="javascript:history.back()">Cancel</a>
                                  <?php } ?>
                     
                       
-                      <input type="submit" id="submit"  class="add_post_btns" name="submit" value="Post">    
+                      <input type="submit" tabindex="15" id="submit"  class="add_post_btns" name="submit" value="Post">    
                     
                     </fieldset>
                       </div>      

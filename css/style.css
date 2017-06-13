@@ -1,4 +1,4 @@
-﻿/* font-family: 'FontAwesome'; */
+/* font-family: 'FontAwesome'; */
 /* sds*/
 
 body {
@@ -489,7 +489,7 @@ img.aligncenter {
     border-radius: 4px;
 }
 .button:hover {
-    background: #6982b6;
+    background: #156f95;
     color: #fff;
 }
 .back-btn,
@@ -807,7 +807,7 @@ footer {
     border-radius: 4px;
     padding: 4px 20px 4px;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
 }
 .apply-btn a:hover {
@@ -910,7 +910,7 @@ ul.dropdown-menu li a i {
 .common-form input[type=radio],
 .common-form input[type=checkbox] {
     width: auto;
-    margin: 0 2px;
+    margin: 0 1px;
     vertical-align: middle;
     display: inline-block;
 }
@@ -5491,6 +5491,8 @@ label.cameraButton input[accept*="camera"] {
     padding: 9px 10px 9px;
     border-radius: 3px;
     letter-spacing: 0px;
+ position: absolute;
+    bottom: 11px;
 }
 .comment-edit-butn button {
     padding: 7.5px 10px 7.5px;
@@ -5635,7 +5637,7 @@ label.cameraButton input[accept*="camera"] {
         min-width: 270px;
     }
     .tabordion section article:after {
-        background-color: #ccc;
+       /* background-color: #ccc;*/
         bottom: 0;
         content: "";
         display: block;
@@ -6287,10 +6289,10 @@ follow box*/
     position: absolute;
     /* left: 14px; */
     
-    width: 347px;
+    width: 334px;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
-    padding: 68px
+    padding: 68px;
 }
 .bui_images_view_more a {
     position: absolute;
@@ -7090,7 +7092,7 @@ border-bottom: 1px solid #000033;
     color: #1b8ab9;
 }
 .profile-box-job-menu ul li a {
-    margin-right: 7.6px;
+    margin-right: 25px;
     display: block;
     color: #5b5b5b;
     text-align: center;
@@ -9769,113 +9771,9 @@ style chat css end*/
 
 #s2id_skils{width: 100% !important;}
 #jobseeker_regform #other_keyskill{width:90% !important;}
+.contact-frnd-post{margin-bottom: 50px;}
 
-
-/***  media query  ***/
-@media screen and (max-width: 1200px) {
-    .action-buttons {
-       
-        height: 25px;
-        margin-top: 3px;
-        padding: 5px 7px;
-        width: 25px;
-    }
-    #paddingtop_fixed_job{padding-top:20px !important; }
-}
-@media screen and (max-width: 1024px) {
-    #notificationLink span{
-        top:3px;
-        right:5px;
-    }
-}
-@media screen and (max-width: 991px) {
-    #padding_dash{padding-top:19px !important;}
-    .bg-search .header2{width:750px; margin:0 auto;}
-    .header2 .dropdown_hover{padding:8px 10px 3px 8px;}
-    .header2 .dropdown_hover .dropdown-content_hover{left:-41px;}
-    .tabordion{float: left; width: 34%;}
-    .tabordion section article{left: 140px;}
-    .job_education_submitbox .hs-submit{position: inherit !important;}
-    .job_edu_graduation_nextbtnbox{position: inherit !important; margin-top: 30px;}
-    .left-side-bar ul li.active::after{top:6px;}
-}
-@media screen and (max-width: 767px) {
-    #notificationLink span{
-        top:-5px;
-        right:7px;
-    }
-    .header ul li a{
-        padding:5px 10px !important;
-    }
-    .main-menu-right{
-        padding-top:6px;
-    }
-    .header-left-menu{
-        position:relative;
-        width:100%;
-        margin-top:-40px;
-    }
-    .main-menu-right ul li#notification_li{
-        position:inherit !important;
-    }
-    .main-menu-right ul li#Inbox_link{
-        position:inherit !important;
-    }
-   
-    #notificationContainer{
-        width:100%;
-        margin-top:20px;
-    }
-    #InboxContainer{
-        width:100%;
-        margin-top:20px;
-    }
-    #notificationContainer::before{
-        display:none;
-    }
-    #InboxContainer::before{
-        display:none;
-    }
-    .notifications li{width:100%;}
-    .notification-database{width:100%;}
-    .notificationsmsg li {width:100%;}
-    .dropdown-menu{left:inherit !important; right:0px !important; top:35px;}
-    .mob-zindex{position:relative; z-index:11;}
-    #padding_dash{padding:10px 0 0 !important;}
-    #padding_dash .container{padding:0;}
-    #padding_dash .row{margin:0; border:none;}
-    #row2 img{min-height:180px; height:auto;}
-    .profile-main-pho{width:110px; height:110px; margin:-55px auto 0;}
-    .user-pic-picture .user-pic{height:102px; width:102px;}
-    .main-font-name h5{font-size:22px;}
-    .upload-img{right:20px;}
-    .bg-search .header2{width:100%;}
-    .header2 ul li{float:left;}
-    .header2 ul {padding-left:0; padding-right:0;}
-    .bg-search .header2{margin-top:-10px;}
-}
-@media screen and (max-width: 479px) {
-    .fw-479{width: 100%;}
-    .logo h2{font-size:20px;}
-    .hidden-mob{display: none;}
-    .search-mob-block{display: block;}
-    fieldset{width: 100%;}
-}
-@media screen and (max-width: 360px) {
-    .logo{padding:4px 0;}
-}
-
-
-
-
-/* start
-zalak 9-6 css*/
-.slider_img{width: 100%; height: 430px; text-align: center; padding-top: 10px;}
-.slider_img img {width: auto; max-width: 100%; max-height: 100%; }
-/*
-end zalak 9-6 css*/
-
-     #two_images_buip{  float: left;
+ #two_images_buip{  float: left;
     
     width: 100%;
     margin-bottom: 10px;
@@ -9923,3 +9821,193 @@ end zalak 9-6 css*/
         /*  margin-right: 15px;*/
 
     }
+    /* start
+zalak 9-6 css*/
+.slider_img{width: 100%; height: 430px; text-align: center; padding-top: 10px;}
+.slider_img img {width: auto; max-width: 100%; max-height: 100%; }
+/*
+end zalak 9-6 css*/
+    #two_images_buip{  float: left;
+    
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;}
+     #two_images_buip img{    max-width: 100%;
+    width: auto;
+    max-height: 100%;
+    cursor: pointer;
+    height: auto;}
+    .main_color{color: #1b8ab9!important;}
+    .likeuser_list {
+  
+    background-color: #f2f2f2;
+    float: left;
+    margin: 0px 6px 6px 0px;
+    padding: 6px;
+    width: 49%;
+    font-size: 15px;
+    font-weight: 600;
+    color: #008a8a;
+    display: table;
+}
+    .likeuser_list a{color: #1b8ab9;}
+.likeduser, .likeduser1{
+        width: 100%;
+        background-color: #1b8ab9 !important;
+    }
+    .likeduser-title, .likeduser-title1{
+        color: #fff;
+        margin-bottom: 5px;
+        padding: 7px;
+    }    .likeduserlist, .likeduserlist1 {
+        float: left;
+        /*        margin-left: 15px;
+                margin-right: 15px;*/
+        width: 96%;
+        background-color: #fff !important;
+    }
+    div[class^="likeduserlist"]{
+        width: 100% !important;
+        background-color: #fff !important;
+    }
+    .like_one_other_img{
+        margin-left: 25px;
+        /*  margin-right: 15px;*/
+
+    }
+
+
+/*Dhaval 12/6*/
+.profile-job-post-detail  .post-design-box{border:none;}
+.post-design-commnet-box .editable_text{min-height: 37px !important}
+.notifications li .notification-data-inside div{padding-top: 3px!important  }
+.profile-box-job-menu ul li a{margin-right: 7px !important;}
+.pop_content .cnclbtn:hover{background-color: #156f95 !important}
+.pop_content .okbtn:hover{background-color: #156f95 !important}
+.tabordion section .label-d{padding: 5px 7px !important}
+.contact-frnd-post1 label{margin-bottom: 3px}
+.tabordion input[name="sections"]:checked + label:after{top:7px;}
+.profile-boxProfileCard .profile-box-freehire-menu ul li{margin-left: -2px;}
+.profile-boxProfileCard .profile-box-freehire-menu ul li a{    margin-right: 27px !important;}
+/***  12-6 h  ***/
+.clear{clear:both;}
+.custom-right{margin-left: 1%;}
+/***  media query  ***/
+@media (min-width: 1280px) { 
+  .container {width: 1280px;}   
+}
+@media screen and (max-width: 1200px) {
+    .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
+    #paddingtop_fixed_job{padding-top:20px !important; }
+    .logo h2{font-size: 25px; line-height: 30px;}
+    .header ul li a{padding: 5px 10px;}
+}
+@media screen and (max-width: 1024px) {
+    #notificationLink span{top:3px; right:5px;}
+    .profile-main-rec-box-menu{height: 41px;}
+    header .header2{margin-left: 16px; margin-right: 16px;}
+    .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
+    .user-pic { height: 125px; width: 115px; }
+    .profile-main-rec-box-menu li a { padding: 11px 15px; font-size: 13px; }
+    .profile-box-job-menu ul li{margin-bottom: 0;}
+    .buisness-profile-txext{width:28%;}
+    .right_left_box_design{width: 72% !important;}
+    .profile-boxProfile-name{line-height: 1;}
+    .profile-boxProfile-name a{font-size: 14px;}
+    .profile-company-name a{font-size: 16px;}
+}
+@media screen and (max-width: 1023px) {
+    #paddingtop_fixed{padding-top: 52px !important;}
+}
+@media screen and (max-width: 991px) {
+    #padding_dash{padding-top:19px !important;}
+    .bg-search .header2{width:750px; margin:0 auto;}
+    .header2 .dropdown_hover{padding:8px 10px 3px 8px;}
+    .header2 .dropdown_hover .dropdown-content_hover{left:-41px;}
+    .tabordion{float: left; width: 34%;}
+    .tabordion section article{left: 140px;}
+    .job_education_submitbox .hs-submit{position: inherit !important;}
+    .job_edu_graduation_nextbtnbox{position: inherit !important; margin-top: 30px;}
+    .left-side-bar ul li.active::after{top:6px;}
+    #paddingtop_fixed.container{padding-left: 0; padding-right: 0;}
+    #row2{width: 100%; border: none;}
+    .container.tablate-container{padding-left: 0; padding-right: 0;}
+    .right-side-menu{/*margin-top: -2px;*/}
+    .custom-right{margin-left: 8%;}
+}
+@media screen and (max-width: 900px) {
+    .custom-right{margin-left: 4%;}
+}
+@media screen and (max-width: 800px) {
+    .custom-right{margin-left: 0%;}
+}
+@media screen and (max-width: 767px) {
+    .mob-clear{clear:both;}
+    .mob-plr0{padding-left: 0; padding-right: 0;}
+    #notificationLink span{top:-5px; right:7px;}
+    .header ul li a{padding:5px 10px !important;}
+    .main-menu-right{padding-top:6px;}
+    .header-left-menu{ position:relative;width:100%;margin-top:-40px;}
+    .main-menu-right ul li#notification_li{position:inherit !important;}
+    .main-menu-right ul li#Inbox_link{position:inherit !important;}
+    #notificationContainer{width:100%; margin-top:20px;}
+    #InboxContainer{width:100%; margin-top:20px;}
+    #notificationContainer::before{display:none;}
+    #InboxContainer::before{display:none;}
+    .notifications li{width:100%;}
+    .notification-database{width:100%;}
+    .notificationsmsg li {width:100%;}
+    .dropdown-menu{left:inherit !important; right:0px !important; top:35px;}
+    .mob-zindex{position:relative; z-index:11;}
+    #padding_dash{padding:10px 0 0 !important;}
+    #padding_dash .container{padding:0;}
+    #padding_dash .row{margin:0; border:none;}
+    #row2 img{min-height:180px; height:auto;}
+    .profile-main-pho{width:110px; height:110px; margin:-55px auto 0;}
+    .user-pic-picture .user-pic{height:102px; width:102px;}
+    .main-font-name h5{font-size:22px;}
+    .upload-img{right:20px;}
+    .bg-search .header2{width:100%;}
+    .header2 ul li{float:left;}
+    .header2 ul {padding-left:0; padding-right:0;}
+    .bg-search .header2{margin-top:-10px;}
+    .custom-none {display: none;}
+    .left-side-bar{position: relative}
+    .left-form-each{background: #fff none repeat scroll 0 0; display: block; left: 0;
+    position: absolute; top: -40px; width: 100%; z-index: 999;}
+    .tabordion section article{left: 100%;}
+    .profile-box{position: relative;}
+    .middle-part.container{padding: 30px 0 30px;}
+    .job-menu-profile{width: 100%; padding-bottom: 30px;}
+    #paddingtop_fixed{padding-top: 44px !important;}
+    .right-side-menu{padding-left: 20%;}
+    .right-side-menu{float: none;}
+}
+@media screen and (max-width: 640px) {
+    .right-side-menu{padding-left: 30%;}
+}
+@media screen and (max-width: 479px) {
+    .fw-479{width: 100%;}
+    .logo h2{font-size:20px;}
+    .hidden-mob{display: none;}
+    .search-mob-block{display: block;}
+    fieldset{width: 100%;}
+    .profile-box-job-menu ul li{padding-left: 0; margin-bottom: 0;}
+    .profile-box-job-menu ul li a{margin-right: 0px !important; font-size: 13px; padding: 8px 10px 6px;}
+    .profile-company-name a{font-size: 16px;}
+    .profile-box-user .profile-boxProfile-name a{font-size: 12px;}
+    .a-inlineBlock{width: 60px; height: 60px;}
+    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px;}
+    .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
+    .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
+    .profile-box-job-menu{margin-top: -22px;}
+    .profile-main-rec-box-menu{margin-top: -60px;}
+    .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
+    .user-pic{width: 75px; height: 75px;}
+    .profile-main-rec-box-menu li{padding-left: 2px;}
+    .right-side-menu{padding-left: 24%;}
+}
+@media screen and (max-width: 360px) {
+    .logo{padding:4px 0;}
+}
+

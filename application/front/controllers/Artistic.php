@@ -59,6 +59,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $contition_array = array('status' => '1', 'type' => '2');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -73,6 +84,17 @@ class Artistic extends MY_Controller {
 
     public function art_basic_information_update() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -168,6 +190,17 @@ class Artistic extends MY_Controller {
     public function art_basic_information_insert() { 
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
 
         $this->form_validation->set_rules('firstname', 'Please Enter Your Name', 'required');
@@ -269,6 +302,18 @@ class Artistic extends MY_Controller {
     public function art_address() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -416,6 +461,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
 
         if ($this->input->post('next')) {
 
@@ -471,6 +527,17 @@ class Artistic extends MY_Controller {
     public function art_information() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -576,6 +643,17 @@ class Artistic extends MY_Controller {
 
     public function art_information_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $skill = $this->input->post('skills');
         $otherskill = $this->input->post('other_skill');
 
@@ -635,6 +713,17 @@ class Artistic extends MY_Controller {
     public function art_portfolio() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->data['userdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -794,6 +883,17 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $artportfolio = $_POST['artportfolio'];
         // $bestofmine = $_POST['bestofmine']; 
         //best of mine image upload code start
@@ -926,6 +1026,17 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1219,6 +1330,17 @@ class Artistic extends MY_Controller {
     public function art_manage_post($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $user_name = $this->session->userdata('user_name');
 
         if ($id == $userid || $id == '') {
@@ -1324,6 +1446,17 @@ class Artistic extends MY_Controller {
 
     public function art_addpost() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $this->load->view('artistic/art_addpost', $this->data);
@@ -1334,6 +1467,17 @@ class Artistic extends MY_Controller {
     public function art_post_insert($id = '', $para = '') {
         //echo $para; die();
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
 //echo '<pre>'; print_r($_POST); die();
 
@@ -1580,6 +1724,17 @@ class Artistic extends MY_Controller {
     public function artistic_contactperson($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $id);
         $this->data['contactperson'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1665,6 +1820,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $contition_array = array('user_id' => $id);
         $this->data['contactperson'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1748,6 +1914,17 @@ class Artistic extends MY_Controller {
     public function user_image_insert() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
 
         if ($this->input->post('cancel1')) {
@@ -1903,6 +2080,17 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $this->data['id'] = $id;
 
         if ($id == $userid || $id == '') {
@@ -2044,6 +2232,17 @@ class Artistic extends MY_Controller {
 
     public function userlist() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $artdata = $this->data['artdata'] = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
@@ -2158,6 +2357,17 @@ class Artistic extends MY_Controller {
     public function follow() {
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $art_id = $_POST["follow_to"];
 
         $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
@@ -2244,6 +2454,17 @@ class Artistic extends MY_Controller {
     public function unfollow() {
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $art_id = $_POST["follow_to"];
 
         $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
@@ -2275,6 +2496,17 @@ class Artistic extends MY_Controller {
 
     public function follow_two() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $art_id = $_POST["follow_to"];
 
@@ -2358,6 +2590,17 @@ class Artistic extends MY_Controller {
     public function unfollow_two() {
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $art_id = $_POST["follow_to"];
 
         $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = '*');
@@ -2392,6 +2635,17 @@ class Artistic extends MY_Controller {
 
     public function unfollow_following() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $art_id = $_POST["follow_to"];
 
@@ -2445,6 +2699,17 @@ class Artistic extends MY_Controller {
 
     public function followers($id = "") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         if ($id == $userid || $id == '') {
 
@@ -2564,6 +2829,17 @@ class Artistic extends MY_Controller {
     public function following($id = "") {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         if ($id == $userid || $id == '') {
 
@@ -2709,6 +2985,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $id = $_POST['art_post_id'];
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
@@ -2769,6 +3056,17 @@ class Artistic extends MY_Controller {
         //artistic save post data start
         $userid = $this->session->userdata('aileenuser');
         $user_name = $this->session->userdata('user_name');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
@@ -2891,6 +3189,17 @@ class Artistic extends MY_Controller {
         $id = $_POST['save_id'];
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $data = array(
             'post_save' => 0,
             'post_delete' => 1,
@@ -3002,6 +3311,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $data = array(
             'designation' => $this->input->post('designation'),
             'modified_date' => date('Y-m-d', time())
@@ -3066,6 +3386,17 @@ class Artistic extends MY_Controller {
     public function like_comment() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_id = $_POST["post_id"];
 
         $contition_array = array('artistic_post_comment_id' => $_POST["post_id"], 'status' => '1');
@@ -3193,6 +3524,17 @@ class Artistic extends MY_Controller {
     public function like_comment1() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_id = $_POST["post_id"];
 
         $contition_array = array('artistic_post_comment_id' => $_POST["post_id"], 'status' => '1');
@@ -3322,6 +3664,17 @@ class Artistic extends MY_Controller {
 //Artistic comment delete start
     public function delete_comment() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -3430,20 +3783,39 @@ class Artistic extends MY_Controller {
                 $cmtcount = '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">' .
                         count($allcomnt) . '</i></a>';
+                
+                $cntinsert =  '<span class="comment_count" >';
+                          if (count($allcomnt) > 0) {
+           $cntinsert .= '' . count($allcomnt) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+                                }
             }
         } else {
-            $cmtcount = '<a onClick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
-            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
-            $cmtcount .= '</i></a>';
+//            $cmtcount = '<a onClick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
+//            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+//            $cmtcount .= '</i></a>';
+            $cmtcount = '';
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "commentcount" => count($allcomnt)));
+                    "commentcount" => $cntinsert));
     }
 
     public function delete_commenttwo() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_id = $_POST["post_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -3558,18 +3930,26 @@ class Artistic extends MY_Controller {
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($artdata) . '';
                 $cmtcount .= '</i></a>';
+                
+           $cntinsert =  '<span class="comment_count" >';
+                          if (count($artdata) > 0) {
+           $cntinsert .= '' . count($artdata) . ''; 
+           $cntinsert .=   '</span>'; 
+           $cntinsert .=  '<span> Comment</span>';
+                                }
             }
         } else {
-            $idpost = $art['art_post_id'];
-            $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
-            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
-            $cmtcount .= '</i></a>';
+//            $idpost = $art['art_post_id'];
+//            $cmtcount = '<a onClick="commentall1(this.id)" id="' . $idpost . '">';
+//            $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
+//            $cmtcount .= '</i></a>';
+            $cmtcount .= '';
         }
         //echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "commentcount" => count($artdata)));
+                    "commentcount" => $cntinsert));
     }
 
 //Artistic comment delete end
@@ -3578,6 +3958,17 @@ class Artistic extends MY_Controller {
     public function like_post() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_id = $_POST["post_id"];
 
         $contition_array = array('art_post_id' => $_POST["post_id"], 'status' => '1');
@@ -3871,6 +4262,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
@@ -4035,6 +4437,17 @@ class Artistic extends MY_Controller {
     public function insert_commentthree() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
     $post_id = $_POST["post_id"];
       $post_comment = $_POST["comment"];
@@ -4206,6 +4619,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_id = $_POST["post_id"];
         $post_comment = $_POST["comment"];
 
@@ -4232,6 +4656,17 @@ class Artistic extends MY_Controller {
 
     public function ajaxpro() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         
         // REMOVE OLD IMAGE FROM FOLDER
         $contition_array = array('user_id' => $userid);
@@ -4297,6 +4732,17 @@ class Artistic extends MY_Controller {
     public function image() {
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $config['upload_path'] = $this->config->item('art_bg_original_upload_path');
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
 
@@ -4336,6 +4782,17 @@ class Artistic extends MY_Controller {
 // click on post after post open on new page start
     public function postnewpage($id = '') {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4428,6 +4885,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_id = $_POST["art_post_id"];
         $art_post = $_POST["art_post"];
         $art_description = $_POST["art_description"];
@@ -4470,6 +4938,8 @@ class Artistic extends MY_Controller {
     public function reactivate() {
 
         $userid = $this->session->userdata('aileenuser');
+
+        
         $data = array(
             'status' => 1,
             'modified_date' => date('y-m-d h:i:s')
@@ -4490,6 +4960,17 @@ class Artistic extends MY_Controller {
     public function del_particular_userpost() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $post_id = $_POST['art_post_id'];
 
@@ -4522,6 +5003,17 @@ class Artistic extends MY_Controller {
 
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
 
@@ -4645,6 +5137,17 @@ class Artistic extends MY_Controller {
     public function art_videos($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
 
@@ -4750,6 +5253,17 @@ class Artistic extends MY_Controller {
     public function art_audios($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
 
@@ -4856,6 +5370,18 @@ class Artistic extends MY_Controller {
     public function art_pdf($id) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'status' => '1');
 
 
@@ -4960,6 +5486,17 @@ class Artistic extends MY_Controller {
         //$id = $_POST['save_id'];
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
 
         $contition_array = array('post_image_id' => $post_image, 'user_id' => $userid);
@@ -5231,6 +5768,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5405,6 +5953,17 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];
 
@@ -5558,6 +6117,17 @@ class Artistic extends MY_Controller {
     public function like_commentimg1() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         $post_image_comment_id = $_POST["post_image_comment_id"];
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
@@ -5744,6 +6314,18 @@ class Artistic extends MY_Controller {
     public function mulimg_comment_like1() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_image_comment_id = $_POST["post_image_comment_id"];
 
         $contition_array = array('post_image_comment_id' => $post_image_comment_id, 'user_id' => $userid);
@@ -5927,6 +6509,18 @@ class Artistic extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
+
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_comment = $_POST["comment"];
 
@@ -5953,6 +6547,18 @@ class Artistic extends MY_Controller {
     //multiple images 9-5  commnet delete start
     public function delete_commentimg() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -6090,10 +6696,24 @@ class Artistic extends MY_Controller {
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount));
     }
+    
+    
 
 // changes done 9-5
     public function delete_commenttwoimg() {
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $post_image_comment_id = $_POST["post_image_comment_id"];
         $post_delete = $_POST["post_delete"];
 
@@ -6236,6 +6856,18 @@ class Artistic extends MY_Controller {
     public function fourcomment($postid) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         //$post_id =  $postid; 
         $post_id = $_POST['art_post_id'];
 
@@ -6336,6 +6968,17 @@ class Artistic extends MY_Controller {
     public function fourcommentimg($postid) {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
         //$post_id =  $postid; 
         $image_id = $_POST['art_post_id'];
 
@@ -6444,6 +7087,18 @@ class Artistic extends MY_Controller {
     public function deletepdf() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
         $contition_array = array('user_id' => $userid);
         $art_reg_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_bestofmine', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6508,6 +7163,17 @@ class Artistic extends MY_Controller {
     public function insert_commentimg() {
 
         $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
 
         $post_image_id = $_POST["post_image_id"];
         $post_comment = $_POST["comment"];

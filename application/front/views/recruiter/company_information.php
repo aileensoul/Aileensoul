@@ -87,25 +87,25 @@
                                 
 					<fieldset <?php if($comp_name) {  ?> class="error-msg" <?php } ?>>
 						<label>Company Name:<span class="red">*</span></label>
-						<input name="comp_name" type="text" id="comp_name" placeholder="Enter Company Name"  value="<?php if($compname){ echo $compname; } ?>"/><span id="fullname-error"></span>
+						<input name="comp_name" tabindex="1" autofocus type="text" id="comp_name" placeholder="Enter Company Name"  value="<?php if($compname){ echo $compname; } ?>"/><span id="fullname-error"></span>
 					</fieldset>
                     <?php echo form_error('comp_name'); ?>
 
                     <fieldset <?php if($comp_email) {  ?> class="error-msg" <?php } ?>>
 						<label>Company Email:<span class="red">*</span></label>
-							<input name="comp_email" type="text" id="comp_email" placeholder="Enter Company Email" value="<?php if($compemail){ echo $compemail; } ?>" /><span id="fullname-error"></span>
+							<input name="comp_email" type="text" tabindex="2" id="comp_email" placeholder="Enter Company Email" value="<?php if($compemail){ echo $compemail; } ?>" /><span id="fullname-error"></span>
 					</fieldset>
                 <?php echo form_error('comp_email'); ?>
 
 					<fieldset <?php if($comp_num) {  ?> class="error-msg" <?php } ?>>
 						<label>Company Number:<span class="red">*</span></label>
-						<input name="comp_num"  type="text" id="comp_num" placeholder="Enter Comapny Number" value="<?php if($compnum){ echo $compnum; } ?>"/><span id="email-error"></span>
+						<input name="comp_num"  type="text" id="comp_num" tabindex="3" placeholder="Enter Comapny Number" value="<?php if($compnum){ echo $compnum; } ?>"/><span id="email-error"></span>
 					</fieldset>
 					<?php echo form_error('comp_num'); ?>
 
 					<fieldset>
 						<label>Company Website:</span></label>				
-						<input name="comp_site"  type="text" id="comp_url" placeholder="Enter Comapny Website" value="<?php if($compweb){ echo $compweb; } ?>" /><span ></span>
+						<input name="comp_site"  type="text" id="comp_url" tabindex="4" placeholder="Enter Comapny Website" value="<?php if($compweb){ echo $compweb; } ?>" /><span ></span>
 					</fieldset>
 					
 
@@ -113,14 +113,14 @@
 						<label for="country-suggestions">Interview Process:</span></label>
                       
 
-                         <textarea name ="interview" id="varmailformat" rows="4" cols="50" placeholder="Enter Interview Process" style="resize: none;"><?php if($compservices){ echo $compservices; } ?></textarea>
+                         <textarea name ="interview" id="varmailformat" rows="4" cols="50" tabindex="5" placeholder="Enter Interview Process" style="resize: none;"><?php if($compservices){ echo $compservices; } ?></textarea>
                                       
 					</fieldset>
 					
                     <fieldset <?php if($comp_project) {  ?> class="error-msg" <?php } ?> class="full-width">
                         <label>Company best project:<!-- <span style="color:red">*</span> -->
 
-                        <textarea name ="comp_project" id="comp_project" rows="4" cols="50" placeholder="Enter Company Project" style="resize: none;"><?php if($comp_project1){ echo $comp_project1; } ?></textarea>
+                        <textarea tabindex="5" name ="comp_project" id="comp_project" rows="4" cols="50" placeholder="Enter Company Project" style="resize: none;"><?php if($comp_project1){ echo $comp_project1; } ?></textarea>
                         <?php ?> 
                     </fieldset>
 
@@ -130,14 +130,14 @@
                         <label>Other activities:<!-- <span style="color:red">*</span> --></label>
                        
 
-                        <textarea name ="other_activities" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
+                        <textarea name ="other_activities" tabindex="6" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
                        
                     </fieldset>
 
 					<fieldset class="hs-submit full-width">
                                    
                                   
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="7" value="Next">
                                  
                                     
                      </fieldset>

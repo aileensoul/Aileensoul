@@ -105,7 +105,7 @@
 
                             <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                 <label>First Name:<span class="red">*</span></label>
-                                <input type="text" name="fname" id="fname" placeholder="Enter First Name" value="<?php if ($firstname1) {
+                                <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First Name" value="<?php if ($firstname1) {
                                     echo $firstname1;
                                 } else {
                                     echo $userdata[0]['first_name'];
@@ -116,7 +116,7 @@
 
                             <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>
                                 <label>Last Name:<spanclass="red">*</span></label>
-                                <input type="text" name="lname" id="lname" placeholder="Enter Last Name" value="<?php if ($lastname1) {
+                                <input type="text" tabindex="2" name="lname" id="lname" placeholder="Enter Last Name" value="<?php if ($lastname1) {
     echo $lastname1;
 } else {
     echo $userdata[0]['last_name'];
@@ -127,7 +127,7 @@
 
                             <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
                                 <label>Email:<span class="red">*</span></label>
-                                <input type="text" name="email" id="email" placeholder="Enter Email" value="<?php if ($email1) {
+                                <input type="text" name="email" tabindex="3" id="email" placeholder="Enter Email" value="<?php if ($email1) {
     echo $email1;
 } else {
     echo $userdata[0]['user_email'];
@@ -138,7 +138,7 @@
 
                             <fieldset>
                                 <label>Skype Id:</label>
-                                <input type="text" name="skyupid" id="skyupid" placeholder="Enter SkypeId" value="<?php if ($skypeid1) {
+                                <input type="text" name="skyupid" id="skyupid"  tabindex="4" placeholder="Enter SkypeId" value="<?php if ($skypeid1) {
     echo $skypeid1;
 } ?>">
 
@@ -147,7 +147,7 @@
 
                             <fieldset <?php if ($phone) { ?> class="error-msg" <?php } ?> class="full-width">
                                 <label>Phone Number:<span class="red">*</span></label>
-                                <input type="text" name="phone" id="phone" placeholder="Enter Phone Number" value="<?php if ($phoneno1) {
+                                <input type="text" tabindex="5" name="phone" id="phone" placeholder="Enter Phone Number" value="<?php if ($phoneno1) {
     echo $phoneno1;
 } ?>">
         <?php echo form_error('phone'); ?>
@@ -157,7 +157,7 @@
                             <fieldset class="hs-submit full-width">
 
                               
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit" tabindex="6" id="next" name="next" value="Next">
 
 
                             </fieldset>

@@ -136,7 +136,7 @@ $(window).load(function(){
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css('background-color', '#FF4500');
+            $('#message_count').css({"background-color": "'#FF4500", "padding": "3px"});
             //alert("welcome");
         }
 
@@ -238,7 +238,7 @@ $(window).load(function(){
 
 <script type="text/javascript" >
 
-// 
+// click on escape notification & message drop down close start
 $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         $( "#notificationContainer" ).hide();
@@ -250,6 +250,8 @@ $( document ).on( 'keydown', function ( e ) {
         $( "#InboxContainer" ).hide();
     }
 });
+// click on escape notification & message drop down close end
+
 
     $(document).ready(function ()
     {
@@ -367,7 +369,7 @@ $( document ).on( 'keydown', function ( e ) {
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo">
-                            <a href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
+                            <a tabindex="-200" href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
@@ -614,6 +616,28 @@ $( document ).on( 'keydown', function ( e ) {
             });
 
         }
+    </script>
+    <!------  commen script harshad  ---------------->
+    <script>
+        jQuery(document).ready(function($) {
+         if(screen.width <= 767){
+             
+             $("ul.left-form-each").on("click", ".init", function() {
+                $(this).closest("ul").children('li:not(.init)').toggle();
+            });
+
+            var allOptions = $("ul").children('li:not(.init)');
+            $("ul.left-form-each").on("click", "li:not(.init)", function() {
+                allOptions.removeClass('selected');
+                $(this).addClass('selected');
+                $("ul.left-form-each").children('.init').html($(this).html());
+                allOptions.toggle();
+            });
+             
+             
+          
+            }
+        });
     </script>
     <!-- script for update all read notification end -->
 <!-- <script>

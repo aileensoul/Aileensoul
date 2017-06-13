@@ -82,14 +82,14 @@
                                 
                     <fieldset>
                         <label>First Name:<span class="red">*</span></label>
-                        <input name="first_name" type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error"></span>
+                        <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error"></span>
                         <?php echo form_error('first_name'); ?>
                     </fieldset>
                     
 
                     <fieldset>
                         <label>Last Name:<span class="red">*</span></label>
-                      <input name="last_name" type="text" placeholder="Enter Last Name"
+                      <input name="last_name" type="text" tabindex="2" placeholder="Enter Last Name"
                       value="<?php if($lastname){ echo $lastname; } else{echo $userdata[0]['last_name'];} ?>" id="last_name" /><span id="fullname-error" ></span>
                       <?php echo form_error('last_name'); ?>
                     </fieldset>
@@ -97,13 +97,13 @@
 
                     <fieldset>
                         <label>E-mail address:<span class="red">*</span></label>
-                        <input name="email"  type="text" id="email" placeholder="Enter Email"  value="<?php if($email){ echo $email; } else{echo $userdata[0]['user_email'];}?>" /><span id="email-error" ></span>
+                        <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter Email"  value="<?php if($email){ echo $email; } else{echo $userdata[0]['user_email'];}?>" /><span id="email-error" ></span>
                         <?php echo form_error('email'); ?>
                     </fieldset>
                     
                     <fieldset>
                         <label>Phone number:<span class="red">*</span></label>
-                        <input name="phoneno" placeholder="Enter Phone Number"  value="<?php if($phone){ echo $phone; } ?>" type="text" id="phoneno"  /><span ></span>
+                        <input name="phoneno" placeholder="Enter Phone Number" tabindex="4" value="<?php if($phone){ echo $phone; } ?>" type="text" id="phoneno"  /><span ></span>
                         <?php echo form_error('phoneno'); ?>
                     </fieldset>
                     
@@ -111,7 +111,7 @@
                     <fieldset class="hs-submit full-width">
 
                                  
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="5" value="Next">
                                   
                                     
                                 </fieldset>

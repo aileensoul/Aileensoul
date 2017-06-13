@@ -60,7 +60,7 @@
 
                             <fieldset class="full-width">
                                 <label>Post Title:<span style="color:red">*</span></label>
-                                <input name="post_name" type="text" id="post_name" placeholder="Enter Post Name" value="<?php echo $freelancerpostdata[0]['post_name']?> "/>
+                                <input name="post_name" type="text" id="post_name" tabindex="1" autofocus placeholder="Enter Post Name" value="<?php echo $freelancerpostdata[0]['post_name']?> "/>
                                 <span id="fullname-error"></span>                        
                                 <?php echo form_error('post_name'); ?>
                             </fieldset>
@@ -68,7 +68,7 @@
                             <fieldset class="full-width">
                                 <label>Post description:<span style="color:red">*</span></label>
 
-                                <textarea style="resize: none;height: 22%;overflow: auto;" name="post_desc" id="post_desc" placeholder="Enter Description"><?php echo $freelancerpostdata[0]['post_description']; ?></textarea>
+                                <textarea style="resize: none;height: 22%;overflow: auto;" tabindex="2" name="post_desc" id="post_desc" placeholder="Enter Description"><?php echo $freelancerpostdata[0]['post_description']; ?></textarea>
 
                                 
                                 <?php echo form_error('post_desc'); ?>
@@ -77,7 +77,7 @@
 
                            <fieldset class="full-width" <?php if($fields_req) {  ?> class="error-msg" <?php } ?>>
                   <label>Fields Of Requirement:<span style="color:red">*</span></label>
-                   <select name="fields_req" id="fields_req">
+                   <select tabindex="3" name="fields_req" id="fields_req">
                         <option value="" selected option disabled>Select Fields of Requirement</option>
                  <?php  
                                             if(count($category) > 0){ 
@@ -108,7 +108,7 @@
                             <fieldset class="full-width" <?php if($post_skill) {  ?> class="error-msg" <?php } ?>>
                                 <label>Skills of Requirements:<span style="color:red">*</span></label>
                                
-                                  <select name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="keyskil">
+                                  <select tabindex="4" name="skills[]" id ="skill1" multiple="multiple" style="width:100% " class="keyskil">
 
 
                                  <?php foreach ($skill1 as $skill) { ?>
@@ -122,7 +122,7 @@
 
                             <fieldset class="full-width" <?php if($other_skill) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Other Skill:</label>
-                            <input name="other_skill" type="text" id="other_skill" class="keyskil" placeholder="Enter Your Other Skill" value="<?php echo $freelancerpostdata[0]['post_other_skill']; ?>" />
+                            <input name="other_skill" tabindex="5" type="text" id="other_skill" class="keyskil" placeholder="Enter Your Other Skill" value="<?php echo $freelancerpostdata[0]['post_other_skill']; ?>" />
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('other_skill'); ?>
                         </fieldset>
@@ -131,7 +131,7 @@
               <fieldset class="full-width two-select-box fullwidth_experience"> 
                                 <label>Experience:</label>
                                 
-                                <select name="year" id="year">
+                                <select name="year" id="year" tabindex="6">
                                     <!-- <option value="<?php //echo $freelancerpostdata[0]['post_exp_year']?>"><?php //echo $freelancerpostdata[0]['post_exp_year']." Year"?></option> -->
                        <option value="" selected option disabled>Year</option>
                                     <option value="0" <?php if($freelancerpostdata[0]['post_exp_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
@@ -159,7 +159,7 @@
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('year'); ?>
 
-                                <select name="month" style="margin-left: 8px;" id="month">
+                                <select name="month" style="margin-left: 8px;" tabindex="7" id="month">
                                    <!--  <option value="<?php //echo $freelancerpostdata[0]['post_exp_month']?> "><?php //echo $freelancerpostdata[0]['post_exp_month']." Month"?></option> -->
                                     <!-- <option >Month</option> -->
                                      <option value="" selected option disabled>Month</option>
@@ -186,14 +186,14 @@
 
                             <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
                             <label class="control-label">Rate:<span style="color:red">*</span></label>
-                            <input name="rate" type="number" id="rate" placeholder="Enter Your rate" value="<?php echo $freelancerpostdata[0]['post_rate']; ?>" />
+                            <input name="rate" type="number" id="rate" tabindex="8" placeholder="Enter Your rate" value="<?php echo $freelancerpostdata[0]['post_rate']; ?>" />
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('rate'); ?>
                             </fieldset>
 
                             <fieldset class=" col-md-4"> 
                      <label>Currency:<span class="red">*</span></label>
-                            <select name="currency" id="currency">
+                            <select name="currency" id="currency" tabindex="9">
                              <option value="" selected option disabled>Select Currency</option>
                             <?php if(count($currency) > 0){
                             foreach($currency as $cur){ 
@@ -215,7 +215,7 @@
                     <fieldset class="col-md-4">
                     <label>Work Type</label>
                     
-  <input type="radio" name="rating" <?php if($freelancerpostdata[0]['post_rating_type']==0){ ?> checked <?php } ?> value="0" > Hourly
+  <input type="radio" name="rating" tabindex="10" <?php if($freelancerpostdata[0]['post_rating_type']==0){ ?> checked <?php } ?> value="0" > Hourly
   
   <input type="radio" name="rating"  <?php if($freelancerpostdata[0]['post_rating_type']==1){?> checked <?php }?> value ="1"> Fixed
   
@@ -225,7 +225,7 @@
                             
                              <fieldset>
                                 <label>Estimated time of project:</label>
-                                <input name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" value="<?php echo $freelancerpostdata[0]['post_est_time']?> "/>
+                                <input name="est_time" type="text" tabindex="11" id="est_time" placeholder="Enter Estimated time in month/year" value="<?php echo $freelancerpostdata[0]['post_est_time']?> "/>
                                 <span id="fullname-error"></span>
                                 <?php echo form_error('post_name'); ?>
                             </fieldset>
@@ -233,7 +233,7 @@
                             
                          <fieldset <?php if($last_date) {  ?> class="error-msg" <?php } ?>>
                         <label>Last date for apply:<span style="color:red">*</span></label>
-                        <input type="text" name="last_date" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="<?php echo $freelancerpostdata[0]['post_last_date']?>" >
+                        <input type="text" name="last_date" id="datepicker" tabindex="12" placeholder="dd/mm/yyyy"   autocomplete="off" value="<?php echo $freelancerpostdata[0]['post_last_date']?>" >
 
                         <?php echo form_error('last_date'); ?> 
                     </fieldset>
@@ -255,7 +255,7 @@
                             <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                 <label>Country:<span style="color:red">*</span></label>
                 
-                        <select name="country" id="country">
+                        <select name="country" id="country" tabindex="13">
                          
                            <option value="" selected option disabled>Select Country</option>
                           <?php
@@ -285,7 +285,7 @@
 
                   <fieldset>
                     <label> City:</label>
-                  <select name="city" id="city">
+                  <select name="city" id="city" tabindex="14">
                     <?php
 
                                          if($city1)
@@ -326,7 +326,7 @@
                                  <a class="add_post_btnc"  href="javascript:history.back()">Cancel</a>
                                  <?php } ?>
                                  
-                                <input type="submit" id="submit" class="add_post_btns" name="submit" value="Save">
+                                <input type="submit" tabindex="15" id="submit" class="add_post_btns" name="submit" value="Save">
                                 
                             </fieldset>
                             </div>

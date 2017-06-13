@@ -22,7 +22,7 @@ echo $job_header2;
     }?>
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
@@ -51,9 +51,9 @@ echo $job_header2;
                 </div>
             </div>
 
-
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                      if($this->uri->segment(3) == $userid){
@@ -81,10 +81,10 @@ echo $job_header2;
                 </div>
             </div>
         </div>
-    </div>
-</div>   
-
-<div class="container">       
+        </div>
+     
+        
+<div class="container tablate-container">       
     <div class="upload-img ">
 
         <?php if($returnpage == ''){ ?>
@@ -117,6 +117,8 @@ echo $job_header2;
         </div>
         <?php echo $job_menubar; ?>   
     </div>
+</div>
+<div class="middle-part container">
     <div class="job-menu-profile">
         <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> 
             <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
@@ -166,8 +168,8 @@ echo $job_header2;
 
     </div>
 
-    <div class="col-md-8 col-sm-8">
-    <div class="row">
+    <div class="col-md-8 col-sm-8 mob-clear">
+    <div class="">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Details</h3>
@@ -1561,7 +1563,13 @@ else
                                
                             </div>
                         </div>
-                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="clearfix"></div>
+    </section>
 
                         <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
@@ -1904,6 +1912,27 @@ $( "#searchplace" ).autocomplete({
 
                                 //alert(size);
 
+ // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+
+
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    savepopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+
                                 if (size > 4194304)
                                 {
                                     //show an alert to the user
@@ -2051,7 +2080,17 @@ $( "#searchplace" ).autocomplete({
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+      
+         profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
     });
 </script>
 
@@ -2129,3 +2168,11 @@ $( "#searchplace" ).autocomplete({
         display: block;
     }
 </style>
+<script>
+                        function picpopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

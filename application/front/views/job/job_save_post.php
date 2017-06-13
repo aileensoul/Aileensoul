@@ -428,7 +428,7 @@
  <div class="popup_previred">
                          <img id="preview" src="#" alt="your image" />
 </div>
-                      <!--   <input type="hidden" name="hitext" id="hitext" value="4"> -->
+                        <input type="hidden" name="hitext" id="hitext" value="4">
                         <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
                         <?php echo form_close(); ?>
@@ -726,7 +726,14 @@ $( "#searchplace" ).autocomplete({
         files = this.files;
         size = files[0].size;
 
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    savepopup();
 
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
 
         if (size > 4194304)
         {
@@ -897,7 +904,17 @@ $( "#searchplace" ).autocomplete({
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+      readURL(this);
+        profile = this.files;
+      //alert(profile);
+      // if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+      //  //alert('not an image');
+      //   $('#profilepic').val('');
+      //    savepopup();
+      //    return false;
+      //     }else{
+      //     readURL(this);}
+
     });
 </script>
 
@@ -938,3 +955,11 @@ $( "#searchplace" ).autocomplete({
                 });
                    });
   </script>
+  <script>
+                        function savepopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>

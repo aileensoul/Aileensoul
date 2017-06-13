@@ -2547,7 +2547,8 @@ input[type="range"] {
 select[multiple],
 select[size] {
   /*height: auto;*/
-  max-height: 32px !important;
+  max-height: 28px !important;
+  min-height: 28px!important;
 }
 input[type="file"]:focus,
 input[type="radio"]:focus,
@@ -3313,7 +3314,7 @@ fieldset[disabled] .btn-info.focus {
 }
 .btn-warning:hover {
   color: #fff;
-  background-color: #ec971f;
+  background-color: #156f95;
   border-color: #d58512;
 }
 .btn-warning:active,
@@ -5073,6 +5074,7 @@ a.thumbnail.active {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
+  text-align: center;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
@@ -9417,7 +9419,10 @@ button.close {
 .stkiy{     position: fixed;
     top: 53px;
     /* width: 290px; */
-    z-index: 9;}
+    z-index: 9;
+    width: 92.6%;
+  }
+
 
 /*Retina graphics!*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),

@@ -445,6 +445,20 @@ if ($status == 0 || $status == " ") {
 </div>
 </div>
 </section>
+ <!-- Bid-modal  -->
+            <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                            <span class="mes"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Model Popup Close -->
+
 <!-- Bid-modal-2  -->
                         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
                             <div class="modal-dialog modal-lm">
@@ -714,6 +728,18 @@ $( "#searchplace" ).autocomplete({
 
         //alert(size);
 
+// pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+
+
         if (size > 4194304)
         {
             //show an alert to the user
@@ -805,7 +831,15 @@ $( "#searchplace" ).autocomplete({
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+         profile = this.files;
+                   //alert(profile);
+                      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+                       //alert('not an image');
+                  $('#profilepic').val('');
+                   picpopup();
+                     return false;
+                   }else{
+                      readURL(this);}
     });
 </script>
 
@@ -851,3 +885,10 @@ $( "#searchplace" ).autocomplete({
   $("html,body").animate({scrollTop: 350}, 100); //100ms for example
 });
     </script>
+       <script>
+     function picpopup() {
+
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+      </script>

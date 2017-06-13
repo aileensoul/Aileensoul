@@ -1,4 +1,4 @@
-/***  css   ***/
+/***  css   ***//*
 .prev {
     background-color: rgba(0, 0, 0, 0.3);
 }
@@ -71,4 +71,33 @@
       
 
     }
-    .modal-content{display: table; width: 100%;}
+    .modal-content{display: table; width: 100%;}*/
+    .btn-3b
+    {    padding: 5px 8px 5px 8px !important;
+        font-size: 14px!important;}
+        .action-button #message_count{padding: 0;}
+        .profile-pho{margin-top: -81px!important;}
+     /* .header2 ul{padding-right: 0px;}*/
+
+
+     .left_iner_img_profile{height: 77px; width: 71px; z-index: 3; position: relative; }
+     .left_iner_img_profile img {height: 100%; width: 100%;}
+     .right_left_box_design {width: 76%;
+    display: inline-block;
+    float: left;
+padding: 10px;}
+    .left_side_box_img{float: left;}
+    .left_box_menubar{ width: 100%; padding: 0px; margin: 0px; float: left;}
+    .left_box_menubar li{list-style: none; float: left; text-align: center; padding: 0px; margin: 0px; width: 33.33%; }
+    .left_box_menubar li a{  padding: 10px; display: inline-block; }
+    .left_box_menubar li:first-child{text-align: left;}
+     .left_box_menubar li:last-child{text-align: right;}
+    .profile-boxProfileCard-content{position: relative;}
+    .profile-boxProfileCard-content:before{width: 100%; height: 1px; display: block; position: absolute; content: ""; top:55px; background: #d9d9d9;}
+    .profile-company-name a{margin-left: 0px !important;}
+    .no_user_Av {
+    padding: 10px;
+    display: inline-block;
+    padding-left: 16px;
+    color: #808080;
+}

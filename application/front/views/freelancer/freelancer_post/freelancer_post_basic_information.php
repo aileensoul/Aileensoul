@@ -107,7 +107,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset <?php if ($firstname) { ?> class="error-msg" <?php } ?>>
                                 <label>Full name:<span class="red">*</span></label>
-                                <input type="text" name="firstname" placeholder="Enter full name" value="<?php if ($firstname1) {
+                                <input tabindex="1" autofocus type="text" name="firstname" placeholder="Enter full name" value="<?php if ($firstname1) {
     echo $firstname1;
 } else {
     echo $userdata[0]['first_name'];
@@ -117,7 +117,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset <?php if ($lastname) { ?> class="error-msg" <?php } ?>>
                                 <label>Last name:<span class="red">*</span></label>
-                                <input type="text" name="lastname" id="lastname" placeholder="Enter last name" value="<?php if ($lastname1) {
+                                <input type="text" name="lastname" tabindex="2" id="lastname" placeholder="Enter last name" value="<?php if ($lastname1) {
     echo $lastname1;
 } else {
     echo $userdata[0]['last_name'];
@@ -127,7 +127,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
                                 <label>Email:<span class="red">*</span></label>
-                                <input type="text" name="email" id="email" placeholder="Enter email address" value="<?php if ($email1) {
+                                <input type="text" name="email" id="email" tabindex="3" placeholder="Enter email address" value="<?php if ($email1) {
     echo $email1;
 } else {
     echo $userdata[0]['user_email'];
@@ -137,7 +137,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset>
                                 <label>Skype id</label>
-                                <input type="text" name="skypeid" placeholder="Enter skype id" value="<?php if ($skypeid1) {
+                                <input type="text" name="skypeid" placeholder="Enter skype id" tabindex="4" value="<?php if ($skypeid1) {
     echo $skypeid1;
 } ?>">
         <?php ?>
@@ -145,7 +145,7 @@ $phoneno = form_error('phoneno');
 
                             <fieldset <?php if ($phoneno) { ?> class="error-msg" <?php } ?>>
                                 <label>Phone number:<span class="red">*</span></label>
-                                <input type="text" name="phoneno" id="phoneno" placeholder="Enter phone number" value="<?php if ($phoneno1) {
+                                <input type="text" name="phoneno" id="phoneno" tabindex="5" placeholder="Enter phone number" value="<?php if ($phoneno1) {
             echo $phoneno1;
         } ?>">
 <?php echo form_error('phoneno'); ?>
@@ -154,7 +154,7 @@ $phoneno = form_error('phoneno');
                             <fieldset class="hs-submit full-width">
 
                                 <!--<input type="reset">-->
-                                <input type="submit"  id="next" name="next" value="Next">
+                                <input type="submit"  id="next" name="next" value="Next" tabindex="6">
 
 
 

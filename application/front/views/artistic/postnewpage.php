@@ -106,31 +106,45 @@
 
                     <div class="profile-box profile-box-left col-md-4">
 
-                        <div class="full-box-module">    
+                                  <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                        <?php if ($artisticdata[0]['profile_background']) { ?>
+                                            <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="data_img">
+                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
 
-                            <div class="profile-boxProfileCard  module">
-                                <div class="profile-boxProfileCard-cover">     
-                                    <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                        <div class="data_img">
-                                            <img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" class="bgImage"></div>
+                                            </div>                                             <?php } ?>
                                     </a>
-                                </div>
-
-                                <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="buisness-profile-txext col-md-4">
-                                        <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="zalak" tabindex="-1" aria-hidden="true" rel="noopener">
+                                    </div>
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                             <!-- box image start -->
-                                            <div class="data_img_2">
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  ></div>
+                                            <?php if ($artisticdata[0]['art_user_image']) { ?>
+                                                <div class="data_img_2">   
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                                                </div>
+                                            <?php } else { ?> 
+                                                <div class="data_img_2">
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                                                </div>
+                                            <?php } ?>
                                             <!-- box image end -->
                                         </a>
                                     </div>
-                                    <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                        <span class="profile-company-name ">
-                                            <a  href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                                    <div class="right_left_box_design ">
+                                    <span class="profile-company-name ">
+                                            <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
                                         </span>
 
 
+                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                          
                                         <div class="profile-boxProfile-name">
                                             <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
                                                 <?php
@@ -139,29 +153,30 @@
                                                 } else {
                                                     echo "Designation";
                                                 }
-                                                ?></a></div>
+                                                ?>
+                                                  
+
+                                                </a>
 
 
+                                                </div>
+
+
+                                               <ul class=" left_box_menubar">
+                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
+                                            </li>
+
+                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
+                                            </li>
+
+                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a class="padding_less_right"  title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
+                                            </li>
+                                          
+                                            </ul>
                                     </div>
-
-                                    <div class="profile-box-bui-menu  profile-box-busi-menu  col-md-12">
-
-                                        <ul class="">
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                                            </li>
-                                        </ul>
-
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
+       </div>                             
+    </div>
                     </div>
                     <!-- cover pic end -->
 
@@ -284,7 +299,7 @@
                                     </div>  
 
                                     <div class="dropdown1">
-                                        <a onClick="myFunction(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
+                                        <a onClick="myFunctionone(<?php echo $art_data[0]['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
                                         <div id="<?php echo "myDropdown" . $art_data[0]['art_post_id']; ?>" class="dropdown-content1">
 
 
@@ -1475,7 +1490,7 @@
                                 success: function (data) {
                                     $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
                                    //     $('#' + 'insertcount' + post_delete.value).html(data.count);
-                               $('.comment_count' + post_delete.value).html(data.commentcount);
+                                $('.like_count_ext' + post_delete.value).html(data.commentcount);
                                     $('.post-design-commnet-box').show();
                                 }
                             });
@@ -1572,8 +1587,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                   //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('.insertcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
 
                                     }
                                 });
@@ -1589,8 +1605,9 @@
                                         $('textarea').each(function () {
                                             $(this).val('');
                                         });
-                                        $('#' + 'insertcount' + clicked_id).html(data.count);
+                                      //  $('#' + 'insertcount' + clicked_id).html(data.count);
                                         $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                                        $('.like_count_ext' + clicked_id).html(data.commentcount);
                                     }
                                 });
                             }
@@ -1711,7 +1728,7 @@
                                                 });
                                                //   $('#' + 'insertcount' + clicked_id).html(data.count);
                                     $('.insertcomment' + clicked_id).html(data.comment);
-                                    $('.comment_count' + clicked_id).html(data.commentcount);
+                                    $('.like_count_ext' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     } else {
@@ -1726,7 +1743,7 @@
                                                 });
                                            //     $('#' + 'insertcount' + clicked_id).html(data.count);
                                                 $('#' + 'fourcomment' + clicked_id).html(data.comment);
-                                                $('.comment_count' + clicked_id).html(data.commentcount);
+                                               $('.like_count_ext' + clicked_id).html(data.commentcount);
                                             }
                                         });
                                     }
@@ -1866,8 +1883,21 @@
                     <script>
                         /* When the user clicks on the button, 
                          toggle between hiding and showing the dropdown content */
-                        function myFunction(clicked_id) {
+                        function myFunctionone(clicked_id) {
                             document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+
+
+                              $( document ).on( 'keydown', function ( e ) {
+                                        if ( e.keyCode === 27 ) { 
+
+                                        document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                                         $(".dropdown-content1").removeClass('show');
+
+                            }
+                           
+                        }); 
+
                         }
                         // Close the dropdown if the user clicks outside of it
                         window.onclick = function (event) {
@@ -3436,3 +3466,17 @@
                         }
 
                     </script>
+
+
+                    <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

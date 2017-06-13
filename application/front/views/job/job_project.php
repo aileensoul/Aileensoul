@@ -42,35 +42,34 @@
 
                       <?php }?>
             </div>
-            <br>
-            <br>
+       
             <br>
 
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
 
-                                  <li><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
-                                   <li <?php if($this->uri->segment(1) == 'job'){?> class="active" <?php } ?>><a href="#">Project And Training / Internship</a></li>
+                                   <li <?php if($this->uri->segment(1) == 'job'){?> class="active init" <?php } ?>><a href="#">Project And Training / Internship</a></li>
 
                               
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 <!-- 
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '5'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
                                
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '6'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '7'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '8'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '9'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
                             </ul>
                         </div>
                     </div>
@@ -100,21 +99,21 @@
                                 <fieldset class="full-width">
                                          <label>Project Name (Title):</label>
 
-                                          <input type="text" name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>"/>
+                                          <input type="text" tabindex="1" autofocus name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>"/>
                                         
                                   </fieldset>
 
                                   <fieldset class="full-width">
                                          <label>Duration</label>
 
-                                          <input type="text" name="project_duration"  id="project_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>"/>
+                                          <input type="text" name="project_duration" tabindex="2"  id="project_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>"/>
                                         
                                   </fieldset>
 
                                      <fieldset class="full-width">
                                          <label>Project Description</label>
 
-                                          <textarea name="project_description"  id="project_description" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
+                                          <textarea name="project_description"  id="project_description" tabindex="3" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
                                         
                                   </fieldset>
 
@@ -126,21 +125,21 @@
                              <fieldset class="full-width">
                                          <label>Intern / Trainee as</label>
 
-                                          <input type="text" name="training_as"  id="training_as" placeholder="Intern / Trainee as" value="<?php if($training_as1){ echo $training_as1; } else { echo $job[0]['training_as']; }?>"/>
+                                          <input type="text" tabindex="4" name="training_as"  id="training_as" placeholder="Intern / Trainee as" value="<?php if($training_as1){ echo $training_as1; } else { echo $job[0]['training_as']; }?>"/>
                                         
                               </fieldset>
 
                                <fieldset class="full-width">
                                          <label>Duration</label>
 
-                                          <input type="text" name="training_duration"  id="training_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
+                                          <input type="text" name="training_duration" tabindex="5"  id="training_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
                                         
                                   </fieldset>
 
                                    <fieldset class="full-width">
                                          <label>Name of Organization</label>
 
-                                          <input type="text" name="training_organization"  id="training_organization" placeholder="Enter Name of Organization" value="<?php if($training_organization1){ echo $training_organization1; } else { echo $job[0]['training_organization']; }?>"/>
+                                          <input type="text" name="training_organization" tabindex="6"  id="training_organization" placeholder="Enter Name of Organization" value="<?php if($training_organization1){ echo $training_organization1; } else { echo $job[0]['training_organization']; }?>"/>
                                         
                                   </fieldset>
 
@@ -150,7 +149,7 @@
 
 <!--                                        <input type="reset">
                                         <input type="submit"  id="previous" name="previous" value="previous">-->
-                                        <input type="submit"  id="next" name="next" value="Next">
+                                        <input type="submit"  id="next" name="next" value="Next" tabindex="7">
                                  
                                     
                                 </fieldset>

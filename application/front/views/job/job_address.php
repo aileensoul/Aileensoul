@@ -49,57 +49,57 @@
 
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
 
-                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Address</a></li>
+                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?>><a href="#">Address</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '2') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '3') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '4') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
 
                                 <!-- <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                if ($jobdata[0]['job_step'] < '5') {
                                    // echo "khyati";
                                 }
                                 ?>"><a href="<?php// echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '6') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '7') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '8') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '2') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '9') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
@@ -152,7 +152,7 @@
                                 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
                                     <label>Country<span class="red">*</span></label>
-                                    <select name="country" id="country">
+                                    <select name="country" tabindex="1" autofocus id="country">
                                         <option value="">Select Country</option>
                                         <?php
                                         if (count($countries) > 0) {
@@ -180,7 +180,7 @@
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
                                     <label>State<span class="red">*</span></label>
-                                    <select name="state" id="state">
+                                    <select name="state" id="state" tabindex="2">
                                         <?php
                                         if ($state1) {
                                             foreach ($states as $cnt) {
@@ -205,7 +205,7 @@
 
                                 <fieldset <?php if ($city) { ?> class="error-msg" <?php } ?>>
                                     <label>City</label>
-                                    <select name="city" id="city">
+                                    <select tabindex="3" name="city" id="city">
                                         <?php
                                         if ($city1) {
                                             foreach ($cities as $cnt) {
@@ -230,7 +230,7 @@
 
                                 <fieldset <?php if ($pincode) { ?> class="error-msg" <?php } ?>>
                                     <label>Pincode:</label>
-                                    <input type="text" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
+                                    <input type="text" tabindex="4" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
                                     if ($pincode1) {
                                         echo $pincode1;
                                     }
@@ -241,7 +241,7 @@
                                 <fieldset class="full-width">
                                     <label>Postal Address:<span class="red">*</span></label>
 
-                                    <textarea name ="address" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
+                                    <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1) {
                                             echo $address1;
                                         }
@@ -251,13 +251,13 @@
 
 
                                 <fieldset class="hs-submit full-width">
-                                <input type="button" class="job_address_btn" value="copy" onClick="copy()"/>
+                                <input type="button" class="job_address_btn"  tabindex="6" value="copy" onClick="copy()"/>
                                 </fieldset>
                                 <div class="job_add_head"><span>Permenant Address</span></div>
 
                                 <fieldset <?php if ($country_permenant) { ?> class="error-msg" <?php } ?>>
                                     <label>Country<span class="red">*</span></label>
-                                    <select name="country_permenant" id="country_permenant">
+                                    <select name="country_permenant"  id="country_permenant">
                                         <option value="">Select Country</option>
                                         <?php
                                         if (count($countries) > 0) {
@@ -358,7 +358,7 @@
 
 <!--                                        <input type="reset">
                                         <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="7" value="Next">
 
 
                                 </fieldset>

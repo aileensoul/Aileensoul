@@ -88,6 +88,17 @@ $this->load->view('business_profile/temp');
     public function job_basicinfo_update() {
         $userid = $this->session->userdata('aileenuser');
 
+         //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata= $this->data['userdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($userdata);die();
@@ -192,6 +203,17 @@ $this->load->view('business_profile/temp');
 
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
@@ -326,6 +348,17 @@ $this->load->view('business_profile/temp');
 //job seeker address controller start
     public function job_address_update() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         //for getting country data
         $contition_array = array('status' => 1);
@@ -500,6 +533,18 @@ $this->load->view('business_profile/temp');
 
     public function job_address_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -578,6 +623,17 @@ $this->load->view('business_profile/temp');
         $this->data['postid'] = $postid;
       
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
         //for getting degree data
@@ -692,6 +748,18 @@ $this->load->view('business_profile/temp');
     public function job_education_primary_insert() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -932,6 +1000,17 @@ $this->load->view('business_profile/temp');
 //Insert Secondary Education Data start
     public function job_education_secondary_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1152,6 +1231,17 @@ $this->load->view('business_profile/temp');
 //Insert Higher Secondary Education Data start
     public function job_education_higher_secondary_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1376,6 +1466,17 @@ $this->load->view('business_profile/temp');
         //echo "<pre>";print_r($_POST);die();
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         if ($this->input->post('previous')) {
             redirect('job/job_address_update', refresh);
@@ -1645,6 +1746,17 @@ $this->load->view('business_profile/temp');
 //More education Insert Start
     public function job_add_education() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
         //for getting degree data
@@ -1662,6 +1774,17 @@ $this->load->view('business_profile/temp');
 
     public function job_add_education_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         $contition_array = array('user_id' => $userid);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1723,6 +1846,17 @@ $this->load->view('business_profile/temp');
     public function job_project_update() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
 
@@ -1823,6 +1957,17 @@ $this->load->view('business_profile/temp');
     public function job_project_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         if ($this->input->post('previous')) {
             redirect('job/job_education_update', refresh);
@@ -1880,6 +2025,17 @@ $this->load->view('business_profile/temp');
 //job seeker skill controller start
     public function job_skill_update() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         $contition_array = array('status' => '1', 'type' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2000,6 +2156,17 @@ $this->load->view('business_profile/temp');
     public function job_skill_insert() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $keyskill = $this->input->post('skills');
         $otherskill = $this->input->post('other_skill');
         $otherskill1 = $this->input->post('other_skill1');
@@ -2167,6 +2334,17 @@ $this->load->view('business_profile/temp');
 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
@@ -2299,6 +2477,17 @@ $this->load->view('business_profile/temp');
     public function job_apply_for_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         if ($this->input->post('previous')) {
             redirect('job/job_skill_update', refresh);
@@ -2352,6 +2541,17 @@ $this->load->view('business_profile/temp');
     public function job_work_exp_update() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
@@ -2452,6 +2652,17 @@ $this->load->view('business_profile/temp');
 
        // echo "<pre>";print_r($_POST);
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         $userdata[] = $_POST;
        // echo "<pre>"; print_r($userdata[0]['keyskil1']);
@@ -2822,11 +3033,33 @@ $files[] = $_FILES;
     public function job_add_workexp() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $this->load->view('job/job_add_workexp');
     }
 
     public function job_add_workexp_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
 
        
@@ -2956,6 +3189,17 @@ $files[] = $_FILES;
     public function job_curricular_update() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
 
@@ -3041,6 +3285,17 @@ $files[] = $_FILES;
     public function job_curricular_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         if ($this->input->post('previous')) {
             redirect('job/job_work_exp_update', refresh);
@@ -3101,6 +3356,17 @@ $files[] = $_FILES;
     public function job_reference_update() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -3182,6 +3448,17 @@ $files[] = $_FILES;
     public function job_reference_insert() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         if ($this->input->post('previous')) {
             redirect('job/job_curricular_update', refresh);
         }
@@ -3244,6 +3521,17 @@ $files[] = $_FILES;
     public function job_carrier_update() {
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
 
@@ -3313,6 +3601,17 @@ $files[] = $_FILES;
     public function job_carrier_insert() { 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
@@ -3369,6 +3668,17 @@ $files[] = $_FILES;
     public function job_printpreview($id="") {
       
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         if ($id == $userid || $id == '') {
 
@@ -3532,6 +3842,17 @@ $files[] = $_FILES;
 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
 
         if ($id == $userid || $id == '') {
 
@@ -3658,6 +3979,17 @@ $files[] = $_FILES;
     //job seeker PDF Download controller end
     public function job_download() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => '1');
         $this->data['job'] = $this->common->select_database_id('job_reg', $contition_array, $data = '*');
 
@@ -3683,6 +4015,17 @@ $files[] = $_FILES;
 
         ob_clean();
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => '1');
         $this->data['job'] = $job_data = $this->common->select_database_id('job_reg', $contition_array, $data = '*');
         foreach ($job_data as $j_data) {
@@ -3732,6 +4075,17 @@ $files[] = $_FILES;
     //job seeker Job All Post Start
     public function job_all_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 //        echo $userid;
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
@@ -3859,6 +4213,17 @@ $files[] = $_FILES;
 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3946,7 +4311,16 @@ $files[] = $_FILES;
 
 public function job_applied_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+  //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
                     $join_str[0]['table'] = 'job_apply';
                     $join_str[0]['join_table_id'] = 'job_apply.post_id';
                     $join_str[0]['from_table_id'] = 'rec_post.post_id';
@@ -4027,6 +4401,17 @@ public function job_applied_post() {
         $para = $_POST['para'];
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $data = array(
             'job_delete' => 1,
             'job_save' => 3,
@@ -4045,6 +4430,17 @@ public function job_applied_post() {
 
 
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
         $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
         $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'asc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4099,6 +4495,17 @@ public function job_applied_post() {
 
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4196,8 +4603,20 @@ public function job_applied_post() {
 
     public function user_image_insert() {
 
-
+       // echo "hello";die();
+        
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
 
 
         if ($this->input->post('cancel1')) {
@@ -4343,6 +4762,17 @@ public function job_applied_post() {
 
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('job_reg.user_id' => $id, 'job_reg.is_delete' => 0);
 
         $data = '*';
@@ -4437,6 +4867,17 @@ public function job_applied_post() {
     public function ajaxpro() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4503,6 +4944,17 @@ public function job_applied_post() {
     public function image() {
         $userid = $this->session->userdata('aileenuser');
 
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
         $config['upload_path'] = $this->config->item('job_bg_original_upload_path');
         $config['allowed_types'] = $this->config->item('job_bg_allowed_types');
         $config['file_name'] = $_FILES['image']['name'];
@@ -4552,6 +5004,17 @@ public function job_applied_post() {
 
     public function ajax_designation() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $data = array(
             'designation' => $_POST['designation']
         );
@@ -4568,6 +5031,17 @@ public function job_applied_post() {
 //Other Skill Insert Controller Start
     public function other_skill_insert() {
         $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
         $otherskill = $this->input->post('other_skill');
         //echo $otherskill;
         //die();

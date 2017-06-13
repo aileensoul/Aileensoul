@@ -42,8 +42,7 @@
                       <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
                        <?php }?>
             </div>
-            <br>
-            <br>
+       
             <br>
             </div>
            
@@ -51,20 +50,20 @@
                 <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
-                                <li><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
-                                  <li><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
+                                  <li class="custom-none"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
-                                  <li><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
+                                  <li class="custom-none"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
-                                <!-- <li><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
+                                <!-- <li class="custom-none"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
                               
-                                <li><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
-                                <li><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
-                                <li><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
-                                <li <?php if($this->uri->segment(1) == 'job'){?> class="active" <?php } ?>><a href="#">Carrier Objectives</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
+                                <li <?php if($this->uri->segment(1) == 'job'){?> class="active init" <?php } ?>><a href="#">Carrier Objectives</a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,7 +98,7 @@
 										
                                          
 
-                                           <textarea name ="carrier" id="carrier" rows="4" cols="50" placeholder="Enter Carrier" style="resize: none;"><?php if($carrier1){ echo $carrier1; } ?></textarea>
+                                           <textarea tabindex="1" autofocus name ="carrier" id="carrier" rows="4" cols="50" placeholder="Enter Carrier" style="resize: none;"><?php if($carrier1){ echo $carrier1; } ?></textarea>
                                          <?php echo form_error('carrier'); ?>
                           	         </fieldset>
 
@@ -118,7 +117,7 @@
                                     <fieldset class="full-width">                           
                                      <b> Declaration: <span class="red">*</span> </b>
                                      <div class="job_carrier_checkbox">
-                                     <input type="checkbox" id="checkbox"  name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
+                                     <input type="checkbox" id="checkbox" tabindex="2" name="declaration" value="declaration"  <?php echo ($declaration1 == 'declaration') ? 'checked' : '' ?>>
                                          I here by Declare that all the above Information are true and correct to best of my knowledge                     
                                        
                                         <?php echo form_error('checkbox') ?>
@@ -132,7 +131,7 @@
 <!--                                  <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
                                     
-                                    <input type="submit"  id="submit" name="submit" value="Submit">
+                                    <input type="submit"  id="submit" name="submit" tabindex="3" value="Submit">
                                    
                                 </fieldset>
 

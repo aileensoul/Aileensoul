@@ -55,44 +55,44 @@
                             $userid = $this->session->userdata('user_id');
                             $job = $this->db->get_where('job_reg', array('user_id' => $userid))->row()->job_step;
                             ?>
-                            <ul>
-                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
 
-                                <li><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
 
 
-                                <li><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active" <?php } ?>><a href="#">Professional Skills</a></li>
+                                <li <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?>><a href="#">Professional Skills</a></li>
 <!-- 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($jobdata[0]['job_step'] < '5') {
                                     //echo "khyati";
                                 }
                                 ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '5') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '6') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '5') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '7') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '5') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '8') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php
-                                if ($jobdata[0]['job_step'] < '5') {
+                                <li class="custom-none <?php
+                                if ($jobdata[0]['job_step'] < '9') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
@@ -133,7 +133,7 @@ if ($this->session->flashdata('success')) {
                                     <label>keyskills<span class="red">*</span></label>
 
 
-                                    <select name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
+                                    <select name="skills[]" id ="skils" tabindex="1" autofocus class="keyskil" multiple="multiple" style="width:100%;">
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
@@ -152,7 +152,7 @@ if ($this->session->flashdata('success')) {
                                         if ($skill_other) {
                                             ?>
 
-                                            <input type="text" class="keyskil1" name="other_skill1" id="other_keyskill1" placeholder="Enter Other Skill" value=""> 
+                                            <input type="text" class="keyskil1" tabindex="2"  name="other_skill1" id="other_keyskill1" placeholder="Enter Other Skill" value=""> 
                                             <div class="action-buttons btn-group ">
                                                 <a href="javascript:void(0);" id="add_field1" ><i class="fa fa-plus" aria-hidden="true"></i></a>
                                             </div>
@@ -176,7 +176,7 @@ if ($this->session->flashdata('success')) {
 
 
 
-                                            <input type="text" class="keyskil" name="other_skill" id="other_keyskill" placeholder="Enter Other Skill" value=""> 
+                                            <input type="text"  class="keyskil" name="other_skill" id="other_keyskill" placeholder="Enter Other Skill" value=""> 
                                             <?php  echo form_error('other_skill'); ?>
                                           <!--   <input class="clearable" type="text" name="" value="" placeholder="Enter a Search term" /> -->
 
@@ -195,7 +195,7 @@ if ($this->session->flashdata('success')) {
                                 <fieldset class="hs-submit full-width">
 <!--                                    <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" value="next">
+                                    <input type="submit"  id="next" name="next" tabindex="3" value="next">
 
 
                                 </fieldset>

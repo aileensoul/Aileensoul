@@ -452,12 +452,12 @@
 
 
                     <!-- user iamges start-->
-
+                    <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
-                                <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5></a>
+                                <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
                             </div>
 
                             <?php
@@ -519,7 +519,7 @@
 
                         </div>
                     </div>
-
+                    </a>
                     <!-- user images end-->
 
 
@@ -842,7 +842,7 @@
                     <div class="modal-content-post">
                         <span class="close3">&times;</span>
 
-                        <div class="post-editor col-md-12">
+                        <div class="post-editor col-md-12" id="close">
 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
@@ -3844,6 +3844,16 @@
                         size = files[0].size;
 
 
+ // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
 
                         if (size > 4194304)
                         {
@@ -3917,7 +3927,15 @@
                 }
 
                 $("#profilepic").change(function () {
-                    readURL(this);
+                    profile = this.files;
+                   //alert(profile);
+                      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+                       //alert('not an image');
+                  $('#profilepic').val('');
+                   picpopup();
+                     return false;
+                   }else{
+                      readURL(this);}
                 });
             </script>
 
@@ -4013,3 +4031,35 @@
                 }
 
             </script>
+
+ <script type="text/javascript">            
+            // pop up open & close aarati code start 
+jQuery(document).mouseup(function (e) {
+           
+             var container1 = $("#myModal3");
+          
+                    jQuery(document).mouseup(function (e)
+                      {
+                        var container = $("#close");
+
+            //container.show();
+                if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+              
+                container1.hide();
+            }
+        });
+               
+        });
+
+// pop up open & close aarati code end
+</script>
+ <script>
+                        function picpopup() {
+                            
+                      
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
