@@ -413,10 +413,40 @@
                                                         $this->db->get_where('states', array('state_id' => $businessdata1[0]['state']))->row()->state_name;
                                                         ?> </span>
                                                 </li>
+
+                                                <?php if (!$userid) {
+                                                if ($businessdata1[0]['city']) {
+                                                    
+                                               
+                                                ?>
                                                 <li><b> City:</b> <span><?php
                                                         echo
                                                         $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
                                                         ?></span> </li>
+                                                        <?php }
+                                                         else
+                                                         {
+                                                            echo "";
+                                                         }
+                                                }
+                                                else
+                                                { 
+                                                    if ($businessdata1[0]['city']) {
+                                                        ?>
+                                                    <li><b> City:</b> <span><?php
+                                                        echo
+                                                        $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
+                                                        ?></span> </li>
+                                                        <?php }
+                                                         else
+                                                         { ?>
+                                                      <li><b> City:</b> <span>
+                                                           <?php echo PROFILENA; ?>
+                                                </span> </li>
+                                                <?php
+                                                         }
+                                                }
+                                                ?>
 
                                                 <li> <b>Pincode</b><span><?php echo $businessdata1[0]['pincode']; ?></span>
                                                 </li>
