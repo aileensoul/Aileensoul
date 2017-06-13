@@ -895,7 +895,7 @@ if (clicked_id == 4) {
                             }
                             else if(clicked_id==4)
                             {
-                                   
+                                  
                            
                                  window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
                                  

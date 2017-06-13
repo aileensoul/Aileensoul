@@ -1,10 +1,11 @@
 
-                         <?php echo form_open('search/recruiter_search'); ?>
+                         <!-- <?php echo form_open('search/recruiter_search');  ?> -->
+                         <form action=<?php echo base_url('search/recruiter_search')?> method="get">
                             <fieldset class="col-md-3">
 
                               <input type="text" id="tags" name="skills" placeholder="Find Persons">
         
-                                 
+                              
                             </fieldset>
                             <fieldset class="col-md-3">
                               

@@ -295,7 +295,7 @@ function text2link($text){
                                         if($returnpage == ''){
                                         ?>  
                                            <li><b>Skype Id</b> <span>
-                                   <?php echo PROFILENA; }else{}?></span></li>
+                                   <?php echo PROFILENA;?> </span></li><?php }else{}?>
                                                                
                                                             
                                                 <?php }?>       

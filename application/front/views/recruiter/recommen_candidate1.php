@@ -114,7 +114,7 @@
                     </div>
 
 
-
+<!-- <?php //echo "<pre>"; print_r($postdetail);//die();?> -->
                     <!--- search end -->
 
                    <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
@@ -179,8 +179,10 @@
 
                      <li>
                    <a style=" font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id']); ?>">
-                   <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); ?>
+         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'/'.$keyword.'/'.$key_place); ?>">
+                   <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); 
+                   echo $keyword; 
+                   echo $key_place; ?>
                      
                  </a></li>
 
