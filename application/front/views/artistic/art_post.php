@@ -1500,15 +1500,15 @@
                             ?>
 
 
+ <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
+                            </div>
 
 
                         <?php } ?>
                         <!-- like commnet end -->
                         
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                            </div>
-
+                           
                     </div>
                     </section>
                     <footer>
