@@ -95,3 +95,9 @@ padding: 10px;}
     .profile-boxProfileCard-content{position: relative;}
     .profile-boxProfileCard-content:before{width: 100%; height: 1px; display: block; position: absolute; content: ""; top:55px; background: #d9d9d9;}
     .profile-company-name a{margin-left: 0px !important;}
+    .no_user_Av {
+    padding: 10px;
+    display: inline-block;
+    padding-left: 16px;
+    color: #808080;
+}

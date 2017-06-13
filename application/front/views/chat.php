@@ -68,9 +68,14 @@
                                     </a>
                                     <?php
                                 }
-                            } else {
-                                echo 'No user available...';
-                            }
+                            } else { ?>
+
+                            <div class="no_user_Av">
+
+                               <?php  echo 'No user available...'; ?>
+
+                        </div>
+                           <?php }
                             ?>
                         </div>
                         <!-- loop end -->
