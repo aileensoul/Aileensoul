@@ -643,29 +643,7 @@
                                                                         <a   id="myBtn">view all</a>
 
 </div>
- <div class="modal fade" id="myModal" role="dialog" style="z-index: 1003">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Images</h4>
-        </div>
-        <div class="modal-body">
-         <div>
-              <div class="bui_popup_img">  
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                            </div> 
-         </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+
                                                                         </div>
 
                                                                         </div>
@@ -709,7 +687,38 @@
                                                                 }
                                                             } }
                                                             ?>
+ <div class="modal fade modal_popup" id="myModal" role="dialog" style="z-index: 1003">
+    <div class="modal-dialog" style="width: 88%;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Images</h4>
+        </div>
+        <div class="modal-body popup-img-popup">
+         <div>
+                                 <?php 
 
+
+                                    foreach ($busimagedata as $imagemul) {
+                                       
+                                    ?>
+                                    <div class="bui_popup_img"> 
+                
+                 
+                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $imagemul['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">   </div> 
+                                    <?php }?>
+       
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
                                                             <div id="myModal1" class="modal2" style="padding-top: 7%;">
                                    
