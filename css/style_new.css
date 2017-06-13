@@ -122,3 +122,14 @@ input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px
 
 .profile-company-name a{margin-left: 6px !important;}
 .mar_left{margin-left: 6px !important;}
+
+
+.business_pf_ct_person_form form  ul li span::before {
+    word-wrap: break-word;
+    word-break: break-word;
+    /* text-align: justify; */
+    padding-right: 10px;
+    display: flex;
+    width: 65%;
+    /* display: inline-block; */
+}
