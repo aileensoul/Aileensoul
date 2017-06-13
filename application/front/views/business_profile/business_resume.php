@@ -638,8 +638,34 @@
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                        <div class="view_bui"> <a >view all</a></div>
+                                                                        <div class="view_bui"> 
+                                                                        
+                                                                        <a   id="myBtn">view all</a>
 
+</div>
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Images</h4>
+        </div>
+        <div class="modal-body">
+         <div>
+              <div class="bui_popup_img">  
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            </div> 
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
                                                                         </div>
 
                                                                         </div>
@@ -667,7 +693,8 @@
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                        <!-- <div class="view_bui"> <a >view all</a></div> -->
+                                                                        <div class="view_bui"> <a >view all</a></div>
+
 
                                                                         </div>
 
@@ -1313,3 +1340,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
