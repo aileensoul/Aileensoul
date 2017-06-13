@@ -52,6 +52,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="left-side-bar">
                             <ul class="left-form-each">
+                                
                                 <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
 
                                 <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?>><a href="#">Address</a></li>
