@@ -2792,14 +2792,12 @@ $contition_array = array('status' => '1');
             $update = $this->common->update_data($data, 'follow', 'follow_id', $follow[0]['follow_id']);
             if ($update) {
 
-                // $unfollow = '<div>';
-                // $unfollow = '<button id="follow' . $business_id . '" onClick="followuser(' . $business_id . ')">
-                //                Follow 
+               $unfollow = '<div class="user_btn follow_btn_' . $business_id . '" id="followdiv">';
+                // $follow = '<button id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
+                //                Following
                 //       </button>';
-                // $unfollow .= '</div>';
-                $unfollow = '<button class="bg_following"  id="unfollowdiv" onClick="followuser_two(' . $business_id . ')">
-                               Follow 
-                      </button>';
+                $unfollow .= '<button class="follow' . $business_id . '" onClick="followuser_two(' . $business_id . ')">Follow</button>';
+                $unfollow .= '</div>';
                 echo $unfollow;
             }
         }

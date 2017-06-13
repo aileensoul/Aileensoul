@@ -882,12 +882,14 @@ function followuser_two(clicked_id)
             url: '<?php echo base_url() . "business_profile/unfollow_two" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) { 
-                $('.' + 'follow_btn_' + clicked_id).html(data);
+               //  $('.' + 'follow_btn_' + clicked_id).html(data);
 
-                $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
-                $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
+               //  $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
+               //  $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
+               // $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
                //$('#unfollow' + clicked_id).html('');
+
+               $('#' + 'frfollow' + clicked_id).html(data);
             }
         });
     }
