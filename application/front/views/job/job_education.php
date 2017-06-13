@@ -225,9 +225,7 @@
                                ?>">
                           <button class="submit_btn" tabindex="6">Submit</button>
                                                     <br>
-                             <fieldset class="hs-submit full-width" style="    position: absolute;
-                                        right: -24%;  width: 24%;
-                                          bottom: 1%;">
+                             <fieldset class="hs-submit full-width" style="">
 
                                      <input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
@@ -340,9 +338,7 @@
 
                                      <button class="submit_btn" tabindex="7">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
-                                                              right: -24%;  width: 24%;
-                                                              bottom: 5%;">
+                                                    <fieldset class="hs-submit full-width" style="">
 
                                           <input type="button" id="next" name="next" tabindex="8" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()">
 
@@ -469,9 +465,7 @@
 
                                      <button class="submit_btn" tabindex="9">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
-                                                              right: -24%;  width: 24%;
-                                                              bottom: 5%;">
+                                                    <fieldset class="hs-submit full-width" style="">
 
                                                         <input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()">
 
@@ -930,8 +924,7 @@
              <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
                    </div> 
                                   <br>
-                <fieldset class="hs-submit full-width"  style="     right: -24%; position: absolute; bottom: 2.3%;
-                  display: inline-block; width: 24%;">
+                <fieldset class="hs-submit full-width"  style="">
 
                 <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
