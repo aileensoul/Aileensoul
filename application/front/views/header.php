@@ -55,7 +55,7 @@ $(window).load(function(){
 
 <!-- script for fetch all unread notification start-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/script.js'); ?>"></script>
+<!--script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script-->
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script type="text/javascript" charset="utf-8">
@@ -637,6 +637,22 @@ $( document ).on( 'keydown', function ( e ) {
              
           
             }
+            
+            
+           $(function () {
+                $('a[href="#search"]').on('click', function(event) {
+                    event.preventDefault();
+                    $('#search').addClass('open');
+                    $('#search > form > input[type="search"]').focus();
+                });
+
+                $('#search, #search button.close').on('click keyup', function(event) {
+                    if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+                        $(this).removeClass('open');
+                    }
+                });
+
+            });
         });
     </script>
     <!-- script for update all read notification end -->

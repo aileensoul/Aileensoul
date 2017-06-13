@@ -116,7 +116,68 @@
                         <div class="common-form">
                             <div class="job-saved-boxe_2" >
                                 <h3>Educational  Qualification</h3>
-                                <div class="contact-frnd-post1" style="padding: 10px; height: 100%;">
+                                <div class="abc">
+                                        <div class="container demo">
+
+    
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="more-less glyphicon glyphicon-plus"></i>
+                        Collapsible Group Item #1
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="more-less glyphicon glyphicon-plus"></i>
+                        Collapsible Group Item #2
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="more-less glyphicon glyphicon-plus"></i>
+                        Collapsible Group Item #3
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+
+    </div><!-- panel-group -->
+    
+    
+</div><!-- container -->
+                                </div>
+                              
+                                
+                                <div class="contact-frnd-post1" style="padding: 30px 20px 0; height: 100%;">
 
                                     <div class="tabordion">
 
@@ -222,9 +283,7 @@
                                ?>">
                           <button class="submit_btn" tabindex="6">Submit</button>
                                                     <br>
-                             <fieldset class="hs-submit full-width" style="    position: absolute;
-                                        right: -24%;  width: 24%;
-                                          bottom: 1%;">
+                             <fieldset class="hs-submit full-width" style="">
 
                                      <input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
 
@@ -241,7 +300,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option2" class="label-d">Secondary</label>
+                                            <label for="option2" class="label-d">S.S.C</label>
                                     <article class="none_aaaart">
                                     <h3>Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
@@ -337,9 +396,7 @@
 
                                      <button class="submit_btn" tabindex="7">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
-                                                              right: -24%;  width: 24%;
-                                                              bottom: 5%;">
+                                                    <fieldset class="hs-submit full-width" style="">
 
                                           <input type="button" id="next" name="next" tabindex="8" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()">
 
@@ -360,7 +417,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option3" class="label-d">Higher Secondary</label>
+                                            <label for="option3" class="label-d">H.S.C</label>
                                       <article class="none_aaaart">
                                       <h3>Higher Secondary</h3>
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
@@ -466,9 +523,7 @@
 
                                      <button class="submit_btn" tabindex="9">Submit</button>
                                                     <br>
-                                                    <fieldset class="hs-submit full-width" style="    position: absolute;
-                                                              right: -24%;  width: 24%;
-                                                              bottom: 5%;">
+                                                    <fieldset class="hs-submit full-width" style="">
 
                                                         <input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()">
 
@@ -489,7 +544,7 @@
                                                 echo "checked";
                                             }
                                             ?>>
-                                            <label for="option4" class="label-d">Graduation</label>
+                                            <label for="option4" class="label-d">Degree</label>
                                             <article class="none_aaaart">
                                             <h3>Graduation</h3>
                                   <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>
@@ -927,8 +982,7 @@
              <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
                    </div> 
                                   <br>
-                <fieldset class="hs-submit full-width"  style="     right: -24%; position: absolute; bottom: 2.3%;
-                  display: inline-block; width: 24%;">
+                <fieldset class="hs-submit full-width"  style="">
 
                 <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
@@ -1523,7 +1577,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     //     required: true,
                                     //     regx:/^[a-zA-Z+-]/
 
-                                    // },
+                                     },
                                     'percentage[]': {
 
                                         required: true,

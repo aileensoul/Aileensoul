@@ -252,7 +252,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 
   function deactivate(clicked_id) { 
-      $('.biderror .mes').html("<div class='pop_content'> Are you sure you want to deactive your recruiter_profile?.<div class='model_ok_cancel'><a class='okbtn deactive' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+      $('.biderror .mes').html("<div class='pop_content'> Are you sure you want to deactive your recruiter profile?<div class='model_ok_cancel'><a class='okbtn deactive' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
  }
 
@@ -272,3 +272,25 @@ $(document).ready(function() {
 
  }
  </script>
+
+
+ <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+   $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#dropdown-content_hover" ).hide();
+    }
+});  
+
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

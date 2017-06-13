@@ -20,6 +20,18 @@
 <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 <!-- END HEADER -->
+
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+  $(document).load().scrollTop(1000);
+     
+    //$('html,body').animate({scrollTop: 1000}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2_border; ?>
@@ -676,7 +688,7 @@
                             <div class="modal-content-post">
                                 <span class="close1">&times;</span>
 
-                                <div class="post-editor col-md-12">
+                                <div class="post-editor col-md-12" id="close">
 
                                     <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
@@ -1114,7 +1126,7 @@
                                                         <ul class="col-md-6">
 
                                                             <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                                <a id="<?php echo $row['art_post_id']; ?>" class="ripple like_h_w" onClick="post_like(this.id)">
 
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
@@ -1132,10 +1144,10 @@
                                                                         ?>
                                                                     <span>
                                                                         <?php
-                                                                        if ($row['art_likes_count'] > 0) {
-                                                                            echo $row['art_likes_count'];
-                                                                        }
-                                                                        ?>
+//                                                                        if ($row['art_likes_count'] > 0) {
+//                                                                            echo $row['art_likes_count'];
+//                                                                        }
+//                                                                        ?>
                                                                     </span>
                                                                 </a>
                                                             </li>
@@ -3461,15 +3473,41 @@
                         });
                     </script>
 
-<!-- all popup close close using esc start -->
- <script type="text/javascript">
 
+ <script type="text/javascript">
+// all popup close close using esc start
     $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
     }
 });  
+//all popup close close using esc end
 
- </script>
- <!-- all popup close close using esc end
+ // pop up open & close aarati code start 
+jQuery(document).mouseup(function (e) {
+            
+             var container1 = $("#myModal");
+            
+                    jQuery(document).mouseup(function (e)
+                      {
+                        var container = $("#close");
+
+          
+                if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+              
+                container1.hide();
+            }
+        });
+               
+        });
+
+// pop up open & close aarati code end
+
+</script>
+
+
+
+ 

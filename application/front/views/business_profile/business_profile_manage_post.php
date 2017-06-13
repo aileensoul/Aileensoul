@@ -3988,7 +3988,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
                             profilepic: {
 
-                                required: "Photo Required",
+                                required: "Image Required",
 
                             },
 
@@ -4105,6 +4105,14 @@ jQuery(document).mouseup(function (e) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
+    }
+});  
+
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
     }
 });  
 

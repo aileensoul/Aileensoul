@@ -96,7 +96,7 @@
        </div>                             
     </div>
                         <div  class="add-post-button">
-                            <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                            <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div>
                         </div>
                       
@@ -914,3 +914,18 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+
+  <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

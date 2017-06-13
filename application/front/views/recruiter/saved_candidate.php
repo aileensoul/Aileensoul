@@ -200,7 +200,7 @@
 
             <div  class="add-post-button">
         <?php if($returnpage == '') {?>
-        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
         <?php } ?>
   </div>
   
@@ -1276,3 +1276,18 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+   
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

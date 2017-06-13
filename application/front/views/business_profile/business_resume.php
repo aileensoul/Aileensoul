@@ -610,8 +610,7 @@
                                                 </div>
                                             </div>
                                             <div class="profile-job-profile-menu">
-                                                <ul class="clearfix">
-                                                    <li>
+                                              
                                                         <div  class="buisness-profile-pic">
                          <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);  ?>" alt="" > -->
                                                             <!-- 
@@ -623,6 +622,43 @@
 
                                                             <?php
                                                             $i = 1;
+
+                                                            if(count($busimagedata) > 3){
+
+
+                                                                foreach ($busimagedata as $image) {
+
+                                                                if ($i <= 2) {
+                                                                    ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                                                                        </div>
+                                                                    </div>
+    <?php } else { ?>
+                                                                    <div class="column1">
+                                                                        <div class="bui_res_i">  
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        <div class="view_bui"> 
+                                                                        
+                                                                        <a   id="myBtn">view all</a>
+
+</div>
+
+                                                                        </div>
+
+                                                                        </div>
+                                                                    
+
+
+                                                                <?php
+                                                                } $i++;
+                                                                if ($i == 4) {
+                                                                    break;
+                                                                }
+                                                            } 
+
+
+                                                            }else{
                                                             foreach ($busimagedata as $image) {
 
                                                                 if ($i <= 2) {
@@ -635,9 +671,13 @@
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                        </div></div>
-                                                                    <div class="view_bui"> view all</div>
+                                                                        <div class="view_bui"> <a >view all</a></div>
 
+
+                                                                        </div>
+
+                                                                        </div>
+                                                                    
 
 
                                                                 <?php
@@ -645,20 +685,55 @@
                                                                 if ($i == 4) {
                                                                     break;
                                                                 }
-                                                            }
+                                                            } }
                                                             ?>
+ <div class="modal fade modal_popup" id="myModal" role="dialog" style="z-index: 1003">
+    <div class="modal-dialog" style="width: 88%;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Images</h4>
+        </div>
+        <div class="modal-body popup-img-popup">
+         <div>
+                                 <?php 
 
 
-                                                            <div id="myModal" class="modal">
-                                                                <div class="close cursor" onclick="closeModal()">&times;</div>
-                                                                <div class="modal-content">
+                                    foreach ($busimagedata as $imagemul) {
+                                       
+                                    ?>
+                                    <div class="bui_popup_img"> 
+                
+                 
+                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $imagemul['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">   </div> 
+                                    <?php }?>
+       
+         </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+                                                            <div id="myModal1" class="modal2" style="padding-top: 7%;">
+                                   
+                                                                
+                                                                 <div class="modal-content2"> 
+                                                                 <span class="close2 cursor" onclick="closeModal()">&times;</span>  
 <?php
 $i = 1;
 foreach ($busimagedata as $image) {
     ?>
                                                                         <div class="mySlides">
                                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($busimagedata); ?></div>
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path') . $image['image_name']); ?> " style="width: 100%; height: 70%;">
+                                                                               <div class="slider_img">
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path') . $image['image_name']); ?> " >
+                                                                            </div>
                                                                         </div>
 
     <?php $i++;
@@ -680,8 +755,7 @@ foreach ($busimagedata as $image) {
 
                                                             <!-- 
                                                             popup -->
-                                                    </li>
-                                                </ul>
+                                                  
                                             </div>
                                         </div> 
                                         <?php
@@ -1182,11 +1256,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             <!-- script for profile pic end -->
             <script>
                 function openModal() {
-                    document.getElementById('myModal').style.display = "block";
+                    document.getElementById('myModal1').style.display = "block";
                 }
 
                 function closeModal() {
-                    document.getElementById('myModal').style.display = "none";
+                    document.getElementById('myModal1').style.display = "none";
                 }
 
                 var slideIndex = 1;
@@ -1275,3 +1349,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>

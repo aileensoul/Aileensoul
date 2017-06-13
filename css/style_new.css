@@ -117,3 +117,34 @@
     
 /*.post-design-product .else_post_d{padding: 0px 5px;
     padding-right: 0;}*/
+
+/*input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px;}*/
+
+.profile-company-name a{margin-left: 6px !important;}
+.mar_left{margin-left: 6px !important;}
+
+
+.business_pf_ct_person_form form  ul li span{
+    word-wrap: break-word;
+    word-break: break-word;
+    /* text-align: justify; */
+    padding-right: 10px !important;
+    display: flex !important;
+    float: right;
+    width: 65% !important;
+    /* display: inline-block; */
+}
+.business_pf_ct_person_form form  ul li span::before {
+  content: " :";
+    padding-right: 20px;
+    float: left;
+}
+.post-design-commnet-box {border: none;}
+/*.comment-edit-butn button{position: absolute !important;
+    bottom: 11px;
+}*/
+.edit-comment-box .comment-edit-button button{    padding: 8px 18px 7px !important;
+    position: absolute;
+    bottom: 36px;}
+.btn-3b{border-radius: 4px !important;    padding: 10px 22px 10px 22px !important;
+    font-size: 16px!important;}

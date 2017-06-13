@@ -762,7 +762,7 @@
                 <div class="modal-content-post">
                     <span class="close3">&times;</span>
 
-                    <div class="post-editor col-md-12">
+                    <div class="post-editor col-md-12" id="close">
 
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
 
@@ -844,12 +844,15 @@
                                                     $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
                                                     ?>
 
-                                                    <?php if ($row['posted_user_id']) { ?>
+                                                    <?php if ($row['posted_user_id']) {  ?>
                                                         <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
-                                                        <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
-
-                                                    <?php } else { ?>
+                                                       
+                                                      <?php   if ($userimageposted) {    ?>
+                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
+                                                        <?php  }else{?>
+                                                          <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                       <?php   }?>
+                                                    <?php } else {   ?>
 
 
                                                         <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
@@ -1169,7 +1172,7 @@
                                                     <!-- like comment div start -->
                                                     <ul class="col-md-6">
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" class="ripple like_h_w" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
@@ -1189,9 +1192,9 @@
                                                                 <span class="like_As_count">
 
                                                                     <?php
-                                                                    if ($row['art_likes_count'] > 0) {
-                                                                        echo $row['art_likes_count'];
-                                                                    }
+//                                                                    if ($row['art_likes_count'] > 0) {
+//                                                                        echo $row['art_likes_count'];
+//                                                                    }
                                                                     ?>
 
                                                                 </span> 
@@ -4083,15 +4086,38 @@ if (size > 4194304)
                         }
       </script>
       <!-- popup end -->
-        <!-- all popup close close using esc start -->
+        
  <script type="text/javascript">
-
+//all popup close close using esc start 
     $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
     }
-});  
+}); 
+// all popup close close using esc end 
+
+ // pop up open & close aarati code start 
+jQuery(document).mouseup(function (e) {
+            
+             var container1 = $("#myModal3");
+            
+                    jQuery(document).mouseup(function (e)
+                      {
+                        var container = $("#close");
+
+          
+                if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+              
+                container1.hide();
+            }
+        });
+               
+        });
+
+// pop up open & close aarati code end
 
  </script>
- <!-- all popup close close using esc end
+ 

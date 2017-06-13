@@ -4273,9 +4273,8 @@ border-bottom: 1px solid #000033;
 }
 .profile-main-rec-box-menu {
     margin-top: -80px;
-    border-left: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-    border-right: 1px solid #d9d9d9;
+    border: 1px solid #d9d9d9;
+    
     z-index: -1;
 }
 .profile-main-rec-box-menu ul {
@@ -5563,6 +5562,8 @@ label.cameraButton input[accept*="camera"] {
 }
 .tabordion section {
     display: block;
+    width: 24%;
+    float: left;
 }
 .tabordion section .label-d {
     background: #1b8ab9!important;
@@ -5579,11 +5580,13 @@ label.cameraButton input[accept*="camera"] {
 }
 .tabordion section article {
     display: none;
-    left: 230px;
+   /* left: 230px;*/
     min-width: 300px;
-    padding: 0 0 0 21px;
+    padding: 0;
     position: absolute;
-    top: 0;
+    top: 95px;
+    width: 100%;
+    left: 0;
 }
 /*
 .tabordion section article:after {
@@ -8399,11 +8402,13 @@ label.cameraButton input[accept*="camera"] {
     margin-right: 0px !important;
 }
 .job_edu_graduation_nextbtnbox {
-    right: -24%;
+    /*right: -24%;
     position: absolute;
     bottom: 2.3%;
     display: inline-block;
-    width: 24% !important;
+    width: 24% !important;*/
+    padding: 20px 0 0;
+
 }
 .job_edu_graduation_nextbtn {
     font-size: 16px !important;
@@ -8463,12 +8468,14 @@ label.cameraButton input[accept*="camera"] {
     border: 1px solid #d9d9d9!important;
 }
 .edit_cpmment_edit {
-    display: inline-block;
+   
     width: 81%;
     min-height: 37px !important;
     margin-top: 0px !important;
     margin-left: 1.5% !important;
 }
+.right_left_box_design{padding: 10px 10px 10px 16px !important;}
+.left_box_menubar li:last-child a{text-align: center;}
 /*Vishang 25-5 on */
 
 .job_education_submitbox {
@@ -9894,13 +9901,22 @@ end zalak 9-6 css*/
 .custom-right{margin-left: 1%;}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
 #row2{border-left: 0;}
+
+.tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
+.tabordion input[name="sections"]:checked + label::after{font-size: 0;}
+.tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 2px solid #156f95; }
+.like_cmnt_count{padding-top: 7px !important;}
+
+/***  eduction tabbing  ***/
+
+
 /***  media query  ***/
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
 }
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
-    #paddingtop_fixed_job{padding-top:20px !important; }
+    #paddingtop_fixed_job{padding-top:54px !important; }
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
 }
@@ -9933,6 +9949,7 @@ end zalak 9-6 css*/
     .job_edu_graduation_nextbtnbox{position: inherit !important; margin-top: 30px;}
     .left-side-bar ul li.active::after{top:6px;}
     #paddingtop_fixed.container{padding-left: 0; padding-right: 0;}
+    #paddingtop_fixed_job.container{padding-left: 0; padding-right: 0;}
     #row2{width: 100%; border: none;}
     .container.tablate-container{padding-left: 0; padding-right: 0;}
     .right-side-menu{/*margin-top: -2px;*/}
@@ -9950,9 +9967,13 @@ end zalak 9-6 css*/
 @media screen and (max-width: 800px) {
     .custom-right{margin-left: 0%;}
 }
+@media screen and (max-width: 768px) {
+    .middle-part.container{padding: 40px 0 0px;}
+}
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
+    .profile-main-rec-box-menu li a{padding: 11px 13px;}
     #notificationLink span{top:-5px; right:7px;}
     .header ul li a{padding:5px 10px !important;}
     .main-menu-right{padding-top:6px;}
@@ -9986,9 +10007,9 @@ end zalak 9-6 css*/
     position: absolute; top: -40px; width: 100%; z-index: 999;}
     .tabordion section article{left: 100%;}
     .profile-box{position: relative;}
-    .middle-part.container{padding: 40px 0 0px;}
     .job-menu-profile{width: 100%; padding-bottom: 20px;}
     #paddingtop_fixed{padding-top: 44px !important;}
+    #paddingtop_fixed_job{padding-top: 44px !important;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
     .buisness-profile-txext{width: 21%;}

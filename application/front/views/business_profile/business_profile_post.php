@@ -2733,6 +2733,17 @@
             $('.dropdown-content1').removeClass('show');
         }
 
+
+        $( document ).on( 'keydown', function ( e ) {
+                                        if ( e.keyCode === 27 ) { 
+
+                                        document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                                         $(".dropdown-content1").removeClass('show');
+
+                            }
+                           
+                        }); 
+
     }
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (event) {
@@ -3484,4 +3495,6 @@ jQuery(document).mouseup(function (e) {
         });
 
 // pop up open & close aarati code end
+
+
 </script>
