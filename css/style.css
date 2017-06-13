@@ -9902,6 +9902,7 @@ end zalak 9-6 css*/
 .tabordion section .label-d{width: 70px; height: 70px; border-radius: 100%; margin: 0 auto; padding: 22px 0 !important;
 text-align: center;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
+.like_cmnt_count{padding-top: 7px !important;}
 
 /***  eduction tabbing  ***/
 
