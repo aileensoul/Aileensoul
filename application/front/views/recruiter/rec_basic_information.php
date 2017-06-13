@@ -176,6 +176,8 @@
 
             $(document).ready(function () { 
 
+                alert(111);
+
                 $("#basicinfo").validate({
 
                     rules: {
