@@ -101,3 +101,8 @@
 .logo{display: inline-block;}
 
 .select2-container-multi .select2-search-choice-close{top:7px;}
+
+.profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}
+.profile-box-job-menu ul li a{margin-right: 15px !important;}
+.profile-box-job-menu ul li{padding-left: 13px !important;}
+.like_cmmt_space{margin-left: 6px;}

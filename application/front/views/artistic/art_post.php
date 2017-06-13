@@ -1179,7 +1179,7 @@
                                                         <ul class="col-md-6 like_cmnt_count">
 
                                                             <li>
-                                                                <div class="like_count_ext<?php echo $row['art_post_id']; ?>">
+                                                                <div class="like_cmmt_space like_count_ext<?php echo $row['art_post_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
