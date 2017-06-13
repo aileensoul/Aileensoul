@@ -413,7 +413,7 @@
                                                             <ul class="col-md-6">
 
                                                                 <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
-                                                                    <a id="<?php echo $artdata['image_id']; ?>" onClick="post_likeimg(this.id)">
+                                                                    <a id="<?php echo $artdata['image_id']; ?>" class="ripple like_h_w" onClick="post_likeimg(this.id)">
 
                                                                         <?php
                                                                         $userid = $this->session->userdata('aileenuser');

@@ -1169,7 +1169,7 @@
                                                     <!-- like comment div start -->
                                                     <ul class="col-md-6">
                                                         <li class="<?php echo 'likepost' . $row['art_post_id']; ?>">
-                                                            <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                            <a title="Like" class="ripple like_h_w" id="<?php echo $row['art_post_id']; ?>" class="ripple like_h_w" onClick="post_like(this.id)">
 
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');

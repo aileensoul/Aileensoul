@@ -545,7 +545,7 @@ if($status == 0 || $status == " "){?>
                                                 <ul class="col-md-6">
 
                                                     <li class="<?php echo 'likepost' . $key['art_post_id']; ?>">
-                                                        <a id="<?php echo $key['art_post_id']; ?>" onClick="post_like(this.id)">
+                                                        <a id="<?php echo $key['art_post_id']; ?>" class="ripple like_h_w" onClick="post_like(this.id)">
 
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
