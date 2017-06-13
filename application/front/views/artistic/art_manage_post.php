@@ -347,7 +347,7 @@
                                 <td class="business_data_td1 detaile_map"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
                                 <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_email']; ?></span></td>
                             </tr>
-                            <tr>
+                            <t                                                                                                      r>
                                 <td class="business_data_td1  detaile_map" ><i class="fa fa-map-marker"></i></td>
                                 <td class="business_data_td2"><span>
                                         <?php
@@ -733,14 +733,20 @@
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
                         <div class="popup-img col-md-1"> 
-                            <?php
-                            if ($artisticdata[0]['art_user_image']) {
-                                ?>
-                                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="" style="
-                                      margin-top: 6px;">
-                                  <?php } else { ?>
-                                <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                            <?php } ?>
+                             <?php
+                                                    $userimage = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
+                                                    $userimageposted = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
+                                                    ?>
+
+                                                    <?php ?>
+                                                        <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                       
+                                                      <?php   if ($userimageposted) {    ?>
+                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
+                                                        <?php  }else{?>
+                                                          <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                       <?php   }?>
+                           
                         </div>
                         <div id="myBtn3"  class="editor-content col-md-10 popup-text">
                             <span> Post Your Art....</span> 
@@ -852,7 +858,8 @@
                                                         <?php  }else{?>
                                                           <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                        <?php   }?>
-                                                    <?php } else {   ?>
+                                      
+              <?php } else {   ?>
 
 
                                                         <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
@@ -889,7 +896,7 @@
 
                                                                 <div class="else_post_d">
                                                                     <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
-                                                                    </span><a class="post_dot1"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                                    </span><a class="post_dot1" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                                                     <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
 

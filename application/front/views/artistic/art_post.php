@@ -668,7 +668,16 @@ $(document).ready(function(){
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                <div class="popup-img col-md-1">
+                                   <?php
+                                                    $userimage = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
+                                                    $userimageposted = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
+                                                    ?>
+
+                                                    
+                           
+                                    <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                                    
                                 </div>
                                 <div id="myBtn"  class="editor-content col-md-10 popup-text">
                                     <span > Post Your Art....</span> 
