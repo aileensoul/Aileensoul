@@ -20,6 +20,18 @@
 <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 <!-- END HEADER -->
+
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+  $(document).load().scrollTop(1000);
+     
+    //$('html,body').animate({scrollTop: 1000}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2_border; ?>
@@ -3470,15 +3482,9 @@
         $('#bidmodal').modal('hide');
     }
 });  
+</script>
+<!-- all popup close close using esc end-->
 
-//For Scroll page at perticular position js Start
-$(document).ready(function(){
-  
-  $(document).load().scrollTop(1000);
-     
-    //$('html,body').animate({scrollTop: 1000}, 100);
 
-});
-//For Scroll page at perticular position js End
- </script>
- <!-- all popup close close using esc end
+
+ 
