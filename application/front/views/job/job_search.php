@@ -1,5 +1,6 @@
- <?php
-                         echo form_open('search/job_search'); ?>
+                        <!-- <?php
+                         //echo form_open('search/job_search'); ?> -->
+                         <form action=<?php echo base_url('search/job_search')?> method="get">
                             <fieldset class="col-md-3 col-sm-5 col-xs-5">
                             
                                  <input type="text" id="tags" name="skills" placeholder="Find Your Job">
