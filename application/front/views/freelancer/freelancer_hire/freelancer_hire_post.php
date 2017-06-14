@@ -186,7 +186,7 @@ echo $freelancer_hire_header2;} ?>
 
 
         <div class="job-menu-profile1">
-        <h5> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h5>
+       <a href="javascript:void(0);">  <h5> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h5></a>
 
 
             <div class="profile-text">
