@@ -1346,7 +1346,7 @@
                                                         <div class="manage_images_view_more" >
 
 
-                                                           <a> View All (+<?php echo (count($businessmultiimage) - 4); ?>)</a>
+                                                            View All (+<?php echo (count($businessmultiimage) - 4); ?>)
                                                         </div>
 
                                                         </a>

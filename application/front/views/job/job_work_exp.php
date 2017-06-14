@@ -38,6 +38,8 @@
                     <div class="col-md-6 col-sm-8"><h3>You are making your Job Profile.</h3></div>
 
                 <?php } ?>
+                <br>
+                <br>
             </div>
        
             <br>
@@ -221,7 +223,7 @@
                                                                 if ($jobtitle1) {
                                                                     echo $jobtitle1;
                                                                 }
-                                                                ?>"/>&nbsp;&nbsp;&nbsp; <span id="jobtitle-error"> </span>
+                                                                ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                                                        <?php echo form_error('jobtitle'); ?>
 
                                                                 <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span class="red">*</span></label>
@@ -366,7 +368,7 @@
                                                         if ($jobtitle1) {
                                                             echo $jobtitle1;
                                                         }
-                                                        ?>"/>&nbsp;&nbsp;&nbsp; <span id="jobtitle-error"> </span>
+                                                        ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                                                <?php echo form_error('jobtitle'); ?>
                                                         </fieldset> 
 
@@ -883,5 +885,12 @@ $(window).load(function(){
 });
 });
 </script>
+
+<style type="text/css">
+    #experience_month-error{margin-top: 40px;}
+    #experience_year-error{margin-top: 40px;}
+    #jobtitle-error{margin-right: 25px;}
+    #companyname-error{margin-right: 25px;}
+</style>
 
                    

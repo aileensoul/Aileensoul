@@ -431,7 +431,9 @@
                         </div>
                     </div>
                     <!-- middle div  -->
-
+                </div>
+            </div>
+        </div>
                     </section>
                     <footer>
 <?php echo $footer; ?>

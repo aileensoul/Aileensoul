@@ -1110,10 +1110,10 @@
                                                                     </a>
                                                                 </div>
 
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
+                                                                <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
                                                                 <div class="bui_images_view_more" >
-                                                                    View All (+
-                                                                        <?php echo (count($businessmultiimage) - 4); ?>)
+                                                                    <span>View All (+
+                                                                        <?php echo (count($businessmultiimage) - 4); ?>)</span>
                                                                     
                                                                 </div>
 
