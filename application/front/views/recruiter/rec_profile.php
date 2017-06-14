@@ -186,8 +186,8 @@
 
                                     <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'save_candidate'){?> class="active" <?php } ?>><a title="Saved Candidate" href="<?php echo base_url('recruiter/save_candidate'); ?>">Saved </a>
                                     </li> 
-                                                                          <fa>
-                                    </li> 
+                                                                         
+                           
 
 
                                     <?php }?>               
@@ -684,8 +684,10 @@ function text2link($text){
             </div>
         </div>
         </div>
+             <div class="clearfix"></div>  
     </div>
-            </section>
+        
+    </section>
 
 <!-- model for popup start -->
 <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
