@@ -401,6 +401,12 @@ foreach($cities as $key){
           // }
           //echo "<pre>"; print_r($location);die();
 
+  foreach($location_list as $key =>$value){
+            $loc[$key]['label']=$value;
+            $loc[$key]['value']=$value;
+          }
+          $this->data['city_data']= array_values($loc);
+
          $this->data['demo']= array_values($result1);
 
 
