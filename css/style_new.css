@@ -168,7 +168,10 @@ padding-right: 2px !important;
 .user-pic:hover a{padding: 4px 6px;}
 
 
-
+.bui_images_view_more a:hover{text-decoration: underline;}
+.bui_images_view_more{cursor: pointer;}
+.manage_images_view_more a:hover{text-decoration: underline;}
+.manage_images_view_more {cursor: pointer;}
 .images_view_more a:hover{text-decoration: underline;}
 .positin_art {position: relative;}
 
@@ -176,6 +179,14 @@ padding-right: 2px !important;
 bottom: 11px;}
 .business_data_td2{word-break: break-word}
 
- .post-design-box .post-design-desc input{font-size: 15px!important;}
+ .post-design-box .post-design-desc input{font-size: 15px!important; width: 50%;}
   .post-design-box .post-design-desc .textbuis{font-size: 13px;}
    .post-design-box .post-design-desc a{ color: black; }
+   .post-design-box .post-design-desc .editable_text{min-height: 80px!important;    float: left;
+    margin-bottom: 10px;width: 85%;
+}
+.post-design-box .post-design-desc .fr{position: absolute;
+    right: 9px;
+    bottom: 8px;}
+    .manage_images_view_more{cursor: pointer;}
+    .images_view_more{cursor: pointer;}
