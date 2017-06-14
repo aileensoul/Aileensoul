@@ -46,7 +46,7 @@
  elseif($returnpage == 'notification'){
  }
  else{
-  echo $recruiter_header2; 
+  echo $recruiter_header2_border; 
 
  }
 ?>
@@ -211,7 +211,7 @@
         </div>
             <!-- menubar --> 
     <div class="middle-part container">
-  <div class="job-menu-profile1 col-md-3">
+  <div class="job-menu-profile1 col-md-3 col-xs-12">
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
@@ -222,7 +222,7 @@
                ?>
                             <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
                         
-                <center><a id="designation" class="designation" title="Designation">Designation</a></center>
+                <a id="designation" class="designation" title="Designation">Designation</a>
             <?php }
              else {
                

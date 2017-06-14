@@ -25,7 +25,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2; ?>
+<?php echo $recruiter_header2_border; ?>
 
 
 
@@ -46,7 +46,7 @@
 
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
@@ -79,8 +79,8 @@
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if($this->uri->segment(3) == $userid){
@@ -109,10 +109,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+  
+ 
 
-<div class="container">    
+<div class="container tablate-container">    
     <div class="upload-img">
 
 
@@ -171,7 +171,11 @@
 
         </div>  
         <!-- menubar -->                
-    </div>                        <div class="job-menu-profile1">
+    </div>                        
+
+</div>
+        <div class="middle-part container">    
+<div class="job-menu-profile1">
         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
@@ -208,7 +212,7 @@
 
         <!-- text head end -->
     </div>
-    <div class="col-md-7 col-sm-7">
+    <div class="col-md-8 col-sm-8 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Candidate</h3>
@@ -769,7 +773,8 @@
             </div>
         </div>
     </div>
-</section>
+        </div>
+    </section>
 
 <!-- Model Popup Close -->
   <div class="modal fade message-box" id="bidmodal-2" role="dialog">

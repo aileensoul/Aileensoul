@@ -197,6 +197,12 @@
      </div>
                     -->
                 <?php } ?>
+
+
+                <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($businessdata1[0]['user_id'] != $userid) {
+                            ?> 
                     <div id="contact_per">
                 <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
                     <div class="">
@@ -234,6 +240,8 @@
                     </div>
                 </a>
                     </div>
+
+                    <?php }?>
             </div>
             <!-- PICKUP -->
             <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">

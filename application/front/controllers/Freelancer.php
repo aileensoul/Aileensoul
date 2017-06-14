@@ -412,11 +412,11 @@ class Freelancer extends MY_Controller {
 
           foreach ($cities as $key) {
               
-                 $location[] = $key['city_name'];
+                 $location_list[] = $key['city_name'];
               
           }
           //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
+          foreach ($location_list as $key => $value) {
               $loc[$key]['label'] =$value;
               $loc[$key]['value'] =$value;
           }

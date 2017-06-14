@@ -2374,7 +2374,7 @@ ul.business_pf_ct_person_detail li b {
     color: #aba2a2;
     color: #000000;
     font-size: 19px;
-    padding-right: 44px;
+    /*padding-right: 44px;*/
     padding-top: 5px;
     cursor: pointer;
 }
@@ -4344,7 +4344,7 @@ border-bottom: 1px solid #000033;
     display: block;
     color: #1b8ab9;
     text-align: center;
-    padding: 14px 15px 18px 15px;
+    padding: 16px 15px;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
@@ -9940,7 +9940,7 @@ end zalak 9-6 css*/
     header .header2{margin-left: 16px; margin-right: 16px;}
     .profile-pho { height: 133px; width: 123px; margin-top: -55px; }
     .user-pic { height: 125px; width: 115px; }
-    .profile-main-rec-box-menu li a { padding: 11px 15px; font-size: 13px; }
+    .profile-main-rec-box-menu li a { padding: 10px 15px; font-size: 13px; }
     .profile-box-job-menu ul li{margin-bottom: 0;}
     .buisness-profile-txext{width:28%;}
     #paddingtop_fixed_job{padding-top:54px !important; }
@@ -9973,7 +9973,8 @@ end zalak 9-6 css*/
     .profile-company-name a{font-size: 13px;}
     .profile-boxProfile-name a{font-size: 11px;}
     .profile-boxProfileCard-content::before{top: 50px !important;}
-    .right-side-menu{float: none;}
+    .right-side-menu{float: none; padding-left: 20%;}
+    
    
 }
 @media screen and (max-width: 900px) {
@@ -9988,7 +9989,7 @@ end zalak 9-6 css*/
 @media screen and (max-width: 767px) {
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
-    .profile-main-rec-box-menu li a{padding: 11px 13px;}
+    .profile-main-rec-box-menu li a{padding: 10px 13px;}
     #notificationLink span{top:-5px; right:7px;}
     .header ul li a{padding:5px 10px !important;}
     .main-menu-right{padding-top:6px;}
@@ -10029,6 +10030,8 @@ end zalak 9-6 css*/
     .right-side-menu{float: none;}
     .buisness-profile-txext{width: 21%;}
     .right_left_box_design{width: 79% !important;}
+    .job-menu-profile1{width: auto;}
+    .left-side-bar ul li.active::after{content:"\f078"}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 30%;}
@@ -10057,5 +10060,6 @@ end zalak 9-6 css*/
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
+    .right-side-menu{width: 100%;}
 }
 

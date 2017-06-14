@@ -14,7 +14,7 @@
     <?php echo $recruiter_header2_border; ?>
 <?php }?>
     <!-- END HEADER -->
-    <div class="js">
+   
     <body class="page-container-bg-solid page-boxed">
 <div id="preloader"></div>
       <section>
@@ -40,20 +40,19 @@
 
             <?php }?>
             </div>
-            <br>
-            <br>
+           
             <br>
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
+                            <ul class="left-form-each">
                                 
-                            <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Basic Information</a></li>
+                            <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active init" <?php } ?>><a href="#">Basic Information</a></li>
                             
-                             <li  class="<?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
+                             <li  class="custom-none <?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
                             
-                             <li class="<?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
+                             <li class="custom-none <?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
                                 
                             </ul>
                         </div>
@@ -121,7 +120,8 @@
                 </div>
             </div>
         </div>
-    </section>
+        </div>
+      </section>
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
