@@ -1106,7 +1106,7 @@ $(document).ready(function(){
                                                                                         <div>
                                                                 <div id="responsive-images_3-breakpoints" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a></div>
-                                                                    
+
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
 
                                                                 <div class="images_view_more" >
@@ -1182,7 +1182,7 @@ $(document).ready(function(){
                                                         <ul class="col-md-6 like_cmnt_count">
 
                                                             <li>
-                                                                <div class="like_cmmt_space like_count_ext<?php echo $row['art_post_id']; ?>">
+                                                                <div class="like_cmmt_space comnt_count_ext_a like_count_ext<?php echo $row['art_post_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
@@ -1196,7 +1196,7 @@ $(document).ready(function(){
                                                             </li>
 
                                                             <li>
-                                                                <div class="<?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext_a <?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
                                                                     <span class="comment_like_count"> 
                                                                        <?php
                                                                         if ($row['art_likes_count'] > 0) { 

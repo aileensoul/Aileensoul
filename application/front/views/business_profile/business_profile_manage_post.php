@@ -1054,13 +1054,13 @@
                                                                     <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
                                                                     <p class="posted_with" > Posted With </p>
                                                                     <a class="other_name"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
-                                                                    <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                   <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div></div></li>
 
 
                                                     <?php } else { ?>
                                                         <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
-
+<span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan"> 
                                                                     <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div>
@@ -1346,7 +1346,7 @@
                                                         <div class="manage_images_view_more" >
 
 
-                                                            View All (+<?php echo (count($businessmultiimage) - 4); ?>)
+                                                           <a> View All (+<?php echo (count($businessmultiimage) - 4); ?>)</a>
                                                         </div>
 
                                                         </a>

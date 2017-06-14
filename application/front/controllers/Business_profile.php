@@ -3829,7 +3829,7 @@ $contition_array = array('status' => '1');
         $contition_array = array('business_profile_post_id' => $post_delete, 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = 'business_profile_post_comment_id', $orderby = 'ASCdelete_commenttwo', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo '<pre>'; print_r($businessprofiledata); die();
+        //echo '<pre>'; print_r($businessprofiledata); die();
 // khyati changes start
         if (count($businessprofiledata) > 0) {
             foreach ($businessprofiledata as $business_profile) {

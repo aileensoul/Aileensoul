@@ -847,13 +847,14 @@
                                                                     <div class="else_post_d">
                                                                         <div class="post-design-product">
                                                                             <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                            <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                            <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a><span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                                 </li>
                                                             <?php } else { ?>
                                                                 <li>
                                                                     <div class="post-design-product">
                                                                         <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                             <?php echo ucwords($companyname); ?>  </a>
+                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                         <div class="datespan"> <span class="ctre_date" > 
                                                                                 <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
                                                                             </span></div>
