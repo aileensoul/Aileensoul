@@ -522,12 +522,12 @@
                     </a>
                     <!-- user images end-->
 
-
+                    <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
                             <table class="business_data_table">
                                 <div class="head_details">
-                                    <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>"><h5><i class="fa fa-video-camera" aria-hidden="true"></i>Video</h5></a>
+                                    <h5><i class="fa fa-video-camera" aria-hidden="true"></i>Video</h5>
                                 </div>
 
 
@@ -630,11 +630,13 @@
                             </table>
                         </div>
                     </div>
+                    </a>
+                    <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
 
                             <div class="head_details1">
-                                <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>"><h5><i class="fa fa-music" aria-hidden="true"></i>Audio</h5></a>
+                                <h5><i class="fa fa-music" aria-hidden="true"></i>Audio</h5>
                             </div>
                             <table class="business_data_table">
                                 <?php
@@ -738,12 +740,13 @@
                         </div>
 
                     </div>
-
+                    </a>
+                    <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
-                                <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
+                                   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5>
                             </div>      
                             <?php
                             $contition_array = array('user_id' => $businessdata1[0]['user_id']);
@@ -808,7 +811,8 @@
 
 
                         </div>
-                    </div>              
+                    </div>
+                    </a>              
                 </div>
 
                 <!-- popup start -->
