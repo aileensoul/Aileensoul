@@ -612,11 +612,10 @@ public function business_search() {
         
         if($this->input->get('search_submit'))
         {
-           //echo "hi";die();
+          
            $searchkeyword=$this->input->get('skills');
            $searchplace=$this->input->get('searchplace');
-          echo $searchkeyword;
-          echo $searchplace;
+         
         }
         else
         {
@@ -628,7 +627,7 @@ public function business_search() {
                       
                         $searchplace= urldecode($searchplace);
                          $searchkeyword= "";
-                        // echo  $searchplace;die();
+                     
                       
                 }
                  else if($this->uri->segment(4) =="0")
@@ -637,7 +636,7 @@ public function business_search() {
                         
                         $searchkeyword= urldecode($searchkeyword);
                          $searchplace= "";
-                     // echo  $searchkeyword;die();
+                    
                 }
                 else
                 {
@@ -668,10 +667,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         $search_place = $searchplace;
         $this->data['key_place'] = $searchplace;
-        // echo $searchkeyword;
-        //echo $searchplace;
-         echo $search_place;
-        
+      
 
         //insert search keyword into database start
 
@@ -1263,8 +1259,31 @@ if ($searchkeyword == "" && $searchplace == "") {
         }
         else
         {
-             $searchkeyword= urldecode($searchkeyword);
-             $searchplace=urldecode($searchplace);
+              if($this->uri->segment(3) =="0")
+
+                {
+                      
+                        $searchplace= urldecode($searchplace);
+                         $searchkeyword= "";
+                     
+                      
+                }
+                 else if($this->uri->segment(4) =="0")
+
+                {
+                        
+                        $searchkeyword= urldecode($searchkeyword);
+                         $searchplace= "";
+                    
+                }
+                else
+                {
+                     
+
+                      $searchkeyword= urldecode($searchkeyword);
+                    $searchplace=urldecode($searchplace); 
+                
+                }
             
         }
 
@@ -1308,13 +1327,13 @@ if ($searchkeyword == "" && $searchplace == "") {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 
 
-        if ($searchkeyword == "") { 
+        if ($searchkeyword == "" || $this->uri->segment(3) =="0") { 
 
         $contition_array = array('freelancer_post_city' => $cache_time, 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
-        elseif ($searchplace == "") {
+        elseif ($searchplace == "" || $this->uri->segment(4) =="0") {
 
 
             $contition_array = array('type' => '1', 'status' => '1');

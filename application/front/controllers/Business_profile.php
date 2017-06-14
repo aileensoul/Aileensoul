@@ -8498,11 +8498,11 @@ $contition_array = array('status' => '1');
       
        if($status == 'pending'){
               $data = array(
-            'created_date' => date('Y-m-d H:i:s'),
+            'modify_date' => date('Y-m-d H:i:s'),
             'status' => 'cancel'
         );
 
-
+              //echo "<pre>"; print_r($data); die();
  $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
        
  $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
@@ -8563,6 +8563,8 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'pending'
                      );
+
+        // echo "<pre>"; print_r($data); die();
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            

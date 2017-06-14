@@ -143,9 +143,10 @@
 /*.comment-edit-butn button{position: absolute !important;
     bottom: 11px;
 }*/
+.inputtype-edit-comment {position: relative;}
 .edit-comment-box .comment-edit-button button{    padding: 8px 18px 7px !important;
     position: absolute;
-    bottom: 36px;}
+    bottom: 2px;}
 .btn-3b{border-radius: 4px !important;    
     font-size: 18px!important;}
     .add-post-button{margin-top: 30px;}
@@ -168,3 +169,8 @@ padding-right: 2px !important;
 
 
 
+.images_view_more a:hover{text-decoration: underline;}
+.positin_art {position: relative;}
+
+.comment-edit-butn button{position: absolute;
+bottom: 11px;}
