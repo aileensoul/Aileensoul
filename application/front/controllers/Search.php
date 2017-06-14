@@ -607,39 +607,47 @@ public function business_search() {
         $this->load->view('recruiter/rec_search', $this->data);
     }
 
-     public function recruiter1_search() {
-         $this->data['searchkeyword']=$this->input->post('skills');
-          $this->data['searchplace'] =$this->input->post('searchplace');
-          
-        // echo 'recruiter/recruiter_search/'. $searchkeyword.'/'. $searchplace; die();
-        // $this->load->view('recruiter/recruiter_search/'. $searchkeyword.'/'. $searchplace);
-         // $this->load->view('recruiter/recruiter_search', $this->data);
-          redirect('recruiter/recruiter_search/'. $searchkeyword.'/'. $searchplace);
-    }
-
-    public function recruiter_search($searchkeyword,$searchplace) {
-        //echo "hhh";die();
-       // $searchkeyword=$this->input->get('skills');
-       //  $searchplace=$this->input->get('searchplace');
-          //  echo $searchkeyword;
-          // echo $searchplace;
-
-
+    
+    public function recruiter_search($searchkeyword = " ",$searchplace = " ") {
+        
         if($this->input->get('search_submit'))
         {
            //echo "hi";die();
            $searchkeyword=$this->input->get('skills');
            $searchplace=$this->input->get('searchplace');
-          // echo $searchkeyword;
-          // echo $searchplace;
+          echo $searchkeyword;
+          echo $searchplace;
         }
         else
         {
-           //echo "hi1";die();
-             $searchkeyword= urldecode($searchkeyword);
-             $searchplace=urldecode($searchplace);
-             // echo $searchkeyword;
-             // echo $searchplace;die();
+               
+
+                if($this->uri->segment(3) =="0")
+
+                {
+                      
+                        $searchplace= urldecode($searchplace);
+                         $searchkeyword= "";
+                        // echo  $searchplace;die();
+                      
+                }
+                 else if($this->uri->segment(4) =="0")
+
+                {
+                        
+                        $searchkeyword= urldecode($searchkeyword);
+                         $searchplace= "";
+                     // echo  $searchkeyword;die();
+                }
+                else
+                {
+                     
+
+                      $searchkeyword= urldecode($searchkeyword);
+                    $searchplace=urldecode($searchplace); 
+                
+                }
+              
             
         }
 
@@ -654,16 +662,16 @@ if ($searchkeyword == "" && $searchplace == "") {
         }
 
         $rec_search = trim($searchkeyword);
-       // echo $rec_search;
+      
 
         $this->data['keyword'] = $rec_search;
 
         $search_place = $searchplace;
         $this->data['key_place'] = $searchplace;
         // echo $searchkeyword;
-        // echo $searchplace;
-        // echo $search_place;
-        // die();
+        //echo $searchplace;
+         echo $search_place;
+        
 
         //insert search keyword into database start
 
@@ -692,8 +700,8 @@ if ($searchkeyword == "" && $searchplace == "") {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
         //insert search keyword into database end
 
-        if ($searchkeyword == "") {
-        // echo "tttt";die();
+        if ($searchkeyword == "" || $this->uri->segment(3) =="0") {
+         //echo "skill search";die();
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -711,8 +719,8 @@ if ($searchkeyword == "" && $searchplace == "") {
            // echo "<pre>"; print_r($unique);die();
 
         }
-         elseif ($searchplace == "") {
-           // echo "lllll";
+         elseif ($searchplace == "" || $this->uri->segment(4) =="0") {
+           // echo "Place Search";die();
           // echo "<pre>"; print_r($rec_search);die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
@@ -913,7 +921,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             $new1 = array();
             foreach ($postdata1 as $value) {
-                //echo "hi";
+                //echo "skill & place both serach";die();
                 $new1[$value['job_id']] = $value;
             }
 
@@ -932,7 +940,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             // echo "<pre>"; print_r($unique); die();
         } else {
 
-            //echo "hi"; die();
+            //echo "Skill & Place  Search";die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
