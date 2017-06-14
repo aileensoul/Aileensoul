@@ -695,12 +695,12 @@ if ($searchkeyword == "" && $searchplace == "") {
         if ($searchkeyword == "") {
         // echo "tttt";die();
             $join_str = array(array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_edu',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_edu.user_id'),
                 array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_workexp',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_workexp.user_id')
@@ -725,7 +725,7 @@ if ($searchkeyword == "" && $searchplace == "") {
            //  echo "<pre>"; print_r($skilldata); 
 
             $join_str = array(array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_edu',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_edu.user_id'),
@@ -950,12 +950,12 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
             $join_str = array(array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_edu',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_edu.user_id'),
                 array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_workexp',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_workexp.user_id')
@@ -995,12 +995,12 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
             $join_str = array(array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_edu',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_edu.user_id'),
                 array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_workexp',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_workexp.user_id')
@@ -1066,12 +1066,12 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
             $join_str = array(array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_edu',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_edu.user_id'),
                 array(
-                    'join_type' => 'left',
+                    'join_type' => '',
                     'table' => 'job_add_workexp',
                     'join_table_id' => 'job_reg.user_id',
                     'from_table_id' => 'job_add_workexp.user_id')
@@ -1090,12 +1090,12 @@ if ($searchkeyword == "" && $searchplace == "") {
                 // echo "pallavi";die();
 
                 $join_str = array(array(
-                        'join_type' => 'left',
+                        'join_type' => '',
                         'table' => 'job_add_edu',
                         'join_table_id' => 'job_reg.user_id',
                         'from_table_id' => 'job_add_edu.user_id'),
                     array(
-                        'join_type' => 'left',
+                        'join_type' => '',
                         'table' => 'job_add_workexp',
                         'join_table_id' => 'job_reg.user_id',
                         'from_table_id' => 'job_add_workexp.user_id')
@@ -1914,7 +1914,7 @@ if ($searchkeyword == "" && $searchplace == "") {
         $userid = $this->session->userdata('aileenuser');
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") {
+        if ($this->input->get('searchplace') == "" && $this->input->get('skills') == "") {
             redirect('job/job_all_post',refresh);
          
         }
@@ -1922,10 +1922,10 @@ if ($searchkeyword == "" && $searchplace == "") {
 
  // search keyword insert into database start
 
-        $search_job = trim($this->input->post('skills'));
+        $search_job = trim($this->input->get('skills'));
         $this->data['keyword'] = $search_job;
        
-        $search_place = $this->input->post('searchplace');
+        $search_place = trim($this->input->get('searchplace'));
        // echo $search_place;
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
@@ -1957,7 +1957,7 @@ if ($searchkeyword == "" && $searchplace == "") {
         // search keyword insert into database end
 
 
-        if ($this->input->post('skills') == "") {
+        if ($search_job == "") {
 
             $contition_array = array('city' => $cache_time, 're_status' => '1', 'recruiter.user_id !=' => $userid);
 
@@ -1971,7 +1971,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 //echo "<pre>"; print_r($unique); die();
         } 
-        elseif ($this->input->post('searchplace') == "") {
+        elseif ($search_place == "") {
             // echo "hello";
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
@@ -2054,12 +2054,12 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             // echo "<pre>"; print_r($unique); die();
         } else {
-
-            $search_job = $this->input->post('skills');
+                // both
+            // $search_job = $this->input->get('skills');
             //echo $search_job;
 
 
-            $search_place = $this->input->post('searchplace');
+            // $search_place = $this->input->get('searchplace');
             // print_r($search_place); die();
 
 
