@@ -1862,7 +1862,6 @@ class Artistic extends MY_Controller {
             'contact_type' => 1,
             'created_date' => date('Y-m-d H:i:s', time()),
             'status' => 1,
-            'is_delete' => $userid,
             'contact_desc' => $this->input->post('msg')
         );
 

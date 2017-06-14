@@ -1357,3 +1357,17 @@ $(document).ready(function(){
     });
 });
 </script>
+
+
+<script type="text/javascript">
+     
+
+     
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+ </script>  

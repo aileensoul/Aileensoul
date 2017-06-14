@@ -117,7 +117,7 @@
 <!-- <?php //echo "<pre>"; print_r($postdetail);//die();?> -->
                     <!--- search end -->
 
-                   <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                 <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -125,7 +125,7 @@
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 
-                                        
+    <!-- <?php //echo "<pre>"; print_r($postdetail);die(); ?> -->                                    
 
 <!-- @nk!t 7-4-2017 start -->
                                         <?php
@@ -179,10 +179,10 @@
 
                      <li>
                    <a style=" font-size: 19px;
-         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'/'.$keyword.'/'.$key_place); ?>">
+         font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['user_id'].'?page=recruiter'); ?>">
                    <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); 
-                   echo $keyword; 
-                   echo $key_place; ?>
+                   echo $p['user_id']; 
+                   ?>
                      
                  </a></li>
 

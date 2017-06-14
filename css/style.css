@@ -9919,7 +9919,7 @@ end zalak 9-6 css*/
 .tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
 .tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 2px solid #156f95; }
-.like_cmnt_count{padding-top: 7px !important;}
+/*.like_cmnt_count{padding-top: 7px !important;}*/
 
 /***  eduction tabbing  ***/
 
@@ -9930,7 +9930,7 @@ end zalak 9-6 css*/
 }
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
-    #paddingtop_fixed_job{padding-top:54px !important; }
+    
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
 }
@@ -9943,6 +9943,7 @@ end zalak 9-6 css*/
     .profile-main-rec-box-menu li a { padding: 11px 15px; font-size: 13px; }
     .profile-box-job-menu ul li{margin-bottom: 0;}
     .buisness-profile-txext{width:28%;}
+    #paddingtop_fixed_job{padding-top:54px !important; }
     .right_left_box_design{width: 72% !important;}
     .profile-boxProfile-name{line-height: 1;}
     .profile-boxProfile-name a{font-size: 14px;}

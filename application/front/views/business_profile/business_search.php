@@ -1,8 +1,8 @@
 <div class="col-md-7 col-sm-7">
     <div class="job-search-box1 clearfix">
                          
-                        <?php echo form_open('search/business_search'); ?>
-
+                        <!-- <?php //echo form_open('search/business_search'); ?> -->
+                        <form action=<?php echo base_url('search/business_search')?> method="get">
 
     <fieldset class="col-md-3">
             <!--    <label>Find Your Skills</label>

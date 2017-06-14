@@ -1,8 +1,9 @@
 <div class="col-md-7 col-sm-7">
                         <div class="job-search-box1 clearfix">
-                       <?php
-                         echo form_open('search/freelancer_hire_search'); ?>
+                      <!--  <?php
+                         //echo form_open('search/freelancer_hire_search'); ?> -->
                             <fieldset class="col-md-3">
+                      <form action=<?php echo base_url('search/freelancer_hire_search')?> method="get">
                              <!--    <label>Find Your Skills</label>
                               -->  
                               <input type="text" id="tags" name="skills" placeholder="Find Your freelancer">
