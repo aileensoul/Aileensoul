@@ -2051,6 +2051,18 @@ if($status == 0 || $status == " "){?>
                          toggle between hiding and showing the dropdown content */
                         function myFunction(clicked_id) {
                             document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+
+
+                            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) { 
+
+                    document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                    $(".dropdown-content1").removeClass('show');
+
+                            }
+                           
+                        }); 
+
                         }
 
                         // Close the dropdown if the user clicks outside of it
@@ -2659,3 +2671,18 @@ if($status == 0 || $status == " "){?>
                         }
 
                     </style>
+
+
+
+                    <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+ 
+ </script>
+ <!-- all popup close close using esc end-->
