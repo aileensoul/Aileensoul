@@ -9920,6 +9920,10 @@ end zalak 9-6 css*/
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
 .tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 2px solid #156f95; }
 /*.like_cmnt_count{padding-top: 7px !important;}*/
+.bui_images_view_more span{bottom: 5px;
+    left: 0;
+    position: absolute;
+    right: 0;}
 
 /***  eduction tabbing  ***/
 
