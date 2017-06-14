@@ -4589,11 +4589,11 @@ class Artistic extends MY_Controller {
                 $cmtinsert .= '</a></div>';
             }
 
-//            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
-//            $cmtinsert .= '<div class="comment-details-menu">';
-//            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
-//            $cntinsert .= '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
-//            $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
+            $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
+            $cmtinsert .= '<div class="comment-details-menu">';
+            $cmtinsert .= '<p>' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art['created_date']))) . '</p></div></div></div>';
+//          $cntinsert .= '<a onclick="commentall(this.id)" id="' . $art['art_post_id'] . '">';
+ //          $cntinsert .= '<i class="fa fa-comment-o" aria-hidden="true">' .
 //                    count($allcomnt) . '</i>';
             
           $cntinsert =  '<span class="comment_count" >';
