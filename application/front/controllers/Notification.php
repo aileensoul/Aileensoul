@@ -1045,12 +1045,20 @@ class Notification extends MY_Controller {
         //   $notification .= '</div></div></li>';
        //echo count($totalnotification); die();
        $i = 0;
-        foreach ($totalnotification as $total) {
+        foreach ($totalnotification as $total) {  
             if ($total['not_from'] == 1) {
  $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name; 
                 $notification .= '<li><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . ' " >';
+
+
+                if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' Invited You For An Interview.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1064,7 +1072,15 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('artistic/artistic_profile/' . $total['user_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '">';
+
+
+                 if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Started Following You In Artistic.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1080,7 +1096,14 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+
+                 if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
+
                 $notification .= '</div><div class="notification-data-inside">';
                 //$notification .= '';
                 $notification .= '<h6>';
@@ -1097,7 +1120,14 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+
+
+                if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Likes Your Post In Artistic.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1123,7 +1153,15 @@ class Notification extends MY_Controller {
 
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Post's Comment In Artistic.</h6>";
@@ -1142,7 +1180,15 @@ class Notification extends MY_Controller {
                 if ($total['not_img'] == 5) {
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-pic">';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Likes Your Photo In Artistic.</h6>';
@@ -1162,7 +1208,15 @@ class Notification extends MY_Controller {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic">';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                   
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Commented On Your Photo In Artistic.</h6>';
@@ -1182,7 +1236,15 @@ class Notification extends MY_Controller {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '>';
+                    
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                    
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes Your Photo's Comment In Artistic.</h6>";
@@ -1205,7 +1267,15 @@ class Notification extends MY_Controller {
                 $notification .= '<li>';
                 $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+                
+
+                if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+               
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> Commented On Your Post In Business Profile.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1223,7 +1293,13 @@ class Notification extends MY_Controller {
                $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                 $notification .= '<li><a href="' . base_url('business_profile/business_resume/' . $busslug) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+
+                if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> Started Following You In Business Profile.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1241,7 +1317,15 @@ class Notification extends MY_Controller {
             if ($bus_not_from == '6' && $bus_not_img == '2') {
                 $notification .= '<li><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+               
+
+                if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+               
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> Likes Your Post In Business Profile.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1267,7 +1351,15 @@ class Notification extends MY_Controller {
               $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    
+
+                    if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                    
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . "</b> Likes Your Post's Comment In Business Profile.</h6>";
@@ -1287,7 +1379,15 @@ class Notification extends MY_Controller {
      $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;                      
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                    
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> Likes Your Photo In Business Profile. </h6>';
@@ -1307,7 +1407,15 @@ class Notification extends MY_Controller {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                   
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                    
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> Commented On Your Photo In Business Profile.</h6>';
@@ -1328,7 +1436,15 @@ class Notification extends MY_Controller {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic" >';
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    
+
+                     if($total['user_image']){
+                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                    
+
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . "</b> Likes Your Photo's Comment In Business Profile.</h6>";
@@ -1348,7 +1464,15 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'].'?page=recruiter') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+               
+
+                 if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i> Job seeker</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your jobpost.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1362,7 +1486,15 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+                
+
+                 if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+                
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i>Freelancer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Applied on your post.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
@@ -1377,7 +1509,15 @@ class Notification extends MY_Controller {
 
                 $notification .= '<li><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'].'?page=freelancer_post') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
+               
+
+                 if($total['user_image']){
                 $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                 }else{
+                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
+                 }
+               
+
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i>Employer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> Selected You For Project.</h6>';
                 $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
