@@ -219,12 +219,14 @@
                                 $userid = $this->session->userdata('aileenuser');
      $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
      $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //print_r($contactperson[0]['status']) ; die();
         
                      if($contactperson[0]['status'] == 'cancel'){?>
                                 Add to contact
                      <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
                             Cancel request  
-                     <?php }if(!$contactperson){ ?>
+                     <?php }else{ ?>
                          Add to contact
                    <?php  } ?>
                             </span>

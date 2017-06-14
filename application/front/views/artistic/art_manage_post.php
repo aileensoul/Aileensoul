@@ -443,11 +443,12 @@
                     </div>
                 </div>
                 </a>
+                <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</h5></a>
+                                 <h5><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -548,12 +549,13 @@
 
                     </div>
                 </div>
-
+                </a>
+                <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-music" aria-hidden="true"></i>  Audio</h5></a>
+                                 <h5><i class="fa fa-music" aria-hidden="true"></i>  Audio</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -656,11 +658,13 @@
 
                     </div>
                 </div>
+                </a>
+                <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module pdf_box">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
+                                 <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -724,6 +728,7 @@
 
                     </div>
                 </div>
+                </a>
 
             </div>
 
@@ -878,7 +883,7 @@
 
                                                 <div class="post-design-name fl col-md-9">
                                                     <ul>
-                                                        <li><span>
+                                                        <li>
                                                                 <?php
                                                                 $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
                                                                 $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
@@ -888,20 +893,22 @@
                                                               
                                                                  $designation = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->designation;
                                                                 ?>
-                                                            </span>
-
+                                                            
                                                             <!-- other user post time name strat-->
 
                                                             <?php if ($row['posted_user_id']) { ?>
 
                                                                 <div class="else_post_d">
-                                                                    <a  class="post_dot" style="padding-left: 0px;  max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style=" color: #91949d;"> Posted With 
-                                                                    </span><a class="post_dot1" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
+                                                                <div class="post-design-product">
+
+                                                                    <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style=" color: #91949d;"> Posted     With 
+                                                                    </span><a class="post_dot1" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
                                                                     <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
-
+                                                                </div>
                                                                 <!-- other user post time name end-->
                                                             <?php } else { ?>
+                                                              <div class="post-design-product">
 
                                                                 <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
                                                                     <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
@@ -909,8 +916,9 @@
                                                                 </a>
                                                                 <div class="datespan">
                                                                     <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                                                                    </div>
+                                                            <?php } ?>  
 
-                                                            <?php } ?>                          
                                                         </li>
                                                          <li><div class="post-design-product">
                                                                 <a><?php if($designation)
@@ -970,7 +978,7 @@
                                                 <div class="post-design-desc ">
                                                     <span> 
                                                         <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                            <span class="ft-15"><?php echo $this->common->make_links($row['art_post']); ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -982,7 +990,7 @@
                                                             //echo $row['art_description'];
                                                             $text = $this->common->make_links($row['art_description']);
                                                             ?>
-                                                            <span class="show"><?php echo $text; ?></span>
+                                                            <span class="show ft-13"><?php echo $text; ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1233,7 +1241,7 @@
                                                      <ul class="col-md-6 like_cmnt_count">
 
                                                               <li>
-                                                                <div class="like_cmmt_space  like_count_ext<?php echo $row['art_post_id']; ?>">
+                                                                <div class="like_cmmt_space comnt_count_ext_a like_count_ext<?php echo $row['art_post_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {

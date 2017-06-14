@@ -3981,14 +3981,14 @@ class Artistic extends MY_Controller {
             $user_array = array_push($likeuserarray, $userid);
 
             if ($artdata[0]['art_likes_count'] == 0) {
-                $userid = implode('', $likeuserarray);
+                $useridin = implode('', $likeuserarray);
             } else {
-                $userid = implode(',', $likeuserarray);
+                $useridin = implode(',', $likeuserarray);
             }
 
             $data = array(
                 'art_likes_count' => $art_likes_count + 1,
-                'art_like_user' => $userid,
+                'art_like_user' => $useridin,
                 'modifiled_date' => date('y-m-d h:i:s')
             );
 
@@ -4091,9 +4091,9 @@ class Artistic extends MY_Controller {
 
                 $likelistarray = explode(',', $likeuser);
                 $likelistarray = array_reverse($likelistarray);
-                $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
+              $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
 
-                $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
+              $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
                 $cmtlikeuser .= '<div class="like_one_other">';

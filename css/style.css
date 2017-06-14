@@ -122,7 +122,7 @@ a:focus {
     animation: marquee-main 5s linear infinite alternate;
 }
 [contenteditable=true]:empty:before {
-/*    content: attr(placeholder);*/
+ content: attr(placeholder);
     display: block;
     color: #cacaca;
     /* For Firefox */
@@ -264,7 +264,7 @@ a:focus {
     height: 35px;
     left: 0;
     z-index: 1001;
-    margin-left: 50px;
+    margin-left: 51px;
     margin-right: 50px;
     padding: 0px -31px;
     background-color: #1b8ab9;
@@ -5230,9 +5230,9 @@ label.cameraButton input[accept*="camera"] {
     content: " \00b7 ";
     font-size: 16px;
 }
-.post-design-product span:before {
+/*.post-design-product span:before {
     content: "\00b7";
-}
+}*/
 .post-design-product .span_main_name:before {
     content: "";
 }
@@ -9914,7 +9914,7 @@ end zalak 9-6 css*/
 .clear{clear:both;}
 .custom-right{margin-left: 1%;}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
-#row2{border-left: 0;}
+#row2{/*border-left: 0;*/}
 
 .tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}

@@ -91,7 +91,7 @@ if ($user_data) {
                 <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                           </li>
                          <li class="show">
-                   <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['userid']); ?>">
+                   <a  style="font-size: 19px;" href="javascript: void(0)">
                       <?php
                    if ($row['designation']) {
                        ?>
@@ -651,4 +651,18 @@ return false;
    
 </script>
 
-<!-- comment like script end
+<!-- comment like script end -->
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->

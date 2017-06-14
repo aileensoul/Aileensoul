@@ -191,9 +191,9 @@
 </div>
                
         <div class="job-menu-profile1">
-       
+                    <a href="javascript:void(0);">
                            <h5> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h5>
-                           
+                           </a>
                            <div class="profile-text">
 
                      <?php

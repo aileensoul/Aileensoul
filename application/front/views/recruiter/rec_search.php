@@ -1,13 +1,13 @@
 
                          <!-- <?php //echo form_open('search/recruiter_search');  ?> -->
                          <form action=<?php echo base_url('search/recruiter_search')?> method="get">
-                            <fieldset class="col-md-3">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
 
                               <input type="text" id="tags" name="skills" placeholder="Find Persons">
         
                               
                             </fieldset>
-                            <fieldset class="col-md-3">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
                               
                             
 
@@ -16,7 +16,7 @@
                             <fieldset class="col-md-2">
                                <input type="submit" name="search_submit" value="Search" onclick="return checkvalue()">
                             </fieldset> -->
-                               <fieldset class="col-md-2">
+                               <fieldset class="col-md-2 col-sm-2 col-xs-2">
                                 
 
 
