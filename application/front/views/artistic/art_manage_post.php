@@ -901,9 +901,9 @@
                                                                 <div class="else_post_d">
                                                                 <div class="post-design-product">
 
-                                                                    <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style=" color: #91949d;"> Posted     With 
-                                                                    </span><a class="post_dot1" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
-                                                                    <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                    <a  class="post_dot padding_less_left" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span class="posted_with" > Posted     With 
+                                                                    </span><a class="post_dot1 padding_less_left" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                                                                  <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
                                                                 </div>
                                                                 <!-- other user post time name end-->
@@ -913,7 +913,7 @@
                                                                 <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
                                                                     <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
-                                                                </a>
+                                                                </a><span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">
                                                                     <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
                                                                     </div>
@@ -921,7 +921,7 @@
 
                                                         </li>
                                                          <li><div class="post-design-product">
-                                                                <a><?php if($designation)
+                                                                <a class="in_desc_cw"><?php if($designation)
                                                                     {echo $designation;
                                                                     
                                                                     }else{
@@ -990,7 +990,7 @@
                                                             //echo $row['art_description'];
                                                             $text = $this->common->make_links($row['art_description']);
                                                             ?>
-                                                            <span class="show ft-13"><?php echo $text; ?></span>
+                                                            <span  class="show-read-more ft-13"><?php echo $text; ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -3843,16 +3843,37 @@ if (size > 4194304)
         </script>
 
 
-        <!-- insert validation end -->
+       <style type="text/css">
+    .show-read-more .more-text{
+        display: none;
+    }
+</style> <!-- insert validation end -->
 
         <!-- zalak script for more decription strat -->
-
+<script type="text/javascript">
+$(document).ready(function(){
+    var maxLength = 30;
+    $(".show-read-more").each(function(){
+        var myStr = $(this).text();
+        if($.trim(myStr).length > maxLength){
+            var newStr = myStr.substring(0, maxLength);
+            var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+            $(this).empty().html(newStr);
+            $(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
+            $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+    });
+    $(".read-more").click(function(){
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+    });
+});
+</script>
         <!-- further and less -->
-        <script>
+      <!--   <script>
             $(function () {
                 var showTotalChar = 200, showChar = "More", hideChar = "less";
                 $('.show').each(function () {
-                    //var content = $(this).text();
                     var content = $(this).html();
                     if (content.length > showTotalChar) {
                         var con = content.substr(0, showTotalChar);
@@ -3875,7 +3896,7 @@ if (size > 4194304)
                 });
             });
         </script>
-
+ -->
         <!-- zalak script for more decription end -->
 
         <!-- textarea js -->
