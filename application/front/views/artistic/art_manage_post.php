@@ -1160,13 +1160,13 @@
                                                                 <div id="responsive-manage_images_3-breakpoints" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>" > </a></div>
 
-
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
                                                                 <div class="manage_images_view_more" >
 
 
-                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
+                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)
                                                                 </div>
-
+                                                                </a>
                                                             </div>
                                                             <!-- this div view all image end -->
 
