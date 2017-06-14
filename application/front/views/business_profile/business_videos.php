@@ -520,6 +520,8 @@
  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+
+
  
 
 
@@ -817,7 +819,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 <script>
-      function updateprofilepopup(id) {
+      function updateprofilepopup(id) { 
       $('#bidmodal-2').modal('show');
    }
 </script>
@@ -898,7 +900,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
-
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
      
 

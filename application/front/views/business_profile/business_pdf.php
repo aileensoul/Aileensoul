@@ -875,7 +875,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
                     </script>
-                    
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>                    
 <script type="text/javascript">
      
 
