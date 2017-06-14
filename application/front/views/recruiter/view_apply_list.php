@@ -91,7 +91,7 @@ if ($user_data) {
                 <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
                           </li>
                          <li class="show">
-                   <a  style="font-size: 19px;" href="<?php echo base_url('job/job_printpreview/' . $row['userid']); ?>">
+                   <a  style="font-size: 19px;" href="javascript: void(0)">
                       <?php
                    if ($row['designation']) {
                        ?>
