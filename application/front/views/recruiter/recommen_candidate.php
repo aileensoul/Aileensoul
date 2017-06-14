@@ -19,10 +19,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body >
+        <section>
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-4 profile-box profile-box-left"><div class="">
+                    <div class="col-md-4 col-sm-4 profile-box profile-box-left"><div class="">
                            
                           <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
@@ -659,7 +660,11 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                             </div>
                         </div>
                     </div>
-                    </section>
+                </div>
+                </div>
+            </div>
+                </section>
+                
                     <footer>
 
 <?php echo $footer; ?>

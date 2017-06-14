@@ -4,7 +4,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $freelancer_hire_header2; ?>
+<?php echo $freelancer_hire_header2_border; ?>
 
 <!--post save success pop up style strat -->
 
@@ -96,7 +96,7 @@
             <div class="container">
                 <div class="row row4">
 
-                    <div class="col-md-4 profile-box profile-box-left">
+                    <div class="col-md-4 col-sm-4 profile-box profile-box-left">
                     <div class="">
                    
              <div class="full-box-module">   
