@@ -6939,7 +6939,7 @@ class Artistic extends MY_Controller {
                 if ($art_userimage) {
                     $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
                 } else {
-                    $fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+                    $fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt=""></div>';
                 }
 
                 $fourdata .= '<div class="comment-name">';
