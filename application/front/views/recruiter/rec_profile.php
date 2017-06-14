@@ -51,9 +51,9 @@
  }
 ?>
 
-<body   class="page-container-bg-solid page-boxed">
+<body class="page-container-bg-solid page-boxed custom-border">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
            
       <div class="row" id="row1" style="display:none;">
@@ -673,15 +673,7 @@ function text2link($text){
                       </div>
                       </div>
 
-<div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                       <div class="col-md-3"> 
-  </div>
-                      
-                </div>
-            </div>
-            </div>
+
         </div>
         </div>
              <div class="clearfix"></div>  
