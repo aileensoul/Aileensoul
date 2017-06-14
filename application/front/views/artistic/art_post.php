@@ -835,9 +835,9 @@ $(document).ready(function(){
                                                                     <div class="else_post_d">
                                                                         <a style="max-width: 30%;" class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
                                                                         <p class="posted_with" > Posted With </p>
-                                                                        <a  class="post_dot1" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                                                                        <a  class="post_dot1 padding_less_left" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
 
-
+<span role="presentation" aria-hidden="true"> · </span>
                                                                         <span class="ctre_date">  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?></span>
                                                                     </div>
                                                                     <!-- other user post time name end-->
@@ -853,7 +853,7 @@ $(document).ready(function(){
                                                                        print "&nbsp;&nbsp;";
                                                                        echo ucwords($lastname);
                                                                        ?> </a>
-
+<span role="presentation" aria-hidden="true"> · </span>
                                                                     <div class="datespan">
                                                                         <span class="ctre_date">  <?php // echo date('d-M-Y',strtotime($row['created_date']));                                              ?>
 

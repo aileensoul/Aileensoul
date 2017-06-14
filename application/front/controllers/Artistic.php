@@ -4082,6 +4082,8 @@ class Artistic extends MY_Controller {
 //         $cmtlikeuser .= '</div>';
                 //popup box end like user name
 //            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
+             $cmtlikeuser .= '<div class="like_one_other">';
+
                 $cmtlikeuser .= ' <a href="javascript:void(0);"  onclick="likeuserlist(' . $artdata1[0]['art_post_id'] . ');">';
                 $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4096,16 +4098,14 @@ class Artistic extends MY_Controller {
               $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-                $cmtlikeuser .= '<div class="like_one_other">';
-
+             
 
                 if ($userid == $likelistarray[0]) {
-                    $cmtlikeuser .= 'You';
+                    $cmtlikeuser .= 'You &nbsp';
                 } else {
                     $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
                 }
-                $cmtlikeuser .= '</div>';
-
+             
 
                 if (count($likelistarray) > 1) {
 
@@ -4118,6 +4118,8 @@ class Artistic extends MY_Controller {
                 }
 
                 $cmtlikeuser .= '</a>';
+                   $cmtlikeuser .= '</div>';
+
 
                // $like_user_count = $commnetcount[0]['art_likes_count'];
                 
@@ -4209,7 +4211,8 @@ class Artistic extends MY_Controller {
 //         $cmtlikeuser .= '</div>';
                 //popup box end like user name
 //            $cmtlikeuser .= '<a href=#popuplike'. $artdata1[0]['art_post_id'].'>';
-                $cmtlikeuser .= ' <a href="javascript:void(0);"  onclick="likeuserlist(' . $artdata1[0]['art_post_id'] . ');">';
+               $cmtlikeuser .= '<div class="like_one_other">';
+               $cmtlikeuser .= ' <a href="javascript:void(0);"  onclick="likeuserlist(' . $artdata1[0]['art_post_id'] . ');">';
 
                 $contition_array = array('art_post_id' => $artdata1[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4223,9 +4226,9 @@ class Artistic extends MY_Controller {
                 $art_lname12 = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
 
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-                $cmtlikeuser .= '<div class="like_one_other">';
+              
                 $cmtlikeuser .= '' . ucwords($art_fname12) . '&nbsp;' . ucwords($art_lname12) . '&nbsp;';
-                $cmtlikeuser .= '</div>';
+           
                 if (count($likelistarray) > 1) {
 
                     //    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
@@ -4236,7 +4239,7 @@ class Artistic extends MY_Controller {
                     //   $cmtlikeuser .= '</div>';
                 }
                 $cmtlikeuser .= '</a>';
-
+     $cmtlikeuser .= '</div>';
            //  $like_user_count = $commnetcount[0]['art_likes_count'];
              $like_user_count =  '<span class="comment_like_count">'; 
                if ($commnetcount[0]['art_likes_count'] > 0) { 
@@ -5601,7 +5604,9 @@ class Artistic extends MY_Controller {
                         $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
                         $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                     }
+                       $cmtlikeuser .= '<div class="like_one_other">';
 
+                 
                     $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -5611,11 +5616,9 @@ class Artistic extends MY_Controller {
                     $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
 
-                    $cmtlikeuser .= '<div class="like_one_other">';
-
                     if ($userid == $commnetcount[0]['user_id']) {
 
-                        $cmtlikeuser .= 'You';
+                        $cmtlikeuser .= 'You &nbsp';
                     } else {
                         $cmtlikeuser .= '' . ucwords($art_fname) . '';
                         $cmtlikeuser .= '&nbsp;';
@@ -5631,9 +5634,9 @@ class Artistic extends MY_Controller {
                     
                     
 
-                    $cmtlikeuser .= '</div>';
+                   
                     $cmtlikeuser .= '</a>';
-                    
+                     $cmtlikeuser .= '</div>';
                      $like_user_count =  '<span class="comment_like_count">'; 
                if (count($commnetcount) > 0) { 
               $like_user_count .= '' . count($commnetcount) . ''; 
@@ -5730,6 +5733,7 @@ class Artistic extends MY_Controller {
                         $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
                         $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
                     }
+      $cmtlikeuser .= '<div class="like_one_other">';
 
                     $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
 
@@ -5739,10 +5743,9 @@ class Artistic extends MY_Controller {
                     $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
 
-                    $cmtlikeuser .= '<div class="like_one_other">';
-
+              
                     if ($userid == $commnetcount[0]['user_id']) {
-                        $cmtlikeuser .= 'You';
+                        $cmtlikeuser .= 'You &nbsp';
                     } else {
                         $cmtlikeuser .= '' . ucwords($art_fname) . '';
                         $cmtlikeuser .= '&nbsp;';
@@ -5756,8 +5759,9 @@ class Artistic extends MY_Controller {
                         $cmtlikeuser .= 'others';
                     }
 
-                    $cmtlikeuser .= '</div>';
+                   
                     $cmtlikeuser .= '</a>';
+                     $cmtlikeuser .= '</div>';
                     //  echo $cmtlikeuser; die();  
                $like_user_count =  '<span class="comment_like_count">'; 
                if (count($commnetcount) > 0) { 
