@@ -4088,6 +4088,7 @@ $contition_array = array('status' => '1');
 //popup box end like user name
 //                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata1[0]['business_profile_post_id'] . '>';
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
+                $cmtlikeuser .= '<div class="like_one_other">';
                 $cmtlikeuser .= ' <a href="javascript:void(0);"  onclick="likeuserlist(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
 
@@ -4103,7 +4104,7 @@ $contition_array = array('status' => '1');
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
                 // $cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-                $cmtlikeuser .= '<div class="like_one_other">';
+               
 
                 if ($userid == $likelistarray[0]) {
                     $cmtlikeuser .= 'You ';
@@ -4111,7 +4112,7 @@ $contition_array = array('status' => '1');
                     $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
                 }
 
-                $cmtlikeuser .= '</div>';
+              
                 if (count($likelistarray) > 1) {
 
 //                    $cmtlikeuser .= '<div class="fl" style="padding-right: 5px;">';
@@ -4124,6 +4125,7 @@ $contition_array = array('status' => '1');
                 }
 
                 $cmtlikeuser .= '</a>';
+                  $cmtlikeuser .= '</div>';
                 //$cmtlikeuser .= '</div>';
                 $like_user_count = $commnetcount[0]['business_likes_count'];
                 echo json_encode(
@@ -4194,6 +4196,8 @@ $contition_array = array('status' => '1');
 //popup box end like user name
 //                $cmtlikeuser .= '<a href=#popuplike' . $businessprofiledata2[0]['business_profile_post_id'] . '>';
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
+                $cmtlikeuser .= '<div class="like_one_other">';
+
                 $cmtlikeuser .= '<a href="javascript:void(0);" class="ripple like_h_w" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')"';
                 $contition_array = array('business_profile_post_id' => $businessprofiledata2[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4206,12 +4210,10 @@ $contition_array = array('status' => '1');
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $likelistarray[0], 'status' => 1))->row()->company_name;
 
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
-                $cmtlikeuser .= '<div class="like_one_other">';
-
+                
                 $cmtlikeuser .= '' . ucwords($business_fname1) . '&nbsp;';
 
-                $cmtlikeuser .= '</div>';
-
+             
 
                 if (count($likelistarray) > 1) {
 
@@ -4223,7 +4225,7 @@ $contition_array = array('status' => '1');
                     //$cmtlikeuser .= '</div>';
                 }
                 $cmtlikeuser .= '</a>';
-//                $cmtlikeuser .= '</div>';
+             $cmtlikeuser .= '</div>';
 
 
                 $like_user_count = $commnetcount[0]['business_likes_count'];
@@ -5351,7 +5353,7 @@ $contition_array = array('status' => '1');
                 foreach ($commneteduser as $userdata) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                 }
-
+     $imglikeuser .= '<div class="like_one_other_img">';
                 $imglikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
                 $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -5360,7 +5362,7 @@ $contition_array = array('status' => '1');
                 $countlike = count($commneteduser) - 1;
                 $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
-                $imglikeuser .= '<div class="like_one_other_img">';
+           
                 if ($userid == $commneteduser[0]['user_id']) {
 
                     $imglikeuser .= 'You ';
@@ -5374,8 +5376,10 @@ $contition_array = array('status' => '1');
                     $imglikeuser .= 'and';
                     $imglikeuser .= ' ' . $countlike . ' others';
                 }
-                $imglikeuser .= '</div>';
+               // $imglikeuser .= '</div>';
                 $imglikeuser .= '</a>';
+                   $cmtlikeuser .= '</div>';
+
                 $like_user_count = count($commneteduser);
                 echo json_encode(
                         array("like" => $imglike,
@@ -5422,6 +5426,7 @@ $contition_array = array('status' => '1');
                         $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                     }
 
+                    $imglikeuser1 .= '<div class="like_one_other_img">';
                     $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -5430,7 +5435,6 @@ $contition_array = array('status' => '1');
                     $countlike = count($commneteduser) - 1;
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
-                    $imglikeuser1 .= '<div class="like_one_other_img">';
 
                     if ($userid == $commneteduser[0]['user_id']) {
 
@@ -5444,9 +5448,10 @@ $contition_array = array('status' => '1');
                         $imglikeuser1 .= 'and';
                         $imglikeuser1 .= ' ' . $countlike . ' others';
                     }
-                    $imglikeuser1 .= '</div>';
+                   
 
                     $imglikeuser1 .= '</a>';
+                    $imglikeuser1 .= '</div>';
                     $like_user_count1 = count($commneteduser);
                     echo json_encode(
                             array("like" => $imglike1,
@@ -5527,7 +5532,7 @@ $contition_array = array('status' => '1');
                     foreach ($commneteduser as $userdata) {
                         $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                     }
-
+        $imglikeuser1 .= '<div class="like_one_other_img">';
                     $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -5536,7 +5541,7 @@ $contition_array = array('status' => '1');
                     $countlike = count($commneteduser) - 1;
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $commneteduser[0]['user_id'], 'status' => 1))->row()->company_name;
 
-                    $imglikeuser1 .= '<div class="like_one_other_img">';
+            
 
                     if ($userid == $commneteduser[0]['user_id']) {
 
@@ -5550,8 +5555,9 @@ $contition_array = array('status' => '1');
                         $imglikeuser1 .= 'and';
                         $imglikeuser1 .= ' ' . $countlike . ' others';
                     }
-                    $imglikeuser1 .= '</div>';
+                  
                     $imglikeuser1 .= '</a>';
+                      $imglikeuser1 .= '</div>';
                     $like_user_count1 = count($commneteduser);
                     echo json_encode(
                             array("like" => $imglike1,
