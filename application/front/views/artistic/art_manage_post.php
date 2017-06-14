@@ -1275,9 +1275,10 @@
                                             <!-- like user list start -->
                                               <!-- pop up box start-->
                                                                                        <?php
-                                            if ($row['art_likes_count'] > 0) {
+                                           // if ($row['art_likes_count'] > 0) {
                                                 ?>
-                                                <div class="likeduserlist<?php echo $row['art_post_id'] ?>">
+                                                <!--<div class="likeduserlist<?php echo $row['art_post_id'] ?>">-->
+                                            <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:block">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                     $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1325,7 +1326,7 @@
                                                     </a>
                                                 </div>
                                                 <?php
-                                            }
+                                         //   }
                                             ?>
 
 
