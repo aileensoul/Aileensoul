@@ -4061,8 +4061,8 @@ $(document).ready(function(){
 
         <!-- script for profile pic end -->
 
-
-
+<!-- 
+video js preview strat -->
 
         <script>
             $(document).ready(function () {
@@ -4073,6 +4073,9 @@ $(document).ready(function(){
                 });
             });
         </script>
+
+<!-- 
+video js preview end -->
 
         <script>
             $('.modal-close').on('click', function () {
