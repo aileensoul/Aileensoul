@@ -44,18 +44,17 @@
                       <?php }?>
 
             </div>
-            <br>
-            <br>
+        
             <br>
             <div class="container">
                 <div class="row row4">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
+                            <ul class="left-form-each">
                                 
-                                <li><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic Information</a></li>
-                             <li><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
-                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active" <?php } ?>><a href="#">Company Address</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('recruiter/rec_basic_information'); ?>">Basic Information</a></li>
+                             <li class="custom-none"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
+                             <li <?php if($this->uri->segment(1) == 'recruiter'){?> class="active init" <?php } ?>><a href="#">Company Address</a></li>
                             </ul>
                         </div>
                     </div>

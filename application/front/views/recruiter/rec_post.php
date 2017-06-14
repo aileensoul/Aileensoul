@@ -34,13 +34,13 @@ $returnpage = $_GET['page'];
 if ($returnpage == 'job') {
     echo $job_header2;
 } else {
-    echo $recruiter_header2;
+    echo $recruiter_header2_border;
 }
 ?>
 
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -71,8 +71,8 @@ if ($returnpage == 'job') {
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if($this->uri->segment(3) == $userid){
@@ -104,10 +104,10 @@ if ($returnpage == 'job') {
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+   
+  
 
-<div class="container">    
+<div class="container tablate-container">    
     <div class="upload-img">
         <?php if ($returnpage == '') { ?>
             <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -193,7 +193,8 @@ if ($returnpage == 'job') {
         </div>  
         <!-- menubar -->    
     </div>                       
-    
+</div>
+        <div class="middle-part container">
     <div class="job-menu-profile1 col-md-3">
                          <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
@@ -232,7 +233,7 @@ if ($returnpage == 'job') {
         
         <!-- text head end -->
     </div>
-    <div class="col-md-7 col-sm-7">
+    <div class="col-md-8 col-sm-8 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Post</h3>
@@ -631,13 +632,7 @@ if ($returnpage == 'job') {
 </div>
 
             <!DOCTYPE html>
-            <html>
-                <head>
-                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-                </head>
-                <body>
+          
 
                     </section>
                     <footer>
