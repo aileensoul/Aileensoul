@@ -366,7 +366,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="contact-frnd-post ta_tble">
+                                <div class="module_art_phtos">
 
                                     <!-- khyati changes start -->
 

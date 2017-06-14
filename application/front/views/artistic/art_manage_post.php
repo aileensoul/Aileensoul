@@ -895,7 +895,7 @@
                                                             <?php if ($row['posted_user_id']) { ?>
 
                                                                 <div class="else_post_d">
-                                                                    <a  class="post_dot" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style="font-weight: 600; color: #91949d;"> Posted With 
+                                                                    <a  class="post_dot" style="padding-left: 0px;  max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span style=" color: #91949d;"> Posted With 
                                                                     </span><a class="post_dot1" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a><span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
                                                                     <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                                                                 </div>
@@ -1247,7 +1247,7 @@
                                                             </li>
 
                                                             <li>
-                                                                <div class="<?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext_a    <?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
                                                                     <span class="comment_like_count"> 
                                                                        <?php
                                                                         if ($row['art_likes_count'] > 0) { 
