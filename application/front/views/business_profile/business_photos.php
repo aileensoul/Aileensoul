@@ -482,7 +482,7 @@
 
 
                                                             <div>
-                                                                <div class="post-design-like-box col-md-12">
+<!--                                                                <div class="post-design-like-box col-md-12">
                                                                     <div class="post-design-menu">
                                                                         <ul>
                                                                             <li class="<?php echo 'likepostimg' . $busdata['image_id']; ?>">
@@ -533,7 +533,7 @@
                                                                         </ul>
 
                                                                     </div>
-                                                                </div>
+                                                                </div>-->
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
                                                                 $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -806,13 +806,13 @@
                                                                 <!-- show comment div end -->
 
                                                                 <!-- insert comment code start -->
-                                                                <div class="post-design-commnet-box col-md-12">
+<!--                                                                <div class="post-design-commnet-box col-md-12">
 
                                                                     <div class="post-design-proo-img"> 
 
                                                                         <?php
-                                                                        $userid = $this->session->userdata('aileenuser');
-                                                                        $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                                               //         $userid = $this->session->userdata('aileenuser');
+                                                              //          $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
                                                                         ?>
 
                                                                         <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
@@ -830,7 +830,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                </div>
+                                                                </div>-->
                                                                 <!-- insert comment code end -->
 
                                                             </div>
