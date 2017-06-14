@@ -1342,12 +1342,14 @@
                                                         <div id="responsive-manage_images_3-breakpoints" >
                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
 
-
+                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                         <div class="manage_images_view_more" >
 
 
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">View All (+<?php echo (count($businessmultiimage) - 4); ?>)</a>
+                                                            View All (+<?php echo (count($businessmultiimage) - 4); ?>)
                                                         </div>
+
+                                                        </a>
 
                                                     </div>
                                                     <!-- this div view all image end -->

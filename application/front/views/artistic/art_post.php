@@ -1106,13 +1106,16 @@ $(document).ready(function(){
                                                                                         <div>
                                                                 <div id="responsive-images_3-breakpoints" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a></div>
-
+                                                                    
+                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
 
                                                                 <div class="images_view_more" >
 
 
-                                                                    <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
+                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)
                                                                 </div>
+
+                                                                </a>
 
                                                             </div>
                                                             <!-- this div view all image end -->
@@ -2866,7 +2869,7 @@ $(document).ready(function(){
                     <!-- further and less -->
                     <script>
                         $(function () {
-                            var showTotalChar = 200, showChar = "More", hideChar = "less";
+                            var showTotalChar = 200, showChar = "Read More", hideChar = "";
                             $('.show').each(function () {
                                 //var content = $(this).text();
                                 var content = $(this).html();

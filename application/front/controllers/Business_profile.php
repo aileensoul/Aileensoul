@@ -4765,7 +4765,7 @@ $contition_array = array('status' => '1');
 
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['businessdata'][0]['product_name']) {
-                $editpost = '<div><a style="margin-bottom: 0px; font-size: 16px">';
+                $editpost = '<div><a style="margin-bottom: 0px; font-size: 17px ; color:black;">';
                 $editpost .= $businessdata[0]['product_name'] . "";
                 $editpost .= '</a></div>';
             }

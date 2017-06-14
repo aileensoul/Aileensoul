@@ -50,7 +50,7 @@
         <script>
             $(function () {
 //                var showTotalChar = 150, showChar = "More", hideChar = "less";
-                var showTotalChar = 180, showChar = "More", hideChar = "";
+                var showTotalChar = 180, showChar = "Read More", hideChar = "";
                 $('.show').each(function () {
                     // var content = $(this).text();
                     var content = $(this).html();
@@ -949,7 +949,7 @@
                                                     <div class="post-design-desc">
                                                         <div>
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a style="margin-bottom: 0px; font-size: 16px">
+                                                                <a style="margin-bottom: 0px; font-size: 17px ; color: black;  ">
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -1108,11 +1108,15 @@
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
                                                                 </div>
+
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
                                                                 <div class="bui_images_view_more" >
-                                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >View All (+
+                                                                    View All (+
                                                                         <?php echo (count($businessmultiimage) - 4); ?>)
-                                                                    </a>
+                                                                    
                                                                 </div>
+
+                                                                </a>
                                                             </div>
                                                             <!-- this div view all image end -->
                                                         <?php } ?>
