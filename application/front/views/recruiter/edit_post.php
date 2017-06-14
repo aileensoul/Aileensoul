@@ -552,7 +552,22 @@ if (clicked_id == 4) {
                             {
                                  
                            
-                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                if(searchkeyword=="")
+                                        {
+               
+                                        window.location= "<?php echo base_url() ?>search/recruiter_search/"+0+"/"+searchplace; 
+
+                                        }
+                                    else if(searchplace=="")
+                                        {
+                
+                                             window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+0; 
+                                        }
+                                        else
+                                         {
+                                            window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                        }
+                            
                                  
                                 
                             }
