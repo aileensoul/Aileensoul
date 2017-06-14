@@ -817,7 +817,21 @@ else
        }
        else
        {
-            location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
+            if(searchkeyword=="")
+            {
+               location.href = '<?php echo base_url() ?>search/recruiter_search/'+0+'/'+searchplace;
+
+            }
+            else if(searchplace=="")
+            {
+                location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+0;
+            }
+            else
+            {
+               location.href = '<?php echo base_url() ?>search/recruiter_search/'+searchkeyword+'/'+searchplace;
+            }
+
+           
         }   
     }
      if(clicked_id==5)
@@ -895,9 +909,23 @@ if (clicked_id == 4) {
                             }
                             else if(clicked_id==4)
                             {
-                                  
+                                   if(searchkeyword=="")
+                                        {
+               
+                                        window.location= "<?php echo base_url() ?>search/recruiter_search/"+0+"/"+searchplace; 
+
+                                        }
+                                    else if(searchplace=="")
+                                        {
+                
+                                             window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+0; 
+                                        }
+                                        else
+                                         {
+                                            window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                        }
                            
-                                 window.location= "<?php echo base_url() ?>search/recruiter_search/"+searchkeyword+"/"+searchplace; 
+                                
                                  
                                 
                             }
