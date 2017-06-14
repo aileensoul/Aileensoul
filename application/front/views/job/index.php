@@ -3,8 +3,9 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
-<!-- Calender Css Start-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
+<!-- Calender Css Start-->
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 <!-- Calender Css End-->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -15,7 +16,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
 
- -->
 <!-- start header -->
 <?php echo $header; ?>
 
@@ -43,7 +43,7 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($jobdata[0]['job_step'] == 10){ ?>
+             if($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] == 1){ ?>
                 <div class="col-md-6 col-sm-12"><h3>You are updating your Job Profile.</h3></div>
             <?php  }else{
 
@@ -229,7 +229,7 @@ if (count($nation) > 0) {
                                 <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
                                     <label>Languages Known:<span class="red">*</span></label> 
 
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8" required="true"  >
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
 
 <?php foreach ($language1 as $language) { ?>
                                             <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
@@ -522,7 +522,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             number: true,
                             required: true,
-                            minLength:5
+                           minlength: 8,
+                           maxlength:15
+                            
                             
                         },
                         
@@ -573,6 +575,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     email: "Please Enter Valid Email Id.",
                     remote: "Email already exists"
                 },
+                phnno:{
+                             required:"Phone Number Is Required.",
+                    },
 
                 marital_status: {
 

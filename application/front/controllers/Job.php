@@ -369,10 +369,19 @@ $this->load->view('business_profile/temp');
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+          $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+       $this->data['job'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
+
+ //echo "<pre>";print_r( $this->data['job'] );die();
+
+ $cache_time = $this->db->get_where('skill', array('skill' => $other_skill))->row()->skill_id;
+ //echo $cache_time;die();
 
         //for getting state data
         $contition_array = array('status' => 1);
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>";print_r($this->data['states'] );die();
 
         //for getting city data
         $contition_array = array('status' => 1);
