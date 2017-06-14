@@ -161,12 +161,29 @@ body {
         <div class="header2 headerborder">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-7 col-sm-7">
+                  <div class="col-sm-7 col-md-7 col-xs-7 hidden-mob">
                         <div class="job-search-box1 clearfix">
                            <?php echo $rec_search; ?>
                     </div>
                     </div>
-                  <div class="col-md-5 col-sm-5">
+                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
+                       <div class="search-mob-block">
+                                 <div class="">
+                                     <a href="#search">
+                                     <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                     </a>
+                                 </div>
+                                 <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form>
+                                        <div class="new-search-input">
+                                            <input type="search" value="" placeholder="Find Your Job" />
+                                            <input type="search" value="" placeholder="Find Your Location" />
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                             </div>
                        <div class="">
                             <ul class="">
                                 <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>">Home</a>

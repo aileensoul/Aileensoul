@@ -264,7 +264,7 @@ a:focus {
     height: 35px;
     left: 0;
     z-index: 1001;
-    margin-left: 50px;
+    margin-left: 51px;
     margin-right: 50px;
     padding: 0px -31px;
     background-color: #1b8ab9;
@@ -9914,7 +9914,7 @@ end zalak 9-6 css*/
 .clear{clear:both;}
 .custom-right{margin-left: 1%;}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
-#row2{border-left: 0;}
+#row2{/*border-left: 0;*/}
 
 .tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
