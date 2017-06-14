@@ -199,7 +199,7 @@ echo $freelancer_post_header2;
 
         </div>
         <div class="job-menu-profile1">
-        <h5> <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h5>
+      <a href="javascript:void(0);">   <h5> <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h5></a>
             <div class="profile-text">
 
          <?php 
