@@ -187,7 +187,7 @@ $results = array_unique($result);
            
 
            
-      $contition_array = array('user_id' => $userid, 'status'=>'1');
+           $contition_array = array('user_id' => $userid, 'status'=>'1');
       $userdata =  $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
            if($userdata) 
@@ -246,7 +246,7 @@ $results = array_unique($result);
              
              }
             }
-           
+      
         } 
     }
 
@@ -505,6 +505,42 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 
          else
          {
+          //echo "hhh";
+          $contition_array = array('user_id' => $userid, 'status'=>'1','free_hire_step' => 3);
+      $userdata =  $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      if($userdata){
+        $data = array(
+
+                 'country' => $this->input->post('country'),
+                 'state' => $this->input->post('state'),
+                 'city' => $this->input->post('city'),
+                 'pincode' => $this->input->post('pincode'),
+                 'address' => $this->input->post('address'),
+                 'modified_date' => date('Y-m-d h:i:s')
+                 
+                  );
+        $updatdata =   $this->common->update_data($data,'freelancer_hire_reg','user_id',$userid);
+         if($updatdata)
+      { 
+
+         $this->session->set_flashdata('success', 'Address information updated successfully');
+       redirect('freelancer_hire/freelancer_hire_professional_info', refresh);
+      }
+      else
+      {
+
+        $this->session->flashdata('error','Sorry!! Your data not inserted');
+        redirect('freelancer_hire/freelancer_hire_address_info', refresh);
+      }
+
+
+
+      }
+      else{
+
+      }
+
+
           
            $data = array(
 
