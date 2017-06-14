@@ -408,8 +408,8 @@
 
                                                     <!-- 8-5 post art_post page data comment design start -->
                                                     <div class="post-design-like-box col-md-12">
-                                                        <div class="post-design-menu">
-                                                            <!-- like comment div start -->
+<!--                                                        <div class="post-design-menu">
+                                                             like comment div start 
                                                             <ul class="col-md-6">
 
                                                                 <li class="<?php echo 'likepostimg' . $artdata['image_id']; ?>">
@@ -491,8 +491,8 @@
                                                                 </div>
                                                             </li>
                                         </ul>
-                                                            <!-- like comment div end -->
-                                                        </div>
+                                                             like comment div end 
+                                                        </div>-->
                                                     </div>
 
 
@@ -500,55 +500,55 @@
 
                                                     <!-- pop up box start-->
                                                     <?php
-                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
-                                                    $commnetlike = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                    if (count($commnetlike) > 0) {
+//                                                    $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+//                                                    $commnetlike = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                   // if (count($commnetlike) > 0) {
                                                         ?>
                                                         <div class="likeduserlistimg<?php echo $artdata['image_id']; ?>">
-                                                            <?php
+<!--                                                            <?php
                                                             $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                             $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                             // echo '<pre>'; print_r($commnetcount);
-                                                            foreach ($commnetcount as $comment) {
-                                                                $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
-                                                                $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
-                                                                ?>
-                                                                <?php } ?>
-                                                            <!-- pop up box end-->
+//                                                            foreach ($commnetcount as $comment) {
+//                                                                $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+//                                                                $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+//                                                                ?>
+                                                                <?php //} ?>
+                                                             pop up box end
                                                             <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                 <?php
-                                                                $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
-                                                                $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = 'post_image_like_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-                                                                $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
-                                                                $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
-                                                                ?>
+//                                                                $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
+//                                                                $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = 'post_image_like_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//
+//
+//                                                                $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+//                                                                $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+//                                                                ?>
                                                                 <div class="like_one_other">
                                                                     <?php
-                                                                    if ($userid == $commnetcount[0]['user_id']) {
-
-                                                                        echo "You";
-                                                                    } else {
-                                                                        echo ucwords($art_fname);
-                                                                        echo "&nbsp;";
-                                                                        echo ucwords($art_lname);
-                                                                        echo "&nbsp;";
-                                                                    }
+//                                                                    if ($userid == $commnetcount[0]['user_id']) {
+//
+//                                                                        echo "You";
+//                                                                    } else {
+//                                                                        echo ucwords($art_fname);
+//                                                                        echo "&nbsp;";
+//                                                                        echo ucwords($art_lname);
+//                                                                        echo "&nbsp;";
+//                                                                    }
                                                                     ?>
                                                                     <?php
-                                                                    if (count($commnetcount) > 1) {
-                                                                        echo "and ";
-                                                                        echo '' . count($commnetcount) - 1 . '';
-                                                                        echo "&nbsp;";
-                                                                        echo "others";
-                                                                    }
+//                                                                    if (count($commnetcount) > 1) {
+//                                                                        echo "and ";
+//                                                                        echo '' . count($commnetcount) - 1 . '';
+//                                                                        echo "&nbsp;";
+//                                                                        echo "others";
+//                                                                    }
                                                                     ?>
                                                                 </div>
-                                                            </a>
+                                                            </a>-->
                                                         </div>
                                                         <?php
-                                                    }
+                                                //    }
                                                     ?>
                                                     <div class="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" id="<?php echo "likeusernameimg" . $artdata['image_id']; ?>" style="display:none">
                                                         <?php
@@ -592,12 +592,12 @@
 
 
 
-                                                    <div class="art-all-comment col-md-12">
+                                                    <!--<div class="art-all-comment col-md-12">-->
                                                         <!-- 18-4 all comment start-->
-                                                        <div id="<?php echo "fourcommentimg" . $artdata['image_id']; ?>" style="display:none">
+<!--                                                        <div id="<?php echo "fourcommentimg" . $artdata['image_id']; ?>" style="display:none">
                                                         </div>
 
-                                                        <!-- khyati changes start -->
+                                                         khyati changes start 
 
                                                         <div  id="<?php echo "threecommentimg" . $artdata['image_id']; ?>" style="display:block">
                                                             <div class="<?php echo 'insertcommentimg' . $artdata['image_id']; ?>">
@@ -724,41 +724,41 @@
                                                                 ?>
 
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                         <!-- khyati changes end -->
 
                                                         <!-- all comment end-->
 
 
-                                                    </div>
+                                                    <!--</div>-->
 
                                                         <?php //  }    ?>
-                                                    <div class="post-design-commnet-box col-md-12">
-                                                        <?php
-                                                        $userid = $this->session->userdata('aileenuser');
-                                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                                                    <!--<div class="post-design-commnet-box col-md-12">-->
+<!--                                                        <?php
+                                                  //      $userid = $this->session->userdata('aileenuser');
+                                                //        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                                                         ?>
                                                         <div class="post-design-proo-img">
-                                                            <?php if ($art_userimage) { ?>
-                                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
+                                                            <?php //if ($art_userimage) { ?>
+                                                                <img src="<?php// echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                                                 <?php
-                                                            } else {
+                                                      //      } else {
                                                                 ?>
-                                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                                <img src="<?php// echo base_url(NOIMAGE); ?>" alt="No Image">
                                                                 <?php
-                                                            }
+                                                     //       }
                                                             ?>
                                                         </div>
                                                         <div class="">
                                                             <div id="content" class="col-md-10 inputtype-comment" style="padding-left: 7px !important;">
                                                                 <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $artdata['image_id']; ?>"  id="<?php echo "post_commentimg" . $artdata['image_id']; ?>" placeholder="Type Message ..." onkeyup="entercommentimg(<?php echo $artdata['image_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                             </div>
-    <?php echo form_error('post_commentimg'); ?>
+    <?php// echo form_error('post_commentimg'); ?>
                                                             <div class=" comment-edit-butn">   
-                                                                <button id="<?php echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
+                                                                <button id="<?php //echo $artdata['image_id']; ?>" onClick="insert_commentimg(this.id)">Comment</button> 
                                                             </div>
-                                                        </div>
-                                                    </div>
+                                                        </div>-->
+                                                <!--</div>-->
 
                                                     <!-- 8-5 comment design end -->
                                                 </div>
@@ -2428,4 +2428,19 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             $('#bidmodal').modal('show');
                         }
       </script>
+
+
+      <!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->
 

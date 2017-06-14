@@ -29,7 +29,7 @@ class Search extends CI_Controller {
                 //echo "test sucessfull";
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") {
+        if ($this->input->get('searchplace') == "" && $this->input->get('skills') == "") {
         redirect('artistic/art_post',refresh);
             
             // $abc[] = $results;
@@ -38,14 +38,14 @@ class Search extends CI_Controller {
 
 //         // Retrieve the posted search term.
 //        //echo "<pre>";print_r($_POST);die();
-        $searchskill = trim($this->input->post('skills'));
+        $searchskill = trim($this->input->get('skills'));
         $this->data['keyword'] = $searchskill;
 
 
         // echo $searchskill; die();
         //$searchskill = explode(',',$search_skill);
         //echo"<pre>";print_r($searchskill);die();
-        $search_place = $this->input->post('searchplace');
+        $search_place = trim($this->input->get('searchplace'));
 //insert search keyword into data base code start
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
@@ -71,12 +71,12 @@ class Search extends CI_Controller {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 //insert search keyword into data base code end
 
-         if ($this->input->post('skills') == "") {
+         if ($searchskill == "") {
             $contition_array = array('art_city' => $cache_time, 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             
-        } elseif ($this->input->post('searchplace') == "") {
+        } elseif ($search_place == "") {
              //echo "skill"; 
 
             $contition_array = array('is_delete' => '0', 'status' => '1', 'type' => '2');
@@ -405,7 +405,7 @@ class Search extends CI_Controller {
 public function business_search() {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-        if ($this->input->post('skills') == "" && $this->input->post('searchplace') == "") {
+        if ($this->input->get('skills') == "" && $this->input->get('searchplace') == "") {
             redirect('business_profile/business_profile_post',refresh);
             
 
@@ -414,10 +414,10 @@ public function business_search() {
 
         //print_r($this->data['userid']); die();
 // code for insert search keyword in database start
-        $search_business = $this->input->post('skills');
+        $search_business = trim($this->input->get('skills'));
         $this->data['keyword'] = $search_business;
 
-        $search_place = $this->input->post('searchplace');
+        $search_place = trim($this->input->get('searchplace'));
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
         $this->data['keyword1'] = $cache_time;
@@ -438,13 +438,13 @@ public function business_search() {
 // code for insert search keyword in database end
 
 
-        if ($this->input->post('skills') == "") {
+        if ($search_business == "") {
 
             $contition_array = array('city' => $cache_time, 'status' => '1');
             $new = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
-         elseif ($this->input->post('searchplace') == "") {
+         elseif ($search_place == "") {
            // echo "hi";
 
 
@@ -1248,10 +1248,10 @@ if ($searchkeyword == "" && $searchplace == "") {
     public function freelancer_hire_search($searchkeyword,$searchplace) {
         $userid = $this->session->userdata('aileenuser');
 
-         if($this->input->post('search_submit'))
+         if($this->input->get('search_submit'))
         {
-           $searchkeyword=$this->input->post('skills');
-           $searchplace=$this->input->post('searchplace');
+           $searchkeyword=trim($this->input->get('skills'));
+           $searchplace=trim($this->input->get('searchplace'));
         }
         else
         {
@@ -1266,7 +1266,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         // Retrieve the posted search term.
         //echo "<pre>";print_r($_POST);die();
-        $search_skill = trim($searchkeyword);
+        $search_skill = $searchkeyword;
         // echo $search_skill;die();   
         // $searchskill = implode(',',$search_skill);
         $this->data['keyword'] = $search_skill;
@@ -1613,19 +1613,19 @@ if ($searchkeyword == "" && $searchplace == "") {
         //echo "123";die();
         $userid = $this->session->userdata('aileenuser');
 
-        if ($this->input->post('searchplace') == "" && $this->input->post('skills') == "") { 
+        if ($this->input->get('searchplace') == "" && $this->input->get('skills') == "") { 
             
             redirect('freelancer/freelancer_apply_post',refresh);
             
         }
 
         
-        $search_skill = trim($this->input->post('skills'));
+        $search_skill = trim($this->input->get('skills'));
         //print_r($search_skill);  
         // $searchskill = implode(',',$search_skill);
         $this->data['keyword'] = $search_skill;
 
-        $search_place = $this->input->post('searchplace');
+        $search_place = trim($this->input->get('searchplace'));
         //echo $search_place;die();
 // code for insert search keyword into database start
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
@@ -1652,7 +1652,7 @@ if ($searchkeyword == "" && $searchplace == "") {
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
 // code for insert search keyword into database end
 
-        if ($this->input->post('skills') == "") {
+        if ($search_skill == "") {
           //  echo $search_place[0];
 
 
@@ -1674,7 +1674,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             
         } 
-        elseif ($this->input->post('searchplace') == "") {
+        elseif ($search_place == "") {
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -1754,7 +1754,8 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
 // echo "<pre>";print_r($unique);die();
-        } else {//echo "ehfkj"; die();
+        } else {
+        //echo "both"; die();
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
             $search_condition = "(skill LIKE '%$search_skill%')";

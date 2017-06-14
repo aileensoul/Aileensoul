@@ -37,8 +37,8 @@
 <?php echo $business_header2 ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css'); ?>">
+ --><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -522,12 +522,12 @@
                     </a>
                     <!-- user images end-->
 
-
+                    <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
                             <table class="business_data_table">
                                 <div class="head_details">
-                                    <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>"><h5><i class="fa fa-video-camera" aria-hidden="true"></i>Video</h5></a>
+                                    <h5><i class="fa fa-video-camera" aria-hidden="true"></i>Video</h5>
                                 </div>
 
 
@@ -630,11 +630,13 @@
                             </table>
                         </div>
                     </div>
+                    </a>
+                    <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
 
                             <div class="head_details1">
-                                <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>"><h5><i class="fa fa-music" aria-hidden="true"></i>Audio</h5></a>
+                                <h5><i class="fa fa-music" aria-hidden="true"></i>Audio</h5>
                             </div>
                             <table class="business_data_table">
                                 <?php
@@ -738,12 +740,13 @@
                         </div>
 
                     </div>
-
+                    </a>
+                    <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module buisness_he_module" >
 
                             <div class="head_details">
-                                <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
+                                   <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5>
                             </div>      
                             <?php
                             $contition_array = array('user_id' => $businessdata1[0]['user_id']);
@@ -808,7 +811,8 @@
 
 
                         </div>
-                    </div>              
+                    </div>
+                    </a>              
                 </div>
 
                 <!-- popup start -->
@@ -1841,12 +1845,15 @@
             </script>
 
             <!-- tabing script start -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+          <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
             <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+
+              <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+    
             <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-            <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+             
 
 
             <!-- script for skill textbox automatic start-->
@@ -1987,29 +1994,29 @@
             <script>
 
                 //select2 autocomplete start for Location
-                $('#searchplace').select2({
+                // $('#searchplace').select2({
 
-                    placeholder: 'Find Your Location',
-                    maximumSelectionLength: 1,
-                    ajax: {
+                //     placeholder: 'Find Your Location',
+                //     maximumSelectionLength: 1,
+                //     ajax: {
 
-                        url: "<?php echo base_url(); ?>business_profile/location",
-                        dataType: 'json',
-                        delay: 250,
+                //         url: "<?php echo base_url(); ?>business_profile/location",
+                //         dataType: 'json',
+                //         delay: 250,
 
-                        processResults: function (data) {
+                //         processResults: function (data) {
 
-                            return {
+                //             return {
 
-                                results: data
+                //                 results: data
 
 
-                            };
+                //             };
 
-                        },
-                        cache: true
-                    }
-                });
+                //         },
+                //         cache: true
+                //     }
+                // });
                 //select2 autocomplete End for Location
 
             </script>
@@ -3963,40 +3970,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
             <!-- script for profile pic end -->
 
-            <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+         
 
 
-            <script type="text/javascript">
-
-                //validation for edit email formate form
-
-                $(document).ready(function () {
-
-                    $("#userimage").validate({
-
-                        rules: {
-
-                            profilepic: {
-
-                                required: true,
-
-                            },
-
-                        },
-
-                        messages: {
-
-                            profilepic: {
-
-                                required: "Image Required",
-
-                            },
-
-                        },
-
-                    });
-                });
-            </script>
+          
 
 
             <script language="javascript" type="text/javascript">
@@ -4117,4 +4094,35 @@ jQuery(document).mouseup(function (e) {
 });  
 
  </script>
- <!-- all popup close close using esc end
+ <!-- all popup close close using esc end-->
+
+   <script type="text/javascript">
+
+                //validation for edit email formate form
+              
+
+                    $("#userimage").validate({
+
+                        rules: {
+
+                            profilepic: {
+
+                                required: true,
+
+                            },
+
+                        },
+
+                        messages: {
+
+                            profilepic: {
+
+                                required: "Image Required",
+
+                            },
+
+                        },
+
+                    });
+               
+            </script>

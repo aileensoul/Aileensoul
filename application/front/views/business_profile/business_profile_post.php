@@ -1057,13 +1057,13 @@
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div class="three_img_2">
+                                                            <div class="three_img_2 three_img_right">
 
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div class="three_img_2">
+                                                            <div class="three_img_2 three_img_left">
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>

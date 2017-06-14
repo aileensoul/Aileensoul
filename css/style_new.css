@@ -152,3 +152,19 @@
 
 
 
+.three_img_2{
+    margin-right: 0px !important;
+    width: 50%;
+}
+.three_img_left{
+    padding-left: 2px !important;
+}
+
+.three_img_right{
+padding-right: 2px !important;
+}
+
+.user-pic:hover a{padding: 4px 6px;}
+
+
+

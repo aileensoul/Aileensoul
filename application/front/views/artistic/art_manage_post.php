@@ -443,11 +443,12 @@
                     </div>
                 </div>
                 </a>
+                <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</h5></a>
+                                 <h5><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -548,12 +549,13 @@
 
                     </div>
                 </div>
-
+                </a>
+                <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-music" aria-hidden="true"></i>  Audio</h5></a>
+                                 <h5><i class="fa fa-music" aria-hidden="true"></i>  Audio</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -656,11 +658,13 @@
 
                     </div>
                 </div>
+                </a>
+                <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module pdf_box">
                         <table class="business_data_table">
                             <div class="head_details">
-                                <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>"> <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5></a>
+                                 <h5><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF</h5>
                             </div>
                             <?php
                             $contition_array = array('user_id' => $artisticdata[0]['user_id']);
@@ -724,6 +728,7 @@
 
                     </div>
                 </div>
+                </a>
 
             </div>
 
