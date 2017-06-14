@@ -176,6 +176,51 @@
 
                             </a></h4>
 
+
+                                            <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($businessdata1[0]['user_id'] != $userid) {
+                            ?> 
+                    <div id="contact_per">
+                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+                    <div class="">
+                        <div id="ripple" class="centered" >
+                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+
+
+                        </div>
+                        <div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">
+                            <span style="    
+                                  font-size: 13px; ""><i class="icon-user"></i>
+                                <?php 
+                                $userid = $this->session->userdata('aileenuser');
+     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //print_r($contactperson[0]['status']) ; die();
+        
+                     if($contactperson[0]['status'] == 'cancel'){?>
+                                Add to contact
+                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
+                            Cancel request  
+                     <?php }else{ ?>
+                         Add to contact
+                   <?php  } ?>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                    </div>
+
+                    <?php }?>
+
                     </div>
                     <!-- PICKUP -->
                     <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right">
@@ -2426,4 +2471,26 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     }
 });  
 
- </script>  
+ </script>
+
+
+ <!-- contact person script start -->
+            <script type="text/javascript">
+                
+
+                 function contact_person(clicked_id) { 
+                     $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/contact_person" ?>',
+                        data: 'toid=' + clicked_id,
+                        success: function (data) {
+                          //   alert(data);
+                            $('#contact_per').html(data);
+
+                        }
+                    });
+    }
+            </script>
+
+<!-- contact person script end -->
+  
