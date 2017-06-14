@@ -85,8 +85,8 @@
       </div>
 
      
-<div class="container">
-  <div class="row" id="row2">
+<div class="">
+  <div class="" id="row2">
         <?php
        $userid  = $this->session->userdata('aileenuser');
         if($this->uri->segment(3) == $userid){
@@ -118,10 +118,10 @@
     </div>
     </div>
 </div>
-  </div>
-  </div>   
+ 
+        <div class="container tablate-container">
 
-    <div class="container">    
+      
       <div class="upload-img">
       
         <?php if($returnpage == ''){ ?>
@@ -150,6 +150,7 @@
                      
 
                  </div>
+          
                     <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
@@ -206,7 +207,10 @@
             </div>
 
   </div>  
-    <!-- menubar -->                
+            </div>            
+        </div>
+            <!-- menubar --> 
+    <div class="middle-part container">
   <div class="job-menu-profile1 col-md-3">
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
@@ -259,8 +263,9 @@
 
 
             <!-- text head end -->
-                      </div>
-                      <div class="col-md-7 col-sm-7">
+                      
+            
+                      <div class="col-md-8 col-sm-8 mob-clear">
                         <div class="common-form">
                             <div class="job-saved-box">
                               
@@ -679,7 +684,8 @@ function text2link($text){
             </div>
         </div>
         </div>
-    </section>
+    </div>
+            </section>
 
 <!-- model for popup start -->
 <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
