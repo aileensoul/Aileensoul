@@ -1431,7 +1431,7 @@ foreach($cities as $key){
         //for getting city data
         $contition_array = array('status' => 1);
         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        echo "<pre>"; print_r($this->data['cities']); echo "</pre>";die();
+        //echo "<pre>"; print_r($this->data['cities']); echo "</pre>";die();
 
 
     $this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
