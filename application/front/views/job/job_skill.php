@@ -535,10 +535,21 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
             success: function () {
-                $('.biderror .mes').html("<div class='pop_content'>Skill Inserted Successfully.");
-                 $('#bidmodalskill').modal('show');
+                if(other_skill=="")
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Empty Skill is not Allowed.");
+                    $('#bidmodalskill').modal('show');
 
-                $("#other_keyskill").val('');
+                    $("#other_keyskill").val('');
+                }
+                else
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Skill Inserted Successfully.");
+                    $('#bidmodalskill').modal('show');
+
+                        $("#other_keyskill").val('');
+                }
+                
                 // if (msg == "Skill Inserted Successfully")
                 // {
                     //window.location.reload(true);
@@ -571,10 +582,21 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
             success: function () {
-                $('.biderror .mes').html("<div class='pop_content'>Skill inserted successfully.");
-                 $('#bidmodalskill').modal('show');
 
-                $("#other_keyskill1").val('');
+                 if(other_skill=="")
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Empty Skill is not Allowed.");
+                    $('#bidmodalskill').modal('show');
+
+                    $("#other_keyskill").val('');
+                }
+                else
+                {
+                        $('.biderror .mes').html("<div class='pop_content'>Skill inserted successfully.");
+                         $('#bidmodalskill').modal('show');
+
+                        $("#other_keyskill1").val('');
+                }
                 // if (msg == "Skill Inserted Successfully")
                 // {
                 //     window.location.reload(true);
@@ -653,5 +675,16 @@ $(window).load(function(){
 });
 });
 </script>
+
+<!-- disable spacebar js start-->
+<script type='text/javascript'>
+$(window).load(function(){
+$("input").on("keydown", function (e) {
+return e.which !== 32;
+});
+});//]]>  
+</script>
+<!-- disable spacebar js end-->
+
 
 
