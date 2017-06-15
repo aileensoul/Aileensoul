@@ -131,7 +131,7 @@
             if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
                 ?>
 
-                <div class="alert alert-danger">
+                <div class="alert alert-danger txt_cen">
 
 
                     <!-- pop up box start-->
