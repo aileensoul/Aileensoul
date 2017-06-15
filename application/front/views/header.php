@@ -191,7 +191,7 @@ $(window).load(function(){
 
 <!-- script header notifaction-->
 <!-- Click event on body hide the element notification & Message start -->
-<!--<script>
+<script>
     $(document).ready(function () {
         $("body").click(function (event) {
             $("#notificationContainer").hide(600);
@@ -233,7 +233,7 @@ $(window).load(function(){
 
     });
 
-</script>-->
+</script>
 <!-- Click event on button show the element notification & Message end-->
 
 <script type="text/javascript" >
