@@ -25,16 +25,16 @@
    <?php
      $returnpage=$_GET['page'];
     if($returnpage=='freelancer_post'){
-    echo $freelancer_post_header2;
+    echo $freelancer_post_header2_border;
     }
     else{
-    echo $freelancer_hire_header2;
+    echo $freelancer_hire_header2_border;
     }?>
 
 
        <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed">
             
       <div class="row" id="row1" style="display:none;">
@@ -66,8 +66,8 @@
       </div>
 
    
-<div class="container">
-  <div class="row" id="row2">
+<div class="">
+  <div class="" id="row2">
         <?php
         $userid  = $this->session->userdata('aileenuser');
         if($this->uri->segment(3) == $userid){
@@ -100,10 +100,10 @@
     </div>
     </div>
 </div>
-  </div>
-  </div>   
+  
 
-    <div class="container">    
+
+    <div class="container tablate-container">    
       <div class="upload-img">
       <?php if($returnpage == ''){ ?>
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -143,33 +143,26 @@
 <div class="profile-main-rec-box-menu  col-md-12 ">
 
 <div class="left-side-menu col-md-2">  </div>
-<div class="right-side-menu col-md-6">  
- <ul class="">
-                                     <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')){?> class="active" <?php } ?>>
-                                          <?php if($returnpage=='freelancer_post') {?><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Employer Details</a> <?php } else {?> <a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a> <?php }?>
-                                    </li>
-                                    <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>> 
-                                        <?php if ($returnpage=='freelancer_post'){?><a title="Post"  href="<?php echo base_url('freelancer/freelancer_hire_post/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Post</a><?php } else { ?><a title="Post" href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Post</a><?php }?>
-                                    </li>
-                                   
-                                    
+<div class="right-side-menu col-md-6"> 
+    <div class="table-responsive"> 
+    <table class="table table-bordered">
+        <tr>
+            <td <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')){?> class="active" <?php } ?>>
+                <?php if($returnpage=='freelancer_post') {?><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Employer Details</a> <?php } else {?> <a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a> <?php }?>
+            </td>
+            <td <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>> 
+                <?php if ($returnpage=='freelancer_post'){?><a title="Post"  href="<?php echo base_url('freelancer/freelancer_hire_post/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Post</a><?php } else { ?><a title="Post" href="<?php echo base_url('freelancer/freelancer_hire_post'); ?>">Post</a><?php }?>
+            </td>
+            <?php 
+                if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post' || $this->uri->segment(2) == 'freelancer_hire_profile' || $this->uri->segment(2) == 'freelancer_add_post' || $this->uri->segment(2) == 'freelancer_save') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '')) { 
+                    ?>
+            <td <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>><a title="Saved Freelancer" href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved Freelancer</a>
+            </td>
+            <?php }?>
+        </tr>                          
 
-
-                                    <?php 
-
-
-                                if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_post' || $this->uri->segment(2) == 'freelancer_hire_profile' || $this->uri->segment(2) == 'freelancer_add_post' || $this->uri->segment(2) == 'freelancer_save') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '')) { ?>
-
-                                    
-                                   
-
-                                    <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save')){?> class="active" <?php } ?>><a title="Saved Freelancer" href="<?php echo base_url('freelancer/freelancer_save'); ?>">Saved Freelancer</a>
-                                    </li>
-
-                                    <?php }?>
-                                   
-
-    </ul>
+    </table>
+    </div>
     </div>
 
     <div class="col-md-3" style="width:32%;">
@@ -189,7 +182,9 @@
             </div>
 
 </div>
-               
+                </div>
+    </div>
+        <div class="middle-part container">          
         <div class="job-menu-profile1">
                     <a href="javascript:void(0);">
                            <h5> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h5>
@@ -238,7 +233,7 @@
                     </div>
 </div> -->
 
-                     <div class="col-md-8 col-sm-7">
+                     <div class="col-md-8 col-sm-8 mob-clear">
                         <div class="common-form">
                             <div class="job-saved-box">
                                 <h3>Employer Details</h3>

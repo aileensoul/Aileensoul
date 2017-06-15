@@ -1449,10 +1449,10 @@
                         if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
                                                                             ?> 
                          <span role="presentation" aria-hidden="true"> · </span>
-                             <div class="comment-details-menu">
-                        <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                                    </span>
+               <div class="comment-details-menu">
+<input type="hidden" name="post_delete"  id="post_delete<?php echo $rowdata['artistic_post_comment_id']; ?>" value= "<?php echo $rowdata['art_post_id']; ?>">
+<a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
+<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>"></span>
                                                                                 </a>
                                                                             </div>
                     <?php } ?>
@@ -2274,12 +2274,12 @@ if (size > 4194304)
 
             function comment_deleted(clicked_id)
             {
-                var post_delete = document.getElementById("post_delete");
+                var post_delete = document.getElementById("post_delete" + clicked_id);
                 //alert(post_delete.value);
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+ data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
                     dataType: "json",
                     success: function (data) {
                         //alert('.' + 'insertcomment' + clicked_id);
