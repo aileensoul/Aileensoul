@@ -392,7 +392,7 @@ $( document ).on( 'keydown', function ( e ) {
   </a></li> -->
                                 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs">Notification</em> <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs">Notification</em> <i class="fa fa-bell" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 

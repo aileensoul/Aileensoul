@@ -230,15 +230,17 @@ a:focus {
     color: #fff;
     padding: 4px 16px;
     display: block;
-    padding-top: 8px;
+    padding-top: 2px;
+
 }
 .header2 ul li a i {
-    font-size: 12px;
+    font-size: 15px;
     padding-left: 0px;
 }
 .header2 ul li a:hover {
     background: #156f95;
     color: #fff;
+    
 }
 .header2 ul li a.active {
     position: relative;
@@ -12328,6 +12330,7 @@ end zalak 9-6 css*/
     position: absolute;
     right: 0;}
 
+.bui_images_view_more span:hover{text-decoration: underline;}
 /***  eduction style  ***/
     .edu_tab{padding-top: 20px;}
     

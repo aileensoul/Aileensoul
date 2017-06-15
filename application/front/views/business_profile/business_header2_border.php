@@ -322,7 +322,7 @@
                                 <!-- Friend Request Start-->
 
                                 <li id="add_contact">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();"> <i class="fa fa-user-o" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();">Contact Request &nbsp; <i class="fa fa-user" aria-hidden="true"> </i>
 
                                         <span id="addcontact_count"></span>
 
