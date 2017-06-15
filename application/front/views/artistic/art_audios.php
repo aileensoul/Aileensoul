@@ -364,25 +364,21 @@ if ($status == 0 || $status == " ") {
 
                <?php } } else{?>
              <li class="no-audio">
-      <div class="not_img">
+    
                 <div class="not_avali" >
                                 <img src="<?php echo base_url('images/color_008.png'); ?>"  >
                                <div>
                                 <div class="not_text" >Audio Not Avalible</div>
                                </div>
                                </div>
-                               </div>
+                            
                                </li>
               
                <?php }?>             
                                             </ul>
                                         </div>
                               <!--   <div class="add_audio"> -->
-                                 <div class="vidoe_tag">
-       
-        
-      
-                         </div>
+                              
 </div>
 </div>
 </div></div>

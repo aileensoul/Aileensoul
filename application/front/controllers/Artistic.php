@@ -3766,14 +3766,12 @@ class Artistic extends MY_Controller {
 
                     $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $cmtinsert .= '<div class="comment-details-menu">';
-                    $cmtinsert .= '<input type="hidden" name="post_delete"';
-                    $cmtinsert .= 'id="post_delete"';
-                    $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
-
-                    $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-                    $cmtinsert .= 'onClick="comment_delete(this.id)">';
-                    $cmtinsert .= 'Delete';
-                    $cmtinsert .= '</a></div>';
+                    $cmtinsert .=  '<input type="hidden" name="post_delete"';
+                    $cmtinsert .=  'id="post_delete' . $art['artistic_post_comment_id'] . '" value= "' . $art['art_post_id'] . '">';
+                    $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"   onClick="comment_delete(this.id)"> Delete';
+                    $cmtinsert .= '<span class="insertcomment' . $art['artistic_post_comment_id'] . '"></span>';
+                    $cmtinsert .=  '</a></div>';
+ 
                 }
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
@@ -4581,15 +4579,13 @@ class Artistic extends MY_Controller {
 
                 $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';
                 $cmtinsert .= '<div class="comment-details-menu">';
-
-                $cmtinsert .= '<input type="hidden" name="post_delete"';
-                $cmtinsert .= 'id="post_delete"';
-                $cmtinsert .= 'value= "' . $art['art_post_id'] . '">';
-
-                $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"';
-                $cmtinsert .= 'onClick="comment_delete(this.id)">';
-                $cmtinsert .= 'Delete';
-                $cmtinsert .= '</a></div>';
+                
+   $cmtinsert .=  '<input type="hidden" name="post_delete"';
+   $cmtinsert .=  'id="post_delete' . $art['artistic_post_comment_id'] . '" value= "' . $art['art_post_id'] . '">';
+   $cmtinsert .= '<a id="' . $art['artistic_post_comment_id'] . '"   onClick="comment_delete(this.id)"> Delete';
+   $cmtinsert .= '<span class="insertcomment' . $art['artistic_post_comment_id'] . '"></span>';
+   $cmtinsert .=  '</a></div>';
+ 
             }
 
             $cmtinsert .= '<span role="presentation" aria-hidden="true"> · </span>';

@@ -4349,6 +4349,17 @@ border-bottom: 1px solid #000033;
     font-size: 14px;
     font-weight: 600;
 }
+.profile-main-rec-box-menu td a {
+    display: block;
+    color: #1b8ab9;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+.profile-main-rec-box-menu td{padding: 0 0 0 10px !important; border: none !important;}
+.profile-main-rec-box-menu table{border: none; margin-bottom: 0; width: auto;}
 .profile-main-rec-box-menu {
     background-color: white;
     /* box-shadow: 0px 4px 17px #CCCCCC; */
@@ -4363,6 +4374,10 @@ border-bottom: 1px solid #000033;
     background: #1b8ab9;
     color: #ffffff;
 }
+.profile-main-rec-box-menu table td.active a {
+    background: #1b8ab9;
+    color: #ffffff;
+}
 .last_date {
     padding-left: 15px;
     float: left;
@@ -4372,6 +4387,16 @@ border-bottom: 1px solid #000033;
     border: none;
 }
 .profile-main-rec-box-menu li a:hover {
+    background-color: #1b8ab9;
+    color: #ffffff;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    /* -webkit-transform: scale(1.1);
+     transform: scale(1.1);*/
+    
+    background-color: #1b8ab9;
+    color: #ffffff;
+}
+.profile-main-rec-box-menu td a:hover {
     background-color: #1b8ab9;
     color: #ffffff;
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
@@ -9946,6 +9971,7 @@ end zalak 9-6 css*/
     .user-pic { height: 125px; width: 115px; }
     .profile-main-rec-box-menu li a { padding: 10px 15px; font-size: 13px; }
     .profile-box-job-menu ul li{margin-bottom: 0;}
+    .profile-main-rec-box-menu td a { padding: 10px 15px; font-size: 13px; }
     .buisness-profile-txext{width:28%;}
     #paddingtop_fixed_job{padding-top:54px !important; }
     .right_left_box_design{width: 72% !important;}
@@ -10036,9 +10062,13 @@ end zalak 9-6 css*/
     .right_left_box_design{width: 79% !important;}
     .job-menu-profile1{width: auto;}
     .left-side-bar ul li.active::after{content:"\f078"}
+    .profile-main-rec-box-menu .table-responsive{border: none;}
 }
 @media screen and (max-width: 640px) {
-    .right-side-menu{padding-left: 30%;}
+    .right-side-menu{padding-left: 18%;}
+    .profile-main-rec-box-menu{margin-top: -60px;}
+    .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
+    .user-pic{width: 75px; height: 75px;}
 }
 @media screen and (max-width: 479px) {
     .fw-479{width: 100%;}
@@ -10055,9 +10085,8 @@ end zalak 9-6 css*/
     .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
-    .profile-main-rec-box-menu{margin-top: -60px;}
-    .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
-    .user-pic{width: 75px; height: 75px;}
+    
+    
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
     .profile-job-profile-menu ul li{padding-left: 0;}
