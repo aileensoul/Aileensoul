@@ -24,6 +24,17 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+  $(document).load().scrollTop(1000);
+     
+    //$('html,body').animate({scrollTop: 1000}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>

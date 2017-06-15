@@ -305,6 +305,7 @@ if($status == 0 || $status == " "){?>
                                                                 <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>" >
                                                                     <?php echo $key['art_name'].' '.$key['art_lastname'];?>
                                                                       </a>
+                                                                       <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">  <span style="font-weight: 400;
                                                     font-size: 14px;
                                                     color: #91949d; cursor: default;"> 
@@ -390,8 +391,8 @@ if($status == 0 || $status == " "){?>
                 ?>
 
                                                    
-            <div id="basic-responsive-image" style="height: 80%; width: 100%;">
-             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>" style="width: 100%; height: 100%;"> </a>
+            <div id="basic-responsive-image" >
+             <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>"> </a>
                                                     </div>
                                                     
 

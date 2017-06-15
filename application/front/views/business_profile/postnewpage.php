@@ -381,11 +381,12 @@
                                                         <div class="post-design-product">
                                                             <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
                                                                <p class="posted_with" > Posted With </p>
-                                                               <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a><span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                               <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                <span role="presentation" aria-hidden="true"> · </span><span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
                                                 </li>
                                             <?php } else { ?>
                                                 <li><div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo ucwords($companyname); ?> </span> </a>
-
+                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                         <span> <?php echo date('d-M-Y', strtotime($busienss_data[0]['created_date'])); ?></span></div></li>
 
                                             <?php } ?>
@@ -711,7 +712,7 @@
 
                                                                         <li>
                                                                             <div class="comnt_count_ext">
-                                                                                <span class="comment_like_count_img<?php echo $busdata['image_id']; ?>"> 
+                                                                                <span class="comment_like_count_img <?php echo $busdata['image_id']; ?>"> 
                                                                                     <?php
                                                                                     if ($row['business_likes_count'] > 0) {
                                                                                         echo $row['business_likes_count'];
