@@ -1226,7 +1226,7 @@
                                                             $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                             $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                             ?>
-                                                            <a title="Comment" class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
+                                                            <a class="ripple like_h_w"  title="Comment" class="ripple" onClick="commentall(this.id)" id="<?php echo $row['art_post_id']; ?>">
                                                                 <i class="fa fa-comment-o" aria-hidden="true">
                                                                     <?php
 //                                                                    if (count($commnetcount) > 0) {

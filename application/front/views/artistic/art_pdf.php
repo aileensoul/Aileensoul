@@ -293,7 +293,7 @@ if ($status == 0 || $status == " ") {
               </div>
 
         
-        <div class="container " >
+     
     <div class="user-midd-section grybod" >
 
 
