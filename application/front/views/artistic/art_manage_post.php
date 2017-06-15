@@ -990,7 +990,7 @@
                                                             //echo $row['art_description'];
                                                             $text = $this->common->make_links($row['art_description']);
                                                             ?>
-                                                            <span  class="show-read-more ft-13"><?php echo $text; ?></span>
+                                                            <span  class="show ft-13"><?php echo $text; ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1162,9 +1162,9 @@
 
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
                                                                 <div class="manage_images_view_more" >
+<span>
 
-
-                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)
+                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)</span>
                                                                 </div>
                                                                 </a>
                                                             </div>
@@ -1449,10 +1449,10 @@
                         if ($rowdata['user_id'] == $userid || $art_userid == $userid) {
                                                                             ?> 
                          <span role="presentation" aria-hidden="true"> · </span>
-                             <div class="comment-details-menu">
-                        <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
-                    <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
-                                                                                    </span>
+               <div class="comment-details-menu">
+<input type="hidden" name="post_delete"  id="post_delete<?php echo $rowdata['artistic_post_comment_id']; ?>" value= "<?php echo $rowdata['art_post_id']; ?>">
+<a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
+<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>"></span>
                                                                                 </a>
                                                                             </div>
                     <?php } ?>
@@ -1597,8 +1597,132 @@
         </body>
         </html>
 
+            <script>
+            $(document).ready(function () {
+                $('.video').mediaelementplayer({
+                    alwaysShowControls: false,
+                    videoVolume: 'horizontal',
+                    features: ['playpause', 'progress', 'volume', 'fullscreen']
+                });
+            });
+        </script>
+
+        <!-- further and less -->
+        <script>
+            $(function () {
+                var showTotalChar = 200, showChar = "More", hideChar = "";
+                $('.show').each(function () {
+                    var content = $(this).html();
+                    if (content.length > showTotalChar) {
+                        var con = content.substr(0, showTotalChar);
+                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                        $(this).html(txt);
+                    }
+                });
+                $(".showmoretxt").click(function () {
+                    if ($(this).hasClass("sample")) {
+                        $(this).removeClass("sample");
+                        $(this).text(showChar);
+                    } else {
+                        $(this).addClass("sample");
+                        $(this).text(hideChar);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
+                    return false;
+                });
+            });
+        </script>
        
 
+
+
+        <script>
+            $('#file-fr').fileinput({
+                language: 'fr',
+                uploadUrl: '#',
+                allowedFileExtensions: ['jpg', 'png', 'gif']
+            });
+            $('#file-es').fileinput({
+                language: 'es',
+                uploadUrl: '#',
+                allowedFileExtensions: ['jpg', 'png', 'gif']
+            });
+            $("#file-0").fileinput({
+                'allowedFileExtensions': ['jpg', 'png', 'gif']
+            });
+            $("#file-1").fileinput({
+                uploadUrl: '#', // you must set a valid URL here else you will get an error
+                allowedFileExtensions: ['jpg', 'png', 'gif'],
+                overwriteInitial: false,
+                maxFileSize: 1000,
+                maxFilesNum: 10,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                slugCallback: function (filename) {
+                    return filename.replace('(', '_').replace(']', '_');
+                }
+            });
+
+            $("#file-3").fileinput({
+                showUpload: false,
+                showCaption: false,
+                browseClass: "btn btn-primary btn-lg",
+                fileType: "any",
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                overwriteInitial: false,
+                initialPreviewAsData: true,
+                initialPreview: [
+                    "http://lorempixel.com/1920/1080/transport/1",
+                    "http://lorempixel.com/1920/1080/transport/2",
+                    "http://lorempixel.com/1920/1080/transport/3",
+                ],
+                initialPreviewConfig: [
+                    {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                    {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                    {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+                ],
+            });
+            $("#file-4").fileinput({
+                uploadExtraData: {kvId: '10'}
+            });
+            $(".btn-warning").on('click', function () {
+                var $el = $("#file-4");
+                if ($el.attr('disabled')) {
+                    $el.fileinput('enable');
+                } else {
+                    $el.fileinput('disable');
+                }
+            });
+            $(".btn-info").on('click', function () {
+                $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
+            });
+
+            $(document).ready(function () {
+                $("#test-upload").fileinput({
+                    'showPreview': false,
+                    'allowedFileExtensions': ['jpg', 'png', 'gif'],
+                    'elErrorContainer': '#errorBlock'
+                });
+                $("#kv-explorer").fileinput({
+                    'theme': 'explorer',
+                    'uploadUrl': '#',
+                    overwriteInitial: false,
+                    initialPreviewAsData: true,
+                    initialPreview: [
+                        "http://lorempixel.com/1920/1080/nature/1",
+                        "http://lorempixel.com/1920/1080/nature/2",
+                        "http://lorempixel.com/1920/1080/nature/3",
+                    ],
+                    initialPreviewConfig: [
+                        {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                        {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
+                        {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
+                    ]
+                });
+
+            });
+        </script>
 
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
         <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -2150,12 +2274,12 @@ if (size > 4194304)
 
             function comment_deleted(clicked_id)
             {
-                var post_delete = document.getElementById("post_delete");
+                var post_delete = document.getElementById("post_delete" + clicked_id);
                 //alert(post_delete.value);
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/delete_comment" ?>',
-                    data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
+ data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
                     dataType: "json",
                     success: function (data) {
                         //alert('.' + 'insertcomment' + clicked_id);
@@ -3615,92 +3739,6 @@ if (size > 4194304)
 
         <!--follow like script end -->
 
-
-        <script>
-            $('#file-fr').fileinput({
-                language: 'fr',
-                uploadUrl: '#',
-                allowedFileExtensions: ['jpg', 'png', 'gif']
-            });
-            $('#file-es').fileinput({
-                language: 'es',
-                uploadUrl: '#',
-                allowedFileExtensions: ['jpg', 'png', 'gif']
-            });
-            $("#file-0").fileinput({
-                'allowedFileExtensions': ['jpg', 'png', 'gif']
-            });
-            $("#file-1").fileinput({
-                uploadUrl: '#', // you must set a valid URL here else you will get an error
-                allowedFileExtensions: ['jpg', 'png', 'gif'],
-                overwriteInitial: false,
-                maxFileSize: 1000,
-                maxFilesNum: 10,
-                //allowedFileTypes: ['image', 'video', 'flash'],
-                slugCallback: function (filename) {
-                    return filename.replace('(', '_').replace(']', '_');
-                }
-            });
-
-            $("#file-3").fileinput({
-                showUpload: false,
-                showCaption: false,
-                browseClass: "btn btn-primary btn-lg",
-                fileType: "any",
-                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-                overwriteInitial: false,
-                initialPreviewAsData: true,
-                initialPreview: [
-                    "http://lorempixel.com/1920/1080/transport/1",
-                    "http://lorempixel.com/1920/1080/transport/2",
-                    "http://lorempixel.com/1920/1080/transport/3",
-                ],
-                initialPreviewConfig: [
-                    {caption: "transport-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                    {caption: "transport-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                    {caption: "transport-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-                ],
-            });
-            $("#file-4").fileinput({
-                uploadExtraData: {kvId: '10'}
-            });
-            $(".btn-warning").on('click', function () {
-                var $el = $("#file-4");
-                if ($el.attr('disabled')) {
-                    $el.fileinput('enable');
-                } else {
-                    $el.fileinput('disable');
-                }
-            });
-            $(".btn-info").on('click', function () {
-                $("#file-4").fileinput('refresh', {previewClass: 'bg-info'});
-            });
-
-            $(document).ready(function () {
-                $("#test-upload").fileinput({
-                    'showPreview': false,
-                    'allowedFileExtensions': ['jpg', 'png', 'gif'],
-                    'elErrorContainer': '#errorBlock'
-                });
-                $("#kv-explorer").fileinput({
-                    'theme': 'explorer',
-                    'uploadUrl': '#',
-                    overwriteInitial: false,
-                    initialPreviewAsData: true,
-                    initialPreview: [
-                        "http://lorempixel.com/1920/1080/nature/1",
-                        "http://lorempixel.com/1920/1080/nature/2",
-                        "http://lorempixel.com/1920/1080/nature/3",
-                    ],
-                    initialPreviewConfig: [
-                        {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
-                        {caption: "nature-2.jpg", size: 872378, width: "120px", url: "{$url}", key: 2},
-                        {caption: "nature-3.jpg", size: 632762, width: "120px", url: "{$url}", key: 3},
-                    ]
-                });
-
-            });
-        </script>
 
 
 

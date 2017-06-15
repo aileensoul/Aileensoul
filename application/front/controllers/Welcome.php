@@ -68,4 +68,11 @@ class Welcome extends CI_Controller {
 		echo json_encode($output); //output JSON data
 }
 	}
+        
+        public function bootstarp(){
+              include ('include.php');
+           $this->load->view('bootstrap', $this->data);
+           // echo "hi"; die();
+        }
+                
 }

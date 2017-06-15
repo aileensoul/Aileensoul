@@ -169,7 +169,7 @@ if ($user_data) {
                                       ?></span>
                                                        
                                     </li> -->
-                                 <li><b>Total Experience </b>     <span>  <?php echo $row['experience']; ?></span> </li>
+                                 <li><b>Total Experience </b>     <span>  <?php echo $row[0]['experience']; ?></span> </li>
 
                                  <li><b> Location</b> <span>
 
@@ -182,9 +182,16 @@ if ($user_data) {
                                              <li> <b> Degree </b>
                                                  <span>
                                                   <?php
+  $contition_array = array('user_id' => $row['user_id']);
 
-                                                  if($row['degree']){
-                                                 $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
+  $graduation = $this->data['graduation'] =  $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str ='' , $groupby = '');
+
+
+                              foreach ($graduation as $gd) {
+                                
+                              
+                                                  if($gd['degree']){
+                                                 $cache_time = $this->db->get_where('degree', array('degree_id' => $gd['degree']))->row()->degree_name;
                                                      echo $cache_time;
                                                    }else{
                                                     echo PROFILENA;
@@ -196,8 +203,8 @@ if ($user_data) {
                                                                 <li> <b>Stream </b>
                                                                     <span>
                                                                     <?php
-                                                                    if($row['stream']){
-                                                                    $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
+                                                                    if($gd['stream']){
+                                                                    $cache_time = $this->db->get_where('stream', array('stream_id' => $gd['stream']))->row()->stream_name;
                                                                     echo $cache_time;
                                                                   }else{ echo PROFILENA; }
                                                                     ?>
@@ -205,6 +212,7 @@ if ($user_data) {
                                                  
 </span>
                                                                 </li>
+                                                                <?php } ?>
 
  
    <li><b>E-mail</b>
