@@ -699,15 +699,12 @@
                                                                                 <span class="comment_count_img<?php echo $busdata['image_id']; ?>" > 
                                                                                     <?php
                                                                                     if (count($commnetcount) > 0) {
-                                                                                        echo count($commnetcount);
-                                                                                    }
-                                                                                    else{
-                                                                                        echo '0';
-                                                                                    }
-                                                                                    ?>
+                                                                                        echo count($commnetcount); ?>
+                                                                                      <span> Comment</span>
+                                                                    <?php                }
+                                                                                     ?>
                                                                                 </span> 
-                                                                                <span> Comment</span>
-                                                                            </div>
+                                                                              </div>
                                                                         </li>
 
                                                                         <li>
@@ -715,13 +712,12 @@
                                                                                 <span class="comment_like_count_img <?php echo $busdata['image_id']; ?>"> 
                                                                                     <?php
                                                                                     if ($row['business_likes_count'] > 0) {
-                                                                                        echo $row['business_likes_count'];
-                                                                                    } else {
-                                                                                        echo '0';
-                                                                                    }
+                                                                                        echo $row['business_likes_count']; ?>
+                                                                                      <span> Like</span>
+                                                                              <?php      } 
                                                                                     ?>
                                                                                 </span> 
-                                                                                <span> Like</span>
+                                                                              
                                                                             </div>
                                                                         </li>
                                                                     </ul>
