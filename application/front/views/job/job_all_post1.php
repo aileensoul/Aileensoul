@@ -762,8 +762,8 @@ $( "#searchplace" ).autocomplete({
                 <script type="text/javascript">
                     function checkvalue() {
                         // alert("hi");
-                        var searchkeyword = $.trim(document.getElementById('tags').value);
-                        var searchplace = $.trim(document.getElementById('searchplace').value);
+                        var searchkeyword = document.getElementById('tags').value;
+                        var searchplace = document.getElementById('searchplace').value;
                         // alert(searchkeyword);
                         // alert(searchplace);
                         if (searchkeyword == "" && searchplace == "") {

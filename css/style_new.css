@@ -165,7 +165,7 @@
 padding-right: 2px !important;
 }
 
-/*.user-pic:hover a{padding: 4px 6px;}*/
+.user-pic:hover a{padding: 4px 6px;}
 
 
 .bui_images_view_more a:hover{text-decoration: underline;}

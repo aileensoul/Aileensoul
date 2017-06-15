@@ -388,8 +388,8 @@ $( "#searchplace" ).autocomplete({
 <script type="text/javascript">
     function checkvalue() {
         // alert("hi");
-        var searchkeyword =$.trim(document.getElementById('tags').value);
-        var searchplace = $.trim(document.getElementById('searchplace').value);
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {
@@ -460,7 +460,7 @@ $( "#searchplace" ).autocomplete({
 
 <!-- Field Validation Js Start -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
 <!-- Field Validation Js End -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
 
@@ -538,7 +538,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     required: true,
 
                 },
-                language: {
+                'language[]': {
 
                     required: true,
 
@@ -589,7 +589,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     required: "Nationality Is Required.",
 
                 },
-                language: {
+                'language[]': {
 
                     required: "Language  Is Required.",
 

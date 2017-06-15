@@ -276,14 +276,9 @@ function text2link($text){
                                                 </div>
                                                 <div class="profile-job-profile-menu">
                                                     <ul class="clearfix">
-                                                    
-
-                                                         <li> <b> Name</b> <span> 
-                                                        <?php 
-                   
-                    echo $freelancerhiredata[0]['fullname'] .' '. $freelancerhiredata[0]['username'];
-                    
-                   ?> </span>
+                                                     <li> <b>First Name</b> <span> <?php echo $freelancerhiredata[0]['fullname'];?> </span>
+                                                        </li>
+                                                     <li> <b>Last Name</b> <span> <?php echo $freelancerhiredata[0]['username'];?> </span>
                                                         </li>
                                                        
                                                         <li> <b>Email </b><span> <?php echo $freelancerhiredata[0]['email'];?></span>
@@ -497,8 +492,8 @@ $( "#searchplace" ).autocomplete({
   <script type="text/javascript">
 function checkvalue(){
    //alert("hi");
-  var searchkeyword=$.trim(document.getElementById('tags').value);
-  var searchplace=$.trim(document.getElementById('searchplace').value);
+  var searchkeyword=document.getElementById('tags').value;
+  var searchplace=document.getElementById('searchplace').value;
   // alert(searchkeyword);
   // alert(searchplace);
   if(searchkeyword == "" && searchplace == ""){

@@ -2217,6 +2217,7 @@ $this->load->view('business_profile/temp');
         }
      //if user deactive profile then redirect to job/index untill active profile End
         $keyskill = $this->input->post('skills');
+        $keyskill1=$this->input->post('skills1');
         $otherskill = $this->input->post('other_skill');
         $otherskill1 = $this->input->post('other_skill1');
 
@@ -2307,6 +2308,21 @@ $this->load->view('business_profile/temp');
             $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 
+            $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3');
+        $skill_other=$this->data['skill_other'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($skill_other)
+        {
+             $data = array(
+                'keyskill' => implode(",", $keyskill1),
+                //'other_skill' => $this->input->post('other_skill'),
+                'modified_date' => date('Y-m-d h:i:s', time())
+            );
+
+            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+        }
+        else
+        {
             $data = array(
                 'keyskill' => implode(",", $keyskill),
                 //'other_skill' => $this->input->post('other_skill'),
@@ -2314,6 +2330,8 @@ $this->load->view('business_profile/temp');
             );
 
             $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+        }
+            
 
             if ($updatedata) {
 
