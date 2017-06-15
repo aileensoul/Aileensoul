@@ -272,7 +272,7 @@
         <div class="common-form">
             <div class="job-saved-box">
 
-                <h3>User list</h3>
+                <h3>Userlist</h3>
                 <div class="contact-frnd-post">
 
                     <?php foreach ($userlist as $user) { ?>

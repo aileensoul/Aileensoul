@@ -5,15 +5,32 @@
 <?php echo $header; ?>
     <!-- END HEADER -->
 
+
 <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
 
   <section>
     <div class="user-midd-section">
+     
       <div class="container">
         <div class="row">
-           <div class="col-md-2"></div>
+            <div class="col-md-12">
+  <div class="col-lg-3 col-md-4 col-sm-4">
+                        <div class="padd_set">
+                        <div class="left-side-bar">
+                            <ul class="left-form-each">
+                                <li>  <a href="<?php echo base_url() . 'profile' ?>">Edit Profile</a></li>
+
+                                <li> <a href="<?php echo base_url('registration/changepassword') ?>">Change Password</a></li>
+
+                                
+
+
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
           <div class="col-md-8">
 
      
@@ -81,6 +98,7 @@
                       <input type="submit" value="submit" name="submit" id="submit">
                                       
                     </fieldset>
+        </div>
         </div>
         </div>
         </div>
