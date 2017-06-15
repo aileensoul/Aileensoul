@@ -1920,7 +1920,6 @@
                             });
                         }
                     </script>
-
                     <script type="text/javascript">
                         function comment_like1(clicked_id)
                         {

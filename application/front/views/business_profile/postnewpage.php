@@ -701,8 +701,7 @@
                                                                                     if (count($commnetcount) > 0) {
                                                                                         echo count($commnetcount); ?>
                                                                                       <span> Comment</span>
-                                                                    <?php                }
-                                                                                     ?>
+                                                                    <?php    }  ?>
                                                                                 </span> 
                                                                               </div>
                                                                         </li>
