@@ -621,7 +621,7 @@ class Recruiter extends MY_Controller {
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $citiesss=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
 
 
@@ -675,11 +675,11 @@ class Recruiter extends MY_Controller {
          
          $this->data['demo']= $result1;
             // $contition_array = array('status' => '1');
-
-foreach($cities as $key){
-    $resul[]=$key['city_name'];
-
-}
+foreach ($citiesss as $key1) {
+              
+                 $location[] = $key1['city_name'];
+             
+          }
        
         // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
@@ -694,12 +694,12 @@ foreach($cities as $key){
         //     }
         // }
         // $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
+      foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
         
-        $this->data['de'] = array_values($res);
+        $this->data['city_data']= $loc;
 
 
         //echo "<pre>"; print_r( $this->data['countrydata'] ); die();
