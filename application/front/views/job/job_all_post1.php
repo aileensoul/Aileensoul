@@ -107,7 +107,18 @@
                 <div class="col-md-7 col-sm-7 col-sm-push-4 col-md-push-4">
                     <div class="common-form">
                         <div class="job-saved-box">
-                            <h3>Search Results</h3>
+                            <h3>
+                              Search Result of 
+                                  <?php  if($keyword != "" && $keyword1 == ""){echo '"' .  $keyword . '"';}
+                                  elseif ($keyword == "" && $keyword1 != "") {
+                                    echo '"' .  $keyword1 . '"';
+                                  }
+                                  else
+                                  {
+                                     echo '"' .  $keyword . '"'; echo  " And "; echo '"' .  $keyword1 . '"';
+                                  }
+              ?>
+                            </h3>
                             <div class="contact-frnd-post">
                                 <?php
 

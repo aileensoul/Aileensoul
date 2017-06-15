@@ -50,7 +50,7 @@ class Search extends CI_Controller {
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $this->data['city'] = $city = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_city', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -420,7 +420,7 @@ public function business_search() {
         $search_place = trim($this->input->get('searchplace'));
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
         $contition_array = array('business_profile.user_id !=' => $userid, 'business_profile.is_deleted' => '0', 'business_profile.status' => '1');
         $this->data['city'] = $city = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'city', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -673,7 +673,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
         print_r($this->data['keyword1']); 
 
 
@@ -1304,7 +1304,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
         // $searchplace[] = $search_place;
         //print_r($search_place)  ; die(); 
         //echo $search_place[0]; die();
@@ -1658,7 +1658,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 // code for insert search keyword into database start
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
@@ -1961,7 +1961,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
 
-        $this->data['keyword1'] = $cache_time;
+        $this->data['keyword1'] = $search_place;
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
