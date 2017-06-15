@@ -360,26 +360,15 @@
                  }
            ?></span>
                </li>
-                 
-              <li><b>Total Experience</b> <span>
-                                            <?php if($row['freelancer_post_exp_month'] == '12 month' && $row['freelancer_post_exp_year'] == '0 year')
-                                            { echo "1 year"; 
-                                           } elseif($row['freelancer_post_exp_year'] != '0 year' && $row['freelancer_post_exp_month'] == '12 month')
-                                           { 
-                                                $month = explode(' ', $row['freelancer_post_exp_year']);
-                                                $year=$month[0];
-                                                $years=$year + 1;
-                                                echo $years." Years";
-                                                
-                                                //echo $month[0] + 1. "year";
-                                                } else{
-                                                    echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
-                                                    }?>
-
-                                            <!-- <?php echo $freelancerpostdata[0]['freelancer_post_exp_year'] . ' ' . $freelancerpostdata[0]['freelancer_post_exp_month']; ?>
- -->                                                
-                                            </span> </li>  
-
+                  <li><b>Total Experience</b>
+                     <span> <?php
+                       if ($row['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
+                  echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
+                  } else {
+                       echo PROFILENA;
+                     }
+                 ?></span>
+              </li>
          </ul>
     </div>
 
