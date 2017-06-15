@@ -32,7 +32,7 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] == 2){ ?>
+             if($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] >= 2){ ?>
 <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
 
             <?php }else{
@@ -209,10 +209,26 @@
                                     <select tabindex="3" name="city" id="city">
                                         <?php
                                         if ($city1) {
+                                            ?>
+                                            <option value="">Select City</option>
+                                            <?php
+                                            foreach ($cities as $cnt) {
+                                                ?>
+                                                  
+                                                <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+                                        else if($state1)
+                                        {
+                                            ?>
+                                            <option value="">Select City</option>
+                                            <?php
                                             foreach ($cities as $cnt) {
                                                 ?>
 
-                                                <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
 
                                                 <?php
                                             }
@@ -289,7 +305,7 @@
                                     <select name="state_permenant" id="state_permenant">
                                         <?php
                                         if ($state1_permenant) {
-                                            foreach ($states as $cnt) {
+                                            foreach ($states_per as $cnt) {
                                                 ?>
 
                                                 <option value="<?php echo $cnt['state_id']; ?>" <?php if ($cnt['state_id'] == $state1_permenant) echo 'selected'; ?>><?php echo $cnt['state_name']; ?></option>
@@ -314,10 +330,26 @@
                                     <select name="city_permenant" id="city_permenant">
                                         <?php
                                         if ($city1_permenant) {
-                                            foreach ($cities as $cnt) {
+                                            ?>
+                                              <option value="">Select City</option>
+                                              <?php
+                                            foreach ($cities_per as $cnt) {
                                                 ?>
 
                                                 <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1_permenant) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
+                                          else if($state1_permenant)
+                                        {
+                                            ?>
+                                            <option value="">Select City</option>
+                                            <?php
+                                            foreach ($cities_per as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
 
                                                 <?php
                                             }
@@ -777,7 +809,7 @@ $("#jobseeker_regform").validate({
 
 $('#country_permenant').on('change', function () {
             var countryID = $(this).val();
-            alert(countryID);
+           // alert(countryID);
 
             if (countryID) {
                 $.ajax({
