@@ -647,3 +647,11 @@ window.onload = init;
 </script>
 
 <!-- save browser password email reset end -->
+<style type="text/css">
+  #fname-error{margin-top:34px; }
+  #lname-error{margin-top: 34px;}
+  #email-error{margin-top: :34px !important;}
+  #password-error{margin-top: 34px !important;}
+  #gen-error{top:55px;}
+
+</style>
