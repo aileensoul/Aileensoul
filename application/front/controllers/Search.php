@@ -1251,6 +1251,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
     public function freelancer_hire_search($searchkeyword,$searchplace) {
         $userid = $this->session->userdata('aileenuser');
+        //echo "hhhh";die();
 
          if($this->input->get('search_submit'))
         {
