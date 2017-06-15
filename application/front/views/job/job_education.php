@@ -506,7 +506,7 @@
                                                     <br>
                                                     <fieldset class="hs-submit full-width" style="">
 
-                                                        <input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()">
+                                                        <!--input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()"-->
 
                                                     </fieldset>
                                                 </div>
@@ -531,7 +531,7 @@
             </div>
             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                 <div class="panel-body">
-                    <section id="section4" style="overflow: auto;">
+                    <section id="section4">
                                             <!--input type="radio" name="sections" id="option4" <?php
                                             if ($postid == "graduation") {
                                                 echo "checked";
@@ -778,7 +778,7 @@
                                                  </div>
          <fieldset class="hs-submit full-width job_edu_graduation_nextbtnbox">
 
-                <input type="button" id="next" name="next"    tabindex="9"      class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
+                <!--input type="button" id="next" name="next"    tabindex="9"      class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()" -->
 
                                                     </fieldset>
 
@@ -975,11 +975,7 @@
              <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
                    </div> 
                                   <br>
-                <fieldset class="hs-submit full-width"  style="">
-
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
-
-                                                    </fieldset>
+                
 
                                                     <?php
                                                 }
@@ -995,7 +991,11 @@
         </div>
 
     </div><!-- panel-group -->
-    
+    <fieldset class="hs-submit full-width"  style="">
+
+                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
+
+                                                    </fieldset>
     
 
                                 </div>

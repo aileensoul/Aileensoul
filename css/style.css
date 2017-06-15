@@ -416,6 +416,7 @@ ul.nav li:hover li:active {
 section {
     width: 100%;
     /*overflow: hidden;*/
+    overflow-x: hidden;
 }
 /* Ul Li & Ol Li CSS */
 
