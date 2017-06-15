@@ -1179,13 +1179,12 @@
                                                                     <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
-                                                                            echo count($commnetcount);
-                                                                        } else {
-                                                                            echo '0';
-                                                                        }
+                                                                            echo count($commnetcount); ?>
+                                                                        <span> Comment</span>
+                                                                       <?php } 
                                                                         ?> 
                                                                     </span> 
-                                                                    <span> Comment</span>
+                                                                   
                                                                 </div>
                                                             </li>
 
@@ -1193,14 +1192,15 @@
                                                                 <div class="comnt_count_ext">
                                                                     <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
                                                                         <?php
-                                                                        if ($row['business_likes_count'] > 0) {
-                                                                            echo $row['business_likes_count'];
-                                                                        } else {
-                                                                            echo '0';
-                                                                        }
+                                                                        if ($row['business_likes_count'] > 0 ) { 
+                                                                            echo $row['business_likes_count']; ?>
+                                                                        
+                                                                         <span> Like</span>
+                                                                      <?php  } 
                                                                         ?>
+                                                                       
                                                                     </span> 
-                                                                    <span> Like</span>
+                                                                    
                                                                 </div></li>
                                                         </ul>
                                                     </div>
@@ -1761,7 +1761,7 @@
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                 //   $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('.insertcomment' + clicked_id).html(data.comment);
                     $('.comment_count' + clicked_id).html(data.comment_count);
                 }
@@ -1778,7 +1778,7 @@
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                    $('#' + 'insertcount' + clicked_id).html(data.count);
+                   // $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('#' + 'fourcomment' + clicked_id).html(data.comment);
                     $('.comment_count' + clicked_id).html(data.comment_count);
                 }

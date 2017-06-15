@@ -3784,8 +3784,12 @@ $contition_array = array('status' => '1');
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($buscmtcnt) . '';
                 $cmtcount .= '</i></a>';
-
+               
                 // comment count variable end 
+            }
+              if (count($buscmtcnt) > 0) {
+           $cntinsert .= '' . count($buscmtcnt) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
             }
         } else {
             $idpost = $business_profile['business_profile_post_id'];
@@ -3796,7 +3800,7 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($buscmtcnt)
+                    "comment_count" => $cntinsert
                     ));
     }
 
@@ -3939,8 +3943,13 @@ $contition_array = array('status' => '1');
                 $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
                 $cmtcount .= ' ' . count($businessprofiledata) . '';
                 $cmtcount .= '</i></a>';
-
+            
                 // comment count variable end 
+            }
+            
+            if (count($businessprofiledata) > 0) {
+           $cntinsert .= '' . count($businessprofiledata) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
             }
         } else {
             $idpost = $business_profile['business_profile_post_id'];
@@ -3951,7 +3960,7 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($businessprofiledata)
+                    "comment_count" => $cntinsert
                     ));
     }
 
@@ -4125,7 +4134,11 @@ $contition_array = array('status' => '1');
                 $cmtlikeuser .= '</a>';
                   $cmtlikeuser .= '</div>';
                 //$cmtlikeuser .= '</div>';
-                $like_user_count = $commnetcount[0]['business_likes_count'];
+               // $like_user_count = $commnetcount[0]['business_likes_count'];
+                if ($commnetcount[0]['business_likes_count'] > 0) { 
+              $like_user_count .= '' . $commnetcount[0]['business_likes_count'] . ''; 
+              $like_user_count .=     '<span> Like</span>'; 
+                }
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
@@ -4226,7 +4239,13 @@ $contition_array = array('status' => '1');
              $cmtlikeuser .= '</div>';
 
 
-                $like_user_count = $commnetcount[0]['business_likes_count'];
+               // $like_user_count = $commnetcount[0]['business_likes_count'];
+                
+               
+               if ($commnetcount[0]['business_likes_count'] > 0) { 
+              $like_user_count .= '' . $commnetcount[0]['business_likes_count'] . ''; 
+              $like_user_count .=     '<span> Like</span>'; 
+                }
 //                $like_user_count = $businessprofiledata1[0]['business_likes_count'];
                 echo json_encode(
                         array("like" => $cmtlike,
@@ -4418,13 +4437,19 @@ $contition_array = array('status' => '1');
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
             $cmtcount .= ' ' . count($buscmtcnt) . '';
             $cmtcount .= '</i></a>';
+            
+            
+                 if (count($buscmtcnt) > 0) {
+           $cntinsert .= '' . count($buscmtcnt) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
 
             // comment count variable end 
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($buscmtcnt)));
+                    "comment_count" => $cntinsert));
          
     }
 
@@ -4590,16 +4615,22 @@ $contition_array = array('status' => '1');
             $cmtcount = '<a onClick="commentall(this.id)" id="' . $idpost . '">';
             $cmtcount .= '<i class="fa fa-comment-o" aria-hidden="true">';
             $cmtcount .= ' ' . count($businessprofiledata) . '';
-            $cmtcount .= '</i></a>';
-
+            $cmtcount .= '</i></a>'; 
+            
+            
+           
             // comment count variable end 
         }
+ if (count($businessprofiledata) > 0) {
+           $cntinsert .= '' . count($businessprofiledata) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
 
 //        echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($businessprofiledata)));
+                    "comment_count" => $cntinsert));
 
         // khyati chande 
     }
@@ -5378,7 +5409,11 @@ $contition_array = array('status' => '1');
                 $imglikeuser .= '</a>';
                    $cmtlikeuser .= '</div>';
 
-                $like_user_count = count($commneteduser);
+              //  $like_user_count = count($commneteduser);
+                 if (count($commneteduser) > 0) { 
+              $like_user_count .= '' . count($commneteduser) . ''; 
+              $like_user_count .=     '<span> Like</span>'; 
+                }
                 echo json_encode(
                         array("like" => $imglike,
                             "likeuser" => $imglikeuser,
@@ -5450,7 +5485,12 @@ $contition_array = array('status' => '1');
 
                     $imglikeuser1 .= '</a>';
                     $imglikeuser1 .= '</div>';
-                    $like_user_count1 = count($commneteduser);
+                   // $like_user_count1 = count($commneteduser);
+                    
+                    if (count($commneteduser) > 0) { 
+              $like_user_count1 .= '' . count($commneteduser) . ''; 
+              $like_user_count1 .=     '<span> Like</span>'; 
+                }
                     echo json_encode(
                             array("like" => $imglike1,
                                 "likeuser" => $imglikeuser1,
@@ -5512,7 +5552,7 @@ $contition_array = array('status' => '1');
 
                     $imglike1 = '<li>';
                     $imglike1 .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
@@ -5556,7 +5596,13 @@ $contition_array = array('status' => '1');
                   
                     $imglikeuser1 .= '</a>';
                       $imglikeuser1 .= '</div>';
-                    $like_user_count1 = count($commneteduser);
+               //     $like_user_count1 = count($commneteduser);
+                      
+                      if (count($commneteduser) > 0) { 
+              $like_user_count1 .= '' . count($commneteduser) . ''; 
+              $like_user_count1 .=     '<span> Like</span>'; 
+                }
+                
                     echo json_encode(
                             array("like" => $imglike1,
                                 "likeuser" => $imglikeuser1,
