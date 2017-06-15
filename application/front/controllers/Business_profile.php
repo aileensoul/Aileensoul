@@ -4051,7 +4051,7 @@ $contition_array = array('status' => '1');
 
                 $cmtlike = '<li>';
                 $cmtlike .= '<a id="' . $businessprofiledata1[0]['business_profile_post_id'] . '" class="ripple like_h_w" onClick="post_like(this.id)">';
-                $cmtlike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $cmtlike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $cmtlike .= '</i>';
                 $cmtlike .= '<span class="like_As_count"> ';
                 if ($businessprofiledata1[0]['business_likes_count'] > 0) {
