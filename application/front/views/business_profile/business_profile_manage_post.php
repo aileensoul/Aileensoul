@@ -1435,15 +1435,15 @@ $(document).ready(function(){
                                                     <li>
                                                         <div class="like_count_ext">
                                                             <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
+                                                               
                                                                 <?php
-                                                                if (count($commnetcount) > 0) {
-                                                                    echo count($commnetcount);
-                                                                } else {
-                                                                    echo '0';
-                                                                }
-                                                                ?> 
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                        <span> Comment</span>
+                                                                       <?php } 
+                                                                        ?> 
                                                             </span> 
-                                                            <span> Comment</span>
+                                                           
                                                         </div>
                                                     </li>
 
@@ -1452,13 +1452,11 @@ $(document).ready(function(){
                                                             <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
                                                                 <?php
                                                                 if ($row['business_likes_count'] > 0) {
-                                                                    echo $row['business_likes_count'];
-                                                                } else {
-                                                                    echo '0';
-                                                                }
-                                                                ?>
+                                                                    echo $row['business_likes_count']; ?>
+                                                      <span> Like</span>
+                                                                        <?php  }  ?>
                                                             </span> 
-                                                            <span> Like</span>
+                                                            
                                                         </div>
                                                     </li>
                                                 </ul>

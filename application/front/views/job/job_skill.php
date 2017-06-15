@@ -33,7 +33,7 @@
              $contition_array = array('user_id' => $userid, 'status' => '1');
              $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
              
-             if($jobdata[0]['job_step'] == 10){ ?>
+             if($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] >= 5){ ?>
 
 <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
                 <?php }else{
@@ -132,12 +132,22 @@ if ($this->session->flashdata('success')) {
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?> >
                                     <label>keyskills<span class="red">*</span></label>
 
-
-                                    <select name="skills[]" id ="skils" tabindex="1" autofocus class="keyskil" multiple="multiple" style="width:100%;">
+ <?php
+                                        if ($skill_other) {
+                                            ?>
+                                    <select name="skills1[]" id ="skils" tabindex="1" autofocus  multiple="multiple" style="width:100%;">
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
                                     </select>
+                                    <?php }else{?>
+<select name="skills[]" id ="skils" tabindex="1" autofocus class="keyskil" multiple="multiple" style="width:100%;">
+<?php foreach ($skill as $ski) { ?>
+                                            <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
+<?php } ?>
+                                    </select>
+
+                                    <?php }?>
 
 
                                         <?php echo form_error('skills'); ?>
@@ -525,10 +535,21 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
             success: function () {
-                $('.biderror .mes').html("<div class='pop_content'>Skill Inserted Successfully.");
-                 $('#bidmodalskill').modal('show');
+                if(other_skill=="")
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Empty Skill is not Allowed.");
+                    $('#bidmodalskill').modal('show');
 
-                $("#other_keyskill").val('');
+                    $("#other_keyskill").val('');
+                }
+                else
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Skill Inserted Successfully.");
+                    $('#bidmodalskill').modal('show');
+
+                        $("#other_keyskill").val('');
+                }
+                
                 // if (msg == "Skill Inserted Successfully")
                 // {
                     //window.location.reload(true);
@@ -561,10 +582,21 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
             url: "<?php echo base_url(); ?>job/other_skill_insert",
             data: postData, //assign the var here 
             success: function () {
-                $('.biderror .mes').html("<div class='pop_content'>Skill inserted successfully.");
-                 $('#bidmodalskill').modal('show');
 
-                $("#other_keyskill1").val('');
+                 if(other_skill=="")
+                {
+                    $('.biderror .mes').html("<div class='pop_content'>Empty Skill is not Allowed.");
+                    $('#bidmodalskill').modal('show');
+
+                    $("#other_keyskill").val('');
+                }
+                else
+                {
+                        $('.biderror .mes').html("<div class='pop_content'>Skill inserted successfully.");
+                         $('#bidmodalskill').modal('show');
+
+                        $("#other_keyskill1").val('');
+                }
                 // if (msg == "Skill Inserted Successfully")
                 // {
                 //     window.location.reload(true);
@@ -576,9 +608,13 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
     $('.edit_other_skill').click(function (e) {
     //  var other_skill = $("#edit_other_skill").val();
+   // alert("hi");
         var id_val = $(this).attr('id');
+        //alert(id_val);
         var parts = id_val.split('-', 2);
+        //alert(parts);
         var get_id  = parts[1];
+        //alert(get_id);
        
         var postData = {
             'skill_id': get_id
@@ -591,7 +627,12 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 if(msg == 'ok'){
                     $("#other_keyskill-" + get_id).remove();
                     $("#edit-other-skill-" + get_id).remove();
+
+
+
                 }
+                $('.biderror .mes').html("<div class='pop_content'>Skill Remove successfully.");
+                 $('#bidmodalskill').modal('show');
             }
         });
     });
@@ -634,5 +675,16 @@ $(window).load(function(){
 });
 });
 </script>
+
+<!-- disable spacebar js start-->
+<script type='text/javascript'>
+$(window).load(function(){
+$("input").on("keydown", function (e) {
+return e.which !== 32;
+});
+});//]]>  
+</script>
+<!-- disable spacebar js end-->
+
 
 

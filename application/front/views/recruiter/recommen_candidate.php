@@ -97,7 +97,7 @@
        </div>                             
     </div>
                         <div  class="add-post-button">
-                            <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+                            <a class="btn btn-3 btn-3b" style="background: linear-gradient(rgb(24, 126, 170) 0%, rgb(27, 127, 171) 1%, rgb(224, 224, 224) 69%, rgb(222, 222, 222) 70%, rgb(217, 217, 217) 100%);" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div>
                         </div>
                       
@@ -761,8 +761,8 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
-                            var searchkeyword = document.getElementById('tags').value;
-                            var searchplace = document.getElementById('searchplace').value;
+                            var searchkeyword =$.trim(document.getElementById('tags').value);
+                            var searchplace =$.trim(document.getElementById('searchplace').value);
                             // alert(searchkeyword);
                             // alert(searchplace);
                             if (searchkeyword == "" && searchplace == "") {

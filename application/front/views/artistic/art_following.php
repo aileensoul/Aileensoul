@@ -839,7 +839,19 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 </script>
 <!-- cover image end -->
 
-
+<script type="text/javascript">
+                        function checkvalue() {
+                            //alert("hi");
+                            var searchkeyword =$.trim(document.getElementById('tags').value);
+                            var searchplace =$.trim(document.getElementById('searchplace').value);
+                            // alert(searchkeyword);
+                            // alert(searchplace);
+                            if (searchkeyword == "" && searchplace == "") {
+                                //alert('Please enter Keyword');
+                                return false;
+                            }
+                        }
+                    </script>
 <!-- follow user script start -->
 
 <script type="text/javascript">

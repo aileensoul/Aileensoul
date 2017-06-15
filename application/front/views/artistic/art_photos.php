@@ -161,7 +161,7 @@
                         $userid = $this->session->userdata('aileenuser');
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px"  href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
                             </li>
                             <?php
                         } else {
@@ -170,14 +170,14 @@
                             $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?> 
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px"  href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
                             </li>
 
                         <?php } ?> 
                         <?php
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>        
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px"  href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br> (<?php echo (count($followingdata)); ?>)</a>
                             </li>
                             <?php
                         } else {
@@ -186,7 +186,7 @@
                             $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                             $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?>
-                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px"  href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                             </li> 
                         <?php } ?>  
 
@@ -381,7 +381,7 @@
 
                                     <div id="myModal1" class="modal2">
                                        
-                                        <div class="modal-content2" >
+                                        <div class="modal-content2">
  <span class="close2 cursor" onclick="closeModal()">&times;</span>
                                             <!-- khyati chnages start-->
 
@@ -404,12 +404,10 @@
 
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <div class="slider_img_p">
-                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artdata['image_name']) ?>">
-                                                    </div>
+                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
 
                                                     <!-- 8-5 post art_post page data comment design start -->
-                                                   <!--  <div class="post-design-like-box col-md-12"> -->
+                                                    <div class="post-design-like-box col-md-12">
 <!--                                                        <div class="post-design-menu">
                                                              like comment div start 
                                                             <ul class="col-md-6">
@@ -495,8 +493,8 @@
                                         </ul>
                                                              like comment div end 
                                                         </div>-->
-                                                    <!-- </div>
- -->
+                                                    </div>
+
 
                                                     <!-- like user list start -->
 
@@ -771,12 +769,11 @@
                                             }
                                             ?>
                                             <!-- khyati chnages end-->
-                                               <a class="prev" style="left:0px;" onclick="plusSlides(-1)">&#10094;</a>
-                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
                                         </div>
 
-                                     
+                                        <a class="prev" style="left:0px;" onclick="plusSlides(-1)">&#10094;</a>
+                                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
                                         <div class="caption-container">
                                             <p id="caption"></p>
                                         </div>
@@ -945,8 +942,8 @@
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {

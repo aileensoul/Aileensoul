@@ -678,7 +678,7 @@ if($status == 0 || $status == " "){?>
                                                                                             <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
                                                                                             </i>
                                                                                         <?php } else { ?> 
-                                                                                            <i class="fa fa-thumbs-up" aria-hidden="true">
+                                                                                            <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                                                             </i>
                                                                                         <?php } ?>
                                                                                         <span>

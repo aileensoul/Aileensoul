@@ -21,17 +21,7 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 <!-- END HEADER -->
 
-<script type="text/javascript">
-//For Scroll page at perticular position js Start
-$(document).ready(function(){
- 
-  $(document).load().scrollTop(1000);
-     
-    //$('html,body').animate({scrollTop: 1000}, 100);
 
-});
-//For Scroll page at perticular position js End
-</script>
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
 <?php echo $art_header2_border; ?>
@@ -930,7 +920,7 @@ $(document).ready(function(){
                                                 </div>
                                                 <div class="post-design-desc ">
                                                     <span> 
-                                                         <div>
+                                                         <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                                                                 <a><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                             </div>
@@ -944,7 +934,7 @@ $(document).ready(function(){
                                                             <?php
                                                             $text = $this->common->make_links($row['art_description']);
                                                             ?>
-                                                            <span class="show"><?php echo $text; ?></span>
+                                                            <span class="show ft-13 "><?php echo $text; ?></span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
                                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['art_description']; ?></div>
@@ -1148,10 +1138,10 @@ $(document).ready(function(){
 
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-up  fa-1x" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up   fa-1x" aria-hidden="true"></i>
                                                                     <?php } else {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up fa-1x main_color " aria-hidden="true"></i>
                                                                         <?php }
                                                                         ?>
                                                                     <span>
@@ -1601,7 +1591,7 @@ $(document).ready(function(){
         <!-- further and less -->
         <script>
             $(function () {
-                var showTotalChar = 200, showChar = "More", hideChar = "";
+                var showTotalChar = 200, showChar = "Read More", hideChar = "";
                 $('.show').each(function () {
                     var content = $(this).html();
                     if (content.length > showTotalChar) {
@@ -1705,8 +1695,8 @@ $(document).ready(function(){
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
-                            var searchkeyword = document.getElementById('tags').value;
-                            var searchplace = document.getElementById('searchplace').value;
+                            var searchkeyword =$.trim(document.getElementById('tags').value);
+                            var searchplace =$.trim(document.getElementById('searchplace').value);
                             // alert(searchkeyword);
                             // alert(searchplace);
                             if (searchkeyword == "" && searchplace == "") {
@@ -1930,7 +1920,6 @@ $(document).ready(function(){
                             });
                         }
                     </script>
-
                     <script type="text/javascript">
                         function comment_like1(clicked_id)
                         {

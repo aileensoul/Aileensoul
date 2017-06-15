@@ -482,7 +482,7 @@ $( document ).on( 'keydown', function ( e ) {
                                             
                                         </li> -->
                                         <li class="Setting">
-                                            <a href="<?php echo base_url('registration/changepassword') ?>">
+                                            <a href="<?php echo base_url('registration/reg_setting') ?>">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 
                                         </li>
                                         <li class="logout">

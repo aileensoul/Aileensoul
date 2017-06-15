@@ -119,8 +119,8 @@
                         <div class="common-form">
                             <div class="job-saved-boxe_2" >
                                 <h3>Educational  Qualification</h3>
-                                <div class="abc">
-                                        <div class="container demo">
+                                <div class="edu_tab">
+                                        
 
     
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -129,71 +129,23 @@
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        Collapsible Group Item #1
+                        <i class="more-less fa fa-plus"></i>
+                        Primary
                     </a>
                 </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        Collapsible Group Item #2
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        Collapsible Group Item #3
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-
-    </div><!-- panel-group -->
-    
-    
-</div><!-- container -->
-                                </div>
-                              
-                                
-                                <div class="contact-frnd-post1" style="padding: 30px 20px 0; height: 100%;">
-
-                                    <div class="tabordion">
-
-                                        <section id="section1">
-                                            <input type="radio" name="sections" id="option1" <?php
+                    <section id="section1">
+                                            <!--input type="radio" name="sections" id="option1" <?php
                                             if ($postid == " ") {
                                                 echo "checked";
                                             }
-                                            ?>>
-                                            <label for="option1" class="label-d">Primary</label>
+                                            ?> -->
+                                            <!--label for="option1" class="label-d">Primary</label -->
                                             
                                             <article class="none_aaaart">
-                                                <h3>Primary</h3>
+                                                
                                                 <?php echo form_open_multipart(base_url('job/job_education_primary_insert'), array('id' => 'jobseeker_regform_primary', 'name' => 'jobseeker_regform_primary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -284,28 +236,42 @@
                            echo $edu_certificate_primary1;
                                }
                                ?>">
+                    <br>
                           <button class="submit_btn" tabindex="6">Submit</button>
-                                                    <br>
+                                                   
                              <fieldset class="hs-submit full-width" style="">
 
-                                     <input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="return next_page()">
+                                     <!--input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="return next_page()"-->
 
                                                     </fieldset>
                                                 </div>
                                                 <?php echo form_close(); ?>
                                             </article>
                                         </section>
+                </div>
+            </div>
+        </div>
 
-
-                                        <section id="section2">
-                                            <input type="radio" name="sections" id="option2" <?php
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="more-less fa fa-plus"></i>
+                       Secondary
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <section id="section2">
+                                            <!--input type="radio" name="sections" id="option2" <?php
                                             if ($postid == "secondary") {
                                                 echo "checked";
                                             }
                                             ?>>
                                             <label for="option2" class="label-d">S.S.C</label>
                                     <article class="none_aaaart">
-                                    <h3>Secondary</h3>
+                                    <h3>Secondary</h3 -->
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -401,7 +367,7 @@
                                                     <br>
                                                     <fieldset class="hs-submit full-width" style="">
 
-                                          <input type="button" id="next" name="next" tabindex="8" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()">
+                                          <!--input type="button" id="next" name="next" tabindex="8" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()"-->
 
                                                     </fieldset>
 
@@ -411,18 +377,30 @@
 
                                             </article>
                                         </section>
+                </div>
+            </div>
+        </div>
 
-
-
-                                        <section id="section3">
-                                            <input type="radio" name="sections" id="option3" <?php
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="more-less fa fa-plus"></i>
+                        Higher secondary
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <section id="section3">
+                                            <!--input type="radio" name="sections" id="option3" <?php
                                             if ($postid == "higher-secondary") {
                                                 echo "checked";
                                             }
                                             ?>>
                                             <label for="option3" class="label-d">H.S.C</label>
                                       <article class="none_aaaart">
-                                      <h3>Higher Secondary</h3>
+                                      <h3>Higher Secondary</h3-->
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -528,7 +506,7 @@
                                                     <br>
                                                     <fieldset class="hs-submit full-width" style="">
 
-                                                        <input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()">
+                                                        <!--input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()"-->
 
                                                     </fieldset>
                                                 </div>
@@ -538,18 +516,30 @@
                                             </article>
                                         </section>
 
-
-
-
-                                        <section id="section4" style="overflow: auto;">
-                                            <input type="radio" name="sections" id="option4" <?php
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <i class="more-less fa fa-plus"></i>
+                        Graduation
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                    <section id="section4">
+                                            <!--input type="radio" name="sections" id="option4" <?php
                                             if ($postid == "graduation") {
                                                 echo "checked";
                                             }
                                             ?>>
                                             <label for="option4" class="label-d">Degree</label>
                                             <article class="none_aaaart">
-                                            <h3>Graduation</h3>
+                                            <h3>Graduation</h3-->
                                   <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>
 
                                                 <?php
@@ -788,7 +778,7 @@
                                                  </div>
          <fieldset class="hs-submit full-width job_edu_graduation_nextbtnbox">
 
-                <input type="button" id="next" name="next"    tabindex="9"      class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
+                <!--input type="button" id="next" name="next"    tabindex="9"      class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()" -->
 
                                                     </fieldset>
 
@@ -985,11 +975,7 @@
              <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
                    </div> 
                                   <br>
-                <fieldset class="hs-submit full-width"  style="">
-
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
-
-                                                    </fieldset>
+                
 
                                                     <?php
                                                 }
@@ -1000,14 +986,22 @@
                                         </section>
 
 
+                </div>
+            </div>
+        </div>
 
-                                    </div>
+    </div><!-- panel-group -->
+    <fieldset class="hs-submit full-width"  style="">
 
+                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
-                                    <div class="col-md-1">
-                                    </div>
+                                                    </fieldset>
+    
 
                                 </div>
+                              
+                                
+                                
 
                             </div>
 
@@ -1987,4 +1981,14 @@ $(window).load(function(){
   $('#preloader').fadeOut('slow',function(){$(this).remove();});
 });
 });
+
+function toggleIcon(e) {
+    $(e.target)
+        .prev('.panel-heading')
+        .find(".more-less")
+        .toggleClass('fa-plus fa-minus');
+}
+$('.panel-group').on('hidden.bs.collapse', toggleIcon);
+$('.panel-group').on('shown.bs.collapse', toggleIcon);
+
 </script>

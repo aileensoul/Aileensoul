@@ -131,7 +131,7 @@
             if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
                 ?>
 
-                <div class="alert alert-danger">
+                <div class="alert alert-danger txt_cen">
 
 
                     <!-- pop up box start-->
@@ -194,7 +194,19 @@
     </div>
 </section>
 
-
+<!-- model for popup start -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model for popup -->
 <!-- Model Popup Open -->
 <!-- Bid-modal-2  -->
 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
@@ -351,6 +363,17 @@
 
         //alert(size);
 
+        // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+
         if (size > 4194304)
         {
             //show an alert to the user
@@ -424,11 +447,31 @@
     }
     
     $("#profilepic").change(function(){
-        readURL(this);
+        // pallavi code for not supported file type 15/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
     });
 </script>
 
 <!-- script for profile pic end -->
+
+<!-- popup for file type -->
+  <script>
+         function picpopup() {           
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
 

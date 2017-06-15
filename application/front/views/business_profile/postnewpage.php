@@ -657,9 +657,9 @@
 
                                                                                 if ($activedata) {
                                                                                     ?>
-                                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                 <?php } else { ?>
-                                                                                    <i class="fa fa-thumbs-up main_color fa-1x" aria-hidden="true"></i>
+                                                                                    <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                                 <?php } ?>
 
                                                                                 <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
@@ -699,15 +699,11 @@
                                                                                 <span class="comment_count_img<?php echo $busdata['image_id']; ?>" > 
                                                                                     <?php
                                                                                     if (count($commnetcount) > 0) {
-                                                                                        echo count($commnetcount);
-                                                                                    }
-                                                                                    else{
-                                                                                        echo '0';
-                                                                                    }
-                                                                                    ?>
+                                                                                        echo count($commnetcount); ?>
+                                                                                      <span> Comment</span>
+                                                                    <?php    }  ?>
                                                                                 </span> 
-                                                                                <span> Comment</span>
-                                                                            </div>
+                                                                              </div>
                                                                         </li>
 
                                                                         <li>
@@ -715,13 +711,12 @@
                                                                                 <span class="comment_like_count_img <?php echo $busdata['image_id']; ?>"> 
                                                                                     <?php
                                                                                     if ($row['business_likes_count'] > 0) {
-                                                                                        echo $row['business_likes_count'];
-                                                                                    } else {
-                                                                                        echo '0';
-                                                                                    }
+                                                                                        echo $row['business_likes_count']; ?>
+                                                                                      <span> Like</span>
+                                                                              <?php      } 
                                                                                     ?>
                                                                                 </span> 
-                                                                                <span> Like</span>
+                                                                              
                                                                             </div>
                                                                         </li>
                                                                     </ul>
@@ -915,7 +910,7 @@
 
                                                                                                 <?php } else {
                                                                                                     ?>
-                                                                                                    <i class="fa main_colorfa-thumbs-up" aria-hidden="true"></i>
+                                                                                                    <i class="fa main_colorfa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                                 <?php } ?>
                                                                                                 <span>
 
@@ -1134,13 +1129,12 @@
                                                     <span class="comment_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>" > 
                                                         <?php
                                                         if (count($commnetcount) > 0) {
-                                                            echo count($commnetcount);
-                                                        } else {
-                                                            echo '0';
-                                                        }
+                                                            echo count($commnetcount); ?>
+                                                        <span> Comment</span>
+                                                       <?php }
                                                         ?> 
                                                     </span> 
-                                                    <span> Comment</span>
+                                                    
                                                 </div>
                                             </li>
 
@@ -1149,13 +1143,12 @@
                                                     <span class="comment_like_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>"> 
                                                         <?php
                                                         if ($busienss_data[0]['business_likes_count'] > 0) {
-                                                            echo $busienss_data[0]['business_likes_count'];
-                                                        } else {
-                                                            echo '0';
-                                                        }
+                                                            echo $busienss_data[0]['business_likes_count']; ?>
+                                                         <span> Like</span>
+                                                     <?php   } 
                                                         ?>
                                                     </span> 
-                                                    <span> Like</span>
+                                                   
                                                 </div>
                                             </li>
                                         </ul>
@@ -1429,10 +1422,10 @@
 
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
-                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
+                                                                        <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
 
-                                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
+                                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
 
                                                                     <?php } ?>
                                                                     <span>
