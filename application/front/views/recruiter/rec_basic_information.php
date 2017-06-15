@@ -318,6 +318,20 @@
 
 </script>
 <script type="text/javascript">
+function checkvalue(){
+   //alert("hi");
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
+  // alert(searchkeyword);
+  // alert(searchplace);
+  if(searchkeyword == "" && searchplace == ""){
+     //alert('Please enter Keyword');
+    return false;
+  }
+}
+  
+</script>
+<script type="text/javascript">
   jQuery(document).ready(function($) {  
 
 // site preloader -- also uncomment the div in the header and the css style for #preloader

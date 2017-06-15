@@ -463,8 +463,8 @@ $('#skils').select2().select2('val', complex)
 <script type="text/javascript">
   function checkvalue() {
      
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {
