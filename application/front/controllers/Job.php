@@ -372,7 +372,6 @@ $this->load->view('business_profile/temp');
 
         //for getting state data
 
-
           $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
        $country_id= $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'country_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
@@ -395,6 +394,33 @@ $this->load->view('business_profile/temp');
 
         $contition_array = array('status' => 1,'state_id'=> $city_name);
         $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+      //for getting state permenant data
+          $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+
+       $country_per_id= $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'country_permenant', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
+
+        $state_per_name = $this->db->get_where('job_reg', array('country_permenant' => $country_per_id[0]['country_permenant']))->row()->country_permenant;
+
+
+        $contition_array = array('status' => 1,'country_id' => $state_per_name );
+        $this->data['states_per'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>";print_r($this->data['states'] );die();
+        
+         //for getting city_permenant data data
+        $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+
+       $country_per_id= $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
+
+
+       
+          $city_per_name = $this->db->get_where('job_reg', array('state_permenant' => $country_per_id[0]['state_permenant']))->row()->state_permenant;
+
+        $contition_array = array('status' => 1,'state_id'=> $city_per_name);
+        $cities_per=$this->data['cities_per'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>";print_r($cities_per);die();
+
+
 
 
 

@@ -410,13 +410,13 @@ class Freelancer extends MY_Controller {
  //          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
-          foreach ($cities as $key) {
+           foreach ($cities as $key) {
               
                  $location_list[] = $key['city_name'];
               
           }
           //echo "<pre>"; print_r($location);die();
-          foreach ($location_list as $key => $value) {
+         foreach ($location_list as $key => $value) {
               $loc[$key]['label'] =$value;
               $loc[$key]['value'] =$value;
           }
