@@ -801,7 +801,7 @@
 
                                                         <!-- <fieldset class=""> -->
                                                  <h6>Degree :<span class="red">*</span></h6>
-                                                        <select name="degree[]" id="degree1" class="degree error">
+                                                        <select name="degree[]" id="degree1" class="degree">
                                                             <option value="0">Select your Degree</option>
 
                                                             <?php
@@ -1834,13 +1834,14 @@ function next_page()
        
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
  {
-    $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
+        $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
           $('#bidmodal').modal('show');
 
 }
 else
 {
-     location.href = '<?php echo base_url('job/job_project_update') ?>';
+   //  location.href = '<?php echo base_url('job/job_project_update') ?>';
+    window.location.href = "#"+jobseeker_regform_secondary;
 }
  
    }

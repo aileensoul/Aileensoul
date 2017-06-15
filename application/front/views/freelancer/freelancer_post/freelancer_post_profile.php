@@ -287,10 +287,15 @@ function text2link($text) {
                                 </div>
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                        <li> <b>First Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_fullname']; ?> </span>
-                                        </li>
-                                        <li> <b>Last Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_username']; ?> </span>
-                                        </li>
+                                       
+
+                                           <li> <b> Name</b> <span> 
+                                                        <?php 
+                   
+                    echo $freelancerpostdata[0]['freelancer_post_fullname'] .' '. $freelancerpostdata[0]['freelancer_post_username'];
+                    
+                   ?> </span>
+                                                        </li>
 
                                         <li> <b>Email</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_email']; ?> </span>
                                         </li>
