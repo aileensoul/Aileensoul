@@ -472,11 +472,11 @@
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
                                                                             <?php } ?>
 
 
-                                                                            <span class="like_As_count <?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
+                                                                            <span class="<?php echo 'likeimage' . $artdata['image_id']; ?>"> <?php
                                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => 0);
                                                                                 $likecount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -699,12 +699,12 @@
                                                                                             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                                             if (count($artcommentlike1) == 0) {
                                                                                                 ?>
-                                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
 
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                             <?php } ?>
-                                                                                            <span class="like_As_count">
+                                                                                            <span>
 
                                                                                                 <?php
                                                                                                 $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
@@ -1090,13 +1090,13 @@
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
 
-                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
+                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                     <?php }
                                                                     ?>
-                                                                    <span class="like_As_count">
+                                                                    <span>
                                                                         <?php
                                                                         if ($rowdata['artistic_comment_likes_count'] > 0) {
                                                                             echo $rowdata['artistic_comment_likes_count'];

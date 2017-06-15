@@ -287,15 +287,10 @@ function text2link($text) {
                                 </div>
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                       
-
-                                           <li> <b> Name</b> <span> 
-                                                        <?php 
-                   
-                    echo $freelancerpostdata[0]['freelancer_post_fullname'] .' '. $freelancerpostdata[0]['freelancer_post_username'];
-                    
-                   ?> </span>
-                                                        </li>
+                                        <li> <b>First Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_fullname']; ?> </span>
+                                        </li>
+                                        <li> <b>Last Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_username']; ?> </span>
+                                        </li>
 
                                         <li> <b>Email</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_email']; ?> </span>
                                         </li>
@@ -1445,8 +1440,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
-        var searchkeyword =$.trim(document.getElementById('tags').value);
-        var searchplace = $.trim(document.getElementById('searchplace').value);
+        var searchkeyword = document.getElementById('tags').value;
+        var searchplace = document.getElementById('searchplace').value;
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {

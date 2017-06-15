@@ -241,11 +241,3 @@ padding-left: 10px;
     .like_cmnt_count li .like_count_ext{cursor: default;}
     .like_cmnt_count li .comnt_count_ext{cursor: default;}
     .like_h_w{border-radius: 50%;}
-    .modal-content2{background-color:   #000; height: 100%;}
-    .close2{color: #fff;}
-
-.slider_img_p{width: 100%; height: 100%; text-align: center; padding-top: 10px; position: relative;}
-.slider_img_p img {width: auto; max-width: 100%; max-height: 100%; position: absolute;
-    top:50%; transform: translate(-50%, -50%);
-  
-    }

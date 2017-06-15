@@ -400,21 +400,6 @@ $(document).on('change','select.degree',function(event) {//alert('SDDSD');
         }
     });
 </script>
-<!-- for search validation -->
-<script type="text/javascript">
-    function checkvalue() {
-        // alert("hi");
-        var searchkeyword =$.trim(document.getElementById('tags').value);
-        var searchplace = $.trim(document.getElementById('searchplace').value);
-        // alert(searchkeyword);
-        // alert(searchplace);
-        if (searchkeyword == "" && searchplace == "") {
-            // alert('Please enter Keyword');
-            return false;
-        }
-    }
-</script>
-<!-- end search validation -->
 <!-- stream change depend on degeree start-->
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
