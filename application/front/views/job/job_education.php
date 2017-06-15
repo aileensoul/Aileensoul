@@ -9,6 +9,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
+  <!-- This Css is used for call popup -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -31,7 +34,7 @@
                 $contition_array = array('user_id' => $userid, 'status' => '1');
                 $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                if ($jobdata[0]['job_step'] == 10) { ?>
+                if ($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] >= 3) { ?>
                  <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
                     
               <?php  } else {
@@ -285,7 +288,7 @@
                                                     <br>
                              <fieldset class="hs-submit full-width" style="">
 
-                                     <input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page()">
+                                     <input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="return next_page()">
 
                                                     </fieldset>
                                                 </div>
@@ -1023,6 +1026,19 @@
                 </section>
 
 
+<!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+                    <!-- Model Popup Close -->
 
                 <footer>
 
@@ -1039,6 +1055,9 @@
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+<!-- This Js is used for call popup -->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
                     
                     <!-- script for skill textbox automatic end -->
                     <script>
@@ -1784,25 +1803,50 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     <!-- script start for next button -->
                     <script type="text/javascript">
-                        function next_page() {
+                        // function next_page() {
 
-                             var board_primary = document.getElementById("board_primary").value;
-                             var school_primary = document.getElementById("school_primary").value;
-                             var percentage_primary = document.getElementById("percentage_primary").value;
-                             var pass_year_primary = document.getElementById("pass_year_primary").value;
+                        //      var board_primary = document.getElementById("board_primary").value;
+                        //      var school_primary = document.getElementById("school_primary").value;
+                        //      var percentage_primary = document.getElementById("percentage_primary").value;
+                        //      var pass_year_primary = document.getElementById("pass_year_primary").value;
 
                             
 
-                             if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
-                                alert("please fill out details");
-                                 return false;
-                             }
-                             else{
-                                window.location = "<?php echo base_url() ?>job/job_project_update";
-                             }
+                        //      if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
+                        //         alert("please fill out details");
+                        //          return false;
+                        //      }
+                        //      else{
+                        //         window.location = "<?php echo base_url() ?>job/job_project_update";
+                        //      }
 
-                        }
-                    </script>
+                        // }
+function next_page()
+{
+
+//alert(clicked_id);
+ 
+ var board_primary = document.getElementById('board_primary').value;
+ var school_primary = document.getElementById('school_primary').value;
+ var percentage_primary = document.getElementById('percentage_primary').value;
+ var pass_year_primary = document.getElementById('pass_year_primary').value;
+ 
+       
+ if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
+ {
+    $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
+          $('#bidmodal').modal('show');
+
+}
+else
+{
+     location.href = '<?php echo base_url('job/job_project_update') ?>';
+}
+ 
+   }
+
+
+              </script>
 
 
                     <script type="text/javascript">
