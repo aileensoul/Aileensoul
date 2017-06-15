@@ -990,7 +990,7 @@
                                                             //echo $row['art_description'];
                                                             $text = $this->common->make_links($row['art_description']);
                                                             ?>
-                                                            <span  class="show-read-more ft-13"><?php echo $text; ?></span>
+                                                            <span  class="show ft-13"><?php echo $text; ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1597,7 +1597,45 @@
         </body>
         </html>
 
+            <script>
+            $(document).ready(function () {
+                $('.video').mediaelementplayer({
+                    alwaysShowControls: false,
+                    videoVolume: 'horizontal',
+                    features: ['playpause', 'progress', 'volume', 'fullscreen']
+                });
+            });
+        </script>
+
+        <!-- further and less -->
+        <script>
+            $(function () {
+                var showTotalChar = 200, showChar = "More", hideChar = "";
+                $('.show').each(function () {
+                    var content = $(this).html();
+                    if (content.length > showTotalChar) {
+                        var con = content.substr(0, showTotalChar);
+                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                        $(this).html(txt);
+                    }
+                });
+                $(".showmoretxt").click(function () {
+                    if ($(this).hasClass("sample")) {
+                        $(this).removeClass("sample");
+                        $(this).text(showChar);
+                    } else {
+                        $(this).addClass("sample");
+                        $(this).text(hideChar);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
+                    return false;
+                });
+            });
+        </script>
        
+
 
 
         <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>

@@ -1222,6 +1222,9 @@ foreach($cities as $key){
 
     public function view_apply_list($id = "") {
 
+      
+        $userid = $this->session->userdata('aileenuser');
+      
      
        //  $contition_array = array('post_id' => $id, 'is_delete' => 0);
        //  $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1232,12 +1235,13 @@ foreach($cities as $key){
 
             //echo $ud['user_id']."hh";
 
-               $join_str = array(
-                array(
+ $join_str = array(
+    array(
         'join_type' => 'left',
         'table' => 'job_add_edu',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_add_edu.user_id'),
+                 
     array(
         'join_type' => '',
         'table' => 'job_apply',
@@ -1253,14 +1257,9 @@ foreach($cities as $key){
 
       
        $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_workexp.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
-       //echo "<pre>"; print_r($this->data['user_data']);die();
+      echo "<pre>"; print_r($this->data['user_data']);die();
 
-            //$udata[] = $this->data['userdata'];
-        // }
-
-        // $this->data['user_data'] = $userdata;
-
-        // echo "<pre>"; print_r($this->data['user_data']);
+           
 
 
        // code for search
