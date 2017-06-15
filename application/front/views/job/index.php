@@ -1,5 +1,4 @@
 
-
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -15,6 +14,71 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
+
+<style type="text/css">
+
+.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 5%;}
+.date-dropdowns .year{margin-right: 0;}
+.example {
+    width: 33%;
+    min-width: 400px;
+    padding: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.example:first-of-type {
+    position: relative;
+    bottom: 35px;
+}
+
+/* Example Heading */
+.example h2 {
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    font-size: 1.3em;
+    margin: 15px 0;
+    color: #4F5462;
+}
+
+.example input {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background: #F2F2F2;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+}
+
+.example select {
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.example select.invalid {
+    color: #E9403C;
+}
+
+.example input[type="submit"] {
+    margin-top: 10px;
+}
+
+.example input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+
+</style>
+<!-- css for date picker end-->
 
 <!-- start header -->
 <?php echo $header; ?>
@@ -245,12 +309,15 @@ if (count($nation) > 0) {
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth<span class="red">*</span></label>
                                 
-                                    <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy" tabindex="9"  autocomplete="off" value="<?php
+                                 <input type="hidden" id="example2">
+                                    <!-- <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy" tabindex="9"  autocomplete="off" value="<?php
                                      if($dob1){
                                         echo date('d/m/Y',strtotime($dob1));}
                                         else{
 
-                                           echo date('d/m/Y',strtotime($job[0]['user_dob']));  } ?>" >
+                                           echo date('d/m/Y',strtotime($job[0]['user_dob']));  } ?>" > -->
+
+
 <?php echo form_error('dob'); ?>
                                 </fieldset>
 
@@ -648,4 +715,47 @@ return e.which !== 32;
 });//]]>  
 </script>
 <!-- disable spacebar js end-->
+
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+<script>
+$(function() {
+                
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
+var date_picker ='<?php echo date('Y-m-d',strtotime($dob1));?>';
+
+
+if(date_picker){
+
+     $("#example2").dateDropdowns({
+                    submitFieldName: 'dob',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: 1821,
+                    maxYear: today,
+                    defaultDate: date_picker
+                    //startDate: today,
+
+                });   
+}else if(!date_picker){
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'dob',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: 1821,
+                    maxYear: today,
+                    //defaultDate: date_picker
+                    //startDate: today,
+
+                });  
+     } 
+                
+            });
+</script>
+
 
