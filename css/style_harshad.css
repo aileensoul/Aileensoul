@@ -229,15 +229,61 @@ padding-left: 10px;
     display: inline-block;
 }
 .post-design-product{padding-top: 1px;}
-.post-design-name ul li .post_dot1{font-size: 17px!important}
-
-.post-design-name ul li .post_dot{font-size: 17px!important}
+.post-design-name ul li .post_dot1{font-size: 17px!important; font-weight: 700!important;}
 .post-design-desc a{color: #000 !important;}
 .images_view_more span{    position: absolute;
     bottom: 0;
     left: 35%;}
-    .like_h_w:hover{background-color: #efefef;
-    border-radius: 50%;}
+   /* .like_h_w:hover{background-color: #efefef;
+    border-radius: 50%;}*/
     .like_cmnt_count li .like_count_ext{cursor: default;}
     .like_cmnt_count li .comnt_count_ext{cursor: default;}
+<<<<<<< HEAD
     .like_h_w{border-radius: 50%;}
+    .modal-content2{background-color:   #000; height: 100%;}
+    .close2{color: #fff;}
+
+.slider_img_p{width: 100%; height: 100%; text-align: center; padding-top: 10px; position: relative;}
+.slider_img_p img {width: auto; max-width: 100%; max-height: 100%; position: absolute;
+    top:50%; transform: translate(-50%, -50%);
+  
+    }
+    .t_artd{font-weight: 600;}
+    .post-design-menu ul li a{padding: 0px!important;}
+    .post-design-menu ul li a .fa-thumbs-up:hover{ background-color: #efefef;
+    border-radius: 50%; }
+     .post-design-menu ul li a .fa-comment-o:hover{ background-color: #efefef;
+    border-radius: 50%; }
+        .post-design-menu ul li a .main_color:hover{ background-color: #e8f3f8!important;
+    border-radius: 50%; }
+    .post-design-menu ul li a i{padding: 8px;}
+
+.ripple .main_color{
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0)
+}
+.ripple .main_color:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #e8f3f8 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s
+}
+.ripple .main_color:active:after {
+    transform: scale(0, 0);
+    opacity: .2;
+    transition: 0s
+}
+=======
+    .like_h_w{border-radius: 50%;}
+>>>>>>> bbf325c3a36dc3818f104f99375a3bfe8a779648
