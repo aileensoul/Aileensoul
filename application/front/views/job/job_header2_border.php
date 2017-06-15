@@ -169,7 +169,7 @@ $(document).on("dropdown_hover", function () {
 $(document).ready(function() {
      $("body").click(function(event) {
         $(".dropdown-content_hover").hide(600);
-        //event.stopPropagation();
+       // event.stopPropagation();
     });
  
 });

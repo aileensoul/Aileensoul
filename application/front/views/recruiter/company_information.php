@@ -341,7 +341,20 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
 </script>
 
-
+<script type="text/javascript">
+function checkvalue(){
+   //alert("hi");
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
+  // alert(searchkeyword);
+  // alert(searchplace);
+  if(searchkeyword == "" && searchplace == ""){
+     //alert('Please enter Keyword');
+    return false;
+  }
+}
+  
+</script>
 
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
