@@ -257,7 +257,7 @@
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         <i class="more-less fa fa-plus"></i>
-                       Secoundary
+                       Secondary
                     </a>
                 </h4>
             </div>
@@ -386,7 +386,7 @@
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                         <i class="more-less fa fa-plus"></i>
-                        Higher Secoundary
+                        Higher secondary
                     </a>
                 </h4>
             </div>
@@ -525,7 +525,7 @@
                 <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                         <i class="more-less fa fa-plus"></i>
-                        Collage
+                        Graduation
                     </a>
                 </h4>
             </div>
@@ -1001,30 +1001,7 @@
                                 </div>
                               
                                 
-                                <div class="contact-frnd-post1" style="padding: 30px 20px 0; height: 100%;">
-
-                                    <div class="tabordion">
-
-                                        
-
-
-                                        
-
-
-
-                                        
-
-
-
-                                        
-
-                                    </div>
-
-
-                                    <div class="col-md-1">
-                                    </div>
-
-                                </div>
+                                
 
                             </div>
 
