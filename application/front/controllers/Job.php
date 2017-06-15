@@ -2288,16 +2288,19 @@ $this->load->view('business_profile/temp');
             }
 
 
+            $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+            $userstepdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            if ($userjobdata[0]['job_step'] == 10) {
+
+            if ($userstepdata[0]['job_step'] == 10) {
                 $data = array(
                     'modified_date' => date('Y-m-d h:i:s', time()),
                     'job_step' => 10
                 );
-            } else if ($userjobdata[0]['job_step'] > 5) {
+            } else if ($userstepdata[0]['job_step'] > 5) {
                 $data = array(
                     'modified_date' => date('Y-m-d h:i:s', time()),
-                    'job_step' => $userdata[0]['job_step']
+                    'job_step' => $userstepdata[0]['job_step']
                 );
             } else {
                 $data = array(
@@ -2305,6 +2308,7 @@ $this->load->view('business_profile/temp');
                     'job_step' => 5
                 );
             }
+            //echo "<pre>";print_r( $data);die();
             $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 

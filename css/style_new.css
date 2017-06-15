@@ -86,18 +86,7 @@
 
 
  
-/*.user-pic:hover a {
 
-    display: block;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 4px 8.9px;
-    font-size: 12px;
-    padding-right: 4.9px;
-
-}
-*/
 /*.custom-row .user-pic:hover a{ padding: 4px 4.4px; }*/
 
 /*.logo{display: inline-block;}*/
@@ -165,7 +154,11 @@
 padding-right: 2px !important;
 }
 
+<<<<<<< HEAD
+
+=======
 .user-pic:hover a{padding: 4px 6px;}
+>>>>>>> bbf325c3a36dc3818f104f99375a3bfe8a779648
 
 
 .bui_images_view_more a:hover{text-decoration: underline;}
