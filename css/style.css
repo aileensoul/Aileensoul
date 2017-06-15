@@ -416,7 +416,6 @@ ul.nav li:hover li:active {
 section {
     width: 100%;
     /*overflow: hidden;*/
-    overflow-x: hidden;
 }
 /* Ul Li & Ol Li CSS */
 
@@ -12423,7 +12422,6 @@ end zalak 9-6 css*/
     #paddingtop_fixed_job{padding-top: 44px !important;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
-    .right-side-menu .table-responsive{width: auto;}
     .buisness-profile-txext{width: 21%;}
     .right_left_box_design{width: 79% !important;}
     .job-menu-profile1{width: auto;}
