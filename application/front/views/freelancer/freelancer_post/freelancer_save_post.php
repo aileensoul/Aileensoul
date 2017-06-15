@@ -811,19 +811,19 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 
-                        <script type="text/javascript">
-            function checkvalue() {
-            
-            var searchkeyword = document.getElementById('tags').value;
-            var searchplace = document.getElementById('searchplace').value;
-            // alert(searchke                                    yword);
-            // alert(search                                    place);
-            if (searchkeyword == "" && searchplace = = "") {
-            //alert('Please enter Key                                        word');
-            return  false;
-            }
-            }
-        </script> 
+<script type="text/javascript">
+    function checkvalue() {
+        //alert("hi");
+        var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+</script> 
        
        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
