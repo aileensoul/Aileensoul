@@ -309,7 +309,7 @@ function text2link($text){
                                                         <?php 
                    if($recdata[0]['rec_firstname'] || $recdata[0]['rec_lastname'] )
                     { 
-                    echo $recdata[0]['rec_firstname'] .' '. $recdata[0]['rec_lastname'];
+                    echo $recdata[0]['rec_firstname'] . $recdata[0]['rec_lastname'];
                      } 
                     else
                     {
@@ -801,8 +801,8 @@ $( "#searchplace" ).autocomplete({
   <script type="text/javascript">
 function checkvalue(){
    //alert("hi");
-  var searchkeyword=document.getElementById('tags').value;
-  var searchplace=document.getElementById('searchplace').value;
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
   // alert(searchkeyword);
   // alert(searchplace);
   if(searchkeyword == "" && searchplace == ""){

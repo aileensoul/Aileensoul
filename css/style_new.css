@@ -154,7 +154,11 @@
 padding-right: 2px !important;
 }
 
+<<<<<<< HEAD
 
+=======
+.user-pic:hover a{padding: 4px 6px;}
+>>>>>>> bbf325c3a36dc3818f104f99375a3bfe8a779648
 
 
 .bui_images_view_more a:hover{text-decoration: underline;}
