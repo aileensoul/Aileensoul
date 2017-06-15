@@ -1585,6 +1585,49 @@ $(document).ready(function(){
                     </body>
 
                     </html>
+
+
+
+            <script>
+            $(document).ready(function () {
+                $('video').mediaelementplayer({
+                    alwaysShowControls: false,
+                    videoVolume: 'horizontal',
+                    features: ['playpause', 'progress', 'volume', 'fullscreen']
+                });
+            });
+        </script>
+
+        <!-- further and less -->
+        <script>
+            $(function () {
+                var showTotalChar = 200, showChar = "More", hideChar = "";
+                $('.show').each(function () {
+                    var content = $(this).html();
+                    if (content.length > showTotalChar) {
+                        var con = content.substr(0, showTotalChar);
+                        var hcon = content.substr(showTotalChar, content.length - showTotalChar);
+                        var txt = con + '<span class="dots">...</span><span class="morectnt"><span>' + hcon + '</span>&nbsp;&nbsp;<a href="" class="showmoretxt">' + showChar + '</a></span>';
+                        $(this).html(txt);
+                    }
+                });
+                $(".showmoretxt").click(function () {
+                    if ($(this).hasClass("sample")) {
+                        $(this).removeClass("sample");
+                        $(this).text(showChar);
+                    } else {
+                        $(this).addClass("sample");
+                        $(this).text(hideChar);
+                    }
+                    $(this).parent().prev().toggle();
+                    $(this).prev().toggle();
+                    return false;
+                });
+            });
+        </script>
+       
+
+
                     <script>
                         $('#file-fr').fileinput({
                             language: 'fr',
@@ -1658,90 +1701,7 @@ $(document).ready(function(){
                     <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                     <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
-
-
-                    <!-- script for skill textbox automatic end (option 2)-->
-
-                    <!-- script for skill textbox automatic end (option 2)-->
-
-                    <script>
-
-                        jQuery.noConflict();
-
-                        (function ($) {
-
-                            var data = <?php echo json_encode($demo); ?>;
-                            //alert(data);
-
-
-                            $(function () {
-                                // alert('hi');
-                                $("#tags").autocomplete({
-                                    source: function (request, response) {
-                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                        response($.grep(data, function (item) {
-                                            return matcher.test(item.label);
-                                        }));
-                                    },
-                                    minLength: 1,
-                                    select: function (event, ui) {
-                                        event.preventDefault();
-                                        $("#tags").val(ui.item.label);
-                                        $("#selected-tag").val(ui.item.label);
-                                        // window.location.href = ui.item.value;
-                                    }
-                                    ,
-                                    focus: function (event, ui) {
-                                        event.preventDefault();
-                                        $("#tags").val(ui.item.label);
-                                    }
-                                });
-                            });
-
-                        })(jQuery);
-
-                    </script>
-
-                    <script>
-
-                        jQuery.noConflict();
-
-                        (function ($) {
-
-                            var data1 = <?php echo json_encode($de); ?>;
-                            //alert(data);
-
-
-                            $(function () {
-                                // alert('hi');
-                                $("#searchplace").autocomplete({
-                                    source: function (request, response) {
-                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                        response($.grep(data1, function (item) {
-                                            return matcher.test(item.label);
-                                        }));
-                                    },
-                                    minLength: 1,
-                                    select: function (event, ui) {
-                                        event.preventDefault();
-                                        $("#searchplace").val(ui.item.label);
-                                        $("#selected-tag").val(ui.item.label);
-                                        // window.location.href = ui.item.value;
-                                    }
-                                    ,
-                                    focus: function (event, ui) {
-                                        event.preventDefault();
-                                        $("#searchplace").val(ui.item.label);
-                                    }
-                                });
-                            });
-
-                        })(jQuery);
-
-                    </script>
+                    
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -2867,7 +2827,7 @@ $(document).ready(function(){
 
 
                     <!-- further and less -->
-                    <script>
+                   <!--  <script>
                         $(function () {
                             var showTotalChar = 200, showChar = "Read More", hideChar = "";
                             $('.show').each(function () {
@@ -2893,7 +2853,7 @@ $(document).ready(function(){
                                 return false;
                             });
                         });
-                    </script>
+                    </script> -->
 
 
 
@@ -3466,13 +3426,13 @@ $(document).ready(function(){
 
 
                     <script>
-                        $(document).ready(function () {
-                            $('video').mediaelementplayer({
-                                alwaysShowControls: false,
-                                videoVolume: 'horizontal',
-                                features: ['playpause', 'progress', 'volume', 'fullscreen']
-                            });
-                        });
+                        // $(document).ready(function () {
+                        //     $('video').mediaelementplayer({
+                        //         alwaysShowControls: false,
+                        //         videoVolume: 'horizontal',
+                        //         features: ['playpause', 'progress', 'volume', 'fullscreen']
+                        //     });
+                        // });
 
                         $(document).on('keydown', function (e) {
                             if (e.keyCode === 27) {
@@ -3518,4 +3478,87 @@ jQuery(document).mouseup(function (e) {
 
 
 
- 
+ <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
+
+
+                    <!-- script for skill textbox automatic end (option 2)-->
+
+                    <!-- script for skill textbox automatic end (option 2)-->
+
+                    <script>
+
+                        jQuery.noConflict();
+
+                        (function ($) {
+
+                            var data = <?php echo json_encode($demo); ?>;
+                            //alert(data);
+
+
+                            $(function () {
+                                // alert('hi');
+                                $("#tags").autocomplete({
+                                    source: function (request, response) {
+                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                        response($.grep(data, function (item) {
+                                            return matcher.test(item.label);
+                                        }));
+                                    },
+                                    minLength: 1,
+                                    select: function (event, ui) {
+                                        event.preventDefault();
+                                        $("#tags").val(ui.item.label);
+                                        $("#selected-tag").val(ui.item.label);
+                                        // window.location.href = ui.item.value;
+                                    }
+                                    ,
+                                    focus: function (event, ui) {
+                                        event.preventDefault();
+                                        $("#tags").val(ui.item.label);
+                                    }
+                                });
+                            });
+
+                        })(jQuery);
+
+                    </script>
+
+                    <script>
+
+                        jQuery.noConflict();
+
+                        (function ($) {
+
+                            var data1 = <?php echo json_encode($de); ?>;
+                            //alert(data);
+
+
+                            $(function () {
+                                // alert('hi');
+                                $("#searchplace").autocomplete({
+                                    source: function (request, response) {
+                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                        response($.grep(data1, function (item) {
+                                            return matcher.test(item.label);
+                                        }));
+                                    },
+                                    minLength: 1,
+                                    select: function (event, ui) {
+                                        event.preventDefault();
+                                        $("#searchplace").val(ui.item.label);
+                                        $("#selected-tag").val(ui.item.label);
+                                        // window.location.href = ui.item.value;
+                                    }
+                                    ,
+                                    focus: function (event, ui) {
+                                        event.preventDefault();
+                                        $("#searchplace").val(ui.item.label);
+                                    }
+                                });
+                            });
+
+                        })(jQuery);
+
+                    </script>
