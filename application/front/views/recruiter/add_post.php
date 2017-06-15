@@ -322,7 +322,7 @@
                            <fieldset class="form-group">
                                     <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
 
-                                    <input type="hidden" id="example2" name="last_date">
+                                    <input type="hidden" id="example2">
 
                                     <!-- <input type="text" name="last_date"  id="datepicker" value=""  tabindex="15" placeholder="dd-mm-yyyy"  autocomplete="off"> -->
                                       
@@ -563,13 +563,43 @@ else
 
 
 
-// $.validator.addMethod('le', function(value, element, param) {
-//       return this.optional(element) || value <= $(param).val();
-// }, 'Invalid value');
-// $.validator.addMethod('ge', function(value, element, param) {
-//       return this.optional(element) || value >= $(param).val();
-// }, 'Invalid value');
-//for min max value validator End
+// for date validtaion start
+
+jQuery.validator.addMethod("isValid", function (value, element) {
+
+
+var todaydate = new Date();
+var dd = todaydate.getDate();
+var mm = todaydate.getMonth()+1; //January is 0!
+var yyyy = todaydate.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+   var todaydate = dd+'/'+mm+'/'+yyyy;
+
+   var lastDate = $("input[name=last_date]").val();
+    //alert(lastDate); alert(todaydate);
+
+     lastDate=lastDate.split("/");
+     var lastdata_new=lastDate[1]+"/"+lastDate[0]+"/"+lastDate[2];
+     var lastdata_new_one = new Date(lastdata_new).getTime();
+
+     todaydate=todaydate.split("/");
+     var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
+     var todaydate_new_one = new Date(todaydate_new).getTime();
+     
+
+    return lastdata_new_one >= todaydate_new_one;
+}, "Last date should be grater than and equal to today's date");
+
+//date validation end
+
 
             $(document).ready(function () { 
 
@@ -644,7 +674,8 @@ else
                         },
                         last_date: {
                             
-                            required: true
+                            required: true,
+                            isValid: 'End date must be after start date'
                             
                         },
                         minsal:{
@@ -721,7 +752,7 @@ else
                         },
                         last_date: {
 
-                            required: "Last date  Is Required."
+                            required: "Last date should be grater than and equal to today's date."
                         },
                         // minsal:{
                         //     le:"Minimum salary should be less than Maximum salary"
@@ -1318,17 +1349,27 @@ if (clicked_id == 4) {
 
 
 <script>
-            $(function() {
+$(function() {
                 
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
 
                 $("#example2").dateDropdowns({
-                    submitFieldName: 'example2',
-                    submitFormat: "dd/mm/yyyy"
-                });
+                    submitFieldName: 'last_date',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: today,
+                    maxYear: today + 1
+                    //startDate: today,
 
-                
+                });   
                 
             });
-        </script>
+</script>
 
 <!-- script for date end -->
