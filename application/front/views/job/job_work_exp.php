@@ -29,7 +29,7 @@
                 $contition_array = array('user_id' => $userid, 'status' => '1');
                 $jobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                if ($jobdata[0]['job_step'] == 10) { ?>
+                if ($jobdata[0]['job_step'] == 10 || $jobdata[0]['job_step'] >= 6) { ?>
                   
                   <div class="col-md-6 col-sm-8"><h3>You are updating your Job Profile.</h3></div>
             
@@ -231,7 +231,7 @@
                                                                 if ($companyname1) {
                                                                     echo $companyname1;
                                                                 }
-                                                                ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyname-error"> </span>
+                                                                ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
                                                                        <?php echo form_error('companyname'); ?>
 
                                                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Email</label>
@@ -239,7 +239,7 @@
                                                                 if ($companyemail1) {
                                                                     echo $companyemail1;
                                                                 }
-                                                                ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
+                                                                ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
 
 
                                                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
@@ -380,7 +380,7 @@
                                                         if ($companyname1) {
                                                             echo $companyname1;
                                                         }
-                                                        ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyname-error"> </span>
+                                                        ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
                                                                <?php echo form_error('companyname'); ?>
                                                         <!-- </fieldset> -->
                                                         <!-- </fieldset>   
@@ -887,10 +887,10 @@ $(window).load(function(){
 </script>
 
 <style type="text/css">
-    #experience_month-error{margin-top: 40px;}
+    #experience_month-error{margin-top: 39px;}
     #experience_year-error{margin-top: 40px;}
-    #jobtitle-error{margin-right: 25px;}
-    #companyname-error{margin-right: 25px;}
+    #jobtitle-error{margin-right: 25px; margin-top: 42px;}
+    #companyname-error{margin-right: 25px; margin-top: 42px;}
 </style>
 
                    

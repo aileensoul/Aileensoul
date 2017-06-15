@@ -99,7 +99,20 @@
     <!-- BEGIN INNER FOOTER -->
     <?php echo $footer; ?>
     <!-- end footer -->
-
+<script type="text/javascript">
+function checkvalue(){
+   //alert("hi");
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
+  // alert(searchkeyword);
+  // alert(searchplace);
+  if(searchkeyword == "" && searchplace == ""){
+     //alert('Please enter Keyword');
+    return false;
+  }
+}
+  
+</script>
 
 <script src="<?php echo base_url('assets/ckeditor/ckeditor.js'); ?>"></script>
 

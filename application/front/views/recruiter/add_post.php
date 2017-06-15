@@ -845,8 +845,8 @@ if(mm<10) {
 <script type="text/javascript">
     function checkvalue() {
      
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {
@@ -857,8 +857,8 @@ if(mm<10) {
 
     function checkvalue_search() {
        
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
         
         if (searchkeyword == "" && searchplace == "") 
         {

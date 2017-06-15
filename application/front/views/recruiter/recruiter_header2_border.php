@@ -51,7 +51,7 @@
 <!--post save success pop up style strat -->
 <style>
 body {
-  font-family: Arial, sans-serif;
+
   background-size: cover;
   height: 100vh;
 }
