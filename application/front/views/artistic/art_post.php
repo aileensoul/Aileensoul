@@ -869,7 +869,7 @@ $(document).ready(function(){
                                                                     {echo $designation;
                                                                     
                                                                     }else{
-                                                                        echo "Current Work.";
+                                                                        echo "Current Work";
                                                                        }?> </a>
                                                                 
                                                             </div></li>
