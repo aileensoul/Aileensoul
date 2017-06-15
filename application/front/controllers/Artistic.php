@@ -323,7 +323,7 @@ class Artistic extends MY_Controller {
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $citiesss=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
@@ -393,28 +393,26 @@ class Artistic extends MY_Controller {
         }
 
         $this->data['demo'] = array_values($result1);
-             $contition_array = array('status' => '1');
+        //      $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
 
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
+        //    
 
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
+        foreach ($citiesss as $key1) {
+              
+                 $location[] = $key1['city_name'];
+             
+          }
+         // echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
         
-        $this->data['de'] = array_values($res);
+        $this->data['city_data']= $loc;
 
 
         $this->load->view('artistic/art_address', $this->data);
