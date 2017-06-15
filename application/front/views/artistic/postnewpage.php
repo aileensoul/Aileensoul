@@ -279,6 +279,7 @@
                                                         <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
 
                                                     </a>
+                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                     <div class="datespan">
                                                         <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></div>
 
@@ -392,8 +393,8 @@
                                             if (in_array($ext, $allowed)) {
                                                 ?>
 
-                                                <div class="basic-responsive-image" >
-                                                    <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                                                <div id="two_images_buip" >
+                                                    <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 
                                                 </div>
@@ -508,7 +509,7 @@
                                                                  <ul class="col-md-6 like_cmnt_count">
 
  <li>
-                                                                <div class="like_cmmt_space like_count_ext_img<?php echo $artdata['image_id']; ?>">
+                                                                <div class="like_cmmt_space comnt_count_ext like_count_ext_img<?php echo $artdata['image_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
@@ -522,7 +523,7 @@
                                                             </li>
 
                                                             <li>
-                                                                <div class="<?php echo 'comnt_count_ext_img' . $artdata['image_id']; ?>">
+                                                                <div class=" comnt_count_ext <?php echo 'comnt_count_ext_img' . $artdata['image_id']; ?>">
                                                                     <span class="comment_like_count"> 
                                                                        <?php
                                                                         if (count($likecount) > 0) { 
@@ -879,7 +880,7 @@
                                          <ul class="col-md-6 like_cmnt_count">
 
                                                              <li>
-                                                                <div class="like_count_ext<?php echo $art_data[0]['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext like_count_ext<?php echo $art_data[0]['art_post_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
@@ -893,7 +894,7 @@
                                                             </li>
 
                                                             <li>
-                                                                <div class="<?php echo 'comnt_count_ext' . $art_data[0]['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext <?php echo 'comnt_count_ext' . $art_data[0]['art_post_id']; ?>">
                                                                     <span class="comment_like_count"> 
                                                                        <?php
                                                                         if ($art_data[0]['art_likes_count'] > 0) { 

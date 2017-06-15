@@ -465,6 +465,7 @@ if($status == 0 || $status == " "){?>
                                                                                     <div class="post-design-product">
                                               <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
                                                                                         </a>
+                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="datespan">  <span style="font-weight: 400;
                                                                                                                       font-size: 14px;
                                                                                                                       color: #91949d; cursor: default;"> 
