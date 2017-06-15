@@ -322,7 +322,7 @@ public function check_email() {
 
              //for getting city data
             $contition_array = array('status' => 1);
-            $cities=$this->data['cities'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $citiesss=$this->data['cities'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             
 
 
@@ -389,9 +389,16 @@ public function check_email() {
    //echo "<pre>";print_r($cities);
    //echo "<pre>";print_r($location_list);
 
-foreach($cities as $key){
-  $location_list[]=$key['city_name'];
-}
+ foreach ($citiesss as $key1) {
+              
+                 $location[] = $key1['city_name'];
+             
+          }
+
+foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
 //echo "<pre>"; print_r($location_list);die();
           // foreach ($location_list as $key1 => $value1) {
           //   echo "<pre>"; print_r($value1);
@@ -401,12 +408,11 @@ foreach($cities as $key){
           // }
           //echo "<pre>"; print_r($location);die();
 
-  foreach($location_list as $key =>$value){
-            $loc[$key]['label']=$value;
-            $loc[$key]['value']=$value;
-          }
-          $this->data['city_data']= array_values($loc);
-
+  // foreach($location_list as $key =>$value){
+  //           $loc[$key]['label']=$value;
+  //           $loc[$key]['value']=$value;
+  //         }
+         $this->data['city_data']= $loc;
          $this->data['demo']= array_values($result1);
 
 
