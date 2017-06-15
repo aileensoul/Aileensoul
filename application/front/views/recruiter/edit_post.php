@@ -12,6 +12,71 @@
     <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
+<!-- css for date picker start-->
+<style type="text/css">
+
+.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 5%;}
+.date-dropdowns .year{margin-right: 0;}
+.example {
+    width: 33%;
+    min-width: 400px;
+    padding: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.example:first-of-type {
+    position: relative;
+    bottom: 35px;
+}
+
+/* Example Heading */
+.example h2 {
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    font-size: 1.3em;
+    margin: 15px 0;
+    color: #4F5462;
+}
+
+.example input {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background: #F2F2F2;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+}
+
+.example select {
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.example select.invalid {
+    color: #E9403C;
+}
+
+.example input[type="submit"] {
+    margin-top: 10px;
+}
+
+.example input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+
+</style>
+<!-- css for date picker end-->
 
 
 <?php echo $header; ?>
@@ -344,7 +409,9 @@
                                
                 <fieldset class="half-width">
                       <label>Last date for apply: <span style="color:red">*</span></label>
-                      <input style="cursor:pointer;" type="text" name="last_date" tabindex="16" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text">
+
+                      <input type="hidden" id="example2">
+                      <!-- <input style="cursor:pointer;" type="text" name="last_date" tabindex="16" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text"> -->
                       <?php echo form_error('last_date'); ?> 
                 </fieldset>
 
@@ -729,6 +796,43 @@ else
 
 
 
+// for date validtaion start
+
+jQuery.validator.addMethod("isValid", function (value, element) {
+
+
+var todaydate = new Date();
+var dd = todaydate.getDate();
+var mm = todaydate.getMonth()+1; //January is 0!
+var yyyy = todaydate.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+   var todaydate = dd+'/'+mm+'/'+yyyy;
+
+   var lastDate = $("input[name=last_date]").val();
+    //alert(lastDate); alert(todaydate);
+
+     lastDate=lastDate.split("/");
+     var lastdata_new=lastDate[1]+"/"+lastDate[0]+"/"+lastDate[2];
+     var lastdata_new_one = new Date(lastdata_new).getTime();
+
+     todaydate=todaydate.split("/");
+     var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
+     var todaydate_new_one = new Date(todaydate_new).getTime();
+     
+
+    return lastdata_new_one >= todaydate_new_one;
+}, "Last date should be grater than and equal to today date");
+
+//date validation end
+
 // $.validator.addMethod('le', function(value, element, param) {
 //       return this.optional(element) || value <= $(param).val();
 // }, 'Invalid value');
@@ -813,7 +917,8 @@ jQuery.noConflict();
                         },
                         last_date: {
                             
-                            required: true
+                            required: true,
+                            isValid: 'Last date should be grater than and equal to today date'
                             
                         },
                         minsal:{
@@ -1093,3 +1198,31 @@ $('#datepicker').datetimepicker({
   <!-- This Js is used for call popup -->
 
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+<script>
+$(function() {
+                
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
+var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date']));?>';
+
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'last_date',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: today,
+                    maxYear: today + 1,
+                    defaultDate: date_picker
+                    //startDate: today,
+
+                });   
+                
+            });
+</script>
+

@@ -596,7 +596,7 @@ if(mm<10) {
      
 
     return lastdata_new_one >= todaydate_new_one;
-}, "Last date should be grater than and equal to today's date");
+}, "Last date should be grater than and equal to today date");
 
 //date validation end
 
@@ -675,7 +675,7 @@ if(mm<10) {
                         last_date: {
                             
                             required: true,
-                            isValid: 'End date must be after start date'
+                            isValid: 'Last date should be grater than and equal to today date'
                             
                         },
                         minsal:{
