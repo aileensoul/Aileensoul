@@ -159,7 +159,6 @@ class Business_profile extends MY_Controller {
             $step = $userdata[0]['business_step'];
 
             if ($step == 1 || $step > 1) {
-
                 $this->data['country1'] = $userdata[0]['country'];
                 $this->data['state1'] = $userdata[0]['state'];
                 $this->data['city1'] = $userdata[0]['city'];
@@ -168,7 +167,6 @@ class Business_profile extends MY_Controller {
                 $this->data['address1'] = $userdata[0]['address'];
             }
         }
-
 
 // code for search
         $contition_array = array('status' => '1', 'is_deleted' => '0');
