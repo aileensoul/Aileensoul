@@ -1112,7 +1112,7 @@ $(document).ready(function(){
                                                                 <div class="images_view_more" >
 
 
-                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)
+                                                                    <span> View All (+<?php echo (count($artmultiimage) - 4); ?>) </span>
                                                                 </div>
 
                                                                 </a>

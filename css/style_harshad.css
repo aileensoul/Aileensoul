@@ -83,6 +83,7 @@
      .left_iner_img_profile{height: 77px; width: 71px; z-index: 3; position: relative; }
      .left_iner_img_profile img {height: 100%; width: 100%;}
      .right_left_box_design {width: 76%;
+        padding-bottom: 0px!important;
     display: inline-block;
     float: left;
 padding: 10px 10px 10px 10px ;}
@@ -232,3 +233,6 @@ padding-left: 10px;
 
 .post-design-name ul li .post_dot{font-size: 17px!important}
 .post-design-desc a{color: #000 !important;}
+.images_view_more span{    position: absolute;
+    bottom: 0;
+    left: 35%;}

@@ -1162,9 +1162,9 @@
 
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
                                                                 <div class="manage_images_view_more" >
+<span>
 
-
-                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)
+                                                                    View All (+<?php echo (count($artmultiimage) - 4); ?>)</span>
                                                                 </div>
                                                                 </a>
                                                             </div>
