@@ -936,7 +936,7 @@ $(document).ready(function(){
                                                             </div>
 
                                                             <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                                                                <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                                                                <input type="text" placeholder="title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
                                                             </div>
 
                                                         </div>
@@ -947,7 +947,7 @@ $(document).ready(function(){
                                                             <span class="show"><?php echo $text; ?></span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-                                                            <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" class="textbuis editable_text margin_btm" name="editpostdesc" ><?php echo $row['art_description']; ?></div>
+                                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['art_description']; ?></div>
                                                         </div>      
                                                         <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
                                                     </span></div> 

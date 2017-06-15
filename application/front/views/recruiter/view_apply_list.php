@@ -169,7 +169,7 @@ if ($user_data) {
                                       ?></span>
                                                        
                                     </li> -->
-                                 <li><b>Total Experience </b>     <span>  <?php echo $row['experience']; ?></span> </li>
+                                 <li><b>Total Experience </b>     <span>  <?php echo $row[0]['experience']; ?></span> </li>
 
                                  <li><b> Location</b> <span>
 

@@ -191,7 +191,7 @@ $(window).load(function(){
 
 <!-- script header notifaction-->
 <!-- Click event on body hide the element notification & Message start -->
-<!--<script>
+<script>
     $(document).ready(function () {
         $("body").click(function (event) {
             $("#notificationContainer").hide(600);
@@ -233,7 +233,7 @@ $(window).load(function(){
 
     });
 
-</script>-->
+</script>
 <!-- Click event on button show the element notification & Message end-->
 
 <script type="text/javascript" >
@@ -455,7 +455,7 @@ $( document ).on( 'keydown', function ( e ) {
 
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="myDropdown">
 
-                                        <li>
+                                        <!-- <li>
                                         <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
                                 
                                <a  onclick="return leave_page(6)">
@@ -480,6 +480,10 @@ $( document ).on( 'keydown', function ( e ) {
                                                 <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
                                  <?php } ?>
                                             
+                                        </li> -->
+                                        <li class="Setting">
+                                            <a href="<?php echo base_url('registration/reg_setting') ?>">
+                                                <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 
                                         </li>
                                         <li class="logout">
                                          <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>

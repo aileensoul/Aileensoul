@@ -545,4 +545,11 @@ if($fbdata){
 
         echo "yes";
     }  
+
+
+    function reg_setting(){
+
+      $this->load->view('profile/profile', $data);
+
+    }
 }

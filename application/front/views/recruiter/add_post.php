@@ -2,6 +2,71 @@
 
 
 <!-- select 2 validation border start -->
+<!-- css for date picker start-->
+<style type="text/css">
+
+.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 5%;}
+.date-dropdowns .year{margin-right: 0;}
+.example {
+    width: 33%;
+    min-width: 400px;
+    padding: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.example:first-of-type {
+    position: relative;
+    bottom: 35px;
+}
+
+/* Example Heading */
+.example h2 {
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    font-size: 1.3em;
+    margin: 15px 0;
+    color: #4F5462;
+}
+
+.example input {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background: #F2F2F2;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+}
+
+.example select {
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.example select.invalid {
+    color: #E9403C;
+}
+
+.example input[type="submit"] {
+    margin-top: 10px;
+}
+
+.example input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+
+</style>
+<!-- css for date picker end-->
 
 
 
@@ -253,9 +318,13 @@
                                     </select>
 
                                 </fieldset>
-<fieldset class="form-group">
+
+                           <fieldset class="form-group">
                                     <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
-                                    <input type="text" name="last_date"  id="datepicker" value=""  tabindex="15" placeholder="dd-mm-yyyy"  autocomplete="off">
+
+                                    <input type="hidden" id="example2" name="last_date">
+
+                                    <!-- <input type="text" name="last_date"  id="datepicker" value=""  tabindex="15" placeholder="dd-mm-yyyy"  autocomplete="off"> -->
                                       
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
@@ -962,23 +1031,6 @@ if (clicked_id == 4) {
  //Leave Page on add and edit post page End
 
 </script>
-<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
-
-<script type="text/javascript">
-$('#datepicker').datetimepicker({
-  //yearOffset:222,
-   minDate: 0,
-  //startDate: "2013/02/14",
-  lang:'ch',
-  timepicker:false,
-  format:'d-M-Y',
-  formatDate:'Y/m/d',
-  scrollMonth : false,
-  scrollInput : false
-  //minDate:'-1970/01/02', // yesterday is minimum date
-  //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
-});
-</script>
 
 
 
@@ -1258,3 +1310,25 @@ $('#datepicker').datetimepicker({
 #maxyear-error{margin-top: 42px !important;}
 
 </style>
+
+
+<!-- script for date start -->
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+
+
+<script>
+            $(function() {
+                
+
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'example2',
+                    submitFormat: "dd/mm/yyyy"
+                });
+
+                
+                
+            });
+        </script>
+
+<!-- script for date end -->

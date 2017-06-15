@@ -190,3 +190,52 @@ bottom: 11px;}
     bottom: 8px;}
 .manage_images_view_more{cursor: pointer;}
 .images_view_more{cursor: pointer;}
+.profile-art-box .right_left_box_design {padding-bottom: 0px !important;}
+
+/*Setting*/
+.padd_set{padding: 48px 0;}
+#cssmenu {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+#cssmenu {
+  width: 350px;
+}
+#cssmenu ul {
+  list-style: none;
+  text-indent: 0px;
+}
+#cssmenu li {
+  margin-top: 3px;
+  background-color: #1b8ab9;
+}
+#cssmenu a {
+  font: 12px Verdana;
+  padding: 4px;
+  color: #fff;
+  position: relative;
+  display: block;
+  padding: 6px 30px;
+  height: 40px;
+
+  text-decoration: none;
+  background: url('images/background.gif');
+}
+#cssmenu a:hover {
+  background: url('images/highlight.gif') no-repeat right;
+  padding: 6px 40px;
+}
+#cssmenu li :hover{
+    background-color: #156f95;
+}
+.padd_set h3{font-size: 22px;position: absolute;color: white;top: 1px;}
+
+.padd_set .change-password{padding: 50px 0;}
+
+.main_form{padding-top: 80px !important;}
+.user-midd-section .padd_set {padding: 80px 20px; padding-left: 0;}
+#cssmenu a :active{
+    background-color: #156f95;
+}
+
