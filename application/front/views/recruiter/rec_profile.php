@@ -309,7 +309,7 @@ function text2link($text){
                                                         <?php 
                    if($recdata[0]['rec_firstname'] || $recdata[0]['rec_lastname'] )
                     { 
-                    echo $recdata[0]['rec_firstname'] . $recdata[0]['rec_lastname'];
+                    echo $recdata[0]['rec_firstname'] .' '. $recdata[0]['rec_lastname'];
                      } 
                     else
                     {
