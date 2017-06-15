@@ -495,7 +495,7 @@
                                                                         $commnetcount = $this->common->select_data_by_condition('art_post_image_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                         ?>
 
-                                                                        <a onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
+                                                                        <a class="ripple like_h_w" onClick="commentallimg(this.id)" id="<?php echo $artdata['image_id']; ?>">
                                                                             <i class="fa fa-comment-o" aria-hidden="true">
                                                                                 <?php
 //                                                                                if (count($commnetcount) > 0) {
@@ -865,7 +865,7 @@
                                                 $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                 ?>
-                                                <a title="Comment"  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
+                                                <a class="ripple like_h_w" title="Comment"  onClick="commentall(this.id)" id="<?php echo $art_data[0]['art_post_id']; ?>"><i class="fa fa-comment-o" aria-hidden="true"> 
                                                         <?php
 //                                                        if (count($commnetcount) > 0) {
 //                                                            echo count($commnetcount);
