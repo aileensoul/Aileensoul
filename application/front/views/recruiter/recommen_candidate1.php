@@ -121,7 +121,18 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Search Results</h3>
+                                <h3>
+                                  Search result of 
+                                  <?php  if($keyword != "" && $keyword1 == ""){echo '"' .  $keyword . '"';}
+                                  elseif ($keyword == "" && $keyword1 != "") {
+                                    echo '"' .  $keyword1 . '"';
+                                  }
+                                  else
+                                  {
+                                     echo '"' .  $keyword . '"'; echo  " and "; echo '"' .  $keyword1 . '"';
+                                  }
+              ?>
+                                </h3>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
 

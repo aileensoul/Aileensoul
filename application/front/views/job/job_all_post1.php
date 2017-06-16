@@ -108,14 +108,14 @@
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>
-                              Search Result of 
+                              Search result of 
                                   <?php  if($keyword != "" && $keyword1 == ""){echo '"' .  $keyword . '"';}
                                   elseif ($keyword == "" && $keyword1 != "") {
                                     echo '"' .  $keyword1 . '"';
                                   }
                                   else
                                   {
-                                     echo '"' .  $keyword . '"'; echo  " And "; echo '"' .  $keyword1 . '"';
+                                     echo '"' .  $keyword . '"'; echo  " and "; echo '"' .  $keyword1 . '"';
                                   }
               ?>
                             </h3>
