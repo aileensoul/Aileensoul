@@ -8928,10 +8928,78 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
    
 
 
-public function bus_contact() {
+public function bus_contact($id = "") {
 
         $userid = $this->session->userdata('aileenuser'); 
 
-        $this->load->view('business_profile/bus_contact'); 
+
+         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
+
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $slug_id = $this->data['slug_data'][0]['business_slug'];
+        if ($id == $slug_id || $id == '') {
+
+
+        $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
+
+        $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $slugid = $artdata[0]['business_slug'];
+
+
+        $join_str[0]['table'] = 'business_profile';
+        $join_str[0]['join_table_id'] = 'business_profile.user_id';
+        $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
+        $join_str[0]['join_type'] = '';
+
+        $contition_array = array('contact_to_id' => $userid, 'contact_type' => 2, 'contact_person.status' => 'confirm');
+        $busconatctto = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+        $join_str[0]['table'] = 'business_profile';
+        $join_str[0]['join_table_id'] = 'business_profile.user_id';
+        $join_str[0]['from_table_id'] = 'contact_person.contact_to_id';
+        $join_str[0]['join_type'] = '';
+
+        $contition_array = array('contact_from_id' => $userid, 'contact_type' => 2, 'contact_person.status' => 'confirm');
+        $busconatctfrom = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+        $unique_user = array_merge($busconatctto, $busconatctfrom);
+
+         $this->data['unique_user'] = $unique_user;
+     }else{  
+
+
+        $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1);
+
+        $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
+
+        $join_str[0]['table'] = 'business_profile';
+        $join_str[0]['join_table_id'] = 'business_profile.user_id';
+        $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
+        $join_str[0]['join_type'] = '';
+
+        $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_type' => 2, 'contact_person.status' => 'confirm');
+        $busconatctto = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+        $join_str[0]['table'] = 'business_profile';
+        $join_str[0]['join_table_id'] = 'business_profile.user_id';
+        $join_str[0]['from_table_id'] = 'contact_person.contact_to_id';
+        $join_str[0]['join_type'] = '';
+
+        $contition_array = array('contact_from_id' => $id, 'contact_type' => 2, 'contact_person.status' => 'confirm');
+        $busconatctfrom = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+        $unique_user = array_merge($busconatctto, $busconatctfrom);
+
+         $this->data['unique_user'] = $unique_user;
+
+     }
+       //echo "<pre>"; print_r($unique_user); die();
+        $this->load->view('business_profile/bus_contact', $this->data); 
     }
 }
