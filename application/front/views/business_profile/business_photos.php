@@ -468,9 +468,9 @@ $(document).ready(function(){
 
                                             <!-- silder start -->
                                             <div id="myModal1" class="modal2">
-                                                <span class="close2 cursor" onclick="closeModal()">&times;</span>
+                                            
                                                 <div class="modal-content2">
-
+    <span class="close2 cursor" onclick="closeModal()">&times;</span>
                                                     <!--  multiple image start -->
 
                                                     <?php
@@ -491,8 +491,8 @@ $(document).ready(function(){
 
                                                         <div class="mySlides">
                                                             <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                            <div>
-                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $busdata['image_name']) ?>" style="width:100%; height: 70%;">
+                                                              <div class="slider_img_p">
+                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $busdata['image_name']) ?>" >
                                                             </div>
 
                                                             <!-- like comment start -->
