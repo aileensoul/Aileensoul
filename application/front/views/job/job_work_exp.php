@@ -100,6 +100,8 @@
                            <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                            Fresher&nbsp;&nbsp;
                            </label>
+                           
+                          
                            <fieldset class="hs-submit full-width left_nest">
                               <input type="submit" id="next" tabindex="2" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
@@ -240,15 +242,19 @@
                            <?php
                               }
                               ?>
+                              
+
                            <div class="hs-submit full-width fl"  style=" width: 100%; text-align: center;">
                               <input type="button" tabindex="6" id="btnAdd" value=" + ">
                               <input type="button" tabindex="7" id="btnRemove" value=" - " disabled="disabled">
                            </div>
                            <!--                                     <input type="reset">
                               <input type="submit"  id="previous" name="previous" value="previous">-->
+                                <fieldset class="hs-submit full-width"> 
                            <input style="position: absolute;
                               bottom: 8px; 
                               right: -183px;" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                                 </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
                               } else {
