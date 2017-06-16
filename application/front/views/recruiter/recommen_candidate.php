@@ -303,16 +303,16 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
             }
                                                                         ?>
                                                                     </span>
-                                                                </li>
-                                                                <?php
-                                                                $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
-                                                                $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
-                                                                ?>
-                                                                <li><b>Location</b> <span>
-                                                                          <?php  if($cityname){echo $cityname;echo ', ';}
-                                                                        echo $countryname;
-                                                                         ?> 
-                                                                    </span></li>
+                                               </li>
+                                         <?php
+                   $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
+                  $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
+                                            ?>
+                                        <li><b>Location</b> <span>
+                                <?php  if($cityname){echo $cityname;echo ', ';}
+                                             echo $countryname;
+                                              ?> 
+                                   </span></li>
             <?php if($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){ ?>
             <li>
               <b>Degree</b><span>
