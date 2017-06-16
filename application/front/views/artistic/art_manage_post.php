@@ -36,7 +36,7 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-
+    <section class="custom-row">
     <div class="container" id="paddingtop_fixed_art">
         <!--khyati 3-6-->
         <!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
@@ -101,10 +101,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>   
 
-<div class="container"> 
+
+
+<div class="container tablate-container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -292,9 +292,9 @@
 
 
 </div>
-</div>
-</div>
-</div>
+
+
+
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
