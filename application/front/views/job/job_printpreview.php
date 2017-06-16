@@ -1926,7 +1926,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     //alert('not an image');
-    savepopup();
+    picpopup();
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
@@ -2039,10 +2039,12 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             url: '<?php echo base_url() ."recruiter/save_search_user" ?>',
                             data: 'user_id=' + abc,
                             success: function (data) {
-                                $('.' + 'saveduser' + abc).html(data).addClass('save_saved_btn');
+                 $('.' + 'saveduser' + abc).html(data).addClass('butt_rec');
+                
+
                             }
                         });
-
+                        
                     }
                     </script>
                     <!-- save post end-->

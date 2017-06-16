@@ -69,7 +69,7 @@
                         </li>
                                                                 <?php } else{ ?>
                         <li> 
-                         <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class= "save_saved_btn <?php echo 'saveduser' . $this->uri->segment(3); ?>butt_rec ">
+                         <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class= "save_saved_btn <?php echo 'saveduser' . $this->uri->segment(3); ?>">
                         Save
                     </a>
                         </li>

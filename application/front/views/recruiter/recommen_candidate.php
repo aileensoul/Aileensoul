@@ -636,7 +636,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                  ?>
     <a href="<?php echo base_url('chat/abc/' . $row['iduser']); ?>">Message</a> 
 
-    <a class="saved">Saved </a> 
+    <a class="saved">Saved</a> 
                                                         <?php } }
         ?> 
                                                             </div> </div>
