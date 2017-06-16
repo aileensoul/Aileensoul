@@ -36,12 +36,12 @@
              
              if($freehiredata[0]['free_hire_step'] == 3){  ?>
 
-           <div class="col-md-6 col-sm-8"><h3>You are updating your Freelancer Profile.</h3></div>  
+           <div class="col-md-6 col-sm-6"><h3>You are updating your Freelancer Profile.</h3></div>  
 
                 <?php }else{
 
              ?>
-                      <div class="col-md-6 col-sm-8"><h3>You are making your Freelancer Profile.</h3></div>
+                      <div class="col-md-6 col-sm-6"><h3>You are making your Freelancer Profile.</h3></div>
                        <?php }?>
                       
             </div>
@@ -52,12 +52,11 @@
 				<div class="row">
 					<div class="col-md-3 col-sm-3">
 						<div class="left-side-bar">
-							<ul>
-							<li><a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>">Basic Information</a></li>
+                                                    <ul class="left-form-each">
+							<li class="custom-none"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_basic_info'); ?>">Basic Information</a></li>
 
-                                <li><a href="<?php echo base_url('freelancer_hire/freelancer_hire_address_info'); ?>">Address Information</a></li>
-
-								<li <?php if($this->uri->segment(1) == 'freelancer_hire'){?> class="active" <?php } ?>><a href="#">Professional Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer_hire/freelancer_hire_address_info'); ?>">Address Information</a></li>
+                                <li <?php if($this->uri->segment(1) == 'freelancer_hire'){?> class="active init" <?php } ?>><a href="#">Professional Information</a></li>
 
                                 
 								

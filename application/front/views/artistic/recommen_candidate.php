@@ -112,14 +112,14 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3 style="background-color: #fff; text-align: center; color: #003;">Search Result of 
+                                <h3 style="background-color: #fff; text-align: center; color: #003;">Search result of 
                                   <?php  if($keyword != "" && $keyword1 == ""){echo '"' .  $keyword . '"';}
                                   elseif ($keyword == "" && $keyword1 != "") {
                                     echo '"' .  $keyword1 . '"';
                                   }
                                   else
                                   {
-                                     echo '"' .  $keyword . '"'; echo  " And "; echo '"' .  $keyword1 . '"';
+                                     echo '"' .  $keyword . '"'; echo  " and "; echo '"' .  $keyword1 . '"';
                                   }
               ?>
                                 </h3>
@@ -1230,7 +1230,7 @@ if($status == 0 || $status == " "){?>
                                     $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
 
                                     $('.likeduserlist' + clicked_id).hide();
-                                    if (data.like_user_count == '0') {
+                                    if (data.likecount == '0') {
                                         document.getElementById('likeusername' + clicked_id).style.display = "none";
                                     } else {
                                         document.getElementById('likeusername' + clicked_id).style.display = "block";

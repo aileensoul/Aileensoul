@@ -1,3 +1,4 @@
+
 <!-- start head  -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -217,14 +218,14 @@
   <div class="col-md-7 col-sm-7 col-md-push-4 custom-right col-sm-push-4">
                         <div class="common-form">
                             <div class="job-saved-box">
-                                <h3>Search Result of 
+                                <h3>Search result of 
                                   <?php  if($keyword != "" && $keyword1 == ""){echo '"' .  $keyword . '"';}
                                   elseif ($keyword == "" && $keyword1 != "") {
                                     echo '"' .  $keyword1 . '"';
                                   }
                                   else
                                   {
-                                     echo '"' .  $keyword . '"'; echo  " And "; echo '"' .  $keyword1 . '"';
+                                     echo '"' .  $keyword . '"'; echo  " and "; echo '"' .  $keyword1 . '"';
                                   }
               ?></h3>
                                 <div class="contact-frnd-post">

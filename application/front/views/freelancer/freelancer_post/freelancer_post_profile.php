@@ -1362,7 +1362,7 @@ $( "#searchplace" ).autocomplete({
 
 if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     //alert('not an image');
-    savepopup();
+    picpopup();
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
@@ -1514,7 +1514,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             url: '<?php echo base_url() . "freelancer/save_user1" ?>',
                             data: 'user_id=' + abc,
                             success: function (data) {
-                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                $('.' + 'saveduser' + abc).html(data).addClass('butt_rec');
                             }
                         });
 
@@ -1560,7 +1560,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
       if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
        //alert('not an image');
         $('#profilepic').val('');
-         savepopup();
+         picpopup();
          return false;
           }else{
           readURL(this);}
@@ -1605,7 +1605,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                    });
   </script>
   <script>
-   function savepopup() { 
+   function picpopup() { 
             $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
             $('#bidmodal').modal('show');
                         }

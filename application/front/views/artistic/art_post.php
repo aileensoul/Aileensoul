@@ -1890,7 +1890,7 @@
                                     $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
                                     
                                     $('.likeduserlist' + clicked_id).hide();
-                                    if (data.like_user_count == '0') {
+                                    if (data.likecount == '0') {
                                         document.getElementById('likeusername' + clicked_id).style.display = "none";
                                     } else {
                                         document.getElementById('likeusername' + clicked_id).style.display = "block";
@@ -3439,6 +3439,15 @@
         $('#bidmodal').modal('hide');
     }
 });  
+
+
+ $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+    
 //all popup close close using esc end
 
  // pop up open & close aarati code start 

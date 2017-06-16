@@ -570,7 +570,7 @@
                                                                     $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
                                                                     ?>
                                                                     <div class="like_one_other" >
-                                                                        <?php
+                                                                        <?php 
                                                                         if ($userid == $commnetcount[0]['user_id']) {
                                                                             echo "You";
                                                                         } else {
@@ -937,11 +937,12 @@
                                             $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                                             $likelistarray = explode(',', $likeuser);
+                                            $likelistarray = array_reverse($likelistarray);
                                             $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                             $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                                             ?>
                                             <div class="like_one_other">
-                                                <?php
+                                                <?php 
                                                 if ($userid == $likelistarray[0]) {
                                                     echo "You";
                                                 } else {
@@ -2201,7 +2202,7 @@
                                      $('.comnt_count_ext' + clicked_id).html(data.like_user_count);
 
                                     $('.likeduserlist' + clicked_id).hide();
-                                    if (data.like_user_count == '0') {
+                                    if (data.likecount == '0') {
                                         document.getElementById('likeusername' + clicked_id).style.display = "none";
                                     } else {
                                         document.getElementById('likeusername' + clicked_id).style.display = "block";
@@ -3212,6 +3213,24 @@
                             //         });
                             // }
                         }
+                        
+                        
+                        
+            function likeuserlist(post_id) {
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo base_url() . "artistic/likeuserlist" ?>',
+                    data: 'post_id=' + post_id,
+                    dataType: "html",
+                    success: function (data) {
+                        var html_data = data;
+                        $('#likeusermodal .mes').html(html_data);
+                        $('#likeusermodal').modal('show');
+                    }
+                });
+            }
+       
 
                         function comment_deleteimgtwo(clicked_id)
                         {
@@ -3502,6 +3521,13 @@
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
+    }
+});  
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
     }
 });  
 
