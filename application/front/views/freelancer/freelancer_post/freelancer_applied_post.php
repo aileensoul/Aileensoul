@@ -977,4 +977,15 @@ $( document ).on( 'keydown', function ( e ) {
     }
 });  
  </script>
+ <script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+//  $(document).load().scrollTop(1000);
+     
+    $('html,body').animate({scrollTop:330}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
  <!-- all popup close close using esc end -->
