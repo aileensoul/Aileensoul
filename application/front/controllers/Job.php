@@ -2232,6 +2232,34 @@ $this->load->view('business_profile/temp');
             $this->form_validation->set_rules('skills', 'Keyskill', 'required');
 
 
+         $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3');
+        $skill_other=$this->data['skill_other'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($skill_other)
+        {
+            //echo "hi";die();
+             $data = array(
+                'keyskill' => implode(",", $keyskill1),
+                //'other_skill' => $this->input->post('other_skill'),
+                'modified_date' => date('Y-m-d h:i:s', time())
+            );
+            // echo "<pre>";print_r($data);die();
+            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+        }
+       
+        else
+        {
+             // echo "hi1";die();
+            $data = array(
+                'keyskill' => implode(",", $keyskill),
+                //'other_skill' => $this->input->post('other_skill'),
+                'modified_date' => date('Y-m-d h:i:s', time())
+            );
+           // echo "<pre>";print_r($data);die();
+        }
+
+
+            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
             $userjobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'keyskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //echo "<pre>"; print_r($userjobdata); die();
@@ -2314,29 +2342,8 @@ $this->load->view('business_profile/temp');
             $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 
-            $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3');
-        $skill_other=$this->data['skill_other'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        if($skill_other)
-        {
-             $data = array(
-                'keyskill' => implode(",", $keyskill1),
-                //'other_skill' => $this->input->post('other_skill'),
-                'modified_date' => date('Y-m-d h:i:s', time())
-            );
-
-            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-        }
-        else
-        {
-            $data = array(
-                'keyskill' => implode(",", $keyskill),
-                //'other_skill' => $this->input->post('other_skill'),
-                'modified_date' => date('Y-m-d h:i:s', time())
-            );
-
-            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-        }
+           
+       
             
 
             if ($updatedata) {
