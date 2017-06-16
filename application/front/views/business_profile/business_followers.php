@@ -1054,3 +1054,18 @@ function followuser_two(clicked_id)
 
 <!-- contact person script end -->
 
+<!-- scroll page script start -->
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+//  $(document).load().scrollTop(1000);
+     
+    $('html,body').animate({scrollTop:330}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
+
+<!-- scroll page script end -->
+
