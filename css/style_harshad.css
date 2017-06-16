@@ -287,7 +287,10 @@ padding-left: 10px;
     opacity: .2;
     transition: 0s
 }
+
+.post-design-name ul li .post_dot{font-size: 17px!important}
     .like_h_w{border-radius: 50%;}
+}
 .fieldsetjob{    padding: 4px 8px;}
 
 .full-width_job{width: 100%;}
