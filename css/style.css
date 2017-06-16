@@ -9175,6 +9175,7 @@ fieldset .add_post_btns:hover {
     padding: 10px 35px ;
     display: inline-block !important;
     border-radius: 4px ;
+    pointer-events: none !important;
 }
 .butt_rec:hover {
     background: #1b8ab9 !important;
