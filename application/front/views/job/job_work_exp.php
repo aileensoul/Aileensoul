@@ -137,6 +137,8 @@
                                       $y = $x + 1;
                                       ?>
                            <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
+
+                           
                            <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                               <div class="job_work_experience_main_div">
                            
@@ -555,41 +557,7 @@
    
   
 
-//for selecting 0 year and 0 month validation 
-$.validator.addMethod("greaterThanyear",
 
-function (value, element, param) { 
-
-
-    alert(value); alert(element); alert(param);
-    var $maxyear = $('#experience_year');
-   // alert($maxyear);
-    // var maxyear = parseInt($maxyear.val());
-
-    // var $minyear = $('#minyear');
-    // var minyear = parseInt($minyear.val());
-
-  var $min = $(param);
-  if (this.settings.onfocusout) {
-    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
-      $(element).valid();
-    });
-  }
-if(!value) 
-            {
-                return true;
-            }
-            else if((maxyear == minyear))
-            {
- //if((maxyear == minyear) ){// alert("gaai");
-  return parseInt(value) >= parseInt($min.val());
-}
-else
-{
-      return true;
-}
-
-}, "Max month must be greater than Min month");
    
    
        $("#jobseeker_regform1").validate({
@@ -618,8 +586,8 @@ else
    
                 'experience_month[]': {
        
-                   require_from_group: [1, ".keyskil"],
-                   // greaterThanyear: "#experience_year"
+                   require_from_group: [1, ".keyskil"]
+                
                     // required:true 
                    },
    
@@ -805,6 +773,13 @@ else
    $('#preloader').fadeOut('slow',function(){$(this).remove();});
    });
    });
+
+//    $("select[name='experience_year[]'").change(function(){
+//     //alert("hi");
+  
+//   $("select[name='experience_month[]'] option").removeAttr("disabled");
+//   $("select[name=second_combobox] option[value=" + $("select[name=first_combobox]").val() + "]").attr("disabled", "disabled");
+// });
 </script>
 <style type="text/css">
    #experience_month-error{margin-top: 39px;}
