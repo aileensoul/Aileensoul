@@ -104,13 +104,13 @@ class Search extends CI_Controller {
                     }
                 }
             }
-             //echo "<pre>"; print_r($artskillpost);
+             //echo "<pre>"; print_r($artskillpost); die();
             $contition_array = array('art_reg.is_delete' => '0', 'art_reg.status' => '1','art_reg.user_id !=' => $userid);
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%' or art_yourart LIKE '%$searchskill%')";
             // echo $search_condition;
             $otherdata = $other['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            // echo "<pre>"; print_r($otherdata); die();
+           // echo "<pre>"; print_r($other['data']); die();
 
 
             $join_str[0]['table'] = 'art_reg';
@@ -124,6 +124,7 @@ class Search extends CI_Controller {
 
 
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
              //echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 
@@ -141,7 +142,7 @@ class Search extends CI_Controller {
                     $unique = array_merge($artskillpost, $artpost, $otherdata);
                 }
 
-                 //$unique=array_merge($artpost,$otherdata); die();
+                 
                // echo "<pre>";print_r($unique);die();
                 // echo count($unique);
 
