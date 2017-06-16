@@ -3505,5 +3505,12 @@
     }
 });  
 
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+
  </script>
  <!-- all popup close close using esc end -->
