@@ -948,9 +948,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-design-desc">
-                                                        <div>
+                                                       <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a style="margin-bottom: 0px; font-size: 17px ; color: black;  ">
+                                                                <a >
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -3503,3 +3503,17 @@ jQuery(document).mouseup(function (e) {
 
 
 </script>
+
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end-->
