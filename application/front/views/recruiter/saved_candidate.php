@@ -212,6 +212,7 @@
 
         <!-- text head end -->
     </div>
+<!-- <?php //echo "<pre>"; print_r($recdata);die(); ?> -->
     <div class="col-md-8 col-sm-8 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
@@ -379,13 +380,47 @@
 
                      </span>
                    </li>
-                          
-           <li> <b> Total Experience</b>
-               <span>
-                <?php if ($rec['experience_year'] ||$rec['experience_month'] ){echo $rec['experience_year'] . ' ' . $rec['experience_month'];} else{ echo PROFILENA;} ?>
-                                                                 </span>
 
-                                                                </li>
+                  <?php if($rec['experience'] != 'Fresher'){?>
+<?php 
+$contition_array =array('user_id' => $rec['user_id'], 'experience' => 'Experience', 'status' => '1');
+
+        
+            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+            $total_work_year=0;
+            $total_work_month=0;
+
+            foreach ($experiance as $work1) {
+
+            $total_work_year+=$work1['experience_year'];
+            $total_work_month+=$work1['experience_month'];
+            }
+            ?>
+            <li> <b> Total Experience</b>
+              <span>
+              <?php
+              if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                 $month = explode(' ', $total_work_year);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+            }
+            else{
+             echo $total_work_year; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
+            }   ?>
+               </span>
+                </li>
+                <?php } else {?>
+                <li> <b> Total Experience</b>
+              <span> <?php echo $rec['experience']; ?>  </span>
+                </li>
+                <?php }?>
+             
 
                                                                  <?php
                                                                 $countryname = $this->db->get_where('countries', array('country_id' => $rec['country_id']))->row()->country_name;

@@ -139,7 +139,7 @@
                            <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
                            <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                               <div class="job_work_experience_main_div">
-                              <span>
+                           
                                  <label>Experience<span class="red">*</span></label>
                                  <select style="width: 46%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                     <option value="0 year" selected option disabled>Year</option>
@@ -183,8 +183,7 @@
                                  </select>
                                  <?php echo form_error('experience_year'); ?>
                                  <?php echo form_error('experience_month'); ?>
-                                 </span>
-                                 <span>
+                               
                                  <label  style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                                  <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                     if ($jobtitle1) {
@@ -261,7 +260,7 @@
                                   ?>
                            <!--clone div start-->              
                            <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-                          <span>    
+                       
 
                               <label>Experience<span class="red">*</span></label>
                               <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
@@ -306,8 +305,7 @@
                               </select>
                               <?php echo form_error('experience_year'); ?>
                               <?php echo form_error('experience_month'); ?>
-                              </span>
-                              <span>
+                             
                               <label style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                               <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                  if ($jobtitle1) {
@@ -527,6 +525,8 @@
    
    }
 </script>
+
+
 <script type="text/javascript">
    //validation for edit email formate form
    
@@ -539,11 +539,7 @@
    
    $(document).ready(function () {
    
-   $.validator.addMethod("regx", function(value, element, regexpr) {          
-   return regexpr.test(value);
-   }, "Only space, only number and only special characters are not allow");
-   
-   
+  
    $.validator.addMethod("regx1", function(value, element, regexpr) {          
    //return value == '' || value.trim().length != 0; 
    if(!value) 
@@ -557,7 +553,43 @@
    // return regexpr.test(value);
    }, "Only space, only number and only special characters are not allow");
    
-   
+  
+
+//for selecting 0 year and 0 month validation 
+$.validator.addMethod("greaterThanyear",
+
+function (value, element, param) { 
+
+
+    alert(value); alert(element); alert(param);
+    var $maxyear = $('#experience_year');
+   // alert($maxyear);
+    // var maxyear = parseInt($maxyear.val());
+
+    // var $minyear = $('#minyear');
+    // var minyear = parseInt($minyear.val());
+
+  var $min = $(param);
+  if (this.settings.onfocusout) {
+    $min.off(".validate-greaterThan").on("blur.validate-greaterThan", function () {
+      $(element).valid();
+    });
+  }
+if(!value) 
+            {
+                return true;
+            }
+            else if((maxyear == minyear))
+            {
+ //if((maxyear == minyear) ){// alert("gaai");
+  return parseInt(value) >= parseInt($min.val());
+}
+else
+{
+      return true;
+}
+
+}, "Max month must be greater than Min month");
    
    
        $("#jobseeker_regform1").validate({
@@ -577,15 +609,7 @@
                    regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                    //noSpace: true
                },
-               // 'experience_year[]': {
-   
-               //     required: true,
-               // },
-               // 'experience_month[]': {
-   
-               //     required: true,
-   
-               // },  
+              
                 'experience_year[]': {
        
                    require_from_group: [1, ".keyskil"] 
@@ -594,7 +618,8 @@
    
                 'experience_month[]': {
        
-                   require_from_group: [1, ".keyskil"]
+                   require_from_group: [1, ".keyskil"],
+                   // greaterThanyear: "#experience_year"
                     // required:true 
                    },
    
