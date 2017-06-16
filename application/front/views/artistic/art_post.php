@@ -30,13 +30,11 @@
 <html>
     <head>
 
-
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <script>
             $(document).ready(function ()
             {
-
 
                 /* Uploading Profile BackGround Image */
                 $('body').on('change', '#bgphotoimg', function ()
@@ -1342,6 +1340,7 @@
 
 
                     <div class="all-comment-comment-box">
+                                                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                         <div class="post-design-pro-comment-img">
 
                         <?php
@@ -1349,9 +1348,7 @@
                     ?>
                                                                             <?php if ($art_userimage) { ?>
 
-                                                                                <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
                                                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
-                                                                                </a>
                         <?php
                     } else {
                         ?>
@@ -1379,6 +1376,7 @@
                                                                                 echo ucwords($artlastname);
                                                                                 ?></b><?php echo '</br>'; ?></div>
                         
+                                                                                </a>
 
                                          <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
                     <?php

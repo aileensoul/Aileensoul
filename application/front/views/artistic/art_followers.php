@@ -318,14 +318,11 @@ if($status == 0 || $status == " "){?>
 
                                   <?php if($followerusername != ''){ ?>
                                   <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
-                            <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > </a>
+                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > </a>
                             <?php } else { ?>
                             <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>
-
-                            
-
-                            <?php } ?> 
+                         <?php } ?> 
                             </div>
                             </li>
                             <li style="width: 67%">
@@ -339,9 +336,7 @@ if($status == 0 || $status == " "){?>
                  
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a></div>
                             </li>
-                            
-
-                             
+                                                      
                              <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
 
                               <?php
@@ -976,7 +971,7 @@ function followuser_two(clicked_id)
 
                 $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
                 $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
+               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn');
                //$('#unfollow' + clicked_id).html('');
             }
         });

@@ -1335,10 +1335,11 @@ if (clicked_id == 4) {
 
 }
 #skills-error{margin-top: 40px !important;}
-#minmonth-error{margin-top: 42px !important;}
-#minyear-error{margin-top: 42px !important;}
-#maxmonth-error{margin-top: 42px !important;}
-#maxyear-error{margin-top: 42px !important;}
+#minmonth-error{margin-top: 39px !important;}
+#minyear-error{margin-top: 39px !important;}
+#maxmonth-error{margin-top: 39px !important;}
+#maxyear-error{margin-top: 39px !important;}
+#example2-error{margin-top: 40px !important}
 
 </style>
 

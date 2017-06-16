@@ -36,7 +36,7 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-
+    <section class="custom-row">
     <div class="container" id="paddingtop_fixed_art">
         <!--khyati 3-6-->
         <!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
@@ -101,10 +101,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>   
 
-<div class="container"> 
+
+
+<div class="container tablate-container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -247,7 +247,12 @@
             <?php } ?>
 
         </div>  
-        <!-- menubar -->      <div class="job-menu-profile">
+        <!-- menubar -->      
+        
+    </div>
+</div>
+        <div class="middle-part container">
+        <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
 
@@ -291,10 +296,9 @@
 
 
 
-</div>
-</div>
-</div>
-</div>
+
+
+
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
@@ -1534,8 +1538,11 @@
 
              </div>
             </div>
-                    
-        </section>
+            </div>    
+        </div>
+    </div>
+</div>
+            </section>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <!-- footer start -->
