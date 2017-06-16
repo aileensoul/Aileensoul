@@ -24,17 +24,7 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 
-<script type="text/javascript">
-//For Scroll page at perticular position js Start
-$(document).ready(function(){
- 
-  $(document).load().scrollTop(1000);
-     
-    //$('html,body').animate({scrollTop: 1000}, 100);
 
-});
-//For Scroll page at perticular position js End
-</script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
@@ -3583,6 +3573,15 @@ $(document).ready(function(){
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
+
+                         $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                         event.preventDefault();
                         return false;
 
@@ -3614,6 +3613,14 @@ $(document).ready(function(){
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
+                                     $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                     // window.location='';
                                     event.preventDefault();
                                     return false;
@@ -3629,6 +3636,15 @@ $(document).ready(function(){
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
+
+                                     $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                     event.preventDefault();
                                     return false;
                                 }
@@ -3642,6 +3658,15 @@ $(document).ready(function(){
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
+
+                                     $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                     event.preventDefault();
                                     return false;
                                 }
@@ -3656,6 +3681,15 @@ $(document).ready(function(){
                                         $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
                                         $('#bidmodal').modal('show');
                                         setInterval('window.location.reload()', 10000);
+
+                                         $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                         event.preventDefault();
                                         return false;
                                     }
@@ -3663,6 +3697,15 @@ $(document).ready(function(){
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
+
+                                     $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                     event.preventDefault();
                                     return false;
                                 }
@@ -3671,6 +3714,15 @@ $(document).ready(function(){
                                 $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                                 $('#bidmodal').modal('show');
                                 setInterval('window.location.reload()', 10000);
+
+                                 $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    }); 
                                 event.preventDefault();
                                 return false;
 
@@ -3683,11 +3735,11 @@ $(document).ready(function(){
             </script>
             <script type="text/javascript">
 
-                // $(document).ready(function () {
-                //     $('.modal-close').on('click', function () {
-                //         $('.modal-post').hide();
-                //     });
-                // });
+                $(document).ready(function () {
+                    $('.modal-close').on('click', function () {
+                        $('.modal-post').show();
+                    });
+                });
 
             </script>
 
@@ -4158,6 +4210,26 @@ jQuery(document).mouseup(function (e) {
 });  
 
  </script>
+
+
+ <script type="text/javascript">
+    $(document).on('keydown', function (e) { 
+    if (e.keyCode === 27) {
+        if($('.modal-post').show()){  
+          $( document ).on( 'keydown', function ( e ) {
+          if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+       $('.modal-post').hide();
+        }
+       });  
+     
+
+        }
+         document.getElementById('myModal3').style.display = "none";
+         }
+ });
+</script>
+
  <!-- all popup close close using esc end-->
 
    <script type="text/javascript">
@@ -4211,3 +4283,19 @@ jQuery(document).mouseup(function (e) {
             </script>
 
 <!-- contact person script end -->
+
+
+<!-- scroll page script start -->
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+//  $(document).load().scrollTop(1000);
+     
+    $('html,body').animate({scrollTop:330}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
+
+<!-- scroll page script end -->

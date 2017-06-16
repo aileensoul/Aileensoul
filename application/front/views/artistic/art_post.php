@@ -1455,7 +1455,7 @@
                                                                                 ?> 
                                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                                 <div class="comment-details-menu">
-                                                                                    <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $rowdata['art_post_id']; ?>">
+                    <input type="hidden" name="post_delete"  id="post_delete<?php echo $rowdata['artistic_post_comment_id']; ?>" value= "<?php echo $rowdata['art_post_id']; ?>">
                                                                                     <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete<span class="<?php echo 'insertcomment' . $rowdata['artistic_post_comment_id']; ?>">
                                                                                         </span>
                                                                                     </a>
@@ -1949,7 +1949,7 @@
 
                         function comment_deleted(clicked_id)
                         {
-                            var post_delete = document.getElementById("post_delete");
+                           var post_delete = document.getElementById("post_delete" + clicked_id);
                             //alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
@@ -3131,6 +3131,16 @@
                                 $('#bidmodal').modal('show');
                                 // setInterval('window.location.reload()', 10000);
                                 // window.location='';
+
+                                 $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                 event.preventDefault();
                                 return false;
 
@@ -3164,6 +3174,15 @@
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
                                             // window.location='';
+                                             $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                             event.preventDefault();
                                             return false;
                                         }
@@ -3178,6 +3197,16 @@
                                             $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
+
+                                             $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                             event.preventDefault();
                                             return false;
                                         }
@@ -3191,6 +3220,17 @@
                                             $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
+
+                                             $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
+
                                             event.preventDefault();
                                             return false;
                                         }
@@ -3205,6 +3245,15 @@
                                                 $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
                                                 $('#bidmodal').modal('show');
                                                 setInterval('window.location.reload()', 10000);
+                                                 $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                                 event.preventDefault();
                                                 return false;
                                             }
@@ -3212,6 +3261,16 @@
                                             $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                             $('#bidmodal').modal('show');
                                             setInterval('window.location.reload()', 10000);
+
+                                             $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                             event.preventDefault();
                                             return false;
                                         }
@@ -3220,6 +3279,16 @@
                                         $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                                         $('#bidmodal').modal('show');
                                         setInterval('window.location.reload()', 10000);
+
+                                         $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
+
                                         event.preventDefault();
                                         return false;
 
@@ -3232,11 +3301,11 @@
                     </script>
                     <script type="text/javascript">
 
-                        // $(document).ready(function () {
-                        //     $('.modal-close').on('click', function () {
-                        //         $('.modal-post').hide();
-                        //     });
-                        // });
+                        $(document).ready(function () {
+                            $('.modal-close').on('click', function () {
+                                $('.modal-post').show();
+                            });
+                        });
 
                     </script>
 
@@ -3414,40 +3483,33 @@
                     <!--- khyati change end-->
 
 
-                    <script>
-                        // $(document).ready(function () {
-                        //     $('video').mediaelementplayer({
-                        //         alwaysShowControls: false,
-                        //         videoVolume: 'horizontal',
-                        //         features: ['playpause', 'progress', 'volume', 'fullscreen']
-                        //     });
-                        // });
-
-                        $(document).on('keydown', function (e) {
-                            if (e.keyCode === 27) {
-                                document.getElementById('myModal').style.display = "none";
-                            }
-                        });
-                    </script>
-
-
  <script type="text/javascript">
 // all popup close close using esc start
-    $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal').modal('hide');
-    }
-});  
-
-
+   
  $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#likeusermodal').modal('hide');
     }
 });  
-    
+   
+$(document).on('keydown', function (e) { 
+    if (e.keyCode === 27) {
+        if($('.modal-post').show()){
+
+          $( document ).on( 'keydown', function ( e ) {
+          if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+       $('.modal-post').hide();
+        }
+       });  
+     
+
+        }
+         document.getElementById('myModal').style.display = "none";
+         }
+ });
+
 //all popup close close using esc end
 
  // pop up open & close aarati code start 

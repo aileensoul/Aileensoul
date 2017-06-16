@@ -1141,3 +1141,16 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
  </script>
  <!-- all popup close close using esc end -->
+
+
+ <script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+//  $(document).load().scrollTop(1000);
+     
+    $('html,body').animate({scrollTop:330}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>

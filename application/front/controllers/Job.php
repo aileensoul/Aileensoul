@@ -1,3 +1,4 @@
+
 <?php
 
 if (!defined('BASEPATH'))
@@ -8,6 +9,7 @@ if (!defined('BASEPATH'))
 class Job extends MY_Controller {
 
     public $data;
+    
 
     public function __construct() {
         parent::__construct();

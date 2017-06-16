@@ -233,3 +233,9 @@ bottom: 11px;}
 }
 
 .txt_cen{text-align: center;}
+
+.portfolio_plus{
+      position: absolute;
+    right: 0;
+    bottom: 7px;
+}
