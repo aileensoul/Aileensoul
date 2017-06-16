@@ -134,21 +134,7 @@
                 <div class="alert alert-danger txt_cen">
 
 
-                    <!-- pop up box start-->
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-
-                            <div class="pop_content">
-                                Email send Successfully.
-                                <p class="okk"><a class="okbtn" href="#">Ok</a></p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- pop up box end-->
-
-
-                    <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>" href="#popup1">
+                    <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">
                         Verify Your E-mail Account
                     </a>
 
@@ -405,8 +391,6 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 </script>
 <!-- cover image end -->
 
-
-
 <script>
     function sendmail(abc) {
 
@@ -417,8 +401,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             url: "<?php echo base_url(); ?>registration/res_mail",
             type: "POST",
             data: 'user_email=' + abc,
-            success: function (response) {
-                window.open(response);
+            success: function (response) { 
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully..");
+                  $('#bidmodal').modal('show');
+                  window.open(response);
             }
         });
     }
@@ -507,3 +493,22 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                 });
                    });
   </script>
+
+  <script type="text/javascript">
+// all popup close close using esc start
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+    //all popup close close using esc end
+</script>
+    

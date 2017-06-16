@@ -1156,15 +1156,16 @@ $(document).ready(function(){
 
                                                 <div class="post-design-desc ">
                                                 <?php } ?>                          
+                                                <div class="ft-15 t_artd">
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
-
+                                             
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
                                                 </div>
-
+                                                   </div>
 
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <span class="show">  
@@ -1357,8 +1358,8 @@ $(document).ready(function(){
                                                         <div class="manage_images_view_more" >
 
 
-                                                            View All (+<?php echo (count($businessmultiimage) - 4); ?>)
-                                                        </div>
+                                                            <span> View All (+<?php echo (count($businessmultiimage) - 4); ?>)
+                                                         </span></div>
 
                                                         </a>
 
@@ -3696,7 +3697,7 @@ $(document).ready(function(){
             <script>
                 $(function () {
 //                    var showTotalChar = 200, showChar = "More", hideChar = "Less";
-                    var showTotalChar = 250, showChar = "More", hideChar = "";
+                    var showTotalChar = 250, showChar = "ReadMore", hideChar = "";
                     $('.show').each(function () {
                         //var content = $(this).text();
                         var content = $(this).html();
@@ -4146,6 +4147,13 @@ jQuery(document).mouseup(function (e) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal-2').modal('hide');
+    }
+});  
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
     }
 });  
 

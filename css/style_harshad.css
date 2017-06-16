@@ -234,6 +234,9 @@ padding-left: 10px;
 .images_view_more span{    position: absolute;
     bottom: 0;
     left: 35%;}
+    .manage_images_view_more span{    position: absolute;
+    bottom: 0;
+    left: 35%;}
    /* .like_h_w:hover{background-color: #efefef;
     border-radius: 50%;}*/
     .like_cmnt_count li .like_count_ext{cursor: default;}
