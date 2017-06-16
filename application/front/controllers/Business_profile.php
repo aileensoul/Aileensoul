@@ -8925,6 +8925,13 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       }
      echo $contactdata;
      }
-     
+   
 
+
+public function bus_contact() {
+
+        $userid = $this->session->userdata('aileenuser'); 
+
+        $this->load->view('business_profile/bus_contact'); 
+    }
 }
