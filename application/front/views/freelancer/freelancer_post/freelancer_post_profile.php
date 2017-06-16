@@ -1514,7 +1514,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             url: '<?php echo base_url() . "freelancer/save_user1" ?>',
                             data: 'user_id=' + abc,
                             success: function (data) {
-                                $('.' + 'saveduser' + abc).html(data).addClass('saved');
+                                $('.' + 'saveduser' + abc).html(data).addClass('butt_rec');
                             }
                         });
 
