@@ -1,5 +1,3 @@
-
-
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
@@ -139,6 +137,7 @@
                            <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
                            <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                               <div class="job_work_experience_main_div">
+                              <span>
                                  <label>Experience<span class="red">*</span></label>
                                  <select style="width: 46%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                     <option value="0 year" selected option disabled>Year</option>
@@ -182,6 +181,8 @@
                                  </select>
                                  <?php echo form_error('experience_year'); ?>
                                  <?php echo form_error('experience_month'); ?>
+                                 </span>
+                                 <span>
                                  <label  style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                                  <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                     if ($jobtitle1) {
@@ -189,6 +190,7 @@
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                  <?php echo form_error('jobtitle'); ?>
+                                 </span>
                                  <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span class="red">*</span></label>
                                  <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                     if ($companyname1) {
@@ -253,6 +255,8 @@
                                   ?>
                            <!--clone div start-->              
                            <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+                          <span>    
+
                               <label>Experience<span class="red">*</span></label>
                               <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
                                  <option value="" selected option disabled>Year</option>
@@ -296,6 +300,8 @@
                               </select>
                               <?php echo form_error('experience_year'); ?>
                               <?php echo form_error('experience_month'); ?>
+                              </span>
+                              <span>
                               <label style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                               <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                  if ($jobtitle1) {
@@ -303,6 +309,7 @@
                                  }
                                  ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                               <?php echo form_error('jobtitle'); ?>
+                             </span>
                               <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span class="red">*</span></label>
                               <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                  if ($companyname1) {
@@ -774,4 +781,3 @@
    #jobtitle-error{margin-right: 25px; margin-top: 42px;}
    #companyname-error{margin-right: 25px; margin-top: 42px;}
 </style>
-
