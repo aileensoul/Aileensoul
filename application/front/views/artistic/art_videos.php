@@ -31,6 +31,19 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+//  $(document).load().scrollTop(1000);
+     
+    $('html,body').animate({scrollTop:330}, 100);
+
+});
+//For Scroll page at perticular position js End
+</script>
+
   <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
     <!-- END HEADER -->
    
@@ -909,3 +922,5 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
  </script>
  <!-- all popup close close using esc end -->
+
+ 
