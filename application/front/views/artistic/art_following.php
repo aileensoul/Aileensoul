@@ -312,7 +312,7 @@ if($status == 0 || $status == " "){?>
                             <div class="follow-img">
                                  <?php if($this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image != ''){ ?>
                                  <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
-                           <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image);?>" height="50px" width="50px" alt="" > </a>
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image);?>" height="50px" width="50px" alt="" > </a>
                             <?php } else { ?>
                               <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
                             <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />  </a>

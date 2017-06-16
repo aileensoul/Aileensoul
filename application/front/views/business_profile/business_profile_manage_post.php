@@ -24,7 +24,17 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+  $(document).load().scrollTop(1000);
+     
+    //$('html,body').animate({scrollTop: 1000}, 100);
 
+});
+//For Scroll page at perticular position js End
+</script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
@@ -1054,7 +1064,7 @@
                                                                 <div class="post-design-product">
                                                                     <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
                                                                     <p class="posted_with" > Posted With </p>
-                                                                    <a class="other_name"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                    <a class="other_name post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
                                                                    <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div></div></li>
 
@@ -4284,18 +4294,3 @@ jQuery(document).mouseup(function (e) {
 
 <!-- contact person script end -->
 
-
-<!-- scroll page script start -->
-<script type="text/javascript">
-//For Scroll page at perticular position js Start
-$(document).ready(function(){
- 
-//  $(document).load().scrollTop(1000);
-     
-    $('html,body').animate({scrollTop:330}, 100);
-
-});
-//For Scroll page at perticular position js End
-</script>
-
-<!-- scroll page script end -->
