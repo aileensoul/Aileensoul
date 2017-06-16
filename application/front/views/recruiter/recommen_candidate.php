@@ -268,7 +268,7 @@
                 
 
                                                                 ?> -->
-
+<?php if($row['experience'] != 'Fresher'){ ?>
   <?php 
 $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience', 'status' => '1');
 
@@ -300,10 +300,14 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                 echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
-            }
-                                                                        ?>
-                                                                    </span>
-                                               </li>
+            }   ?>
+               </span>
+                </li>
+             <?php } else{ ?>
+              <li> <b> Total Experience</b>
+              <span><?php echo $row['experience']; ?></span>
+                </li>
+            <?php   } ?>
                                          <?php
                    $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
                   $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
