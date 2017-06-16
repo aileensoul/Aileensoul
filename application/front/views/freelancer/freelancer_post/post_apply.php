@@ -7,7 +7,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_post_header2; ?>
+<?php echo $freelancer_post_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -96,7 +96,7 @@
            
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-4 profile-box profile-box-left">
+                    <div class="col-md-4 col-sm-4 profile-box profile-box-left">
                     <div class="">
              <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
@@ -135,13 +135,13 @@
                                             if ($freelancerdata[0]['freelancer_post_user_image']) {
                                                 ?>
 
-                                                <div class="data_img_2">
+                                                <div class="">
                      <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
                      </div>
                                                 <?php
                                             } else {
                                                 ?>
-                                                <div class="data_img_2"> 
+                                                <div class=""> 
                                                  <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname']. ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
                                                      </div> <?php
                                             }

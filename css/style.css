@@ -12506,8 +12506,8 @@ end zalak 9-6 css*/
     .profile-company-name a{font-size: 16px;}
     .profile-box-user .profile-boxProfile-name a{font-size: 12px;}
     .a-inlineBlock{width: 60px; height: 60px;}
-    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px;}
-    .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
+    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px; width: 52px;}
+    .profile-boxProfilebuisness-avatarLink2{mardin:11px 0 12px 12px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
     
