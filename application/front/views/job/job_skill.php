@@ -242,9 +242,10 @@ if ($this->session->flashdata('success')) {
 
 <style type="text/css">
     .keyskil, #other_keyskill1, #other_keyskill{
-        width:95% !important;
+        width:93% !important;
         margin-bottom: 5px;
     }    
+.common-form .edit_other_skill1{width: 93% !important;}
 </style>
 
 

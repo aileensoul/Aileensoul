@@ -392,7 +392,7 @@
                                                         if ($companyemail1) {
                                                             echo $companyemail1;
                                                         }
-                                                        ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
+                                                        ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
 
                                                         <!--   </fieldset>
                         
@@ -402,7 +402,7 @@
                                                         if ($companyphn1) {
                                                             echo $companyphn1;
                                                         }
-                                                        ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                                        ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <!-- <span id="companyphn-error"> </span> -->
                                                                <?php echo form_error('companyphn'); ?>
                                                         <!--  </fieldset>
                      
@@ -887,10 +887,11 @@ $(window).load(function(){
 </script>
 
 <style type="text/css">
-    #experience_month-error{margin-top: 39px;}
-    #experience_year-error{margin-top: 40px;}
-    #jobtitle-error{margin-right: 25px; margin-top: 42px;}
-    #companyname-error{margin-right: 25px; margin-top: 42px;}
+    #experience_month-error{margin-top: 42px;}
+    #experience_year-error{margin-top: 42px;}
+    #jobtitle-error{margin-right: 30px; margin-top: 0px;}
+    #companyname-error{margin-right: 30px; margin-top: 0px;}
+    #companyemail-error{margin-right: 30px;}
 </style>
 
                    
