@@ -36,7 +36,7 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-
+    <section class="custom-row">
     <div class="container" id="paddingtop_fixed_art">
         <!--khyati 3-6-->
         <!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
@@ -101,10 +101,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>   
 
-<div class="container"> 
+
+
+<div class="container tablate-container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -247,7 +247,12 @@
             <?php } ?>
 
         </div>  
-        <!-- menubar -->      <div class="job-menu-profile">
+        <!-- menubar -->      
+        
+    </div>
+</div>
+        <div class="middle-part container">
+        <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
 
@@ -291,10 +296,9 @@
 
 
 
-</div>
-</div>
-</div>
-</div>
+
+
+
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
@@ -1331,9 +1335,9 @@
 
 
                                                                 <?php
-                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        if ($artdatacondition) {
+//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                        if ($artdatacondition) {
                                             ?>
                                             <div class="art-all-comment col-md-12">
                                                 <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
@@ -1475,17 +1479,17 @@
                                                 <!-- all comments code end -->
 
                                             </div>
-        <?php } else { ?>
+        <?php //} else { ?>
 
-            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+<!--            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
                                             </div>
 
                                             <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
 
                                                 <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                                 </div>
-                                            </div>
-        <?php } ?>
+                                            </div>-->
+        <?php //} ?>
 
                                             <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">
@@ -1534,8 +1538,11 @@
 
              </div>
             </div>
-                    
-        </section>
+            </div>    
+        </div>
+    </div>
+</div>
+            </section>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <!-- footer start -->

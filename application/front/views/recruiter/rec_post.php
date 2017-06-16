@@ -233,7 +233,7 @@ if ($returnpage == 'job') {
         
         <!-- text head end -->
     </div>
-    <div class="col-md-8 col-sm-8 mob-clear">
+    <div class="col-md-8 col-sm-8 mob-clear ">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Post</h3>
@@ -594,7 +594,7 @@ if ($returnpage == 'job') {
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="profile-job-profile-button clearfix">
+                                    <div class="profile-job-profile-button  clearfix" >
                                         <div class="profile-job-details col-md-12">
                                             <ul><li class="job_all_post last_date">
                                                     Last Date :<?php if($post['post_last_date'] != "0000-00-00"){ echo date('d-M-Y',strtotime($post['post_last_date'])); }else{ echo PROFILENA;} ?></li>
