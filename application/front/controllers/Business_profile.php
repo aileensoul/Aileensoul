@@ -8991,7 +8991,7 @@ public function bus_contact($id = "") {
         $join_str[0]['from_table_id'] = 'contact_person.contact_to_id';
         $join_str[0]['join_type'] = '';
 
-        $contition_array = array('contact_from_id' => $id, 'contact_type' => 2, 'contact_person.status' => 'confirm');
+        $contition_array = array('contact_from_id' =>  $businessdata1[0]['user_id'], 'contact_type' => 2, 'contact_person.status' => 'confirm');
         $busconatctfrom = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $unique_user = array_merge($busconatctto, $busconatctfrom);
@@ -9002,4 +9002,19 @@ public function bus_contact($id = "") {
        //echo "<pre>"; print_r($unique_user); die();
         $this->load->view('business_profile/bus_contact', $this->data); 
     }
+
+
+   
+   public function removecontactuser() {
+
+
+        $contact_user_id = $_POST["contact_user_id"];
+
+        $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to' => $business_id);
+
+        $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+    } 
+
+
 }

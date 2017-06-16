@@ -1734,11 +1734,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
         'from_table_id' => 'job_reg.user_id'),
      array(
         'join_type' => 'left',
-        'table' => 'job_add_workexp',
-        'join_table_id' => 'save.to_id',
-        'from_table_id' => 'job_add_workexp.user_id'),
-     array(
-        'join_type' => 'left',
         'table' => 'job_graduation',
         'join_table_id' => 'save.to_id',
         'from_table_id' => 'job_graduation.user_id')
@@ -1747,7 +1742,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
   // <rash code 12-4 end>
         $contition_array1= array('save.from_id' => $userid, 'save.status' => 0, 'save.save_type' => 1);
-        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
+        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = 'job_reg.*,job_reg.user_id as user_id,job_add_edu.*,job_graduation.*,save.*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
 
      //   echo"<pre>"; print_r($this->data['recdata']); die();
 
@@ -1930,7 +1925,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 $error = array();
             }
             if ($error) {
-               
+    
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');
