@@ -34,7 +34,7 @@
 
 <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
         <div class="container" id="paddingtop_fixed"> 
 
             <div class="row" id="row1" style="display:none;">
@@ -65,8 +65,8 @@
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if($this->uri->segment(3) == $userid){
@@ -100,10 +100,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+  
 
-<div class="container">    
+<div class="container tablate-container">    
     <div class="upload-img">
 
 
@@ -141,14 +140,18 @@
             <!-- </div> -->
 
 
-        </div>    <div class="profile-main-rec-box-menu  col-md-12 ">
+        </div>    
+        
+        <div class="profile-main-rec-box-menu  col-md-12 ">
 
             <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-9">  
-                <ul class="">
-                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">
+            <div class="right-side-menu col-md-6">  
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                    <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">
 Details</a>
-                    </li>
+                    </td>
 
 
 <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
@@ -156,18 +159,22 @@ Details</a>
 
 
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
-                        </li>
+                        <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
+                        </td>
 
-                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
-                        </li>
+                        <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
+                        </td>
 
 
 <?php } ?>
-
-                </ul>
+                    </tr>
+                </table>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+    <div class="middle-part container">
         <div class="job-menu-profile1">
         <a href="javascript:void(0);">  <h5> <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h5></a>  
          
@@ -192,7 +199,7 @@ Details</a>
         </div>
       
 
-        <div class="col-md-7 col-sm-7 follow_mid">
+        <div class="col-md-8 col-sm-8 mob-clear">
             <div class="common-form">
                 <div class="job-saved-box">
                     <h3>Applied Posts</h3>
@@ -388,7 +395,7 @@ Details</a>
 
     </div>
     </div>
-    </div>
+   
 </section>
 <footer>
 
