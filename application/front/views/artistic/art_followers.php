@@ -971,7 +971,7 @@ function followuser_two(clicked_id)
 
                 $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
                 $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
+               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn');
                //$('#unfollow' + clicked_id).html('');
             }
         });
