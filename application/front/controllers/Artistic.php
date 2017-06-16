@@ -4119,7 +4119,7 @@ class Artistic extends MY_Controller {
 
                // $like_user_count = $commnetcount[0]['art_likes_count'];
                 
-               // $like_user_count = $commnetcount[0]['art_likes_count'];
+               $like_count = $commnetcount[0]['art_likes_count'];
              $like_user_count =  '<span class="comment_like_count">'; 
                if ($commnetcount[0]['art_likes_count'] > 0) { 
               $like_user_count .= '' . $commnetcount[0]['art_likes_count'] . ''; 
@@ -4130,6 +4130,7 @@ class Artistic extends MY_Controller {
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
+                            "likecount" => $like_count,
                             "like_user_count" => $like_user_count));
             }
         } else {
@@ -4236,7 +4237,7 @@ class Artistic extends MY_Controller {
                 }
                 $cmtlikeuser .= '</a>';
      $cmtlikeuser .= '</div>';
-           //  $like_user_count = $commnetcount[0]['art_likes_count'];
+             $like_count = $commnetcount[0]['art_likes_count'];
              $like_user_count =  '<span class="comment_like_count">'; 
                if ($commnetcount[0]['art_likes_count'] > 0) { 
               $like_user_count .= '' . $commnetcount[0]['art_likes_count'] . ''; 
@@ -4248,6 +4249,7 @@ class Artistic extends MY_Controller {
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
+                             "likecount" => $like_count,
                             "like_user_count" => $like_user_count));
             }
         }
