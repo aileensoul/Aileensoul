@@ -53,15 +53,15 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div class="left-side-bar">
-                            <ul>
+                            <ul class="left-form-each">
 
-                            <li><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Information</a></li>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Information</a></li>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Rate</a></li>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>           
-                                <li <?php if($this->uri->segment(1) == 'freelancer'){?> class="active" <?php } ?>><a href="#">Portfolio</a></li>
+                            <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Rate</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>           
+                                <li <?php if($this->uri->segment(1) == 'freelancer'){?> class="active init" <?php } ?>><a href="#">Portfolio</a></li>
                                 </ul>
                         </div>
                     </div>

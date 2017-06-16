@@ -418,8 +418,9 @@ $(document).ready(function(){
 
                                                 <div class="mySlides">
                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artdata['image_name']) ?>" style="width:100%; height: 70%;">
-
+                                                       <div class="slider_img_p">
+                                                    <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artdata['image_name']) ?>">
+</div>
                                                     <!-- 8-5 post art_post page data comment design start -->
                                                     <div class="post-design-like-box col-md-12">
 <!--                                                        <div class="post-design-menu">
@@ -783,10 +784,11 @@ $(document).ready(function(){
                                             }
                                             ?>
                                             <!-- khyati chnages end-->
-                                        </div>
-
+                                            
                                         <a class="prev" style="left:0px;" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                                        </div>
 
                                         <div class="caption-container">
                                             <p id="caption"></p>
