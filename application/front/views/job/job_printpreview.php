@@ -1211,7 +1211,7 @@ echo $job_header2;
                                             else
                                             {
                                                 ?>
-                                                <li><b> Pincode</b> <span>
+                                                <li><b> Company Email Address</b> <span>
                                                <?php echo PROFILENA;
                                                 
 
@@ -1247,7 +1247,7 @@ echo $job_header2;
                                             else
                                             {
                                                 ?>
-                                                <li><b> Pincode</b> <span>
+                                                <li><b>Company Phone Number</b> <span>
                                                <?php echo PROFILENA;
                                                 
 
