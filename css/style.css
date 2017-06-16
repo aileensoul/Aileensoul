@@ -3903,7 +3903,7 @@ width: 100%;
 .profile-boxProfilebuisness-avatarLink2 {
     background-color: #fff;
     border-radius: 6px;
-    margin: 11px 0 0 12px;
+    margin: 11px 0 12px 12px;
     padding: 1px;
     vertical-align: bottom;
     border: 3px solid #ffffff;
@@ -9175,6 +9175,7 @@ fieldset .add_post_btns:hover {
     padding: 10px 35px ;
     display: inline-block !important;
     border-radius: 4px ;
+    pointer-events: none !important;
 }
 .butt_rec:hover {
     background: #1b8ab9 !important;
@@ -12505,7 +12506,7 @@ end zalak 9-6 css*/
     .profile-company-name a{font-size: 16px;}
     .profile-box-user .profile-boxProfile-name a{font-size: 12px;}
     .a-inlineBlock{width: 60px; height: 60px;}
-    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px;}
+    .profile-boxProfileCard-content .buisness-profile-txext a img{height: 52px; width: 52px;}
     .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}

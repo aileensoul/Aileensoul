@@ -24,7 +24,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_hire_header2; ?>
+<?php echo $freelancer_hire_header2_border; ?>
 
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">

@@ -948,9 +948,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-design-desc">
-                                                        <div>
+                                                       <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <a style="margin-bottom: 0px; font-size: 17px ; color: black;  ">
+                                                                <a >
                                                                     <?php echo $this->common->make_links($row['product_name']); ?>
                                                                 </a>
                                                             </div>
@@ -3112,6 +3112,15 @@
             $('#bidmodal').modal('show');
             setInterval('window.location.reload()', 10000);
             // window.location='';
+
+            $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
             event.preventDefault();
             return false;
 
@@ -3140,6 +3149,15 @@
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
+
+                        $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                         event.preventDefault();
                         return false;
                     }
@@ -3151,6 +3169,15 @@
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
+
+                        $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                         event.preventDefault();
                         return false;
                     }
@@ -3162,6 +3189,15 @@
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
+
+                        $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                         event.preventDefault();
                         return false;
                     }
@@ -3174,6 +3210,15 @@
                             $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
                             $('#bidmodal').modal('show');
                             setInterval('window.location.reload()', 10000);
+
+                            $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                             event.preventDefault();
                             return false;
                         }
@@ -3181,6 +3226,15 @@
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
+
+                        $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                         event.preventDefault();
                         return false;
                     }
@@ -3189,6 +3243,15 @@
                     $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                     $('#bidmodal').modal('show');
                     setInterval('window.location.reload()', 10000);
+
+                    $( document ).on( 'keydown', function ( e ) {
+                                          if ( e.keyCode === 27 ) {
+                                        //$( "#bidmodal" ).hide();
+                                        $('#bidmodal').modal('hide');
+                                        $('.modal-post').show();
+
+                                       }
+                                    });  
                     event.preventDefault();
                     return false;
 
@@ -3199,11 +3262,11 @@
 </script>
 <script type="text/javascript">
 
-    // $(document).ready(function () {
-    //     $('.modal-close').on('click', function () {
-    //         $('.modal-post').hide();
-    //     });
-    // });
+    $(document).ready(function () {
+        $('.modal-close').on('click', function () {
+            $('.modal-post').show();
+        });
+    });
 
 </script>
 <!-- post insert developing code end  -->
@@ -3415,13 +3478,22 @@
     });
 </script>
 <script type="text/javascript">
-    $(document).keydown(function (e) {
-        if (!e)
-            e = window.event;
-        if (e.keyCode == 27 || e.charCode == 27) {
-            document.getElementById('myModal').style.display = "none";
+    $(document).on('keydown', function (e) { 
+    if (e.keyCode === 27) {
+        if($('.modal-post').show()){
+
+          $( document ).on( 'keydown', function ( e ) {
+          if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+       $('.modal-post').hide();
         }
-    });
+       });  
+     
+
+        }
+         document.getElementById('myModal').style.display = "none";
+         }
+ });
 </script>
 <script>
 // Get the modal
@@ -3503,3 +3575,17 @@ jQuery(document).mouseup(function (e) {
 
 
 </script>
+
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end-->
