@@ -3439,6 +3439,15 @@
         $('#bidmodal').modal('hide');
     }
 });  
+
+
+ $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+    
 //all popup close close using esc end
 
  // pop up open & close aarati code start 

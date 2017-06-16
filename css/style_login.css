@@ -253,7 +253,7 @@ input, textarea,button {
 .reg_button input[type="submit"]{background-color: #fff; padding: 3.5px 10px; color: #1b8ab8; border:1px solid #1b8ab8;}
 input:focus, textarea:focus {
   outline: 0;
-  border: 2px solid #3db0c1;
+  border: 1px solid #3db0c1;
   
  
 }

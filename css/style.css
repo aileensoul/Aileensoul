@@ -231,14 +231,16 @@ a:focus {
     padding: 4px 16px;
     display: block;
     padding-top: 8px;
+
 }
 .header2 ul li a i {
-    font-size: 12px;
+    font-size: 15px;
     padding-left: 0px;
 }
 .header2 ul li a:hover {
     background: #156f95;
     color: #fff;
+    
 }
 .header2 ul li a.active {
     position: relative;
@@ -8752,7 +8754,7 @@ fieldset .add_post_btns:hover {
     padding-left: 0px;
 }
 .common-form_border {
-    border: 2px solid #d9d9d9;
+    border: 1px solid #d9d9d9;
 }
 .head_details1 a {
     text-decoration: underline;
@@ -12328,6 +12330,7 @@ end zalak 9-6 css*/
     position: absolute;
     right: 0;}
 
+.bui_images_view_more span:hover{text-decoration: underline;}
 /***  eduction style  ***/
     .edu_tab{padding-top: 20px;}
     
@@ -12483,7 +12486,7 @@ end zalak 9-6 css*/
     .right_left_box_design{width: 79% !important;}
     .job-menu-profile1{width: auto;}
     .left-side-bar ul li.active::after{content:"\f078"}
-    .profile-main-rec-box-menu .table-responsive{border: none;}
+    .profile-main-rec-box-menu .table-responsive{border: none; width: auto;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}

@@ -195,7 +195,7 @@ $(window).load(function(){
     $(document).ready(function () {
         $("body").click(function (event) {
             $("#notificationContainer").hide(600);
-            //event.stopPropagation();
+            event.stopPropagation();
         });
 
     });
@@ -204,7 +204,7 @@ $(window).load(function(){
         $("body").click(function (event) {
             $("#InboxContainer").hide(600);
 
-            //event.stopPropagation();
+            event.stopPropagation();
         });
 
     });
@@ -213,11 +213,11 @@ $(window).load(function(){
 
     $(document).ready(function () {
         $('.dropdown-user').click(function (event) {
-            //event.stopPropagation();
+            event.stopPropagation();
             $(".dropdown-menu").slideToggle("fast");
         });
         $(".dropdown-menu").on("dropdown-user", function (event) {
-            //event.stopPropagation();
+            event.stopPropagation();
         });
     });
 
@@ -228,7 +228,7 @@ $(window).load(function(){
     $(document).ready(function () {
         $("body").click(function (event) {
             $(".dropdown-menu").hide(600);
-            //event.stopPropagation();
+            event.stopPropagation();
         });
 
     });
@@ -392,7 +392,7 @@ $( document ).on( 'keydown', function ( e ) {
   </a></li> -->
                                 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs">Notification</em> <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs">Notification</em> <i class="fa fa-bell" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
