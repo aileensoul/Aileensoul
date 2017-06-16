@@ -1331,9 +1331,9 @@
 
 
                                                                 <?php
-                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        if ($artdatacondition) {
+//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                        if ($artdatacondition) {
                                             ?>
                                             <div class="art-all-comment col-md-12">
                                                 <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
@@ -1475,17 +1475,17 @@
                                                 <!-- all comments code end -->
 
                                             </div>
-        <?php } else { ?>
+        <?php //} else { ?>
 
-            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+<!--            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
                                             </div>
 
                                             <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
 
                                                 <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                                 </div>
-                                            </div>
-        <?php } ?>
+                                            </div>-->
+        <?php //} ?>
 
                                             <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">
