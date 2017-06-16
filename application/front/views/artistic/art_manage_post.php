@@ -247,7 +247,12 @@
             <?php } ?>
 
         </div>  
-        <!-- menubar -->      <div class="job-menu-profile">
+        <!-- menubar -->      
+        
+    </div>
+</div>
+        <div class="middle-part container">
+        <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
 
@@ -291,7 +296,6 @@
 
 
 
-</div>
 
 
 
@@ -1534,8 +1538,11 @@
 
              </div>
             </div>
-                    
-        </section>
+            </div>    
+        </div>
+    </div>
+</div>
+            </section>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <!-- footer start -->
