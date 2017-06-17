@@ -346,7 +346,7 @@ class Freelancer extends MY_Controller {
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $cities=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $citiess=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
 
@@ -410,7 +410,7 @@ class Freelancer extends MY_Controller {
  //          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
-           foreach ($cities as $key) {
+           foreach ($citiess as $key) {
               
                  $location_list[] = $key['city_name'];
               
@@ -423,7 +423,7 @@ class Freelancer extends MY_Controller {
          
  // //echo "<pre>"; print_r($loc);die();
 
-        $this->data['city_data']= array_values($loc);
+        $this->data['city_data']= $loc;
          
          $this->data['demo']= array_values($result1);
 
