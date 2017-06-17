@@ -835,8 +835,8 @@
 
 </script>
 <style type="text/css">
-   #experience_month-error{margin-top: 39px;}
-   #experience_year-error{margin-top: 40px;}
-   #jobtitle-error{margin-right: 25px; margin-top: 42px;}
-   #companyname-error{margin-right: 25px; margin-top: 42px;}
+   #experience_month-error{margin-top: 0px;margin-right: 35px;}
+   #experience_year-error{margin-top: 39px;margin-right: 35px;}
+   #jobtitle-error{margin-right: 35px; margin-top: 0px;}
+   #companyname-error{margin-right: 35px; margin-top: 0px;}
 </style>
