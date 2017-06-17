@@ -886,7 +886,7 @@ if(mm<10) {
  var country = document.getElementById('country').value;
  var state = document.getElementById('state').value;
  var city = document.getElementById('city').value;
- var datepicker = document.getElementById('datepicker').value;
+ var datepicker = document.getElementById('example2').value;
  var minsal = document.getElementById('minsal').value;
  var maxsal = document.getElementById('maxsal').value;
  var currency = document.getElementById('currency').value;
