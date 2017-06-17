@@ -1,4 +1,4 @@
-<div class="col-sm-7 col-md-7 col-xs-6 hidden-mob">
+<div class="col-sm-7 col-md-6 col-xs-6 hidden-mob">
     <div class="job-search-box1 clearfix">
                          
                         <!-- <?php //echo form_open('search/business_search'); ?> -->

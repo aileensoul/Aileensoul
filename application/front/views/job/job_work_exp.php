@@ -224,20 +224,20 @@
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                  <?php echo form_error('jobtitle'); ?>
                                  </span>
-                                 <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span class="red">*</span></label>
+                                 <label style="   margin-top: 6px; ">Company Name<span class="red">*</span></label>
                                  <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                     if ($companyname1) {
                                         echo $companyname1;
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
                                  <?php echo form_error('companyname'); ?>
-                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Email</label>
+                                 <label style="  margin-top: 6px;  ">Company Email</label>
                                  <input type="text" name="companyemail[]" tabindex="4" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                     if ($companyemail1) {
                                         echo $companyemail1;
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
-                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
+                                 <label style="  margin-top: 6px;  ">Company Phone</label>
                                  <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" tabindex="5" value="<?php
                                     if ($companyphn1) {
                                         echo $companyphn1;
@@ -344,14 +344,14 @@
                                  ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                               <?php echo form_error('jobtitle'); ?>
                              </span>
-                              <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span class="red">*</span></label>
+                              <label style=" margin-top: 6px;  ">Company Name<span class="red">*</span></label>
                               <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                  if ($companyname1) {
                                      echo $companyname1;
                                  }
                                  ?>"/>&nbsp;&nbsp;&nbsp; 
                               <?php echo form_error('companyname'); ?>
-                              <label style="   margin-top: 6px; margin-left: -11px;">Company Email</label>
+                              <label style="   margin-top: 6px; ">Company Email</label>
                               <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                  if ($companyemail1) {
                                      echo $companyemail1;
@@ -359,7 +359,7 @@
                                  ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
                               <!--   </fieldset>
                                  <fieldset >  -->
-                              <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
+                              <label style="  margin-top: 6px; ">Company Phone</label>
                               <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" value="<?php
                                  if ($companyphn1) {
                                      echo $companyphn1;

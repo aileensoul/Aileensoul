@@ -315,7 +315,7 @@
 
                             <div  class="">  
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2" style="padding-left: 17px;"> 
+                                    <div class="post-design-pro-img " style="padding-left: 17px;"> 
                                         <?php
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -701,26 +701,20 @@
 
                                                                         <li>
                                                                             <div class="like_count_ext">
-                                                                                <span class="comment_count_img<?php echo $busdata['image_id']; ?>" > 
-                                                                                    <?php
-                                                                                    if (count($commnetcount) > 0) {
-                                                                                        echo count($commnetcount); ?>
-                                                                                      <span> Comment</span>
-                                                                    <?php    }  ?>
+                                                                                <span class="comment_count_img" > 
+                                                                                    <span>5</span>
+                                                        <span> Comment</span>
+                                                    
                                                                                 </span> 
                                                                               </div>
                                                                         </li>
 
                                                                         <li>
                                                                             <div class="comnt_count_ext">
-                                                                                <span class="comment_like_count_img <?php echo $busdata['image_id']; ?>"> 
-                                                                                    <?php
-                                                                                    if ($row['business_likes_count'] > 0) {
-                                                                                        echo $row['business_likes_count']; ?>
-                                                                                      <span> Like</span>
-                                                                              <?php      } 
-                                                                                    ?>
-                                                                                </span> 
+                                                                                <span class="comment_like_count_img"> 
+                                                                                    <span>5</span>
+                                                        <span> Like</span>
+                                                    
                                                                               
                                                                             </div>
                                                                         </li>
@@ -733,7 +727,7 @@
                                                             $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                             if (count($commneteduser) > 0) {
                                                                 ?>
-                                                                <div class="likeduserlistimg<?php echo $busdata['image_id'] ?>">
+                                                                <div class="likeduserlist1 likeduserlistimg<?php echo $busdata['image_id'] ?>">
                                                                     <?php
                                                                     $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => '0');
                                                                     $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2851,7 +2845,7 @@
                 } else {
                     document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
                 }
-                $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
+                $('#likeusernameimg' + clicked_id).addClass('likeduserlist1');
             }
         });
     }

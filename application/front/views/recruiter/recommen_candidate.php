@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="right_left_box_design ">
                                      <span class="profile-company-name ">
-                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo $recruiterdata1['rec_firstname'] . ' ' . $recruiterdata1['rec_lastname']; ?>">   <?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?></a>
+                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo ucwords($recruiterdata1['rec_firstname']) . ' ' . ucwords($recruiterdata1['rec_lastname']); ?>">   <?php echo ucwords($recruiterdata1[0]['rec_firstname']) . ' ' . ucwords($recruiterdata1[0]['rec_lastname']); ?></a>
                                             </span>
 
                                                   <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
@@ -312,17 +312,15 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                    $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
                   $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
                                             ?>
-                                        <li><b>Location</b> <span>
-                                <?php  if($cityname){echo $cityname;echo ', ';}
+                      <li><b>Location</b> <span>
+                <?php  if($cityname){echo $cityname;echo ', ';}
                                              echo $countryname;
                                               ?> 
                                    </span></li>
             <?php if($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){ ?>
             <li>
               <b>Degree</b><span>
-            
-
-<?php 
+              <?php 
                $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
                             if ($cache_time) {
                                              echo $cache_time;
@@ -337,12 +335,12 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                  <span>
                    <?php
 
-                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
-                                                                        if ($cache_time) {
-                                                                            echo $cache_time;
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
+                     $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
+                             if ($cache_time) {
+                                      echo $cache_time;
+                                               } else {
+                                                 echo PROFILENA;
+                                                      }
                                                                         
                    ?>
                  </span>
@@ -596,23 +594,23 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
 
                   <?php }else{?> <li> No Education </li> <?php }?>
                                                                 
-                                                                <li><b>E-mail</b><span>
-                                                                        <?php
-                                                                        if ($row['email']) {
-                                                                            echo $row['email'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?></span>
-                                                                </li>
-                                                                <li><b>Mobile Number</b><span>
-                                                                        <?php
-                                                                        if ($row['phnno']) {
-                                                                            echo $row['phnno'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?></span>
+                               <li><b>E-mail</b><span>
+                                    <?php
+                                       if ($row['email']) {
+                                               echo $row['email'];
+                                                 } else {
+                                                     echo PROFILENA;
+                                                    }
+                                                 ?></span>
+                                           </li>
+                                    <li><b>Mobile Number</b><span>
+                                        <?php
+                                          if ($row['phnno']) {
+                                               echo $row['phnno'];
+                                                     } else {
+                                                        echo PROFILENA;
+                                                         }
+                                                     ?></span>
                                                                 </li>
                                                             </ul>
                                                         </div>

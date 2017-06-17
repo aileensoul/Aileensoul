@@ -434,7 +434,7 @@
                                     <li>
                                        <div class="comnt_count_ext_a <?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
                                           <span class="comment_like_count"> 
-                                          <?php
+                                          <?php echo "hiiii";   
                                              if ($row['art_likes_count'] > 0) { 
                                                  echo $row['art_likes_count']; ?>
                                           </span> 
@@ -763,8 +763,8 @@
                            <div class="comnt_count_ext_a <?php echo 'comnt_count_ext' . $row['art_post_id']; ?>">
                               <span class="comment_like_count"> 
                               <?php
-                                 if ($row['art_likes_count'] > 0) { 
-                                     echo $row['art_likes_count']; ?>
+                                 if ($art_data[0]['art_likes_count'] > 0) { 
+                                     echo $art_data[0]['art_likes_count']; ?>
                               </span> 
                               <span> Like</span>
                               <?php   }
@@ -792,7 +792,7 @@
                          ?>
                   <?php } ?>
                   <!-- pop up box end-->
-                  <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                  <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                      <?php
                         $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -801,24 +801,24 @@
                         $countlike = $commnetcount[0]['art_likes_count'] - 1;
                         
                         $likelistarray = explode(',', $likeuser);
+                         $likelistarray = array_reverse($likelistarray);
                         $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                         $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                         ?>
                      <div class="like_one_other">
-                        <?php
-                           echo ucwords($art_fname);
-                           echo "&nbsp;";
-                           echo ucwords($art_lname);
-                           echo "&nbsp;";
-                           ?>
-                        <?php
-                           if (count($likelistarray) > 1) {
-                               echo "and ";
-                               echo $countlike;
-                               echo "&nbsp;";
-                               echo "others";
-                           }
-                           ?>
+                        <?php 
+                                                                $userid = $this->session->userdata('aileenuser');
+
+                                                                if ($userid == $likelistarray[0]) {
+
+                                                                    echo "You";
+                                                                } else {
+                                                                    echo ucwords($art_fname);
+                                                                    echo "&nbsp;";
+                                                                    echo ucwords($art_lname);
+                                                                    echo "&nbsp;";
+                                                                }
+                                                                ?>
                      </div>
                   </a>
                </div>
@@ -840,7 +840,7 @@
                   <!-- pop up box end-->
                   <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                      <?php
-                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
+                        $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                         
                         $likeuser = $commnetcount[0]['art_like_user'];

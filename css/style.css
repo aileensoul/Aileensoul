@@ -215,7 +215,7 @@ a:focus {
 .header2 ul {
     font-size: 0;
     margin: 0;
-    padding-right: 0px;
+    padding-right: 21px;
     float: right;
     padding-left: 0;
 }
@@ -2355,7 +2355,7 @@ ul.business_pf_ct_person_detail li b {
 
 .job-contact-frnd .profile-job-post-detail {
     background-color: #ffffff;
-    border: 1px solid #bfbfbf;
+    border: 1px solid #d9d9d9;
     border-radius: 4px;
     margin-bottom: 15px;
 }
@@ -4232,7 +4232,7 @@ border-bottom: 1px solid #000033;
 }
 .btn-3b {
     padding: 6px 13px 6px 13px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .btn-3:hover {
     color: #fff;
@@ -4244,6 +4244,7 @@ border-bottom: 1px solid #000033;
 }
 .add-post-button {
     margin: 10px;
+    margin-top: 30px;
 }
 /*
 .profile-box-menu li a:hover {
@@ -4329,7 +4330,7 @@ border-bottom: 1px solid #000033;
 .post-design-name ul li .post_dot1 {
     max-width: 80%;
     width: auto;
-    font-size: 17px;
+    font-size: 16px;
     display: inline-block;
     font-weight: 600;
     color: #1b8ab9;
@@ -4623,7 +4624,7 @@ border-bottom: 1px solid #000033;
 }
 .profile-company-name a {
     font-size: 18px;
-    margin-left: 8px;
+    margin-left: 6px;
     text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
     font-weight: 600;
     color: #1b8ab9;
@@ -4704,8 +4705,10 @@ form {
 }
 .popup-img {
     padding-left: 2px !important;
-    padding-right: 0px;
+    padding-right: 10px;
+    float: left;
 }
+.camera_in{margin-top: 23px;}
 .popup-img-in {
     padding-left: 2px !important;
     padding-right: 0px;
@@ -5133,7 +5136,7 @@ label.cameraButton input[accept*="camera"] {
 .post-design-pro-img {
     padding-top: 5px;
     padding-left: 17px;
-    margin-right: -53px;
+    /*margin-right: -53px;*/
     display: inline-block;
     float: left;
     /*padding: 4px 5px 4px 17px;*/
@@ -5193,7 +5196,7 @@ label.cameraButton input[accept*="camera"] {
     padding-left: 23px;
     background-color: #e8f3f8;
     padding-right: 23px;
-    border-top: 1px solid #e6eaef;
+    /*border-top: 1px solid #e6eaef;*/
     padding-top: 10px;
 }
 .post-design-menu {
@@ -5516,7 +5519,7 @@ label.cameraButton input[accept*="camera"] {
     padding: 0px 0px 6px 0px;
 }
 .comment-edit-butn button {
-    /*position: absolute; bottom: 11px;*/
+    position: absolute; bottom: 11px;
     
     margin-right: 0;
 }
@@ -5885,12 +5888,12 @@ follow box*/
 .follow_left_box_main_btn {
     display: inline-block;
     float: left;
-    padding-top: 24px;
+    padding-top: 18px !important;
 }
 .Follow_close {
     transform: translate(0, -50%);
     float: right;
-    top: 50%;
+    top: 35%;
     position: absolute;
     right: 0px;
 }
@@ -6146,7 +6149,7 @@ follow box*/
     color: white;
     position: absolute;
     /* left: 14px; */
-    
+    cursor: pointer;
     width: 46.8%;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
@@ -6229,7 +6232,7 @@ follow box*/
     color: white;
     position: absolute;
     /* left: 14px; */
-    
+    cursor: pointer;
     width: 333px;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
@@ -6307,29 +6310,31 @@ follow box*/
 #responsive_buis-images-breakpoints {
     float: left;
     height: 250px;
-    width: 49.8%;
-    margin-right: 1px;
-    margin-bottom: 1px;
+    width: 50%;
+    padding-right: 1px;
+    padding-bottom: 1px;
     display: inline-block;
 }
 #responsive_buis-images_3-breakpoints {
     float: left;
     height: 250px;
-    width: 49.7%;
-    margin: 1px;
+    width: 50%;
+    padding-right: 1px;
+    padding-bottom: 1px;
     display: inline-block;
+    position: relative;
 }
 .bui_images_view_more {
-    right: 21px;
-    bottom: 0%;
+    right: 0px;
+    bottom: 1px;
     color: white;
     position: absolute;
     /* left: 14px; */
-    
-    width: 334px;
-    height: 250px;
+    cursor: pointer;
+    width: 100%;
+    height: 249px;
     background: rgba(0, 0, 0, 0.5);
-    padding: 68px;
+    /*padding: 68px;*/
 }
 .bui_images_view_more a {
     position: absolute;
@@ -8649,9 +8654,9 @@ label.cameraButton input[accept*="camera"] {
     margin: 0px;
     font-size: 27px;
     cursor: pointer;
-    /* margin-right: -38px; */
+    /* margin-right: -38px; 
     
-    margin-top: 28px;
+    margin-top: 18px;*/
     color: #1b8ab9
 }
 .posted_with {
@@ -8678,11 +8683,11 @@ label.cameraButton input[accept*="camera"] {
     padding: 10px;
 }
 .three_img_2 {
-    width: 49.4%;
+    width: 50%;
     height: 35%;
     float: left;
     margin-top: 4px;
-    margin-right: 3px;
+    margin-right: 0px;
 }
 .cmy_2 {
     padding-left: 7px;
@@ -8743,7 +8748,7 @@ fieldset .add_post_btns:hover {
     color: #1b8ab9
 }
 .profile-box-job-menu ul li {
-    padding-left: 20px;
+    padding-left: 13px !important;
 }
 .profile-box-bui-menu ul li {
     padding-left: 15px;
@@ -8831,6 +8836,8 @@ fieldset .add_post_btns:hover {
 }
 .edit-comment-box .comment-edit-button button {
     padding: 8px 18px 7px;
+    position: absolute;
+    bottom: 2px;
 }
 .edit-comment-box button {
     padding: 8px 14px 7px
@@ -8900,7 +8907,7 @@ fieldset .add_post_btns:hover {
     padding-right: 9px;
 }
 .main_form {
-    padding-top: 70px;
+    padding-top: 80px;
 }
 .post-design-name ul li .post-design-product a {
     padding-right: 2px;
@@ -9228,7 +9235,7 @@ fieldset .add_post_btns:hover {
     padding-top: 2.3px !important;
 }
 
-.post-editor .camer_h {margin-top: -9px;}
+.post-editor .camer_h {/*margin-top: -9px;*/ float: right;}
 
 .follow_mid{margin-bottom: 100px;}
 .change-password-box form{background-color: #ffffff;}
@@ -12300,7 +12307,7 @@ end zalak 9-6 css*/
 .profile-job-post-detail  .post-design-box{border:none;}
 .post-design-commnet-box .editable_text{min-height: 37px !important}
 .notifications li .notification-data-inside div{padding-top: 3px!important  }
-.profile-box-job-menu ul li a{margin-right: 7px !important;}
+.profile-box-job-menu ul li a{margin-right: 15px !important;}
 .pop_content .cnclbtn:hover{background-color: #156f95 !important}
 .pop_content .okbtn:hover{background-color: #156f95 !important}
 .tabordion section .label-d{padding: 5px 7px !important}
@@ -12316,6 +12323,68 @@ end zalak 9-6 css*/
 .select2-container-multi .select2-search-choice-close{top:7px;}
 .profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}
 /*end*/
+
+/*Dhaval 17/6*/
+.like_cmmt_space{margin-left: 6px;}
+.deactive{padding-top: 120px;}
+.mar_left{margin-left: 6px !important;}
+.business_pf_ct_person_form form  ul li span{
+    word-wrap: break-word;
+    word-break: break-word;
+    /* text-align: justify; */
+    padding-right: 10px !important;
+    display: flex !important;
+    float: right;
+    width: 65% !important;
+    /* display: inline-block; */
+}
+
+.business_pf_ct_person_form form  ul li span::before {
+  content: " :";
+    padding-right: 20px;
+    float: left;
+}
+.inputtype-edit-comment {position: relative;}
+.three_img_left{
+    padding-left: 2px !important;
+}
+
+.three_img_right{
+padding-right: 2px !important;
+}
+bui_images_view_more a:hover{text-decoration: underline;}
+
+.manage_images_view_more a:hover{text-decoration: underline;}
+.images_view_more a:hover{text-decoration: underline;}
+.positin_art {position: relative;}
+.post-design-box .post-design-desc input{font-size: 15px!important; width: 50%;}
+.post-design-box .post-design-desc .textbuis{font-size: 13px;}
+.post-design-box .post-design-desc a{ color: black; }
+.post-design-box .post-design-desc .editable_text{min-height: 80px!important;    float: left;
+    margin-bottom: 10px;width: 85%;
+}
+.post-design-box .post-design-desc .fr{position: absolute;
+    right: 9px;
+    bottom: 8px;}
+.profile-art-box .right_left_box_design {padding-bottom: 0px !important;}
+/*Setting*/
+.padd_set{padding: 48px 0;}
+.padd_set h3{font-size: 22px;position: absolute;color: white;top: 1px;}
+.padd_set .change-password{padding: 50px 0;}
+.user-midd-section .padd_set {padding: 80px 20px; padding-left: 0;}
+.txt_cen{text-align: center;}
+.portfolio_plus{
+      position: absolute;
+    right: 0;
+    bottom: 7px;
+}
+.common-form .keyskill_border_active ul{border:2px solid red !important;}
+.profile-main-rec-box-menu td.active{background-color: #fff !important;}
+.common-form .job-post-detail {border:none;}
+.common-form .keyskill_border_active ul{border:none !important;}
+.common-form span.keyskill_border_active{border:2px solid red!important;}
+.worktype_minheight{min-height: 80px;}
+/*End*/
 
 
 .clear{clear:both;}
@@ -12529,7 +12598,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfile-name a{font-size: 11px;}
     .profile-boxProfileCard-content::before{top: 50px !important;}
     .right-side-menu{float: none; padding-left: 20%;}
-    
+    .header2 ul{padding-right: 0;}
    
 }
 @media screen and (max-width: 900px) {
@@ -12590,6 +12659,7 @@ snippet from Animate.css - zoomIn effect
     .profile-main-rec-box-menu .table-responsive{border: none; width: auto;}
     .profile-boxProfileCard-content{padding-bottom: 5px;}
     .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
+    .popup-text span{font-size: 16px;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12613,10 +12683,14 @@ snippet from Animate.css - zoomIn effect
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
     .fw-479.md-pl0{padding-left: 15px;}
-    
+    .popup-text{padding-right: 0;}
+    .popup-img{padding-right: 5px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
     .profile-job-profile-menu ul li{padding-left: 0;}
+    .post-design-name ul li .post_dot{font-size: 14px;}
+    .post-design-product{font-size: 12px;}
+    .post-design-name ul li .post_dot{font-size: 14px;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
