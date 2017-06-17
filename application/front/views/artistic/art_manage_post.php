@@ -986,7 +986,7 @@
                                                 <div class="post-design-desc ">
                                                     <span> 
                                                         <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <span class="ft-15"><?php echo $this->common->make_links($row['art_post']); ?></span>
+                                                            <span class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -1048,9 +1048,9 @@
               <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                             <!-- one pdf start -->
-                                                            <div id="basic-responsive-image" >
+                                                            <div  >
                                                                 <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                        <img src="<?php echo base_url('images/PDF.jpg') ?>" >
+                                                                        <img style="height: 100%; width: 100%;" src="<?php echo base_url('images/PDF.jpg') ?>" >
                                                                     </div></a>
                                                             </div>
                                                             <!-- one pdf end -->
@@ -1411,7 +1411,7 @@
 
                                      if (!in_array($userid, $likeuserarray)) {
                                          ?>
-                                     <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                     <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                               <?php } else {
                                   ?>
                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>

@@ -213,11 +213,11 @@ $(window).load(function(){
 
     $(document).ready(function () {
         $('.dropdown-user').click(function (event) {
-         // event.stopPropagation();
+        event.stopPropagation();
             $(".dropdown-menu").slideToggle("fast");
         });
         $(".dropdown-menu").on("dropdown-user", function (event) {
-            //event.stopPropagation();
+           // event.stopPropagation();
         });
     });
 

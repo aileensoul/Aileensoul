@@ -1425,7 +1425,7 @@ foreach ($citiesss as $key1) {
 
         //for getting city data
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $cities = $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($this->data['cities']); echo "</pre>";die();
 
 
@@ -1488,25 +1488,28 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
            $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
 
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
+          foreach($cities as $key){
+    $location[]=$key['city_name'];
+   }
 
+ //          foreach ($location_list as $key1 => $value1) {
+ //              foreach ($value1 as $ke1 => $val1) {
+ //                 $location[] = $val1;
+ //              }
+ //          }
+ //          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ // //echo "<pre>"; print_r($loc);die();
 
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
+        //$this->data['city_data']= array_values($loc);
+        $this->data['de'] = $loc;
 
 
         

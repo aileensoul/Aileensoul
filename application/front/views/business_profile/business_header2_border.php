@@ -314,7 +314,7 @@
                 <div class="row">
 
                     <?php echo $business_search; ?>
-                    <div class="col-sm-5 col-md-5 col-xs-6 fw-479 md-pl0">
+                    <div class="col-sm-5 col-md-6 col-xs-6 fw-479 md-pl0">
                         <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
