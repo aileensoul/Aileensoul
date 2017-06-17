@@ -330,7 +330,7 @@
                                        <div class="mySlides">
                                           <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
                                           <div class="slider_img_p">
-                                             <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artdata['image_name']) ?>">
+                                             <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artdata['image_name']) ?>">
                                           </div>
                                           <!-- 8-5 post art_post page data comment design start -->
                                       <!--     <div class="post-design-like-box col-md-12"> -->

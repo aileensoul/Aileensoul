@@ -204,7 +204,7 @@ $(window).load(function(){
         $("body").click(function (event) {
             $("#InboxContainer").hide(600);
 
-            event.stopPropagation();
+           event.stopPropagation();
         });
 
     });
@@ -228,7 +228,7 @@ $(window).load(function(){
     $(document).ready(function () {
         $("body").click(function (event) {
             $(".dropdown-menu").hide(600);
-            event.stopPropagation();
+           event.stopPropagation();
         });
 
     });
