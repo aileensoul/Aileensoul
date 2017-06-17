@@ -269,7 +269,10 @@
                                                         <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
                                                         <p class="posted_with" > Posted With </p><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
                                                         <span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                                        <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                        <span class="ctre_date"> 
+         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+
+                                                        </span>
                                                     </div>
 
                                                     <!-- other user post time name end-->
@@ -281,7 +284,9 @@
                                                     </a>
                                                      <span role="presentation" aria-hidden="true"> · </span>
                                                     <div class="datespan">
-                                                        <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></div>
+                                                        <span class="ctre_date">
+  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_data[0]['created_date']))); ?>
+ </span></div>
 
                                                 <?php } ?>                 </li>
                                            

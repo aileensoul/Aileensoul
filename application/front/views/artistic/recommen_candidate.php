@@ -319,7 +319,8 @@ if($status == 0 || $status == " "){?>
                                                                 <div class="datespan">  <span style="font-weight: 400;
                                                     font-size: 14px;
                                                     color: #91949d; cursor: default;"> 
-                                                                        <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>                                                                    </span></div>
+                                                                        <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($key['created_date']))); ?>
+                                                                                                  </span></div>
 
                                                             </div>
 

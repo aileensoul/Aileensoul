@@ -907,7 +907,9 @@
 
                                                                     <a  class="post_dot padding_less_left" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span class="posted_with" > Posted     With 
                                                                     </span><a class="post_dot1 padding_less_left" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
-                                                                  <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                  <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> 
+                                                                        <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+                                                                    </span>
                                                                 </div>
                                                                 </div>
                                                                 <!-- other user post time name end-->
@@ -919,7 +921,9 @@
 
                                                                 </a><span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                     <span style="font-weight: 400; font-size: 13px; color: #91949d;">
+         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>                               
+                 </span></div>
                                                                     </div>
                                                             <?php } ?>  
 
