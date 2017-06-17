@@ -229,10 +229,9 @@
                                  print "&nbsp;&nbsp;";
                                  echo ucwords($lastname);
                                  ?> </a>
+                                     <span role="presentation" aria-hidden="true"> · </span>
                               <div class="datespan">
-                                 <span style="font-weight: 400;
-                                    font-size: 14px;
-                                    color: #91949d;""> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                 <sspan class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
                               </div>
                            </div>
                         </li>
@@ -319,8 +318,8 @@
                         
                             if (in_array($ext, $allowed)) {
                                 ?>
-                     <div id="basic-responsive-image" style="height: 50%; width: 100%; margin-bottom: 10px;">
-                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')  . $data['image_name']) ?>" style="width: 100%; height: 100%;" onclick="openModal();
+                     <div id="basic-responsive-image" >
+                        <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')  . $data['image_name']) ?>"  onclick="openModal();
                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                         <!--                                                    <img src="<?php //echo base_url(ARTPOSTIMAGE . str_replace(" ", "_", $data['image_name'])) ?>" style="width: 100%; height: 100%;"  class="hover-shadow cursor">-->
                      </div>
@@ -352,9 +351,10 @@
                   <!-- done  end-->
                   <!-- silder start -->
                   <div id="myModal1" class="modal2">
-                     <span class="close2 cursor" onclick="closeModal()">&times;</span>
+                   
                      <div class="modal-content2">
                         <!--  multiple image start -->
+                          <span class="close2 cursor" onclick="closeModal()">&times;</span>
                         <?php
                            $i = 1;
                            $allowed = array('gif', 'png', 'jpg');
@@ -369,8 +369,8 @@
                                ?>
                         <div class="mySlides">
                            <div class="numbertext"><?php echo $i ?> / <?php echo count($databus1) ?></div>
-                           <div>
-                              <img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path')   .$artdata['image_name']) ?>" style="width:100%; height: 70%;">
+                           <div class="slider_img">
+                              <img src="<?php echo base_url($this->config->item('art_post_main_upload_path')   .$artdata['image_name']) ?>" >
                            </div>
                            <!-- 9-5 like comment start -->
                            <div class="post-design-like-box col-md-12">
