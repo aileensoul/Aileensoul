@@ -130,89 +130,89 @@
             <div class="row">
                <div class="col-md-4  profile-box profile-box-left">
                   <div class="">
-                     <div class="full-box-module">
-                        <div class="profile-boxProfileCard  module">
-                           <div class="profile-boxProfileCard-cover">
-                              <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                 href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
-                                 tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                 <!-- box image start -->
-                                 <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                 <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                 </div>
-                                 <?php
-                                    } else {
-                                        ?>
-                                 <div> 
-                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                 </div>
-                                 <?php } ?>
-                              </a>
-                           </div>
-                           <div class="profile-boxProfileCard-content clearfix">
-                              <div class="left_side_box_img buisness-profile-txext">
-                                 <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
-                                    <?php
-                                       if ($businessdata[0]['business_user_image']) {
-                                           ?>
-                                    <div class="left_iner_img_profile"> 
-                                       <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+             
+                             <div class="full-box-module">   
+      <div class="profile-boxProfileCard  module">
+                                    <div class="profile-boxProfileCard-cover"> 
+                                             <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                           href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
+                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
+                                            <!-- box image start -->
+                                            <?php if ($businessdata[0]['profile_background'] != '') { ?>
+                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php
+                                            } else {
+                                                ?>
+                                                <div> 
+                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                </div> <?php } ?>
+                                        </a>
                                     </div>
-                                    <?php } else { ?>
-                                    <div class="left_iner_img_profile">  
-                                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                    <div class="profile-boxProfileCard-content clearfix">
+                                    <div class="left_side_box_img buisness-profile-txext">
+                                        
+                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
+                                                <?php
+                                                if ($businessdata[0]['business_user_image']) {
+                                                    ?>
+                                                    <div class="left_iner_img_profile"> 
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                    </div>
+                                                <?php } else { ?>
+                                                  <div class="left_iner_img_profile">  
+                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                    </div>  <?php } ?>                           
+                                                <!-- 
+                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+                        width: 68px;">
+                                                -->
+                                            </a>
                                     </div>
-                                    <?php } ?>                           
-                                    <!-- 
-                                       <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                                       width: 68px;">
-                                                               -->
-                                 </a>
-                              </div>
-                              <div class="right_left_box_design ">
-                                 <span class="profile-company-name ">
-                                 <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
-                                 <?php echo ucwords($businessdata[0]['company_name']); ?>
-                                 </a> 
-                                 </span>
-                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                 <div class="profile-boxProfile-name">
-                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                    <?php
-                                       if ($category) {
-                                           echo $category;
-                                       } else {
-                                           echo $businessdata[0]['other_industrial'];
-                                       }
-                                       ?>
-                                    </a>
-                                 </div>
-                                 <ul class=" left_box_menubar">
-                                    <li
-                                       <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
-                                       <?php } ?>>
-                                       <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
-                                       </a>
-                                    </li>
-                                    <li 
-                                       <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
-                                       <?php } ?>>
-                                       <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                       <br> (<?php echo (count($businessfollowerdata)); ?>)
-                                       </a>
-                                    </li>
-                                    <li  
-                                       <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
-                                       <?php } ?>>
-                                       <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
-                                       <br> (<?php echo (count($businessfollowingdata)); ?>) 
-                                       </a>
-                                    </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                                    <div class="right_left_box_design ">
+                                      <span class="profile-company-name ">
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                    <?php echo ucwords($businessdata[0]['company_name']); ?>
+                                                </a> 
+                                            </span>
+
+                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                            <div class="profile-boxProfile-name">
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                    <?php
+                                                    if ($category) {
+                                                        echo $category;
+                                                    } else {
+                                                        echo $businessdata[0]['other_industrial'];
+                                                    }
+                                                    ?>
+                                                </a>
+                                            </div>
+                                               <ul class=" left_box_menubar">
+                                                <li
+                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
+                                                    <?php } ?>>
+                                                    <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                                                    </a>
+                                                </li>
+                                                <li 
+                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
+                                                    <?php } ?>>
+                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                                                        <br> (<?php echo (count($businessfollowerdata)); ?>)
+                                                    </a>
+                                                </li>
+                                                <li  
+                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
+                                                    <?php } ?>>
+                                                    <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
+                                                        <br> (<?php echo (count($businessfollowingdata)); ?>) 
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                    </div>
+       </div>                             
+    </div>
                   </div>
                </div>
                <div class="col-md-7 col-sm-7 col-md-push-4 custom-right col-sm-push-4" style="height: 150%;">
@@ -660,13 +660,14 @@
                                                 <ul class="col-md-6 like_cmnt_count">
                                                    <li>
                                                       <div class="like_count_ext">
-                                                         <span > 5 </span> 
+                                                         
+                                                           <span class="comment_count"> 5 </span> 
                                                          <span> Comment</span>
                                                       </div>
                                                    </li>
                                                    <li>
                                                       <div class="comnt_count_ext">
-                                                         <span> 5 </span> 
+                                                           <span class="comment_like_count" > 5 </span> 
                                                          <span> Like</span>
                                                       </div>
                                                    </li>
@@ -811,7 +812,7 @@
                                                                $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                                                                if (!in_array($userid, $likeuserarray)) {
                                                                    ?>
-                                                            <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                            <i class="fa fa-thumbs-up fa-1x" aria-hidden="true">
                                                             </i> 
                                                             <?php } else { ?>
                                                             <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -2674,40 +2675,7 @@
    }
 </script>
 <!-- post delete particular login user end -->
-<style type="text/css">
-   .likeduser{
-   width: 100%;
-   background-color: #00002D;
-   }
-   .likeduser-title{
-   color: #fff;
-   margin-bottom: 5px;
-   padding: 7px;
-   }
-   .likeuser_list{
-   background-color: #ccc;
-   float: left;
-   margin: 0px 6px 5px 9px;
-   padding: 5px;
-   width: 47%;
-   font-size: 14px;
-   }
-   .likeduserlist, .likeduserlist1 {
-   float: left;
-   background-color: #fff!important;
-   /*        margin-left: 15px;
-   margin-right: 15px;*/
-   width: 100%!important;
-   }
-   div[class^="likeduserlist"]{
-   width: 100% !important;
-   background-color: #fff !important;
-   }
-   .like_one_other{
-   /*   margin-left: 15px;*/
-   /*  margin-right: 15px;*/
-   }
-</style>
+
 <!-- This  script use for close dropdown in every post -->
 <script type="text/javascript">
    $('body').on("click", "*", function (e) {
