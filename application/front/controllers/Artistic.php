@@ -1859,7 +1859,7 @@ class Artistic extends MY_Controller {
             'contact_to_id' => $id,
             'contact_type' => 1,
             'created_date' => date('Y-m-d H:i:s', time()),
-            'status' => 1,
+            'status' => 'contact_person',
             'contact_desc' => $this->input->post('msg')
         );
 
