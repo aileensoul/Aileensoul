@@ -127,7 +127,7 @@ a:focus {
     color: #999;
     font-weight: 500;
     font-size: 14px;}
-}
+
 /* Move it (define the animation) */
 
 @-moz-keyframes marquee-main {
@@ -8142,9 +8142,9 @@ fieldset .add_post_btns {
 .dropdown_hover .dropdown-content_hover a {
     color: #000;
 }
-.pdf_name a: {
+/*.pdf_name a: {
     text-decoration-line: underline;
-}
+}*/
 .pdf_name {
     font-size: 14px;
     margin-top: 5px;
@@ -9160,7 +9160,6 @@ fieldset .add_post_btns:hover {
 
 /*.like_h_w{ width: 33px!important; height: 21px!important; padding: 0px!important;  }*/
  .like_h_w{border-radius: 50%;}
-}
 .like_h_w i {
     font-size: 18px;
 }

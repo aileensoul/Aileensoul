@@ -671,7 +671,7 @@
                                     </div>
                                     <!--   <span class="fr">
                         <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 camera_in padding-left padding_les_left camera_in camer_h">
+                                    <div class="col-md-1 camera_in padding-left padding_les_left camer_h">
                                         <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
@@ -1472,7 +1472,7 @@
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         <?php } ?>
                                                     </div>
-                                                    <div class="">
+                                                
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                             <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                         </div>
@@ -1481,7 +1481,7 @@
                                                             <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                             </button>
                                                         </div>
-                                                    </div>
+                                                
                                                 </div>
                                                 <!-- comment end -->
                                             </div>
