@@ -1319,9 +1319,6 @@ class Artistic extends MY_Controller {
         
         $this->data['de'] = array_values($res);
 
-
-
-
         $this->load->view('artistic/art_post', $this->data);
     }
 
