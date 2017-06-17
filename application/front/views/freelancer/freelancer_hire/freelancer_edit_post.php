@@ -668,65 +668,6 @@ if (clicked_id == 4) {
 </script>
 
 
-<script>
-//select2 autocomplete start for skill
-$('#searchskills').select2({
-        
-        placeholder: 'Find Your Skills',
-       
-        ajax:{
-
-         
-          url: "<?php echo base_url(); ?>freelancer/keyskill",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              //alert(data);
-
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for skill
-
-//select2 autocomplete start for Location
-$('#searchplace').select2({
-        
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-       
-        ajax:{
-
-         
-          url: "<?php echo base_url(); ?>freelancer/location",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              //alert(data);
-
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for Location
-
-</script>
 
 
 <!-- Field Validation Js Start -->
