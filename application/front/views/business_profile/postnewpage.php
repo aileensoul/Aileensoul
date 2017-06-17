@@ -315,7 +315,7 @@
 
                             <div  class="">  
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2" style="padding-left: 17px;"> 
+                                    <div class="post-design-pro-img " style="padding-left: 17px;"> 
                                         <?php
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
 
