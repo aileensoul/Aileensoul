@@ -984,6 +984,11 @@ $(document).ready(function(){
                     </div>
                 </div>
                 <!-- popup end -->
+                <!-- bidmodel -->
+
+                <!-- end bidmodel -->
+
+
                 <?php
                 if ($this->session->flashdata('error')) {
                     echo $this->session->flashdata('error');
@@ -1470,7 +1475,7 @@ $(document).ready(function(){
                                         <?php
                                         if ($row['business_likes_count'] > 0) {
                                             ?>
-                                            <div class="likeduserlist<?php echo $row['business_profile_post_id'] ?>">
+                                            <div class="likeduserlist1 likeduserlist<?php echo $row['business_profile_post_id'] ?>">
                                                 <?php
                                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1520,7 +1525,7 @@ $(document).ready(function(){
                                         }
                                         ?>
 
-                                        <div class="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:block">
+                                        <div  class="likeduserlist1  <?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:none">
                                             <?php
                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1775,17 +1780,7 @@ $(document).ready(function(){
 
 
             <!-- Bid-modal  -->
-            <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                            <span class="mes"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- Model Popup Close -->
 
 
@@ -1828,6 +1823,22 @@ $(document).ready(function(){
                 </div>
             </div>
             <!-- Model Popup Close -->
+
+             <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
+            
+
 
             </body>
 
@@ -2573,7 +2584,7 @@ $(document).ready(function(){
                 {
 
                     $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
+                    $('#').modal('show');
                 }
 
                 function comment_deletedtwo(clicked_id)
@@ -3579,9 +3590,9 @@ $(document).ready(function(){
                     if (product_fileInput == '' && product_name == '' && product_description == '')
                     {
 
-                        $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                        $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+                        $('#post').modal('show');
+                        //setInterval('window.location.reload()', 10000);
                         // window.location='';
 
                          $( document ).on( 'keydown', function ( e ) {
@@ -3744,16 +3755,18 @@ $(document).ready(function(){
 
             </script>
             <script type="text/javascript">
-
+//This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
                 $(document).ready(function () {
-                    $('.modal-close').on('click', function () {
+                    $('#post').on('click', function () {
+
                         $('.modal-post').show();
+                       //  location.reload(false);
                     });
                 });
-
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
             </script>
 
-            <!-- post insert developing code end  -->
+          
 
 
             <script>
@@ -4201,23 +4214,11 @@ jQuery(document).mouseup(function (e) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
+         $('#bidmodal-2').modal('hide');
+            $('#likeusermodal').modal('hide');
     }
 });  
 
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal-2').modal('hide');
-    }
-});  
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#likeusermodal').modal('hide');
-    }
-});  
 
  </script>
 

@@ -532,3 +532,7 @@ $(window).load(function(){
 });
 </script>
 
+<style type="text/css">
+    #experience_year-error{margin-top: 42px;margin-left: 15px;}
+    #experience_month-error{margin-top: 42px;margin-left: 15px;}
+</style>
