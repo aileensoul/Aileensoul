@@ -477,10 +477,10 @@ if($status == 0 || $status == " "){?>
                                               <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
                                                                                         </a>
                                                                                          <span role="presentation" aria-hidden="true"> · </span>
-                                                                                        <div class="datespan">  <span style="font-weight: 400;
-                                                                                                                      font-size: 14px;
-                                                                                                                      color: #91949d; cursor: default;"> 
-                                                                                                <?php echo date('d-M-Y', strtotime($p['created_date'])); ?> </span></div>
+                                                                                        <div class="datespan"> 
+                                                                                  <span style="font-weight: 400; font-size: 14px; color: #91949d; cursor: default;"> 
+                                                                                                 <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($p['created_date']))); ?>      
+                                                                                        </span></div>
 
                                                                                     </div>
 
