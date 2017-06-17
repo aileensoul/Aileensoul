@@ -94,9 +94,9 @@
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading active" id="panel-heading">
                         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle">
          Fresher
         </a>
       </h4>
@@ -128,9 +128,9 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="panel-heading1">
                         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1">
        Experience
         </a>
       </h4>
@@ -807,20 +807,31 @@
 
 
 
-   
+//script for click on - change to + Start
     $(document).ready(function () {
-        
-            $('.collapse.in').prev('.panel-heading').addClass('active');
-            $('#accordion, #bs-collapse')
-                .on('show.bs.collapse', function (a) {
-                    $(a.target).prev('.panel-heading').addClass('active');
-                })
-                .on('hide.bs.collapse', function (a) {
-                    $(a.target).prev('.panel-heading').removeClass('active');
-                });
+          
+      $('#toggle').on('click', function(){
+    
+            if($('#panel-heading').hasClass('active')){
+                      $('#panel-heading').removeClass('active');
+            }else{
+                      $('#panel-heading').addClass('active');
+                       $('#panel-heading1').removeClass('active');
+            }
         });
 
-  
+      $('#toggle1').on('click', function(){
+    
+            if($('#panel-heading1').hasClass('active')){
+                      $('#panel-heading1').removeClass('active');
+            }else{
+                      $('#panel-heading1').addClass('active');
+                       $('#panel-heading').removeClass('active');
+            }
+        }); 
+
+    });
+  //script for click on - change to + End
 
 </script>
 <style type="text/css">

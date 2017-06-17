@@ -1269,6 +1269,19 @@
          </div>
       </div>
       <!-- Model Popup Close -->
+       <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
    </body>
 </html>
 <script>
@@ -2729,8 +2742,8 @@
        if (product_fileInput == '' && product_name == '' && product_description == '')
        {
    
-           $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-           $('#bidmodal').modal('show');
+           $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+            $('#post').modal('show');
            // setInterval('window.location.reload()', 10000);
            // window.location='';
    
@@ -2902,11 +2915,15 @@
    
 </script>
 <script type="text/javascript">
-   $(document).ready(function () {
-       $('.modal-close').on('click', function () {
-           $('.modal-post').show();
-       });
-   });
+   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function () {
+                    $('#post').on('click', function () {
+
+                        $('.modal-post').show();
+                       //  location.reload(false);
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
    
 </script>
 <!-- insert validation end -->

@@ -140,9 +140,7 @@
                         </div>
        </div>
    
-       <div class="designation_rec" style="    float: left;
-    width: 60%;
-    padding-top: 16px;">
+       <div class="designation_rec" >
           <ul class="search_ul_an">
        <li>
       <a style="  font-size: 19px;
@@ -237,7 +235,7 @@ if($status == 0 || $status == " "){?>
        <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style=" box-shadow: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img "> 
                                                 
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
@@ -545,10 +543,10 @@ if($status == 0 || $status == " "){?>
 
                                                             if (!in_array($userid, $likeuserarray)) {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php } else {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                             <?php }
                                                             ?>
                                                             <span>
@@ -766,10 +764,10 @@ if($status == 0 || $status == " "){?>
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>
 
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                             <?php } else {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php }
                                                                             ?>
                                                                             <span>
@@ -1090,7 +1088,7 @@ if($status == 0 || $status == " "){?>
 
                     </script>
 <!-- popup form edit start -->
- -->
+
                     <script>
                         // Get the modal
                         var modal = document.getElementById('myModal');
