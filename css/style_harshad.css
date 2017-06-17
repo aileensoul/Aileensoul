@@ -337,3 +337,4 @@ width: 100%;
    /* margin: 0;
 }*/
 .main_art{ border: 1px solid #d9d9d9; }
+.select2-container--default .select2-selection--multiple .select2-selection__rendered  li.select2-search--inline{width: 100%;}
