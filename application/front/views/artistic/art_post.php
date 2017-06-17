@@ -542,11 +542,10 @@
                <div id="myBtn"  class="editor-content popup-text">
                   <span > Post Your Art....</span> 
                   <div class="padding-left padding_les_left camer_h">
-                  <i class=" fa fa-camera" >
-                  </i> 
+                     <i class=" fa fa-camera" >
+                     </i> 
+                  </div>
                </div>
-               </div>
-               
             </div>
          </div>
          <!-- The Modal -->
