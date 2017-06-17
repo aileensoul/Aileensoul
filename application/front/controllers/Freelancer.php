@@ -1949,7 +1949,7 @@ $new = array();
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $citiess=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         $contition_array = array('status' => 1);
@@ -2011,15 +2011,20 @@ $results = array_unique($result);
             $result1[$key]['value']=$value;
           }
 
-          $contition_array = array('status' => '1');
-          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+          // $contition_array = array('status' => '1');
+          // $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
-          foreach ($location_list as $key1 => $value1) {
-              foreach ($value1 as $ke1 => $val1) {
-                 $location[] = $val1;
-              }
-          }
+foreach($citiess as $key){
+    $location[]=$key['city_name'];
+   }
+
+
+          // foreach ($location_list as $key1 => $value1) {
+          //     foreach ($value1 as $ke1 => $val1) {
+          //        $location[] = $val1;
+          //     }
+          // }
           //echo "<pre>"; print_r($location);die();
           foreach ($location as $key => $value) {
               $loc[$key]['label'] =$value;
@@ -2028,7 +2033,7 @@ $results = array_unique($result);
          
  //echo "<pre>"; print_r($loc);die();
 
-        $this->data['city_data']= array_values($loc);
+        $this->data['city_data']= $loc;
 
          $this->data['demo']= array_values($result1);
 
