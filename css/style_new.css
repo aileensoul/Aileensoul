@@ -94,148 +94,42 @@
 /*.select2-container-multi .select2-search-choice-close{top:7px;}*/
 
 /*.profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}*/
-.profile-box-job-menu ul li a{margin-right: 15px !important;}
-.profile-box-job-menu ul li{padding-left: 13px !important;}
-.like_cmmt_space{margin-left: 6px;}
-.follow_left_box_main_btn{padding-top: 18px !important;}
-.Follow_close{top:35% !important;}
-.post-design-name ul li .post_dot1 {font-size: 16px !important;}
 
-.deactive{padding-top: 120px;
+/*17/6*/
+/*.profile-box-job-menu ul li a{margin-right: 15px !important;}*/
+/*.profile-box-job-menu ul li{padding-left: 13px !important;}*/
+
+/*.follow_left_box_main_btn{padding-top: 18px !important;}*/
+/*.Follow_close{top:35% !important;}*/
+/*.post-design-name ul li .post_dot1 {font-size: 16px !important;}*/
+
+/*.deactive{padding-top: 120px;
 }
-    
+*/    
 /*.post-design-product .else_post_d{padding: 0px 5px;
     padding-right: 0;}*/
 
 /*input[type=submit], input[type=button], button{padding: 8px 19px;margin-top: 9px;}*/
 
-.profile-company-name a{margin-left: 6px !important;}
-.mar_left{margin-left: 6px !important;}
-
-
-.business_pf_ct_person_form form  ul li span{
-    word-wrap: break-word;
-    word-break: break-word;
-    /* text-align: justify; */
-    padding-right: 10px !important;
-    display: flex !important;
-    float: right;
-    width: 65% !important;
-    /* display: inline-block; */
-}
-.business_pf_ct_person_form form  ul li span::before {
-  content: " :";
-    padding-right: 20px;
-    float: left;
-}
-.post-design-commnet-box {border: none;}
-/*.comment-edit-butn button{position: absolute !important;
-    bottom: 11px;
-}*/
-.inputtype-edit-comment {position: relative;}
-.edit-comment-box .comment-edit-button button{    padding: 8px 18px 7px !important;
-    position: absolute;
-    bottom: 2px;}
-.btn-3b{border-radius: 4px !important;    
-    font-size: 18px!important;}
-    .add-post-button{margin-top: 30px;}
+/*.profile-company-name a{margin-left: 6px !important;}*/
+/*.mar_left{margin-left: 6px !important;}*/
 
 
 
+/*.post-design-commnet-box {border: none;}*/
+
+/*.inputtype-edit-comment {position: relative;}*/
+
+/*.btn-3b{border-radius: 4px !important;    
+    font-size: 18px!important;}*/
+    /*.add-post-button{margin-top: 30px;}*/
+
+
+/*
 .three_img_2{
     margin-right: 0px !important;
     width: 50%;
-}
-.three_img_left{
-    padding-left: 2px !important;
-}
+}*/
 
-.three_img_right{
-padding-right: 2px !important;
-}
 
-.bui_images_view_more a:hover{text-decoration: underline;}
-.bui_images_view_more{cursor: pointer;}
-.manage_images_view_more a:hover{text-decoration: underline;}
-.manage_images_view_more {cursor: pointer;}
-.images_view_more a:hover{text-decoration: underline;}
-.positin_art {position: relative;}
 
-.comment-edit-butn button{position: absolute;
-bottom: 11px;}
-.business_data_td2{word-break: break-word}
-
-.post-design-box .post-design-desc input{font-size: 15px!important; width: 50%;}
-.post-design-box .post-design-desc .textbuis{font-size: 13px;}
-.post-design-box .post-design-desc a{ color: black; }
-.post-design-box .post-design-desc .editable_text{min-height: 80px!important;    float: left;
-    margin-bottom: 10px;width: 85%;
-}
-.post-design-box .post-design-desc .fr{position: absolute;
-    right: 9px;
-    bottom: 8px;}
-.manage_images_view_more{cursor: pointer;}
-.images_view_more{cursor: pointer;}
-.profile-art-box .right_left_box_design {padding-bottom: 0px !important;}
-
-/*Setting*/
-.padd_set{padding: 48px 0;}
-#cssmenu {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, Helvetica, Arial, sans-serif;
-}
-#cssmenu {
-  width: 350px;
-}
-#cssmenu ul {
-  list-style: none;
-  text-indent: 0px;
-}
-#cssmenu li {
-  margin-top: 3px;
-  background-color: #1b8ab9;
-}
-#cssmenu a {
-  font: 12px Verdana;
-  padding: 4px;
-  color: #fff;
-  position: relative;
-  display: block;
-  padding: 6px 30px;
-  height: 40px;
-
-  text-decoration: none;
-  background: url('images/background.gif');
-}
-#cssmenu a:hover {
-  background: url('images/highlight.gif') no-repeat right;
-  padding: 6px 40px;
-}
-#cssmenu li :hover{
-    background-color: #156f95;
-}
-.padd_set h3{font-size: 22px;position: absolute;color: white;top: 1px;}
-
-.padd_set .change-password{padding: 50px 0;}
-
-.main_form{padding-top: 80px !important;}
-.user-midd-section .padd_set {padding: 80px 20px; padding-left: 0;}
-#cssmenu a :active{
-    background-color: #156f95;
-}
-
-.txt_cen{text-align: center;}
-
-.portfolio_plus{
-      position: absolute;
-    right: 0;
-    bottom: 7px;
-}
-.common-form .keyskill_border_active ul{border:2px solid red !important;}
-.profile-main-rec-box-menu td.active{background-color: #fff !important;}
-.job-contact-frnd .profile-job-post-detail {border:1px solid #d9d9d9 !important;}
-.common-form .job-post-detail {border:none;}
-.common-form .keyskill_border_active ul{border:none !important;}
-.common-form span.keyskill_border_active{border:2px solid red!important;}
-.worktype_minheight{min-height: 80px;}
