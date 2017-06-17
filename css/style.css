@@ -12333,46 +12333,14 @@ end zalak 9-6 css*/
 
 .bui_images_view_more span:hover{text-decoration: underline;}
 /***  eduction style  ***/
-    .edu_tab{padding-top: 20px;}
     
-    .edu_tab .panel-group .panel {
-        border-radius: 0;
-        box-shadow: none;
-        border-color: #1b8ab9;
-        margin-bottom: 10px;
-    }
-
-    .edu_tab .panel-default > .panel-heading {
-        padding: 0;
-        border-radius: 0;
-        color: #212121;
-        background-color: #1b8ab9;
-        
-    }
-
-    .edu_tab .panel-title {
-        font-size: 14px;
-    }
-
-    .edu_tab .panel-title > a {
-        display: block;
-        padding: 10px 15px;
-        text-decoration: none;
-        font-size: 16px;
-        line-height: 1;
-        color:#fff;
-    }
-
-    .edu_tab .more-less {
-        float: right;
-        color: #212121;
-    }
-
-    .edu_tab .panel-default > .panel-heading + .panel-collapse > .panel-body {
-        border: none;
-    }
-    .edu_tab .panel-title > a .fa{color: #fff;}
     
+    
+
+
+
+
+   
     
     /***  notification hover effect  ***/
     .action-button #notification_count {
@@ -12445,12 +12413,12 @@ snippet from Animate.css - zoomIn effect
         /* #bs-collapse icon scale option */
         
         .panel-heading a:before {
-            content: '\e146';
+            content: '\f067';
             position: absolute;
-            font-family: 'Material Icons';
-            right: 5px;
+            font-family: 'FontAwesome';
+            right: 15px;
             top: 10px;
-            font-size: 24px;
+            font-size: 20px;
             transition: all 0.5s;
             transform: scale(1);
         }
@@ -12463,38 +12431,43 @@ snippet from Animate.css - zoomIn effect
         
         #bs-collapse .panel-heading a:after {
             content: ' ';
-            font-size: 24px;
+            font-size: 20px;
             position: absolute;
-            font-family: 'Material Icons';
-            right: 5px;
+            font-family: 'FontAwesome';
+            right: 15px;
             top: 10px;
             transform: scale(0);
             transition: all 0.5s;
         }
         
         #bs-collapse .panel-heading.active a:after {
-            content: '\e909';
+            content: '\f068';
             transform: scale(1);
             transition: all 0.5s;
         }
-        /* #accordion rotate icon option */
-        
+        /*
         #accordion .panel-heading a:before {
             content: '\e316';
             font-size: 24px;
             position: absolute;
-            font-family: 'Material Icons';
+            
+            font-family: 'FontAwesome';
             right: 5px;
             top: 10px;
             transform: rotate(180deg);
             transition: all 0.5s;
         }
-        
+        */
         #accordion .panel-heading.active a:before {
             transform: rotate(0deg);
             transition: all 0.5s;
         }
-
+    .fw{width: 100%; float: left;}
+    .panel-group.wrap .panel-title a{padding: 10px 15px; font-size: 18px; line-height: 1;}
+    .panel-group.wrap{margin-top: 25px;}
+    .panel-group.wrap .panel{margin-bottom: 10px; }
+    .panel-group.wrap .panel-heading{border-radius: 0 !important;}
+    .border{border: 1px solid #ddd;}
     
 
 
