@@ -922,7 +922,7 @@
                                                     <span> 
                                                          <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                                <a><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                                <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                             </div>
 
                                                             <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
@@ -1409,7 +1409,7 @@
                                         if (!in_array($userid, $likeuserarray)) {
                                         ?>
 
-                                       <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                       <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                             <?php } else {
                                             ?>
                                         <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>

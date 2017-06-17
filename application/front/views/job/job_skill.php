@@ -689,3 +689,7 @@ return e.which !== 32;
 
 
 
+<style type="text/css">
+    #skils-error{margin-top: -5px;}
+    #other_keyskill-error{margin-top: -5px;margin-right: 58px;}
+</style>

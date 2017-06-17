@@ -119,7 +119,7 @@
                         <div class="common-form">
                             <div class="job-saved-boxe_2" >
                                 
-                                <div class="edu_tab fw border">
+                                <div class="edu_tab fw">
                                 <h3>Educational  Qualification</h3>
         <div class="col-md-12 col-sm-12 col-xs-12">
          

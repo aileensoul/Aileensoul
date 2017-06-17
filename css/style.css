@@ -217,6 +217,7 @@ a:focus {
     margin: 0;
     padding-right: 21px;
     float: right;
+    padding-left: 0;
 }
 .header2 ul li {
     list-style: none;
@@ -4703,8 +4704,10 @@ form {
 }
 .popup-img {
     padding-left: 2px !important;
-    padding-right: 0px;
+    padding-right: 10px;
+    float: left;
 }
+.camera_in{margin-top: 23px;}
 .popup-img-in {
     padding-left: 2px !important;
     padding-right: 0px;
@@ -5132,7 +5135,7 @@ label.cameraButton input[accept*="camera"] {
 .post-design-pro-img {
     padding-top: 5px;
     padding-left: 17px;
-    margin-right: -53px;
+    /*margin-right: -53px;*/
     display: inline-block;
     float: left;
     /*padding: 4px 5px 4px 17px;*/
@@ -6306,29 +6309,31 @@ follow box*/
 #responsive_buis-images-breakpoints {
     float: left;
     height: 250px;
-    width: 49.8%;
-    margin-right: 1px;
-    margin-bottom: 1px;
+    width: 50%;
+    padding-right: 1px;
+    padding-bottom: 1px;
     display: inline-block;
 }
 #responsive_buis-images_3-breakpoints {
     float: left;
     height: 250px;
-    width: 49.7%;
-    margin: 1px;
+    width: 50%;
+    padding-right: 1px;
+    padding-bottom: 1px;
     display: inline-block;
+    position: relative;
 }
 .bui_images_view_more {
-    right: 21px;
-    bottom: 0%;
+    right: 0px;
+    bottom: 1px;
     color: white;
     position: absolute;
     /* left: 14px; */
     
-    width: 334px;
-    height: 250px;
+    width: 100%;
+    height: 249px;
     background: rgba(0, 0, 0, 0.5);
-    padding: 68px;
+    /*padding: 68px;*/
 }
 .bui_images_view_more a {
     position: absolute;
@@ -8648,9 +8653,9 @@ label.cameraButton input[accept*="camera"] {
     margin: 0px;
     font-size: 27px;
     cursor: pointer;
-    /* margin-right: -38px; */
+    /* margin-right: -38px; 
     
-    margin-top: 28px;
+    margin-top: 18px;*/
     color: #1b8ab9
 }
 .posted_with {
@@ -9227,7 +9232,7 @@ fieldset .add_post_btns:hover {
     padding-top: 2.3px !important;
 }
 
-.post-editor .camer_h {margin-top: -9px;}
+.post-editor .camer_h {/*margin-top: -9px;*/ float: right;}
 
 .follow_mid{margin-bottom: 100px;}
 .change-password-box form{background-color: #ffffff;}
@@ -12375,9 +12380,11 @@ snippet from Animate.css - zoomIn effect
         .panel-group .panel + .panel {
             margin-top: 0;
         }
-        
+        .panel-heading.active {
+            background-color: #156f95;
+        }
         .panel-heading {
-            background-color: #0072AE;
+            background-color: #1b8ab9;
             border-radius: 0;
             border: none;
             color: #fff;
@@ -12505,6 +12512,7 @@ snippet from Animate.css - zoomIn effect
     #paddingtop_fixed{padding-top: 52px !important;}
 }
 @media screen and (max-width: 991px) {
+    .md-pl0{padding-left: 0;}
     #padding_dash{padding-top:19px !important;}
     .bg-search .header2{width:750px; margin:0 auto;}
     .header2 .dropdown_hover{padding:8px 10px 3px 8px;}
@@ -12525,7 +12533,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfile-name a{font-size: 11px;}
     .profile-boxProfileCard-content::before{top: 50px !important;}
     .right-side-menu{float: none; padding-left: 20%;}
-    
+    .header2 ul{padding-right: 0;}
    
 }
 @media screen and (max-width: 900px) {
@@ -12585,6 +12593,8 @@ snippet from Animate.css - zoomIn effect
     .left-side-bar ul li.active::after{content:"\f078"}
     .profile-main-rec-box-menu .table-responsive{border: none; width: auto;}
     .profile-boxProfileCard-content{padding-bottom: 5px;}
+    .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
+    .popup-text span{font-size: 16px;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12607,11 +12617,15 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
-    
-    
+    .fw-479.md-pl0{padding-left: 15px;}
+    .popup-text{padding-right: 0;}
+    .popup-img{padding-right: 5px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
     .profile-job-profile-menu ul li{padding-left: 0;}
+    .post-design-name ul li .post_dot{font-size: 14px;}
+    .post-design-product{font-size: 12px;}
+    .post-design-name ul li .post_dot{font-size: 14px;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}

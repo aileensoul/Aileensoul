@@ -156,10 +156,11 @@
         </script>
     </head>
     <body class="page-container-bg-solid page-boxed">
+        <section>
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 profile-box profile-box-left">
+                    <div class="col-md-4 col-sm-4 profile-box profile-box-left">
                         <div class="">
                             <!-- <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
@@ -670,7 +671,7 @@
                                     </div>
                                     <!--   <span class="fr">
                         <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 padding-left padding_les_left camer_h">
+                                    <div class="col-md-1 camera_in padding-left padding_les_left camer_h">
                                         <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
@@ -734,21 +735,22 @@
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> 
+                                <div class="popup-img"> 
                                     <?php if ($businessdata[0]['business_user_image']) { ?>
                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                     <?php } else { ?>
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-10 popup-text">
+                                <div id="myBtn"  class="editor-content popup-text">
                                     <span> Post Your Product....
                                     </span> 
+                                    <div class="padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                                 </div>
-                                <div class="col-md-1 padding-left padding_les_left camer_h">
-                                    <i class=" fa fa-camera" >
-                                    </i> 
-                                </div>
+                                
                             </div>
                             <!-- <div class="fr">
                               <a class="button">Post
@@ -774,7 +776,7 @@
                                         <div class="col-md-12 col-sm-12 post-design-box">
                                             <div  class="post_radius_box">  
                                                 <div class="post-design-top col-md-12" >  
-                                                    <div class="post-design-pro-img col-md-2"> 
+                                                    <div class="post-design-pro-img"> 
                                                         <!-- pop up box start-->
                                                         <div id="popup1" class="overlay">
                                                             <div class="popup">
@@ -1113,9 +1115,7 @@
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
-                                                                </div>
-
-                                                                <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
+                                                                    <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
                                                                 <div class="bui_images_view_more" >
                                                                     <span>View All (+
                                                                         <?php echo (count($businessmultiimage) - 4); ?>)</span>
@@ -1123,6 +1123,9 @@
                                                                 </div>
 
                                                                 </a>
+                                                                </div>
+
+                                                                
                                                             </div>
                                                             <!-- this div view all image end -->
                                                         <?php } ?>
@@ -1499,8 +1502,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+  
+        </section>
 <footer>
     <?php echo $footer; ?>
 </footer>

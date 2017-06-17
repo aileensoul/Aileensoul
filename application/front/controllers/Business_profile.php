@@ -5384,7 +5384,7 @@ $contition_array = array('status' => '1');
                 foreach ($commneteduser as $userdata) {
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                 }
-     $imglikeuser .= '<div class="like_one_other_img">';
+     $imglikeuser .= '<div class="like_one_other">';
                 $imglikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
                 $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -5461,7 +5461,7 @@ $contition_array = array('status' => '1');
                         $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                     }
 
-                    $imglikeuser1 .= '<div class="like_one_other_img">';
+                    $imglikeuser1 .= '<div class="like_one_other">';
                     $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
@@ -8930,7 +8930,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
 public function bus_contact($id = "") {
 
-        $userid = $this->session->userdata('aileenuser'); 
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser'); 
 
 
          $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
@@ -8946,60 +8946,32 @@ public function bus_contact($id = "") {
 
         $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $slugid = $artdata[0]['business_slug'];
+        $slugid = $businessdata1[0]['business_slug'];
 
+        $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
 
-        $join_str[0]['table'] = 'business_profile';
-        $join_str[0]['join_table_id'] = 'business_profile.user_id';
-        $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
-        $join_str[0]['join_type'] = '';
+        $search_condition = "(contact_to_id = '$userid' OR contact_from_id = '$userid')";
 
-        $contition_array = array('contact_to_id' => $userid, 'contact_type' => 2, 'contact_person.status' => 'confirm');
-        $busconatctto = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+        $this->data['unique_user'] = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
-
-        $join_str[0]['table'] = 'business_profile';
-        $join_str[0]['join_table_id'] = 'business_profile.user_id';
-        $join_str[0]['from_table_id'] = 'contact_person.contact_to_id';
-        $join_str[0]['join_type'] = '';
-
-        $contition_array = array('contact_from_id' => $userid, 'contact_type' => 2, 'contact_person.status' => 'confirm');
-        $busconatctfrom = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-        $unique_user = array_merge($busconatctto, $busconatctfrom);
-
-         $this->data['unique_user'] = $unique_user;
-     }else{  
+         
+     }else{
 
 
         $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1);
 
         $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-       
 
-        $join_str[0]['table'] = 'business_profile';
-        $join_str[0]['join_table_id'] = 'business_profile.user_id';
-        $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
-        $join_str[0]['join_type'] = '';
+        $uid = $this->data['uid'] = $businessdata1[0]['user_id'];
 
-        $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_type' => 2, 'contact_person.status' => 'confirm');
-        $busconatctto = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+        $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
 
+        $search_condition = "(contact_to_id = '$uid' OR contact_from_id = '$uid')";
 
-        $join_str[0]['table'] = 'business_profile';
-        $join_str[0]['join_table_id'] = 'business_profile.user_id';
-        $join_str[0]['from_table_id'] = 'contact_person.contact_to_id';
-        $join_str[0]['join_type'] = '';
-
-        $contition_array = array('contact_from_id' =>  $businessdata1[0]['user_id'], 'contact_type' => 2, 'contact_person.status' => 'confirm');
-        $busconatctfrom = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-        $unique_user = array_merge($busconatctto, $busconatctfrom);
-
-         $this->data['unique_user'] = $unique_user;
+        $this->data['unique_user'] = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
      }
-       //echo "<pre>"; print_r($unique_user); die();
+        echo "<pre>"; print_r($unique_user); die();
         $this->load->view('business_profile/bus_contact', $this->data); 
     }
 
@@ -9008,13 +8980,57 @@ public function bus_contact($id = "") {
    public function removecontactuser() {
 
 
-        $contact_user_id = $_POST["contact_user_id"];
+    $contact_user_id = $_POST["contact_user_id"];
+    $userid = $this->session->userdata('aileenuser');
 
-        $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_to' => $business_id);
+    $contition_array = array('contact_to_id' => $contact_user_id, 'contact_from_id' => $userid);
 
-        $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
-    } 
+    $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+     if($contactperson){
+         
+       $status =  $contactperson[0]['status'];
+       $contact_id =  $contactperson[0]['contact_id'];
+      
+       if($status == 'pending'){
+              $data = array(
+            'modify_date' => date('Y-m-d H:i:s'),
+            'status' => 'cancel'
+        );
+
+              //echo "<pre>"; print_r($data); die();
+ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+    } else if($status == 'cancel'){
+
+        $data = array(
+            'modify_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending'
+        );
+
+              //echo "<pre>"; print_r($data); die();
+ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+
+    }else if($status == 'reject'){
+
+        $data = array(
+            'modify_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending'
+        );
+
+              //echo "<pre>"; print_r($data); die();
+ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+
+    }else if($status == 'confirm'){
+
+        $data = array(
+            'modify_date' => date('Y-m-d H:i:s'),
+            'status' => 'cancel'
+        );
+
+              //echo "<pre>"; print_r($data); die();
+ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+    }
+  }
+}
 
 }
