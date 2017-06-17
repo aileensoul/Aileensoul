@@ -371,13 +371,15 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
 
                                     },
+                                    training_as:{
+                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                                    },
                                     training_organization:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                                     }
 
- 
 
-                                },
+                                }
 
 
                             });
