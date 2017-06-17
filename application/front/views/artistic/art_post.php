@@ -621,7 +621,7 @@
          <div class="col-md-12 col-sm-12 post-design-box">
             <div class="post_radius_box">
                <div class="post-design-top col-md-12" id= "showpost">
-                  <div class="post-design-pro-img col-md-2"> 
+                  <div class="post-design-pro-img"> 
                      <?php
                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id'], 'status' => 1))->row()->art_user_image;
                         
