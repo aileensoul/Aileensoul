@@ -124,9 +124,10 @@ a:focus {
 [contenteditable=true]:empty:before {
  content: attr(placeholder);
     display: block;
-    color: #cacaca;
-    /* For Firefox */
-}
+    color: #999;
+    font-weight: 500;
+    font-size: 14px;}
+
 /* Move it (define the animation) */
 
 @-moz-keyframes marquee-main {
@@ -504,6 +505,48 @@ img.aligncenter {
     padding: 6px 30px 8px;
 }
 /* Common Style End */
+/*latest added*/
+.like_cmnt_count li .comnt_count_ext_a{padding: 8px; font-size: 12px; cursor: default;}
+.pl-18{padding-left: 18px !important;}
+.ft-13{font-size: 13px !important;}
+.ft-15{font-size: 15px !important;}
+
+  .profile-pho{margin-top: -81px!important;}
+     .left_iner_img_profile{height: 77px; width: 71px; z-index: 3; position: relative; }
+     .left_iner_img_profile img {height: 100%; width: 100%;}
+     .right_left_box_design {width: 76%;
+        padding-bottom: 0px!important;
+    display: inline-block;
+    float: left;
+padding: 10px 10px 10px 10px ;}
+    .left_side_box_img{float: left;}
+    .left_box_menubar{ width: 100%; padding: 0px; margin: 0px; float: left;}
+    .left_box_menubar li{list-style: none; float: left; text-align: center; padding: 0px; margin: 0px; width: 32.33%; }
+    .left_box_menubar li a{  padding: 10px; display: inline-block; }
+    .left_box_menubar li:first-child{text-align: left;}
+     .left_box_menubar li:last-child{text-align: right;}
+    .profile-boxProfileCard-content{position: relative;}
+    .profile-boxProfileCard-content:before{width: 100%; height: 1px; display: block; position: absolute; content: ""; top:55px; background: #d9d9d9;}
+
+.search_ul_an li{padding: 5px 0px 0 8px;}
+  .box_serc{/*style="height: 14%;*/border: 1px solid #efefef;margin-bottom: 10px;}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered  li.select2-search--inline{width: 100%;}
+
+    .post-design-menu ul li a .fa-thumbs-up:hover{ background-color: #efefef;
+    border-radius: 50%; }
+     .post-design-menu ul li a .fa-comment-o:hover{ background-color: #efefef;
+    border-radius: 50%; }
+        .post-design-menu ul li a .main_color:hover{ background-color: #e8f3f8!important;
+    border-radius: 50%; }
+   
+.slider_img_p{width: 100%; height: 100%; text-align: center; padding-top: 10px; position: relative;}
+.slider_img_p img {width: auto; max-width: 100%; max-height: 100%; position: absolute;
+    top:50%; transform: translate(-50%, -50%);
+  
+    }
+     .action-button #message_count{padding: 0;}
+/*latest end*/
 
 .header {
     padding: 0;
@@ -2295,6 +2338,7 @@ ul.business_pf_ct_person_detail li b {
     /* position: absolute; */
     /* margin-left: -20px; */
 }
+
 .edit_bui_img {
     height: 90px;
     width: 90px;
@@ -2307,8 +2351,15 @@ ul.business_pf_ct_person_detail li b {
     height: 100%;
 }
 .bui_res_i {
-    margin: 4px;
-}
+    position: relative;
+    width: 225px;
+    margin: 0px;
+    height: 165px;
+    display: inline-block;
+    float: left;
+    display: table;
+    padding-left: 10px;}
+    .bui_res_i img {width: auto; max-width: 100%; height: 100%;}
 .profile-job-details {
     float: left;
     padding-left: 20px;
@@ -2355,7 +2406,7 @@ ul.business_pf_ct_person_detail li b {
 
 .job-contact-frnd .profile-job-post-detail {
     background-color: #ffffff;
-    border: 1px solid #bfbfbf;
+    border: 1px solid #d9d9d9;
     border-radius: 4px;
     margin-bottom: 15px;
 }
@@ -3694,11 +3745,20 @@ abbr {
     cursor: pointer;
 }
 .view_bui {
-    display: inline-flex;
-    position: absolute;
-    bottom: 40px;
-    right: 48px;
+     position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 166px;
+    width: 215px;
+    left: 10px;
 }
+  .view_bui a{
+    position: absolute;
+    bottom: 0;
+    left: 37%;
+    color: #fff;
+}
+
 /*popup form for text*/
 /* The Modal (background) */
 
@@ -3976,6 +4036,7 @@ width: 100%;
 .post-design-product {
     /*padding-top: 6px;*/
     padding-bottom: 5px;
+    padding-top: 1px;
 }
 .profile-box-user .profile-boxProfile-name a {
     padding-left: 8px;
@@ -4231,8 +4292,9 @@ border-bottom: 1px solid #000033;
     color: #5b5b5b;
 }
 .btn-3b {
-    padding: 6px 13px 6px 13px;
-    border-radius: 10px;
+    border-radius: 4px;
+     padding: 5px 8px 5px 8px;
+        font-size: 14px;
 }
 .btn-3:hover {
     color: #fff;
@@ -4244,6 +4306,7 @@ border-bottom: 1px solid #000033;
 }
 .add-post-button {
     margin: 10px;
+    margin-top: 30px;
 }
 /*
 .profile-box-menu li a:hover {
@@ -4621,9 +4684,16 @@ border-bottom: 1px solid #000033;
     /* border: 1px solid; */
     /* top: -70px; */
 }
+
+    .no_user_Av {
+    padding: 10px;
+    display: inline-block;
+    padding-left: 16px;
+    color: #808080;
+}
 .profile-company-name a {
     font-size: 18px;
-    margin-left: 8px;
+    margin-left: 0px;
     text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
     font-weight: 600;
     color: #1b8ab9;
@@ -5184,6 +5254,8 @@ label.cameraButton input[accept*="camera"] {
     padding: 10px 5px 10px 5px;
     width: 100%;
     height: 350px;
+
+
 }
 .post-design-like-box {
     background-color: #ffffff;
@@ -5195,7 +5267,7 @@ label.cameraButton input[accept*="camera"] {
     padding-left: 23px;
     background-color: #e8f3f8;
     padding-right: 23px;
-    border-top: 1px solid #e6eaef;
+    /*border-top: 1px solid #e6eaef;*/
     padding-top: 10px;
 }
 .post-design-menu {
@@ -5218,11 +5290,13 @@ label.cameraButton input[accept*="camera"] {
     width: auto;
     height: auto;
 }
+  .t_artd{font-weight: 600;}
+
 .post-design-menu ul li a {
     cursor: pointer;
     color: #999;
     margin-right: 18px!important;
-       padding: 8px !important;
+       padding: 0px !important;
     font-weight: 400;
     display: block;
     position: relative;
@@ -5239,6 +5313,7 @@ label.cameraButton input[accept*="camera"] {
 .post-design-menu ul li a i {
     cursor: pointer;
     font-size: 19px;
+    padding: 8px;
     /*padding: 10px 5px 10px 5px;*/
 }
 .post-design-menu ul li a i:hover {
@@ -5258,9 +5333,15 @@ label.cameraButton input[accept*="camera"] {
 /*.post-design-name ul li a span:before{content: "\00b7";*/
 
 .post-design-name ul li .datespan span:before {
-    content: " \00b7 ";
-    font-size: 16px;
+    content: "  ";
+    font-size: 17px;
 }
+.post-design-name ul li .post-design-product .in_desc_cw{
+padding-left: 10px;
+    display: inline-block;    
+}
+
+
 /*.post-design-product span:before {
     content: "\00b7";
 }*/
@@ -5311,9 +5392,10 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-desc {
     clear: both;
-    padding: 10px 20px 0px 20px;
+    padding:  5px 20px 0px 20px;
     text-align: left;
     word-break: break-all;
+    color: black;
     /* word-break: break-word;word-wrap: break-word;*/
 }
 .post-design-product-img img {
@@ -5477,6 +5559,8 @@ label.cameraButton input[accept*="camera"] {
     font-weight: 400;
     padding: 1px 4px 1px 4px;
 }
+.dis-n{display: none;}
+
 .comment-edit-button button {
     padding: 9px 23px 9px;
     border-radius: 3px;
@@ -5487,7 +5571,7 @@ label.cameraButton input[accept*="camera"] {
     width: 90%;
     white-space: nowrap;
     /* width: 12em; */
-    
+    color:black;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 13px;
@@ -5519,8 +5603,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .comment-edit-butn button {
     /*position: absolute; bottom: 11px;*/
-    
-    margin-right: 0;
+    margin: 0px;
 }
 .comment-edit-button button {
     padding: 9px 10px 9px;
@@ -5541,6 +5624,7 @@ label.cameraButton input[accept*="camera"] {
     font-weight: 400;
     word-break: break-word !important;
     word-wrap: break-word;
+    color: black;
 }
 .inputtype-comment textarea {
     resize: none;
@@ -5887,12 +5971,12 @@ follow box*/
 .follow_left_box_main_btn {
     display: inline-block;
     float: left;
-    padding-top: 24px;
+    padding-top: 18px !important;
 }
 .Follow_close {
     transform: translate(0, -50%);
     float: right;
-    top: 50%;
+    top: 35%;
     position: absolute;
     right: 0px;
 }
@@ -6044,7 +6128,7 @@ follow box*/
     bottom: 0;
     color: #fff;
     font-size: 35px;
-    popup-social-icon font-weight: normal;
+   /* popup-social-icon font-weight: normal;*/
     height: 167px;
     width: 177px;
     top: 104px;
@@ -6122,7 +6206,7 @@ follow box*/
 #responsive-images_2-breakpoints {
     float: left;
     height: 250px;
-    width: 336px;
+    width: 323px;
     margin: 1;
     display: inline-block;
 }
@@ -6134,7 +6218,7 @@ follow box*/
     float: left;
     height: 250px;
     position: relative;
-    width: 336px;
+    width: 324px;
     margin: 1px;
     display: inline-block;
 }
@@ -6148,7 +6232,7 @@ follow box*/
     color: white;
     position: absolute;
     /* left: 14px; */
-    
+    cursor: pointer;
     width: 46.8%;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
@@ -6231,7 +6315,7 @@ follow box*/
     color: white;
     position: absolute;
     /* left: 14px; */
-    
+    cursor: pointer;
     width: 333px;
     height: 250px;
     background: rgba(0, 0, 0, 0.5);
@@ -6329,7 +6413,7 @@ follow box*/
     color: white;
     position: absolute;
     /* left: 14px; */
-    
+    cursor: pointer;
     width: 100%;
     height: 249px;
     background: rgba(0, 0, 0, 0.5);
@@ -6785,6 +6869,8 @@ footer .footer-menu li a:hover {
     padding: 25px;
     border: 1px solid #d9d9d9;
     border-radius: 4px;
+    width: 100%;
+    display: inline-block;
 }
 .flw_msg_btn ul li a:hover {
     -webkit-transform: none;
@@ -6995,13 +7081,17 @@ body.modal-open {
     padding-left: 23px;
     background-color: #fff;
 }
-.like_one_other {
+.like_one_other {border-top: 1px solid #efefef!important;
+    display: inline-block;
+    background-color: white;
+width: 100%;
     font-weight: 400;
-    padding-left: 23px!important;
+     padding-left: 0px!important; 
     padding: 1px;
     font-size: 13px;
-    display: inline-block;
-    margin-left: 1px;
+    /* display: inline-block; */
+     margin-left: 0px; 
+    /* padding-right: 11px; */
 }
 .common-form .user_list_head {
     -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -7439,10 +7529,11 @@ input:-moz-placeholder {
 
 .modal-content2 {
     position: relative;
-    background-color: #fefefe;
+    background-color: #000;
     margin: auto;
     padding: 0;
     width: 90%;
+    height: 100%;
     max-width: 1200px;
 }
 /* Next & previous buttons */
@@ -7468,7 +7559,7 @@ input:-moz-placeholder {
 /* The Close Button */
 
 .close2 {
-   color: black;
+   color: #fff;
     position: absolute;
     top: 5px;
     right: 5px;
@@ -7858,6 +7949,7 @@ fieldset .add_post_btns {
     margin-left: 23px;
 }
 .search_button button {
+    margin-bottom: 10px;
     letter-spacing: 1px;
     width: 90px;
     padding: 8px 8px;
@@ -8050,9 +8142,9 @@ fieldset .add_post_btns {
 .dropdown_hover .dropdown-content_hover a {
     color: #000;
 }
-.pdf_name a: {
+/*.pdf_name a: {
     text-decoration-line: underline;
-}
+}*/
 .pdf_name {
     font-size: 14px;
     margin-top: 5px;
@@ -8486,7 +8578,7 @@ label.cameraButton input[accept*="camera"] {
     padding-right: 0;
     /*height: 100%;*/
     
-    border-left: 1px solid #d9d9d9;
+    border: 1px solid #d9d9d9; 
 }
 .not_img {
     margin-top: 20px;
@@ -8620,7 +8712,7 @@ label.cameraButton input[accept*="camera"] {
 .column1 {
     float: left;
     float: left;
-    width: 195px;
+    width: 227px;
     height: 173px;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
@@ -8659,7 +8751,10 @@ label.cameraButton input[accept*="camera"] {
     color: #1b8ab9
 }
 .posted_with {
-    font-weight: 600;
+   padding-left: 4px!important;
+    padding-right: 4px!important;
+    word-spacing: 2px;
+ font-weight: 500!important;
     color: #91949d;
     display: inline-block;
 }
@@ -8682,11 +8777,11 @@ label.cameraButton input[accept*="camera"] {
     padding: 10px;
 }
 .three_img_2 {
-    width: 49.4%;
+    width: 50%;
     height: 35%;
     float: left;
     margin-top: 4px;
-    margin-right: 3px;
+    margin-right: 0px;
 }
 .cmy_2 {
     padding-left: 7px;
@@ -8747,7 +8842,7 @@ fieldset .add_post_btns:hover {
     color: #1b8ab9
 }
 .profile-box-job-menu ul li {
-    padding-left: 20px;
+    padding-left: 13px !important;
 }
 .profile-box-bui-menu ul li {
     padding-left: 15px;
@@ -8835,6 +8930,8 @@ fieldset .add_post_btns:hover {
 }
 .edit-comment-box .comment-edit-button button {
     padding: 8px 18px 7px;
+    position: absolute;
+    bottom: 2px;
 }
 .edit-comment-box button {
     padding: 8px 14px 7px
@@ -8904,7 +9001,7 @@ fieldset .add_post_btns:hover {
     padding-right: 9px;
 }
 .main_form {
-    padding-top: 70px;
+    padding-top: 80px;
 }
 .post-design-name ul li .post-design-product a {
     padding-right: 2px;
@@ -9062,7 +9159,7 @@ fieldset .add_post_btns:hover {
 }
 
 /*.like_h_w{ width: 33px!important; height: 21px!important; padding: 0px!important;  }*/
-
+ .like_h_w{border-radius: 50%;}
 .like_h_w i {
     font-size: 18px;
 }
@@ -9203,19 +9300,25 @@ fieldset .add_post_btns:hover {
 .bg_following:hover{background-color: #156f95 !important;}
 .like_cmnt_count li{float: right;    word-spacing: 2px;
     letter-spacing: 1px; color: #999!important;}
-.like_cmnt_count li .like_count_ext{padding: 8px; font-size: 12px; color: #999!important;    word-spacing: 2px;
+.like_cmnt_count li .like_count_ext{padding: 8px; font-size: 12px; color: #999!important;  cursor: default;  word-spacing: 2px;
     letter-spacing: 1px;}
-.like_cmnt_count li .comnt_count_ext{padding: 8px; font-size: 12px; }
+.like_cmnt_count li .comnt_count_ext{padding: 8px; font-size: 12px; cursor: default;}
 /*.border_left_span{    border-left: 1px solid #999;
     padding-left: 16px;}*/
 
+.images_view_more span{    position: absolute;
+    bottom: 0;
+    left: 35%;}
+    .manage_images_view_more span{    position: absolute;
+    bottom: 0;
+    left: 35%;}
 
 
     .left_nest{/*position: absolute;
     bottom: 0px;
     left: 28%;*/}
     .keyskill_border_active {
- /* border: 1px solid red !important;*/}
+ border: 2px solid red !important}
 
 
 /* Search Select in job module*/
@@ -9908,25 +10011,68 @@ style chat css end*/
         margin-bottom: 5px;
         padding: 7px;
     }    .likeduserlist, .likeduserlist1 {
-        float: left;
-        /*        margin-left: 15px;
-                margin-right: 15px;*/
-        width: 96%;
-        background-color: #fff !important;
+       padding-right: 24px;
+    padding-left: 24px;
+    float: left;
+    width: 100%;
+    background-color: #fff !important;
     }
     div[class^="likeduserlist"]{
         width: 100% !important;
-        background-color: #fff !important;
+    background-color: #fff !important;
+    padding-left: 24px;
+    padding-right: 24px;
     }
-    .like_one_other_img{
+    .like_one_other_img{  font-weight: 400;
+ border-top: 1px solid #efefef;
+ width: 100%;
+    padding: 1px;
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 0px;
+    background: white;
         margin-left: 25px;
         /*  margin-right: 15px;*/
 
     }
     /* start
 zalak 9-6 css*/
-.slider_img{width: 100%; height: 430px; text-align: center; padding-top: 10px;  position: relative;}
-.slider_img img {width: auto; max-width: 100%; max-height: 100%;}
+ .popup-img-popup::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+ .popup-img-popup::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+ .popup-img-popup::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+ .popup-img-popup::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+ .modal_popup{padding-top: 42px!important;}
+  .popup-img-popup{    height: 325px;
+    overflow-y: scroll;}
+.bui_popup_img{       display: inline-block;
+    height: 129px;
+    width: 129px;
+    padding: 3px;}
+    .bui_popup_img img {
+        width: 100%; height: 100%;
+    }
+
+.slider_img{width: 100%; height: 430px; text-align: center; padding-top: 10px;  position: relative; padding-bottom: 10px;}
+.slider_img img {   top: 50%;
+    width: auto;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);}
 /*
 end zalak 9-6 css*/
     #two_images_buip{  float: left;
@@ -9940,43 +10086,6 @@ end zalak 9-6 css*/
     cursor: pointer;
     height: auto;}
     .main_color{color: #1b8ab9!important;}
-    .likeuser_list {
-  
-    background-color: #f2f2f2;
-    float: left;
-    margin: 0px 6px 6px 0px;
-    padding: 6px;
-    width: 49%;
-    font-size: 15px;
-    font-weight: 600;
-    color: #008a8a;
-    display: table;
-}
-    .likeuser_list a{color: #1b8ab9;}
-.likeduser, .likeduser1{
-        width: 100%;
-        background-color: #1b8ab9 !important;
-    }
-    .likeduser-title, .likeduser-title1{
-        color: #fff;
-        margin-bottom: 5px;
-        padding: 7px;
-    }    .likeduserlist, .likeduserlist1 {
-        float: left;
-        /*        margin-left: 15px;
-                margin-right: 15px;*/
-        width: 96%;
-        background-color: #fff !important;
-    }
-    div[class^="likeduserlist"]{
-        width: 100% !important;
-        background-color: #fff !important;
-    }
-    .like_one_other_img{
-        margin-left: 25px;
-        /*  margin-right: 15px;*/
-
-    }
 
 /***  font awsom  ***/
 /*!
@@ -12304,7 +12413,7 @@ end zalak 9-6 css*/
 .profile-job-post-detail  .post-design-box{border:none;}
 .post-design-commnet-box .editable_text{min-height: 37px !important}
 .notifications li .notification-data-inside div{padding-top: 3px!important  }
-.profile-box-job-menu ul li a{margin-right: 7px !important;}
+.profile-box-job-menu ul li a{margin-right: 15px !important;}
 .pop_content .cnclbtn:hover{background-color: #156f95 !important}
 .pop_content .okbtn:hover{background-color: #156f95 !important}
 .tabordion section .label-d{padding: 5px 7px !important}
@@ -12320,6 +12429,68 @@ end zalak 9-6 css*/
 .select2-container-multi .select2-search-choice-close{top:7px;}
 .profile-text-bui-user .profile-boxProfile-name a{padding-left: 0px !important}
 /*end*/
+
+/*Dhaval 17/6*/
+.like_cmmt_space{margin-left: 6px;}
+.deactive{padding-top: 120px;}
+.mar_left{margin-left: 6px !important;}
+.business_pf_ct_person_form form  ul li span{
+    word-wrap: break-word;
+    word-break: break-word;
+    /* text-align: justify; */
+    padding-right: 10px !important;
+    display: flex !important;
+    float: right;
+    width: 65% !important;
+    /* display: inline-block; */
+}
+
+.business_pf_ct_person_form form  ul li span::before {
+  content: " :";
+    padding-right: 20px;
+    float: left;
+}
+.inputtype-edit-comment {position: relative;}
+.three_img_left{
+    padding-left: 2px !important;
+}
+
+.three_img_right{
+padding-right: 2px !important;
+}
+bui_images_view_more a:hover{text-decoration: underline;}
+
+.manage_images_view_more a:hover{text-decoration: underline;}
+.images_view_more a:hover{text-decoration: underline;}
+.positin_art {position: relative;}
+.post-design-box .post-design-desc input{font-size: 15px!important; width: 50%;}
+.post-design-box .post-design-desc .textbuis{font-size: 13px;}
+.post-design-box .post-design-desc a{ color: black; }
+.post-design-box .post-design-desc .editable_text{min-height: 80px!important;    float: left;
+    margin-bottom: 10px;width: 85%;
+}
+.post-design-box .post-design-desc .fr{position: absolute;
+    right: 9px;
+    bottom: 8px;}
+.profile-art-box .right_left_box_design {padding-bottom: 0px !important;}
+/*Setting*/
+.padd_set{padding: 48px 0;}
+.padd_set h3{font-size: 22px;position: absolute;color: white;top: 1px;}
+.padd_set .change-password{padding: 50px 0;}
+.user-midd-section .padd_set {padding: 80px 20px; padding-left: 0;}
+.txt_cen{text-align: center;}
+.portfolio_plus{
+      position: absolute;
+    right: 0;
+    bottom: 7px;
+}
+.common-form .keyskill_border_active ul{border:2px solid red !important;}
+.profile-main-rec-box-menu td.active{background-color: #fff !important;}
+.common-form .job-post-detail {border:none;}
+.common-form .keyskill_border_active ul{border:none !important;}
+.common-form span.keyskill_border_active{border:2px solid red!important;}
+.worktype_minheight{min-height: 80px;}
+/*End*/
 
 
 .clear{clear:both;}
@@ -12490,6 +12661,7 @@ snippet from Animate.css - zoomIn effect
     
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
+    .cmy_2{width: 74%; float: left;}
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{top:3px; right:5px;}
@@ -12595,6 +12767,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfileCard-content{padding-bottom: 5px;}
     .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
     .popup-text span{font-size: 16px;}
+    .cmy_2{width: 68%;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12626,9 +12799,13 @@ snippet from Animate.css - zoomIn effect
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
     .post-design-name ul li .post_dot{font-size: 14px;}
+    .cmy_2{width:85%;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
     .right-side-menu{width: 100%;}
+    .cmy_2{width: 83%;}
 }
+
+
 
