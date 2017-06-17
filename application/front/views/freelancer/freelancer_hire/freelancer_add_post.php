@@ -295,7 +295,7 @@
 
 <fieldset class="col-md-4">
 
-<label> Work Type</label>  <input type="radio" tabindex="10" name="rating" value="0" checked> Hourly
+<label> Work Type</label>  <input type="radio" tabindex="10" class="worktype_minheight" name="rating" value="0" checked> Hourly
   <input type="radio"  name="rating" value="1"> Fixed
   <?php echo form_error('rating'); ?>
                                </fieldset>

@@ -235,8 +235,7 @@ bottom: 11px;}
 .common-form .keyskill_border_active ul{border:2px solid red !important;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
 .job-contact-frnd .profile-job-post-detail {border:1px solid #d9d9d9 !important;}
-
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
-
 .common-form span.keyskill_border_active{border:2px solid red!important;}
+.worktype_minheight{min-height: 80px;}
