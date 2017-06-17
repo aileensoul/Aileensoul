@@ -215,8 +215,9 @@ a:focus {
 .header2 ul {
     font-size: 0;
     margin: 0;
-    padding-right: 21px;
+    padding-right: 0px;
     float: right;
+    padding-left: 0;
 }
 .header2 ul li {
     list-style: none;
@@ -12375,9 +12376,11 @@ snippet from Animate.css - zoomIn effect
         .panel-group .panel + .panel {
             margin-top: 0;
         }
-        
+        .panel-heading.active {
+            background-color: #156f95;
+        }
         .panel-heading {
-            background-color: #0072AE;
+            background-color: #1b8ab9;
             border-radius: 0;
             border: none;
             color: #fff;
@@ -12505,6 +12508,7 @@ snippet from Animate.css - zoomIn effect
     #paddingtop_fixed{padding-top: 52px !important;}
 }
 @media screen and (max-width: 991px) {
+    .md-pl0{padding-left: 0;}
     #padding_dash{padding-top:19px !important;}
     .bg-search .header2{width:750px; margin:0 auto;}
     .header2 .dropdown_hover{padding:8px 10px 3px 8px;}
@@ -12585,6 +12589,7 @@ snippet from Animate.css - zoomIn effect
     .left-side-bar ul li.active::after{content:"\f078"}
     .profile-main-rec-box-menu .table-responsive{border: none; width: auto;}
     .profile-boxProfileCard-content{padding-bottom: 5px;}
+    .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12607,7 +12612,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfilebuisness-avatarLink2{margin: 10px 0 0 5px;}
     .profile-text-bui-user{padding-top: 5px; padding-right: 5px !important;}
     .profile-box-job-menu{margin-top: -22px;}
-    
+    .fw-479.md-pl0{padding-left: 15px;}
     
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}

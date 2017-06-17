@@ -87,7 +87,7 @@
                      <div class="common-form common-form_border">
                         <h3>Work Experience</h3>
                         
-                        <div class="work_exp fw border">
+                        <div class="work_exp fw">
                              <div class="">
         <div class="col-md-12 col-sm-12 col-xs-12">
            
