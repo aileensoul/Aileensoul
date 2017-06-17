@@ -86,6 +86,96 @@
                   <div class="clearfix">
                      <div class="common-form common-form_border">
                         <h3>Work Experience</h3>
+                        
+                        <div class="xyz">
+                             <div class="">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+           
+            <div class="panel-group wrap" id="bs-collapse">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
+         
+         Content 1
+        </a>
+      </h4>
+                    </div>
+                    <div id="one" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            Where now are the horse and the rider? Where is the horn that was blowing? Where is the helm and the hauberk, and the bright hair flowing?
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
+       Content 2
+        </a>
+      </h4>
+                    </div>
+                    <div id="two" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
+          Content 3
+        </a>
+      </h4>
+                    </div>
+                    <div id="three" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            ave gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?
+                        </div>
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
+         Content 4
+        </a>
+      </h4>
+                    </div>
+                    <div id="four" class="panel-collapse collapse in">
+                        <div class="panel-body">
+
+                            They have passed like rain on the mountain, like a wind in the meadow; The days have gone down in the West behind the hills into shadow.
+                        </div>
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+            </div>
+            <!-- end of #bs-collapse  -->
+
+        </div>
+
+
+
+    </div>
+    <!-- end of container -->
+                            
+                        </div>
+                        
                         <div class="tablet-hi">
                            <a href="javascript:void(0)" tabindex="1"  class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
                            <a href="javascript:void(0)"  class="tablinks active2" onclick="openCity(event, 'Paris')">Experience</a>
@@ -780,6 +870,17 @@
    $('#preloader').fadeOut('slow',function(){$(this).remove();});
    });
    });
+   
+    $(document).ready(function () {
+            $('.collapse.in').prev('.panel-heading').addClass('active');
+            $('#accordion, #bs-collapse')
+                .on('show.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').addClass('active');
+                })
+                .on('hide.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').removeClass('active');
+                });
+        });
 </script>
 <style type="text/css">
    #experience_month-error{margin-top: 39px;}
