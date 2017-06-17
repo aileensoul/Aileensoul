@@ -371,7 +371,19 @@
                                 <h3>Contacts</h3>
                                  <div class="contact-frnd-post">
                               
-                        <?php  foreach ($unique_user as $user) { ?>
+                        <?php 
+
+                         foreach ($unique_user as $user) { 
+
+                        if($userid == $user['contact_from_id'] || $uid == $user['contact_from_id']){
+
+                $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
+
+
+                          }else {
+                        $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
+                         }
+                          ?>
                                   <div class="job-contact-frnd ">
 
                                         <div class="profile-job-post-detail clearfix">
@@ -381,12 +393,12 @@
 
                             <li class="fl">
                             <div class="follow-img">
-                                <?php if($user['business_user_image'] != ''){ ?>
-                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">
-                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $user['business_user_image']);?>" height="50px" width="50px" alt="" >
+                                <?php if($cdata[0]['business_user_image'] != ''){ ?>
+                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$cdata[0]['business_slug']); ?>">
+                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']);?>" height="50px" width="50px" alt="" >
                            </a>
                             <?php } else { ?>
-                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>">
+                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$cdata[0]['business_slug']); ?>">
                             <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             </a>
                             <?php } ?> 
@@ -395,12 +407,12 @@
                             <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
-                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>"><?php echo $user['company_name'];?></a>
+                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$cdata[0]['business_slug']); ?>"><?php echo $cdata[0]['company_name'];?></a>
                           </div>
                           <!-- category start -->
                                 <div>
 
-                                <?php  $category =  $this->db->get_where('industry_type',array('industry_id' => $user['industriyal'], 'status' => 1))->row()->industry_name;  ?>
+                                <?php  $category =  $this->db->get_where('industry_type',array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;  ?>
          
          
                                <a><?php 
@@ -408,7 +420,7 @@
                                if($category){
                                 echo $category;
                                }else{
-                              echo $user['other_industrial'];
+                              echo $cdata[0]['other_industrial'];
                                  }
 
                                ?></a>
@@ -426,31 +438,40 @@
   
    <?php 
       $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //print_r($contactperson[0]['status']) ; die();
-        
-                     if($contactperson[0]['status'] == 'cancel'){?>
+      if($userid == $user['contact_from_id'] || $uid == $user['contact_from_id']){
+
+        $contition_array = array('contact_from_id' => $userid, 'contact_to_id' => $user['contact_to_id'] ,'contact_type' => 2);
+
+        $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+      }else{
+
+        $clistuser = $this->common->select_data_by_id('contact_person', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
+      }
+
+          if($clistuser[0]['status'] == 'cancel'){?>
                      <button>
-
-                                Add to contact
+                           Add to contact
                       </button>
-                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>  
+                     <?php }elseif($clistuser[0]['status'] == 'pending'){ ?>  
                       <button> 
                             Cancel request 
                       </button> 
-                     <?php }else{ ?>
+                     <?php }else if($clistuser[0]['status'] == 'confirm'){ ?>
                      <button onclick="removecontact(<?php echo $businessdata1[0]['user_id']; ?>)">
                          In your contact
                           </button>
-                   <?php  } ?>
+                   <?php  } else if($clistuser[0]['status'] == 'reject'){?>
 
-  
+                    <button onclick="removecontact(<?php echo $businessdata1[0]['user_id']; ?>)">
+                        Add to contact
+                          </button>
+                   <?php  } ?>
+      
    </div>
                            
 </li>
-
 
                             </ul>
                             </div>
@@ -970,6 +991,9 @@ $(document).ready(function(){
                 dataType: 'json',
                 data:'contact_user_id='+clicked_id,
                 success:function(data){ 
+
+
+
 
                 }
             }); 
