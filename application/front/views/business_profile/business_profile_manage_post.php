@@ -1475,7 +1475,7 @@ $(document).ready(function(){
                                         <?php
                                         if ($row['business_likes_count'] > 0) {
                                             ?>
-                                            <div class="likeduserlist<?php echo $row['business_profile_post_id'] ?>">
+                                            <div class="likeduserlist1 likeduserlist<?php echo $row['business_profile_post_id'] ?>">
                                                 <?php
                                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1525,7 +1525,7 @@ $(document).ready(function(){
                                         }
                                         ?>
 
-                                        <div class="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:block">
+                                        <div  class="likeduserlist1  <?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:none">
                                             <?php
                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
