@@ -353,7 +353,7 @@
                                         <span> 
                                             
                                              <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-                                                            <a><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
+                                                            <a class="ft-15 t_artd"><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -477,7 +477,7 @@
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                             <?php } ?>
 
 
@@ -704,7 +704,7 @@
                                                                                             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                                             if (count($artcommentlike1) == 0) {
                                                                                                 ?>
-                                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
 
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
@@ -1096,7 +1096,7 @@
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
 
-                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>

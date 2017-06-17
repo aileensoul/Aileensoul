@@ -338,3 +338,20 @@ width: 100%;
 }*/
 .main_art{ border: 1px solid #d9d9d9; }
 .select2-container--default .select2-selection--multiple .select2-selection__rendered  li.select2-search--inline{width: 100%;}
+.like_one_other_img{
+       font-weight: 400;
+ border-top: 1px solid #efefef;
+ width: 100%;
+    padding: 1px;
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 0px;
+    background: white;
+}
+[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    display: block;
+    color: #999;
+    font-weight: 500;
+    font-size: 14px;}
+    .editable_text{border:2px solid #cacaca; }
