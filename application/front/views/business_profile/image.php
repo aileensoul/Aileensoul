@@ -321,7 +321,7 @@ $('#searchplace').select2({
             
             reader.onload = function (e) {
             
-            document.getElementById('preview').style.display = 'block';
+            document.getElementById('preview').style.display = 'none';
                 $('#preview').attr('src', e.target.result);
             }
              reader.readAsDataURL(input.files[0]);
