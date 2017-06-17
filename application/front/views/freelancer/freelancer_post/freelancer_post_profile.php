@@ -533,28 +533,18 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                         <ul class="clearfix">
 <?php
 if ($freelancerpostdata[0]['freelancer_post_hourly']) {
+
+   $currancy = $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name;
     ?>
-                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly']; ?> </span>
+                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly'] .'  '.$currancy; ?> </span>
                                                 </li>
     <?php
-} else {
+} 
+else {
         echo "";
                                                 
 }
 ?>
-
-<?php
-if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
-    ?>
-                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
-                                                </li>
-                                                <?php
-                                            } else {
-                                                 echo "";
-                                                
-                                            }
-                                            ?>
-
 
                                             <?php
                                             if ($freelancerpostdata[0]['freelancer_post_fixed_rate'] == 1) {
@@ -591,8 +581,9 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                         <ul class="clearfix">
 <?php
 if ($freelancerpostdata[0]['freelancer_post_hourly']) {
+     $currancy = $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name;
     ?>
-                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly']; ?> </span>
+                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly'].'  '.$currancy; ?> </span>
                                                 </li>
     <?php
 } else {
@@ -603,19 +594,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 }
 ?>
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
-    ?>
-                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
-                                                </li>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <li> <b>currency</b> <span>  <?php echo PROFILENA; ?></span>
-                                                </li>
-                                                <?php
-                                            }
-                                            ?>
+
 
 
                                             <?php

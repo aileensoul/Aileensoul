@@ -2759,27 +2759,13 @@ $this->load->view('business_profile/temp');
        // print_r($post_data);
        // exit;
         
-//Click on Add_More_WorkExp Process start
-        if ($this->input->post('add_workexp')) {
 
-
-            $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
-            $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-            $count = count($jobdata);
-
-            if ($count != 5) {
-                redirect('job/job_add_workexp', refresh);
-            } else {
-                echo "<script>alert('You Can only add 5 Work Experience field');</script>";
-                redirect('job/job_work_exp_update', refresh);
-            }
-        }
 //Click on Add_More_WorkExp Process End
 
         if ($this->input->post('next')) {
 
             $exp = $this->input->post('radio');
+
 
             if ($exp == "Fresher") {
 
@@ -2792,22 +2778,7 @@ $this->load->view('business_profile/temp');
                 $companyphn = '';
                 $certificate1 = '';
 
-                // $config['upload_path'] = 'uploads/job_work_certificate/';
-                // $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-
-                // $config['file_name'] = $_FILES['certificate']['name'];
-
-                // //Load upload library and initialize configuration
-                // $this->load->library('upload', $config);
-                // $this->upload->initialize($config);
-
-                // if ($this->upload->do_upload('certificate')) {
-                //     $uploadData = $this->upload->data();
-
-                //     $certificate = $uploadData['file_name'];
-                // } else {
-                //     $certificate = '';
-                // }
+               
 
                 //upload work certificate process end
 
@@ -2833,17 +2804,18 @@ $this->load->view('business_profile/temp');
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
 
-                $data = array(
-                    'experience' => $exp,
-                    'modified_date' => date('Y-m-d h:i:s', time())
-                );
+                
 
 
-                $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+  $contition_array = array('user_id' => $userid, 'status' => 1);
+  $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+               
+               //update data at job_add_workexp table start
+               if ($jobdata)
+               {
+                //echo "hi";die();
 
-                //update data at job_add_workexp table start
-
-                $data1 = array(
+                 $data1 = array(
                     'experience' => $exp,
                     'experience_year' => '',
                     'experience_month' => '',
@@ -2857,9 +2829,42 @@ $this->load->view('business_profile/temp');
 
 
                 $updatedata1 = $this->common->update_data($data1, 'job_add_workexp', 'user_id', $userid);
-                //update data at job_add_workexp table end         
 
-                if ($updatedata && $updatedata1) {
+                $data = array(
+                    'experience' => $exp,
+                    'modified_date' => date('Y-m-d h:i:s', time())
+                );
+
+                $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+
+               }
+         //update data at job_add_workexp table end
+
+          
+         else
+               {
+ //echo "hi1";die();
+                    $data1 = array(
+                    'experience' => $exp,
+                    'user_id' => $userid,
+                    'status' => 1
+                );
+
+                $insertid = $this->common->insert_data_getid($data1,'job_add_workexp');
+
+                $data = array(
+                    'experience' => $exp,
+                    'modified_date' => date('Y-m-d h:i:s', time())
+                );
+
+
+                $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+               
+            }
+          //Insert data at first time job_add_workexp table end
+                         
+
+                if ($updatedata && $updatedata1 || $updatedata && $insertid) {
                     $this->session->set_flashdata('success', 'Work Experience updated successfully');
                     redirect('job/job_curricular_update');
                 } else {

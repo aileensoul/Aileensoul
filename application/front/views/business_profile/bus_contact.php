@@ -368,7 +368,7 @@
                         <div class="common-form">
                             <div class="job-saved-box">
 
-                                <h3>Contact</h3>
+                                <h3>Contacts</h3>
                                  <div class="contact-frnd-post">
                               
                         <?php  foreach ($unique_user as $user) { ?>
@@ -423,12 +423,32 @@
                                   
  
  <div class="user_btn">
+  
+   <?php 
+      $userid = $this->session->userdata('aileenuser');
+     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-  <button>
-   In your contact 
-   </button></div>
+        //print_r($contactperson[0]['status']) ; die();
+        
+                     if($contactperson[0]['status'] == 'cancel'){?>
+                     <button>
 
-                            
+                                Add to contact
+                      </button>
+                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>  
+                      <button> 
+                            Cancel request 
+                      </button> 
+                     <?php }else{ ?>
+                     <button onclick="removecontact(<?php echo $businessdata1[0]['user_id']; ?>)">
+                         In your contact
+                          </button>
+                   <?php  } ?>
+
+  
+   </div>
+                           
 </li>
 
 
@@ -927,3 +947,32 @@ $(document).ready(function(){
             </script>
 
 <!-- contact person script end -->
+
+
+<script type="text/javascript">
+  
+  function removecontact(clicked_id){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='removecontactuser(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+  }
+</script>
+
+<script type="text/javascript">
+  
+  function removecontactuser(clicked_id){
+
+
+     $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "business_profile/removecontactuser" ?>',
+                dataType: 'json',
+                data:'contact_user_id='+clicked_id,
+                success:function(data){ 
+
+                }
+            }); 
+
+  }
+</script>
