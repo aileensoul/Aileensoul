@@ -317,6 +317,8 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                                              echo $countryname;
                                               ?> 
                                    </span></li>
+
+
             <?php if($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){ ?>
             <li>
               <b>Degree</b><span>
@@ -346,151 +348,9 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                  </span>
               </li>
              <?php }
-              elseif($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary']){
+              elseif($row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){
                 ?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $row['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $row['percentage_higher_secondary'];?>
-                </span>
-                </li>
-                <?php }
-              elseif($row['board_primary'] && $row['board_secondary']){?>
-
-              <li><b>Board of Secondary</b>
-                <span>
-                  <?php echo $row['board_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Secondary</b>
-                <span>
-                  <?php echo $row['percentage_secondary'];?>
-                </span>
-                </li>
-              <?php } else if($row['board_primary'] && $row['board_higher_secondary']){
-             ?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $row['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $row['percentage_higher_secondary'];?>
-                </span>
-                </li>
-
-             <?php } elseif($row['board_secondary'] && $row['board_higher_secondary']){?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $row['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $row['percentage_higher_secondary'];?>
-                </span>
-                </li>
-
-             <?php } elseif($row['board_primary'] && $row['degree']){?>
-             <li>
-              <b>Degree</b><span>
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
-                                                                        if ($cache_time) {
-                                                                            echo $cache_time;
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-
-
-              <?php } elseif($row['board_secondary'] && $row['degree']){ ?>
-              <li>
-              <b>Degree</b><span>
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-                   $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
-                              if ($cache_time) {
-                                  echo $cache_time;
-                                          } else {
-                                              echo PROFILENA;
-                                              }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-
-
-               <?php } elseif($row['board_higher_secondary'] && $row['degree']){ ?>
-
-
-<li>
-              <b>Degree</b><span>
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
-                                                                        if ($cache_time) {
-                                                                            echo $cache_time;
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-
-
-                 <?php }elseif($row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){?>
-
-<li>
+               <li>
               <b>Degree</b><span>
             
 
@@ -519,6 +379,150 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                    ?>
                  </span>
               </li>
+
+
+                <?php }
+              elseif($row['board_higher_secondary'] && $row['degree']){?>
+
+              <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time;
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
+                                                                        if ($cache_time) {
+                                                                            echo $cache_time;
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+              <?php } else if($row['board_secondary'] && $row['degree']){
+             ?>
+               <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time; 
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                   $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
+                              if ($cache_time) {
+                                  echo $cache_time;
+                                          } else {
+                                              echo PROFILENA;
+                                              }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+             <?php } elseif($row['board_primary'] && $row['degree']){?>
+               <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $row['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time;
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $row['stream']))->row()->stream_name;
+                                                                        if ($cache_time) {
+                                                                            echo $cache_time;
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+             <?php } elseif($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary']){?>
+             <li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $row['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $row['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+
+              <?php } elseif($row['board_secondary'] && $row['board_higher_secondary']){ ?>
+             <li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $row['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $row['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+               <?php } elseif($row['board_primary'] && $row['board_higher_secondary']){ ?>
+
+
+<li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $row['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $row['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+
+                 <?php }elseif($row['board_primary'] && $row['board_secondary']){?>
+
+ <li><b>Board of Secondary</b>
+                <span>
+                  <?php echo $row['board_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Secondary</b>
+                <span>
+                  <?php echo $row['percentage_secondary'];?>
+                </span>
+                </li>
 
                  <?php } elseif($row['degree']){?>
 

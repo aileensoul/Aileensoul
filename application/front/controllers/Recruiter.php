@@ -1247,16 +1247,12 @@ foreach ($citiesss as $key1) {
         'table' => 'job_apply',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_apply.user_id'),
-     array(
-        'join_type' => 'left',
-        'table' => 'job_add_workexp',
-        'join_table_id' => 'job_reg.user_id',
-        'from_table_id' => 'job_add_workexp.user_id')
+   
 ); 
       $contition_array = array('job_apply.post_id' => $id, 'job_apply.is_delete' =>'0');
 
       
-       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_workexp.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
+       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
       //echo "<pre>"; print_r($this->data['user_data']);die();
 
            
