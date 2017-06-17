@@ -443,13 +443,10 @@
 </div>
 </li>
         <?php } } else{?>
-                                            </ul>
-                                        </div>
+                                          
                               
-                                 <div class="contact-frnd-post">
-                                 <div class="pictures1">
-
-
+                                
+                                 
                                 
 
           <div class="not_img">
@@ -462,8 +459,9 @@
                                </div>
         <?php }?>
       
-    </div>
-</div>
+     </ul>
+                                        </div>
+
 </div>
 </div></div>
            

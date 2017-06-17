@@ -353,9 +353,8 @@ start head -->
                                     </div>
                                     <?php       } else {
                                        ?>
-                                 </ul>
-                              </div>
-                              <div class="contact-frnd-post">
+                             
+                        
                                  <div class="main_pdf_box"  >
                                     <div class="not_avali" >
                                        <img src="<?php echo base_url('images/020-c.png'); ?>"  >
@@ -365,6 +364,8 @@ start head -->
                                     </div>
                                  </div>
                                  <?php } ?>
+                                     </ul>
+                              </div>
                                  <!-- silder start -->
                                  <div id="myModal1" class="modal2">
                                     <div class="modal-content2">

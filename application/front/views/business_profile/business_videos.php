@@ -470,13 +470,7 @@
 
       <?php }   }  else{?>
                              
-                                            </ul>
-                                        </div>
-                               
-                                 <div class="contact-frnd-post">
-                               <tr>
-
-
+                                
            
        
 
@@ -490,8 +484,10 @@
                                </div>
         <?php }?>
 
-           </tr>
-</div>
+                                            </ul>
+                                        </div>
+                               
+       
 </div>
 </div></div>
             <div class="tab-pane" id="profile">Profile Tab.</div>

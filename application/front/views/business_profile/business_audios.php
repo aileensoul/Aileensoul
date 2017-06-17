@@ -466,11 +466,8 @@ $(document).ready(function(){
                             </audio>
                     </li>
                <?php } } else{?>
-                                            </ul>
-                                        </div>
+                                          
                             
-                                       <div class="add_audio"> 
-                                 <div class="vidoe_tag">
        
                                  
          <div class="not_img">
@@ -482,17 +479,15 @@ $(document).ready(function(){
                                </div>
                                </div>
                <?php }?>             
-      
-                         </div>
-
-</div>
+        </ul>
+                                        </div>
+                        
 </div>
           
           </div>
         </div>
 
-        <div class="clearfix"></div>
-
+      
       </div>
 
    
