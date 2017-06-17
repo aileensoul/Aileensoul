@@ -36,7 +36,7 @@
 
   <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
          <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
