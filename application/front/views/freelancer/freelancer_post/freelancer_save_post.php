@@ -822,8 +822,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                         <script type="text/javascript">
             function checkvalue() {
             
-            var searchkeyword = document.getElementById('tags').value;
-            var searchplace = document.getElementById('searchplace').value;
+            var searchkeyword = $.trim(document.getElementById('tags').value);
+            var searchplace = $.trim(document.getElementById('searchplace').value);
             // alert(searchke                                    yword);
             // alert(search                                    place);
             if (searchkeyword == "" && searchplace = = "") {

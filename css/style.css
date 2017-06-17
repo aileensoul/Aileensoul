@@ -5602,7 +5602,7 @@ padding-left: 10px;
     padding: 0px 0px 6px 0px;
 }
 .comment-edit-butn button {
-    position: absolute; bottom: 11px;
+    /*position: absolute; bottom: 11px;*/
     margin: 0px;
 }
 .comment-edit-button button {
@@ -6128,7 +6128,7 @@ follow box*/
     bottom: 0;
     color: #fff;
     font-size: 35px;
-    popup-social-icon font-weight: normal;
+   /* popup-social-icon font-weight: normal;*/
     height: 167px;
     width: 177px;
     top: 104px;
@@ -12661,6 +12661,7 @@ snippet from Animate.css - zoomIn effect
     
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
+    .cmy_2{width: 74%; float: left;}
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{top:3px; right:5px;}
@@ -12766,6 +12767,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfileCard-content{padding-bottom: 5px;}
     .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
     .popup-text span{font-size: 16px;}
+    .cmy_2{width: 68%;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12797,10 +12799,12 @@ snippet from Animate.css - zoomIn effect
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
     .post-design-name ul li .post_dot{font-size: 14px;}
+    .cmy_2{width:85%;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
     .right-side-menu{width: 100%;}
+    .cmy_2{width: 83%;}
 }
 
 

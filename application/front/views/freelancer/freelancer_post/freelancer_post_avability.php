@@ -279,3 +279,16 @@ $(window).load(function(){
 });
 });
 </script>
+  <script type="text/javascript">
+            function checkvalue() {
+            
+            var searchkeyword = $.trim(document.getElementById('tags').value);
+            var searchplace = $.trim(document.getElementById('searchplace').value);
+            // alert(searchke                                    yword);
+            // alert(search                                    place);
+            if (searchkeyword == "" && searchplace = = "") {
+            //alert('Please enter Key                                        word');
+            return  false;
+            }
+            }
+        </script> 
