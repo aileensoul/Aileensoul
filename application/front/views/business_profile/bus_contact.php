@@ -395,9 +395,9 @@
               //   echo '<pre>'; print_r($clistuser);
                          }  
                           ?>
-                                  <div class="job-contact-frnd" id="<?php echo "removecontact" .$clistuser[0]['contact_id']; ?>">
+                                  <div class="job-contact-frnd">
 
-                                        <div class="profile-job-post-detail clearfix">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$clistuser[0]['contact_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
@@ -1025,13 +1025,16 @@ function contact_person_menu(clicked_id) {
   
   function removecontactuser(clicked_id){
 
+    //var showdata = window.location.pathname;
+    var showdata = window.location.href.split("/").pop();;
+   
      $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/removecontactuser" ?>',
                 dataType: 'json',
-                data:'contact_id='+clicked_id,
+                data:'contact_id='+clicked_id + '&showdata=' + showdata,
                 success:function(data){ 
-                 $('#' + 'statuschange' + clicked_id).html(data);
+                 $('#' + 'statuschange' + clicked_id).html(data.contactdata);
 
                  if(data.notfound == 1){
                  $('#' + 'removecontact' + clicked_id).fadeOut(4000);

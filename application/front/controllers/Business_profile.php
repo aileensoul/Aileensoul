@@ -8988,6 +8988,8 @@ public function bus_contact($id = "") {
 
 
      $contact_id = $_POST["contact_id"]; 
+     $showdata = $_POST["showdata"]; 
+
      $userid = $this->session->userdata('aileenuser');
 
 
@@ -8995,6 +8997,9 @@ $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1)
 
  $businessdata1 =  $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
       
+   
+    //echo $businessdata1[0]['business_slug']; die();
+
               $data = array(
             'modify_date' => date('Y-m-d H:i:s'),
             'status' => 'cancel'
@@ -9007,8 +9012,8 @@ $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1)
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
    
-  //echo $contactdata;
-  if($this->uri->segment(3) == $businessdata1[0]['business_slug']){
+  
+  if($showdata == $businessdata1[0]['business_slug']){
   echo json_encode(
                         array("contactdata" => $contactdata,
                             "notfound" => 1,
