@@ -38,10 +38,10 @@
 
 }*/
 
-.keyskill_border_active {
-  border: 3px solid red !important;
-
-}
+/*.keyskill_border_active {
+  border: 2px solid red !important;
+  border-radius: 3px;
+}*/
 </style>
 
 <!-- css for date picker start-->
@@ -1037,7 +1037,8 @@ $('#skills').select2({
 </script>
 
 <style type="text/css">
-  #skills-error{margin-top: 40px;}
+  #skills-error{margin-top: 42px;}
+  #example2-error{margin-top: 41px;}
 </style>
 
 
@@ -1067,3 +1068,7 @@ var today = yyyy;
                 
             });
 </script>
+
+
+
+

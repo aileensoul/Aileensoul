@@ -154,11 +154,11 @@
 padding-right: 2px !important;
 }
 
-<<<<<<< HEAD
 
-=======
-.user-pic:hover a{padding: 4px 6px;}
->>>>>>> bbf325c3a36dc3818f104f99375a3bfe8a779648
+
+
+.user-pic:hover a{padding: 4px 6px !important;}
+
 
 
 .bui_images_view_more a:hover{text-decoration: underline;}
@@ -241,3 +241,9 @@ bottom: 11px;}
 }
 .common-form .keyskill_border_active ul{border:2px solid red !important;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
+.job-contact-frnd .profile-job-post-detail {border:1px solid #d9d9d9 !important;}
+.job-contact-frnd a .like_one_other{padding-left: 23px !important;}
+.common-form .job-post-detail {border:none;}
+.common-form .keyskill_border_active ul{border:none !important;}
+
+.common-form span.keyskill_border_active{border:2px solid red!important;}
