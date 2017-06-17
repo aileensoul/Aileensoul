@@ -484,12 +484,8 @@ if($status == 0 || $status == " "){?>
 
                                                                                     </div>
 
-
-
                                                                                 </li>
-
-
-                                                                                <li>
+                                                                            <li>
                                                                                     <div class="post-design-product">
                                                                                         <a href="javascript:void(0);" style=" color: #000033; font-weight: 400; cursor: default;" title="">
                                                                                             <?php
