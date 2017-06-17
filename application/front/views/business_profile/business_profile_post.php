@@ -671,7 +671,7 @@
                                     </div>
                                     <!--   <span class="fr">
                         <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 camera_in padding-left padding_les_left camer_h">
+                                    <div class="col-md-1 camera_in padding-left padding_les_left camera_in camer_h">
                                         <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
