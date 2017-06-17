@@ -87,7 +87,7 @@
                      <div class="common-form common-form_border">
                         <h3>Work Experience</h3>
                         
-                        <div class="xyz">
+                        <div class="work_exp fw border">
                              <div class="">
         <div class="col-md-12 col-sm-12 col-xs-12">
            
@@ -97,90 +97,13 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
-         
-         Content 1
+         Fresher
         </a>
       </h4>
                     </div>
-                    <div id="one" class="panel-collapse collapse">
+                    <div id="one" class="panel-collapse collapse in">
                         <div class="panel-body">
-
-                            Where now are the horse and the rider? Where is the horn that was blowing? Where is the helm and the hauberk, and the bright hair flowing?
-                        </div>
-                    </div>
-
-                </div>
-                <!-- end of panel -->
-
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
-       Content 2
-        </a>
-      </h4>
-                    </div>
-                    <div id="two" class="panel-collapse collapse">
-                        <div class="panel-body">
-
-                            Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
-
-                        </div>
-
-                    </div>
-                </div>
-                <!-- end of panel -->
-
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
-          Content 3
-        </a>
-      </h4>
-                    </div>
-                    <div id="three" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            ave gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning? The days have gone down in the West behind the hills into shadow. Who shall gather the smoke of the deadwood burning, Or behold the flowing years from the Sea returning?
-                        </div>
-                    </div>
-                </div>
-                <!-- end of panel -->
-
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
-         Content 4
-        </a>
-      </h4>
-                    </div>
-                    <div id="four" class="panel-collapse collapse in">
-                        <div class="panel-body">
-
-                            They have passed like rain on the mountain, like a wind in the meadow; The days have gone down in the West behind the hills into shadow.
-                        </div>
-                    </div>
-                </div>
-                <!-- end of panel -->
-
-            </div>
-            <!-- end of #bs-collapse  -->
-
-        </div>
-
-
-
-    </div>
-    <!-- end of container -->
-                            
-                        </div>
                         
-                        <div class="tablet-hi">
-                           <a href="javascript:void(0)" tabindex="1"  class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
-                           <a href="javascript:void(0)"  class="tablinks active2" onclick="openCity(event, 'Paris')">Experience</a>
-                        </div>
-                        <div id="London" class="tabcontent1">
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                            <div>
                               <span style="color:#7f7f7e;">( </span><span  class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -196,8 +119,25 @@
                               <input type="submit" id="next" tabindex="2" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
                            <?php echo form_close(); ?>
+                       
+        
                         </div>
-                        <div id="Paris" class="tabcontent1">
+                    </div>
+
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
+       Experience
+        </a>
+      </h4>
+                    </div>
+                    <div id="two" class="panel-collapse collapse">
+                        <div class="panel-body">
+                     
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
                            <div>
                               <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -233,7 +173,7 @@
                               <div class="job_work_experience_main_div">
                            
                                  <label>Experience<span class="red">*</span></label>
-                                 <select style="width: 46%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
+                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
                                     <option value="0 year" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -257,7 +197,7 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-                                 <select style="width: 46%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
+                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -342,9 +282,7 @@
                            <!--                                     <input type="reset">
                               <input type="submit"  id="previous" name="previous" value="previous">-->
                                 <fieldset class="hs-submit full-width"> 
-                           <input style="position: absolute;
-                              bottom: 8px; 
-                              right: -183px;" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
                                  </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
@@ -355,7 +293,7 @@
                        
 
                               <label>Experience<span class="red">*</span></label>
-                              <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
+                              <select style="width:45%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
                                  <option value="" selected option disabled>Year</option>
                                  <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                  <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -451,12 +389,34 @@
                               <input type="button" id="btnRemove" value=" - " disabled="disabled">
                            </div>
                            <fieldset class="hs-submit full-width"> 
-                              <input style="position: absolute;
-                                 bottom: 8px;
-                                 right: -183px;" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                              <input style="" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
                            <?php echo form_close(); ?> 
+                        
+        
+
                         </div>
+
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+
+            </div>
+            <!-- end of #bs-collapse  -->
+
+        </div>
+
+
+
+    </div>
+    <!-- end of container -->
+                            
+                        </div>
+                        
+                     
+                        
+                        
                         <?php // echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform2','name' => 'jobseeker_regform2','class'=>'clearfix'));    ?>         
                         <!--<input type="submit" id="previous" name="previous" value="previous">-->
                         <?php // echo form_close();    ?>                                 
@@ -873,6 +833,7 @@
 // });
    
     $(document).ready(function () {
+        
             $('.collapse.in').prev('.panel-heading').addClass('active');
             $('#accordion, #bs-collapse')
                 .on('show.bs.collapse', function (a) {
