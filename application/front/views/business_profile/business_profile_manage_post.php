@@ -876,20 +876,20 @@ $(document).ready(function(){
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
-                            <div class="popup-img col-md-1"> 
+                            <div class="popup-img"> 
                                 <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-10 popup-text">
+                            <div id="myBtn1"  class="editor-content popup-text">
                                 <span>Post Your Product....</span>
-
-                            </div>
-                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                <div class="padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera">
                                 </i> 
                             </div>
+                            </div>
+                            
                         </div>
 
                     </div>
@@ -930,7 +930,7 @@ $(document).ready(function(){
 
                                 </div>
 
-                                <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
+                                <div class="col-md-1 padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
 
                             </div>
                             <div class="row"></div>
@@ -1012,7 +1012,7 @@ $(document).ready(function(){
 
                                     <div class=" post-design-box">
                                         <div class="post-design-top col-md-12" >  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img"> 
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
 
