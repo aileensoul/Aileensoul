@@ -2010,10 +2010,10 @@ $(document).ready(function () {
 </script>
 
 <style type="text/css">
-    #stream1-error{margin-right: 35px;}
-    #university1-error{margin-right: 35px;}
-    #university1-error{margin-right: 35px;}
-    #college1-error{margin-right: 35px;}
-    #percentage1-error{margin-right: 35px;}
-    #pass_year1-error{margin-right: 35px;}
+    #stream1-error{margin-right: 0px;}
+    #university1-error{margin-right: 0px;}
+    #university1-error{margin-right: 0px;}
+    #college1-error{margin-right: 0px;}
+    #percentage1-error{margin-right: 0px;}
+    #pass_year1-error{margin-right: 0px;}
 </style>
