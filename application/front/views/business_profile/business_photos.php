@@ -10,6 +10,9 @@ start head -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <!-- END HEAD -->
 <!-- start header -->
+<style type="text/css">
+  .paddingtop_fixed_aert{padding-top: 63px!important;}
+</style>
 <?php echo $header; ?>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <!-- script for cropiee immage End-->
@@ -33,7 +36,7 @@ start head -->
 <body   class="page-container-bg-solid page-boxed">
    <section>
       <!-- coer image start-->
-      <div class="container" id="paddingtop_fixed">
+      <div class="container" id="paddingtop_fixed_aert">
          <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
                <div id="upload-demo" ></div>

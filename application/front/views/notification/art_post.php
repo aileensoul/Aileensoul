@@ -466,7 +466,7 @@
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                             <!-- one audio start -->
-                                                            <div>
+                                                           
                                                                 <div class="audio_main_div">
                                                                     <div class="audio_img">
                                                                         <img src="<?php echo base_url('images/music-icon.png') ?> ">  

@@ -16,6 +16,18 @@
 <!-- END HEAD -->
     <!-- start header -->
 <?php echo $header; ?>
+
+<script type="text/javascript">
+   //For Scroll page at perticular position js Start
+   $(document).ready(function(){
+    
+   //  $(document).load().scrollTop(1000);
+        
+       $('html,body').animate({scrollTop:330}, 100);
+   
+   });
+   //For Scroll page at perticular position js End
+</script>
  <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
 <?php echo $art_header2; ?>
