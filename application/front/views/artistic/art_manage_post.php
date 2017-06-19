@@ -792,15 +792,14 @@
 
                     <div class="post-editor col-md-12" id="close">
 
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event);")); ?>
 
                         <div class="main-text-area col-md-12" >
                             <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyup=check_length(this.form); 
-                                          name=my_text rows=4 cols=30 class="post_product_name"></textarea>
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyup=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
@@ -815,7 +814,7 @@
                         </div>
                         <div class="row"></div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                    <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
                             <output id="list"></output>
                         </div>
@@ -1618,6 +1617,21 @@
             </div>
         </div>
         <!-- Model Popup Close -->
+
+
+        <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
         </body>
         </html>
 
@@ -3779,129 +3793,49 @@ if (size > 4194304)
         <!-- insert post validtation start -->
 
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
-            function imgval() {
-
-                var fileInput = document.getElementById("file-1").files;
-                var product_name1 = document.getElementById("test-upload-product").value;
-                var product_description1 = document.getElementById("test-upload-des").value;
-                var product_fileInput1 = document.getElementById("file-1").value;
-
-
-                if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
-                {
-
-                    $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-                    $('#bidmodal').modal('show');
-                   // setInterval('window.location.reload()', 10000);
-                    // window.location='';
-                    event.preventDefault();
-                    return false;
-
-                } else {
-
-                    for (var i = 0; i < fileInput.length; i++)
-                    {
-                        var vname = fileInput[i].name;
-                        var vfirstname = fileInput[0].name;
-                        var ext = vfirstname.split('.').pop();
-                        var ext1 = vname.split('.').pop();
-                        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                        var allowesvideo = ['mp4', 'webm'];
-                        var allowesaudio = ['mp3'];
-                        var allowespdf = ['pdf'];
-
-                        var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-                        var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
-                        var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
-                        var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
-
-                        if (foundPresent == true)
-                        {
-                            var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
-
-                            if (foundPresent1 == true && fileInput.length <= 10) {
-                            } else {
-
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                // window.location='';
-                                event.preventDefault();
-                                return false;
-                            }
-
-                        } else if (foundPresentvideo == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentaudio == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentpdf == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-
-
-                                if (product_name1 == '') {
-                                    $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
-                                    $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
-                                    event.preventDefault();
-                                    return false;
-                                }
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentvideo == false) {
-
-                            $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                            $('#bidmodal').modal('show');
-                            setInterval('window.location.reload()', 10000);
-                            event.preventDefault();
-                            return false;
-
-                        }
-                    }
-                }
-            }
-
+function imgval(event) { 
+      
+      var fileInput = document.getElementById("file-1").files;
+      var product_name = document.getElementById("test-upload-product").value;
+      var product_description = document.getElementById("test-upload-des").value;
+      var product_fileInput = document.getElementById("file-1").value;
+   
+        if (product_fileInput == '' && product_name == '' && product_description == '')
+         {
+   
+           $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+            $('#post').modal('show');
+           // setInterval('window.location.reload()', 10000);
+           // window.location='';
+   
+            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+           event.preventDefault();
+           return false;
+   
+       }  
+        
+   
+       
+   }
         </script>
 
         <script type="text/javascript">
 
-            // $(document).ready(function () {
-            //     $('.modal-close').on('click', function () {
-            //         $('.modal-post').hide();
-            //     });
-            // });
+            $(document).ready(function () {
+                $('#post').on('click', function () {
+                    $('.modal-post').show();
+                });
+            });
 
         </script>
 
