@@ -12832,6 +12832,7 @@ snippet from Animate.css - zoomIn effect
     .bui_images_view_more{height: 149px;}
     #two_images_bui{height: 150px;}
     #two_images_art{height: 150px;}
+    .comment-name{width: 79%;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
