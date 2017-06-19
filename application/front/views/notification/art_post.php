@@ -122,7 +122,7 @@
                 <div class="row">
 
 
-                    <div class="profile-art-box profile-box-left col-md-4">
+                    <div class="profile-art-box profile-box-custom col-md-4">
                         <?php ?>
 
                                  <div class="full-box-module">   
