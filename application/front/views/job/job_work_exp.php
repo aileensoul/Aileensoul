@@ -8,6 +8,10 @@
    -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
+ <!-- This Css is used for call popup -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -270,7 +274,7 @@
                                  <?php if ($y != 1) {
                                     ?>
                                  <div class="hs-submit full-width fl " style="margin-top: 29px;">
-                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
+                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="home(<?php echo $workdata[$x]['work_id']; ?>);">
                                  </div>
                                  <?php } ?>
                               </div>
@@ -398,7 +402,19 @@
                            </fieldset>
                            <?php echo form_close(); ?> 
                         
-        
+          <!-- Bid-modal  -->
+          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+              <div class="modal-dialog modal-lm">
+                  <div class="modal-content">
+                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                      <span class="mes"></span>
+                    </div>
+                </div>
+          </div>
+       </div>
+                    <!-- Model Popup Close -->
 
                         </div>
 
@@ -451,6 +467,8 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <!--  <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
+
+<script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script type="text/javascript">
 
  function expyear_change(){
@@ -910,16 +928,30 @@ function expyear_change_edittime(){
    }
 </style>
 <script type="text/javascript">
+
+ function home(work_id) {
+  
+                              
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to Delete this Work Experience?<div class='model_ok_cancel'><a class='okbtn' id=" + work_id + " onClick='delete_job_work("+ work_id +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+
+ }
+
    function delete_job_work(work_id) {
+    
+
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "job/jon_work_delete" ?>',
            data: 'work_id=' + work_id,
           // dataType: "html",
            success: function (data) {
-               if(data == 'ok'){
+               if(data == 'ok')
+               {
                    $('.job_work_edit_' + work_id).remove();
+                 
                }
+                window.location.reload();
            }
        });
    }
