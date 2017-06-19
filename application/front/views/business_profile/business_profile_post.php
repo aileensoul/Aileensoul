@@ -569,10 +569,10 @@
                         <div class="modal-content-post">
                             <span class="close1">&times;
                             </span>
-                            <div class="post-editor col-md-12" id="close">
+                            <div class="post-editor col-md-12 post-edit-popup" id="close">
                                 <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
                                 <div class="main-text-area col-md-12" >
-                                    <div class="popup-img-in col-md-1"> 
+                                    <div class="popup-img-in"> 
                                         <?php
                                         if ($businessdata[0]['business_user_image'] != '') {
                                             ?>
@@ -591,13 +591,14 @@
                                         <div class="fifty_val">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
-                                    </div>
-                                    <!--   <span class="fr">
-                        <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 camera_in padding-left padding_les_left camer_h">
+                                        <div class="camera_in padding-left padding_les_left camer_h">
                                         <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
+                                    </div>
+                                    <!--   <span class="fr">
+                        <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+                                    
                                 </div>
                                 <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
