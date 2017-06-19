@@ -630,7 +630,7 @@ class Recruiter extends MY_Controller {
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting city data
-        $contition_array = array('status' => 1,'state_id'=> $state_citydata[0]['re_comp_state']);
+        $contition_array = array('status' => '1','state_id'=> $state_citydata[0]['re_comp_state']);
         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
 
@@ -687,7 +687,7 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
-            // $contition_array = array('status' => '1');
+             $contition_array = array('status' => '1');
 
           $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 foreach ($citiesss as $key1) {
