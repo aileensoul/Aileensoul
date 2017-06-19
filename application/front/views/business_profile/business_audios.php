@@ -150,39 +150,68 @@
                      $userid = $this->session->userdata('aileenuser');
                      if ($businessdata1[0]['user_id'] != $userid) {
                          ?> 
-                  <div id="contact_per">
-                     <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
-                        <div class="">
-                           <div id="ripple" class="centered" >
-                              <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
-                           </div>
-                           <div class="addtocont" style="    position: absolute;
-                              display: block;
-                              /* margin-left: 69.4%; */
-                              /* margin-top: 0%; */
-                              right: 7%;
-                              top: 62px;">
-                              <span style="    
-                                 font-size: 13px; ""><i class="icon-user"></i>
-                              <?php 
-                                 $userid = $this->session->userdata('aileenuser');
-                                 $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-                                 $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                 
-                                 //print_r($contactperson[0]['status']) ; die();
-                                 
-                                 if($contactperson[0]['status'] == 'cancel'){?>
-                              Add to contact
-                              <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
-                              Cancel request  
-                              <?php }else{ ?>
-                              Add to contact
-                              <?php  } ?>
-                              </span>
-                           </div>
+                    <div id="contact_per">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+
+      $busotherid = $this->uri->segment(3); 
+      $contition_array = array('business_slug' => $busotherid, 'status' => '1');
+      $busineslug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      $busuid = $busineslug[0]['user_id'];
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
+                    <div class="">
+                        <div id="ripple" class="centered" >
+                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+
+
                         </div>
-                     </a>
-                  </div>
+                        <div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">
+                            <span style="    
+                                  font-size: 13px; ""><i class="icon-user"></i>
+            <?php 
+
+        //print_r($contactperson[0]['status']) ; die();
+        
+                     if($contactperson[0]['status'] == 'cancel'){?>
+                                Add to contact
+                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
+                            Cancel request  
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+                    </div>
                   <?php }?>
                </div>
                <!-- PICKUP -->
@@ -824,3 +853,26 @@
 </script>
 <!-- contact person script end -->
 <!-- scroll page script start -->
+
+
+
+<script type="text/javascript">
+    
+
+    function contact_person_model(clicked_id , status){
+
+    if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+    }else if(status == 'confirm'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    
+   }
+
+  }
+</script>
+
