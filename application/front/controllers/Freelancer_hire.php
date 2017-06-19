@@ -316,19 +316,22 @@ public function check_email() {
         $contition_array = array('status' => 1);
       $this->data['countries'] =  $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
 
+
+$contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
+         $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+ 
+
       //for getting state data
-            $contition_array = array('status' => 1);
+            $contition_array = array('status' => 1,'country_id' => $userdata[0]['country']);
             $this->data['states'] =  $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
              //for getting city data
-            $contition_array = array('status' => 1);
-            $citiesss=$this->data['cities'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $contition_array = array('status' => 1,'state_id'=> $userdata[0]['state']);
+            $this->data['cities'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             
 
 
-         $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
-         $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
- 
+         
           if($userdata){
             $step = $userdata[0]['free_hire_step'];
 
@@ -384,8 +387,8 @@ public function check_email() {
          
   // echo "<pre>"; print_r($result1);die();
          
-        // $contition_array = array('status' => '1');
-        //   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $contition_array = array('status' => '1');
+          $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    //echo "<pre>";print_r($cities);
    //echo "<pre>";print_r($location_list);
 
