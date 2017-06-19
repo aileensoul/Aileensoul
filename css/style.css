@@ -12679,6 +12679,7 @@ snippet from Animate.css - zoomIn effect
 .buisness-menu{position: relative;}
 .buisness-menu:before{width: 100%; position: absolute; bottom: 59px; background: #ddd; height: 1; content: ""; 
 left: 0;}
+.business-profile-right .flw_msg_btn ul li a{height: auto;}
 
 
 /***  media query  ***/
@@ -12692,6 +12693,7 @@ left: 0;}
     .header ul li a{padding: 5px 10px;}
     .cmy_2{width: 74%; float: left;}
     .editor-content{width: 86%;}
+    .business-profile-right{width: 78%;}
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{top:3px; right:5px;}
@@ -12709,6 +12711,7 @@ left: 0;}
     .profile-boxProfile-name a{font-size: 14px;}
     .profile-company-name a{font-size: 16px;}
     .left_box_menubar li a{padding-bottom: 0 !important;}
+    .header2 ul{padding-right: 0;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -12747,6 +12750,7 @@ left: 0;}
     .art-all-comment{width: 100%; float: left;}
     .editor-content{width: 91%;}
     .post-edit-popup .editor-content{width: 90%;}
+    .profile-pho-bui{width: 133px; margin-top: 0; width: 123px; margin-left: 20px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
