@@ -160,7 +160,7 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-4 profile-box profile-box-left">
+                    <div class="col-md-4  profile-box profile-box-left">
                         <div class="">
                             <!-- <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
@@ -348,7 +348,7 @@
                     }
                     ?>
 
-                    <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                       <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
 
                         <!-- body content start-->
 
@@ -558,7 +558,9 @@
 
                                                         <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
                                                             <span class="show"> 
-                                                                <?php $new_product_description = $this->common->make_links($busienss_data[0]['product_description']); ?>
+                                                                <?php
+                                                           
+                                                            $new_product_description = $this->common->make_links($busienss_data[0]['product_description']); ?>
                                                                 <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
                                                                 <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
                                                                 <?php // echo  nl2br($new_product_description); ?>
@@ -980,7 +982,7 @@
                                                                                     $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                                         ?>
-                                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true">
                                                                                         </i> 
                                                                                     <?php } else { ?>
                                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true">

@@ -5368,7 +5368,7 @@ $contition_array = array('status' => '1');
 
                 $imglike = '<li>';
                 $imglike .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span> ';
                 if (count($bdata1) > 0) {
@@ -8601,6 +8601,35 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
                              right: 7%;
                              top: 62px;">';
   $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+       }
+
+       elseif($status == 'confirm'){
+              $data = array(
+            'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'cancel'
+        );
+
+
+$updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+ $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">';
+  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
