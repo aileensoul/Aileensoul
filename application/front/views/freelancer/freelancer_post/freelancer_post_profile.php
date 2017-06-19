@@ -966,12 +966,24 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 
                                     <?php
                                       if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
-                                         ?>
-                                            <li> <b>Attachment</b><span>
+
+                        
+                        $allowespdf = array('pdf');
+                        
+                        $filename = $freelancerpostdata[0]['freelancer_post_portfolio_attachment'];
+                        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                       if (in_array($ext, $allowespdf)) {?>
+
+                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                                                    <img src="<?php echo base_url($this->config->item('free_portfolio_thumb_upload_path') . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
-                                                   
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                     <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
+                      </a>
+                                                    </span>
+                                                  
                                             </li>
+                             <?php }?>
 
                                           <?php
                                          }
@@ -1015,13 +1027,22 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 
                                     <?php
                                       if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
-                                         ?>
-                                            <li> <b>Attachment</b><span>
+                                        
+                       
+                        $allowespdf = array('pdf');
+                        $filename = $freelancerpostdata[0]['freelancer_post_portfolio_attachment'];
+                        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                       
+                                            if (in_array($ext, $allowespdf)) {?>
+                                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                                                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path')   . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
-                                                   
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                     <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
+                      </a>
+                                                    </span>
+                                                  
                                             </li>
-
+                             <?php }?>
                                           <?php
                                          }
                                          else
