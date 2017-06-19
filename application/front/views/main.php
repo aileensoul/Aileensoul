@@ -819,7 +819,7 @@ window.onclick = function(event) {
 
 
 <style type="text/css">
-  #fname-error{margin-top: 32px;}
+  #fname-error{margin-top: 33px;}
   #lname-error{margin-top:33px;margin-right: 13px; }
   #email-error{margin-top:33px;margin-right: 13px; }
   #password-error{margin-top: 33px !important;margin-right: 13px;}

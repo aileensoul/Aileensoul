@@ -161,7 +161,7 @@
 <style type="text/css">
   
   
-  #contact_email-error{margin-top: 46px;margin-right: 5px;border:none !important;}
-  #contact_subject-error{margin-top: 48px;margin-right: 5px;border:none !important;}
-  #contact_message-error{margin-top: 160px;margin-right: 5px;border:none !important;}
+  #contact_email-error{margin-top: 46px;margin-right: 5px;}
+  #contact_subject-error{margin-top: 48px;margin-right: 5px;}
+  #contact_message-error{margin-top: 160px;margin-right: 5px;}
 </style>
