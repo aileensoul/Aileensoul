@@ -6863,7 +6863,7 @@ footer .footer-menu li a:hover {
     border: 1px solid #dcdcdc;
     display: inline-block;
     cursor: pointer;
-    color: #9C9999!important;
+    color: #9C9999;
     font-family: Arial;
     font-size: 13px;
     margin-top: 3px;
