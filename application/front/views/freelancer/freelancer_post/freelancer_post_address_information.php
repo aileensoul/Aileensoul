@@ -147,30 +147,41 @@ $pincode = form_error('pincode');
                                     }
                                     ?>
                                 </select>
-<?php echo form_error('state'); ?> 
+                    <?php echo form_error('state'); ?> 
                             </fieldset>
 
                             <fieldset>
                                 <label>City:</label>
                                 <select name="city" tabindex="3" id="city">
                                     <?php
+                                    if ($city1) {
                                     foreach ($cities as $cnt) {
-                                        if ($city1) {
+                                        
                                             ?>
 
                                             <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
 
-        <?php
-    }
-
-    else {
-        ?>
-                                            <option value="">Select state first</option>
-
+                                     <?php
+                                     } }
+                                 else if($state1)
+                                             {
+                                            ?>
+                                            <option value="">Select City</option>
                                             <?php
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
                                         }
-                                    }
-                                    ?>
+                                     else {
+                                         ?>
+                                            <option value="">Select state first</option>
+                                            <?php
+                                          }
+                                         ?>
                                 </select>
 
                             </fieldset>

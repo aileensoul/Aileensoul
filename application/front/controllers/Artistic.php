@@ -3499,7 +3499,7 @@ class Artistic extends MY_Controller {
 
                 //$cmtlike1 = '<div>';
                 $cmtlike1 = '<a id="' . $artdata2[0]['artistic_post_comment_id'] . '" onClick="comment_like(this.id)">';
-                $cmtlike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span>';
                 if ($artdata2[0]['artistic_comment_likes_count']) {
@@ -3638,7 +3638,7 @@ class Artistic extends MY_Controller {
 
                 //$cmtlike1 = '<div>';
                 $cmtlike1 = '<a id="' . $artdata2[0]['artistic_post_comment_id'] . '" onClick="comment_like1(this.id)">';
-                $cmtlike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span>';
                 if ($artdata2[0]['artistic_comment_likes_count']) {
@@ -3728,7 +3728,7 @@ class Artistic extends MY_Controller {
                 if (!in_array($userid, $likeuserarray)) {
 
 
-                    $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
@@ -3864,7 +3864,7 @@ class Artistic extends MY_Controller {
                 if (!in_array($userid, $likeuserarray)) {
 
 
-                    $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
@@ -4357,7 +4357,7 @@ class Artistic extends MY_Controller {
             if (!in_array($userid, $likeuserarray)) {
 
 
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
             }
@@ -4540,7 +4540,7 @@ class Artistic extends MY_Controller {
             if (!in_array($userid, $likeuserarray)) {
 
 
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
             }
@@ -5546,7 +5546,7 @@ class Artistic extends MY_Controller {
                 $imglike .= '<a id="' . $post_image . '" class="ripple like_h_w" onClick="post_likeimg(this.id)">';
                 $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 $imglike .= '</i>';
-                $imglike .= '<span> ';
+                $imglike .= '<span id="popup"> ';
                 if (count($bdata1) > 0) {
                     $imglike .= count($bdata1) . '';
                 }
@@ -5577,9 +5577,9 @@ class Artistic extends MY_Controller {
 
                     $imglike1 = '<li>';
                     $imglike1 .= '<a id="' . $post_image . '" class="ripple like_h_w" onClick="post_likeimg(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
-                    $imglike1 .= '<span>';
+                    $imglike1 .= '<span id="popup">';
                     if (count($bdata2) > 0) {
                         $imglike1 .= count($bdata2) . '';
                     }
@@ -5708,7 +5708,7 @@ class Artistic extends MY_Controller {
                     $imglike1 .= '<a id="' . $post_image . '" class="ripple like_h_w" onClick="post_likeimg(this.id)">';
                     $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
-                    $imglike1 .= '<span> ';
+                    $imglike1 .= '<span  id="popup"> ';
                     if (count($bdata2) > 0) {
                         $imglike1 .= count($bdata2) . '';
                     }
@@ -5877,7 +5877,7 @@ class Artistic extends MY_Controller {
             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if (count($artcommentlike1) == 0) {
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
 
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
@@ -6064,7 +6064,7 @@ class Artistic extends MY_Controller {
             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if (count($artcommentlike1) == 0) {
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
 
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
@@ -6247,7 +6247,7 @@ class Artistic extends MY_Controller {
 
 
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
                     if (count($cdata2) > 0) {
@@ -6441,7 +6441,7 @@ class Artistic extends MY_Controller {
 
 
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_liketwo(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span>';
                     if (count($bdata2) > 0) {
@@ -6637,7 +6637,7 @@ class Artistic extends MY_Controller {
             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if (count($artcommentlike1) == 0) {
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
 
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
@@ -6798,7 +6798,7 @@ class Artistic extends MY_Controller {
                 $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                 if (count($artcommentlike1) == 0) {
-                    $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
 
                     $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
@@ -6965,7 +6965,7 @@ class Artistic extends MY_Controller {
                 $likeuserarray = explode(',', $artcommentlike[0]['artistic_comment_like_user']);
 
                 if (!in_array($userid, $likeuserarray)) {
-                    $fourdata .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                    $fourdata .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
                     $fourdata .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
                 }
@@ -7078,7 +7078,7 @@ class Artistic extends MY_Controller {
 
 
             if (count($artcommentlike) == 0) {
-                $fourdata .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $fourdata .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
                 $fourdata .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
             }
@@ -7304,7 +7304,7 @@ class Artistic extends MY_Controller {
             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if (count($artcommentlike1) == 0) {
-                $cmtinsert .= '<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
 
                 $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';

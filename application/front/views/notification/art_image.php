@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="profile-box profile-box-left col-md-4">
+                    <div class="profile-box profile-box-custom col-md-4">
 
                                   <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
@@ -218,14 +218,14 @@
 
 
 
-                     <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                     <div class="col-md-7 col-sm-12 col-md-push-4  custom-right-art">
 
 
     <div class="col-md-12 col-sm-12 post-design-box">
 
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2"> 
+                                    <div class="post-design-pro-img"> 
                                         <?php
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
 

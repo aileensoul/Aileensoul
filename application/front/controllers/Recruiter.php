@@ -630,7 +630,7 @@ class Recruiter extends MY_Controller {
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting city data
-        $contition_array = array('status' => 1,'state_id'=> $state_citydata[0]['re_comp_state']);
+        $contition_array = array('status' => '1','state_id'=> $state_citydata[0]['re_comp_state']);
         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
 
@@ -687,7 +687,7 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
-            // $contition_array = array('status' => '1');
+             $contition_array = array('status' => '1');
 
           $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 foreach ($citiesss as $key1) {
@@ -1431,20 +1431,24 @@ foreach ($citiesss as $key1) {
 
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r($this->data['countries']);die();
           $contition_array = array('status' => 1);
         $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+ $postdatas=$this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
+ //echo "<pre>"; print_r($postdata);die();
+
         //for getting state data
-        $contition_array = array('status' => 1);
+        $contition_array = array('status' => 1,'country_id' => $postdatas[0]['country']);
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting city data
-        $contition_array = array('status' => 1);
-        $cities = $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('status' => 1,'state_id'=> $postdatas[0]['state']);
+         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($this->data['cities']); echo "</pre>";die();
 
 
-    $this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
+   
        //  echo date('d/m/Y',strtotime($post[0]['post_last_date'])); 
 //echo '<pre>'; print_r($this->data['postdata']); die();
         $skildata = explode(',', $this->data['postdata'][0]['post_skill']);
@@ -1453,6 +1457,8 @@ foreach ($citiesss as $key1) {
  $this->data['country1'] = $this->data['postdata'][0]['country'];
         $this->data['city1'] = $this->data['postdata'][0]['city'];
         
+
+        // code for search 
 $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1503,10 +1509,10 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
            $contition_array = array('status' => '1');
 
        
-        // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $citiesss = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
 
-          foreach($cities as $key){
+          foreach($citiesss as $key){
     $location[]=$key['city_name'];
    }
 

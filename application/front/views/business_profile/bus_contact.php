@@ -94,17 +94,21 @@
   </div>
   </div>   
 
-    <div class="container">    
+    <div class="container">
+    <?php 
+  $userid = $this->session->userdata('aileenuser');
+    if($userid == $busuid){?>
+
       <div class="upload-img">
       
         
         <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-  
-
-                
+         
             </div>
+
+            <?php }?>
            
             <div class="profile-photo">
             <div class="buisness-menu">
@@ -176,7 +180,27 @@
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?> 
                     <div id="contact_per">
-                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
                     <div class="">
                         <div id="ripple" class="centered" >
                             <div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -193,10 +217,7 @@
                              top: 62px;">
                             <span style="    
                                   font-size: 13px; ""><i class="icon-user"></i>
-                                <?php 
-                                $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            <?php 
 
         //print_r($contactperson[0]['status']) ; die();
         
@@ -204,9 +225,12 @@
                                 Add to contact
                      <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
                             Cancel request  
-                     <?php }else{ ?>
-                         In your contact
-                   <?php  } ?>
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
                             </span>
                         </div>
                     </div>
@@ -375,15 +399,15 @@
 
                          foreach ($unique_user as $user) { 
                     
-                        if($busuid == $user['contact_from_id']){
+                        if($busuid == $user['contact_from_id']){ 
 
-                  $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
+      $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
 
       $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
 
       $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 
-              
+             //echo "<pre>"; print_r($clistuser); 
 
                           } else { 
       $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
@@ -397,7 +421,7 @@
                           ?>
                                   <div class="job-contact-frnd">
 
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$clistuser[0]['contact_id']; ?>">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$cdata[0]['user_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
@@ -459,15 +483,15 @@
                   <?php }elseif($clistuser[0]['status'] == 'pending'){ ?>
 
                   <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-                    <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
+                    <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?> , 'pending')">
                            Cancel request
                       </button>
                       </div>     
 
                   <?php }else if($clistuser[0]['status'] == 'confirm'){ ?>
                  
-                 <div class="user_btn" id="<?php echo "statuschange" . $clistuser[0]['contact_id']; ?>">
-                  <button onclick="removecontact(<?php echo $clistuser[0]['contact_id']; ?>)">
+                 <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
+                  <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?> , 'confirm')">
                             In your contact
                    </button> 
                    </div>        
@@ -998,8 +1022,7 @@ function contact_person_menu(clicked_id) {
           type: 'POST',
           url: '<?php echo base_url() . "business_profile/contact_person_menu" ?>',
           data: 'toid=' + clicked_id,
-          success: function (data) {
-                         
+          success: function (data) {                 
           $('#' + 'statuschange' + clicked_id).html(data);
 
             }
@@ -1009,17 +1032,6 @@ function contact_person_menu(clicked_id) {
 </script>
 
 <!-- contact person script end -->
-
-
-<script type="text/javascript">
-  
-  function removecontact(clicked_id){
-
-    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='removecontactuser(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-    $('#bidmodal').modal('show');
-
-  }
-</script>
 
 <script type="text/javascript">
   
@@ -1045,3 +1057,38 @@ function contact_person_menu(clicked_id) {
 
   }
 </script>
+
+
+<script type="text/javascript">
+  
+  
+  function contact_person_cancle(clicked_id , status){
+
+    if(status == 'confirm'){
+  $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='removecontactuser(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    }else if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person_menu(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    }
+  }
+
+  function contact_person_model(clicked_id , status){
+
+    if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+    }else if(status == 'confirm'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    
+   }
+
+  }
+</script>
+
+

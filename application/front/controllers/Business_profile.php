@@ -5368,7 +5368,7 @@ $contition_array = array('status' => '1');
 
                 $imglike = '<li>';
                 $imglike .= '<a id="' . $post_image . '" onClick="mulimg_like(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span> ';
                 if (count($bdata1) > 0) {
@@ -8585,7 +8585,7 @@ $contition_array = array('status' => '1');
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
- $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -8601,6 +8601,35 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
                              right: 7%;
                              top: 62px;">';
   $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+       }
+
+       elseif($status == 'confirm'){
+              $data = array(
+            'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'cancel'
+        );
+
+
+$updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+ $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id .');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
+                                                      top: 7px;
+                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">';
+  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
@@ -8987,11 +9016,19 @@ public function bus_contact($id = "") {
    public function removecontactuser() {
 
 
-     $contact_id = $_POST["contact_id"]; 
+     $to_id = $_POST["contact_id"]; 
      $showdata = $_POST["showdata"]; 
 
      $userid = $this->session->userdata('aileenuser');
 
+
+   $contition_array = array('contact_type' => 2);
+
+    $search_condition = "((contact_to_id = ' $to_id' AND contact_from_id = ' $userid') OR (contact_from_id = ' $to_id' AND contact_to_id = '$userid'))";
+
+   $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+   $contact_id = $contactperson[0]['contact_id'];
 
 $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
 
@@ -9008,11 +9045,13 @@ $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1)
               //echo "<pre>"; print_r($data); die();
  $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
 
- $contactdata =  '<button>';
+ //$contactdata =  '<button>';
+ 
+ $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
-   
-  
+
   if($showdata == $businessdata1[0]['business_slug']){
   echo json_encode(
                         array("contactdata" => $contactdata,
@@ -9059,7 +9098,7 @@ public function contact_person_menu(){
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
  
-  $contactdata .= '</a>';
+  
        
        }elseif($status == 'cancel'){
               $data = array(
@@ -9069,7 +9108,10 @@ public function contact_person_menu(){
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
- $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+ 
+ $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
+
+
  $contactdata .=  'Cancel request';
   $contactdata .= '</button>';
        }

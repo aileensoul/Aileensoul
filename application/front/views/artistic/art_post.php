@@ -109,7 +109,7 @@
       <div class="user-midd-section" id="paddingtop_fixed">
       <div class="container">
       <div class="row">
-      <div class="profile-art-box profile-box-left col-md-4 col-sm-4">
+      <div class="profile-art-box profile-box-custom col-md-4 ">
          <?php ?>
          <div class="full-box-module">
             <div class="profile-boxProfileCard  module">
@@ -528,7 +528,7 @@
       <!-- popup start -->
       <!-- Trigger/Open The Modal -->
       <!-- popup end -->
-      <div class="col-md-7 col-sm-7 col-md-push-4 col-md-push-4 custom-right">
+      <div class="col-md-7 col-sm-12 col-md-push-4  custom-right-art">
       <div>
          <div class="post-editor col-md-12">
             <div class="main-text-area col-md-12">
@@ -805,7 +805,7 @@
                      <!-- one video end -->
                      <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                      <!-- one audio start -->
-                     <div>
+               
                         <div class="audio_main_div">
                            <div class="audio_img">
                               <img src="<?php echo base_url('images/music-icon.png') ?> ">  
@@ -1201,6 +1201,9 @@
                      </div>
                   </div>
                   <!-- comment end -->
+                  
+
+
                   <!-- comment enter box start  -->
                   <div class="post-design-commnet-box col-md-12">
                      <?php
@@ -1229,6 +1232,9 @@
                      </div>
                   </div>
                   <!-- comment enter box end  -->
+
+
+
                </div>
             </div>
          </div>
