@@ -25,10 +25,10 @@
    <?php
      $returnpage=$_GET['page'];
     if($returnpage=='freelancer_post'){
-    echo $freelancer_post_header2_border;
+    echo $freelancer_post_header2;
     }
     else{
-    echo $freelancer_hire_header2_border;
+    echo $freelancer_hire_header2;
     }?>
 
 

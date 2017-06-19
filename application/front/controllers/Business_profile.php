@@ -7728,11 +7728,15 @@ $contition_array = array('status' => '1');
             $cmtcount .= '</i></a>';
 
             // comment count variable end 
+            if (count($buscmtcnt) > 0) {
+           $cntinsert .= '' . count($buscmtcnt) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($buscmtcnt)
+                    "comment_count" => $cntinsert
                     ));
         // khyati chande 
     }
@@ -7912,13 +7916,19 @@ $contition_array = array('status' => '1');
             $cmtcount .= '</i></a>';
 
             // comment count variable end 
+            // comment count variable end 
+           
         }
+         if (count($businessprofiledata) > 0) {
+           $cntinsert .= '' . count($businessprofiledata) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
 
 //        echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($businessprofiledata)
+                    "comment_count" => $cntinsert
                     ));
 
         // khyati chande 
@@ -8649,7 +8659,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+          $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -9130,7 +9140,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+          $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
           $contactdata .=  'Cancel request';
           $contactdata .= '</button>';
     }

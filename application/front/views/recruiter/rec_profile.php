@@ -46,7 +46,7 @@
  elseif($returnpage == 'notification'){
  }
  else{
-  echo $recruiter_header2_border; 
+  echo $recruiter_header2; 
 
  }
 ?>

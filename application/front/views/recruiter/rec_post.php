@@ -34,7 +34,7 @@ $returnpage = $_GET['page'];
 if ($returnpage == 'job') {
     echo $job_header2;
 } else {
-    echo $recruiter_header2_border;
+    echo $recruiter_header2;
 }
 ?>
 

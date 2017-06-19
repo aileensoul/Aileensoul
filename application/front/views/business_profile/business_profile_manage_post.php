@@ -96,8 +96,8 @@ $(document).ready(function(){
 
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -128,7 +128,7 @@ $(document).ready(function(){
             </div>
         </div>
 
-        <div class="container">
+        <div class="container tablate-container">
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($businessdata1[0]['user_id'] == $userid) {
@@ -147,6 +147,7 @@ $(document).ready(function(){
 
             <div class="profile-photo">
                 <div class="buisness-menu">
+                    
                     <div class="profile-pho-bui">
 
                         <div class="user-pic">
@@ -176,8 +177,8 @@ $(document).ready(function(){
                 </div> -->
 
                     </div>
-
-                    <div class="bui-menu-profile col-md-10">
+                    <div class="business-profile-right">
+                    <div class="bui-menu-profile">
 
 
 
@@ -244,10 +245,35 @@ $(document).ready(function(){
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?> 
                     <div id="contact_per">
-                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+
+      $busotherid = $this->uri->segment(3); 
+      $contition_array = array('business_slug' => $busotherid, 'status' => '1');
+      $busineslug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      $busuid = $busineslug[0]['user_id'];
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
                     <div class="">
                         <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" class="add_r_c" ><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
 
 
                         </div>
@@ -259,10 +285,7 @@ $(document).ready(function(){
                              top: 62px;">
                             <span style="    
                                   font-size: 13px; ""><i class="icon-user"></i>
-                                <?php 
-                                $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            <?php 
 
         //print_r($contactperson[0]['status']) ; die();
         
@@ -270,9 +293,12 @@ $(document).ready(function(){
                                 Add to contact
                      <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
                             Cancel request  
-                     <?php }else{ ?>
-                         Add to contact
-                   <?php  } ?>
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
                             </span>
                         </div>
                     </div>
@@ -282,11 +308,12 @@ $(document).ready(function(){
                     <?php }?>
                     </div>
                     <!-- PICKUP -->
-                    <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right ">
+                    <!-- menubar -->
+                    <div class="business-data-menu padding_less_right ">
 
-                        <div class="left-side-menu col-md-1">   </div>
+                        
 
-                        <div class="profile-main-box-buis-menu  col-md-7">  
+                        <div class="profile-main-box-buis-menu">  
                             <ul class="">
 
 
@@ -353,14 +380,14 @@ $(document).ready(function(){
 
                             </ul>
 
-                        </div>
+                        
 
                         <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les flw_with">
+                            
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
@@ -400,12 +427,12 @@ $(document).ready(function(){
 
                                     </ul>   
                                 </div>
-                            </div>
+                           
                         <?php } ?>
 
-
+                         </div>
                     </div>
-
+                    </div>
                     <!-- pickup -->
                 </div>
             </div>
@@ -442,7 +469,7 @@ $(document).ready(function(){
     <div class="user-midd-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 profile-box-custom">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
 
@@ -873,7 +900,7 @@ $(document).ready(function(){
                 </div>
 
                 <!-- popup start -->
-                <div class="col-md-7 col-sm-7 "  >
+                <div class="col-md-7 col-sm-7 custom-right-business"  >
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
@@ -894,7 +921,7 @@ $(document).ready(function(){
                         </div>
 
                     </div>
-                </div>
+                
 
                 <!-- The Modal -->
                 <div id="myModal3" class="modal-post">
@@ -903,12 +930,12 @@ $(document).ready(function(){
                     <div class="modal-content-post">
                         <span class="close3">&times;</span>
 
-                        <div class="post-editor col-md-12" id="close">
+                        <div class="post-editor post-edit-popup" id="close">
 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
-                                <div class="popup-img-in col-md-1"> 
+                                <div class="popup-img-in"> 
                                     <?php
                                     if ($businessdata1[0]['business_user_image'] != '') {
                                         ?>
@@ -928,10 +955,10 @@ $(document).ready(function(){
                                     <div class="fifty_val">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
-
+                                    <div class="padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
                                 </div>
 
-                                <div class="col-md-1 padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
+                                
 
                             </div>
                             <div class="row"></div>
@@ -997,7 +1024,7 @@ $(document).ready(function(){
                 ?>
 
 
-                <div class="col-md-7 col-sm-7 ">
+                <div class="fw">
                     <!-- middle section start -->
 
                     <?php
@@ -1768,7 +1795,7 @@ $(document).ready(function(){
 
                 </div>
                 <!-- business_profile _manage_post end -->
-
+            </div>
             </div>
             </section>
             <!-- END CONTAINER -->

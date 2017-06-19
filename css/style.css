@@ -2506,9 +2506,9 @@ text-align: center*/
     ;
     /* height: 8%; */
     
-    float: left;
+   /* float: left;
     padding-left: 45px;
-    padding-right: 10px;
+    padding-right: 10px;*/
     /* margin-top: -19px; */
 }
 .job-menu-profile h5 {
@@ -4522,8 +4522,8 @@ border-bottom: 1px solid #000033;
     line-height: 16px;
 }
 .profile-main-box-buis-menu {
-    margin-left: -6px;
-    width: 55%;
+    /*margin-left: -6px;
+    width: 55%;*/
 }
 .profile-main-box-buis-menu li a:hover {
     box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
@@ -4583,6 +4583,7 @@ border-bottom: 1px solid #000033;
     padding-top: 19px;
     background-color: #fff;
     float: left;
+    position: relativ;
 }
 /* tabing */
 /* Style the tab */
@@ -4676,11 +4677,11 @@ border-bottom: 1px solid #000033;
 .business-data-menu {
     /* border-bottom: 1px solid #d9d9d9; */
     
-    border-top: 1px solid #d9d9d9;
+    /*border-top: 1px solid #d9d9d9;
     /* z-index: -1;
     */
     
-    margin-top: -43px;
+   /*margin-top: -43px;
     /* border: 1px solid; */
     /* top: -70px; */
 }
@@ -4730,6 +4731,8 @@ border-bottom: 1px solid #000033;
     border-radius: 4px;
     margin-bottom: 10px;
     border: 1px solid #d9d9d9;
+    width: 100%; 
+    float: left;
 }
 .popup-img img {
     border: 2px solid #ffffff;
@@ -4777,11 +4780,12 @@ form {
     padding-right: 10px;
     float: left;
 }
-.camera_in{margin-top: 23px;}
+.camera_in{margin-top: 5px;}
 .popup-img-in {
     padding-left: 2px !important;
     padding-right: 0px;
     padding-top: 8px;
+    float: left;
 }
 .popup-text {
     padding: 16px;
@@ -4792,6 +4796,8 @@ form {
     margin: 4px 0px 4px 0px;
     border-radius: 4px;
     padding-left: 4px !important;
+    width: 100%;
+    float: left;
 }
 /* The Modal (background) */
 
@@ -4838,8 +4844,8 @@ form {
 
 .modal-content-post {
     margin: auto;
-    padding: 20px;
-    width: 50%;
+    /*padding: 20px;*/
+    max-width:630px;
 }
 /* The Close Button */
 
@@ -8744,7 +8750,7 @@ label.cameraButton input[accept*="camera"] {
 .fifty_val {
     position: absolute;
     top: 21px;
-    right: 19px;
+    right: 45px;
     border: none;
 }
 .post-editor .popup-social-icon ul li .upload_icon {
@@ -12661,6 +12667,19 @@ snippet from Animate.css - zoomIn effect
 
 
 /***  eduction tabbing  ***/
+/***  business and art harshad  ***/
+.editor-content{width:90%; float: left;}
+.popup-text textarea{width: 91%;}
+.custom-right-art{margin-left: 10px;}
+.business-profile-right{width: 80%; float: left; padding-left: 30px;}
+.business-profile-right .bui-menu-profile{min-height: 110px;}
+.business-profile-right .business-data-menu{width: 100%; float: left;}
+.business-profile-right .profile-main-box-buis-menu ul{padding-left: 0;}
+.business-profile-right .profile-main-box-buis-menu ul li{padding-left: 0; padding-right: 5px;}
+.buisness-menu{position: relative;}
+.buisness-menu:before{width: 100%; position: absolute; bottom: 59px; background: #ddd; height: 1; content: ""; 
+left: 0;}
+.business-profile-right .flw_msg_btn ul li a{height: auto;}
 
 
 /***  media query  ***/
@@ -12673,6 +12692,8 @@ snippet from Animate.css - zoomIn effect
     .logo h2{font-size: 25px; line-height: 30px;}
     .header ul li a{padding: 5px 10px;}
     .cmy_2{width: 74%; float: left;}
+    .editor-content{width: 86%;}
+    .business-profile-right{width: 78%;}
 }
 @media screen and (max-width: 1024px) {
     #notificationLink span{top:3px; right:5px;}
@@ -12690,6 +12711,7 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfile-name a{font-size: 14px;}
     .profile-company-name a{font-size: 16px;}
     .left_box_menubar li a{padding-bottom: 0 !important;}
+    .header2 ul{padding-right: 0;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -12726,6 +12748,9 @@ snippet from Animate.css - zoomIn effect
     .post-design-menu ul{width:50%; float: left;}
     .art-all-comment{width: 100%; float: left;}
     .art-all-comment{width: 100%; float: left;}
+    .editor-content{width: 91%;}
+    .post-edit-popup .editor-content{width: 90%;}
+    .profile-pho-bui{width: 133px; margin-top: 0; width: 123px; margin-left: 20px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
@@ -12789,9 +12814,14 @@ snippet from Animate.css - zoomIn effect
     .cmy_2{width: 68%;}
     #two_images_bui{height: 250px;}
     #two_images_art{height: 250px;}
-    
+    .editor-content{width:90%;}
+     .modal-content-post{width: 100%; padding: 15px;}
+    .post-edit-popup .editor-content{width: 89%;}
+    .post-edit-popup .editor-content.popup-textarea{width: 100%; padding: 10px !important;}
+    .post-editor .popup-social-icon ul li i{font-size: 15px; margin: 0 !important;}
+    .post-editor .popup-social-icon ul li i:hover{font-size: 15px;}
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     .right-side-menu{padding-left: 18%;}
     .profile-main-rec-box-menu{margin-top: -60px;}
     .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
@@ -12801,6 +12831,12 @@ snippet from Animate.css - zoomIn effect
     .bui_images_view_more{height: 184px;}
     #two_images_bui{height: 200px;}
     #two_images_art{height: 200px;}
+    .editor-content{width:86%;}
+   .post-edit-popup .editor-content{width: 87%;}
+}
+@media screen and (max-width: 539px) {
+    .post-edit-popup .editor-content{width: 86%;}
+    .post-edit-popup .popup-text textarea{width: 90%;}
 }
 @media screen and (max-width: 479px) {
     .fw-479{width: 100%;}
@@ -12826,24 +12862,44 @@ snippet from Animate.css - zoomIn effect
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
     .post-design-name ul li .post_dot{font-size: 14px;}
-    .cmy_2{width:85%;}
+    .cmy_2{width:88%;  padding-right: 0;}
     #responsive_buis-images-breakpoints{height: 150px;}
     #responsive_buis-images_3-breakpoints{height:150px;}
     .bui_images_view_more{height: 149px;}
     #two_images_bui{height: 150px;}
     #two_images_art{height: 150px;}
     .comment-name{width: 79%;}
+    .comment-details-menu{padding: 0;}
+    .comment-details-menu a{font-size: 12px;}
+    .comment-details-menu p{font-size: 12px;}
+    .post-design-menu ul{width:40%;}
+    .post-design-menu ul.like_cmnt_count{width: 60%;}
+    .post-design-menu ul li a{margin-right: 10px !important;}
+    .like_cmmt_space{margin-left: 0;}
+    .post-design-top{padding-left: 0; padding-right: 0;}
+    .post-design-mid{padding-left: 10px; padding-right: 10px;}
+    .post-design-like-box{padding-left: 10px; padding-right: 10px;}
+    div[class^="likeduserlist"]{float: left; padding-left: 10px; padding-right: 10px;}
+    .likeduserlist, .likeduserlist1 {padding-left: 10px; padding-right: 10px;}
+    .post-design-commnet-box{padding: 10px;}
+    .editor-content{width: 80%;}
+    .post-edit-popup .editor-content{width: 80%;}
+    .post-edit-popup .popup-text textarea{width: 87%;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
     .right-side-menu{width: 100%;}
-    .cmy_2{width: 83%;}
+    .cmy_2{width: 84%;}
     #responsive_buis-images-breakpoints{height: 120px;}
     #responsive_buis-images_3-breakpoints{height:120px;}
     .bui_images_view_more{height: 119px;}
     #two_images_bui{height: 120px;}
     #two_images_art{height: 120px;}
     .post-design-name{padding-right: 0;}
+    .editor-content{width: 77%; padding-left: 0;}
+    .post-edit-popup .editor-content{width: 76%;}
+    .post-edit-popup .popup-text textarea{width: 84%;}
+    .comment-name{width: 78%;}
 }
 
 

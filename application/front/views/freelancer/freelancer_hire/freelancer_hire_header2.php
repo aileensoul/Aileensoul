@@ -20,7 +20,7 @@
 </style>
 <header>
     <div class="bg-search">
-        <div class="header2 headerborder">
+        <div class="header2 ">
             <div class="container">
                 <div class="row">
                      <?php echo $freelancer_hire_search; ?>
