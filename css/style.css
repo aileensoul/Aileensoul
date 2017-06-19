@@ -6206,7 +6206,7 @@ follow box*/
 #responsive-images_2-breakpoints {
     float: left;
     height: 250px;
-    width: 323px;
+    width: 332px;
     margin: 1;
     display: inline-block;
 }
@@ -12707,7 +12707,8 @@ snippet from Animate.css - zoomIn effect
     .profile-boxProfileCard-content::before{top: 50px !important;}
     .right-side-menu{float: none; padding-left: 20%;}
     .header2 ul{padding-right: 0;}
-   
+    .header2 .dropdown_hover .dropdown-content_hover{left: inherit; right: -10px;}
+    .left_iner_img_profile{height: 60px; width: 60px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
@@ -12769,6 +12770,9 @@ snippet from Animate.css - zoomIn effect
     .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
     .popup-text span{font-size: 16px;}
     .cmy_2{width: 68%;}
+    #responsive_buis-images-breakpoints{height: 150px;}
+    #responsive_buis-images_3-breakpoints{height:150px;}
+    .bui_images_view_more{height: 149px;}
 }
 @media screen and (max-width: 640px) {
     .right-side-menu{padding-left: 18%;}
@@ -12806,6 +12810,9 @@ snippet from Animate.css - zoomIn effect
     .logo{padding:4px 0;}
     .right-side-menu{width: 100%;}
     .cmy_2{width: 83%;}
+    #responsive_buis-images-breakpoints{height: 120px;}
+    #responsive_buis-images_3-breakpoints{height:120px;}
+    .bui_images_view_more{height: 119px;}
 }
 
 
