@@ -217,7 +217,7 @@ echo $job_header2;
                                             </span>
                                         </li>
 
-                                        <li> <b>language </b><span>
+                                        <li> <b>Language </b><span>
 
                                                 <?php
                                                 $aud = $job[0]['language'];
