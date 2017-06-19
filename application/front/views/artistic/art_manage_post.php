@@ -17,6 +17,19 @@
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+
+
+<script type="text/javascript">
+   //For Scroll page at perticular position js Start
+   $(document).ready(function(){
+    
+   //  $(document).load().scrollTop(1000);
+        
+       $('html,body').animate({scrollTop:330}, 100);
+   
+   });
+   //For Scroll page at perticular position js End
+</script>
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 
 <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
@@ -4191,4 +4204,5 @@ jQuery(document).mouseup(function (e) {
 // pop up open & close aarati code end
 
  </script>
- 
+
+
