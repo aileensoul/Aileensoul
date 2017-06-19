@@ -1,6 +1,7 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
+
 <!-- start header -->
 <?php echo $header; ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -10,8 +11,12 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <!-- This Css is used for call popup -->
-   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
+   
+<script type="text/javascript">
+   $.noConflict(true)
+</script>
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -89,7 +94,7 @@
                <div class="col-md-12 col-sm-12 ">
                   <div class="clearfix">
                      <div class="common-form common-form_border">
-                        <h3>Work Experience</h3>
+                        <h3>Work Experience </h3>
                         
                         <div class="work_exp fw">
                              <div class="">
@@ -269,7 +274,7 @@
                                  <?php if ($y != 1) {
                                     ?>
                                  <div class="hs-submit full-width fl " style="margin-top: 29px;">
-                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="home(<?php echo $workdata[$x]['work_id']; ?>);">
+                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
                                  </div>
                                  <?php } ?>
                               </div>
@@ -397,19 +402,7 @@
                            </fieldset>
                            <?php echo form_close(); ?> 
                         
-         <!-- Bid-modal  -->
-          <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-              <div class="modal-dialog modal-lm">
-                  <div class="modal-content">
-                     <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                         <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                      <span class="mes"></span>
-                    </div>
-                </div>
-          </div>
-       </div>
-                    <!-- Model Popup Close -->
+       
 
                         </div>
 
@@ -450,12 +443,15 @@
    <!-- END CONTAINER -->
 </body>
 </html>
+
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery-ui.js') ?>"></script>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
 
 <!-- duplicate div end -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
@@ -463,14 +459,15 @@
 <!--  <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
 
-<script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+<!-- This Js is used for call popup -->
+ <!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>  -->
 
 <script type="text/javascript">
 
  function expyear_change(){
 
      var num = $('.clonedInput').length;
-    alert(num);
+    
      if(num==1)
      {
         
@@ -924,6 +921,7 @@ function expyear_change_edittime(){
    }
 </style>
 <script type="text/javascript">
+//This function work after solve issue of bootstrap start
    function home(work_id) {
   
                               
@@ -931,6 +929,7 @@ function expyear_change_edittime(){
           $('#bidmodal').modal('show');
 
  }
+//This function work after solve issue of bootstrap End
 
    function delete_job_work(work_id) {
     
@@ -973,9 +972,13 @@ function expyear_change_edittime(){
       $('#toggle').on('click', function(){
     
             if($('#panel-heading').hasClass('active')){
+
                       $('#panel-heading').removeClass('active');
+
             }else{
+                      //$('#one').addClass('in');
                       $('#panel-heading').addClass('active');
+
                        $('#panel-heading1').removeClass('active');
             }
         });
