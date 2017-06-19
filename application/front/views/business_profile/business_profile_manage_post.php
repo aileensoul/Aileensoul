@@ -96,8 +96,8 @@ $(document).ready(function(){
 
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -128,7 +128,7 @@ $(document).ready(function(){
             </div>
         </div>
 
-        <div class="container">
+        <div class="container tablate-container">
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($businessdata1[0]['user_id'] == $userid) {
@@ -380,14 +380,14 @@ $(document).ready(function(){
 
                             </ul>
 
-                        </div>
+                        
 
                         <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les flw_with">
+                            
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
@@ -427,10 +427,10 @@ $(document).ready(function(){
 
                                     </ul>   
                                 </div>
-                            </div>
+                           
                         <?php } ?>
 
-
+                         </div>
                     </div>
                     </div>
                     <!-- pickup -->

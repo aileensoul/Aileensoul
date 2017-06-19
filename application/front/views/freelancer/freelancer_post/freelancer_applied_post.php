@@ -29,7 +29,7 @@
 
 <!-- END CSS -->
 
-<?php echo  $freelancer_post_header2_border; ?>
+<?php echo  $freelancer_post_header2; ?>
 
 
 <body   class="page-container-bg-solid page-boxed">
