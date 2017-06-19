@@ -264,9 +264,9 @@
 
     <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
            <input type="submit" value="Create an Account"  tabindex="12" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
-          <div class="or"> <span>or</span></div>
+          <!--<div class="or"> <span>or</span></div>-->
            </form>
-          <button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
+          <!--<button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>-->
     <!--      
           <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;

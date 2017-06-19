@@ -786,7 +786,7 @@ $contition_array =array('user_id' => $rec['user_id'], 'experience' => 'Experienc
                         <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="3">
-<div>
+<div class="popup_previred">
                         <img id="preview" src="#" alt="your image" />
 </div>
                       <!--   <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->
