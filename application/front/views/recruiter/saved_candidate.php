@@ -25,7 +25,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2_border; ?>
+<?php echo $recruiter_header2; ?>
 
 
 
