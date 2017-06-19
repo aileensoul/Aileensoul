@@ -854,8 +854,9 @@
 
                     <?php
 //echo "<pre>"; print_r($artsdata); die();
-                    if (count($artsdata) > 0) {
+                    if (count($artsdata) > 0) { 
                         foreach ($artsdata as $row) {
+
                             ?>
 
             <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
@@ -946,17 +947,19 @@
                                                                     
                                                                     }else{
                                                                         echo "Current Work.";
+
                                                                        }?> </a>
                                                                 
                                                             </div></li>
 
                                                     </ul> 
-                                                </div>  
+                                                </div>
+
                                                 <div class="dropdown2">
                                                     <a onClick="myFunction1(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
-                                                        <?php
+                                                        <?php 
                                                         if ($row['posted_user_id'] != 0) {
 
                                                             if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
