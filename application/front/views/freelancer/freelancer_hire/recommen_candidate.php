@@ -111,7 +111,7 @@
                                                 ?>
                                                 <!-- box image start -->
                                                  <div class="data_img">
-              <img src="<?php echo base_url(FREEHIREIMG . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
+              <img src="<?php echo base_url($this->config->item('free_hire_bg_thumb_upload_path') . $freehiredata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>" >
               </div>
                                                 <!-- box image end -->
                                                 <?php
