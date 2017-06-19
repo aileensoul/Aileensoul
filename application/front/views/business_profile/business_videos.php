@@ -139,9 +139,7 @@
                      <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
                         <div class="">
                            <div id="ripple" class="centered" >
-                              <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                 top: 7px;
-                                 left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                              <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
                            </div>
                            <div class="addtocont" style="    position: absolute;
                               display: block;
