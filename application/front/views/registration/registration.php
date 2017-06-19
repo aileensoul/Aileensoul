@@ -199,9 +199,9 @@
 </div>
 
      <input type="submit" tabindex="9" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
-          <div class="or"> <span>or</span></div>
+          <!--<div class="or"> <span>or</span></div>-->
            </form>
-          <button class="button3 button-block3 facebook_ac" tabindex="10">Sign Up With Facebook</button>
+          <!--<button class="button3 button-block3 facebook_ac" tabindex="10">Sign Up With Facebook</button>-->
             </div>
           </div> 
 </div>           
