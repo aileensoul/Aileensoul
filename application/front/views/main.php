@@ -819,13 +819,13 @@ window.onclick = function(event) {
 
 
 <style type="text/css">
-  #fname-error{margin-top: 33px;}
-  #lname-error{margin-top:33px;margin-right: 13px; }
-  #email-error{margin-top:33px;margin-right: 13px; }
-  #password-error{margin-top: 33px !important;margin-right: 13px;}
-  #year-error{margin-top: -1px; margin-right: 49px;}
-  #date-error{margin-top: -1px;margin-right: 49px;} 
-  #month-error{margin-top: -1px;margin-right: 49px;} 
+  #fname-error{margin-top: 33px;margin-right: -3px;}
+  #lname-error{margin-top:33px;margin-right: 8px; }
+  #email-error{margin-top:33px;margin-right: 8px; }
+  #password-error{margin-top: 33px !important;margin-right: 8px;}
+  #year-error{margin-top: -1px; margin-right: 48px;}
+  #date-error{margin-top: -1px;margin-right: 48px;} 
+  #month-error{margin-top: -1px;margin-right: 48px;} 
   #gen-error{margin-top: -1px;margin-right: -5px;} 
   #user_name-error{ margin-top: 0px;margin-right: 7px;}
   .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px;}

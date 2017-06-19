@@ -143,7 +143,7 @@ $phoneno = form_error('phoneno');
         <?php ?>
                             </fieldset>
 
-                            <fieldset <?php if ($phoneno) { ?> class="error-msg" <?php } ?>>
+                            <fieldset <?php if ($phoneno) { ?> class="error-msg " <?php } ?> class="full-width">
                                 <label>Phone number:<span class="red">*</span></label>
                                 <input type="text" name="phoneno" id="phoneno" tabindex="5" placeholder="Enter phone number" value="<?php if ($phoneno1) {
             echo $phoneno1;
@@ -375,3 +375,4 @@ $(window).load(function(){
             }
             }
         </script> 
+
