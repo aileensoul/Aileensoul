@@ -4296,3 +4296,24 @@ jQuery(document).mouseup(function (e) {
 
 <!-- contact person script end -->
 
+<script type="text/javascript">
+    
+
+    function contact_person_model(clicked_id , status){
+
+    if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+    }else if(status == 'confirm'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    
+   }
+
+  }
+</script>
+
+
