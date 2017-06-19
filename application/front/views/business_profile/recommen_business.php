@@ -215,7 +215,7 @@
     </div>
                   </div>
                </div>
-               <div class="col-md-7 col-sm-7 col-md-push-4 custom-right col-sm-push-4" style="height: 150%;">
+               <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business " style="height: 150%;">
                   <div class="common-form">
                      <div class="job-saved-box">
                         <h3 style="background-color: #fff; text-align: center; color: #003;">

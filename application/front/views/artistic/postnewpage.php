@@ -218,7 +218,7 @@
 
 
 
-                     <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                     <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-art">
 
 
     <div class="col-md-12 col-sm-12 post-design-box">
@@ -554,7 +554,7 @@
                                                         $commnetlike = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         if (count($commnetlike) > 0) {
                                                             ?>
-                                                            <div class="likeduserlistimg<?php echo $artdata['image_id']; ?>">
+                                                            <div class="likeduserlistimg<?php echo $artdata['image_id']; ?> likeduserlist1">
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -3433,43 +3433,6 @@
 
                     <!-- 9-5 khyati image script  emd --> 
 
-
-                    <style type="text/css">
-                        .likeduser{
-                            width: 100%;
-                            background-color: #00002D;
-                        }
-                        .likeduser-title{
-                            color: #fff;
-                            margin-bottom: 5px;
-                            padding: 7px;
-                        }
-                        .likeuser_list{
-                            background-color: #ccc;
-                            float: left;
-                            margin: 0px 6px 5px 9px;
-                            padding: 5px;
-                            width: 47%;
-                            font-size: 14px;
-                        }
-                        .likeduserlist, .likeduserlist1 {
-                            float: left;
-                            /*        margin-left: 15px;
-                                    margin-right: 15px;*/
-                            width: 96%;
-                            background-color: #fff !important;
-                        }
-                        div[class^="likeduserlist"]{
-                            width: 100% !important;
-                            background-color: #fff !important;
-                        }
-                        .like_one_other{
-                            /* margin-left: 15px;
-                            */    /*  margin-right: 15px;*/
-
-                        }
-
-                    </style>
                     <!-- This  script use for close dropdown in every post -->
                     <script type="text/javascript">
                         $('body').on("click", "*", function (e) {
