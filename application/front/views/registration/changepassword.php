@@ -29,20 +29,9 @@
         <div class="row">
         <div class="col-md-12">
                 
-                <!-- div class="col-md-4 ">
-                <div class="padd_set">   
-                <div id='cssmenu'>
-            <ul>
-   
-            <li><a href='<?php echo base_url() . 'profile' ?>'><span><h3>Edit Profile</span></h3></a></li>
-            <li><a href='<?php echo base_url('registration/changepassword') ?>'><span><h3>Change Password</span></h3></a></li>
-   
-            </ul>
-        </div>  
-                </div>  
-                </div> -->
+               
                 
-                                    <div class="col-lg-3 col-md-4 col-sm-4">
+                                      <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="padd_set">
                         <div class="left-side-bar">
                             <ul class="left-form-each">

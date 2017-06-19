@@ -969,7 +969,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                          ?>
                                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                                                    <img src="<?php echo base_url(FREELANCERPORTFOLIOIMG . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
+                                                    <img src="<?php echo base_url($this->config->item('free_portfolio_thumb_upload_path') . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
                                                    
                                             </li>
 

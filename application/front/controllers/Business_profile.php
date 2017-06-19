@@ -8585,7 +8585,7 @@ $contition_array = array('status' => '1');
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
- $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -8614,7 +8614,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
- $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+ $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id .');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -8649,7 +8649,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+          $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -9016,11 +9016,19 @@ public function bus_contact($id = "") {
    public function removecontactuser() {
 
 
-     $contact_id = $_POST["contact_id"]; 
+     $to_id = $_POST["contact_id"]; 
      $showdata = $_POST["showdata"]; 
 
      $userid = $this->session->userdata('aileenuser');
 
+
+   $contition_array = array('contact_type' => 2);
+
+    $search_condition = "((contact_to_id = ' $to_id' AND contact_from_id = ' $userid') OR (contact_from_id = ' $to_id' AND contact_to_id = '$userid'))";
+
+   $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+   $contact_id = $contactperson[0]['contact_id'];
 
 $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
 
@@ -9037,11 +9045,13 @@ $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1)
               //echo "<pre>"; print_r($data); die();
  $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
 
- $contactdata =  '<button>';
+ //$contactdata =  '<button>';
+ 
+ $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
-   
-  
+
   if($showdata == $businessdata1[0]['business_slug']){
   echo json_encode(
                         array("contactdata" => $contactdata,
@@ -9088,7 +9098,7 @@ public function contact_person_menu(){
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
  
-  $contactdata .= '</a>';
+  
        
        }elseif($status == 'cancel'){
               $data = array(
@@ -9098,7 +9108,10 @@ public function contact_person_menu(){
 
 
 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
- $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+ 
+ $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
+
+
  $contactdata .=  'Cancel request';
   $contactdata .= '</button>';
        }
@@ -9117,7 +9130,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+          $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
           $contactdata .=  'Cancel request';
           $contactdata .= '</button>';
     }

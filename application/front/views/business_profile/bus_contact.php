@@ -257,7 +257,7 @@
                               
      
 
-                               <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/bus_contact/'.$businessdata1[0]['business_slug']); ?>">Contacts</a>
+                               <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/bus_contact/'.$businessdata1[0]['business_slug']); ?>">Contacts</a>
                                     </li>
 
                                     <?php
@@ -421,7 +421,7 @@
                           ?>
                                   <div class="job-contact-frnd">
 
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$clistuser[0]['contact_id']; ?>">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$cdata[0]['user_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
@@ -490,8 +490,8 @@
 
                   <?php }else if($clistuser[0]['status'] == 'confirm'){ ?>
                  
-                 <div class="user_btn" id="<?php echo "statuschange" . $clistuser[0]['contact_id']; ?>">
-                  <button onclick="contact_person_cancle(<?php echo $clistuser[0]['contact_id']; ?> , 'confirm')">
+                 <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
+                  <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?> , 'confirm')">
                             In your contact
                    </button> 
                    </div>        
@@ -1022,8 +1022,7 @@ function contact_person_menu(clicked_id) {
           type: 'POST',
           url: '<?php echo base_url() . "business_profile/contact_person_menu" ?>',
           data: 'toid=' + clicked_id,
-          success: function (data) {
-                         
+          success: function (data) {                 
           $('#' + 'statuschange' + clicked_id).html(data);
 
             }

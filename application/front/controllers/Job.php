@@ -72,7 +72,7 @@ $this->load->view('business_profile/temp');
              //else if ($jobdata[0]['job_step'] == 5) {
             //     redirect('job/job_apply_for_update', refresh);
             // } 
-                else if ($jobdata[0]['job_step'] == 5 || $jobdata[0]['job_step'] == 6) {
+            else if ($jobdata[0]['job_step'] == 5 || $jobdata[0]['job_step'] == 6) {
                 redirect('job/job_work_exp_update', refresh);
             } else if ($jobdata[0]['job_step'] == 7) {
                 redirect('job/job_curricular_update', refresh);
@@ -2746,7 +2746,7 @@ $this->load->view('business_profile/temp');
 
         $userdata[] = $_POST;
        // echo "<pre>"; print_r($userdata[0]['keyskil1']);
-        $count1 = count($userdata[0]['experience_year']);
+        $count1 = count($userdata[0]['jobtitle']);
         //echo $count1;die();
         
         if ($this->input->post('previous')) {  //echo "hi";die();
@@ -2810,7 +2810,7 @@ $this->load->view('business_profile/temp');
   $contition_array = array('user_id' => $userid, 'status' => 1);
   $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                
-               //update data at job_add_workexp table start
+               //update data at job_add_workexp for fresher table start
                if ($jobdata)
                {
                 //echo "hi";die();
@@ -2838,12 +2838,12 @@ $this->load->view('business_profile/temp');
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
 
                }
-         //update data at job_add_workexp table end
+         //update data at job_add_workexp for fresher table end
 
-          
+ //Insert data at first time job_add_workexp for fresher table start        
          else
                {
- //echo "hi1";die();
+
                     $data1 = array(
                     'experience' => $exp,
                     'user_id' => $userid,
@@ -2861,7 +2861,7 @@ $this->load->view('business_profile/temp');
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                
             }
-          //Insert data at first time job_add_workexp table end
+          //Insert data at first time job_add_workexp for fresher table end
                          
 
                 if ($updatedata && $updatedata1 || $updatedata && $insertid) {
@@ -2971,9 +2971,9 @@ $this->load->view('business_profile/temp');
                 $contition_array = array('user_id' => $userid, 'status' => 1);
                 $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
+ //update data at job_add_workexp for Experience table start
                 if ($jobdata) {
-                    //echo "pppp";
+                //echo "pppp";die();
                     //Edit Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
                         // echo "888";
@@ -3004,7 +3004,7 @@ $this->load->view('business_profile/temp');
                         $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
-                            'experience_year' => $userdata[0]['keyskil1'][$x],
+                            'experience_year' => $userdata[0]['experience_year'][$x],
                             'experience_month' => $userdata[0]['experience_month'][$x],
                             'jobtitle' => $userdata[0]['jobtitle'][$x],
                             'companyname' => $userdata[0]['companyname'][$x],
@@ -3016,7 +3016,13 @@ $this->load->view('business_profile/temp');
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         }
+ //update data at job_add_workexp for Experience table End
+
+ //Insert data at job_add_workexp for Experience table start
+
+
                         else{
+                           // echo "jjj";die();
 
 $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
@@ -3040,9 +3046,29 @@ $files[] = $_FILES;
                         //echo "<pre>";print_r($data);
                     }
                     //Edit Multiple field into database End 
-                } else {
 
-                   // echo "qqqq";die();
+                        // for deleete fresher data when candidate is experience start
+                $contition_array = array('user_id' => $userid, 'experience' => 'Fresher', 'status' => '1');
+                $jobdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+               
+                $countdata=count($jobdata);
+                    
+                     for ($x = 0; $x < $countdata; $x++) 
+                    { 
+                      
+
+                        $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+                    }
+                   // for deleete fresher data when candidate is experience ENd
+                 } 
+                   
+//Insert data at job_add_workexp for Experience table End
+
+//when insert and update data both same time Insert data at job_add_workexp for Experience table start
+
+     else {
+
+                  
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
 
@@ -3065,7 +3091,23 @@ $files[] = $_FILES;
                     }
 
                     //Add Multiple field into database End 
+
+                            // for deleete fresher data when candidate is experience start
+                $contition_array = array('user_id' => $userid, 'experience' => 'Fresher', 'status' => '1');
+                $jobdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+               
+                $countdata=count($jobdata);
+                    
+                     for ($x = 0; $x < $countdata; $x++) 
+                    { 
+                      
+
+                        $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+                    }
+                   // for deleete fresher data when candidate is experience ENd
                 }
+//when insert and update data both same time Insert data at job_add_workexp for Experience table End
+
 
                 $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
                 $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
