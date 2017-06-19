@@ -1768,7 +1768,7 @@ class Notification extends MY_Controller {
 
         foreach ($user_message as $msg) {
 
-            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
+            $notmsg .= '<div id="notificationTitle">Messages</div><div id="notificationsmsgBody" class="notificationsmsg"><a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
             $notmsg .= '<li class="active2"><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
 
@@ -1791,8 +1791,13 @@ class Notification extends MY_Controller {
             $notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             $notmsg .= '</div></div></li></a>';
         }
-        $notmsg .= '</ul></div>';
-
+        $notmsg .= '</ul></div></div>';
+        if($user_message){
+        $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
+        }else{
+        $notmsg .= '<div id="InboxFooter">Not Available.</div>';
+            
+        }
         echo $notmsg;
     }
 
