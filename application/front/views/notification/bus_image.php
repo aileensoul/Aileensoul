@@ -293,7 +293,7 @@
                     -->
                     <!-- The Modal -->
 
-                    <div class=" col-md-7 col-sm-12 col-md-push-4 custom-right-business" ">
+                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
 
                         <!-- body content start-->
 
