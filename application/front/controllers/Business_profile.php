@@ -7728,11 +7728,15 @@ $contition_array = array('status' => '1');
             $cmtcount .= '</i></a>';
 
             // comment count variable end 
+            if (count($buscmtcnt) > 0) {
+           $cntinsert .= '' . count($buscmtcnt) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
         }
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($buscmtcnt)
+                    "comment_count" => $cntinsert
                     ));
         // khyati chande 
     }
@@ -7912,13 +7916,19 @@ $contition_array = array('status' => '1');
             $cmtcount .= '</i></a>';
 
             // comment count variable end 
+            // comment count variable end 
+           
         }
+         if (count($businessprofiledata) > 0) {
+           $cntinsert .= '' . count($businessprofiledata) . ''; 
+           $cntinsert .=   '<span> Comment</span>'; 
+            }
 
 //        echo $cmtinsert;
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => count($businessprofiledata)
+                    "comment_count" => $cntinsert
                     ));
 
         // khyati chande 
