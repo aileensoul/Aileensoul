@@ -1635,6 +1635,23 @@
         </body>
         </html>
 
+
+
+ <script type="text/javascript">
+   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function () { 
+                    $('#post').on('click', function () {
+
+                        $('.modal-post').show();
+                       //  location.reload(false);
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+   
+</script>
+<!-- insert validation end -->
+
+
             <script>
             $(document).ready(function () {
                 $('.video').mediaelementplayer({
@@ -3985,19 +4002,7 @@ function imgval(event) {
    }
 </script>
 
-        <script type="text/javascript">
-   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
-                $(document).ready(function () { alert("falguni");
-                    $('#post').on('click', function () {
-
-                        $('.modal-post').show();
-                       //  location.reload(false);
-                    });
-                });
-  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
-   
-</script>
-<!-- insert validation end -->
+       
 
 
        <style type="text/css">
