@@ -117,7 +117,7 @@
                 <div class="row">
 
 
-                    <div class="col-md-4 profile-box profile-box-left"><div class="">
+                    <div class="col-md-4 profile-box profile-box-custom"><div class="">
 <!-- 
                             <div class="full-box-module">    
                                 <div class="profile-boxProfileCard  module">
