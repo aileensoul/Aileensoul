@@ -14,3 +14,4 @@
 .profile-boxProfileCard_follow{max-height:243px; }
 .follow_left_box_main{padding-top: 4px; padding-bottom: 4px;}
 .popup-text textarea{overflow-y: hidden;}
+#notificationsBody1 img:hover{cursor: pointer; background-color: #d9d9d9; border-radius: 30%;}
