@@ -153,9 +153,7 @@ start head -->
                      <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
                         <div class="">
                            <div id="ripple" class="centered" >
-                              <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                 top: 7px;
-                                 left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                              <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
                            </div>
                            <div class="addtocont" style="    position: absolute;
                               display: block;
@@ -195,6 +193,8 @@ start head -->
                         <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $businessdata1[0]['business_slug']); ?>">Dashboard</a>
                         </li>
                         <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
+                        </li>
+                         <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>">Contacts</a>
                         </li>
                         <?php
                            $userid = $this->session->userdata('aileenuser');

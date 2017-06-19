@@ -247,9 +247,7 @@ $(document).ready(function(){
                 <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
                     <div class="">
                         <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                            <div class="circle"><span href="" class="add_r_c" ><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
 
 
                         </div>
@@ -297,6 +295,9 @@ $(document).ready(function(){
                                 </li>
 
                                 <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
+                                </li>
+
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts</a>
                                 </li>
 
                                 <?php
@@ -876,20 +877,20 @@ $(document).ready(function(){
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
-                            <div class="popup-img col-md-1"> 
+                            <div class="popup-img"> 
                                 <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-10 popup-text">
+                            <div id="myBtn1"  class="editor-content popup-text">
                                 <span>Post Your Product....</span>
-
-                            </div>
-                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                <div class="padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera">
                                 </i> 
                             </div>
+                            </div>
+                            
                         </div>
 
                     </div>
@@ -930,7 +931,7 @@ $(document).ready(function(){
 
                                 </div>
 
-                                <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
+                                <div class="col-md-1 padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
 
                             </div>
                             <div class="row"></div>
@@ -1012,7 +1013,7 @@ $(document).ready(function(){
 
                                     <div class=" post-design-box">
                                         <div class="post-design-top col-md-12" >  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img"> 
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
 

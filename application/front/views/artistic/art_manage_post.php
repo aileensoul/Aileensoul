@@ -741,7 +741,7 @@
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
-                        <div class="popup-img col-md-1"> 
+                        <div class="popup-img"> 
                              <?php
                                                     $userimage = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
                                                     $userimageposted = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
@@ -757,14 +757,14 @@
                                                        <?php   }?>
                            
                         </div>
-                        <div id="myBtn3"  class="editor-content col-md-10 popup-text">
+                        <div id="myBtn3"  class="editor-content popup-text">
                             <span> Post Your Art....</span> 
-
-                        </div>
-                        <div class="col-md-1 padding-left padding_les_left camer_h">
+<div class="padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera" >
                                 </i> 
                             </div>
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -794,7 +794,7 @@
 
                             </div>
 
-                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                            <div class="col-md-1 padding-left padding_les_left camera_in camer_h">
                                 <i class=" fa fa-camera" >
                                 </i> 
                             </div>
@@ -852,7 +852,7 @@
 
 
                          <div class="post-design-top col-md-12" >  
-                                                <div class="post-design-pro-img col-md-2"> 
+                                                <div class="post-design-pro-img"> 
 
                                                     <?php
                                                     $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;

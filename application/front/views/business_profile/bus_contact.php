@@ -301,7 +301,7 @@
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
 
                                                 <?php
-                                                $userid = $this->session->userdata('aileenuser');
+                           $userid = $this->session->userdata('aileenuser');
 
                                                 $contition_array = array('user_id' => $userid, 'status' => '1');
 
@@ -374,19 +374,30 @@
                         <?php 
 
                          foreach ($unique_user as $user) { 
+                    
+                        if($busuid == $user['contact_from_id']){
 
-                        if($userid == $user['contact_from_id'] || $uid == $user['contact_from_id']){
+                  $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
 
-                $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
+      $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
 
+      $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                
+              
 
-                          }else {
-                        $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
-                         }
+                          } else { 
+      $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
+
+      $contition_array = array('contact_to_id' => $login, 'contact_from_id' => $user['contact_from_id'], 'contact_type' => 2);
+
+      $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+              //   echo '<pre>'; print_r($clistuser);
+                         }  
                           ?>
-                                  <div class="job-contact-frnd ">
+                                  <div class="job-contact-frnd">
 
-                                        <div class="profile-job-post-detail clearfix">
+                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" .$clistuser[0]['contact_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
@@ -434,42 +445,52 @@
   <li class="fr">
                                   
  
- <div class="user_btn">
+                  <?php if($login == $cdata[0]['user_id']){}else{?>
   
-   <?php 
-      $userid = $this->session->userdata('aileenuser');
+                 <?php  if($clistuser[0]['status'] == 'cancel'){?>
 
-      if($userid == $user['contact_from_id'] || $uid == $user['contact_from_id']){
+                 <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
 
-        $contition_array = array('contact_from_id' => $userid, 'contact_to_id' => $user['contact_to_id'] ,'contact_type' => 2);
-
-        $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-      }else{
-
-        $clistuser = $this->common->select_data_by_id('contact_person', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
-      }
-
-          if($clistuser[0]['status'] == 'cancel'){?>
-                     <button>
+                      <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
                            Add to contact
-                      </button>
-                     <?php }elseif($clistuser[0]['status'] == 'pending'){ ?>  
-                      <button> 
-                            Cancel request 
-                      </button> 
-                     <?php }else if($clistuser[0]['status'] == 'confirm'){ ?>
-                     <button onclick="removecontact(<?php echo $businessdata1[0]['user_id']; ?>)">
-                         In your contact
-                          </button>
-                   <?php  } else if($clistuser[0]['status'] == 'reject'){?>
+                        </button>
+                      </div>  
 
-                    <button onclick="removecontact(<?php echo $businessdata1[0]['user_id']; ?>)">
-                        Add to contact
-                          </button>
-                   <?php  } ?>
-      
-   </div>
+                  <?php }elseif($clistuser[0]['status'] == 'pending'){ ?>
+
+                  <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
+                    <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
+                           Cancel request
+                      </button>
+                      </div>     
+
+                  <?php }else if($clistuser[0]['status'] == 'confirm'){ ?>
+                 
+                 <div class="user_btn" id="<?php echo "statuschange" . $clistuser[0]['contact_id']; ?>">
+                  <button onclick="removecontact(<?php echo $clistuser[0]['contact_id']; ?>)">
+                            In your contact
+                   </button> 
+                   </div>        
+
+                  <?php  } else if($clistuser[0]['status'] == 'reject'){?>
+
+                  <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
+                  <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
+                            Add to contact
+                  </button>
+                  </div>
+
+                    <?php  }else {?>
+                    <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
+                    <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
+                    Add to contact
+                    </button>
+                    </div>
+
+                    <?php }?>
+                      
+                      <?php }?>
+   
                            
 </li>
 
@@ -967,6 +988,26 @@ $(document).ready(function(){
     }
             </script>
 
+
+<script type="text/javascript">
+                
+
+function contact_person_menu(clicked_id) {
+
+    $.ajax({
+          type: 'POST',
+          url: '<?php echo base_url() . "business_profile/contact_person_menu" ?>',
+          data: 'toid=' + clicked_id,
+          success: function (data) {
+                         
+          $('#' + 'statuschange' + clicked_id).html(data);
+
+            }
+      });
+
+    }
+</script>
+
 <!-- contact person script end -->
 
 
@@ -984,16 +1025,20 @@ $(document).ready(function(){
   
   function removecontactuser(clicked_id){
 
-
+    //var showdata = window.location.pathname;
+    var showdata = window.location.href.split("/").pop();;
+   
      $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "business_profile/removecontactuser" ?>',
                 dataType: 'json',
-                data:'contact_user_id='+clicked_id,
+                data:'contact_id='+clicked_id + '&showdata=' + showdata,
                 success:function(data){ 
+                 $('#' + 'statuschange' + clicked_id).html(data.contactdata);
 
-
-
+                 if(data.notfound == 1){
+                 $('#' + 'removecontact' + clicked_id).fadeOut(4000);
+                 }else{}   
 
                 }
             }); 

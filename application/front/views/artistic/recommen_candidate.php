@@ -30,28 +30,28 @@
   <div class="full-box-module">
             <div class="profile-boxProfileCard  module">
                <div class="profile-boxProfileCard-cover">
-                  <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                     <?php if ($artisticdata[0]['profile_background']) { ?>
-                     <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
+                  <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
+                     <?php if ($artdata[0]['profile_background']) { ?>
+                     <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" class="bgImage"  >
                      </div>
                      <?php } else { ?>
                      <div class="data_img">
-                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"  >
                      </div>
                      <?php } ?>
                   </a>
                </div>
                <div class="profile-boxProfileCard-content clearfix">
                   <div class="left_side_box_img buisness-profile-txext">
-                     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                         <!-- box image start -->
-                        <?php if ($artisticdata[0]['art_user_image']) { ?>
+                        <?php if ($artdata[0]['art_user_image']) { ?>
                         <div class="data_img_2">   
-                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
                         </div>
                         <?php } else { ?> 
                         <div class="data_img_2">
-                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
                         </div>
                         <?php } ?>
                         <!-- box image end -->
@@ -59,14 +59,14 @@
                   </div>
                   <div class="right_left_box_design ">
                      <span class="profile-company-name ">
-                     <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                     <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?></a>
                      </span>
-                     <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                  
                      <div class="profile-boxProfile-name">
                         <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
                         <?php
-                           if ($artisticdata[0]['designation']) {
-                               echo ucwords($artisticdata[0]['designation']);
+                           if ($artdata[0]['designation']) {
+                               echo ucwords($artdata[0]['designation']);
                            } else {
                                echo "Designation";
                            }
@@ -140,9 +140,7 @@
                         </div>
        </div>
    
-       <div class="designation_rec" style="    float: left;
-    width: 60%;
-    padding-top: 16px;">
+       <div class="designation_rec" >
           <ul class="search_ul_an">
        <li>
       <a style="  font-size: 19px;
@@ -237,7 +235,7 @@ if($status == 0 || $status == " "){?>
        <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style=" box-shadow: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img "> 
                                                 
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
@@ -545,10 +543,10 @@ if($status == 0 || $status == " "){?>
 
                                                             if (!in_array($userid, $likeuserarray)) {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php } else {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                             <?php }
                                                             ?>
                                                             <span>
@@ -766,10 +764,10 @@ if($status == 0 || $status == " "){?>
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>
 
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                             <?php } else {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php }
                                                                             ?>
                                                                             <span>
@@ -1090,7 +1088,7 @@ if($status == 0 || $status == " "){?>
 
                     </script>
 <!-- popup form edit start -->
- -->
+
                     <script>
                         // Get the modal
                         var modal = document.getElementById('myModal');

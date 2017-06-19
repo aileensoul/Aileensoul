@@ -1,4 +1,10 @@
-
+.designation_rec{  float: left;
+    width: 60%;
+    padding-top: 1px;}
+.module_Ssearch{padding-top: 6px!important;}
+.add_r_c{position: absolute; z-index: 1; 
+                                                      top: 10px;
+                                                      left: 10px;}
 
 
 
