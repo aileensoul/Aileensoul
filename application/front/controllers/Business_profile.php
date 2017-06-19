@@ -8649,7 +8649,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
+          $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
  $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
@@ -9130,7 +9130,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
 
            $insert_id = $this->common->insert_data_getid($data, 'contact_person');
            
-          $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
+          $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
           $contactdata .=  'Cancel request';
           $contactdata .= '</button>';
     }
