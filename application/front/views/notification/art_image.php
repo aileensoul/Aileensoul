@@ -225,7 +225,7 @@
 
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2"> 
+                                    <div class="post-design-pro-img"> 
                                         <?php
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
 

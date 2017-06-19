@@ -565,7 +565,7 @@
                                                                     ?>
                                                                 <?php } ?>
                                                                 <!-- pop up box end-->
-                                                                <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
+                                                                <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                     <?php
                                                                     $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -610,7 +610,7 @@
                                                                 ?>
                                                             <?php } ?>
                                                             <!-- pop up box end-->
-                                                            <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
+                                                            <a href="javascript:void(0);" class="likeuserlist1" onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -933,7 +933,7 @@
                                             ?>
                                         <?php } ?>
                                         <!-- pop up box end-->
-                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                        <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                                             <?php
                                             $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -984,7 +984,7 @@
                                         ?>
                                     <?php } ?>
                                     <!-- pop up box end-->
-                                    <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
+                                    <a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                                         <?php
                                         $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
