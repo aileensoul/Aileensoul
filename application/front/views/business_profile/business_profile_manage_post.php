@@ -96,8 +96,8 @@ $(document).ready(function(){
 
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -128,7 +128,7 @@ $(document).ready(function(){
             </div>
         </div>
 
-        <div class="container">
+        <div class="container tablate-container">
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($businessdata1[0]['user_id'] == $userid) {
@@ -380,14 +380,14 @@ $(document).ready(function(){
 
                             </ul>
 
-                        </div>
+                        
 
                         <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les flw_with">
+                            
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
@@ -427,10 +427,10 @@ $(document).ready(function(){
 
                                     </ul>   
                                 </div>
-                            </div>
+                           
                         <?php } ?>
 
-
+                         </div>
                     </div>
                     </div>
                     <!-- pickup -->
@@ -900,7 +900,7 @@ $(document).ready(function(){
                 </div>
 
                 <!-- popup start -->
-                <div class="col-md-7 col-sm-7 custom-right-business"  >
+                <div class="col-md-7 custom-right-business"  >
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
@@ -1385,9 +1385,9 @@ $(document).ready(function(){
                                                     <!-- this div view all image start -->
                                                     <div>
                                                         <div id="responsive-manage_images_3-breakpoints" >
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
-
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
+                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a>
+                                                        
+                                                          <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                         <div class="manage_images_view_more" >
 
 
@@ -1395,6 +1395,10 @@ $(document).ready(function(){
                                                          </span></div>
 
                                                         </a>
+                                                        
+                                                        </div>
+
+                                                          
 
                                                     </div>
                                                     <!-- this div view all image end -->

@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <!-- END HEADER -->
 
-<?php echo $freelancer_post_header2_border; ?>
+<?php echo $freelancer_post_header2; ?>
 
 
 <body   class="page-container-bg-solid page-boxed">

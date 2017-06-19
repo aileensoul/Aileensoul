@@ -249,7 +249,7 @@ if($status == 0 || $status == " "){?>
                                                     </div>
                                                 </div>
                                                 
-                                               <!--  <div id="popup25" class="overlay">
+                                                <div id="popup25" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
                                                             Are You Sure want to delete this post?.
@@ -263,9 +263,9 @@ if($status == 0 || $status == " "){?>
                                                             </p>
                                                         </div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                                 
-                                               <!--  <div id="popup55" class="overlay">
+                                                <div id="popup55" class="overlay">
                                                     <div class="popup">
                                                         <div class="pop_content">
                                                             Are You Sure want to delete this post from your profile?.
@@ -279,7 +279,7 @@ if($status == 0 || $status == " "){?>
                                                             </p>
                                                         </div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
                                                                                                 </div>
                                             <div class="post-design-name fl col-md-9">
@@ -315,7 +315,7 @@ if($status == 0 || $status == " "){?>
                                                     </li> 
                                                 </ul> 
                                             </div>  
-                                           <!--  <div class="dropdown1">
+                                            <div class="dropdown1">
                                                 <a onclick="myFunction(5)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
                                                 </a>
                                                 <div id="myDropdown5" class="dropdown-content1">
@@ -329,7 +329,7 @@ if($status == 0 || $status == " "){?>
                                                             </i>Edit
                                                         </a>
                                                                                                     </div>
-                                            </div> -->
+                                            </div>
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">

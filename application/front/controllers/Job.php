@@ -2943,19 +2943,20 @@ $this->load->view('business_profile/temp');
         $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+      //  echo "<pre>";print_r($job_reg_prev_image);die();
         
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_work_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
+              //  unlink($job_bg_full_image);
             }
             
             $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                unlink($job_bg_thumb_image);
+              //  unlink($job_bg_thumb_image);
             }
 
 
@@ -2973,7 +2974,8 @@ $this->load->view('business_profile/temp');
 
  //update data at job_add_workexp for Experience table start
                 if ($jobdata) {
-                //echo "pppp";die();
+                    //  echo "<pre>";print_r($_POST);
+                //echo "<pre>";print_r($_FILES);die();
                     //Edit Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
                         // echo "888";
@@ -2987,18 +2989,21 @@ $this->load->view('business_profile/temp');
 
                         //echo  $edu_certificate;die();
                         if ($work_certificate == "") {
-                            // $data = array(
+                            //echo"ff";                            // $data = array(
                             //     'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
                             // );
 
                             $work_certificate1 = $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id']);
                         } else {
+                           // echo"hi";
                             // $data = array(
                             //     'work_certificate' =>  $work_certificate
                             // );
                             $work_certificate1 = $work_certificate;
                         }
-
+                       // echo "<pre>";print_r('image_hidden_certificate' . $jobdata[$x]['work_id']);
+                        //echo "<pre>";print_r($work_certificate1);
+//$work_certificate = $files['certificate']['name'][$x];
                         // $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         $data = array(
@@ -3016,17 +3021,33 @@ $this->load->view('business_profile/temp');
                         $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         }
+
  //update data at job_add_workexp for Experience table End
 
  //Insert data at job_add_workexp for Experience table start
 
 
                         else{
-                           // echo "jjj";die();
+                         //echo "jjj";die();
 
 $files[] = $_FILES;
                         //echo "<pre>";print_r($files);die();
-                         $work_certificate = $files['certificate']['name'][$x];
+                       $work_certificate = $files['certificate']['name'][$x];
+
+                        //echo  $edu_certificate;die();
+                        if ($work_certificate == "") {
+
+                            // $data = array(
+                            //     'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
+                            // );
+
+                            $work_certificate1 = $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id']);
+                        } else {
+                            // $data = array(
+                            //     'work_certificate' =>  $work_certificate
+                            // );
+                            $work_certificate1 = $work_certificate;
+                        }
 
                             $data = array(
                             'user_id' => $userid,
@@ -3037,13 +3058,14 @@ $files[] = $_FILES;
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate' =>  $work_certificate,
+                            'work_certificate' =>  $work_certificate1,
                             'status' => 1
                         );
 
                         $insert_id = $this->common->insert_data_getid($data, 'job_add_workexp');
                         }
                         //echo "<pre>";print_r($data);
+
                     }
                     //Edit Multiple field into database End 
 
@@ -3068,11 +3090,27 @@ $files[] = $_FILES;
 
      else {
 
-                  
+               //   echo "aarati";die();
                     //Add Multiple field into database Start 
                     for ($x = 0; $x < $count1; $x++) {
 
-                         $work_certificate = $files['certificate']['name'][$x];
+                        $files[] = $_FILES;
+                        //echo "<pre>";print_r($files);die();
+                       $work_certificate = $files['certificate']['name'][$x];
+
+                        //echo  $edu_certificate;die();
+                        if ($work_certificate == "") {
+                            // $data = array(
+                            //     'work_certificate' => $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id'])
+                            // );
+
+                            $work_certificate1 = $this->input->post('image_hidden_certificate' . $jobdata[$x]['work_id']);
+                        } else {
+                            // $data = array(
+                            //     'work_certificate' =>  $work_certificate
+                            // );
+                            $work_certificate1 = $work_certificate;
+                        }
                         $data = array(
                             'user_id' => $userid,
                             'experience' => $exp,
@@ -3082,7 +3120,7 @@ $files[] = $_FILES;
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
                             'companyphn' => $userdata[0]['companyphn'][$x],
-                            'work_certificate' =>   $work_certificate,
+                            'work_certificate' =>   $work_certificate1,
                             'status' => 1
                         );
 

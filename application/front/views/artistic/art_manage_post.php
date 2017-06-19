@@ -854,8 +854,9 @@
 
                     <?php
 //echo "<pre>"; print_r($artsdata); die();
-                    if (count($artsdata) > 0) {
+                    if (count($artsdata) > 0) { 
                         foreach ($artsdata as $row) {
+
                             ?>
 
             <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
@@ -946,17 +947,19 @@
                                                                     
                                                                     }else{
                                                                         echo "Current Work.";
+
                                                                        }?> </a>
                                                                 
                                                             </div></li>
 
                                                     </ul> 
-                                                </div>  
+                                                </div>
+
                                                 <div class="dropdown2">
                                                     <a onClick="myFunction1(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
-                                                        <?php
+                                                        <?php 
                                                         if ($row['posted_user_id'] != 0) {
 
                                                             if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
@@ -1634,6 +1637,23 @@
             <!-- Bid-modal for this modal appear or not  Popup Close -->
         </body>
         </html>
+
+
+
+ <script type="text/javascript">
+   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function () { 
+                    $('#post').on('click', function () {
+
+                        $('.modal-post').show();
+                       //  location.reload(false);
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+   
+</script>
+<!-- insert validation end -->
+
 
             <script>
             $(document).ready(function () {
@@ -3822,22 +3842,170 @@ function imgval(event) {
            event.preventDefault();
            return false;
    
-       }  
-        
+       } else {
+
+        for (var i = 0; i < fileInput.length; i++)
+           {
+               var vname = fileInput[i].name;
+               var vfirstname = fileInput[0].name;
+               var ext = vfirstname.split('.').pop();
+               var ext1 = vname.split('.').pop();
+               var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+               var allowesvideo = ['mp4', 'webm'];
+               var allowesaudio = ['mp3'];
+               var allowespdf = ['pdf'];
    
+               var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+               var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
+               var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
+               var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+
+
+               if (foundPresent == true)
+               {
+                   var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length <= 10) {
+                   } else {
+   
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+                       // window.location='';
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+   
+               }
+
+               else if (foundPresentvideo == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               }
+
+               else if (foundPresentaudio == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               }
+                else if (foundPresentpdf == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+   
+                       if (product_name == '') {
+                           $('#post .mes').html("<div class='pop_content'>You have to add pdf title.");
+                           $('#post').modal('show');
+                           setInterval('window.location.reload()', 10000);
+                            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                           event.preventDefault();
+                           return false;
+                       }
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               } 
+
+               else if (foundPresentvideo == false) {
+   
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                   $('#bidmodal').modal('show');
+                   setInterval('window.location.reload()', 10000);
+   
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                   event.preventDefault();
+                   return false;
+   
+               }
+           }
+
+       } 
        
    }
-        </script>
+</script>
 
-        <script type="text/javascript">
-
-            $(document).ready(function () {
-                $('#post').on('click', function () {
-                    $('.modal-post').show();
-                });
-            });
-
-        </script>
+       
 
 
        <style type="text/css">
@@ -4045,10 +4213,25 @@ video js preview end -->
             });
 
             $(document).on('keydown', function (e) {
+
                 if (e.keyCode === 27) {
-                    document.getElementById('myModal3').style.display = "none";
-                }
+           if($('.modal-post').show()){
+   
+             $( document ).on( 'keydown', function ( e ) {
+             if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+          $('.modal-post').hide();
+           }
+          });  
+        
+   
+           }
+            document.getElementById('myModal3').style.display = "none";
+            }
+                
             });
+
+
         </script>
 
         <script type="text/javascript">

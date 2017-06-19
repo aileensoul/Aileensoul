@@ -420,9 +420,17 @@ $( document ).on( 'keydown', function ( e ) {
 
                                     <div id="InboxContainer">
                                         <div id="InboxBody" class="Inbox">
-                                            
+                                            <div id="notificationTitle">Messages</div>
 
+                                            <div id="notificationsmsgBody" class="notificationsmsg">
+
+
+                                            </div>
                                 
+                                 <?php if($message_seeall){   ?> 
+                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
+                             <?php    } ?>
+                                           
                                         </div>
                                 </li>
 
@@ -608,7 +616,7 @@ $( document ).on( 'keydown', function ( e ) {
                 data: '',
                 success: function (data) {
                     //    alert(data);
-                    $('#' + 'InboxBody').html(data);
+                    $('#' + 'notificationsmsgBody').html(data);
 
                 }
 

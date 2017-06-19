@@ -266,7 +266,7 @@
                                     ?>
                                  <span id="certificate-error"> </span>
                                  <?php echo form_error('certificate'); ?>
-                                 <input type="hidden" name="image_hidden_certificate<?php echo $workdata[$x]['work_id']; ?>" value="<?php
+                                 <input type="text" name="image_hidden_certificate<?php echo $workdata[$x]['work_id']; ?>" value="<?php
                                     if ($work_certificate1) {
                                         echo $work_certificate1;
                                     }
