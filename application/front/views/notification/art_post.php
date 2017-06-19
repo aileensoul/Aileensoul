@@ -233,7 +233,7 @@
 
 
                                                                 <div class="post-design-top col-md-12" id= "showpost">  
-                                                <div class="post-design-pro-img col-md-2"> 
+                                                <div class="post-design-pro-img "> 
 
                                                     <?php
                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
@@ -545,7 +545,7 @@
 
                             <!-- five image start -->
                             <div>
-                                <div id="responsive-images_2-breakpoints">
+                                <div id="responsive-images_2-breakpoints" style="width: 323px;">
                                     <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                 </div>
                                  </div>
@@ -691,7 +691,7 @@
                                                             ?>
                                                             <?php } ?>
                                                         <!-- pop up box end-->
-                                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
+                                                        <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                                                             <?php
                                                             $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                             $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -751,7 +751,7 @@
                                                         ?>
                                                         <?php } ?>
                                                     <!-- pop up box end-->
-                                                    <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
+                                                    <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                                                         <?php
                                                         $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
