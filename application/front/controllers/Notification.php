@@ -1765,10 +1765,10 @@ class Notification extends MY_Controller {
 
         // khyati 22-5 chnages end
 
-
+           $notmsg = '<div id="notificationTitle">Messages</div>';
         foreach ($user_message as $msg) {
 
-            $notmsg .= '<div id="notificationTitle">Messages</div><div id="notificationsmsgBody" class="notificationsmsg"><a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
+            $notmsg .= '<div id="notificationsmsgBody" class="notificationsmsg"><a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
             $notmsg .= '<li class="active2"><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
 

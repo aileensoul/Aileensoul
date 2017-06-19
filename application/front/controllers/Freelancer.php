@@ -3354,6 +3354,13 @@ $contition_array = array('user_id' => $userid);
         $this->load->view('freelancer/freelancer_hire/freelancer_hire_profile', $this->data);
     }
 
+ public function pdf($name) {
+   // echo $name;die();
+ $this->data['pdfdata']=$name; 
+//echo "<pre>";print_r($this->data['pdfdata']);die();
+$this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
+ }
+
 //Remove save candidate controller Start
     public function remove_save() {
 

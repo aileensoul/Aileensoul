@@ -2791,7 +2791,7 @@
                    if (foundPresent1 == true && fileInput.length <= 10) {
                    } else {
    
-                       $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
                        setInterval('window.location.reload()', 10000);
                        // window.location='';
@@ -2815,7 +2815,7 @@
    
                    if (foundPresent1 == true && fileInput.length == 1) {
                    } else {
-                       $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
                        setInterval('window.location.reload()', 10000);
    
@@ -2838,7 +2838,7 @@
    
                    if (foundPresent1 == true && fileInput.length == 1) {
                    } else {
-                       $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
                        setInterval('window.location.reload()', 10000);
    
@@ -2863,7 +2863,7 @@
                    if (foundPresent1 == true && fileInput.length == 1) {
    
                        if (product_name == '') {
-                           $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
+                           $('#post .mes').html("<div class='pop_content'>You have to add pdf title.");
                            $('#post').modal('show');
                            setInterval('window.location.reload()', 10000);
                             $( document ).on( 'keydown', function ( e ) {
@@ -2879,7 +2879,7 @@
                            return false;
                        }
                    } else {
-                       $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
                        setInterval('window.location.reload()', 10000);
    
@@ -2897,14 +2897,14 @@
                    }
                } else if (foundPresentvideo == false) {
    
-                   $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                    $('#bidmodal').modal('show');
                    setInterval('window.location.reload()', 10000);
    
                     $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
                    //$( "#bidmodal" ).hide();
-                   $('#bidmodal').modal('hide');
+                   $('#post').modal('hide');
                    $('.modal-post').show();
    
                   }
