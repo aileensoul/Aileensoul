@@ -147,6 +147,7 @@ $(document).ready(function(){
 
             <div class="profile-photo">
                 <div class="buisness-menu">
+                    
                     <div class="profile-pho-bui">
 
                         <div class="user-pic">
@@ -176,8 +177,8 @@ $(document).ready(function(){
                 </div> -->
 
                     </div>
-
-                    <div class="bui-menu-profile col-md-10">
+                    <div class="business-profile-right">
+                    <div class="bui-menu-profile">
 
 
 
@@ -272,9 +273,7 @@ $(document).ready(function(){
                
                     <div class="">
                         <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
 
 
                         </div>
@@ -309,11 +308,12 @@ $(document).ready(function(){
                     <?php }?>
                     </div>
                     <!-- PICKUP -->
-                    <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right ">
+                    <!-- menubar -->
+                    <div class="business-data-menu padding_less_right ">
 
-                        <div class="left-side-menu col-md-1">   </div>
+                        
 
-                        <div class="profile-main-box-buis-menu  col-md-7">  
+                        <div class="profile-main-box-buis-menu">  
                             <ul class="">
 
 
@@ -432,7 +432,7 @@ $(document).ready(function(){
 
 
                     </div>
-
+                    </div>
                     <!-- pickup -->
                 </div>
             </div>
@@ -469,7 +469,7 @@ $(document).ready(function(){
     <div class="user-midd-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 profile-box-custom">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
 
@@ -900,7 +900,7 @@ $(document).ready(function(){
                 </div>
 
                 <!-- popup start -->
-                <div class="col-md-7 col-sm-7 "  >
+                <div class="col-md-7 col-sm-7 custom-right-business"  >
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
@@ -921,7 +921,7 @@ $(document).ready(function(){
                         </div>
 
                     </div>
-                </div>
+                
 
                 <!-- The Modal -->
                 <div id="myModal3" class="modal-post">
@@ -1024,7 +1024,7 @@ $(document).ready(function(){
                 ?>
 
 
-                <div class="col-md-7 col-sm-7 ">
+                <div class="fw">
                     <!-- middle section start -->
 
                     <?php
@@ -1795,7 +1795,7 @@ $(document).ready(function(){
 
                 </div>
                 <!-- business_profile _manage_post end -->
-
+            </div>
             </div>
             </section>
             <!-- END CONTAINER -->
