@@ -3781,7 +3781,7 @@ if (size > 4194304)
 
                     $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
                     $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
+                   // setInterval('window.location.reload()', 10000);
                     // window.location='';
                     event.preventDefault();
                     return false;

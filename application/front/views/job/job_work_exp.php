@@ -173,8 +173,13 @@
                               <div class="job_work_experience_main_div">
                            
                                  <label>Experience<span class="red">*</span></label>
-                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil" onchange="expyear_change();">
+<<<<<<< HEAD
+                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil" onchange="expyear_change_edittime();">
+                                    <option value="" selected option disabled>Year</option>
+=======
+                                 <select style="width: 46%; margin-right: 8%; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil" onchange="expyear_change();">
                                     <option value="0 year" selected option disabled>Year</option>
+>>>>>>> dcd682fe6575d08e4b47eb4b449456461db5ba43
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
                                     <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
@@ -197,9 +202,9 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
+                                 <select style="width: 46%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
                                     <option value="" selected option disabled>Month</option>
-                                    <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
+                                    <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
                                     <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3 month</option>
@@ -293,7 +298,7 @@
                        
 
                               <label>Experience<span class="red">*</span></label>
-                              <select style="width:45%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change();">
+                              <select style="width:46%; float: left; margin-right: 8%;" name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change();">
                                  <option value="" selected option disabled>Year</option>
                                  <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                  <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -451,9 +456,10 @@
  function expyear_change(){
 
      var num = $('.clonedInput').length;
-    
+    alert(num);
      if(num==1)
      {
+        
         var experience_year =  document.getElementById('experience_year').value;
          if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
@@ -463,8 +469,10 @@
 
      if(num==2)
      {
+     
         var experience_year =  document.getElementById('experience_year').value;
          var experience_year2 =  document.getElementById('experience_year2').value;
+
         if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
         else{
@@ -561,7 +569,129 @@
   
   }
 
+
+function expyear_change_edittime(){
+
+     var num = $('.clonedInput').length;
+
+  
+     if(num==1)
+     {
+        
+        var experience_year =  document.getElementById('experience_year1').value;
+         if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+         else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+     }
+
+     if(num==2)
+     {
+     
+        var experience_year =  document.getElementById('experience_year1').value;
+         var experience_year2 =  document.getElementById('experience_year2').value;
+
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+
+          
+          if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+     }
+      
+    if(num==3)
+     {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);
+         }
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+     }
+
+   if(num==4)
+     {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+          
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+          
+          if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+          if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);}
+     }
+
+    if(num==5)
+    {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        var experience_year5 =  document.getElementById('experience_year5').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+          $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);} 
+          
+        if(experience_year5==='0 year'){
+           $("#experience_month5 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month5 option[value='0 month']").attr('disabled',false);} 
+     }
+  
+  }
+
 </script>
+
+</script>
+
+
 
 
 <script type="text/javascript">
@@ -705,7 +835,9 @@
    $('#btnRemove').attr('disabled', 'disabled');
    $('#btnAdd').click(function () {
        var num = $('.clonedInput').length;
+
        var newNum = new Number(num + 1);
+      
        if (newNum > 5)
        {
            $('#btnAdd').attr('disabled', 'disabled');
@@ -713,6 +845,7 @@
            return false;
        }
        var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+     
        newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
        newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
        newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]').val();
@@ -835,8 +968,8 @@
 
 </script>
 <style type="text/css">
-   #experience_month-error{margin-top: 0px;margin-right: 35px;}
-   #experience_year-error{margin-top: 39px;margin-right: 35px;}
+   #experience_month-error{margin-top: 2px;margin-right: 35px;}
+   #experience_year-error{margin-top: 42px;margin-right: 35px;}
    #jobtitle-error{margin-right: 35px; margin-top: 0px;}
    #companyname-error{margin-right: 35px; margin-top: 0px;}
 </style>

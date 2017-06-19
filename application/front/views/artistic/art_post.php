@@ -805,7 +805,7 @@
                      <!-- one video end -->
                      <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                      <!-- one audio start -->
-                     <div>
+               
                         <div class="audio_main_div">
                            <div class="audio_img">
                               <img src="<?php echo base_url('images/music-icon.png') ?> ">  
@@ -1201,6 +1201,9 @@
                      </div>
                   </div>
                   <!-- comment end -->
+                  
+
+
                   <!-- comment enter box start  -->
                   <div class="post-design-commnet-box col-md-12">
                      <?php
@@ -1229,6 +1232,9 @@
                      </div>
                   </div>
                   <!-- comment enter box end  -->
+
+
+
                </div>
             </div>
          </div>

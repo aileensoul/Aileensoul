@@ -411,8 +411,8 @@ $( document ).on( 'keydown', function ( e ) {
 
                             <!-- <li><a href="<?php //echo base_url('message/message_chat/')      ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
                                 <li id="Inbox_link">
-                                    <?php if ($message_count) { ?>
-                                                   <!--  <span class="badge bg-theme"><?php echo $message_count; ?></span> -->
+                                    <?php if  ($message_count) { ?>
+                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
                                     <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs">Messages </em><i class="fa fa-commenting" aria-hidden="true"></i>
                                         <span id="message_count"></span>
@@ -426,7 +426,11 @@ $( document ).on( 'keydown', function ( e ) {
 
 
                                             </div>
-                                            <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
+                                
+                                 <?php if($message_seeall){   ?> 
+                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
+                             <?php    } ?>
+                                           
                                         </div>
                                 </li>
 
@@ -482,7 +486,7 @@ $( document ).on( 'keydown', function ( e ) {
                                             
                                         </li> -->
                                         <li class="Setting">
-                                            <a href="<?php echo base_url('registration/reg_setting') ?>">
+                                            <a href="<?php echo base_url('profile') ?>">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 
                                         </li>
                                         <li class="logout">
