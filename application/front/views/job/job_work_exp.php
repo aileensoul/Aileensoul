@@ -101,14 +101,16 @@
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
-                    <div class="panel-heading active" id="panel-heading">
+                    <div  id="panel-heading" <?php if($userdata[0]['experience'] == 'Fresher'){ ?> class="panel-heading active" <?php } else if($userdata[0]['experience'] == ''){?> class="panel-heading" <?php }else{?> class="panel-heading" <?php } ?>>
                         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle">
+    
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle" >
          Fresher
         </a>
+      
       </h4>
                     </div>
-                    <div id="one" class="panel-collapse collapse in">
+                    <div id="one"  <?php if($userdata[0]['experience'] == 'Experience'){ ?> class="panel-collapse collapse" <?php }else if($userdata[0]['experience'] == ''){?> class="panel-collapse collapse" <?php }else{?> class="panel-collapse collapse in" <?php } ?>>
                         <div class="panel-body">
                         
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
@@ -135,14 +137,14 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading" id="panel-heading1">
+                    <div  id="panel-heading1"  <?php if($userdata[0]['experience'] == 'Experience'){ ?> class="panel-heading active" <?php } else if($userdata[0]['experience'] == ''){?>  class="panel-heading" <?php }else{?> class="panel-heading" <?php } ?>>
                         <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1" >
        Experience
         </a>
       </h4>
                     </div>
-                    <div id="two" class="panel-collapse collapse">
+                    <div id="two"   <?php if($userdata[0]['experience'] == 'Fresher'){ ?> class="panel-collapse collapse" <?php } else if($userdata[0]['experience'] == ''){?> class="panel-collapse collapse"<?php }else{?> class="panel-collapse collapse in" <?php } ?>>
                         <div class="panel-body">
                      
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
