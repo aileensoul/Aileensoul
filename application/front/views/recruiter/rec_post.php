@@ -400,9 +400,9 @@ if ($returnpage == 'job') {
                                         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
                                           $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
-                                          $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                          $jobapply = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                if ($jobsave) {
+                                                if ($jobapply) {
                                                      ?>
 
                                                  <a href="javascript:void(0);" class="button applied">Applied</a>
@@ -410,16 +410,18 @@ if ($returnpage == 'job') {
                                                  } else {
                                                  ?>
                                                  <li class="fr">
-                                                 <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
+                   <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
 
                                                     </li>
                                                  <li class="fr">
                                                <?php
-                                                 $userid = $this->session->userdata('aileenuser');
-                                                 $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '0');
-                                                $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                       $userid = $this->session->userdata('aileenuser');
+               $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => $post['post_id'], 'job_delete' => '1');
+               
+       $jobsave = $this->data['jobsave'] = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                  //  echo "<pre>";print_r($jobsave);
 
-                                                if ($jobsave) {
+                                 if ($jobsave) {
                                              ?>
                                             <a class="button saved">Saved</a>
                                             <?php } else { ?>
