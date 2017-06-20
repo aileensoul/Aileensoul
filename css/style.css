@@ -7560,7 +7560,7 @@ input:-moz-placeholder {
     transform: translate(0, -50%);
     cursor: pointer;
     position: absolute;
-    top: 50% !important;
+    top: 210px;
     width: auto;
     padding: 16px;
     /* margin-top: -50px; */
@@ -12693,27 +12693,12 @@ images css start*/
 .three-image img{  height: 100%; width: 100%;}
 .three-image-top{  float: left; height: 50%; width: 100%; padding: 1px;}
 .three-image-top img{height: 100%; width: 100%;}
-.four-image{float: left; height: 250px; width: 50%; padding-right: 1px; padding-bottom: 1px; display: inline-block;}
+.four-image{float: left; height: 250px; width: 50%; padding-right: 1px; padding-bottom: 1px; display: inline-block; position: relative;}
 .four-image img{height: 100%; width: 100%;}
-.more-image{ right: 23px;
-    bottom: 0%;
-    color: white;
-    position: absolute;
-    /* left: 14px; */
-    cursor: pointer;
-    width: 46.8%;
-    height: 250px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 68px;}
- .more-image span{    position: absolute;
-    color: white;
-    /* padding-top: 138px; */
-    
-    bottom: 0;
-    left: 31%;}   
-/*
-
-images css end*/
+.more-image{ right: 0px; bottom: 0%; color: white; position: absolute; /* left: 14px; */ cursor: pointer;
+    width: 100%; height: 249px; background: rgba(0, 0, 0, 0.5); padding: 68px;}
+ .more-image span{position: absolute; color: white; /* padding-top: 138px; */ bottom: 0; left: 31%;}   
+/*images css end*/
 
 
 /***  media query  ***/
@@ -12857,8 +12842,7 @@ images css end*/
     .header2 ul li a{padding: 12px 10px 8px; line-height: 1;}
     .popup-text span{font-size: 16px;}
     .cmy_2{width: 68%;}
-    #two_images_bui{height: 250px;}
-    #two_images_art{height: 250px;}
+    .two-images{height: 250px;}
     .editor-content{width:90%;}
      .modal-content-post{width: 100%; padding: 15px;}
     .post-edit-popup .editor-content{width: 89%;}
@@ -12896,17 +12880,11 @@ images css end*/
     .profile-main-rec-box-menu{margin-top: -60px;}
     .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
     .user-pic{width: 75px; height: 75px;}
-    #responsive_buis-images-breakpoints{height: 185px;}
-    #responsive_buis-images_3-breakpoints{height:185px;}
-    .bui_images_view_more{height: 184px;}
-    #two_images_bui{height: 200px;}
-    #two_images_art{height: 200px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height: 200px;}
-    .mange_post_image #two_manage_images_art{height: 200px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height:200px;}
-    .mange_post_image #responsive-manage_images_3-breakpoints{height:200px;}
-    .manage_images_view_more{height: 199px;}
-    #three_images_art{height: 30%;}
+    .two-images{height: 200px;}
+    .three-images{height: 200px;}
+    .four-images{height: 200px;}
+    .more-image{height:199px;}
+    .three-image-top{height: 30%;}
     .editor-content{width:86%;}
    .post-edit-popup .editor-content{width: 87%;}
    .profile-head-text a{font-size: 18px;}
@@ -12941,19 +12919,10 @@ images css end*/
     .post-design-product{font-size: 12px;}
     .post-design-name ul li .post_dot{font-size: 14px;}
     .cmy_2{width:88%;  padding-right: 0;}
-    #responsive_buis-images-breakpoints{height: 150px;}
-    #responsive_buis-images_3-breakpoints{height:150px;}
-    .bui_images_view_more{height: 149px;}
-    #two_images_bui{height: 150px;}
-    #two_images_art{height: 150px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height: 150px;}
-    .mange_post_image #two_manage_images_art{height: 150px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height:150px;}
-    .mange_post_image #responsive-manage_images_3-breakpoints{height:150px;}
-    .mange_post_image #responsive_manage-images-breakpoints{height:150px;}
-    .manage_images_view_more{height: 149px;}
-    #three_images_art{height: 30%;}
-    #three_images_2_art{height: 150px;}
+    .two-images{height: 150px;}
+    .three-images{height: 150px;}
+    .four-images{height: 150px;}
+    .more-image{height:149px;}
     .comment-name{width: 79%;}
     .comment-details-menu{padding: 0;}
     .comment-details-menu a{font-size: 12px;}
@@ -12977,19 +12946,11 @@ images css end*/
     .logo{padding:4px 0;}
     .right-side-menu{width: 100%;}
     .cmy_2{width: 84%;}
-    #responsive_buis-images-breakpoints{height: 120px;}
-    #responsive_buis-images_3-breakpoints{height:120px;}
-    .bui_images_view_more{height: 119px;}
-    #two_images_bui{height: 120px;}
-    #two_images_art{height: 120px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height: 150px;}
-    .mange_post_image #two_manage_images_art{height: 120px;}
-    .mange_post_image #responsive-manage_images_2-breakpoints{height:120px;}
-    .mange_post_image #responsive-manage_images_3-breakpoints{height:120px;}
-    .mange_post_image #responsive_manage-images-breakpoints{height:120px;}
-    .manage_images_view_more{height: 119px;}
-    #three_images_art{height: 15%;}
-    #three_images_2_art{height: 120px;}
+    .two-images{height: 120px;}
+    .three-images{height: 120px;}
+    .four-images{height: 120px;}
+    .more-image{height:119px;}
+    .three-image-top{height: 15%;}
     .post-design-name{padding-right: 0;}
     .editor-content{width: 77%; padding-left: 0;}
     .post-edit-popup .editor-content{width: 76%;}
