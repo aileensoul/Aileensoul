@@ -598,11 +598,12 @@ input[type="radio"] {
 .has-error label, .error {
     color: #ff0000 !important;
     font-size: 14px;
+    border:2px solid red !important;
     
 }
 
-
-
+#fname-error{border:none !important; }
+#lname-error{border:none !important; }
 footer{
 
   text-transform: capitalize;

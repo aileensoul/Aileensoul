@@ -809,15 +809,15 @@ window.onclick = function(event) {
 
 
 <style type="text/css">
-  #fname-error{margin-top: 33px;margin-right: -3px;}
-  #lname-error{margin-top:33px;margin-right: 8px; }
-  #email-error{margin-top:33px;margin-right: 8px; }
-  #password-error{margin-top: 33px !important;margin-right: 8px;}
-  #year-error{margin-top: -1px; margin-right: 48px;}
-  #date-error{margin-top: -1px;margin-right: 48px;} 
-  #month-error{margin-top: -1px;margin-right: 48px;} 
-  #gen-error{margin-top: -1px;margin-right: -5px;} 
-  #user_name-error{ margin-top: 0px;margin-right: 7px;}
-  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px;}
+  #fname-error{margin-top: 33px;margin-right: -3px; border:none !important}
+  #lname-error{margin-top:33px;margin-right: 8px; border:none !important}
+  #email-error{margin-top:33px;margin-right: 8px; border:none !important;}
+  #password-error{margin-top: 33px !important;margin-right: 8px; border:none !important;}
+  #year-error{margin-top: -1px; margin-right: 48px; border:none !important}
+  #date-error{margin-top: -1px;margin-right: 48px; border:none !important} 
+  #month-error{margin-top: -1px;margin-right: 48px; border:none !important} 
+  #gen-error{margin-top: -1px;margin-right: -5px; border:none !important} 
+  #user_name-error{ margin-top: 0px;margin-right: 7px; border:none !important}
+  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; border:none !important}
 
 </style>
