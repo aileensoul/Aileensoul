@@ -135,7 +135,7 @@
 
 
 .change-password .change-password-box{margin: 0;}
-.action-button #notification_count{padding: 4px !important;}
+/*.action-button #notification_count{padding: 4px !important;}*/
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{word-break: break-all;}
 /*
 label.error::before{
@@ -166,3 +166,5 @@ label.error::before{
     border:2px solid red;
     border-radius: 5px;
 }
+.designation_rec_1 ul li{display: flex!important;}
+.profile-job-details .job_companyname{display: inline-block;}

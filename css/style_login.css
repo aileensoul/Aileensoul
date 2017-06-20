@@ -587,23 +587,25 @@ input[type="radio"] {
     font-weight: 600;
     padding-left: 19px;}
    .error-msg p, label.error {
-    background: #737373;
-    color: #fff !important;
+    background: white;
+    color: black !important;
     padding: 4px 10px !important;
     position: absolute;
     right: 8px;
+    border: 2px solid red !important;
+    border-radius: 5px;
     z-index: 10;
     font-size: 12px;
 }
 .has-error label, .error {
     color: #ff0000 !important;
     font-size: 14px;
-    border:2px solid red !important;
+    
     
 }
 
-#fname-error{border:none !important; }
-#lname-error{border:none !important; }
+/*#fname-error{border:none !important; }
+#lname-error{border:none !important; }*/
 footer{
 
   text-transform: capitalize;
