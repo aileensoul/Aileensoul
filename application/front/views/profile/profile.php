@@ -18,9 +18,9 @@
             <div class="col-md-12">
                <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="padd_set">
-                        <div class="left-side-bar">
+                        <div class="left-side-bar" id="bs-collapse" >
                             <ul class="left-form-each">
-                                <li>  <a href="<?php echo base_url() . 'profile' ?>">Edit Profile</a></li>
+                                <li>  <a href="<?php echo base_url() . 'profile' ?>" data-toggle="collapse" data-parent="#bs-collapse" id="toggle">Edit Profile</a></li>
 
                                 <li> <a href="<?php echo base_url('registration/changepassword') ?>">Change Password</a></li>
 
@@ -246,4 +246,27 @@ $('#datepicker').datetimepicker({
                    });
 
 </script>
+ <script type="text/javascript">
+  
+//script for click on - change to + Start
+    $(document).ready(function () {
+          
+      $('#toggle').on('click', function(){
     
+            if($('#panel-heading').hasClass('active')){
+
+                      $('#panel-heading').removeClass('active');
+
+            }else{
+                      //$('#one').addClass('in');
+                      $('#panel-heading').addClass('active');
+
+                       $('#panel-heading1').removeClass('active');
+            }
+        });
+
+    
+    });
+  //script for click on - change to + End
+
+</script>
