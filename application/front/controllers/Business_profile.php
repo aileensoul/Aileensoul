@@ -1260,6 +1260,7 @@ $contition_array = array('status' => '1');
 
         $contition_array = array('industriyal' => $userselectindustriyal, 'status' => '1');
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r( $businessprofiledata); die();
 
 
 

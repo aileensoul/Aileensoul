@@ -295,26 +295,27 @@
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
-                                                                                <div class="post-design-product_follow">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <h6>
-                                                                                            <?php echo ucwords($userlist['company_name']);
-                                                                                            ?>
-                                                                                        </h6>
+                              <div class="post-design-product_follow">
+                          <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                                     <h6>
+                              <?php echo ucwords($userlist['company_name']); ?>
+                             </h6>
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
+                     <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                     <!-- <?php //echo "<pre>"; print_r($category);  ?> -->
                                                                             <li>
-                                                                                <div class="post-design-product_follow_main" style="display:block;">
-                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
-                                                                                        <p>
-                                                                                            <?php
-                                                                                            if ($category) {
-                                                                                                echo $category;
-                                                                                            } else {
-                                                                                                echo $userlist['other_industrial'];
-                                                                                            }
-                                                                                            ?>
+                        <div class="post-design-product_follow_main" style="display:block;">
+                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                    <p>
+                     <?php
+                 if ($category) {
+                         echo $category;
+                    } else {
+                     echo $userlist['other_industrial'];
+                         }
+                         ?>
                                                                                         </p>
                                                                                     </a>
                                                                                 </div>
@@ -371,11 +372,14 @@
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
+
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                        
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">
                                                                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
                                                                                         <p>
-                                                                                            <?php
+                                      <?php
                                                                                             if ($category) {
                                                                                                 echo $category;
                                                                                             } else {
@@ -444,15 +448,17 @@
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                        
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">
                                                                                     <a>
                                                                                         <p>
                                                                                             <?php
-                                                                                            if ($category) {
-                                                                                                echo $category;
-                                                                                            } else {
-                                                                                                echo $userlist['other_industrial'];
+                                                                            if ($category) {
+                                                                             echo $category;
+                                                                          } else {
+                                                                          echo $userlist['other_industrial'];
                                                                                             }
                                                                                             ?>
                                                                                         </p>
@@ -506,6 +512,8 @@
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                        
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">
                                                                                     <a>
@@ -693,6 +701,10 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
                                 $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+     $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
+                                $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
                                 $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
                                 if (!in_array($userid, $likeuserarray)) {
                                     ?>
@@ -779,6 +791,26 @@
                                                                    
                                                                             </span> </div></div>
                                                                 </li>
+
+                                                                 <?php 
+
+                                            $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                        
+
+                                                            <li>
+                                                                <div class="post-design-product">
+                                                                    <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
+                                                                        <?php
+                                                                        if ($category) {
+
+                                                                            echo ucwords($category);
+                                                                        } else {
+                                                                            echo ucwords($businessdata[0]['other_industrial']);
+                                                                        }
+                                                                        ?>
+                                                                    </a>
+                                                                </div>
+                                                            </li>
                                                             <?php } else { ?>
                                                                 <li>
                                                                     <div class="post-design-product">
@@ -797,6 +829,9 @@
                                                                 </li>
 
                                                             <?php } ?>
+                                                             <?php 
+                $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                        
 
                                                             <li>
                                                                 <div class="post-design-product">
@@ -806,7 +841,7 @@
 
                                                                             echo ucwords($category);
                                                                         } else {
-                                                                            echo ucwords($row['other_industrial']);
+                                        echo ucwords($businessdata[0]['other_industrial']);
                                                                         }
                                                                         ?>
                                                                     </a>
