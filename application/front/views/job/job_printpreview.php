@@ -1486,11 +1486,12 @@ else
                                             }
                                             
                                             ?>
-                                                            
-
-
+                                            
                                                         </ul>
                                                     </div>
+
+                                                    <?php
+                                            if ($returnpage == 'recruiter') { ?>
                                                     <div class="profile-job-post-title clearfix">
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details">
@@ -1503,53 +1504,79 @@ else
                                                         </div>
                                                         <div class="profile-job-profile-menu">
                                                             <ul class="clearfix">
-
-                                                              <?php
-                                            if ($returnpage == 'recruiter') {
-                                                
-                                                if ($job[0]['carrier']) {
-                                                                ?>
+                                                            <?php
                                                               
-                                                                <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
-                                                                </li>
-
-                                                                <?php
-                                                            }
-                                            else
-                                            {
-                                                echo "";
-                                            }
-                                            }
-                                            else
-                                            {
-                                               if ($job[0]['carrier']) {
+                                                         if ($job[0]['carrier']) 
+                                                          {
                                                                 ?>
                                                                
                                                                 <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
                                                                 </li>
 
                                                                 <?php
-                                                            }
+                                                          }
 
-                                            else
-                                            {
-                                                ?>
-                                                <li><b> Carrier Objectives</b> <span>
-                                               <?php echo PROFILENA;
-                                                
-
-                                            }
-                                            }
+                                                        else
+                                                         {
+                                                              echo "";
+                                                            
                                             
-                                            ?>
-                                                        
-                                                              
-
-
+                                                          }
+                                          
+                                                        ?>
+                                            
                                                             </ul>
                                                         </div>
 
                                                     </div>
+                                                    <?php } 
+                                                    else
+                                                        {
+                                                            ?>
+
+
+                                                     <div class="profile-job-post-title clearfix">
+                                                        <div class="profile-job-profile-button clearfix">
+                                                            <div class="profile-job-details">
+                                                                <ul>
+                                                               
+             <li><p class="details_all_tital">Carrier Objectives</p></li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="profile-job-profile-menu">
+                                                            <ul class="clearfix">
+                                                            <?php
+                                                              
+                                                         if ($job[0]['carrier']) 
+                                                          {
+                                                                ?>
+                                                               
+                                                                <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
+                                                                </li>
+
+                                                                <?php
+                                                          }
+
+                                                        else
+                                                         {
+                                                              ?>
+                                                             <li><b> Carrier Objectives</b> <span>
+                                                             <?php echo PROFILENA; ?>
+                                                             </span>
+                                                                </li>
+                                            
+                                                       <?php   }
+                                          
+                                                        ?>
+                                            
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+                                                    <?php } ?>
+
                                                 </div>
                                             </div>            
 
