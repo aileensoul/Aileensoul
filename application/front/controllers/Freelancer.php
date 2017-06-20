@@ -1357,71 +1357,106 @@ class Freelancer extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
+         $portfolio = $_POST['portfolio'];
+         $image_hidden_portfolio = $_POST['image_hidden_portfolio'];
+         $config = array(
+            'upload_path' => $this->config->item('free_portfolio_main_upload_path'),
+            'max_size' => 2500000000000,
+            'allowed_types' => $this->config->item('free_portfolio_main_allowed_types'),
+            'file_name' => $_FILES['freelancer_post_portfolio_attachment']['name']
+               
+        );
 
-
-        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-
-        $userdatacon = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-        //upload portfolio attachment certificate process start
-        $config['upload_path'] = $this->config->item('free_portfolio_main_upload_path');
-        $config['allowed_types'] = $this->config->item('free_portfolio_main_allowed_types');
-        // $config['file_name'] = $_FILES['picture']['name'];
-        $config['file_name'] = $_FILES['portfolio_attachment']['name'];
+        // echo "<pre>"; print_r($config); die();
 
         //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
+          $images = array();
+        
 
-        if ($this->upload->do_upload('portfolio_attachment')) {
-            $uploadData = $this->upload->data();
-            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-            $certificate = $uploadData['file_name'];
-        } else {
+        $files = $_FILES;
+       
+        $this->load->library('upload');
 
-            $certificate = '';
+            $fileName = $_FILES['image']['name'];
+            $images[] = $fileName;
+            $config['file_name'] = $fileName;
+
+         $this->upload->initialize($config);
+        $this->upload->do_upload();
+
+            
+        if ($this->upload->do_upload('image')) {
+           // echo "hi"; die();
+
+            // $uploadData = $this->upload->data();
+
+            // $picture = $uploadData['file_name'];
+
+             $response['result']= $this->upload->data();
+            // echo "<pre>"; print_r($response['result']); die();
+                $art_post_thumb['image_library'] = 'gd2';
+                $art_post_thumb['source_image'] = $this->config->item('free_portfolio_main_upload_path') . $response['result']['file_name'];
+                $art_post_thumb['new_image'] = $this->config->item('free_portfolio_thumb_upload_path') . $response['result']['file_name'];
+                $art_post_thumb['create_thumb'] = TRUE;
+                $art_post_thumb['maintain_ratio'] = TRUE;
+                $art_post_thumb['thumb_marker'] = '';
+                $art_post_thumb['width'] = $this->config->item('art_portfolio_thumb_width');
+                //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                $art_post_thumb['height'] = 2;
+                $art_post_thumb['master_dim'] = 'width';
+                $art_post_thumb['quality'] = "100%";
+                $art_post_thumb['x_axis'] = '0';
+                $art_post_thumb['y_axis'] = '0';
+                $instanse = "image_$i";
+                //Loading Image Library
+                $this->load->library('image_lib', $art_post_thumb, $instanse);
+                $dataimage = $response['result']['file_name'];
+
+                                //Creating Thumbnail
+                $this->$instanse->resize();
+                $response['error'][] = $thumberror = $this->$instanse->display_errors();
+                
+                
+                $return['data'][] = $this->upload->data();
+                $return['status'] = "success";
+                $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
+
+      
+        } 
+
+        else {
+
+            $dataimage = $image_hidden_portfolio;
         }
-        //upload portfolio attachment certificate process End
 
+       //echo "<pre>"; print_r($dataimage); die();
 
-        $portfolio_attachment = $_FILES['portfolio_attachment']['name'];
-
-        if ($portfolio_attachment == "") {
+        //if ($dataimage) {
             $data = array(
-                'freelancer_post_portfolio_attachment' => $this->input->post('image_hidden_portfolio')
+                'freelancer_post_portfolio_attachment' => $dataimage,
+               // 'freelancer_post_portfolio' => $portfolio,
+                'modify_date' => date('Y-m-d', time()),
+                'free_post_step' => 7
             );
-        } else {
+
+
+            $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
+       // } 
+           if ($portfolio || $portfolio == '') {
+
+
             $data = array(
-                'freelancer_post_portfolio_attachment' => $certificate
+                //'art_bestofmine' => $picture,
+                'freelancer_post_portfolio' => $portfolio,
+                'modify_date' => date('Y-m-d', time()),
+                'free_post_step' => 7
             );
+
+
+            $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
         }
 
 
-        $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
-
-
-        $data = array(
-            'freelancer_post_portfolio' => $this->input->post('portfolio'),
-            'modify_date' => date('Y-m-d', time()),
-            'free_post_step' => 7
-        );
-        //echo "<pre>";print_r($data );die();
-
-
-        $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
-
-        if ($updatdata) {
-
-            if($userdatacon[0]['free_post_step'] == 7){
-            redirect('freelancer/freelancer_post_profile', refresh);
-           }else{
-             redirect('freelancer/freelancer_apply_post', refresh);
-           }
-        } else {
-            $this->session->flashdata('error', 'Your data not inserted');
-            redirect('freelancer/freelancer_post_portfolio', refresh);
-        }
     }
 
 //freelancer Portfolio page controller End
@@ -3354,10 +3389,11 @@ $contition_array = array('user_id' => $userid);
         $this->load->view('freelancer/freelancer_hire/freelancer_hire_profile', $this->data);
     }
 
- public function pdf($name) {
-   // echo $name;die();
- $this->data['pdfdata']=$name; 
-//echo "<pre>";print_r($this->data['pdfdata']);die();
+ public function pdf($id) {
+
+$contition_array = array('user_id' => $id, 'status' => '1');
+$this->data['freelancerdata'] = $freelancerdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  
 $this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
  }
 
@@ -4040,4 +4076,44 @@ $contition_array = array('user_id' => $userid);
     }
 
 //reactivate accont end
+
+// delete portfilio pdf strat
+
+    public function deletepdf() {
+
+        $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $free_deactive = $this->data['free_deactive'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($free_deactive)
+        {
+             redirect('freelancer/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
+        $contition_array = array('user_id' => $userid);
+        $free_reg_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+       $freeportfolio = $free_reg_data[0]['freelancer_post_portfolio_attachment'];
+
+        if ($freeportfolio != '') {
+            $free_pdf_path = 'uploads/freelancer_post_portfolio/main';
+            $free_pdf = $free_pdf_path . $freeportfolio;
+            if (isset($free_pdf)) { 
+                unlink($free_pdf);
+            }
+        }
+
+        $data = array(
+            'freelancer_post_portfolio_attachment' => ''
+        );
+
+        $update = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
+        echo 'ok';
+    }
+
+    //pdf delete end
 }

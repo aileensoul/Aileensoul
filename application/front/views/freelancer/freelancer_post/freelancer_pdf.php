@@ -2,4 +2,4 @@
 
 
 
- <embed src="<?php echo base_url().$this->config->item('free_portfolio_main_upload_path').$pdfdata ?>" width="600" height="775">
+ <embed src="<?php echo base_url().$this->config->item('free_portfolio_main_upload_path').$freelancerdata[0]['freelancer_post_portfolio_attachment']?>" width="600" height="775">

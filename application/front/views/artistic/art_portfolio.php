@@ -124,7 +124,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                     
-                <input type="button" tabindex="3"   id="submit" name="submit" value="submit" onclick="portfolio_form_submit();"  >
+                <input type="button" tabindex="3"   id="submit" name="submit" value="submit" onclick="portfolio_form_submit();">
                                    
                                     
                                 </fieldset>
