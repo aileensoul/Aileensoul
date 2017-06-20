@@ -40,4 +40,9 @@
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+
 .dropdown-content1{z-index: 15;}
+.flw_msg_btn ul li a:hover{border-bottom: none;
+	box-shadow: none; color: #9C9999;}
+	.like_cmnt_count li .comnt_count_ext{padding: 6px; }
+	.like_cmnt_count li .comnt_count_ext_a{padding: 6px;}
