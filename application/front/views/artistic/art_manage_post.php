@@ -1018,8 +1018,7 @@
 
                                                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
 
-                                                            <div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['art_description']; ?>
-                                                            </div> 
+<div contenteditable="true" class="editable_text"  id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" placeholder="Art Description" name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['art_description']; ?></div> 
                                                         </div>
 
                                                         <button class="fr" id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none;margin: 5px 0px;" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)">Save</button>
