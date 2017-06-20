@@ -40,7 +40,13 @@
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
 .dropdown-content1{z-index: 15;}
 .flw_msg_btn ul li a:hover{border-bottom: none;
 	box-shadow: none; color: #9C9999;}
@@ -59,3 +65,50 @@
 .editable_text:-moz-placeholder { /*/ Firefox 18- /*/
   color: pink;
 }
+
+
+
+/*
+images css start*/
+.one-image{   
+	height: 333px;
+    width: auto;
+    max-width: 100%;
+    text-align: center;
+}
+.one-image img{width: auto; max-width: 100%; height: 100%;}
+.two-images{    float: left;
+    height: 324px;
+    width: 50%;
+    padding: 1px; }
+.two-images img{
+	height: 100%; 
+	width: 100%;
+}
+.three-image{  float: left;
+    height: 324px;
+    width: 50%;
+    padding: 1px;}
+.three-image img{  height: 100%; width: 100%;}
+.three-image-top{  float: left;
+    height: 50%;
+    width: 100%;
+    padding: 1px;}
+.three-image-top img{
+	height: 100%; width: 100%;
+}
+
+
+
+.four-image{
+	    float: left;
+    height: 250px;
+    width: 50%;
+    padding-right: 1px;
+    padding-bottom: 1px;
+    display: inline-block;
+}
+.four-image img{height: 100%; width: 100%;}
+/*
+
+images css end*/
