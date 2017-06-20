@@ -14,9 +14,7 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
    
-<script type="text/javascript">
-   $.noConflict(true)
-</script>
+
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -183,7 +181,7 @@
                               <div class="job_work_experience_main_div">
                            
                                  <label>Experience<span class="red">*</span></label>
-                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil" onchange="expyear_change_edittime();">
+                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -207,7 +205,7 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
+                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -468,11 +466,12 @@
  function expyear_change(){
 
      var num = $('.clonedInput').length;
+   //  alert(num);
     
      if(num==1)
      {
-        
-        var experience_year =  document.getElementById('experience_year').value;
+       
+       var experience_year =  document.getElementById('experience_year').value;
          if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
          else{
@@ -586,115 +585,118 @@ function expyear_change_edittime(){
 
      var num = $('.clonedInput').length;
 
-  
      if(num==1)
      {
-        
-        var experience_year =  document.getElementById('experience_year1').value;
+       var experience_year = document.querySelector("#input1 #experience_year").value;
+       
+         
+        var experience_year =  document.getElementById('experience_year').value;
          if(experience_year==='0 year'){
-           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
          else{
-           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
      }
 
      if(num==2)
      {
-     
-        var experience_year =  document.getElementById('experience_year1').value;
-         var experience_year2 =  document.getElementById('experience_year2').value;
+   
+        var experience_year =  document.querySelector("#input1 #experience_year").value;
+         var experience_year2 =  document.querySelector("#input2 #experience_year").value;
+        
 
         if(experience_year==='0 year'){
-           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
 
           
           if(experience_year2==='0 year'){
-           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
-           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
      }
       
     if(num==3)
      {
-        var experience_year =  document.getElementById('experience_year1').value;
-        var experience_year2 =  document.getElementById('experience_year2').value;
-        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year =  document.querySelector("#input1 #experience_year").value;
+        var experience_year2 =  document.querySelector("#input2 #experience_year").value;
+        var experience_year3 = document.querySelector("#input3 #experience_year").value;
         if(experience_year==='0 year'){
-           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month1 option[value='0 month']").attr('disabled',false);
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',false);
          }
 
         if(experience_year2==='0 year'){
-           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
 
         if(experience_year3==='0 year'){
-           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+           $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+           $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
      }
 
    if(num==4)
      {
-        var experience_year =  document.getElementById('experience_year1').value;
-        var experience_year2 =  document.getElementById('experience_year2').value;
-        var experience_year3 =  document.getElementById('experience_year3').value;
-        var experience_year4 =  document.getElementById('experience_year4').value;
+        var experience_year =  document.querySelector("#input1 #experience_year").value;
+        var experience_year2 =  document.querySelector("#input2 #experience_year").value;
+        var experience_year3 =  document.querySelector("#input3 #experience_year").value;
+        var experience_year4 = document.querySelector("#input4 #experience_year").value;
         if(experience_year==='0 year'){
-           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
           
         if(experience_year2==='0 year'){
-           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
           
           if(experience_year3==='0 year'){
-           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+           $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
-           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+           $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
 
           if(experience_year4==='0 year'){
-           $("#experience_month4 option[value='0 month']").attr('disabled',true);} 
+           $("#input4 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
-           $("#experience_month4 option[value='0 month']").attr('disabled',false);}
+           $("#input4 #experience_month option[value='0 month']").attr('disabled',false);}
      }
 
     if(num==5)
     {
-        var experience_year =  document.getElementById('experience_year1').value;
-        var experience_year2 =  document.getElementById('experience_year2').value;
-        var experience_year3 =  document.getElementById('experience_year3').value;
-        var experience_year4 =  document.getElementById('experience_year4').value;
-        var experience_year5 =  document.getElementById('experience_year5').value;
+        var experience_year =  document.querySelector("#input1 #experience_year").value;
+        var experience_year2 =  document.querySelector("#input2 #experience_year").value;
+        var experience_year3 =  document.querySelector("#input3 #experience_year").value;
+        var experience_year4 =  document.querySelector("#input4 #experience_year").value;
+        var experience_year5 =  document.querySelector("#input5 #experience_year").value;
+
         if(experience_year==='0 year'){
-           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+           $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
 
         if(experience_year2==='0 year'){
-           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+           $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
 
         if(experience_year3==='0 year'){
-          $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+          $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
-           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+           $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
 
         if(experience_year4==='0 year'){
-           $("#experience_month4 option[value='0 month']").attr('disabled',true);}
+           $("#input4 #experience_month option[value='0 month']").attr('disabled',true);}
         else{
-           $("#experience_month4 option[value='0 month']").attr('disabled',false);} 
+           $("#input4 #experience_month option[value='0 month']").attr('disabled',false);} 
           
         if(experience_year5==='0 year'){
-           $("#experience_month5 option[value='0 month']").attr('disabled',true);}
+           $("#input5 #experience_month option[value='0 month']").attr('disabled',true);}
         else{
-           $("#experience_month5 option[value='0 month']").attr('disabled',false);} 
+           $("#input5 #experience_month option[value='0 month']").attr('disabled',false);} 
      }
   
   }
@@ -856,8 +858,13 @@ function expyear_change_edittime(){
            alert("You Can add only 5 fields");
            return false;
        }
+
+  
+
+
+       // new code end
        var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
-     
+        
        newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
        newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
        newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]').val();
