@@ -12831,6 +12831,7 @@ left: 0;}
     .post-editor .popup-social-icon ul li i{font-size: 15px; margin: 0 !important;}
     .post-editor .popup-social-icon ul li i:hover{font-size: 15px;}
     .mange_post_image #two_manage_images_art{height: 250px;}
+    .business-profile-right{width: 100%; padding: 15px;}
 }
 @media screen and (max-width: 639px) {
     .right-side-menu{padding-left: 18%;}
