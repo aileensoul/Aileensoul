@@ -273,14 +273,8 @@ $(document).ready(function(){
 
 
                         </div>
-                        <div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">
-                            <span style="    
-                                  font-size: 13px; ""><i class="icon-user"></i>
+                          <div class="addtocont">
+                            <span class="ft-13"><i class="icon-user"></i>
             <?php 
 
         //print_r($contactperson[0]['status']) ; die();
