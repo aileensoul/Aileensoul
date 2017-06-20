@@ -397,7 +397,7 @@
                                             if (in_array($ext, $allowed)) {
                                                 ?>
 
-                                                <div id="two_images_buip" >
+                                                <div class="one-image" >
                                                     <img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                             currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
 

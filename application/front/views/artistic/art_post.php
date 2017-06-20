@@ -880,7 +880,7 @@
                               <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a>
                            </div>
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
-                              <div class="images_view_more" >
+                              <div class="more-image" >
                                  <span> View All (+<?php echo (count($artmultiimage) - 4); ?>) </span>
                               </div>
                            </a>

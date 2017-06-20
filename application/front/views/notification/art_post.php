@@ -434,7 +434,7 @@
                                                             ?>
 
                                                             <!-- one image start -->
-                                                            <div id="basic-responsive-image">
+                                                            <div class="one-image">
                                                                 <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
                                                             </div>
                                                             <!-- one image end -->
@@ -494,7 +494,7 @@
                                             ?>
 
                                             <!-- two image start -->
-                                            <div  id="two_images_art" >
+                                              <div class="two-images" >
                                             <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                             </div>
 
@@ -506,13 +506,13 @@
 
 
                                                             <!-- three image start -->
-                                                            <div id="three_images_art" >
+                                                            <div class="three-image-top" >
                                                                 <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>"> </a>
                                                             </div>
-                                                            <div  id="three_images_2_art">
+                                                              <div class="three-image" >
                                                                 <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" > </a>
                                                             </div>
-                                                            <div  id="three_images_2_art">
+                                                            <div class="three-image" >
                                                                 <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" > </a>
                                                             </div>
 
@@ -525,7 +525,7 @@
                                                                 ?>
 
                                                                 <!-- four image start -->
-                                                                <div id="responsive-images-breakpoints" >
+                                                              <div class="four-image" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
 
                                                                 </div>
@@ -545,7 +545,7 @@
 
                             <!-- five image start -->
                             <div>
-                                <div id="responsive-images_2-breakpoints" style="width: 323px;">
+                             <div class="four-image" >
                                     <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                                 </div>
                                  </div>
@@ -561,12 +561,12 @@
                             <!-- this div view all image start -->
 
                                                                                         <div>
-                                                                <div id="responsive-images_3-breakpoints" >
+                                                                 <div class="four-image" >
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a></div>
 
                                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $art_data[0]['art_post_id']) ?>" >
 
-                                                                <div class="images_view_more" >
+                                                                <div class="more-image" >
 
 
                                                                     <span> View All (+<?php echo (count($artmultiimage) - 4); ?>) </span>
