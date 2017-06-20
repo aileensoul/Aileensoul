@@ -1317,7 +1317,7 @@ $(document).ready(function(){
 
 
                                                     <!-- three image start -->
-                                                  <div class="three-imag-tope" >
+                                                  <div class="three-imag-top" >
                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                     </div>
                                                   <div class="three-image" >

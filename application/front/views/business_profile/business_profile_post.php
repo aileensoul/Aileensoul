@@ -984,7 +984,7 @@
                                                             <?php } ?>
                                                         <?php } elseif (count($businessmultiimage) == 3) { ?>
                                                             <!-- three image start -->
-                                                            <div id="three_images_art" >
+                                                               <div class="three-image-top" >
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
