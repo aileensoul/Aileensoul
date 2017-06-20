@@ -1226,3 +1226,6 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
             });
 </script>
 
+<style type="text/css">
+    #example2-error{margin-top: 42px;}
+</style>
