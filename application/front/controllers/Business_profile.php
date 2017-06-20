@@ -9024,6 +9024,65 @@ public function bus_contact($id = "") {
 
      }
 
+       $contition_array = array('status' => '1', 'is_deleted' => '0');
+
+
+        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($businessdata);die();
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($businesstype);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($industrytype);die();
+        $unique = array_merge($businessdata, $businesstype, $industrytype);
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+$contition_array = array('status' => '1');
+          $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($citiesss as $key1) {
+              
+                 $location[] = $key1['city_name'];
+             
+          }
+         // echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+         // echo "<pre>"; print_r($loc);
+          // echo "<pre>"; print_r($result1);die();
+
+        $this->data['city_data']= $loc;
+        $this->data['demo'] = array_values($result1);
+      
+
      
        //echo "<pre>"; print_r($unique_user); die();
         $this->load->view('business_profile/bus_contact', $this->data); 

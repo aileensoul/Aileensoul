@@ -1021,7 +1021,11 @@ $(document).ready(function(){
 //echo "<pre>"; print_r($business_profile_data); die();
                     if (count($business_profile_data) > 0) {
                         foreach ($business_profile_data as $row) {
+
+                            $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
+                                $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                             ?>
+
                             <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
 
                                 <div class="">
@@ -1102,13 +1106,17 @@ $(document).ready(function(){
                                                             </div></li>
                                                     <?php } ?>
 
+                                                      <?php 
+
+                                            $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+
                                                     <li><div class="post-design-product">   <a class="buuis_desc_a"  title="Category" > 
                                                                 <?php
                                                                 if ($category) {
 
                                                                     echo ucwords($category);
                                                                 } else {
-                                                                    echo ucwords($row['other_industrial']);
+                                                                    echo ucwords($businessdata[0]['other_industrial']);
                                                                 }
                                                                 ?>
 
@@ -1941,8 +1949,8 @@ $(document).ready(function(){
 
               <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
     
-            <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-             
+           <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script> 
+            <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
 
 
             <!-- script for skill textbox automatic start-->
