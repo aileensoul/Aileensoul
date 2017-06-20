@@ -1759,7 +1759,7 @@ $(document).ready(function(){
 
 
 
-                                            <div >
+                                       
                                                 <div id="content" class="col-md-12  inputtype-comment cmy_2" >
 
                                                     <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
@@ -1767,7 +1767,7 @@ $(document).ready(function(){
         <?php echo form_error('post_comment'); ?> 
                                                 <div class="comment-edit-butn">       
                                                     <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
-                                            </div>
+                                          
 
                                         </div>
                                         <!-- comment end -->
