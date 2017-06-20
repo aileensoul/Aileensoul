@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 <!-- END HEADER -->
 
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css'); ?>">
