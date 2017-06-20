@@ -7,7 +7,7 @@
                                                       left: 10px;}
 
 
-
+#InboxFooter{position: absolute;bottom: 0;}
 .like_one_other_img{margin-left: 0px;}
 #popup-form input[type=file]:focus{outline: none;}
 .follow_left_main_box{padding-top: 0px;}
