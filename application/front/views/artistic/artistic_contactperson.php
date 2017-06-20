@@ -46,7 +46,7 @@
                             </div> <br/>
                             <div> 
                                
-                            <div class="business_pf_ct_person_form clearfix">
+                            <div class="business_pf_ct_person_form clearfix" style="padding: 0px;">
                             <div class="common-form contact_form" >                            <h3>Contact Person</h3>
                             <?php echo form_open_multipart(base_url('artistic/artistic_contactperson_query/'.$contactperson[0]['user_id']), array('id' => 'contactperson','name' => 'contactperson','class' => 'clearfix cntact-ss')); ?>
                              <ul class="artistic_pf_ct_person_detail">
