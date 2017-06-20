@@ -168,18 +168,29 @@
                                     <label> City:</label>
                                     <select name="city" id="city" tabindex="4" >
                                     <?php
+                                     if($city1){
                                           foreach($cities as $cnt){
-                                                if($city1)
 
-                                            {
-                                                 
-                                                 
                                               ?>
 
                                                <option value="<?php echo $cnt['city_id']; ?>" <?php if($cnt['city_id']==$city1) echo 'selected';?>><?php echo $cnt['city_name'];?></option>
 
                                                 <?php
-                                                }
+                                                } }
+
+                                                else if($state1)
+                                             {
+                                            ?>
+                                            <option value="">Select City</option>
+                                            <?php
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
                                               
                                                 else
                                                 {
@@ -188,8 +199,7 @@
 
                                          <?php
                                             
-                                            }}
-                                            ?>
+                                            }                                            ?>
                                     </select><span id="city-error"></span>
                                   
                                 </fieldset>

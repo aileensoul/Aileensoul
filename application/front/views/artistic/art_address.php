@@ -164,6 +164,20 @@
 
                                                 <?php
                                                 } }
+
+                                                else if($state1)
+                                             {
+                                            ?>
+                                            <option value="">Select City</option>
+                                            <?php
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
+                                        }
                                               
                                                 else
                                                 {
