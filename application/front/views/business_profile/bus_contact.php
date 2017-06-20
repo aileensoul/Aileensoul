@@ -238,14 +238,8 @@
 
 
                         </div>
-                        <div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">
-                            <span style="    
-                                  font-size: 13px; ""><i class="icon-user"></i>
+                         <div class="addtocont">
+                            <span class="ft-13"><i class="icon-user"></i>
             <?php 
 
         //print_r($contactperson[0]['status']) ; die();
@@ -292,8 +286,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                                  <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                        </li> -->
+                       <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                        </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -427,7 +421,7 @@
                                  <div class="contact-frnd-post">
                               
                         <?php 
-
+                         if(count($unique_user) > 0){ 
                          foreach ($unique_user as $user) { 
                     
                         if($busuid == $user['contact_from_id']){ 
@@ -558,6 +552,17 @@
                          </div>
                                                         <?php } ?>
                                   </div>
+
+
+                                  <?php }else{?>
+
+                            <div class="text-center rio">
+                            <h4 class="page-heading  product-listing">No Contacts Found.</h4>
+                           </div>
+
+                                   <?php }?>
+                                 
+
                                         <div class="col-md-1">
                                         </div>
                                     </div>
@@ -1079,9 +1084,18 @@ function contact_person_menu(clicked_id) {
                 success:function(data){ 
                  $('#' + 'statuschange' + clicked_id).html(data.contactdata);
 
-                 if(data.notfound == 1){
-                 $('#' + 'removecontact' + clicked_id).fadeOut(4000);
-                 }else{}   
+
+                   if(data.notfound == 1){
+
+                      if(data.notcount == 0){
+
+                        $('.' + 'contact-frnd-post').html(data.nomsg);
+
+                      }else{
+                     $('#' + 'removecontact' + clicked_id).fadeOut(4000);
+                     }
+                    }
+
 
                 }
             }); 
