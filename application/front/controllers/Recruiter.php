@@ -2579,7 +2579,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
         // );
-         $contition_array = array('job_reg.user_id !=' => $userid);
+         $contition_array = array('job_reg.user_id !=' => $userid,'job_step' => 10);
 
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');

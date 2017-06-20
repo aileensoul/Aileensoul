@@ -140,7 +140,7 @@ echo $freelancer_hire_header2;} ?>
          
 
         </div>
-        <div class="profile-main-rec-box-menu  col-md-12 ">
+        <div class="profile-main-rec-box-menu  col-md-12 padding_less_right">
 
             <div class="left-side-menu col-md-2">  </div>
             <div class="right-side-menu col-md-6" >  
@@ -176,7 +176,7 @@ echo $freelancer_hire_header2;} ?>
                 </div>     
             </div>
     
-            <div class="col-md-3">
+            <div class="col-md-3 padding_less_right" style="width: 33%;">
                 <div class="flw_msg_btn fr">
                     <ul>
      <?php $userid = $this->session->userdata('aileenuser');
@@ -235,7 +235,7 @@ echo $freelancer_hire_header2;} ?>
             </div>
         </div> -->
 
-        <div class="col-md-8 col-sm-8 mob-clear">
+        <div class="col-md-7 col-sm-8 mob-clear">
             <div class="common-form">
                 <div class="job-saved-box">
                     <h3>Post</h3>

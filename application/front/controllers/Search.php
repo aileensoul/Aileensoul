@@ -125,7 +125,7 @@ class Search extends CI_Controller {
 
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-            echo "<pre>"; print_r($artpost); die();
+           // echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 
             // echo "<pre>"; print_r($fullname) ;
@@ -135,11 +135,11 @@ class Search extends CI_Controller {
 
                 if (count($artskillpost) == 0) {
                    // echo "tt";
-                    $unique = array_merge($artpost, $otherdata);
+                    $unique = $otherdata;
                    // echo "<pre>";print_r($unique);die();
                 } else {
                     //echo "pqr";
-                    $unique = array_merge($artskillpost, $artpost, $otherdata);
+                    $unique = array_merge($artskillpost,$otherdata);
                 }
 
                  
@@ -172,9 +172,9 @@ class Search extends CI_Controller {
                 // echo "<pre>"; print_r($artfullname);
 
                 if (count($artskillpost) == 0) {
-                    $unique = array_merge($artpost, $otherdata, $artfullname);
+                    $unique = array_merge($otherdata, $artfullname);
                 } else {
-                    $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
+                    $unique = array_merge($artskillpost,$otherdata, $artfullname);
                 }
 
 
@@ -254,9 +254,9 @@ class Search extends CI_Controller {
             if ($fullname[1] == "") {
 
                 if (count($artskillpost) == 0) {
-                    $unique = array_merge($artpost, $otherdata, $artfullname);
+                    $unique = array_merge($otherdata, $artfullname);
                 } else {
-                    $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
+                    $unique = array_merge($artskillpost,$otherdata, $artfullname);
                 }
                 // echo count($unique);
 
@@ -290,9 +290,9 @@ class Search extends CI_Controller {
 
 
                 if (count($artskillpost) == 0) {
-                    $unique = array_merge($artpost, $otherdata, $artfullname);
+                    $unique = array_merge($otherdata, $artfullname);
                 } else {
-                    $unique = array_merge($artskillpost, $artpost, $otherdata, $artfullname);
+                    $unique = array_merge($artskillpost,$otherdata, $artfullname);
                 }
                 // echo count($unique);
 
@@ -319,8 +319,16 @@ class Search extends CI_Controller {
 
         $this->data['artuserdata'] = $new;
 
-       // echo "<pre>";print_r($this->data['artuserdata']);die();
-         //echo "<pre>"; print_r($this->data['artuserdata']);die();
+           $this->data['artuserdata1'] = $artpost;
+
+       //echo "<pre>";print_r($artpost['art_description']); die();
+         //   echo "*********";
+         // echo "<pre>"; print_r($this->data['artuserdata']);
+
+         // echo "---------------";
+         // echo "<pre>"; print_r($this->data['artuserdata1']);
+         // die();
+
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -485,7 +493,7 @@ public function business_search() {
 
             // echo $search_condition; 
             $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $condition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal,business_profile.business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '',  $join_str, $groupby = '');
-         //echo "<pre>"; print_r($business_post); die();
+        //echo "<pre>"; print_r($business_post); die();
 
       //  foreach ($business_post as $ke => $arr) {
       //           $postdata[] = $arr;
@@ -547,8 +555,9 @@ public function business_search() {
 
 
         $this->data['description'] = $business_post;
+
 //echo "string";
-   // echo "<pre>"; print_r($this->data['description']); die();
+   //echo "<pre>"; print_r($this->data['description'][0]['product_description']); die();
 
         $this->data['profile'] = $business_profile;
 

@@ -7,7 +7,7 @@
                                                       left: 10px;}
 
 
-
+#InboxFooter{position: absolute;bottom: 0;}
 .like_one_other_img{margin-left: 0px;}
 #popup-form input[type=file]:focus{outline: none;}
 .follow_left_main_box{padding-top: 0px;}
@@ -17,3 +17,45 @@
 #notificationsBody1 img:hover{cursor: pointer; background-color: #d9d9d9; border-radius: 30%;}
 .modal-backdrop.in{display: none !important;}
 .modal-backdrop.fade{display: none !important;}
+.addtocont {
+	position: absolute;
+	display: block;
+	/* margin-left: 69.4%; */
+	/* margin-top: 0%; */
+	right: 7%;
+	/* top: 62px; */
+}
+.circle {
+	top: 31%;
+	right: 8%;
+	height: 37px;
+	width: 37px;
+	border-radius: 50%;
+	background-color: #e8f3f8;
+	position: absolute;
+	/* top: 100px; */
+	/* left: 300px; */
+	-webkit-transition: height .25s ease, width .25s ease;
+	transition: height .25s ease, width .25s ease;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.dropdown-content1{z-index: 15;}
+.flw_msg_btn ul li a:hover{border-bottom: none;
+	box-shadow: none; color: #9C9999;}
+	.like_cmnt_count li .comnt_count_ext{padding: 6px; }
+	.like_cmnt_count li .comnt_count_ext_a{padding: 6px;}
+	.job_education_submitbox{text-align: right !important;}
+	.editable_text::-webkit-input-placeholder { / Chrome/Opera/Safari /
+  color: pink;
+}
+.editable_text::-moz-placeholder { /*/ Firefox 19+ /*/
+  color: pink;
+}
+.editable_text:-ms-input-placeholder { /*/ IE 10+ /*/
+  color: pink;
+}
+.editable_text:-moz-placeholder { /*/ Firefox 18- /*/
+  color: pink;
+}

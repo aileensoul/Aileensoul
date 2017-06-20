@@ -9059,21 +9059,46 @@ $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1)
  $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
 
  //$contactdata =  '<button>';
+
+
+ // for count list user start
+
+ $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
+
+        $search_condition = "(contact_to_id = '$userid' OR contact_from_id = '$userid')";
+
+    $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+    $datacount = count($unique_user);
+ //for count list user end
  
  $contactdata =  '<button onClick="contact_person_menu(' . $to_id . ')">';
 
  $contactdata .=  ' Add to contact';
   $contactdata .= '</button>';
 
+
+   if (count($unique_user) == 0) {
+                    $nomsg = '<div>';
+                    $nomsg .= '<div class="text-center rio">';
+                    $nomsg .= '<h4 class="page-heading  product-listing">No Contacts Found.</h4>';
+                    $nomsg .= '</div></div>';
+                }
+
+
   if($showdata == $businessdata1[0]['business_slug']){
   echo json_encode(
                         array("contactdata" => $contactdata,
                             "notfound" => 1,
+                            "notcount" => $datacount,
+                            "nomsg" => $nomsg,
                 ));
  }else{
   echo json_encode(
                         array("contactdata" => $contactdata,
                             "notfound" => 2,
+                            "notcount" => $datacount,
+                            "nomsg" => $nomsg,
                 ));
    }
 }

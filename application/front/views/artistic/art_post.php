@@ -553,7 +553,7 @@
             <!-- Modal content -->
             <div class="modal-content-post">
                <span class="close1">&times;</span>
-               <div class="post-editor col-md-12" id="close">
+                  <div class="post-editor col-md-12 post-edit-popup" id="close">
                   <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
                   <div class="main-text-area col-md-12" >
                      <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
@@ -565,11 +565,12 @@
                         <div class="fifty_val">                       
                            <input size=1 class="text_num" value=50 name=text_num readonly> 
                         </div>
-                     </div>
-                     <div class="col-md-1 padding-left padding_les_left camera_in camer_h">
+                   
+                      <div class="camera_in padding-left padding_les_left camer_h">
                         <i class=" fa fa-camera" >
                         </i> 
                      </div>
+                       </div>
                   </div>
                   <div class="row"></div>
                   <div  id="text"  class="editor-content col-md-12 popup-textarea" >
@@ -744,8 +745,8 @@
                            <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
-                           <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
                            </div>
                         </div>
                         <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">

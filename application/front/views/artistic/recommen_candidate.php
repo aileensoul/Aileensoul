@@ -1,3 +1,6 @@
+   
+
+
 <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
@@ -113,25 +116,24 @@
 <!-- main data start -->
                             
                                        <div class="profile-job-post-title-inside clearfix">
-                                      
+   <?php if (count($artuserdata) > 0 || count($artuserdata1) > 0)
+   {
+   if($artuserdata){ ?>                                   
 <div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
-<?php if($artuserdata){ 
-  if($artuserdata[0]['art_id']){
-  ?>
+ 
 
                                        <h4 class="search_head">Profiles</h4>
+  
                                        <div class="inner_search">
-                                       <?php }
-                                       ?>
-
+                                 
                                <?php        
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
                               
                               ?>
 
-                                                 <div class="profile-job-profile-button clearfix box_search_module box_serc" >
+     <div class="profile-job-profile-button clearfix box_search_module box_serc" >
                                                             
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -222,13 +224,34 @@ if($status == 0 || $status == " "){?>
 </div>
 
 </div>
-<?php if($artuserdata[0]['art_description']){?>
-<div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;"> 
-       <h4 class="search_head">Posts</h4>
-       <div class="inner_search search">
-       <?php }?>
 
-       <?php foreach ($artuserdata as $key) {
+<?php } 
+
+if($artuserdata1){
+
+
+?>
+
+
+
+
+
+        <div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+
+
+
+       <h4 class="search_head">Posts</h4>
+
+
+       <div class="inner_search">
+       
+       
+
+
+   
+      
+
+       <?php foreach ($artuserdata1 as $key) {
          if($key['art_description']){
        
        ?>
@@ -315,21 +338,18 @@ if($status == 0 || $status == " "){?>
                                                     </li> 
                                                 </ul> 
                                             </div>  
-                                            <div class="dropdown1">
-                                                <a onclick="myFunction(5)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
-                                                </a>
-                                                <div id="myDropdown5" class="dropdown-content1">
-                                                     
-                                                        <a href="#popup25">
+                                             <div class="dropdown1">
+                                               <a onClick="myFunction(<?php echo $key['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
+                     <div id="<?php echo "myDropdown" . $key['art_post_id']; ?>" class="dropdown-content1">
+                                                        <!-- <a href="#popup25">
                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                             </i> Delete Post
-                                                        </a>
-                                                        <a id="5" onclick="editpost(this.id)">
-                                                            <i class="fa fa-pencil-square-o" aria-hidden="true">
-                                                            </i>Edit
-                                                        </a>
+                                                        </a> -->
+                                                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $key['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
                                                                                                     </div>
-                                            </div>
+                                            </div> 
+
+                                            
                                             <div class="post-design-desc ">
                                                 <div>
                                                     <div id="editpostdata5" style="display:block;">
@@ -867,12 +887,19 @@ if($status == 0 || $status == " "){?>
                                        
 
                                     
-                                </div>
-                                
+         </div>
+        
+         </div>
+        
+         <?php }} ?>
 
          </div>
-         <?php }} }else { ?>
-<div class="text-center rio">
+
+</div>  <?php }
+}
+
+         else { ?>
+                                          <div class="text-center rio">
                                                 <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
                                                 <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
                                                 <ul>
@@ -881,9 +908,8 @@ if($status == 0 || $status == " "){?>
                                             </div>
 
         <?php  }?>
-</div>
 
-</div>
+
                                     </div>
                                     </div>
                                     </div>

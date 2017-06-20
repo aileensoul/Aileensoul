@@ -92,91 +92,190 @@
   </div>
   </div>   
 
-    <div class="container">    
-      <div class="upload-img">
-      
-        
-        <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
-            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-        </label>
-  
+     <div class="container tablate-container">
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            if ($businessdata1[0]['user_id'] == $userid) {
+                ?>
 
-                
-            </div>
-           
+                <div class="upload-img">
+
+
+                    <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
+                        <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+                    </label>
+                </div>
+
+            <?php } ?>
+            <!-- coer image end-->
+
             <div class="profile-photo">
-            <div class="buisness-menu">
-              <div class="profile-pho-bui">
+                <div class="buisness-menu">
+                    
+                    <div class="profile-pho-bui">
 
-                <div class="user-pic">
-                        <?php if($businessdata[0]['business_user_image'] != ''){ ?>
-                           <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']);?>" alt="" >
+                        <div class="user-pic">
+                            <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
+                                <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
                             <?php } else { ?>
-                            <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
 
                             <?php
-    $userid = $this->session->userdata('aileenuser');
-    if($businessdata[0]['user_id'] == $userid) {
-    ?>
-                           <!--  <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
-                           <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                            $userid = $this->session->userdata('aileenuser');
+                            if ($businessdata1[0]['user_id'] == $userid) {
+                                ?>                                                                                                                        <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
 
+                                <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
-                           <?php }?>
-
+                            <?php } ?>
                         </div>
-                        
+
                         <!-- <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="6">
-                        <input type="submit" name="cancel6" id="cancel6" value="Cancel">
+                        <input type="hidden" name="hitext" id="hitext" value="5">
+                        <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                     <?php  echo form_close( );?>
-                </div>
- -->
-                </div>
-                <div class="bui-menu-profile col-md-10">
-
-                  
-
-                    <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/'.$businessdata[0]['business_slug'].''); ?>"> <?php echo ucwords($businessdata[0]['company_name']); ?></a></h4>
-
-                      <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/'.$businessdata[0]['business_slug'].''); ?>">
-
-                    <?php
-                   if($businessdata[0]['industriyal']){ 
-                   echo  
-                    $this->db->get_where('industry_type',array('industry_id' => $businessdata[0]['industriyal']))->row()->industry_name;
-                  }
-                    if($businessdata[0]['other_industrial']){
-                      echo ucwords($businessdata[0]['other_industrial']);
-                    } 
-
-                     ?>
-
-                      
-                    </a></h4>
-                    <!-- <div class="fr msg_flw_btn">
-  <div class="msg_flw_btn_1">
-                <button>Follow</button>
-                </div>
-                <div class="msg_flw_btn_2">
-                <button>Message</button>
-                </div>
+                        <?php echo form_close(); ?>
                 </div> -->
-                    
-              </div>
-                <!-- PICKUP -->
-                                   <div class="business-data-menu  col-md-12 padding_less_right">
 
-<div class="left-side-menu col-md-2">   </div>
+                    </div>
+                    <div class="business-profile-right">
+                    <div class="bui-menu-profile">
+
+
+
+                        <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
+
+                        <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> 
+
+
+                                <?php
+                                if ($businessdata1[0]['industriyal']) {
+                                    echo
+                                    $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
+                                }
+                                if ($businessdata1[0]['other_industrial']) {
+                                    echo ucwords($businessdata1[0]['other_industrial']);
+                                }
+                                ?>
+
+
+                            </a></h4>
+
+                        <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($businessdata1[0]['user_id'] != $userid) {
+                            ?>
+                            <!--   <div class="msg_flw_btn_2">
+                                  <div  class="fr msg_flw_btn">
         
-       <div class="profile-main-box-buis-menu  col-md-9">  
+                                      <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
+        
+                            <?php
+                            $userid = $this->session->userdata('aileenuser');
 
- <ul class="">
- 
+                            $contition_array = array('user_id' => $userid, 'status' => '1');
+
+                            $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                            $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
+                            //echo "<pre>"; print_r($status); die();
+
+                            if ($status == 0 || $status == " ") {
+                                ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                                                                      </div>
+                            <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                                                                      </div>
+                            <?php } ?>
+                                      </div> 
+                                      <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
+                                  </div>
+        
+        
+        
+        
+                              </div> -->
+                        <?php } ?>
+
+
+                                        <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($businessdata1[0]['user_id'] != $userid) {
+                            ?> 
+                    <div id="contact_per">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+
+      $busotherid = $this->uri->segment(3); 
+      $contition_array = array('business_slug' => $busotherid, 'status' => '1');
+      $busineslug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      $busuid = $busineslug[0]['user_id'];
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
+                    <div class="">
+                      <!--   <div id="ripple" class="centered" >
+                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+
+
+                        </div> -->
+                    <!--     <div class="addtocont" style="    position: absolute;
+                             display: block;
+                             /* margin-left: 69.4%; */
+                             /* margin-top: 0%; */
+                             right: 7%;
+                             top: 62px;">
+                            <span style="    
+                                  font-size: 13px; ""><i class="icon-user"></i>
+            <?php 
+
+        //print_r($contactperson[0]['status']) ; die();
+        
+                     if($contactperson[0]['status'] == 'cancel'){?>
+                                Add to contact
+                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
+                            Cancel request  
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
+                            </span>
+                        </div> -->
+                    </div>
+                </a>
+                    </div>
+
+                    <?php }?>
+                    </div>
+                    <!-- PICKUP -->
+                    <!-- menubar -->
+                    <div class="business-data-menu padding_less_right ">
+
+                        
+
+                        <div class="profile-main-box-buis-menu">  
+                            <ul class="">
+
  <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post'){?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post/'.$businessdata[0]['business_slug']); ?>">Dashboard</a>
                                     </li>
                                      <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/'.$businessdata[0]['business_slug']); ?>"> Details</a>
@@ -197,17 +296,17 @@
                                     </li>
 
 
-                                </ul>
+                            </ul>
 
-</div>
+                        
 
                         <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les">
-                                <div class="flw_msg_btn fr">
+                            
+                                <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
@@ -228,11 +327,11 @@
                                                     if ($status == 0 || $status == " ") {
                                                         ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
-                                                            <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                            <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
                                                     <?php } elseif ($status == 1) { ?>
                                                         <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                            <button  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                            <button class="bg_following"  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                         </div>
                                                     <?php } ?>
                                                 </div>         
@@ -246,13 +345,14 @@
 
                                     </ul>   
                                 </div>
-                            </div>
+                           
                         <?php } ?>
 
-</div>
-
-              <!-- pickup -->
-            </div>
+                         </div>
+                    </div>
+                    </div>
+                    <!-- pickup -->
+                </div>
             </div>
         </div>
        </div>
