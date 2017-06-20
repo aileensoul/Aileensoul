@@ -1024,7 +1024,7 @@ $(document).ready(function(){
                             ?>
                             <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
 
-                                <div class="job-post-detail clearfix">
+                                <div class="">
 
 
 
