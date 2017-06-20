@@ -172,6 +172,7 @@
                                       $companyname1 = $workdata[$x]['companyname'];
                                       $companyemail1 = $workdata[$x]['companyemail'];
                                       $companyphn1 = $workdata[$x]['companyphn'];
+
                                       $work_certificate1 = $workdata[$x]['work_certificate'];
                                       $y = $x + 1;
                                       ?>
@@ -266,7 +267,7 @@
                                     ?>
                                  <span id="certificate-error"> </span>
                                  <?php echo form_error('certificate'); ?>
-                                 <input type="text" name="image_hidden_certificate<?php echo $workdata[$x]['work_id']; ?>" value="<?php
+                                 <input type="hidden" name="image_hidden_certificate[]" value="<?php
                                     if ($work_certificate1) {
                                         echo $work_certificate1;
                                     }
