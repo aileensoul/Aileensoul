@@ -1019,13 +1019,13 @@
                                                             foreach ($businessmultiimage as $multiimage) {
                                                                 ?>
                                                                 <!-- five image start -->
-                                                                <div>
+                                                              
                                                                   <div class="four-image">
                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                             <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                         </a>
                                                                     </div>
-                                                                </div>
+                                                            
                                                                 <!-- five image end -->
                                                                 <?php
                                                                 $i++;
@@ -1034,7 +1034,7 @@
                                                             }
                                                             ?>
                                                             <!-- this div view all image start -->
-                                                            <div>
+                                                        
                                                                <div class="four-image">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
@@ -1050,7 +1050,7 @@
                                                                 </div>
 
                                                                 
-                                                            </div>
+                                                          
                                                             <!-- this div view all image end -->
                                                         <?php } ?>
                                                         <div>
