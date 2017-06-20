@@ -140,7 +140,7 @@
 
                     </div>
 
-<div class="profile-main-rec-box-menu  col-md-12 ">
+<div class="profile-main-rec-box-menu  col-md-12 padding_less_right ">
 
 <div class="left-side-menu col-md-2">  </div>
 <div class="right-side-menu col-md-6"> 
@@ -165,7 +165,7 @@
     </div>
     </div>
 
-    <div class="col-md-3" style="width:32%;">
+    <div class="col-md-3 padding_less_right" style="width:33%;">
                 <div class="flw_msg_btn fr">
                     <ul>
                      
