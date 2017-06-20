@@ -305,6 +305,7 @@ label {
     font-weight: 400;
     color: #616060;
     margin-bottom: 9px;
+    text-transform: capitalize;
 }
 select {
     padding: 8px 15px;
