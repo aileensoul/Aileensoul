@@ -126,14 +126,14 @@
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle">
                                 Primary
                             </a>
                           </h4>
                     </div>
-                    <div id="one" class="panel-collapse collapse in">
+                    <div id="one" class="panel-collapse collapse">
                         <div class="panel-body">
                             <section id="section1">
                                             <!--input type="radio" name="sections" id="option1" <?php
@@ -254,9 +254,9 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="panel-heading1">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1">
                                 Secondary
                             </a>
                           </h4>
@@ -384,9 +384,9 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="panel-heading2">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#three" id="toggle2">
                               Higher secondary
                             </a>
                           </h4>
@@ -522,9 +522,9 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading">
+                    <div class="panel-heading" id="panel-heading3">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#four" id="toggle3">
                              Graduation
                             </a>
                         </h4>
@@ -990,7 +990,7 @@
                 <!-- end of panel -->
 <fieldset class="hs-submit full-width"  style="">
 
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
+                <input type="button" id="next" name="next" value="Next1" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
                                                     </fieldset>
             </div>
@@ -1064,8 +1064,8 @@
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-                    
+<!-- <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+ -->                    
                     <!-- script for skill textbox automatic end -->
                     <script>
 
@@ -1995,17 +1995,65 @@ $(window).load(function(){
 });
 });
 
-$(document).ready(function () {
-        
-            $('.collapse.in').prev('.panel-heading').addClass('active');
-            $('#accordion, #bs-collapse')
-                .on('show.bs.collapse', function (a) {
-                    $(a.target).prev('.panel-heading').addClass('active');
-                })
-                .on('hide.bs.collapse', function (a) {
-                    $(a.target).prev('.panel-heading').removeClass('active');
-                });
+//script for click on - change to + Start
+    $(document).ready(function () {
+          
+      $('#toggle').on('click', function(){
+    
+            if($('#panel-heading').hasClass('active')){
+
+                      $('#panel-heading').removeClass('active');
+
+            }else{
+                      //$('#one').addClass('in');
+                      $('#panel-heading').addClass('active'); 
+                       $('#panel-heading1').removeClass('active');
+                       $('#panel-heading2').removeClass('active');
+                       $('#panel-heading3').removeClass('active');
+            }
         });
+
+      $('#toggle1').on('click', function(){
+    
+            if($('#panel-heading1').hasClass('active')){
+                      $('#panel-heading1').removeClass('active');
+            }else{
+                      $('#panel-heading1').addClass('active');
+                       $('#panel-heading').removeClass('active');
+                        $('#panel-heading2').removeClass('active');
+                       $('#panel-heading3').removeClass('active');
+            }
+        }); 
+
+       $('#toggle2').on('click', function(){
+    
+            if($('#panel-heading2').hasClass('active')){
+                      $('#panel-heading2').removeClass('active');
+            }else{
+                      $('#panel-heading2').addClass('active');
+                       $('#panel-heading').removeClass('active');
+                        $('#panel-heading1').removeClass('active');
+                       $('#panel-heading3').removeClass('active');
+            }
+        }); 
+
+        $('#toggle3').on('click', function(){
+    
+            if($('#panel-heading3').hasClass('active')){
+                      $('#panel-heading3').removeClass('active');
+            }else{
+                      $('#panel-heading3').addClass('active');
+                       $('#panel-heading').removeClass('active');
+                        $('#panel-heading1').removeClass('active');
+                       $('#panel-heading2').removeClass('active');
+            }
+        }); 
+
+    });
+
+
+  //script for click on - change to + End
+
 
 </script>
 
