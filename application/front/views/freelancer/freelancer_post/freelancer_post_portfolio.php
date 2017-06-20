@@ -279,7 +279,7 @@ $userid = $this->session->userdata('aileenuser');
     var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
 
     var image_hidden_portfolio = document.getElementById("image_hidden_portfolio").value;
-
+alert(image_hidden_portfolio);
     var portfolio_attachment = document.getElementById("portfolio_attachment").value;
 
   var $field = $('#portfolio123');
@@ -438,6 +438,7 @@ $userid = $this->session->userdata('aileenuser');
     //   document.getElementById("pdffile").style.visibility = "hidden";
         $("#filename").text('');
         $("#pdffile").hide();
+        document.getElementById('image_hidden_portfolio').value = '';
 
           }
             }); 
