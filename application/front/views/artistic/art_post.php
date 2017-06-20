@@ -744,8 +744,8 @@
                            <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
-                           <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
                            </div>
                         </div>
                         <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">

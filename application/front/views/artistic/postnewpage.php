@@ -357,15 +357,14 @@
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
-                                                            <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" placeholder="Art name" value="<?php echo $art_data[0]['art_post']; ?>">
+                                                            <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" placeholder="Title" value="<?php echo $art_data[0]['art_post']; ?>">
                                                         </div>
                                             
                                             <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
                                                     <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
                                             </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
-                                                <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" class="editable_text" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $art_data[0]['art_description']; ?>
-                                                </div> 
+            <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" placeholder="Description" class="editable_text" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $art_data[0]['art_description']; ?></div> 
                                             </div>
                                             <button class="fr" id="<?php echo "editpostsubmit" . $art_data[0]['art_post_id']; ?>" style="display:none; " onClick="edit_postinsert(<?php echo $art_data[0]['art_post_id']; ?>)">Save</button>
 
@@ -1488,7 +1487,7 @@
                                 url: '<?php echo base_url() . "artistic/delete_comment" ?>',
                                 data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
                                 dataType: "json",
-                                success: function (data) { alert(data.count);
+                                success: function (data) { 
                                     $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                                //     $('#' + 'insertcount' + post_delete.value).html(data.count);
                                $('.like_count_ext' + post_delete.value).html(data.commentcount);
@@ -2023,7 +2022,7 @@
                     <script type="text/javascript">
                             
             function editpost(abc)
-            {alert(abc);
+            {
                 //        document.getElementById('editpostdata' + abc).style.display = 'none';
                 //        document.getElementById('editpostbox' + abc).style.display = 'block';
                 //        document.getElementById('editpostdetails' + abc).style.display = 'none';
