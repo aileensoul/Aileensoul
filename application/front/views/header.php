@@ -71,7 +71,7 @@ $(window).load(function(){
         } else
         {
             $('#notification_count').html(msg);
-            $('#notification_count').css('background-color', '#FF4500');
+            $('#notification_count').css({"background-color": "#FF4500", "padding": "3px"});
 
         }
 
