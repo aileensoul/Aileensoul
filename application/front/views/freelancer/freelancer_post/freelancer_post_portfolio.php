@@ -326,10 +326,12 @@ alert(image_hidden_portfolio);
        
 
         $.ajax({
-
+             
+          //  var experience_year = document.querySelector("#input1 #experience_year").value;
 
             url: "<?php echo base_url(); ?>freelancer/freelancer_post_portfolio_insert",
             type: "POST",
+        //    data:'file=' + fd + 'portfolio='+portfolio,
             data: fd,
             processData: false,
             contentType: false,
@@ -378,13 +380,14 @@ alert(image_hidden_portfolio);
 
         files = this.files;
 
-       
+       fd.append('portfolio', portfolio);
 
         $.ajax({
 
 
             url: "<?php echo base_url(); ?>freelancer/freelancer_post_portfolio_insert",
             type: "POST",
+           // data:'file=' + fd + 'portfolio='+portfolio,
             data: fd,
             processData: false,
             contentType: false,
@@ -394,19 +397,19 @@ alert(image_hidden_portfolio);
             }
         }); 
 
-        $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "freelancer/freelancer_post_portfolio_insert" ?>',
-                 data:'portfolio='+portfolio,
-                success:function(data){ 
-                  if(free_post_step == 7){ 
-                 // window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
-                  }else{ 
-                     //window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
-              
-                   } 
-                }
-            }); 
+//        $.ajax({
+//                type:'POST',
+//                url:'<?php echo base_url() . "freelancer/freelancer_post_portfolio_insert" ?>',
+//                 data:'portfolio='+portfolio,
+//                success:function(data){ 
+//                  if(free_post_step == 7){ 
+//                 // window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
+//                  }else{ 
+//                     //window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
+//              
+//                   } 
+//                }
+//            }); 
    
         
         
