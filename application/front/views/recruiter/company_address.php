@@ -123,7 +123,7 @@
                     </fieldset>
 
                    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
-                        <label>state:<span class="red">*</span></label>
+                        <label>State:<span class="red">*</span></label>
                         <select name="state" id="state" tabindex="2">
                          <?php
                                           

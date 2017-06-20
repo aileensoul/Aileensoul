@@ -93,7 +93,7 @@
 
                       
 
- <label for="bestofmine"  tabindex="1" ><!-- <i class="fa fa-plus action-buttons btn-group"  aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i> --> Attachment</label> 
+ <label for="bestofmine"  tabindex="1" ><i class="fa fa-plus action-buttons btn-group"  aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff; float: initial;"> </i> Attachment</label> 
  
 
  <span id ="filename" style="color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;"><?php echo $userdata[0]['art_bestofmine']; ?></span><span class="file_name"></span>
@@ -113,11 +113,11 @@
 
 
                                 <fieldset class="full-width">
-                                 
-                              <div tabindex="2" style="width: 93%"  class="editable_text"  contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" style="resize: none;"><?php if($art_portfolio1){ echo $art_portfolio1; } ?> </div>
-                                         <?php echo form_error('artportfolio'); ?>
-                                  <label for="bestofmine" style="cursor: pointer;" tabindex="1" ><i class="fa fa-plus action-buttons btn-group portfolio_plus"  aria-hidden="true" style=" margin: 8px; cursor:pointer ; color: #fff;"> </i></label>
-                                </fieldset>
+                                 <label>Enter Portfolio Description</label>
+                              <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="artportfolio" id="artportfolio123" rows="4" cols="50" placeholder="Enter Portfolio Detail" ><?php if($art_portfolio1){ echo $art_portfolio1; } ?> </div>
+                                         <?php echo form_error('artportfolio'); ?><!-- 
+                                  <label for="bestofmine" style="cursor: pointer;" tabindex="1" ></label>
+                       -->          </fieldset>
                                 
                                 
 

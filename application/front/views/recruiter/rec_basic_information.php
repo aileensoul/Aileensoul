@@ -82,7 +82,7 @@
                                 
                     <fieldset>
                         <label>First Name:<span class="red">*</span></label>
-                        <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error"></span>
+                        <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error "></span>
                         <?php echo form_error('first_name'); ?>
                     </fieldset>
                     

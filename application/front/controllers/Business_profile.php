@@ -2439,6 +2439,10 @@ $contition_array = array('status' => '1');
         $contition_array = array('business_step' => 4, 'is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid);
         $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //echo '<pre>'; print_r($this->data['userlist']); die();
+
+         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
+
+            $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         // followers count
         $join_str[0]['table'] = 'follow';
         $join_str[0]['join_table_id'] = 'follow.follow_to';

@@ -553,7 +553,7 @@
             <!-- Modal content -->
             <div class="modal-content-post">
                <span class="close1">&times;</span>
-               <div class="post-editor col-md-12" id="close">
+                  <div class="post-editor col-md-12 post-edit-popup" id="close">
                   <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
                   <div class="main-text-area col-md-12" >
                      <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
@@ -565,11 +565,12 @@
                         <div class="fifty_val">                       
                            <input size=1 class="text_num" value=50 name=text_num readonly> 
                         </div>
-                     </div>
-                     <div class="col-md-1 padding-left padding_les_left camera_in camer_h">
+                   
+                      <div class="camera_in padding-left padding_les_left camer_h">
                         <i class=" fa fa-camera" >
                         </i> 
                      </div>
+                       </div>
                   </div>
                   <div class="row"></div>
                   <div  id="text"  class="editor-content col-md-12 popup-textarea" >
@@ -763,7 +764,7 @@
                </div>
                <!-- multiple image code  start-->
                <div class="post-design-mid col-md-12" >
-                  <div class="images_art_post">
+                  <div class="">
                      <?php
                         $contition_array = array('post_id' => $row['art_post_id'], 'is_deleted' => '1', 'image_type' => '1');
                         $artmultiimage = $this->data['artmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -780,7 +781,7 @@
                         if (in_array($ext, $allowed)) {
                             ?>
                      <!-- one image start -->
-                     <div id="basic-responsive-image">
+                     <div class="one-image">
                         <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
                      </div>
                      <!-- one image end -->
@@ -828,20 +829,20 @@
                            foreach ($artmultiimage as $multiimage) {
                            ?>
                         <!-- two image start -->
-                        <div  id="two_images_art" >
+                        <div  class="two-images" >
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                         </div>
                         <!-- two image end -->
                         <?php } ?>
                         <?php } elseif (count($artmultiimage) == 3) { ?>
                         <!-- three image start -->
-                        <div id="three_images_art" >
+                        <div class="three-image-top" >
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>"> </a>
                         </div>
-                        <div  id="three_images_2_art">
+                        <div  class="three-image">
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name']) ?>" > </a>
                         </div>
-                        <div  id="three_images_2_art">
+                        <div  class="three-image">
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name']) ?>" > </a>
                         </div>
                         <!-- three image end -->
@@ -850,7 +851,7 @@
                            foreach ($artmultiimage as $multiimage) {
                                ?>
                         <!-- four image start -->
-                        <div id="responsive-images-breakpoints" >
+                        <div class="four-image">
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                         </div>
                         <!-- four image end -->
@@ -862,7 +863,7 @@
                                                                       ?>
                         <!-- five image start -->
                         <div>
-                           <div id="responsive-images_2-breakpoints">
+                           <div class="four-image">
                               <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" > </a>
                            </div>
                         </div>
@@ -875,11 +876,11 @@
                            ?>
                         <!-- this div view all image start -->
                         <div>
-                           <div id="responsive-images_3-breakpoints" >
+                           <div class="four-image" >
                               <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a>
                            </div>
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
-                              <div class="images_view_more" >
+                              <div class="more-image" >
                                  <span> View All (+<?php echo (count($artmultiimage) - 4); ?>) </span>
                               </div>
                            </a>

@@ -123,7 +123,7 @@ class Search extends CI_Controller {
             $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
 
-            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname,art_reg.art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
            // echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
@@ -242,7 +242,7 @@ class Search extends CI_Controller {
 
 
             $contition_array = array('art_reg.art_city' => $cache_time);
-            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+            $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname,art_reg.art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // echo "<pre>"; print_r($artpost);
 
             $fullname = explode(" ", $searchskill);

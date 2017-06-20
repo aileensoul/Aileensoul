@@ -5,7 +5,10 @@
 
 html {
 /*  overflow-y: scroll;*/
+    position: relative;
+    min-height: 100%;
 }
+.fw{width: 100%; float: left;}
 textarea::-webkit-input-placeholder { color:#999;font-size: 15px; }
 input::-webkit-input-placeholder { color:#999;font-size: 15px; }
 input::-moz-placeholder { color:#999; font-size: 15px;} /* firefox 19+ */
@@ -18,7 +21,7 @@ body {
   background: #c1bdba;
   font-family: 'Lato', sans-serif;
   overflow-y: scroll;
-  height: 100%;
+  margin-bottom: 0;
 }
 .about_us_text{text-align: justify; letter-spacing: 1px; padding-bottom: 7%;}   
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
@@ -35,7 +38,7 @@ table{border-collapse:collapse;border-spacing:0}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
 input,select{vertical-align:middle}
 li{list-style:none}
-body { position: relative; font-size: 16px; color: #000; padding: 0; background-color: #fbfbfb; margin: 0; line-height: 22px;  font-family: 'Lato', sans-serif; }
+body {font-size: 16px; color: #000; padding: 0; background-color: #fbfbfb; margin: 0; line-height: 22px;  font-family: 'Lato', sans-serif; }
 
 p { margin: 0; padding: 0; }
 
@@ -326,7 +329,7 @@ textarea {
 }
 
 footer{position: absolute; width: 100%;    background: #88878d;
-bottom: 0px;}
+bottom: 0px; height: 50px;}
 #login{
     width: 86%;
     margin: 0 auto;
@@ -440,7 +443,7 @@ li {
 }
  ul { font-size: 0; margin: 0; padding: 0; }
  ul li { list-style: none; display: inline-block; padding: 0; margin: 0; position: relative; }
- ul li a { font-size: 18px; color: #3b5283; padding: 10px 10px 10px; font-weight: 400; display: block;}
+ ul li a { font-size: 14px; color: #3b5283; padding: 10px 10px 10px; font-weight: 400; display: block;}
 .header ul li a:hover { background: #3b5283; color: #000000; }
 .header { padding: 0; background: #3b5283; border-bottom: 1px solid #3b5283; }
 .logo { padding: 8px 0; margin-left: 12%;}
@@ -595,11 +598,12 @@ input[type="radio"] {
 .has-error label, .error {
     color: #ff0000 !important;
     font-size: 14px;
+    border:2px solid red !important;
     
 }
 
-
-
+#fname-error{border:none !important; }
+#lname-error{border:none !important; }
 footer{
 
   text-transform: capitalize;
@@ -1143,9 +1147,9 @@ word-break: break-all;
 
 .header-left-menu{padding-top: 18px;}
 .main_body{background-color: #d4d4d4;}
-.main_reg_form{    margin-left: 37px!important;
+.main_reg_form{
     padding: 20px;
-    padding-top: 0px!important;}
+   max-width:510px; margin: 0 auto;}
 .date_tm select{padding-right:14px!important;    padding: 4px;
     border: 2px solid #cacaca;
     border-radius: 3px;
@@ -1284,3 +1288,35 @@ word-break: break-all;
 .error-msg p, label.error{}
 
 .footer-menu li a:focus{outline:none;}
+
+
+/*** media query  ***/
+@media screen and (max-width: 991px){
+    input, textarea, select{padding: 5px 15px !important;}
+    .reg_button input{width:auto;}
+    .header-left-menu{padding-top:9px;}
+}
+@media screen and (max-width: 767px){
+    .logo{margin-left:0; text-align:center;}
+    .logo span{font-size:22px;}
+    .header3{height:auto; margin-bottom:15px;}
+    .col-md-6.par-3{padding-right:15px !important;}
+    .col-md-6.pal-3{padding-left:15px !important;}
+    .header-left-menu .reg_form{padding-left:5px; padding-right:5px;}
+    .col-sm-4.reg_button{padding-left:5px;}
+    footer{height: 85px;}
+    body{margin-bottom:85px !important;}
+    .footer-menu{width:100%; text-align:center;}
+}
+@media screen and (max-width: 479px){
+    .fw-479{width:100% !important;}
+    .header-left-menu .reg_form{width:100%;}
+    .header-left-menu{width:100%; float:left; padding:0 15px 15px;}
+    .header-left-menu .reg_form{padding-top:10px;}
+    .head_ad h2{font-size:22px; margin-top:0;}
+    .main_reg_form{padding:20px 10px;}
+    .terms p{font-size:12px;}
+    .terms a{font-size:12px;}
+    footer{height:122px;}
+    body{margin-bottom:122px !important;}
+}

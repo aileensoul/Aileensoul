@@ -59,12 +59,12 @@
         <div class="header3">
     <div class="container">
     <div class="row">
-  <div class="col-md-6 col-sm-5">
+  <div class="col-md-5 col-sm-4">
                         <div class="logo"><a tabindex="-203" href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
  <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
-           <div class="col-md-6 col-sm-7 header-left-menu">
- <div class="col-md-4 col-sm-5 reg_form">
+           <div class="col-md-7 col-sm-8 header-left-menu">
+ <div class="col-md-4 col-sm-4 col-xs-5 reg_form">
                         <input type="text" tabindex="1" name="user_name" tabindex="1" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
                       
@@ -72,7 +72,7 @@
                                      <span class="remb_1" >Remember me</span>
                       
         </div> 
-         <div class="col-md-4 col-sm-5 reg_form">              
+         <div class="col-md-4 col-sm-4 col-xs-5 reg_form">              
                                <input type="password" name="password" tabindex="2" id="password" placeholder="Password" value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>">
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
@@ -84,7 +84,7 @@
 
 
 </div> 
-<div class="col-md-2 col-sm-2 reg_button">
+<div class="col-md-2 col-sm-4 reg_button col-xs-2">
                          <input type="submit" tabindex="3"  value="login" name="">
       </div>                          </div>
        </form>
@@ -129,7 +129,7 @@
 </div>
    <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="">
                <div class="main_reg_form">
                 <div class="head_ad">
                     <h2>Join Aileensoul - It's Free</h2>
@@ -148,24 +148,24 @@
 ?>
           
             <span id="uname-error"> </span>
-                <fieldset class="col-md-6 par-3">
+                <fieldset class="col-md-6 par-3 col-xs-12">
                     <label>First Name</label>
                   <input  tabindex="4" type="text" value="<?php if($fsname){ echo $fsname; }?>" name="fname" id="fname" placeholder="Enter First name">
                       <?php echo form_error('fname'); ?>
                 </fieldset>
-                 <fieldset class="col-md-6 pal-3">
+                 <fieldset class="col-md-6 pal-3 col-xs-12">
                     <label>Last Name</label>
                        <input  tabindex="5" type="text" value="<?php if($lname){ echo $lname; }?>" name="lname" id="lname" placeholder="Enter Last name">
                       <?php echo form_error('lname'); ?>
                 </fieldset>
-                 <fieldset class="col-md-12">
+                 <fieldset class="col-md-12 col-sm-12 col-xs-12">
                     <label>Email Address</label>
                   
                      <input  tabindex="6" type="text" name="email" id="email" placeholder="Enter Email address" value="">
               <?php echo form_error('email'); ?>
                 </fieldset>
             
-                 <fieldset class="col-md-12">
+                 <fieldset class="col-md-12 col-sm-12 col-xs-12">
                     <label>Password</label>
                   
                   <input type="password"   tabindex="7" name="password" id="password" class="showpassword2"  placeholder="Enter Password" placeholder="">
@@ -179,7 +179,7 @@
                 </fieldset>
            
             
-                <fieldset class="col-md-9 date_tm">
+                <fieldset class="col-md-9 col-sm-9 date_tm col-xs-9 fw-479">
                     <label>Date Of Birth</label>
                     
                     <select name="date" tabindex="8">
@@ -245,7 +245,7 @@
 
   <!--<input type="text" name="datepicker" id="datepicker"  autocomplete="off" >-->
                 </fieldset>
-                <fieldset class="col-md-3 date_tm">
+                <fieldset class="col-md-3 col-sm-3 date_tm col-xs-3 fw-479">
                     <label>Gender</label>
                     
 <select name="gen" id="gen" style="padding-right: 0px!important;" tabindex="11">
@@ -255,7 +255,7 @@
    </select>
               <?php echo form_error('gen'); ?>  
                 </fieldset>
-<div class="col-md-12 terms">
+<div class="col-md-12 terms fw">
     <p>By Clicking on create an account button you agree our
 <br>    <a tabindex="-200" href="#">Terms and Condition</a> and <a tabindex="-201" href="">Privacy Policy</a>
     </p>
@@ -277,17 +277,7 @@
                </div>
             </div>
 
-            <div class="col-md-6">
-           <!--  <div class="main-img">
-                <img src="img/main.jpg">
-            </div> -->
-            <div class="textss">
-              <h1>
-                Aileensoul provides a platform and opportunity to every person in the world to make and rediscover their career.
-              </h1>
-            </div>
-
-             </div>
+           
         </div>
     </div>
 
@@ -819,15 +809,15 @@ window.onclick = function(event) {
 
 
 <style type="text/css">
-  #fname-error{margin-top: 33px;margin-right: -3px;}
-  #lname-error{margin-top:33px;margin-right: 8px; }
-  #email-error{margin-top:33px;margin-right: 8px; }
-  #password-error{margin-top: 33px !important;margin-right: 8px;}
-  #year-error{margin-top: -1px; margin-right: 48px;}
-  #date-error{margin-top: -1px;margin-right: 48px;} 
-  #month-error{margin-top: -1px;margin-right: 48px;} 
-  #gen-error{margin-top: -1px;margin-right: -5px;} 
-  #user_name-error{ margin-top: 0px;margin-right: 7px;}
-  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px;}
+  #fname-error{margin-top: 33px;margin-right: -3px; border:none !important}
+  #lname-error{margin-top:33px;margin-right: 8px; border:none !important}
+  #email-error{margin-top:33px;margin-right: 8px; border:none !important;}
+  #password-error{margin-top: 33px !important;margin-right: 8px; border:none !important;}
+  #year-error{margin-top: -1px; margin-right: 48px; border:none !important}
+  #date-error{margin-top: -1px;margin-right: 48px; border:none !important} 
+  #month-error{margin-top: -1px;margin-right: 48px; border:none !important} 
+  #gen-error{margin-top: -1px;margin-right: -5px; border:none !important} 
+  #user_name-error{ margin-top: 0px;margin-right: 7px; border:none !important}
+  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; border:none !important}
 
 </style>
