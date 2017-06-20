@@ -25,10 +25,10 @@
    <?php
      $returnpage=$_GET['page'];
     if($returnpage=='freelancer_post'){
-    echo $freelancer_post_header2_border;
+    echo $freelancer_post_header2;
     }
     else{
-    echo $freelancer_hire_header2_border;
+    echo $freelancer_hire_header2;
     }?>
 
 
@@ -276,16 +276,47 @@ function text2link($text){
                                                 </div>
                                                 <div class="profile-job-profile-menu">
                                                     <ul class="clearfix">
-                                                     <li> <b>First Name</b> <span> <?php echo $freelancerhiredata[0]['fullname'];?> </span>
-                                                        </li>
-                                                     <li> <b>Last Name</b> <span> <?php echo $freelancerhiredata[0]['username'];?> </span>
+                                                     <li> <b> Name</b> <span> <?php echo $freelancerhiredata[0]['fullname'] .' '. $freelancerhiredata[0]['username'];?> </span>
                                                         </li>
                                                        
                                                         <li> <b>Email </b><span> <?php echo $freelancerhiredata[0]['email'];?></span>
                                                         </li>
-                                                        <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
-                                                             <li> <b>Skype Id </b> <span> <?php echo $freelancerhiredata[0]['skyupid'];?> </span>
-                                                        </li> 
+                                                      
+
+
+                                                          <?php
+                                            if ($returnpage == 'freelancer_post') {
+                                                   if ($freelancerhiredata[0]['skyupid']) {
+                                              ?>
+                                            <li> <b>Skype Id</b> <span> <?php echo $freelancerhiredata[0]['skyupid']; ?> </span>
+                                            </li> 
+                                            <?php
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerhiredata[0]['skyupid']) {
+                                               ?>
+                                            <li> <b>Skype Id</b> <span> <?php echo $freelancerhiredata[0]['skyupid']; ?> </span>
+                                            </li> 
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Skype Id</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                
                                                     </ul>
                                                 </div>
                                                  <div class="profile-job-post-title clearfix">
@@ -305,11 +336,74 @@ function text2link($text){
                                                         <li> <b>State </b><span><?php echo  
                                                         $this->db->get_where('states',array('state_id' => $freelancerhiredata[0]['state']))->row()->state_name;  ?> </span>
                                                         </li>
-                                                        <li><b> City</b> <span><?php echo  
+                                                      
+                                                         <?php
+                                            if ($returnpage == 'freelancer_post') {
+                                                   if ($freelancerhiredata[0]['city']) {
+                                              ?>
+                                            <li><b> City</b> <span><?php echo  
                                                         $this->db->get_where('cities',array('city_id' => $freelancerhiredata[0]['city']))->row()->city_name;  ?></span> </li>
-                                                           
-                                                         <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span>
+                                            <?php
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerhiredata[0]['city']) {
+                                               ?>
+                                             <li><b> City</b> <span><?php echo  
+                                                        $this->db->get_where('cities',array('city_id' => $freelancerhiredata[0]['city']))->row()->city_name;  ?></span> </li>
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>City</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
                                                         </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                
+                                                           <?php
+                                            if ($returnpage == 'freelancer_post') {
+                                                   if ($freelancerhiredata[0]['pincode']) {
+                                              ?>
+                                            <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span>
+                                                        </li>
+                                            <?php
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerhiredata[0]['pincode']) {
+                                               ?>
+                                             <li> <b>Pincode </b><span><?php echo $freelancerhiredata[0]['pincode'];?></span>
+                                                        </li>
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Pincode</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                  
+                                                        
                  <li> <b>Postal Address </b><span><p> <?php echo $freelancerhiredata[0]['address'];?> 
                  </p></span>
                  </li>

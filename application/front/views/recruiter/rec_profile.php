@@ -46,7 +46,7 @@
  elseif($returnpage == 'notification'){
  }
  else{
-  echo $recruiter_header2_border; 
+  echo $recruiter_header2; 
 
  }
 ?>
@@ -309,7 +309,7 @@ function text2link($text){
                                                         <?php 
                    if($recdata[0]['rec_firstname'] || $recdata[0]['rec_lastname'] )
                     { 
-                    echo $recdata[0]['rec_firstname'] . $recdata[0]['rec_lastname'];
+                    echo $recdata[0]['rec_firstname'] .'  '. $recdata[0]['rec_lastname'];
                      } 
                     else
                     {

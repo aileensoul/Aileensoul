@@ -25,7 +25,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2_border; ?>
+<?php echo $recruiter_header2; ?>
 
 
 
@@ -212,6 +212,7 @@
 
         <!-- text head end -->
     </div>
+<!-- <?php //echo "<pre>"; print_r($recdata);die(); ?> -->
     <div class="col-md-8 col-sm-8 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
@@ -379,13 +380,47 @@
 
                      </span>
                    </li>
-                          
-           <li> <b> Total Experience</b>
-               <span>
-                <?php if ($rec['experience_year'] ||$rec['experience_month'] ){echo $rec['experience_year'] . ' ' . $rec['experience_month'];} else{ echo PROFILENA;} ?>
-                                                                 </span>
 
-                                                                </li>
+                  <?php if($rec['experience'] != 'Fresher'){?>
+<?php 
+$contition_array =array('user_id' => $rec['user_id'], 'experience' => 'Experience', 'status' => '1');
+
+        
+            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+            $total_work_year=0;
+            $total_work_month=0;
+
+            foreach ($experiance as $work1) {
+
+            $total_work_year+=$work1['experience_year'];
+            $total_work_month+=$work1['experience_month'];
+            }
+            ?>
+            <li> <b> Total Experience</b>
+              <span>
+              <?php
+              if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                 $month = explode(' ', $total_work_year);
+                                                $year=$month[0];
+                                                $years=$year + 1;
+                                                echo $years." Years";
+            }
+            else{
+             echo $total_work_year; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
+            }   ?>
+               </span>
+                </li>
+                <?php } else {?>
+                <li> <b> Total Experience</b>
+              <span> <?php echo $rec['experience']; ?>  </span>
+                </li>
+                <?php }?>
+             
 
                                                                  <?php
                                                                 $countryname = $this->db->get_where('countries', array('country_id' => $rec['country_id']))->row()->country_name;
@@ -406,170 +441,7 @@
  <?php if($rec['board_primary'] && $rec['board_secondary'] && $rec['board_higher_secondary'] && $rec['degree']){ ?>
             <li>
               <b>Degree</b><span>
-            
-
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-             $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
-                             if ($cache_time) {
-                   echo $cache_time;
-                                 } else {
-                         echo PROFILENA;
-                            }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-             <?php }
-              elseif($rec['board_primary'] && $rec['board_secondary'] && $rec['board_higher_secondary']){
-                ?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['stream_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['percentage_higher_secondary'];?>
-                </span>
-                </li>
-                <?php }
-              elseif($rec['board_primary'] && $rec['board_secondary']){?>
-
-              <li><b>Board of Secondary</b>
-                <span>
-                  <?php echo $rec['board_secondary'];?>
-                </span>
-                </li>
-                <li><b>School of Secondary</b>
-                <span>
-                  <?php echo $rec['school_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Secondary</b>
-                <span>
-                  <?php echo $rec['percentage_secondary'];?>
-                </span>
-                </li>
-              <?php } else if($rec['board_primary'] && $rec['board_higher_secondary']){
-             ?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['stream_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['percentage_higher_secondary'];?>
-                </span>
-                </li>
-
-             <?php } elseif($rec['board_secondary'] && $rec['board_higher_secondary']){?>
-                <li><b>Board of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['board_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['stream_higher_secondary'];?>
-                </span>
-                </li>
-                <li><b>Percentage of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['percentage_higher_secondary'];?>
-                </span>
-                </li>
-
-             <?php } elseif($rec['board_primary'] && $rec['degree']){?>
-             <li>
-              <b>Degree</b><span>
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-                        $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
-                                                 if ($cache_time) {
-                                                     echo $cache_time;
-                                                 } else {
-                                                      echo PROFILENA;
-                                                    }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-
-
-              <?php } elseif($rec['board_secondary'] && $rec['degree']){ ?>
-              <li>
-              <b>Degree</b><span>
-<?php 
-               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
-                            if ($cache_time) {
-                                             echo $cache_time;
-                                             } else {
-                                                 echo PROFILENA;
-                                                                        }
-                                                                      ?>
-
-               </span>
-               </li>
-               <li><b>Stream</b>
-                 <span>
-                   <?php
-
-                   $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
-                              if ($cache_time) {
-                                  echo $cache_time;
-                                          } else {
-                                              echo PROFILENA;
-                                              }
-                                                                        
-                   ?>
-                 </span>
-              </li>
-
-
-               <?php } elseif($rec['board_higher_secondary'] && $rec['degree']){ ?>
-
-
-<li>
-              <b>Degree</b><span>
-<?php 
+              <?php 
                $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
                             if ($cache_time) {
                                              echo $cache_time;
@@ -585,20 +457,19 @@
                    <?php
 
                      $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
-                         if ($cache_time) {
-                                           echo $cache_time;
-                                       } else {
-                                             echo PROFILENA;
-                               }
+                             if ($cache_time) {
+                                      echo $cache_time;
+                                               } else {
+                                                 echo PROFILENA;
+                                                      }
                                                                         
                    ?>
                  </span>
               </li>
-
-
-                 <?php }elseif($rec['board_secondary'] && $rec['board_higher_secondary'] && $rec['degree']){?>
-
-<li>
+             <?php }
+              elseif($rec['board_secondary'] && $rec['board_higher_secondary'] && $rec['degree']){
+                ?>
+               <li>
               <b>Degree</b><span>
             
 
@@ -627,6 +498,150 @@
                    ?>
                  </span>
               </li>
+
+
+                <?php }
+              elseif($row['board_higher_secondary'] && $rec['degree']){?>
+
+              <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time;
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
+                                                                        if ($cache_time) {
+                                                                            echo $cache_time;
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+              <?php } else if($rec['board_secondary'] && $rec['degree']){
+             ?>
+               <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time; 
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                   $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
+                              if ($cache_time) {
+                                  echo $cache_time;
+                                          } else {
+                                              echo PROFILENA;
+                                              }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+             <?php } elseif($rec['board_primary'] && $rec['degree']){?>
+               <li>
+              <b>Degree</b><span>
+<?php 
+               $cache_time = $this->db->get_where('degree', array('degree_id' => $rec['degree']))->row()->degree_name;
+                            if ($cache_time) {
+                                             echo $cache_time;
+                                             } else {
+                                                 echo PROFILENA;
+                                                                        }
+                                                                      ?>
+
+               </span>
+               </li>
+               <li><b>Stream</b>
+                 <span>
+                   <?php
+
+                                                                        $cache_time = $this->db->get_where('stream', array('stream_id' => $rec['stream']))->row()->stream_name;
+                                                                        if ($cache_time) {
+                                                                            echo $cache_time;
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        
+                   ?>
+                 </span>
+              </li>
+
+             <?php } elseif($rec['board_primary'] && $rec['board_secondary'] && $rec['board_higher_secondary']){?>
+             <li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+
+              <?php } elseif($rec['board_secondary'] && $rec['board_higher_secondary']){ ?>
+             <li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+               <?php } elseif($rec['board_primary'] && $rec['board_higher_secondary']){ ?>
+
+
+<li><b>Board of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['board_higher_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Higher Secondary</b>
+                <span>
+                  <?php echo $rec['percentage_higher_secondary'];?>
+                </span>
+                </li>
+
+
+                 <?php }elseif($rec['board_primary'] && $rec['board_secondary']){?>
+
+ <li><b>Board of Secondary</b>
+                <span>
+                  <?php echo $rec['board_secondary'];?>
+                </span>
+                </li>
+                <li><b>Percentage of Secondary</b>
+                <span>
+                  <?php echo $rec['percentage_secondary'];?>
+                </span>
+                </li>
 
                  <?php } elseif($rec['degree']){?>
 
@@ -667,11 +682,6 @@
                   <?php echo $rec['board_higher_secondary'];?>
                 </span>
                 </li>
-                <li><b>Steam of Higher Secondary</b>
-                <span>
-                  <?php echo $rec['stream_higher_secondary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Higher Secondary</b>
                 <span>
                   <?php echo $rec['percentage_higher_secondary'];?>
@@ -684,11 +694,6 @@
   <li><b>Board of Secondary</b>
                 <span>
                   <?php echo $rec['board_secondary'];?>
-                </span>
-                </li>
-                <li><b>School of Secondary</b>
-                <span>
-                  <?php echo $rec['school_secondary'];?>
                 </span>
                 </li>
                 <li><b>Percentage of Secondary</b>
@@ -704,11 +709,6 @@
                   <?php echo $rec['board_primary'];?>
                 </span>
                 </li>
-                <li><b>School of Primary</b>
-                <span>
-                  <?php echo $rec['school_primary'];?>
-                </span>
-                </li>
                 <li><b>Percentage of Primary</b>
                 <span>
                   <?php echo $rec['percentage_primary'];?>
@@ -716,7 +716,6 @@
                 </li>
 
                   <?php }else{?> <li> No Education </li> <?php }?>
-
  
                                                               <li><b>E-mail</b><span>
                                                                     <?php
@@ -787,7 +786,7 @@
                         <?php echo form_open_multipart(base_url('recruiter/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="3">
-<div>
+<div class="popup_previred">
                         <img id="preview" src="#" alt="your image" />
 </div>
                       <!--   <input type="submit" name="cancel3" id="cancel2" value="Cancel"> -->

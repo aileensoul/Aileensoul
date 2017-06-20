@@ -1,8 +1,7 @@
-
-
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
+
 <!-- start header -->
 <?php echo $header; ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -10,6 +9,14 @@
    -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
+<!-- This Css is used for call popup -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
+   
+<script type="text/javascript">
+   $.noConflict(true)
+</script>
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
 <?php } ?>
@@ -87,12 +94,25 @@
                <div class="col-md-12 col-sm-12 ">
                   <div class="clearfix">
                      <div class="common-form common-form_border">
-                        <h3>Work Experience</h3>
-                        <div class="tablet-hi">
-                           <a href="javascript:void(0)" tabindex="1"  class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Fresher</a>
-                           <a href="javascript:void(0)"  class="tablinks active2" onclick="openCity(event, 'Paris')">Experience</a>
-                        </div>
-                        <div id="London" class="tabcontent1">
+                        <h3>Work Experience </h3>
+                        
+                        <div class="work_exp fw">
+                             <div class="">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+           
+            <div class="panel-group wrap" id="bs-collapse">
+
+                <div class="panel">
+                    <div class="panel-heading active" id="panel-heading">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle">
+         Fresher
+        </a>
+      </h4>
+                    </div>
+                    <div id="one" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                        
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                            <div>
                               <span style="color:#7f7f7e;">( </span><span  class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -102,12 +122,31 @@
                            <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                            Fresher&nbsp;&nbsp;
                            </label>
+                           
+                          
                            <fieldset class="hs-submit full-width left_nest">
                               <input type="submit" id="next" tabindex="2" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
                            <?php echo form_close(); ?>
+                       
+        
                         </div>
-                        <div id="Paris" class="tabcontent1">
+                    </div>
+
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading" id="panel-heading1">
+                        <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1">
+       Experience
+        </a>
+      </h4>
+                    </div>
+                    <div id="two" class="panel-collapse collapse">
+                        <div class="panel-body">
+                     
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
                            <div>
                               <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
@@ -137,11 +176,14 @@
                                       $y = $x + 1;
                                       ?>
                            <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
+
+                           
                            <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                               <div class="job_work_experience_main_div">
+                           
                                  <label>Experience<span class="red">*</span></label>
-                                 <select style="width: 46%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil">
-                                    <option value="0 year" selected option disabled>Year</option>
+                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year<?php echo $y; ?>" class="experience_year keyskil" onchange="expyear_change_edittime();">
+                                    <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
                                     <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
@@ -164,9 +206,9 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-                                 <select style="width: 46%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
+                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month<?php echo $y; ?>" class="experience_month keyskil">
                                     <option value="" selected option disabled>Month</option>
-                                    <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
+                                    <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
                                     <option value="3 month"  <?php if ($experience_month1 == "3 month") echo 'selected'; ?>>3 month</option>
@@ -182,6 +224,7 @@
                                  </select>
                                  <?php echo form_error('experience_year'); ?>
                                  <?php echo form_error('experience_month'); ?>
+                               
                                  <label  style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                                  <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                     if ($jobtitle1) {
@@ -189,25 +232,26 @@
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                  <?php echo form_error('jobtitle'); ?>
-                                 <label style="   margin-top: 6px; margin-left: -11px;">Company Name<span class="red">*</span></label>
+                                 </span>
+                                 <label style="   margin-top: 6px; ">Company Name<span class="red">*</span></label>
                                  <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                     if ($companyname1) {
                                         echo $companyname1;
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
                                  <?php echo form_error('companyname'); ?>
-                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Email</label>
+                                 <label style="  margin-top: 6px;  ">Company Email</label>
                                  <input type="text" name="companyemail[]" tabindex="4" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                     if ($companyemail1) {
                                         echo $companyemail1;
                                     }
                                     ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
-                                 <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
+                                 <label style="  margin-top: 6px;  ">Company Phone</label>
                                  <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" tabindex="5" value="<?php
                                     if ($companyphn1) {
                                         echo $companyphn1;
                                     }
-                                    ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                    ?>"   />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                  <?php echo form_error('companyphn'); ?>
                                  <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
                                  <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
@@ -222,7 +266,7 @@
                                     ?>
                                  <span id="certificate-error"> </span>
                                  <?php echo form_error('certificate'); ?>
-                                 <input type="hidden" name="image_hidden_certificate<?php echo $workdata[$x]['work_id']; ?>" value="<?php
+                                 <input type="text" name="image_hidden_certificate<?php echo $workdata[$x]['work_id']; ?>" value="<?php
                                     if ($work_certificate1) {
                                         echo $work_certificate1;
                                     }
@@ -238,23 +282,27 @@
                            <?php
                               }
                               ?>
+                              
+
                            <div class="hs-submit full-width fl"  style=" width: 100%; text-align: center;">
                               <input type="button" tabindex="6" id="btnAdd" value=" + ">
                               <input type="button" tabindex="7" id="btnRemove" value=" - " disabled="disabled">
                            </div>
                            <!--                                     <input type="reset">
                               <input type="submit"  id="previous" name="previous" value="previous">-->
-                           <input style="position: absolute;
-                              bottom: 8px; 
-                              right: -183px;" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                                <fieldset class="hs-submit full-width"> 
+                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                                 </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
                               } else {
                                   ?>
                            <!--clone div start-->              
                            <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+                       
+
                               <label>Experience<span class="red">*</span></label>
-                              <select style="width:46%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil">
+                              <select style="width:45%; float: left; margin-right: 43px;" name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change();">
                                  <option value="" selected option disabled>Year</option>
                                  <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                  <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -296,6 +344,7 @@
                               </select>
                               <?php echo form_error('experience_year'); ?>
                               <?php echo form_error('experience_month'); ?>
+                             
                               <label style="    margin-top: 6px;">Job Title<span class="red">*</span></label>
                               <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                  if ($jobtitle1) {
@@ -303,14 +352,15 @@
                                  }
                                  ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                               <?php echo form_error('jobtitle'); ?>
-                              <label style=" margin-top: 6px;   margin-left: -11px;">Company Name<span class="red">*</span></label>
+                             </span>
+                              <label style=" margin-top: 6px;  ">Company Name<span class="red">*</span></label>
                               <input type="text" name="companyname[]" id="companyname"  class="companyname" placeholder="Enter Company Name" value="<?php
                                  if ($companyname1) {
                                      echo $companyname1;
                                  }
                                  ?>"/>&nbsp;&nbsp;&nbsp; 
                               <?php echo form_error('companyname'); ?>
-                              <label style="   margin-top: 6px; margin-left: -11px;">Company Email</label>
+                              <label style="   margin-top: 6px; ">Company Email</label>
                               <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Company Email" value="<?php
                                  if ($companyemail1) {
                                      echo $companyemail1;
@@ -318,12 +368,12 @@
                                  ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
                               <!--   </fieldset>
                                  <fieldset >  -->
-                              <label style="  margin-top: 6px;  margin-left: -11px;">Company Phone</label>
+                              <label style="  margin-top: 6px; ">Company Phone</label>
                               <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Company Phone" value="<?php
                                  if ($companyphn1) {
                                      echo $companyphn1;
                                  }
-                                 ?>"  onblur="validateForm()" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                 ?>"   />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                               <?php echo form_error('companyphn'); ?>
                               <!--  </fieldset>
                                  <fieldset class="full-width"> -->
@@ -348,12 +398,34 @@
                               <input type="button" id="btnRemove" value=" - " disabled="disabled">
                            </div>
                            <fieldset class="hs-submit full-width"> 
-                              <input style="position: absolute;
-                                 bottom: 8px;
-                                 right: -183px;" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                              <input style="" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
                            <?php echo form_close(); ?> 
+                        
+       
+
                         </div>
+
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+
+            </div>
+            <!-- end of #bs-collapse  -->
+
+        </div>
+
+
+
+    </div>
+    <!-- end of container -->
+                            
+                        </div>
+                        
+                     
+                        
+                        
                         <?php // echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform2','name' => 'jobseeker_regform2','class'=>'clearfix'));    ?>         
                         <!--<input type="submit" id="previous" name="previous" value="previous">-->
                         <?php // echo form_close();    ?>                                 
@@ -371,166 +443,273 @@
    <!-- END CONTAINER -->
 </body>
 </html>
+
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery-ui.js') ?>"></script>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<!-- script for skill textbox automatic end -->
-<script>
-   var data = <?php echo json_encode($demo); ?>;
-   $(function () {
-       // alert('hi');
-       $("#tags").autocomplete({
-           source: function (request, response) {
-               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-               response($.grep(data, function (item) {
-                   return matcher.test(item.label);
-               }));
-           },
-           minLength: 1,
-           select: function (event, ui) {
-               event.preventDefault();
-               $("#tags").val(ui.item.label);
-               $("#selected-tag").val(ui.item.label);
-               // window.location.href = ui.item.value;
-           }
-           ,
-           focus: function (event, ui) {
-               event.preventDefault();
-               $("#tags").val(ui.item.label);
-           }
-       });
-   });
-</script>
-<script>
-   var data1= <?php echo json_encode($city_data); ?>;
-   //alert(data);
-   
-           
-   $(function() {
-       // alert('hi');
-   $( "#searchplace" ).autocomplete({
-        source: function( request, response ) {
-            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-            response( $.grep( data1, function( item ){
-                return matcher.test( item.label );
-            }) );
-      },
-       minLength: 1,
-       select: function(event, ui) {
-           event.preventDefault();
-           $("#searchplace").val(ui.item.label);
-           $("#selected-tag").val(ui.item.label);
-           // window.location.href = ui.item.value;
-       }
-       ,
-       focus: function(event, ui) {
-           event.preventDefault();
-           $("#searchplace").val(ui.item.label);
-       }
-   });
-   });
-     
-</script>
-<!-- for search validation -->
-<script type="text/javascript">
-   function checkvalue() {
-       // alert("hi");
-       var searchkeyword = document.getElementById('tags').value;
-       var searchplace = document.getElementById('searchplace').value;
-       // alert(searchkeyword);
-       // alert(searchplace);
-       if (searchkeyword == "" && searchplace == "") {
-           //alert('Please enter Keyword');
-           return false;
-       }
-   }
-   
-</script>
-<!--  <script>
-   //select2 autocomplete start for skill
-   $('#searchskills').select2({
-   
-       placeholder: 'Find Your Skills',
-       ajax: {
-   
-           url: "<?php echo base_url(); ?>job/keyskill",
-           dataType: 'json',
-           delay: 250,
-           processResults: function (data) {
-   
-               return {
-   
-                   results: data
-   
-   
-               };
-           },
-           cache: true
-       }
-   });
-   //select2 autocomplete End for skill
-   
-   //select2 autocomplete start for Location
-   $('#searchplace').select2({
-   
-       placeholder: 'Find Your Location',
-       maximumSelectionLength: 1,
-       ajax: {
-   
-           url: "<?php echo base_url(); ?>job/location",
-           dataType: 'json',
-           delay: 250,
-           processResults: function (data) {
-   
-               return {
-   
-                   results: data
-   
-   
-               };
-           },
-           cache: true
-       }
-   });
-   //select2 autocomplete End for Location
-   
-   </script> -->
+
+
 <!-- duplicate div end -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <!--  <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script> 
+
+<!-- This Js is used for call popup -->
+ <!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>  -->
+
 <script type="text/javascript">
-   function validateForm(){
-   
-   var z = document.forms["jobseeker_regform1"]["companyphn"].value;
-   
-   if(!/^[0-9]+$/.test(z)){
-   alert("Please only enter numeric characters")
-   }
-   
-   }
+
+ function expyear_change(){
+
+     var num = $('.clonedInput').length;
+    
+     if(num==1)
+     {
+        
+        var experience_year =  document.getElementById('experience_year').value;
+         if(experience_year==='0 year'){
+           $("#experience_month option[value='0 month']").attr('disabled',true);} 
+         else{
+           $("#experience_month option[value='0 month']").attr('disabled',false);}
+     }
+
+     if(num==2)
+     {
+     
+        var experience_year =  document.getElementById('experience_year').value;
+         var experience_year2 =  document.getElementById('experience_year2').value;
+
+        if(experience_year==='0 year'){
+           $("#experience_month option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month option[value='0 month']").attr('disabled',false);}
+
+          
+          if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+     }
+      
+    if(num==3)
+     {
+        var experience_year =  document.getElementById('experience_year').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        if(experience_year==='0 year'){
+           $("#experience_month option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month option[value='0 month']").attr('disabled',false);
+         }
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+     }
+
+   if(num==4)
+     {
+        var experience_year =  document.getElementById('experience_year').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        if(experience_year==='0 year'){
+           $("#experience_month option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month option[value='0 month']").attr('disabled',false);}
+          
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+          
+          if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+          if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);}
+     }
+
+    if(num==5)
+    {
+        var experience_year =  document.getElementById('experience_year').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        var experience_year5 =  document.getElementById('experience_year5').value;
+        if(experience_year==='0 year'){
+           $("#experience_month option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+          $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);} 
+          
+        if(experience_year5==='0 year'){
+           $("#experience_month5 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month5 option[value='0 month']").attr('disabled',false);} 
+     }
+  
+  }
+
+
+function expyear_change_edittime(){
+
+     var num = $('.clonedInput').length;
+
+  
+     if(num==1)
+     {
+        
+        var experience_year =  document.getElementById('experience_year1').value;
+         if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+         else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+     }
+
+     if(num==2)
+     {
+     
+        var experience_year =  document.getElementById('experience_year1').value;
+         var experience_year2 =  document.getElementById('experience_year2').value;
+
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+
+          
+          if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+     }
+      
+    if(num==3)
+     {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);
+         }
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+     }
+
+   if(num==4)
+     {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+          
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+          
+          if(experience_year3==='0 year'){
+           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+          if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);} 
+          else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);}
+     }
+
+    if(num==5)
+    {
+        var experience_year =  document.getElementById('experience_year1').value;
+        var experience_year2 =  document.getElementById('experience_year2').value;
+        var experience_year3 =  document.getElementById('experience_year3').value;
+        var experience_year4 =  document.getElementById('experience_year4').value;
+        var experience_year5 =  document.getElementById('experience_year5').value;
+        if(experience_year==='0 year'){
+           $("#experience_month1 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month1 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year2==='0 year'){
+           $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year3==='0 year'){
+          $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
+        else{
+           $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+
+        if(experience_year4==='0 year'){
+           $("#experience_month4 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);} 
+          
+        if(experience_year5==='0 year'){
+           $("#experience_month5 option[value='0 month']").attr('disabled',true);}
+        else{
+           $("#experience_month5 option[value='0 month']").attr('disabled',false);} 
+     }
+  
+  }
+
 </script>
+
+</script>
+
+
+
+
 <script type="text/javascript">
-   //validation for edit email formate form
-   
-   
-   //                     jQuery.validator.addMethod("noSpace", function(value, element) { 
-   //   return value == '' || value.trim().length != 0;  
-   // }, "No space please and don't leave it empty");
-   
-   
-   
+ 
    $(document).ready(function () {
    
-   $.validator.addMethod("regx", function(value, element, regexpr) {          
-   return regexpr.test(value);
-   }, "Only space, only number and only special characters are not allow");
-   
-   
+  
    $.validator.addMethod("regx1", function(value, element, regexpr) {          
    //return value == '' || value.trim().length != 0; 
    if(!value) 
@@ -544,8 +723,8 @@
    // return regexpr.test(value);
    }, "Only space, only number and only special characters are not allow");
    
-   
-   
+  
+
    
        $("#jobseeker_regform1").validate({
    
@@ -564,15 +743,7 @@
                    regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                    //noSpace: true
                },
-               // 'experience_year[]': {
-   
-               //     required: true,
-               // },
-               // 'experience_month[]': {
-   
-               //     required: true,
-   
-               // },  
+              
                 'experience_year[]': {
        
                    require_from_group: [1, ".keyskil"] 
@@ -582,12 +753,19 @@
                 'experience_month[]': {
        
                    require_from_group: [1, ".keyskil"]
+                
                     // required:true 
                    },
    
                'companyemail[]': {
                    email: true,
                },
+                'companyphn[]': {
+
+                            number: true,
+                            minlength: 8,
+                           maxlength:15                   
+                        },
                // 'companyphn[]': {
                     
                //     regx: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
@@ -668,7 +846,9 @@
    $('#btnRemove').attr('disabled', 'disabled');
    $('#btnAdd').click(function () {
        var num = $('.clonedInput').length;
+
        var newNum = new Number(num + 1);
+      
        if (newNum > 5)
        {
            $('#btnAdd').attr('disabled', 'disabled');
@@ -676,6 +856,7 @@
            return false;
        }
        var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+     
        newElem.children('.exp_data').attr('id', 'exp_data' + newNum).attr('name', 'exp_data[]').attr('value', 'new');
        newElem.children('.experience_year').attr('id', 'experience_year' + newNum).attr('name', 'experience_year[]').val();
        newElem.children('.experience_month').attr('id', 'experience_month' + newNum).attr('name', 'experience_month[]').val();
@@ -740,16 +921,31 @@
    }
 </style>
 <script type="text/javascript">
+//This function work after solve issue of bootstrap start
+   function home(work_id) {
+  
+                              
+      $('.biderror .mes').html("<div class='pop_content'> Do you want to Delete this Work Experience?<div class='model_ok_cancel'><a class='okbtn' id=" + work_id + " onClick='delete_job_work("+ work_id +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+          $('#bidmodal').modal('show');
+
+ }
+//This function work after solve issue of bootstrap End
+
    function delete_job_work(work_id) {
+    
+
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "job/jon_work_delete" ?>',
            data: 'work_id=' + work_id,
           // dataType: "html",
            success: function (data) {
-               if(data == 'ok'){
+               if(data == 'ok')
+               {
                    $('.job_work_edit_' + work_id).remove();
+                 
                }
+                window.location.reload();
            }
        });
    }
@@ -767,11 +963,43 @@
    $('#preloader').fadeOut('slow',function(){$(this).remove();});
    });
    });
+
+
+
+//script for click on - change to + Start
+    $(document).ready(function () {
+          
+      $('#toggle').on('click', function(){
+    
+            if($('#panel-heading').hasClass('active')){
+
+                      $('#panel-heading').removeClass('active');
+
+            }else{
+                      //$('#one').addClass('in');
+                      $('#panel-heading').addClass('active');
+
+                       $('#panel-heading1').removeClass('active');
+            }
+        });
+
+      $('#toggle1').on('click', function(){
+    
+            if($('#panel-heading1').hasClass('active')){
+                      $('#panel-heading1').removeClass('active');
+            }else{
+                      $('#panel-heading1').addClass('active');
+                       $('#panel-heading').removeClass('active');
+            }
+        }); 
+
+    });
+  //script for click on - change to + End
+
 </script>
 <style type="text/css">
-   #experience_month-error{margin-top: 39px;}
-   #experience_year-error{margin-top: 40px;}
-   #jobtitle-error{margin-right: 25px; margin-top: 42px;}
-   #companyname-error{margin-right: 25px; margin-top: 42px;}
+   #experience_month-error{margin-top: 0px;margin-right: 35px;}
+   #experience_year-error{margin-top: 39px;margin-right: 35px;}
+   #jobtitle-error{margin-right: 35px; margin-top: 0px;}
+   #companyname-error{margin-right: 35px; margin-top: 0px;}
 </style>
-

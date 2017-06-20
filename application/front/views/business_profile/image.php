@@ -113,7 +113,7 @@
                                                                     ?>
                                                                     <div style="float: left;">
                                                                         <div class="hs-submit full-width fl">
-                                                                            <input id="bui_img_delete" type="button" value="" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);" style="display: none;"> 
+                      <input id="bui_img_delete" type="button" value="" onclick="delete_job_exp(<?php echo $image['image_id']; ?>);" style="display: none;"> 
                                                                            
                                                                             <div class="bui_close">
                                                                             <label for="bui_img_delete"><i class="fa fa-times" aria-hidden="true"></i></label>
@@ -126,9 +126,9 @@
                                         <?php }} ?>
                                            
                                              
+                                 <img id="preview" src="#" alt="your image"/>
                                    
                                 </fieldset>
-                                 <img id="preview" src="#" alt="your image"/>
                                <fieldset class="hs-submit full-width">
                                   
 
@@ -300,8 +300,10 @@ $('#searchplace').select2({
                                 data: 'grade_id=' + grade_id,
                                 // dataType: "html",
                                 success: function (data) {
-                                  //alert(data);
-                                    if (data == 'ok') {
+                                  
+                                    if (data) { 
+
+                                     // alert('job_work_edit_' + grade_id);
                                         $('.job_work_edit_' + grade_id).remove();
                                     }
                                 }
@@ -319,7 +321,7 @@ $('#searchplace').select2({
             
             reader.onload = function (e) {
             
-            document.getElementById('preview').style.display = 'block';
+            document.getElementById('preview').style.display = 'none';
                 $('#preview').attr('src', e.target.result);
             }
              reader.readAsDataURL(input.files[0]);

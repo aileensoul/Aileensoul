@@ -426,6 +426,7 @@ class Notification extends MY_Controller {
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $contition_array = array('art_post_id' => $id, 'status' => '1');
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       //echo '<pre>'; print_r($this->data['art_data']); die();
         $this->load->view('notification/art_post', $this->data);
     }
 
@@ -1350,7 +1351,8 @@ class Notification extends MY_Controller {
                 if ($total['not_img'] == 3) {
               $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
                     $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-pic" >';
+                    $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '">
+                    <div class="notification-database"> <div class="notification-pic" >';
                     
 
                     if($total['user_image']){
@@ -1365,7 +1367,7 @@ class Notification extends MY_Controller {
                     $notification .= '<h6><b>' . ucwords($companyname) . "</b> Likes Your Post's Comment In Business Profile.</h6>";
                     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div>';
+                    $notification .= '</div> </div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1378,7 +1380,7 @@ class Notification extends MY_Controller {
                 if ($total['not_img'] == 5) {
      $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;                      
                     $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-pic" >';
+                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
                     
 
                      if($total['user_image']){
@@ -1393,7 +1395,7 @@ class Notification extends MY_Controller {
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> Likes Your Photo In Business Profile. </h6>';
                     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div>';
+                    $notification .= '</div></div';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1406,7 +1408,7 @@ class Notification extends MY_Controller {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic" >';
+                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
                    
 
                      if($total['user_image']){
@@ -1421,7 +1423,7 @@ class Notification extends MY_Controller {
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> Commented On Your Photo In Business Profile.</h6>';
                     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div>';
+                    $notification .= '</div></div';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1435,7 +1437,7 @@ class Notification extends MY_Controller {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-pic" >';
+                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
                     
 
                      if($total['user_image']){
@@ -1450,7 +1452,7 @@ class Notification extends MY_Controller {
                     $notification .= '<h6><b>' . ucwords($companyname) . "</b> Likes Your Photo's Comment In Business Profile.</h6>";
                     $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div>';
+                    $notification .= '</div> </div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1763,10 +1765,10 @@ class Notification extends MY_Controller {
 
         // khyati 22-5 chnages end
 
-
+           $notmsg = '<div id="notificationTitle">Messages</div>';
         foreach ($user_message as $msg) {
 
-            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
+            $notmsg .= '<div id="notificationsmsgBody" class="notificationsmsg"><a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
             $notmsg .= '<li class="active2"><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
 
@@ -1789,8 +1791,13 @@ class Notification extends MY_Controller {
             $notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             $notmsg .= '</div></div></li></a>';
         }
-        $notmsg .= '</ul></div>';
-
+        $notmsg .= '</ul></div></div>';
+        if($user_message){
+        $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
+        }else{
+        $notmsg .= '<div id="InboxFooter">Not Available.</div>';
+            
+        }
         echo $notmsg;
     }
 

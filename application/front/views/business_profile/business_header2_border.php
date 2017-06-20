@@ -314,7 +314,25 @@
                 <div class="row">
 
                     <?php echo $business_search; ?>
-                    <div class="col-md-5 col-sm-5">
+                    <div class="col-sm-5 col-md-6 col-xs-6 fw-479 md-pl0">
+                        <div class="search-mob-block">
+                                 <div class="">
+                                     <a href="#search">
+                                     <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                     </a>
+                                 </div>
+                                 <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form>
+                                        <div class="new-search-input">
+                                            <input type="search" value="" placeholder="Find Your Job" />
+                                            <input type="search" value="" placeholder="Find Your Location" />
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                             </div>
+                        
                         <div class="">
                             <ul class="">
                                 <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_post'); ?>">Home</a>
@@ -322,7 +340,7 @@
                                 <!-- Friend Request Start-->
 
                                 <li id="add_contact">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();">Contact Request &nbsp; <i class="fa fa-user" aria-hidden="true"> </i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();"><span class="hidden-xs">Contact Request &nbsp;</span> <i class="fa fa-user" aria-hidden="true"> </i>
 
                                         <span id="addcontact_count"></span>
 

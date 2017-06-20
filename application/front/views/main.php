@@ -264,9 +264,9 @@
 
     <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
            <input type="submit" value="Create an Account"  tabindex="12" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
-          <div class="or"> <span>or</span></div>
+          <!--<div class="or"> <span>or</span></div>-->
            </form>
-          <button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
+          <!--<button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>-->
     <!--      
           <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
     font-size: 17px;
@@ -819,12 +819,15 @@ window.onclick = function(event) {
 
 
 <style type="text/css">
-  #fname-error{margin-top: 33px;}
-  #lname-error{margin-top:33px; }
-  #email-error{margin-top:33px; }
-  #password-error{margin-top: 33px;}
-  #year-error{margin-top: -1px;}
-  #date-error{margin-top: -1px;} 
-  #month-error{margin-top: -1px;} 
-  #gen-error{margin-top: -1px;} 
+  #fname-error{margin-top: 33px;margin-right: -3px;}
+  #lname-error{margin-top:33px;margin-right: 8px; }
+  #email-error{margin-top:33px;margin-right: 8px; }
+  #password-error{margin-top: 33px !important;margin-right: 8px;}
+  #year-error{margin-top: -1px; margin-right: 48px;}
+  #date-error{margin-top: -1px;margin-right: 48px;} 
+  #month-error{margin-top: -1px;margin-right: 48px;} 
+  #gen-error{margin-top: -1px;margin-right: -5px;} 
+  #user_name-error{ margin-top: 0px;margin-right: 7px;}
+  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px;}
+
 </style>

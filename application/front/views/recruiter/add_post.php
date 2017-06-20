@@ -886,7 +886,7 @@ if(mm<10) {
  var country = document.getElementById('country').value;
  var state = document.getElementById('state').value;
  var city = document.getElementById('city').value;
- var datepicker = document.getElementById('datepicker').value;
+ var datepicker = document.getElementById('example2').value;
  var minsal = document.getElementById('minsal').value;
  var maxsal = document.getElementById('maxsal').value;
  var currency = document.getElementById('currency').value;
@@ -1335,10 +1335,18 @@ if (clicked_id == 4) {
 
 }
 #skills-error{margin-top: 40px !important;}
+<<<<<<< HEAD
 #minmonth-error{margin-top: 42px !important;margin-right: 9px;}
 #minyear-error{margin-top: 42px !important;margin-right: 9px;}
 #maxmonth-error{margin-top: 42px !important;margin-right: 9px;}
 #maxyear-error{margin-top: 42px !important;margin-right: 9px;}
+=======
+#minmonth-error{margin-top: 39px !important;}
+#minyear-error{margin-top: 39px !important;}
+#maxmonth-error{margin-top: 39px !important;}
+#maxyear-error{margin-top: 39px !important;}
+#example2-error{margin-top: 40px !important}
+>>>>>>> 550d9538b16bf425b4df35e220bcb3dd7f2740b5
 
 </style>
 

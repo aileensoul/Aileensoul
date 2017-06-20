@@ -199,9 +199,9 @@
 </div>
 
      <input type="submit" tabindex="9" value="Create an Account" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
-          <div class="or"> <span>or</span></div>
+          <!--<div class="or"> <span>or</span></div>-->
            </form>
-          <button class="button3 button-block3 facebook_ac" tabindex="10">Sign Up With Facebook</button>
+          <!--<button class="button3 button-block3 facebook_ac" tabindex="10">Sign Up With Facebook</button>-->
             </div>
           </div> 
 </div>           
@@ -648,10 +648,10 @@ window.onload = init;
 
 <!-- save browser password email reset end -->
 <style type="text/css">
-  #fname-error{margin-top:34px; }
-  #lname-error{margin-top: 34px;}
-  #email-error{margin-top: :34px !important;}
-  #password-error{margin-top: 34px !important;}
-  #gen-error{top:55px;}
+  #fname-error{margin-top:34px;border:none !important; margin-right: -4}
+  #lname-error{margin-top: 34px;border:none !important;    margin-right: 8px;}
+  #email-error{border:none !important;margin-top: 34px;    margin-right: 8px;}
+  #password-error{margin-top: 34px !important;border:none !important;    margin-right: 8px;}
+  #gen-error{top: 55px;width: 80px;border: none !important; margin-right: 6px;}
 
 </style>

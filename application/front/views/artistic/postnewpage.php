@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="profile-box profile-box-left col-md-4">
+                    <div class="profile-box profile-box-custom col-md-4">
 
                                   <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
@@ -218,14 +218,14 @@
 
 
 
-                     <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                     <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-art">
 
 
     <div class="col-md-12 col-sm-12 post-design-box">
 
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
-                                    <div class="post-design-pro-img col-md-2"> 
+                                    <div class="post-design-pro-img"> 
                                         <?php
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
 
@@ -269,7 +269,10 @@
                                                         <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
                                                         <p class="posted_with" > Posted With </p><a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
                                                         <span role="presentation" aria-hidden="true" style="color: #91949d; font-size: 14px;"> · </span>
-                                                        <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                        <span class="ctre_date"> 
+         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+
+                                                        </span>
                                                     </div>
 
                                                     <!-- other user post time name end-->
@@ -281,7 +284,9 @@
                                                     </a>
                                                      <span role="presentation" aria-hidden="true"> · </span>
                                                     <div class="datespan">
-                                                        <span class="ctre_date">  <?php echo date('d-M-Y', strtotime($art_data[0]['created_date'])); ?></span></div>
+                                                        <span class="ctre_date">
+  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($art_data[0]['created_date']))); ?>
+ </span></div>
 
                                                 <?php } ?>                 </li>
                                            
@@ -348,7 +353,7 @@
                                         <span> 
                                             
                                              <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-                                                            <a><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
+                                                            <a class="ft-15 t_artd"><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -472,7 +477,7 @@
                                                                                 ?>
                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                             <?php } ?>
 
 
@@ -549,7 +554,7 @@
                                                         $commnetlike = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                         if (count($commnetlike) > 0) {
                                                             ?>
-                                                            <div class="likeduserlistimg<?php echo $artdata['image_id']; ?>">
+                                                            <div class="likeduserlistimg<?php echo $artdata['image_id']; ?> likeduserlist1">
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -560,7 +565,7 @@
                                                                     ?>
                                                                 <?php } ?>
                                                                 <!-- pop up box end-->
-                                                                <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
+                                                                <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                     <?php
                                                                     $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -605,7 +610,7 @@
                                                                 ?>
                                                             <?php } ?>
                                                             <!-- pop up box end-->
-                                                            <a href="javascript:void(0);"  onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
+                                                            <a href="javascript:void(0);" class="likeuserlist1" onclick="likeuserlistimg(<?php echo $artdata['image_id']; ?>);">
                                                                 <?php
                                                                 $contition_array = array('post_image_id' => $artdata['image_id'], 'is_unlike' => '0');
                                                                 $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -699,7 +704,7 @@
                                                                                             $artcommentlike1 = $this->common->select_data_by_condition('art_comment_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                                             if (count($artcommentlike1) == 0) {
                                                                                                 ?>
-                                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
 
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
@@ -749,7 +754,7 @@
                                                                                         ?> 
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
-                                                                                            <input type="hidden" name="post_deleteimg"  id="post_deleteimg" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                                                                            <input type="hidden" name="post_deleteimg"  id="post_deleteimg<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
                                                                                             <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_deleteimg(this.id)"> Delete<span class="<?php echo 'insertcommentimg' . $rowdata['post_image_comment_id']; ?>">
                                                                                                 </span>
                                                                                             </a>
@@ -928,7 +933,7 @@
                                             ?>
                                         <?php } ?>
                                         <!-- pop up box end-->
-                                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                                        <a href="javascript:void(0);" class="likeuserlist1"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                                             <?php
                                             $contition_array = array('art_post_id' => $art_data[0]['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -979,7 +984,7 @@
                                         ?>
                                     <?php } ?>
                                     <!-- pop up box end-->
-                                    <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
+                                    <a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlist(<?php echo $art_data[0]['art_post_id']; ?>);">
                                         <?php
                                         $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1091,7 +1096,7 @@
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>
 
-                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                        <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else {
                                                                         ?>
                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
@@ -3067,7 +3072,7 @@
 
                         function comment_deletedimg(clicked_id)
                         {
-                            var post_delete = document.getElementById("post_deleteimg");
+                            var post_delete = document.getElementById("post_deleteimg" + clicked_id);
                             //  alert(post_delete.value);
                             $.ajax({
                                 type: 'POST',
@@ -3428,43 +3433,6 @@
 
                     <!-- 9-5 khyati image script  emd --> 
 
-
-                    <style type="text/css">
-                        .likeduser{
-                            width: 100%;
-                            background-color: #00002D;
-                        }
-                        .likeduser-title{
-                            color: #fff;
-                            margin-bottom: 5px;
-                            padding: 7px;
-                        }
-                        .likeuser_list{
-                            background-color: #ccc;
-                            float: left;
-                            margin: 0px 6px 5px 9px;
-                            padding: 5px;
-                            width: 47%;
-                            font-size: 14px;
-                        }
-                        .likeduserlist, .likeduserlist1 {
-                            float: left;
-                            /*        margin-left: 15px;
-                                    margin-right: 15px;*/
-                            width: 96%;
-                            background-color: #fff !important;
-                        }
-                        div[class^="likeduserlist"]{
-                            width: 100% !important;
-                            background-color: #fff !important;
-                        }
-                        .like_one_other{
-                            /* margin-left: 15px;
-                            */    /*  margin-right: 15px;*/
-
-                        }
-
-                    </style>
                     <!-- This  script use for close dropdown in every post -->
                     <script type="text/javascript">
                         $('body').on("click", "*", function (e) {

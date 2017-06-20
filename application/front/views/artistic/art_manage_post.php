@@ -17,6 +17,19 @@
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
+
+
+<script type="text/javascript">
+   //For Scroll page at perticular position js Start
+   $(document).ready(function(){
+    
+   //  $(document).load().scrollTop(1000);
+        
+       $('html,body').animate({scrollTop:330}, 100);
+   
+   });
+   //For Scroll page at perticular position js End
+</script>
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
 
 <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
@@ -36,7 +49,7 @@
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
 
-
+    <section class="custom-row">
     <div class="container" id="paddingtop_fixed_art">
         <!--khyati 3-6-->
         <!--     <div class="container" id="paddingtop_fixed paddingtop_fixed1">
@@ -101,10 +114,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>   
 
-<div class="container"> 
+
+
+<div class="container tablate-container"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -247,7 +260,12 @@
             <?php } ?>
 
         </div>  
-        <!-- menubar -->      <div class="job-menu-profile">
+        <!-- menubar -->      
+        
+    </div>
+</div>
+        <div class="middle-part container">
+        <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
 
@@ -291,10 +309,9 @@
 
 
 
-</div>
-</div>
-</div>
-</div>
+
+
+
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
@@ -737,7 +754,7 @@
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
-                        <div class="popup-img col-md-1"> 
+                        <div class="popup-img"> 
                              <?php
                                                     $userimage = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
                                                     $userimageposted = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
@@ -753,14 +770,14 @@
                                                        <?php   }?>
                            
                         </div>
-                        <div id="myBtn3"  class="editor-content col-md-10 popup-text">
+                        <div id="myBtn3"  class="editor-content popup-text">
                             <span> Post Your Art....</span> 
-
-                        </div>
-                        <div class="col-md-1 padding-left padding_les_left camer_h">
+<div class="padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera" >
                                 </i> 
                             </div>
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -775,22 +792,21 @@
 
                     <div class="post-editor col-md-12" id="close">
 
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval();")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event);")); ?>
 
                         <div class="main-text-area col-md-12" >
                             <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                             </div>
                             <div id="myBtn3"  class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyup=check_length(this.form); 
-                                          name=my_text rows=4 cols=30 class="post_product_name"></textarea>
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyup=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                 <div style="position: absolute; top: 21px; right: 19px; border: none;">                        
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
 
                             </div>
 
-                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                            <div class="col-md-1 padding-left padding_les_left camera_in camer_h">
                                 <i class=" fa fa-camera" >
                                 </i> 
                             </div>
@@ -798,7 +814,7 @@
                         </div>
                         <div class="row"></div>
                         <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                            <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                    <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
 
                             <output id="list"></output>
                         </div>
@@ -838,8 +854,9 @@
 
                     <?php
 //echo "<pre>"; print_r($artsdata); die();
-                    if (count($artsdata) > 0) {
+                    if (count($artsdata) > 0) { 
                         foreach ($artsdata as $row) {
+
                             ?>
 
             <div id="<?php echo "removepost" . $row['art_post_id']; ?>">
@@ -848,7 +865,7 @@
 
 
                          <div class="post-design-top col-md-12" >  
-                                                <div class="post-design-pro-img col-md-2"> 
+                                                <div class="post-design-pro-img"> 
 
                                                     <?php
                                                     $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
@@ -903,7 +920,9 @@
 
                                                                     <a  class="post_dot padding_less_left" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span class="posted_with" > Posted     With 
                                                                     </span><a class="post_dot1 padding_less_left" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
-                                                                  <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span>
+                                                                  <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> 
+                                                                        <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+                                                                    </span>
                                                                 </div>
                                                                 </div>
                                                                 <!-- other user post time name end-->
@@ -915,7 +934,9 @@
 
                                                                 </a><span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">
-                                                                    <span style="font-weight: 400; font-size: 13px; color: #91949d;"> <?php echo date('d-M-Y', strtotime($row['created_date'])); ?></span></div>
+                     <span style="font-weight: 400; font-size: 13px; color: #91949d;">
+         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>                               
+                 </span></div>
                                                                     </div>
                                                             <?php } ?>  
 
@@ -926,17 +947,19 @@
                                                                     
                                                                     }else{
                                                                         echo "Current Work.";
+
                                                                        }?> </a>
                                                                 
                                                             </div></li>
 
                                                     </ul> 
-                                                </div>  
+                                                </div>
+
                                                 <div class="dropdown2">
                                                     <a onClick="myFunction1(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
 
-                                                        <?php
+                                                        <?php 
                                                         if ($row['posted_user_id'] != 0) {
 
                                                             if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
@@ -978,7 +1001,7 @@
                                                 <div class="post-design-desc ">
                                                     <span> 
                                                         <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <span class="ft-15"><?php echo $this->common->make_links($row['art_post']); ?></span>
+                                                            <span class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></span>
                                                         </div>
 
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -1040,9 +1063,9 @@
               <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                             <!-- one pdf start -->
-                                                            <div id="basic-responsive-image" >
+                                                            <div  >
                                                                 <a href="<?php echo base_url('artistic/creat_pdf/' . $artmultiimage[0]['image_id']) ?>"><div class="pdf_img">
-                                                                        <img src="<?php echo base_url('images/PDF.jpg') ?>" >
+                                                                        <img style="height: 100%; width: 100%;" src="<?php echo base_url('images/PDF.jpg') ?>" >
                                                                     </div></a>
                                                             </div>
                                                             <!-- one pdf end -->
@@ -1278,7 +1301,7 @@
                                            // if ($row['art_likes_count'] > 0) {
                                                 ?>
                                                 <!--<div class="likeduserlist<?php echo $row['art_post_id'] ?>">-->
-                                            <div class="<?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:block">
+                                            <div class="likeduserlist1 <?php echo "likeusername" . $row['art_post_id']; ?>" id="<?php echo "likeusername" . $row['art_post_id']; ?>" style="display:block">
                                                     <?php
                                                     $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                                                     $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1331,9 +1354,9 @@
 
 
                                                                 <?php
-                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
-                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        if ($artdatacondition) {
+//                                        $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+//                                        $artdatacondition = $this->data['artdata'] = $this->common->select_data_by_condition('artistic_post_comment', $contition_array, $data = '*', $sortby = 'artistic_post_comment_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                        if ($artdatacondition) {
                                             ?>
                                             <div class="art-all-comment col-md-12">
                                                 <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
@@ -1403,7 +1426,7 @@
 
                                      if (!in_array($userid, $likeuserarray)) {
                                          ?>
-                                     <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                     <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                               <?php } else {
                                   ?>
                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
@@ -1475,17 +1498,17 @@
                                                 <!-- all comments code end -->
 
                                             </div>
-        <?php } else { ?>
+        <?php //} else { ?>
 
-            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
+<!--            <div id="<?php echo "fourcomment" . $row['art_post_id']; ?>" style="display:none">
                                             </div>
 
                                             <div  id="<?php echo "threecomment" . $row['art_post_id']; ?>" style="display:block">
 
                                                 <div class="<?php echo 'insertcomment' . $row['art_post_id']; ?>">
                                                 </div>
-                                            </div>
-        <?php } ?>
+                                            </div>-->
+        <?php //} ?>
 
                                             <div class="post-design-commnet-box col-md-12">
                                             <div class="post-design-proo-img">
@@ -1534,8 +1557,11 @@
 
              </div>
             </div>
-                    
-        </section>
+            </div>    
+        </div>
+    </div>
+</div>
+            </section>
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <!-- footer start -->
@@ -1594,8 +1620,40 @@
             </div>
         </div>
         <!-- Model Popup Close -->
+
+
+        <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
         </body>
         </html>
+
+
+
+ <script type="text/javascript">
+   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function () { 
+                    $('#post').on('click', function () {
+
+                        $('.modal-post').show();
+                       //  location.reload(false);
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+   
+</script>
+<!-- insert validation end -->
+
 
             <script>
             $(document).ready(function () {
@@ -3755,131 +3813,199 @@ if (size > 4194304)
         <!-- insert post validtation start -->
 
 
-        <script type="text/javascript">
+<script type="text/javascript">
 
-            function imgval() {
+function imgval(event) { 
+      
+      var fileInput = document.getElementById("file-1").files;
+      var product_name = document.getElementById("test-upload-product").value;
+      var product_description = document.getElementById("test-upload-des").value;
+      var product_fileInput = document.getElementById("file-1").value;
+   
+        if (product_fileInput == '' && product_name == '' && product_description == '')
+         {
+   
+           $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+            $('#post').modal('show');
+           // setInterval('window.location.reload()', 10000);
+           // window.location='';
+   
+            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+           event.preventDefault();
+           return false;
+   
+       } else {
 
-                var fileInput = document.getElementById("file-1").files;
-                var product_name1 = document.getElementById("test-upload-product").value;
-                var product_description1 = document.getElementById("test-upload-des").value;
-                var product_fileInput1 = document.getElementById("file-1").value;
-
-
-                if (product_fileInput1 == '' && product_name1 == '' && product_description1 == '')
-                {
-
-                    $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-                    $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
-                    // window.location='';
-                    event.preventDefault();
-                    return false;
-
-                } else {
-
-                    for (var i = 0; i < fileInput.length; i++)
-                    {
-                        var vname = fileInput[i].name;
-                        var vfirstname = fileInput[0].name;
-                        var ext = vfirstname.split('.').pop();
-                        var ext1 = vname.split('.').pop();
-                        var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
-                        var allowesvideo = ['mp4', 'webm'];
-                        var allowesaudio = ['mp3'];
-                        var allowespdf = ['pdf'];
-
-                        var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-                        var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
-                        var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
-                        var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
-
-                        if (foundPresent == true)
-                        {
-                            var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
-
-                            if (foundPresent1 == true && fileInput.length <= 10) {
-                            } else {
-
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                // window.location='';
-                                event.preventDefault();
-                                return false;
-                            }
-
-                        } else if (foundPresentvideo == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentaudio == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentpdf == true)
-                        {
-
-                            var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
-
-                            if (foundPresent1 == true && fileInput.length == 1) {
+        for (var i = 0; i < fileInput.length; i++)
+           {
+               var vname = fileInput[i].name;
+               var vfirstname = fileInput[0].name;
+               var ext = vfirstname.split('.').pop();
+               var ext1 = vname.split('.').pop();
+               var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+               var allowesvideo = ['mp4', 'webm'];
+               var allowesaudio = ['mp3'];
+               var allowespdf = ['pdf'];
+   
+               var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+               var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
+               var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
+               var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
 
 
-                                if (product_name1 == '') {
-                                    $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
-                                    $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
-                                    event.preventDefault();
-                                    return false;
-                                }
-                            } else {
-                                $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-                                $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
-                                event.preventDefault();
-                                return false;
-                            }
-                        } else if (foundPresentvideo == false) {
+               if (foundPresent == true)
+               {
+                   var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length <= 10) {
+                   } else {
+   
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+                       // window.location='';
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+   
+               }
 
-                            $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                            $('#bidmodal').modal('show');
-                            setInterval('window.location.reload()', 10000);
-                            event.preventDefault();
-                            return false;
+               else if (foundPresentvideo == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowesvideo) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               }
 
-                        }
-                    }
-                }
-            }
+               else if (foundPresentaudio == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               }
+                else if (foundPresentpdf == true)
+               {
+   
+                   var foundPresent1 = $.inArray(ext1, allowespdf) > -1;
+   
+                   if (foundPresent1 == true && fileInput.length == 1) {
+   
+                       if (product_name == '') {
+                           $('#post .mes').html("<div class='pop_content'>You have to add pdf title.");
+                           $('#post').modal('show');
+                           setInterval('window.location.reload()', 10000);
+                            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                           event.preventDefault();
+                           return false;
+                       }
+                   } else {
+                       $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                       $('#post').modal('show');
+                       setInterval('window.location.reload()', 10000);
+   
+                        $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                       event.preventDefault();
+                       return false;
+                   }
+               } 
 
-        </script>
+               else if (foundPresentvideo == false) {
+   
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                   $('#bidmodal').modal('show');
+                   setInterval('window.location.reload()', 10000);
+   
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                   event.preventDefault();
+                   return false;
+   
+               }
+           }
 
-        <script type="text/javascript">
+       } 
+       
+   }
+</script>
 
-            // $(document).ready(function () {
-            //     $('.modal-close').on('click', function () {
-            //         $('.modal-post').hide();
-            //     });
-            // });
-
-        </script>
+       
 
 
        <style type="text/css">
@@ -4001,42 +4127,7 @@ $(document).ready(function(){
             //-->
         </script>
         <!-- script end -->
-        <style type="text/css">
-            .likeduser{
-                width: 100%;
-                background-color: #00002D;
-            }
-            .likeduser-title{
-                color: #fff;
-                margin-bottom: 5px;
-                padding: 7px;
-            }
-            .likeuser_list{
-                background-color: #ccc;
-                float: left;
-                margin: 0px 6px 5px 9px;
-                padding: 5px;
-                width: 47%;
-                font-size: 14px;
-            }
-            .likeduserlist, .likeduserlist1 {
-                float: left;
-                /*        margin-left: 15px;
-                        margin-right: 15px;*/
-                width: 96%;
-                background-color: #fff !important;
-            }
-            div[class^="likeduserlist"]{
-                width: 100% !important;
-                background-color: #fff !important;
-            }
-            .like_one_other{/*
-                margin-left: 15px;
-                */        /*  margin-right: 15px;*/
-
-            }
-
-        </style>
+     
         <!-- This  script use for close dropdown in every post -->
         <!--<script type="text/javascript">
             $('body').on("click", "*", function (e) {
@@ -4122,10 +4213,25 @@ video js preview end -->
             });
 
             $(document).on('keydown', function (e) {
+
                 if (e.keyCode === 27) {
-                    document.getElementById('myModal3').style.display = "none";
-                }
+           if($('.modal-post').show()){
+   
+             $( document ).on( 'keydown', function ( e ) {
+             if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+          $('.modal-post').hide();
+           }
+          });  
+        
+   
+           }
+            document.getElementById('myModal3').style.display = "none";
+            }
+                
             });
+
+
         </script>
 
         <script type="text/javascript">
@@ -4215,4 +4321,5 @@ jQuery(document).mouseup(function (e) {
 // pop up open & close aarati code end
 
  </script>
- 
+
+

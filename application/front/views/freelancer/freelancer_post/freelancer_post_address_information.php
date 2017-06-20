@@ -47,29 +47,29 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li>
 
-                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active" <?php } ?>><a href="#">Address Information</a></li>
+                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active init" <?php } ?>><a href="#">Address Information</a></li>
 
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '2') {
+                                <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '2') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_professional_information'); ?>">Professional Information</a></li>
 
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '3') {
+                                <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '3') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Rate</a></li>
 
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '4') {
+                                <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '4') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
 
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '5') {
+                                <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '5') {
     echo "khyati";
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>		    
-                                <li class="<?php if ($freepostdata[0]['free_post_step'] < '6') {
+                                <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '6') {
                                 echo "khyati";
-                            } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_portfolio'); ?>">Portfolio</a></li>
+                            } ?>"><a href="custom-none <?php echo base_url('freelancer/freelancer_post_portfolio'); ?>">Portfolio</a></li>
                             </ul>
                         </div>
                     </div>
@@ -147,30 +147,41 @@ $pincode = form_error('pincode');
                                     }
                                     ?>
                                 </select>
-<?php echo form_error('state'); ?> 
+                    <?php echo form_error('state'); ?> 
                             </fieldset>
 
                             <fieldset>
                                 <label>City:</label>
                                 <select name="city" tabindex="3" id="city">
                                     <?php
+                                    if ($city1) {
                                     foreach ($cities as $cnt) {
-                                        if ($city1) {
+                                        
                                             ?>
 
                                             <option value="<?php echo $cnt['city_id']; ?>" <?php if ($cnt['city_id'] == $city1) echo 'selected'; ?>><?php echo $cnt['city_name']; ?></option>
 
-        <?php
-    }
-
-    else {
-        ?>
-                                            <option value="">Select state first</option>
-
+                                     <?php
+                                     } }
+                                 else if($state1)
+                                             {
+                                            ?>
+                                            <option value="">Select City</option>
                                             <?php
+                                            foreach ($cities as $cnt) {
+                                                ?>
+
+                                                <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
+
+                                                <?php
+                                            }
                                         }
-                                    }
-                                    ?>
+                                     else {
+                                         ?>
+                                            <option value="">Select state first</option>
+                                            <?php
+                                          }
+                                         ?>
                                 </select>
 
                             </fieldset>
@@ -425,3 +436,16 @@ $(window).load(function(){
 });
 });
 </script>
+  <script type="text/javascript">
+            function checkvalue() {
+            
+            var searchkeyword = $.trim(document.getElementById('tags').value);
+            var searchplace = $.trim(document.getElementById('searchplace').value);
+            // alert(searchke                                    yword);
+            // alert(search                                    place);
+            if (searchkeyword == "" && searchplace = = "") {
+            //alert('Please enter Key                                        word');
+            return  false;
+            }
+            }
+        </script> 

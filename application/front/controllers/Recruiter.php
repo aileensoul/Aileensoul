@@ -615,14 +615,27 @@ class Recruiter extends MY_Controller {
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+
+
         //for getting state data
-        $contition_array = array('status' => 1);
+
+
+ $contition_array = array('user_id' => $userid, 're_status' => '1','is_delete'=> '0');
+      $state_citydata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_state,re_comp_country', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+
+        $contition_array = array('status' => 1,'country_id' => $state_citydata[0]['re_comp_country']);
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting city data
-        $contition_array = array('status' => 1);
-        $citiesss=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('status' => '1','state_id'=> $state_citydata[0]['re_comp_state']);
+        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
+
+
+
 
 
         $contition_array = array('user_id' => $userid, 're_status' => '1');
@@ -674,14 +687,16 @@ class Recruiter extends MY_Controller {
 //echo '<pre>'; print_r($result1); die();
          
          $this->data['demo']= $result1;
-            // $contition_array = array('status' => '1');
+             $contition_array = array('status' => '1');
+
+          $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 foreach ($citiesss as $key1) {
               
                  $location[] = $key1['city_name'];
              
           }
        
-        // $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        
            
 
         //     foreach ($cty as $key => $value) {
@@ -1247,16 +1262,12 @@ foreach ($citiesss as $key1) {
         'table' => 'job_apply',
         'join_table_id' => 'job_reg.user_id',
         'from_table_id' => 'job_apply.user_id'),
-     array(
-        'join_type' => 'left',
-        'table' => 'job_add_workexp',
-        'join_table_id' => 'job_reg.user_id',
-        'from_table_id' => 'job_add_workexp.user_id')
+   
 ); 
       $contition_array = array('job_apply.post_id' => $id, 'job_apply.is_delete' =>'0');
 
       
-       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_workexp.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
+       $userdata = $this->data['user_data'] =  $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_add_edu.*,job_reg.user_id as userid', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str , $groupby = 'job_id');
       //echo "<pre>"; print_r($this->data['user_data']);die();
 
            
@@ -1420,20 +1431,24 @@ foreach ($citiesss as $key1) {
 
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r($this->data['countries']);die();
           $contition_array = array('status' => 1);
         $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+ $postdatas=$this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
+ //echo "<pre>"; print_r($postdata);die();
+
         //for getting state data
-        $contition_array = array('status' => 1);
+        $contition_array = array('status' => 1,'country_id' => $postdatas[0]['country']);
         $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //for getting city data
-        $contition_array = array('status' => 1);
-        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('status' => 1,'state_id'=> $postdatas[0]['state']);
+         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($this->data['cities']); echo "</pre>";die();
 
 
-    $this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
+   
        //  echo date('d/m/Y',strtotime($post[0]['post_last_date'])); 
 //echo '<pre>'; print_r($this->data['postdata']); die();
         $skildata = explode(',', $this->data['postdata'][0]['post_skill']);
@@ -1442,6 +1457,8 @@ foreach ($citiesss as $key1) {
  $this->data['country1'] = $this->data['postdata'][0]['country'];
         $this->data['city1'] = $this->data['postdata'][0]['city'];
         
+
+        // code for search 
 $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -1492,25 +1509,28 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
            $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $citiesss = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
            
 
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
+          foreach($citiesss as $key){
+    $location[]=$key['city_name'];
+   }
 
+ //          foreach ($location_list as $key1 => $value1) {
+ //              foreach ($value1 as $ke1 => $val1) {
+ //                 $location[] = $val1;
+ //              }
+ //          }
+ //          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ // //echo "<pre>"; print_r($loc);die();
 
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
+        //$this->data['city_data']= array_values($loc);
+        $this->data['de'] = $loc;
 
 
         
@@ -1734,11 +1754,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
         'from_table_id' => 'job_reg.user_id'),
      array(
         'join_type' => 'left',
-        'table' => 'job_add_workexp',
-        'join_table_id' => 'save.to_id',
-        'from_table_id' => 'job_add_workexp.user_id'),
-     array(
-        'join_type' => 'left',
         'table' => 'job_graduation',
         'join_table_id' => 'save.to_id',
         'from_table_id' => 'job_graduation.user_id')
@@ -1747,7 +1762,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
   // <rash code 12-4 end>
         $contition_array1= array('save.from_id' => $userid, 'save.status' => 0, 'save.save_type' => 1);
-        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = '*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
+        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = 'job_reg.*,job_reg.user_id as user_id,job_add_edu.*,job_graduation.*,save.*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
 
      //   echo"<pre>"; print_r($this->data['recdata']); die();
 
@@ -1930,7 +1945,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
                 $error = array();
             }
             if ($error) {
-               
+    
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');

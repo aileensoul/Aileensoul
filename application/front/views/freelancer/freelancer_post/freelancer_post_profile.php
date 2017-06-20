@@ -293,9 +293,7 @@ function text2link($text) {
                                 </div>
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                        <li> <b>First Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_fullname']; ?> </span>
-                                        </li>
-                                        <li> <b>Last Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_username']; ?> </span>
+                                        <li> <b> Name</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_fullname'] .'  '. $freelancerpostdata[0]['freelancer_post_username']; ?> </span>
                                         </li>
 
                                         <li> <b>Email</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_email']; ?> </span>
@@ -535,28 +533,18 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
                                         <ul class="clearfix">
 <?php
 if ($freelancerpostdata[0]['freelancer_post_hourly']) {
+
+   $currancy = $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name;
     ?>
-                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly']; ?> </span>
+                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly'] .'  '.$currancy; ?> </span>
                                                 </li>
     <?php
-} else {
+} 
+else {
         echo "";
                                                 
 }
 ?>
-
-<?php
-if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
-    ?>
-                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
-                                                </li>
-                                                <?php
-                                            } else {
-                                                 echo "";
-                                                
-                                            }
-                                            ?>
-
 
                                             <?php
                                             if ($freelancerpostdata[0]['freelancer_post_fixed_rate'] == 1) {
@@ -593,8 +581,9 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
                                         <ul class="clearfix">
 <?php
 if ($freelancerpostdata[0]['freelancer_post_hourly']) {
+     $currancy = $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name;
     ?>
-                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly']; ?> </span>
+                                                <li> <b>Hourly</b> <span> <?php echo $freelancerpostdata[0]['freelancer_post_hourly'].'  '.$currancy; ?> </span>
                                                 </li>
     <?php
 } else {
@@ -605,19 +594,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 }
 ?>
 
-<?php
-if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
-    ?>
-                                                <li> <b>Currency </b> <span>  <?php echo $this->db->get_where('currency', array('currency_id' => $freelancerpostdata[0]['freelancer_post_ratestate']))->row()->currency_name; ?> </span>
-                                                </li>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <li> <b>currency</b> <span>  <?php echo PROFILENA; ?></span>
-                                                </li>
-                                                <?php
-                                            }
-                                            ?>
+
 
 
                                             <?php
@@ -989,12 +966,24 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
 
                                     <?php
                                       if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
-                                         ?>
-                                            <li> <b>Attachment</b><span>
+
+                        
+                        $allowespdf = array('pdf');
+                        
+                        $filename = $freelancerpostdata[0]['freelancer_post_portfolio_attachment'];
+                        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+                       if (in_array($ext, $allowespdf)) {?>
+
+                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                                                    <img src="<?php echo base_url(FREELANCERPORTFOLIOIMG . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
-                                                   
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                     <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
+                      </a>
+                                                    </span>
+                                                  
                                             </li>
+                             <?php }?>
 
                                           <?php
                                          }
@@ -1038,13 +1027,22 @@ if ($freelancerpostdata[0]['freelancer_post_ratestate']) {
 
                                     <?php
                                       if ($freelancerpostdata[0]['freelancer_post_portfolio_attachment'] != "") {
-                                         ?>
-                                            <li> <b>Attachment</b><span>
+                                        
+                       
+                        $allowespdf = array('pdf');
+                        $filename = $freelancerpostdata[0]['freelancer_post_portfolio_attachment'];
+                        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                       
+                                            if (in_array($ext, $allowespdf)) {?>
+                                             <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                                                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path')   . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>" ></span>
-                                                   
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                     <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
+                      </a>
+                                                    </span>
+                                                  
                                             </li>
-
+                             <?php }?>
                                           <?php
                                          }
                                          else
@@ -1446,8 +1444,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 <script type="text/javascript">
     function checkvalue() {
         //alert("hi");
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
         // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {

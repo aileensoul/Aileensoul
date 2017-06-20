@@ -118,25 +118,24 @@
                         </div>
                         <div class="common-form">
                             <div class="job-saved-boxe_2" >
+                                
+                                <div class="edu_tab fw">
                                 <h3>Educational  Qualification</h3>
-                                <div class="edu_tab">
-                                        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+         
+            <div class="panel-group wrap" id="bs-collapse">
 
-    
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="more-less fa fa-plus"></i>
-                        Primary
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    <section id="section1">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
+                                Primary
+                            </a>
+                          </h4>
+                    </div>
+                    <div id="one" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <section id="section1">
                                             <!--input type="radio" name="sections" id="option1" <?php
                                             if ($postid == " ") {
                                                 echo "checked";
@@ -248,22 +247,23 @@
                                                 <?php echo form_close(); ?>
                                             </article>
                                         </section>
-                </div>
-            </div>
-        </div>
+                        </div>
+                    </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="more-less fa fa-plus"></i>
-                       Secondary
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">
-                    <section id="section2">
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
+                                Secondary
+                            </a>
+                          </h4>
+                    </div>
+                    <div id="two" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <section id="section2">
                                             <!--input type="radio" name="sections" id="option2" <?php
                                             if ($postid == "secondary") {
                                                 echo "checked";
@@ -377,22 +377,23 @@
 
                                             </article>
                                         </section>
-                </div>
-            </div>
-        </div>
+                        </div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="more-less fa fa-plus"></i>
-                        Higher secondary
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                <div class="panel-body">
-                    <section id="section3">
+                    </div>
+                </div>
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
+                              Higher secondary
+                            </a>
+                          </h4>
+                    </div>
+                    <div id="three" class="panel-collapse collapse">
+                        <div class="panel-body">
+                               <section id="section3">
                                             <!--input type="radio" name="sections" id="option3" <?php
                                             if ($postid == "higher-secondary") {
                                                 echo "checked";
@@ -515,23 +516,22 @@
 
                                             </article>
                                         </section>
-
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingFour">
-                <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <i class="more-less fa fa-plus"></i>
-                        Graduation
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                <div class="panel-body">
-                    <section id="section4">
+                <!-- end of panel -->
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
+                             Graduation
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="four" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <section id="section4">
                                             <!--input type="radio" name="sections" id="option4" <?php
                                             if ($postid == "graduation") {
                                                 echo "checked";
@@ -984,18 +984,31 @@
 
                                             </article>
                                         </section>
-
-
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-    </div><!-- panel-group -->
-    <fieldset class="hs-submit full-width"  style="">
+                <!-- end of panel -->
+<fieldset class="hs-submit full-width"  style="">
 
                 <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
 
                                                     </fieldset>
+            </div>
+            <!-- end of #bs-collapse  -->
+
+        </div>
+
+
+
+   
+    <!-- end of container -->        
+
+    <!--  xyx -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+   
+
+    </div><!-- panel-group -->
+    
     
 
                                 </div>
@@ -1982,13 +1995,25 @@ $(window).load(function(){
 });
 });
 
-function toggleIcon(e) {
-    $(e.target)
-        .prev('.panel-heading')
-        .find(".more-less")
-        .toggleClass('fa-plus fa-minus');
-}
-$('.panel-group').on('hidden.bs.collapse', toggleIcon);
-$('.panel-group').on('shown.bs.collapse', toggleIcon);
+$(document).ready(function () {
+        
+            $('.collapse.in').prev('.panel-heading').addClass('active');
+            $('#accordion, #bs-collapse')
+                .on('show.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').addClass('active');
+                })
+                .on('hide.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').removeClass('active');
+                });
+        });
 
 </script>
+
+<style type="text/css">
+    #stream1-error{margin-right: 0px;}
+    #university1-error{margin-right: 0px;}
+    #university1-error{margin-right: 0px;}
+    #college1-error{margin-right: 0px;}
+    #percentage1-error{margin-right: 0px;}
+    #pass_year1-error{margin-right: 0px;}
+</style>

@@ -38,10 +38,10 @@
 
 }*/
 
-.keyskill_border_active {
-  border: 3px solid red !important;
-
-}
+/*.keyskill_border_active {
+  border: 2px solid red !important;
+  border-radius: 3px;
+}*/
 </style>
 
 <!-- css for date picker start-->
@@ -295,7 +295,7 @@
 
 <fieldset class="col-md-4">
 
-<label> Work Type</label>  <input type="radio" tabindex="10" name="rating" value="0" checked> Hourly
+<label> Work Type</label>  <input type="radio" tabindex="10" class="worktype_minheight" name="rating" value="0" checked> Hourly
   <input type="radio"  name="rating" value="1"> Fixed
   <?php echo form_error('rating'); ?>
                                </fieldset>
@@ -582,7 +582,7 @@ function checkvalue(){
   function leave_page(clicked_id)
 {
 
-//alert(clicked_id);
+
  
  var post_name = document.getElementById('post_name').value;
  var post_desc = document.getElementById('post_desc').value;
@@ -594,11 +594,10 @@ function checkvalue(){
  var rate = document.getElementById('rate').value;
  var currency = document.getElementById('currency').value;
  var est_time = document.getElementById('est_time').value;
- var datepicker = document.getElementById('datepicker').value;
+var datepicker = document.getElementById('example2').value;
   var country = document.getElementById('country').value;
  var city = document.getElementById('city').value;
 
- 
  
    var searchkeyword = document.getElementById('tags').value;
     var searchplace = document.getElementById('searchplace').value;
@@ -674,7 +673,6 @@ function checkvalue(){
  else
  {
     
-
       return home(clicked_id,searchkeyword,searchplace);
 
  }
@@ -1037,7 +1035,8 @@ $('#skills').select2({
 </script>
 
 <style type="text/css">
-  #skills-error{margin-top: 40px;}
+  #skills-error{margin-top: 42px;}
+  #example2-error{margin-top: 41px;}
 </style>
 
 
@@ -1067,3 +1066,7 @@ var today = yyyy;
                 
             });
 </script>
+
+
+
+

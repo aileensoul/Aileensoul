@@ -24,7 +24,17 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 
+<script type="text/javascript">
+//For Scroll page at perticular position js Start
+$(document).ready(function(){
+ 
+  $(document).load().scrollTop(1000);
+     
+    //$('html,body').animate({scrollTop: 1000}, 100);
 
+});
+//For Scroll page at perticular position js End
+</script>
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
 <script src="<?php echo base_url('js/mediaelement-and-player.min.js'); ?>"></script>
@@ -35,7 +45,7 @@
 
 <!-- END HEADER -->
 
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css'); ?>">
@@ -86,8 +96,8 @@
 
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -118,7 +128,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container tablate-container">
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($businessdata1[0]['user_id'] == $userid) {
@@ -137,6 +147,7 @@
 
             <div class="profile-photo">
                 <div class="buisness-menu">
+                    
                     <div class="profile-pho-bui">
 
                         <div class="user-pic">
@@ -166,8 +177,8 @@
                 </div> -->
 
                     </div>
-
-                    <div class="bui-menu-profile col-md-10">
+                    <div class="business-profile-right">
+                    <div class="bui-menu-profile">
 
 
 
@@ -209,13 +220,9 @@
                             //echo "<pre>"; print_r($status); die();
 
                             if ($status == 0 || $status == " ") {
-                                ?>
-                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                                                                                                                                                       </div>
-                            <?php } elseif ($status == 1) { ?>
-                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                            <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                                                                                                                                                       </div>
                             <?php } ?>
                                       </div> 
@@ -234,12 +241,35 @@
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?> 
                     <div id="contact_per">
-                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+
+      $busotherid = $this->uri->segment(3); 
+      $contition_array = array('business_slug' => $busotherid, 'status' => '1');
+      $busineslug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      $busuid = $busineslug[0]['user_id'];
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
                     <div class="">
                         <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
 
 
                         </div>
@@ -251,10 +281,7 @@
                              top: 62px;">
                             <span style="    
                                   font-size: 13px; ""><i class="icon-user"></i>
-                                <?php 
-                                $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            <?php 
 
         //print_r($contactperson[0]['status']) ; die();
         
@@ -262,9 +289,12 @@
                                 Add to contact
                      <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
                             Cancel request  
-                     <?php }else{ ?>
-                         Add to contact
-                   <?php  } ?>
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
                             </span>
                         </div>
                     </div>
@@ -274,11 +304,12 @@
                     <?php }?>
                     </div>
                     <!-- PICKUP -->
-                    <!-- menubar --><div class="business-data-menu  col-md-12 padding_less_right ">
+                    <!-- menubar -->
+                    <div class="business-data-menu padding_less_right ">
 
-                        <div class="left-side-menu col-md-1">   </div>
+                        
 
-                        <div class="profile-main-box-buis-menu  col-md-7">  
+                        <div class="profile-main-box-buis-menu">  
                             <ul class="">
 
 
@@ -289,16 +320,15 @@
                                 <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
                                 </li>
 
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts</a>
+                                </li>
+
                                 <?php
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
                                                                                                                   <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
                                                                                                                                                                                         </li> -->
-
-
-                                      <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>">Contact</a>
-                                    </li>                                                                                                                                                      
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -346,14 +376,14 @@
 
                             </ul>
 
-                        </div>
+                        
 
                         <?php
                         $userid = $this->session->userdata('aileenuser');
 
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?>
-                            <div class="col-md-3 padding_les flw_with">
+                            
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
@@ -393,12 +423,12 @@
 
                                     </ul>   
                                 </div>
-                            </div>
+                           
                         <?php } ?>
 
-
+                         </div>
                     </div>
-
+                    </div>
                     <!-- pickup -->
                 </div>
             </div>
@@ -435,7 +465,7 @@
     <div class="user-midd-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 profile-box-custom">
                     <div class="full-box-module business_data">
                         <div class="profile-boxProfileCard  module">
 
@@ -866,28 +896,28 @@
                 </div>
 
                 <!-- popup start -->
-                <div class="col-md-7 col-sm-7 "  >
+                <div class="col-md-7 custom-right-business"  >
 
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
-                            <div class="popup-img col-md-1"> 
+                            <div class="popup-img"> 
                                 <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
                             </div>
-                            <div id="myBtn1"  class="editor-content col-md-10 popup-text">
+                            <div id="myBtn1"  class="editor-content popup-text">
                                 <span>Post Your Product....</span>
-
-                            </div>
-                            <div class="col-md-1 padding-left padding_les_left camer_h">
+                                <div class="padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera">
                                 </i> 
                             </div>
+                            </div>
+                            
                         </div>
 
                     </div>
-                </div>
+                
 
                 <!-- The Modal -->
                 <div id="myModal3" class="modal-post">
@@ -896,12 +926,12 @@
                     <div class="modal-content-post">
                         <span class="close3">&times;</span>
 
-                        <div class="post-editor col-md-12" id="close">
+                        <div class="post-editor post-edit-popup" id="close">
 
                             <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
 
                             <div class="main-text-area col-md-12"  >
-                                <div class="popup-img-in col-md-1"> 
+                                <div class="popup-img-in"> 
                                     <?php
                                     if ($businessdata1[0]['business_user_image'] != '') {
                                         ?>
@@ -921,10 +951,10 @@
                                     <div class="fifty_val">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
-
+                                    <div class="padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
                                 </div>
 
-                                <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
+                                
 
                             </div>
                             <div class="row"></div>
@@ -978,6 +1008,11 @@
                     </div>
                 </div>
                 <!-- popup end -->
+                <!-- bidmodel -->
+
+                <!-- end bidmodel -->
+
+
                 <?php
                 if ($this->session->flashdata('error')) {
                     echo $this->session->flashdata('error');
@@ -985,7 +1020,7 @@
                 ?>
 
 
-                <div class="col-md-7 col-sm-7 ">
+                <div class="fw">
                     <!-- middle section start -->
 
                     <?php
@@ -1001,7 +1036,7 @@
 
                                     <div class=" post-design-box">
                                         <div class="post-design-top col-md-12" >  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img"> 
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
 
@@ -1346,9 +1381,9 @@
                                                     <!-- this div view all image start -->
                                                     <div>
                                                         <div id="responsive-manage_images_3-breakpoints" >
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a></div>
-
-                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
+                                                            <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a>
+                                                        
+                                                          <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                         <div class="manage_images_view_more" >
 
 
@@ -1356,6 +1391,10 @@
                                                          </span></div>
 
                                                         </a>
+                                                        
+                                                        </div>
+
+                                                          
 
                                                     </div>
                                                     <!-- this div view all image end -->
@@ -1464,7 +1503,7 @@
                                         <?php
                                         if ($row['business_likes_count'] > 0) {
                                             ?>
-                                            <div class="likeduserlist<?php echo $row['business_profile_post_id'] ?>">
+                                            <div class="likeduserlist1 likeduserlist<?php echo $row['business_profile_post_id'] ?>">
                                                 <?php
                                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1514,7 +1553,7 @@
                                         }
                                         ?>
 
-                                        <div class="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:none">
+                                        <div  class="likeduserlist1  <?php echo "likeusername" . $row['business_profile_post_id']; ?>" id="<?php echo "likeusername" . $row['business_profile_post_id']; ?>" style="display:none">
                                             <?php
                                             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                             $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1756,7 +1795,7 @@
 
                 </div>
                 <!-- business_profile _manage_post end -->
-
+            </div>
             </div>
             </section>
             <!-- END CONTAINER -->
@@ -1769,17 +1808,7 @@
 
 
             <!-- Bid-modal  -->
-            <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                            <span class="mes"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!-- Model Popup Close -->
 
 
@@ -1822,6 +1851,22 @@
                 </div>
             </div>
             <!-- Model Popup Close -->
+
+             <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
+            
+
 
             </body>
 
@@ -2567,7 +2612,7 @@
                 {
 
                     $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('show');
+                    $('#').modal('show');
                 }
 
                 function comment_deletedtwo(clicked_id)
@@ -3573,9 +3618,9 @@
                     if (product_fileInput == '' && product_name == '' && product_description == '')
                     {
 
-                        $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-                        $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                        $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+                        $('#post').modal('show');
+                        //setInterval('window.location.reload()', 10000);
                         // window.location='';
 
                          $( document ).on( 'keydown', function ( e ) {
@@ -3738,16 +3783,18 @@
 
             </script>
             <script type="text/javascript">
-
+//This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
                 $(document).ready(function () {
-                    $('.modal-close').on('click', function () {
+                    $('#post').on('click', function () {
+
                         $('.modal-post').show();
+                       //  location.reload(false);
                     });
                 });
-
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
             </script>
 
-            <!-- post insert developing code end  -->
+          
 
 
             <script>
@@ -4195,23 +4242,11 @@ jQuery(document).mouseup(function (e) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
         $('#bidmodal').modal('hide');
+         $('#bidmodal-2').modal('hide');
+            $('#likeusermodal').modal('hide');
     }
 });  
 
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal-2').modal('hide');
-    }
-});  
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#likeusermodal').modal('hide');
-    }
-});  
 
  </script>
 
@@ -4288,18 +4323,24 @@ jQuery(document).mouseup(function (e) {
 
 <!-- contact person script end -->
 
-
-<!-- scroll page script start -->
 <script type="text/javascript">
-//For Scroll page at perticular position js Start
-$(document).ready(function(){
- 
-//  $(document).load().scrollTop(1000);
-     
-    $('html,body').animate({scrollTop:330}, 100);
+    
 
-});
-//For Scroll page at perticular position js End
+    function contact_person_model(clicked_id , status){
+
+    if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+    }else if(status == 'confirm'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    
+   }
+
+  }
 </script>
 
-<!-- scroll page script end -->
+

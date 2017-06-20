@@ -26,80 +26,65 @@
                 <div class="row">
 
 
-       <div class="col-md-4 profile-box profile-box-left"><div class="">
-
-                <div class="full-box-module">   
-      <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover"> 
-                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                                        <?php if ($artisticdata[0]['profile_background']) { ?>
-                                            <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
-                                            </div>
-                                        <?php } else { ?>
-                                            <div class="data_img">
-                                                <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
-
-                                            </div>                                             <?php } ?>
-                                    </a>
-                                    </div>
-                                    <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="left_side_box_img buisness-profile-txext">
-                                        
-                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
-                                            <!-- box image start -->
-                                            <?php if ($artisticdata[0]['art_user_image']) { ?>
-                                                <div class="data_img_2">   
-                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
-                                                </div>
-                                            <?php } else { ?> 
-                                                <div class="data_img_2">
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                                                </div>
-                                            <?php } ?>
-                                            <!-- box image end -->
-                                        </a>
-                                    </div>
-                                    <div class="right_left_box_design ">
-                                    <span class="profile-company-name ">
-                                            <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
-                                        </span>
-
-
-                                                  <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                          
-                                        <div class="profile-boxProfile-name">
-                                            <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
-                                                <?php
-                                                if ($artisticdata[0]['designation']) {
-                                                    echo ucwords($artisticdata[0]['designation']);
-                                                } else {
-                                                    echo "Designation";
-                                                }
-                                                ?>
-                                                  
-
-                                                </a>
-
-
-                                                </div>
-
-
-                                               <ul class=" left_box_menubar">
-                                                <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
-                                            </li>
-
-                                            <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a class="padding_less_right"  title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
-                                            </li>
-                                          
-                                            </ul>
-                                    </div>
-                                    </div>
-       </div>                             
-    </div>
-
+       <div class="col-md-4 profile-box profile-box-custom"><div class="">
+  <div class="full-box-module">
+            <div class="profile-boxProfileCard  module">
+               <div class="profile-boxProfileCard-cover">
+                  <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
+                     <?php if ($artdata[0]['profile_background']) { ?>
+                     <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" class="bgImage"  >
+                     </div>
+                     <?php } else { ?>
+                     <div class="data_img">
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>"  >
+                     </div>
+                     <?php } ?>
+                  </a>
+               </div>
+               <div class="profile-boxProfileCard-content clearfix">
+                  <div class="left_side_box_img buisness-profile-txext">
+                     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                        <!-- box image start -->
+                        <?php if ($artdata[0]['art_user_image']) { ?>
+                        <div class="data_img_2">   
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>" >
+                        </div>
+                        <?php } else { ?> 
+                        <div class="data_img_2">
+                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?>">
+                        </div>
+                        <?php } ?>
+                        <!-- box image end -->
+                     </a>
+                  </div>
+                  <div class="right_left_box_design ">
+                     <span class="profile-company-name ">
+                     <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artdata[0]['art_name']) . ' ' . ucwords($artdata[0]['art_lastname']); ?></a>
+                     </span>
+                  
+                     <div class="profile-boxProfile-name">
+                        <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
+                        <?php
+                           if ($artdata[0]['designation']) {
+                               echo ucwords($artdata[0]['designation']);
+                           } else {
+                               echo "Designation";
+                           }
+                           ?>
+                        </a>
+                     </div>
+                     <ul class=" left_box_menubar">
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a class="padding_less_left" title="Dashboard" href="<?php echo base_url('artistic/art_manage_post'); ?>"> Dashboard</a>
+                        </li>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br>(<?php echo (count($followerdata)); ?>)</a>
+                        </li>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a class="padding_less_right"  title="Following" href="<?php echo base_url('artistic/following'); ?>">Following<br>(<?php echo (count($followingdata)); ?>)</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
   
   
    
@@ -108,7 +93,7 @@
 <!-- left side box close -->
 
 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
-  <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right" style="height: 150%;">
+  <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-art" style="height: 150%;">
                         <div class="common-form">
                             <div class="job-saved-box">
 
@@ -146,7 +131,7 @@
                               
                               ?>
 
-                                                 <div class="profile-job-profile-button clearfix box_search_module" style="height: 14%;border: 1px solid #efefef;margin-bottom: 10px;">
+                                                 <div class="profile-job-profile-button clearfix box_search_module box_serc" >
                                                             
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
@@ -155,10 +140,8 @@
                         </div>
        </div>
    
-       <div class="designation_rec" style="    float: left;
-    width: 60%;
-    padding-top: 16px;">
-          <ul>
+       <div class="designation_rec" >
+          <ul class="search_ul_an">
        <li>
       <a style="  font-size: 19px;
          font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
@@ -166,12 +149,7 @@
        </a>
       </li>
       
-      <li style="display: block;">
-        <a  class="color-search" style="font-size: 16px;" href="" title="IAS">
-
-               
-           </a>
-       </li>
+     
          <li style="display: block;">
          <a  class="color-search" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
            <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
@@ -232,7 +210,7 @@ if($status == 0 || $status == " "){?>
                             </button></div>
                                 <?php } ?>
 </div>
-        <br>
+      
          <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $key['user_id']); ?>'"> Message</button>
       </div>
 
@@ -257,7 +235,7 @@ if($status == 0 || $status == " "){?>
        <div class="col-md-12 col-sm-12 post-design-box search" id="removepost5" style=" box-shadow: none;">
                                     <div class="post_radius_box">  
                                         <div class="post-design-search-top col-md-12" style="background-color: none!important;">  
-                                            <div class="post-design-pro-img col-md-2"> 
+                                            <div class="post-design-pro-img "> 
                                                 
                                                 <div id="popup1" class="overlay">
                                                     <div class="popup">
@@ -319,11 +297,10 @@ if($status == 0 || $status == " "){?>
                                                                 <div class="datespan">  <span style="font-weight: 400;
                                                     font-size: 14px;
                                                     color: #91949d; cursor: default;"> 
-                                                                        <?php echo date('d-M-Y', strtotime($key['created_date'])); ?>                                                                    </span></div>
+                                                                        <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($key['created_date']))); ?>
+                                                                                                  </span></div>
 
                                                             </div>
-
-
 
                                                         </li>
 
@@ -566,10 +543,10 @@ if($status == 0 || $status == " "){?>
 
                                                             if (!in_array($userid, $likeuserarray)) {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php } else {
                                                                 ?>
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                             <?php }
                                                             ?>
                                                             <span>
@@ -596,7 +573,7 @@ if($status == 0 || $status == " "){?>
  <ul class="col-md-6 like_cmnt_count">
 
  <li>
-                                                                <div class="like_count_ext<?php echo $key['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext_a  like_count_ext<?php echo $key['art_post_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
@@ -610,7 +587,7 @@ if($status == 0 || $status == " "){?>
                                                             </li>
 
                                                             <li>
-                                                                <div class="<?php echo 'comnt_count_ext' . $key['art_post_id']; ?>">
+                                                                <div class="comnt_count_ext_a  <?php echo 'comnt_count_ext' . $key['art_post_id']; ?>">
                                                                     <span class="comment_like_count"> 
                                                                        <?php
                                                                         if ($key['art_likes_count'] > 0) { 
@@ -787,10 +764,10 @@ if($status == 0 || $status == " "){?>
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>
 
-                                                                                <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> 
+                                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                             <?php } else {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php }
                                                                             ?>
                                                                             <span>
@@ -1111,7 +1088,7 @@ if($status == 0 || $status == " "){?>
 
                     </script>
 <!-- popup form edit start -->
- -->
+
                     <script>
                         // Get the modal
                         var modal = document.getElementById('myModal');
@@ -2647,41 +2624,6 @@ if($status == 0 || $status == " "){?>
 
                         }
                     </script>
-<style type="text/css">
-                        .likeduser{
-                            width: 100%;
-                            background-color: #00002D;
-                        }
-                        .likeduser-title{
-                            color: #fff;
-                            margin-bottom: 5px;
-                            padding: 7px;
-                        }
-                        .likeuser_list{
-                            background-color: #ccc;
-                            float: left;
-                            margin: 0px 6px 5px 9px;
-                            padding: 5px;
-                            width: 47%;
-                            font-size: 14px;
-                        }
-                        .likeduserlist, .likeduserlist1 {
-                            float: left;
-                            /*        margin-left: 15px;
-                                    margin-right: 15px;*/
-                            width: 96%;
-                        }
-                        div[class^="likeduserlist"]{
-                            width: 100% !important;
-                            background-color: #fff !important;
-                        }
-                        .like_one_other{
-                           /* margin-left: 15px;*/
-                            /*  margin-right: 15px;*/
-
-                        }
-
-                    </style>
 
 
 

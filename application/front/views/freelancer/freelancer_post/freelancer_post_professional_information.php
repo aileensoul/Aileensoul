@@ -12,7 +12,7 @@
 }*/
 
 .keyskill_border_active {
-  border: 2px solid red;
+  /*border: 2px solid red;*/
       border-radius: 5px;
 
 }
@@ -69,30 +69,30 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li> 
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>">Basic Information</a></li> 
 
-                                <li><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Information</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_address_information'); ?>">Address Information</a></li>
 
-                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active" <?php } ?>><a href="#">Professional Information</a></li>
+                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active init" <?php } ?>><a href="#">Professional Information</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($freepostdata[0]['free_post_step'] < '3') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Rate</a></li>
 
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($freepostdata[0]['free_post_step'] < '4') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($freepostdata[0]['free_post_step'] < '5') {
                                     echo "khyati";
                                 }
                                 ?>"><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>		    
-                                <li class="<?php
+                                <li class="custom-none <?php
                                 if ($freepostdata[0]['free_post_step'] < '6') {
                                     echo "khyati";
                                 }
@@ -532,3 +532,7 @@ $(window).load(function(){
 });
 </script>
 
+<style type="text/css">
+    #experience_year-error{margin-top: 42px;margin-left: 15px;}
+    #experience_month-error{margin-top: 39px;margin-left: 15px;}
+</style>

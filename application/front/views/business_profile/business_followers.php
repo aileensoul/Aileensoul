@@ -209,12 +209,35 @@ if($status == 0 || $status == " "){?>
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?> 
                     <div id="contact_per">
-                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+      <?php 
+
+      $userid = $this->session->userdata('aileenuser');
+
+      $busotherid = $this->uri->segment(3); 
+      $contition_array = array('business_slug' => $busotherid, 'status' => '1');
+      $busineslug = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      $busuid = $busineslug[0]['user_id'];
+   
+     $contition_array = array('contact_type' => 2);
+
+     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
+
+    $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+            ?>
+
+
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+                  <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+
+            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
+                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+            <?php }?>
+               
                     <div class="">
                         <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
 
 
                         </div>
@@ -226,10 +249,7 @@ if($status == 0 || $status == " "){?>
                              top: 62px;">
                             <span style="    
                                   font-size: 13px; ""><i class="icon-user"></i>
-                                <?php 
-                                $userid = $this->session->userdata('aileenuser');
-     $contition_array = array('contact_to_id' => $businessdata1[0]['user_id'], 'contact_from_id' => $userid);
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            <?php 
 
         //print_r($contactperson[0]['status']) ; die();
         
@@ -237,9 +257,12 @@ if($status == 0 || $status == " "){?>
                                 Add to contact
                      <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
                             Cancel request  
-                     <?php }else{ ?>
-                         Add to contact
-                   <?php  } ?>
+                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
+                        In your contact
+                   <?php  }else{ ?>
+
+                      Add to contact
+                   <?php } ?>
                             </span>
                         </div>
                     </div>
@@ -261,6 +284,8 @@ if($status == 0 || $status == " "){?>
                                     </li>
 
                                      <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/'.$businessdata1[0]['business_slug']); ?>"> Details</a>
+                                    </li>
+                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/'.$businessdata1[0]['business_slug']); ?>">Contacts</a>
                                     </li>
                               
      <?php
@@ -1068,4 +1093,28 @@ $(document).ready(function(){
 </script>
 
 <!-- scroll page script end -->
+
+
+
+<script type="text/javascript">
+    
+
+    function contact_person_model(clicked_id , status){
+
+    if(status == 'pending'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+
+    }else if(status == 'confirm'){
+
+    $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+    $('#bidmodal').modal('show');
+    
+   }
+
+  }
+</script>
+
+
 

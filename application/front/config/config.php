@@ -646,7 +646,7 @@ $config['rec_bg_original_upload_path'] = 'uploads/recruiter_bg/original/';
 
 // FREELANCER PORTFOLIO ATTACHMENT 
 $config['free_portfolio_main_upload_path'] = 'uploads/freelancer_post_portfolio/main/';
-$config['free_portfolio_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_portfolio_main_allowed_types'] = 'pdf';
 $config['free_portfolio_main_max_size'] = '800000'; //in KB
 $config['free_portfolio_main_max_width'] = '2500';
 $config['free_portfolio_main_max_height'] = '1800';

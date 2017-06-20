@@ -156,89 +156,13 @@
         </script>
     </head>
     <body class="page-container-bg-solid page-boxed">
+        <section>
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 profile-box profile-box-left">
+                    <div class="col-md-4  profile-box profile-box-custom">
                         <div class="">
-                            <!-- <div class="full-box-module">    
-                                <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">    
-                                        <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
-                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                           
-                                            <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php
-                                            } else {
-                                                ?>
-                                                <div> 
-                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php } ?>
-                                        </a>
-                                    </div>
-                                    <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
-                                                <?php
-                                                if ($businessdata[0]['business_user_image']) {
-                                                    ?>
-                                                    <div> 
-                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                    </div>
-                                                <?php } else { ?> <div> 
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                    </div>  <?php } ?>                           
-                                               
-                                            </a>
-                                        </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
-                                                <a class="ml-4" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
-                                                    <?php echo ucwords($businessdata[0]['company_name']); ?>
-                                                </a> 
-                                            </span>
-                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                            <div class="profile-boxProfile-name">
-                                                <a style="padding-left:3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                    <?php
-                                                    if ($category) {
-                                                        echo $category;
-                                                    } else {
-                                                        echo $businessdata[0]['other_industrial'];
-                                                    }
-                                                    ?>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="profile-box-bui-menu  col-md-12">
-                                            <ul class="">
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
-                                                    </a>
-                                                </li>
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                                        <br> (<?php echo (count($businessfollowerdata)); ?>)
-                                                    </a>
-                                                </li>
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
-                                                        <br> (<?php echo (count($businessfollowingdata)); ?>) 
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                           
                              <div class="full-box-module">   
       <div class="profile-boxProfileCard  module">
                                     <div class="profile-boxProfileCard-cover"> 
@@ -645,10 +569,10 @@
                         <div class="modal-content-post">
                             <span class="close1">&times;
                             </span>
-                            <div class="post-editor col-md-12" id="close">
+                            <div class="post-editor col-md-12 post-edit-popup" id="close">
                                 <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
                                 <div class="main-text-area col-md-12" >
-                                    <div class="popup-img-in col-md-1"> 
+                                    <div class="popup-img-in"> 
                                         <?php
                                         if ($businessdata[0]['business_user_image'] != '') {
                                             ?>
@@ -667,13 +591,14 @@
                                         <div class="fifty_val">                       
                                             <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                         </div>
-                                    </div>
-                                    <!--   <span class="fr">
-                        <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                                    <div class="col-md-1 padding-left padding_les_left camer_h">
+                                        <div class="camera_in padding-left padding_les_left camer_h">
                                         <i class=" fa fa-camera" >
                                         </i> 
                                     </div>
+                                    </div>
+                                    <!--   <span class="fr">
+                        <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+                                    
                                 </div>
                                 <div class="row"></div>
                                 <div  id="text"  class="editor-content col-md-12 popup-textarea" >
@@ -730,25 +655,26 @@
                     }
                     ?>
 
-                    <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right">
+                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
-                                <div class="popup-img col-md-1"> 
+                                <div class="popup-img"> 
                                     <?php if ($businessdata[0]['business_user_image']) { ?>
                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                     <?php } else { ?>
                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                     <?php } ?>
                                 </div>
-                                <div id="myBtn"  class="editor-content col-md-10 popup-text">
+                                <div id="myBtn"  class="editor-content popup-text">
                                     <span> Post Your Product....
                                     </span> 
+                                    <div class="padding-left padding_les_left camer_h">
+                                        <i class=" fa fa-camera" >
+                                        </i> 
+                                    </div>
                                 </div>
-                                <div class="col-md-1 padding-left padding_les_left camer_h">
-                                    <i class=" fa fa-camera" >
-                                    </i> 
-                                </div>
+                                
                             </div>
                             <!-- <div class="fr">
                               <a class="button">Post
@@ -774,7 +700,7 @@
                                         <div class="col-md-12 col-sm-12 post-design-box">
                                             <div  class="post_radius_box">  
                                                 <div class="post-design-top col-md-12" >  
-                                                    <div class="post-design-pro-img col-md-2"> 
+                                                    <div class="post-design-pro-img"> 
                                                         <!-- pop up box start-->
                                                         <div id="popup1" class="overlay">
                                                             <div class="popup">
@@ -847,7 +773,11 @@
                                                                     <div class="else_post_d">
                                                                         <div class="post-design-product">
                                                                             <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                            <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a><span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  ><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div>
+                                                                            <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                            <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  >
+                                                                             <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>  
+                                                                   
+                                                                            </span> </div></div>
                                                                 </li>
                                                             <?php } else { ?>
                                                                 <li>
@@ -856,7 +786,8 @@
                                                                             <?php echo ucwords($companyname); ?>  </a>
                                                                  <span role="presentation" aria-hidden="true"> · </span>
                                                                         <div class="datespan"> <span class="ctre_date" > 
-                                                                                <?php echo date('d-M-Y', strtotime($row['created_date'])); ?>
+                                                                                 <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+                                                                              
                                                                             </span></div>
 
                                                                     </div>
@@ -1108,9 +1039,7 @@
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
-                                                                </div>
-
-                                                                <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
+                                                                    <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
                                                                 <div class="bui_images_view_more" >
                                                                     <span>View All (+
                                                                         <?php echo (count($businessmultiimage) - 4); ?>)</span>
@@ -1118,6 +1047,9 @@
                                                                 </div>
 
                                                                 </a>
+                                                                </div>
+
+                                                                
                                                             </div>
                                                             <!-- this div view all image end -->
                                                         <?php } ?>
@@ -1128,7 +1060,7 @@
                                                 </div>
                                                 <div class="post-design-like-box col-md-12">
                                                     <div class="post-design-menu">
-                                                        <ul class="col-md-6">
+                                                        <ul class="col-md-6 col-sm-6 col-xs-6">
                                                             <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
                                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" class="ripple like_h_w"  onClick="post_like(this.id)">
                                                                     <?php
@@ -1172,7 +1104,7 @@
                                                                 </a>
                                                             </li>
                                                         </ul>
-                                                        <ul class="col-md-6 like_cmnt_count">
+                                                        <ul class="col-md-6 col-sm-6 col-xs-6 like_cmnt_count">
 
                                                             <li>
                                                                 <div class="like_count_ext">
@@ -1464,7 +1396,7 @@
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         <?php } ?>
                                                     </div>
-                                                    <div class="">
+                                                
                                                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                             <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                         </div>
@@ -1473,7 +1405,7 @@
                                                             <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                             </button>
                                                         </div>
-                                                    </div>
+                                                
                                                 </div>
                                                 <!-- comment end -->
                                             </div>
@@ -1494,8 +1426,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+  
+        </section>
 <footer>
     <?php echo $footer; ?>
 </footer>
@@ -1528,6 +1460,24 @@
     </div>
 </div>
 <!-- Model Popup Close -->
+
+
+             <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="post" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
+            
+
+
 </body>
 </html>
 
@@ -3108,9 +3058,8 @@
         if (product_fileInput == '' && product_name == '' && product_description == '')
         {
 
-            $('.biderror .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-            $('#bidmodal').modal('show');
-            setInterval('window.location.reload()', 10000);
+            $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
+                        $('#post').modal('show');
             // window.location='';
 
             $( document ).on( 'keydown', function ( e ) {
@@ -3261,14 +3210,18 @@
     }
 </script>
 <script type="text/javascript">
+//This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function () {
+                    $('#post').on('click', function () {
 
-    $(document).ready(function () {
-        $('.modal-close').on('click', function () {
-            $('.modal-post').show();
-        });
-    });
+                        $('.modal-post').show();
+                       //  location.reload(false);
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+            </script>
 
-</script>
+          
 <!-- post insert developing code end  -->
 
 

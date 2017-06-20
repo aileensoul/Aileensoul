@@ -182,6 +182,9 @@
                                      <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/'.$businessdata[0]['business_slug']); ?>"> Details</a>
                                     </li>
 
+                                    <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/'.$businessdata[0]['business_slug']); ?>"> Contacts</a>
+                                    </li>
+
                 <!-- <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
                                     </li> -->
                 <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/'.$businessdata[0]['business_slug']); ?>">Userlist</a>

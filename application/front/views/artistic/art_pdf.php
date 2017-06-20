@@ -36,7 +36,7 @@
 
   <body   class="page-container-bg-solid page-boxed">
 
-    <section>
+    <section class="custom-row">
          <div class="container" id="paddingtop_fixed">
 
             <div class="row" id="row1" style="display:none;">
@@ -180,7 +180,7 @@
                        if($artisticdata[0]['user_id'] == $userid)
                        { 
                         ?>
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a style="    padding: 7px 15px;" href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
                                     </li>
                           <?php }else{
 
@@ -189,14 +189,14 @@
         $followerotherdata = $this->data['followerotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                               ?> 
-                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a  style="    padding: 7px 15px;"  href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
                                     </li>
 
                             <?php }?> 
                                     <?php
                             if($artisticdata[0]['user_id'] == $userid){ 
                             ?>        
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following'); ?>">Following  <br>  (<?php echo (count($followingdata)); ?>)</a>
+                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="    padding: 7px 15px;"  href="<?php echo base_url('artistic/following'); ?>">Following  <br>  (<?php echo (count($followingdata)); ?>)</a>
                                     </li>
                                     <?php }else{
 
@@ -204,7 +204,7 @@ $artregid = $artisticdata[0]['art_id'];
 $contition_array = array('follow_from' => $artregid, 'follow_status' =>'1',  'follow_type' =>'1');
 $followingotherdata = $this->data['followingotherdata'] =  $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                       ?>
-                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following'){?> class="active" <?php } ?>><a style="    padding: 7px 15px;"  href="<?php echo base_url('artistic/following/'.$artisticdata[0]['user_id']); ?>">Following  <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                                     </li> 
                                   <?php }?>  
                                     
