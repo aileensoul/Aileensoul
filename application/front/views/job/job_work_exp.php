@@ -123,7 +123,7 @@
                            
                           
                            <fieldset class="hs-submit full-width left_nest">
-                              <input type="submit" id="next" tabindex="2" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                              <input type="submit" id="next" tabindex="2" name="next" value="Next">
                            </fieldset>
                            <?php echo form_close(); ?>
                        
@@ -290,7 +290,7 @@
                            <!--                                     <input type="reset">
                               <input type="submit"  id="previous" name="previous" value="previous">-->
                                 <fieldset class="hs-submit full-width"> 
-                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';" >
+                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next"  >
                                  </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
@@ -916,7 +916,7 @@ function expyear_change_edittime(){
    }
    
    // Get the element with id="defaultOpen" and click on it
-   document.getElementById("defaultOpen").click();
+  // document.getElementById("defaultOpen").click();
 </script>
 <script type="text/javascript">
    $(".alert").delay(3200).fadeOut(300);
