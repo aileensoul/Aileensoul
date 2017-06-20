@@ -926,7 +926,7 @@
                                                             if (in_array($ext, $allowed)) {
                                                                 ?>
                                                                 <!-- one image start -->
-                                                                <div id="basic-responsive-image">
+                                                                 <div class="one-image">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>"> 
                                                                     </a>
@@ -975,7 +975,7 @@
                                                             foreach ($businessmultiimage as $multiimage) {
                                                                 ?>
                                                                 <!-- two image start -->
-                                                                <div  id="two_images_bui" >
+                                                                 <div  class="two-images" >
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
@@ -989,13 +989,13 @@
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div class="three_img_2 three_img_right">
+                                                             <div class="three-image" >
 
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                            <div class="three_img_2 three_img_left">
+                                                              <div class="three-image" >
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
@@ -1006,7 +1006,7 @@
                                                             foreach ($businessmultiimage as $multiimage) {
                                                                 ?>
                                                                 <!-- four image start -->
-                                                                <div id="responsive_buis-images-breakpoints" >
+                                                                 <div class="four-image">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
@@ -1020,7 +1020,7 @@
                                                                 ?>
                                                                 <!-- five image start -->
                                                                 <div>
-                                                                    <div id="responsive_buis-images-breakpoints">
+                                                                  <div class="four-image">
                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                             <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                         </a>
@@ -1035,12 +1035,12 @@
                                                             ?>
                                                             <!-- this div view all image start -->
                                                             <div>
-                                                                <div id="responsive_buis-images_3-breakpoints" >
+                                                               <div class="four-image">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
                                                                     <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
-                                                                <div class="bui_images_view_more" >
+                                                                <div class="more-image" >
                                                                     <span>View All (+
                                                                         <?php echo (count($businessmultiimage) - 4); ?>)</span>
                                                                     

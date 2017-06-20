@@ -526,7 +526,7 @@
                                                 <?php if (count($businessmultiimage) == 1) { ?>
 
                                                     <!-- two image start -->
-                                                    <div id="basic-responsive-image" >
+                                                  <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
@@ -535,7 +535,7 @@
                                                 <?php } elseif (count($businessmultiimage) == 2) { ?>
 
                                                     <!-- two image start -->
-                                                    <div id="two_images_buip"  >
+                                                   <div class="two-images" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
@@ -545,7 +545,7 @@
                                                     //   foreach ($businessmultiimage as $multiimage) {
                                                     ?>
                                                     <!-- two image start -->
-                                                    <div id="two_images_buip" >
+                                                 <div class="three-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
@@ -554,14 +554,14 @@
                                                 <?php } elseif (count($businessmultiimage) == 4) { ?>
 
                                                     <!-- two image start -->
-                                                    <div id="two_images_buip"  >
+                                                  <div class="four-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                 <?php } else { ?>
 
-                                                    <div id="two_images_buip"  >
+                                                  <div class="four-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
                                                                 currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
