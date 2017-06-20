@@ -876,7 +876,7 @@
                            ?>
                         <!-- this div view all image start -->
                         <div>
-                           <div id="responsive-images_3-breakpoints" >
+                           <div class="four-image" >
                               <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[3]['image_name']) ?>"> </a>
                            </div>
                            <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>" >
