@@ -12666,6 +12666,8 @@ snippet from Animate.css - zoomIn effect
 
 
 /***  eduction tabbing  ***/
+body{height: 100%;}
+
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}

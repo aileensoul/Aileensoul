@@ -236,7 +236,7 @@ $(document).ready(function(){
                         <?php } ?>
 
 
-                                        <?php
+                                        <?php 
                         $userid = $this->session->userdata('aileenuser');
                         if ($businessdata1[0]['user_id'] != $userid) {
                             ?> 
