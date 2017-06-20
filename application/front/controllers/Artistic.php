@@ -897,6 +897,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
      //if user deactive profile then redirect to artistic/index untill active profile End
         $artportfolio = $_POST['artportfolio'];
+         $bestmine = $_POST['bestmine'];
+        
         // $bestofmine = $_POST['bestofmine']; 
         //best of mine image upload code start
 //echo "<pre>"; print_r($artportfolio); die();
@@ -983,7 +985,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         else {
 
-            $dataimage = '';
+            $dataimage = $bestmine;
         }
 
        //echo "<pre>"; print_r($dataimage); die();
@@ -991,19 +993,6 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         //if ($dataimage) {
             $data = array(
                 'art_bestofmine' => $dataimage,
-                //'art_portfolio' => $artportfolio,
-                'modified_date' => date('Y-m-d', time()),
-                'art_step' => 4
-            );
-
-
-            $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
-       // } 
-           if ($artportfolio) {
-
-
-            $data = array(
-                //'art_bestofmine' => $picture,
                 'art_portfolio' => $artportfolio,
                 'modified_date' => date('Y-m-d', time()),
                 'art_step' => 4
@@ -1011,15 +1000,21 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
 
             $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
-        }
+       // } 
+        //    if ($artportfolio) {
 
-        if ($updatdata) {
-            $this->session->set_flashdata('success', 'Portfolio updated successfully');
-            redirect('artistic/artistic_profile', refresh);
-        } else {
-            $this->session->flashdata('error', 'Your data not inserted');
-            redirect('artistic/art_portfolio', refresh);
-        }
+
+        //     $data = array(
+        //         //'art_bestofmine' => $picture,
+        //         'art_portfolio' => $artportfolio,
+        //         'modified_date' => date('Y-m-d', time()),
+        //         'art_step' => 4
+        //     );
+
+
+        //     $updatdata = $this->common->update_data($data, 'art_reg', 'user_id', $userid);
+        // }
+
     }
 
     public function art_post() {
