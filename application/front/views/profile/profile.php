@@ -20,7 +20,7 @@
                         <div class="padd_set">
                         <div class="left-side-bar" id="bs-collapse" >
                             <ul class="left-form-each">
-                                <li>  <a href="<?php echo base_url() . 'profile' ?>" data-toggle="collapse" data-parent="#bs-collapse" id="toggle">Edit Profile</a></li>
+                                <li  <?php if ($this->uri->segment(1) == 'profile') { ?> class="active init" <?php } ?>>  <a href="<?php echo base_url() . 'profile' ?>" data-toggle="collapse" data-parent="#bs-collapse" id="toggle">Edit Profile</a></li>
 
                                 <li> <a href="<?php echo base_url('registration/changepassword') ?>">Change Password</a></li>
 
