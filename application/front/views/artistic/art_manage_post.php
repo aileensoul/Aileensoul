@@ -1533,7 +1533,7 @@
         <?php echo form_error('post_comment'); ?>
 
                                                 <div class="comment-edit-butn">   
-                                                    <button style="position: absolute; bottom: 1px;" id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
+                                                    <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
                                             </div>
 
                                         </div>
