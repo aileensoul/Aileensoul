@@ -2943,31 +2943,30 @@ $this->load->view('business_profile/temp');
 
          $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $count1=count( $job_reg_data);
-
-  for ($x = 0; $x < $count1; $x++) {
-        $job_reg_prev_image = $job_reg_data[$x]['work_certificate'];
-      //  echo "<pre>";print_r($job_reg_prev_image);die();
+      
+        $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+     //  echo "<pre>";print_r($job_reg_prev_image);die();
         
 
             if ($job_reg_prev_image != '') 
         {
+          
             $job_image_main_path = $this->config->item('job_work_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-              //  unlink($job_bg_full_image);
+               // unlink($job_bg_full_image);
             }
             
             $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-              // unlink($job_bg_thumb_image);
+               //unlink($job_bg_thumb_image);
             }
 
 
         }
 
-            } }else {
+             }else {
 
                 $dataimage= '';
             }
