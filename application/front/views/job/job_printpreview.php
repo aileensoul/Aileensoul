@@ -945,7 +945,7 @@ echo $job_header2;
                                             else
                                             {
                                                 ?>
-                                                <li><b>Intern / Trainee As</b> <span>
+                                                <li><b>Duration</b> <span>
                                                <?php echo PROFILENA;
                                                 
 
@@ -964,7 +964,7 @@ echo $job_header2;
                                             else
                                             {
                                                 ?>
-                                                <li><b>Intern / Trainee As</b> <span>
+                                                <li><b>Name of Organization</b> <span>
                                                <?php echo PROFILENA;
                                                 
 
