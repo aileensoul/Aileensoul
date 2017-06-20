@@ -1119,7 +1119,15 @@ echo $job_header2;
                                                 
         <div class="profile-job-profile-menu" id="job_workexp">
 
-         <ul><li> <b> Total Experience </b><span><?php 
+         <ul><li> <b> Total Experience </b><span>
+<?php
+  if ($job_work['experience'] == "Fresher") {
+
+                echo "Fresher";
+           
+
+            }else{?>
+         <?php 
 
             $total_work_year=0;
             $total_work_month=0;
@@ -1137,11 +1145,16 @@ echo $job_header2;
                                                 $years=$year + 1;
                                                 echo $years." Years";
             }
+            else if($work1['experience'] == "Fresher")
+            {
+                echo "Fresher";
+            }
             else{
                 echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
             }
+        }
             // echo $total_work_year; echo "&nbsp"; echo "Year";
             // echo "&nbsp";
             // echo $total_work_month; echo "&nbsp"; echo "Month";
@@ -1259,6 +1272,9 @@ echo $job_header2;
 
      <li> <b>Experience </b><span><?php
             if ($work['experience'] == "Fresher") {
+
+                echo "Fresher";
+           
 
             } else {
                           if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") {
