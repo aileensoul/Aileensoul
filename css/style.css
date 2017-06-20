@@ -6074,7 +6074,7 @@ follow box*/
     height: 120px;
     float: left;
     width: 120px;
-    padding: 8px;
+    padding: 2px;
 }
 .image_profile img {
     width: 100%;
@@ -12673,7 +12673,7 @@ body{height: 100%;}
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
 .custom-right-art{margin-left: 10px;}
-.business-profile-right{width: 80%; float: left; padding-left: 30px;}
+.business-profile-right{width: 83%; float: left; padding-left: 30px;}
 .business-profile-right .bui-menu-profile{min-height: 110px;}
 .business-profile-right .business-data-menu{width: 100%; float: left;}
 .business-profile-right .profile-main-box-buis-menu ul{padding-left: 0;}
@@ -12697,7 +12697,7 @@ images css start*/
 .four-image img{height: 100%; width: 100%;}
 .more-image{ right: 0px; bottom: 0%; color: white; position: absolute; /* left: 14px; */ cursor: pointer;
     width: 100%; height: 249px; background: rgba(0, 0, 0, 0.5); padding: 68px;}
- .more-image span{position: absolute; color: white; /* padding-top: 138px; */ bottom: 0; left: 31%;}   
+ .more-image span{position: absolute; color: white; bottom: 1px; left: 0%; right: 0;}   
 /*images css end*/
 
 
