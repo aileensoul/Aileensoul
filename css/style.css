@@ -5189,7 +5189,7 @@ label.cameraButton input[accept*="camera"] {
     border-radius: 3px;
     padding-right: 0px;
     border: 1px solid #d9d9d9;
-    /*margin-bottom: 20px;*/
+    margin-bottom: 20px;
     width: 100%;
     float: left;
     /* box-shadow: 2px 8px 20px 0px #bfbfbf*/
