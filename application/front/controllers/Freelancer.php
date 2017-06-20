@@ -1354,8 +1354,8 @@ class Freelancer extends MY_Controller {
 
     public function freelancer_post_portfolio_insert() {
         
-        echo '<pre>'; print_r($_POST); 
-        echo '<pre>'; print_r($_FILES); die();
+        //echo '<pre>'; print_r($_POST); 
+        //echo '<pre>'; print_r($_FILES); die();
        // echo "hii";die();
 
         $userid = $this->session->userdata('aileenuser');
@@ -1437,19 +1437,6 @@ class Freelancer extends MY_Controller {
         //if ($dataimage) {
             $data = array(
                 'freelancer_post_portfolio_attachment' => $dataimage,
-               // 'freelancer_post_portfolio' => $portfolio,
-                'modify_date' => date('Y-m-d', time()),
-                'free_post_step' => 7
-            );
-
-
-            $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
-       // } 
-           if ($portfolio || $portfolio == '') {
-
-
-            $data = array(
-                //'art_bestofmine' => $picture,
                 'freelancer_post_portfolio' => $portfolio,
                 'modify_date' => date('Y-m-d', time()),
                 'free_post_step' => 7
@@ -1457,7 +1444,20 @@ class Freelancer extends MY_Controller {
 
 
             $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
-        }
+       // } 
+        //    if ($portfolio || $portfolio == '') {
+
+
+        //     $data = array(
+        //         //'art_bestofmine' => $picture,
+        //         'freelancer_post_portfolio' => $portfolio,
+        //         'modify_date' => date('Y-m-d', time()),
+        //         'free_post_step' => 7
+        //     );
+
+
+        //     $updatdata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
+        // }
 
 
     }
