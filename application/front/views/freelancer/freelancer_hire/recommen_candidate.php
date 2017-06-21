@@ -199,8 +199,8 @@
                                         <?php
 // echo "<pre>"; print_r($candidatefreelancer);die();
                                         if ($candidatefreelancer) {
-                                            foreach ($candidatefreelancer as $cand_key => $cand_value) {
-                                                foreach ($cand_value as $row) {
+                                            foreach ($candidatefreelancer as $row) {
+                                                // foreach ($cand_value as $row) {
                                                     // echo "<pre>"; print_r($row);die();
                                                     ?> 
              <div class="profile-job-post-detail clearfix">
@@ -414,7 +414,7 @@
                                                     <?php
                                                 }
                                             }
-                                        } else {
+                                         else {
                                             ?>
                                             <div class="text-center rio">
                                                 <h4 class="page-heading  product-listing" >No Recommended Freelancer Found.</h4>
