@@ -242,16 +242,16 @@
         <div class="designation_rec fl">
           <ul>
                <li>
-             <a class="ml-4" href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
+             <a  href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'].'?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"><h6>
               <?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?></h6>
             </a>
           </li>
 
-          <li style="display: block;" ><a href="#"> <?php
+          <li style="display: block;" ><a href="#" title="<?php echo ucwords($row['designation']); ?>"> <?php
                  if ($row['designation']) {
                   echo $row['designation'];
                 } else {
-                  echo PROFILENA;
+                  echo 'Designation';
                    }
                 ?> </a></li>
        </ul>
@@ -525,8 +525,8 @@
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
-                            var searchkeyword = document.getElementById('tags').value;
-                            var searchplace = document.getElementById('searchplace').value;
+                            var searchkeyword = $.trim(document.getElementById('tags').value);
+                            var searchplace = $.trim(document.getElementById('searchplace').value);
                             // alert(searchkeyword);
                             // alert(searchplace);
                             if (searchkeyword == "" && searchplace == "") {
