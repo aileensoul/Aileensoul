@@ -2269,15 +2269,15 @@ ul.business_pf_ct_person_detail li b {
     word-wrap: break-word;
     word-break: break-word;
     /* text-align: justify;*/
-    
+    float: left;
     padding-right: 10px;
-    display: flex;
+    /*display: flex;*/
     width: 65%;
     /* display: inline-block;*/
 }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span::before {
     content: " :";
-    padding-right: 20px;
+    margin-left: -15px;
     float: left;
 }
 .profile-job-post-location-name {
