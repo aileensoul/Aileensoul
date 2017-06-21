@@ -395,6 +395,20 @@ $('#datepicker').datetimepicker({
     });
 });
 
+   $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only allow characters");
+
+
             //validation for edit email formate form
 
             $(document).ready(function () { 
@@ -410,12 +424,12 @@ $('#datepicker').datetimepicker({
                         fname: {
 
                             required: true,
-                            pattern: /^[A-Za-z]{0,}$/
+                            regx1:/^[a-zA-Z]+$/
                         },
                         lname: {
 
                             required: true,
-                             pattern: /^[A-Za-z]{0,}$/
+                            regx1:/^[a-zA-Z]+$/
                         },
                         email: {
 
@@ -807,6 +821,15 @@ window.onclick = function(event) {
 }
 </script>
 
+<!-- disable spacebar js start-->
+<script type='text/javascript'>
+$(window).load(function(){
+$("input").on("keydown", function (e) {
+return e.which !== 32;
+});
+});//]]>  
+</script>
+<!-- disable spacebar js end-->
 
 <style type="text/css">
   #fname-error{margin-top: 33px;margin-right: -3px;}

@@ -254,24 +254,17 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading" id="panel-heading1">
+                    <div  <?php if($this->uri->segment(3) =="secondary"){ ?> class="panel-heading active" <?php }else{ ?> class="panel-heading" <?php } ?>  id="panel-heading1">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#bs-collapse" href="#two" id="toggle1">
                                 Secondary
                             </a>
                           </h4>
                     </div>
-                    <div id="two" class="panel-collapse collapse">
+                    <div id="two" <?php if($this->uri->segment(3) =="secondary"){ ?> class="panel-collapse collapse in"<?php }else{ ?> class="panel-collapse collapse" <?php } ?> >
                         <div class="panel-body">
                             <section id="section2">
-                                            <!--input type="radio" name="sections" id="option2" <?php
-                                            if ($postid == "secondary") {
-                                                echo "checked";
-                                            }
-                                            ?>>
-                                            <label for="option2" class="label-d">S.S.C</label>
-                                    <article class="none_aaaart">
-                                    <h3>Secondary</h3 -->
+                                          
                                                 <?php echo form_open_multipart(base_url('job/job_education_secondary_insert'), array('id' => 'jobseeker_regform_secondary', 'name' => 'jobseeker_regform_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -384,14 +377,14 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading" id="panel-heading2">
+                    <div <?php if($this->uri->segment(3) =="higher-secondary"){ ?> class="panel-heading active" <?php }else{ ?> class="panel-heading" <?php } ?> id="panel-heading2">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#bs-collapse" href="#three" id="toggle2">
                               Higher secondary
                             </a>
                           </h4>
                     </div>
-                    <div id="three" class="panel-collapse collapse">
+                    <div id="three"  <?php if($this->uri->segment(3) =="higher-secondary"){ ?> class="panel-collapse collapse in" <?php }else{ ?> class="panel-collapse collapse" <?php } ?> >
                         <div class="panel-body">
                                <section id="section3">
                                             <!--input type="radio" name="sections" id="option3" <?php
@@ -1465,21 +1458,17 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                                     school_higher_secondary: {
 
                                         required: true,
-                                        noSpace: true
+                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
 
                                     percentage_higher_secondary: {
 
                                          required: true,
-                                       // range: [1, 100],
-                                        //pattern: /^[A-Za-z]{0,}$/
-                                           // minlength: 1,
-                                           // maxlength: 5,
-                                        // pattern: /^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$/
+                                     
                                         number:true,
                                          pattern_higher_secondary: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
-                                       // pattern1: /^[0-9]{1,2}(\.[0-9]{0,1})?$/
+                                      
 
                                     },
 
