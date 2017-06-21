@@ -990,7 +990,7 @@
                 <!-- end of panel -->
 <fieldset class="hs-submit full-width"  style="">
 
-                <input type="button" id="next" name="next" value="Next1" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()">
+                <input type="button" id="next" name="next" value="Next1" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
 
                                                     </fieldset>
             </div>
@@ -1839,8 +1839,8 @@ function next_page()
  var pass_year_primary = document.getElementById('pass_year_primary').value;
  
        
- if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
- {
+ { if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
+
         $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
           $('#bidmodal').modal('show');
 
