@@ -102,7 +102,7 @@
                     </fieldset>
                     
                     <fieldset>
-                        <label>Phone number:<span class="red">*</span></label>
+                        <label>Phone number:</label>
                         <input name="phoneno" placeholder="Enter Phone Number" tabindex="4" value="<?php if($phone){ echo $phone; } ?>" type="text" id="phoneno"  /><span ></span>
                         <?php echo form_error('phoneno'); ?>
                     </fieldset>
@@ -218,7 +218,7 @@
                         phoneno: {
 
                             number: true,
-                            required: true,
+                            
                             
                             
                         },

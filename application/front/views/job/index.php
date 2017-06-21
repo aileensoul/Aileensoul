@@ -239,7 +239,7 @@ $gender = form_error('gender');
                                 </fieldset>
 
                                 <fieldset <?php if ($phnno) { ?> class="error-msg" <?php } ?>>
-                                    <label>Phone Number <span class="red">*</span></label>
+                                    <label>Phone Number</label>
                                     <input type="text" name="phnno" id="phnno" tabindex="4" placeholder="Enter Phone Number" value="<?php if ($phnno1) {
                                             echo $phnno1;
                                         } ?>" /> <span id="phnno-error"> </span>
@@ -588,7 +588,6 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 phnno: {
 
                             number: true,
-                            required: true,
                            minlength: 8,
                            maxlength:15
                             
