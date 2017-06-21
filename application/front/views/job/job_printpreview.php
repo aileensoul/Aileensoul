@@ -262,7 +262,10 @@ echo $job_header2;
                                     </div>
                                     <div class="profile-job-profile-menu">
                                         <ul class="clearfix">
-                                            <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Present Address</h5>
+                                            <div class="text-center">
+      <h5 class="head_title">Present Address</h5>
+  </div>
+     
                                             <li> <b> Country</b> <span><?php
                                                     $cache_time = $this->db->get_where('countries', array('country_id' => $job[0]['country_id']))->row()->country_name;
                                                     echo $cache_time;
@@ -354,7 +357,9 @@ echo $job_header2;
 
                                         </ul>
                                         <ul class="clearfix">
-                                            <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Permenant Address</h5>
+                                           <div class="text-center">
+      <h5 class="head_title">Permenant Address</h5>
+  </div>
                                             <li> <b> Country</b> <span><?php
                                                     $cache_time = $this->db->get_where('countries', array('country_id' => $job[0]['country_permenant']))->row()->country_name;
                                                     echo $cache_time;
@@ -469,7 +474,9 @@ echo $job_header2;
                                             
                                                 if ($job_edu[0]['board_primary']) {
                                                     ?>
-                     <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Primary Education</h5>
+                         <div class="text-center">
+      <h5 class="head_title">Primary Education</h5>
+  </div>
                                                 
                                                   
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_primary']; ?></span>
@@ -508,7 +515,9 @@ echo $job_header2;
                                                  <?php
                                                 if ($job_edu[0]['board_secondary']) {
                                                     ?>
-                           <h5 style="text-decoration: underline; text-align: center; margin: 5px;">Secondary Education</h5>
+                        <div class="text-center">
+      <h5 class="head_title">Secondary Education</h5>
+  </div>
                                                
 
                                                
@@ -538,7 +547,9 @@ echo $job_header2;
                                                 <?php
                                                 if ($job_edu[0]['board_higher_secondary']) {
                                                     ?>
-<h5 style="text-decoration: underline; text-align: center; margin: 5px;">Higher secondary Education</h5>
+<div class="text-center">
+      <h5 class="head_title">Higher secondary Education</h5>
+  </div>
                                                 
                                                  
                                                     <li> <b>Board </b><span> <?php echo $job_edu[0]['board_higher_secondary']; ?></span>
@@ -581,7 +592,10 @@ echo $job_header2;
                                             }
                                                 ?>
 <?php if($job_graduation) { ?>
-<h5 style="text-decoration: underline; text-align: center; margin: 5px;">graduation</h5>
+<div class="text-center">
+      <h5 class="head_title">Graduation</h5>
+  </div>
+
 
 
   <!--khyati chnages 22-5 start-->                                                     
@@ -695,7 +709,10 @@ echo $job_header2;
                                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
                                                             ?>
                                                             <li>
-    <h5 style="text-decoration: underline; text-align: center; margin: 5px;" > Project And Training</h5>
+   <div class="text-center">
+      <h5 class="head_title">Project And Training</h5>
+  </div>
+ 
                                                             </li>
                                                             <?php
                                                         }
@@ -753,7 +770,10 @@ echo $job_header2;
                                                         if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                                             ?>
                                                             <li>
-     <h5 style="text-decoration: underline; text-align: center; margin: 5px;" >Internship</h5>
+     
+     <div class="text-center">
+      <h5 class="head_title">Internship</h5>
+  </div>
                                                             </li>
                                                             <?php
                                                         }
@@ -837,7 +857,10 @@ echo $job_header2;
                                                         if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
                                                             ?>
                                                             <li>
-    <h5 style="text-decoration: underline; text-align: center; margin: 5px;" > Project And Training</h5>
+    <div class="text-center">
+      <h5 class="head_title">Project And Training</h5>
+  </div>
+     
                                                             </li>
                                                             <?php
                                                         }
@@ -909,7 +932,10 @@ echo $job_header2;
                                                         if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                                             ?>
                                                             <li>
-     <h5 style="text-decoration: underline; text-align: center; margin: 5px;" >Internship</h5>
+     <div class="text-center">
+      <h5 class="head_title">Internship</h5>
+  </div>
+     
                                                             </li>
                                                             <?php
                                                         }
