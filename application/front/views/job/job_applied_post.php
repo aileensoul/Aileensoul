@@ -921,7 +921,7 @@ $(document).ready(function(){
  
 //  $(document).load().scrollTop(1000);
      
-    $('html,body').animate({scrollTop:265}, 100);
+    $('html,body').animate({scrollTop:263}, 100);
 
 });
 //For Scroll page at perticular position js End
