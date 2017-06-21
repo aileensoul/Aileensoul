@@ -137,6 +137,10 @@
 .change-password .change-password-box{margin: 0;}
 /*.action-button #notification_count{padding: 4px !important;}*/
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{word-break: break-all;}
+
+
+
+/*Validation New*/
 /*
 label.error::before{
     content: " ";
@@ -159,6 +163,9 @@ label.error::before{
     border: 2px solid red!important;
     font-size: 12px!important;
 }*/
+/*End*/
+
+
 /*.has-error input, input.error, select.error, .has-error textarea, textarea.error{border-color: #d9d9d9;}
 .error-msg p, label.error{
     background: white!important;
@@ -168,4 +175,8 @@ label.error::before{
 }*/
 .designation_rec_1 ul li{display: flex!important;}
 
-.padd_set .left-side-bar ul{width: 87%;}
+/*.padd_set .left-side-bar ul{width: 87%;}*/
+
+.flw_msg_btn ul li{margin-right: 10px!important;}
+.header2 ul li a i{    padding-right: 5px!important;
+    margin-left: -6px !important;}
