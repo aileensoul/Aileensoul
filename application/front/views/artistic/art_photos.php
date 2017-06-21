@@ -211,7 +211,7 @@
                if ($artisticdata[0]['designation'] == '') {
                    ?>
             <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-            <a id="myBtn">Designation</a>
+            <a id="myBtn">Current work</a>
             <?php } ?>
             <?php } else { ?> 
             <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
