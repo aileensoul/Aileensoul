@@ -340,9 +340,11 @@
                                 <!-- Friend Request Start-->
 
                                 <li id="add_contact">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();"><span class="hidden-xs">Contact Request &nbsp;</span> <i class="fa fa-user" aria-hidden="true"> </i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();">
+                                        <span class="hidden-xs">Contact Request &nbsp;</span> 
+                                        <i class="fa fa-user" aria-hidden="true"> </i>
 
-                                        <span id="addcontact_count"></span>
+                                        <span id="addcontact_count">1</span>
 
                                     </a>
                                     <div id="addcontactContainer">
