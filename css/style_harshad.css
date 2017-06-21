@@ -147,3 +147,15 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 8px;
 }
 
+@media screen and (max-width: 991px) {
+.pad-top-res{padding-top: 20px;}
+.fw .job-menu-profile{width: 22.3%;}
+
+}
+
+@media screen and (max-width: 767px) {}
+.folow-ms{width: 100%; float:left;}
+.fw .job-menu-profile {
+    width: 27.3%;
+}
+}

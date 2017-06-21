@@ -136,6 +136,42 @@
                              <?php }?> 
                         </div>
                     </div>
+                    <div class="job-menu-profile mob-block">
+            <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
+                <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
+
+            <!-- text head start -->
+            <div class="profile-text" >
+
+                <?php
+                if ($artisticdata[0]['designation'] == '') {
+                    ?>
+
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
+
+                    <?php } ?>
+
+                <?php } else { ?> 
+
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                    <?php } else { ?>
+                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                    <?php } ?>
+
+                <?php } ?>
+
+
+            </div>
+
+        </div>
                     <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
 
 <div class="left-side-menu col-md-1">  </div>
@@ -249,7 +285,9 @@ if($status == 0 || $status == " "){?>
 
   </div>  
     <!-- menubar -->                
-  </div>                   <div class="job-menu-profile">
+  </div>                
+<div class="fw pad-top-res">
+     <div class="job-menu-profile mob-none">
                           <a href="<?php echo site_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> <h5 > <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?>
                           </h5></a>
                              <!-- text head start -->
@@ -286,7 +324,7 @@ if($status == 0 || $status == " "){?>
 
             <!-- text head end -->
                       </div>
-                      <div class="col-md-7 col-sm-7 follow_mid">
+                      <div class="col-md-7 col-sm-9 follow_mid folow-ms">
 
                     <div>
                         <?php
@@ -421,6 +459,7 @@ if($status == 0 || $status == " "){?>
                     
             </div>
 
+        </div>
         </div>
         </div>
         </div>
