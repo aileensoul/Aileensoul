@@ -12673,7 +12673,7 @@ snippet from Animate.css - zoomIn effect
 .business-profile-right .bui-menu-profile{min-height: 110px;}
 .business-profile-right .business-data-menu{width: 100%; float: left;}
 .business-profile-right .profile-main-box-buis-menu ul{padding-left: 0;}
-.business-profile-right .profile-main-box-buis-menu ul li{padding-left: 0; /*padding-right: 5px;*/}
+.business-profile-right .profile-main-box-buis-menu ul li{padding-left: 0; padding-right: 5px;}
 .buisness-menu{position: relative;}
 .buisness-menu:before{width: 100%; position: absolute; bottom: 59px; background: #ddd; height: 1; content: ""; 
 left: 0;}
@@ -12875,12 +12875,14 @@ images css start*/
     #add_contact #addcontactContainer{width:100%; top:35px;}
     #add_contact #addcontactContainer::before{display:none;}
     #paddingtop_fixed_art{padding-top: 22px !important;}
-    .profile-box-art .right-side-menu{padding-left: 20%;}
+    .profile-box-art .right-side-menu{padding-left: 25%;}
     .profile-box-art .right-side-menu li a{padding-left: 7px !important; padding-right: 7px !important; }
+    .art-custom .job-menu-profile{margin-top: 30px;}
 }
 
 @media screen and (max-width: 639px) {
     .right-side-menu{padding-left: 18%;}
+    .profile-box-art .right-side-menu{padding-left: 20%;}
     .profile-main-rec-box-menu{margin-top: -60px;}
     .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
     .user-pic{width: 75px; height: 75px;}
