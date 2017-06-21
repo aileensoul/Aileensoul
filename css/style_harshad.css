@@ -98,3 +98,39 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 8px;
     right: 7px;
 }
+
+
+.chat .chat-history::-moz-scrollbar {
+    -moz-appearance: none;
+    width: 5px;
+}
+.chat .chat-history::-moz-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.chat_nobcx {
+    border: 1px solid #e4e5e7;
+    float: left;
+}
+.people-list ul::-moz-scrollbar {
+    -moz-appearance: none;
+    width: 5px;
+}
+.people-list ul::-moz-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.message-data .message-data-time{    width: 100px;
+    display: block;
+    margin: 0 auto;}
+.chat .chat-history .message-data.align-right .message-data-time {
+    font-size: 13px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    color: #a8aab1;
+    display: block;
+    margin-bottom: -23px;
+}

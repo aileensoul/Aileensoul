@@ -753,7 +753,7 @@
                            <?php
                               $text = $this->common->make_links($row['art_description']);
                               ?>
-                           <span class="show ft-13 "><?php echo $text; ?></span>
+                           <span class="show_more ft-13 "><?php echo $text; ?></span>
                         </div>
                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['art_description']; ?></div>
@@ -1305,7 +1305,7 @@
 <script>
    $(function () {
        var showTotalChar = 200, showChar = "Read More", hideChar = "";
-       $('.show').each(function () {
+       $('.show_more').each(function () {
            var content = $(this).html();
            if (content.length > showTotalChar) {
                var con = content.substr(0, showTotalChar);
