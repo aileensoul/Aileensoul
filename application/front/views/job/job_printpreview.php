@@ -197,7 +197,7 @@ echo $job_header2;
                                     </div>
                                 </div>
                                 <div class="profile-job-profile-menu">
-                                    <ul class="clearfix">
+                                    <ul class="clearfix " >
                                         <li> <b> Name </b> <span> <?php echo  ucfirst($job[0]['fname']); ?> <?php echo  ucfirst($job[0]['lname']); ?></span>
                                         </li>
 
@@ -1205,7 +1205,7 @@ echo $job_header2;
         <div id="work<?php echo $i; ?>" class="tabcontent data_exp">
         <div class="profile-job-profile-menu" id="job_workexp">
 
-        <ul class="clearfix">
+        <ul class="clearfix job_paddtop">
                 <?php
                     if ($work['experience'] == "Experience") {
                                                                 ?>           

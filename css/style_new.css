@@ -185,3 +185,4 @@ label.error::before{
     .popup-textarea textarea{font-size: 13px;}
     .popup-text textarea{font-size: 15px;}
     .logo a:focus{outline:none !important;text-decoration: none!important;}
+    .job_paddtop{padding-top: 0px!important;}
