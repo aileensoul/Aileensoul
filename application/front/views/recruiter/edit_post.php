@@ -811,9 +811,16 @@ else
 
 // for date validtaion start
 
+
+ 
+// var dateedit = echo date('Y-m-d',strtotime($postdata[0]['post_last_date']));
+// var lastDate = $("input[name=last_date]").val();
+// if(dateedit == lastDate){}else{ alert("hii");
 jQuery.validator.addMethod("isValid", function (value, element) {
 
+//var dateedit = echo date('Y-m-d',strtotime($postdata[0]['post_last_date']));
 
+      
 var todaydate = new Date();
 var dd = todaydate.getDate();
 var mm = todaydate.getMonth()+1; //January is 0!
@@ -827,21 +834,13 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = dd+'/'+mm+'/'+yyyy;
-
-   var lastDate = $("input[name=last_date]").val();
-    //alert(lastDate); alert(todaydate);
-
-     lastDate=lastDate.split("/");
-     var lastdata_new=lastDate[1]+"/"+lastDate[0]+"/"+lastDate[2];
-     var lastdata_new_one = new Date(lastdata_new).getTime();
-
-     todaydate=todaydate.split("/");
-     var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
-     var todaydate_new_one = new Date(todaydate_new).getTime();
-     
-
-    return lastdata_new_one >= todaydate_new_one;
+   var todaydate = yyyy+'-'+mm+'-'+dd;
+ 
+    var one = new Date(value).getTime();
+    var second = new Date(todaydate).getTime();
+   
+    return one >= second;
+  //}
 }, "Last date should be grater than and equal to today date");
 
 //date validation end
@@ -1229,7 +1228,7 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
 
                 $("#example2").dateDropdowns({
                     submitFieldName: 'last_date',
-                    submitFormat: "dd/mm/yyyy",
+                    submitFormat: "yyyy-mm-dd",
                     minYear: today,
                     maxYear: today + 1,
                     defaultDate: date_picker
