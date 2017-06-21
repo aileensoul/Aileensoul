@@ -326,98 +326,67 @@ $userid = $this->session->userdata('aileenuser');
 
 
   function portfolio_form_submit(){  
-  
-
+ 
 
     var art_step = "<?php echo $art_reg_data[0]['art_step']; ?>";
-
-    
-    //var artportfolio = document.getElementById("artportfolio").value;
     var bestofmine = document.getElementById("bestofmine").value;
-//alert(bestofmine);
-    // start khyati code
+
+    var bestmine = document.getElementById("bestmine").value;
+//alert(bestmine);
+
   var $field = $('#artportfolio123');
-  //var data = $field.val();
   
   var artportfolio = $('#artportfolio123').html();
  
-// end khyati code  
-    if(bestofmine == ''){ 
-
-    
-        // document.getElementById("artportfolio").submit();
-
-        $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
-                 data:'artportfolio='+artportfolio,
-                success:function(data){ 
-                  if(art_step == 3){ 
-                  window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
-                  }else{ 
-                     window.location= "<?php echo base_url() ?>artistic/art_post"; 
-                  }  
-                }
-            }); 
-    }
-    else{ 
-      
       var bestofmine_ext = bestofmine.split('.').pop();
       
       var allowespdf = ['pdf'];
       var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
 
+      var bestmine_ext = bestmine.split('.').pop();
+      
+      var allowespdf = ['pdf'];
+      var foundPresentportfolio = $.inArray(bestmine_ext, allowespdf) > -1;
 
-      if(foundPresentpdf == true)
-      { 
 
-        var fd = new FormData();
+       if(foundPresentpdf == true || foundPresentportfolio == true || foundPresentpdf == '')
+       { 
+
+         var fd = new FormData();
                 
-        fd.append("image", $("#bestofmine")[0].files[0]);
+         fd.append("image", $("#bestofmine")[0].files[0]);
 
-        files = this.files;
+         files = this.files;
 
-       
+        fd.append('artportfolio', artportfolio);
+        fd.append('bestmine', bestmine);
 
-        $.ajax({
+         $.ajax({
 
 
-            url: "<?php echo base_url(); ?>artistic/art_portfolio_insert",
-            type: "POST",
-            data: fd,
+             url: "<?php echo base_url(); ?>artistic/art_portfolio_insert",
+             type: "POST",
+             data: fd,
             processData: false,
             contentType: false,
             success: function (response) {
-               // alert(response);
+              if(art_step == 4){ 
+                 window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
+                 }else{ 
+                     window.location= "<?php echo base_url() ?>artistic/art_post"; 
+              
+                  } 
 
             }
-        }); 
+         }); 
 
-        $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "artistic/art_portfolio_insert" ?>',
-                 data:'artportfolio='+artportfolio,
-                success:function(data){ 
-                  //alert(data);
-              // return false;
-                  if(art_step == 3){ 
-                  window.location= "<?php echo base_url() ?>artistic/artistic_profile"; 
-                  }else{ 
-                     window.location= "<?php echo base_url() ?>artistic/art_post"; 
-                  } 
-                }
-            }); 
-   
-        
-        // document.getElementById("artportfolio").submit();
-     }
-     else{
-        $(".bestofmine_image").html("Please select only pdf file.");
-        return false;
-     }
+      }
+      else{
+         $(".bestofmine_image").html("Please select only pdf file.");
+         return false;
+      }
     }
-    return false;
-  }
+    
  
 </script>
 
@@ -433,6 +402,7 @@ $userid = $this->session->userdata('aileenuser');
     //   document.getElementById("pdffile").style.visibility = "hidden";
         $("#filename").text('');
         $("#pdffile").hide();
+        document.getElementById('bestmine').value = '';
 
           }
             }); 
