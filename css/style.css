@@ -12682,6 +12682,9 @@ snippet from Animate.css - zoomIn effect
 left: 0;}
 .business-profile-right .flw_msg_btn ul li a{height: auto;}
 
+.profile-box-art{height: auto !important;}
+.profile-box-art ul li a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
+
 /*
 images css start*/
 .one-image{height: 333px; width: auto;max-width: 100%; text-align: center; margin-bottom: 5px;}
@@ -12730,6 +12733,7 @@ images css start*/
     .profile-company-name a{font-size: 16px;}
     .left_box_menubar li a{padding-bottom: 0 !important;}
     .header2 ul{padding-right: 0;}
+    #paddingtop_fixed_art{padding-top: 32px !important;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -12779,6 +12783,8 @@ images css start*/
     .buisness-menu::before{bottom: 49px;}
     .profile-main-box-buis-menu .flw_msg_btn{margin-top: 7px !important;}
     .custom-right-art{margin-left: 0;}
+    #paddingtop_fixed_art.container{padding-left: 0; padding-right: 0;}
+    .job-menu-profile{width: auto; padding-left: 15px; margin-top: 10px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
