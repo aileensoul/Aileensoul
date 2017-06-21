@@ -64,15 +64,15 @@
                     </div>
  <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
            <div class="col-md-7 col-sm-8 header-left-menu">
- <div class="col-md-4 col-sm-4 col-xs-5 reg_form">
-                        <input type="text" tabindex="1" name="user_name" tabindex="1" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
+ <div class="col-md-4 col-sm-4 col-xs-5 User_Name reg_form ">
+                        <input type="text" tabindex="1" name="user_name" tabindex="1" class="User_Name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
                       
                         <input class="rem" type="checkbox"  tabindex="18" class="fl" name="remember" >
                                      <span class="remb_1" >Remember me</span>
                       
         </div> 
-         <div class="col-md-4 col-sm-4 col-xs-5 reg_form">              
+         <div class="col-md-4 col-sm-4 col-xs-5 reg_form Pass_word">              
                                <input type="password" name="password" tabindex="2" id="password" placeholder="Password" value="<?php if (isset($_COOKIE['password'])) { echo $_COOKIE['password']; } ?>">
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
