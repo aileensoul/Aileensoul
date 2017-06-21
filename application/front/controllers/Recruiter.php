@@ -1217,13 +1217,10 @@ foreach ($citiesss as $key1) {
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
 
-        
+
         $otherskilldata = explode(',',$this->input->post('other_skill'));
 
 
-            // $other = $this->input->post('other_skill');
-           // echo "<pre>"; print_r($otherskilldata);die();
-            //echo $otherskilldata;die();
             foreach ($otherskilldata as $dataskill) {
             $data1 = array(
                 'skill' => $dataskill,
