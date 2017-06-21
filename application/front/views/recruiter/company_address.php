@@ -126,9 +126,8 @@
                         <label>State:<span class="red">*</span></label>
                         <select name="state" id="state" tabindex="2">
                          <?php
-                                          
-                                            foreach($states as $cnt){
-                                                if($state1)
+                                           if($state1){
+                                            foreach($states as $cnt)
 
                                             {
                                                
@@ -138,14 +137,14 @@
                                               
                                                 <?php
                                                 }
-                                              
+                                              }
                                                 else
                                                 {
                                             ?>
                                                  <option value="">Select country first</option>
                                                   <?php
                                             
-                                            }}
+                                            }
                                             ?>
                                         
                         </select><span id="state-error"></span>
