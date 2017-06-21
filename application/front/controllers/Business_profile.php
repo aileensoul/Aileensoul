@@ -8578,19 +8578,12 @@ $contition_array = array('status' => '1');
  $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
- $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+ $contactdata .=  '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
 
 
   $contactdata .=   '</div>';
-  $contactdata .=   '<div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">';
-  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>';
+  $contactdata .=   '<div class="addtocont">';
+  $contactdata .= '<span class="ft-13"><i class="icon-user"></i>Add to contact</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
@@ -8606,19 +8599,12 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
  $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
- $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+ $contactdata .=  '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
 
 
   $contactdata .=   '</div>';
-  $contactdata .=   '<div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">';
-  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .=   '<div class="addtocont">';
+  $contactdata .= '<span class="ft-13"><i class="icon-user"></i>Cancel request</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
@@ -8635,19 +8621,12 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
  $contactdata =  '<a href="#" onclick="return contact_person(' . $to_id .');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
- $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+ $contactdata .=  '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
 
 
   $contactdata .=   '</div>';
-  $contactdata .=   '<div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">';
-  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Add to contact</span>';
+  $contactdata .=   '<div class="addtocont">';
+  $contactdata .= '<span class="ft-13"><i class="icon-user"></i>Add to contact</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
@@ -8670,19 +8649,12 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
           $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
  $contactdata .=  '<div class="">';
  $contactdata .=  '<div id="ripple" class="centered">';
- $contactdata .=  '<div class="circle"><span href="" style="position: absolute; z-index: 1; 
-                                                      top: 7px;
-                                                      left: 7px;"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+ $contactdata .=  '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
 
 
   $contactdata .=   '</div>';
-  $contactdata .=   '<div class="addtocont" style="    position: absolute;
-                             display: block;
-                             /* margin-left: 69.4%; */
-                             /* margin-top: 0%; */
-                             right: 7%;
-                             top: 62px;">';
-  $contactdata .= '<span style="font-size: 13px; ""><i class="icon-user"></i>Cancel request</span>';
+  $contactdata .=   '<div class="addtocont">';
+  $contactdata .= '<span class="ft-13"><i class="icon-user"></i>Cancel request</span>';
   $contactdata .= '</div>';
   $contactdata .= '</div>';
   $contactdata .= '</a>';
@@ -8707,7 +8679,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      //if user deactive profile then redirect to business_profile/index untill active profile End
      
      $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
      
      
      
@@ -8752,7 +8724,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     $contactdata .=    '<div class="addcontact-left">';
     $contactdata .=    '<a href="#">';
     $contactdata .=    '<div class="addcontact-text">';
-    $contactdata .=     'Not data available...';
+    $contactdata .=     'No Contact Request available...';
     $contactdata .=     '</div>';
     $contactdata .=     '</a>';
     $contactdata .=     '</div>';
@@ -8803,7 +8775,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       }
      
      $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
      
      if($contactperson){
      foreach($contactperson as $contact){
@@ -8880,7 +8852,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       $join_str[0]['join_type'] = '';
       
      $contition_array = array('contact_to_id' => $userid, 'contact_person.status' => 'pending');
-     $friendlist = $this->data['friendlist'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+     $friendlist = $this->data['friendlist'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
     
   //    city wise fetch users
 //     $contition_array = array('contact_to_id' => $userid);
@@ -8936,7 +8908,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
       }
      
      $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
-     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
      
      if($contactperson){
      foreach($contactperson as $contact){
