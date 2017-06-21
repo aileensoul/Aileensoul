@@ -512,7 +512,7 @@
                                                                 </ul>
                                                                  <ul class="col-md-6 like_cmnt_count">
 
- <li>
+                                                               <li>
                                                                 <div class="like_cmmt_space comnt_count_ext like_count_ext_img<?php echo $artdata['image_id']; ?>">
                                                                     <span class="comment_count" > 
                                                                         <?php

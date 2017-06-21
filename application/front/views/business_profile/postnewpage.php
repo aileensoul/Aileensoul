@@ -606,7 +606,7 @@
                                                       $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
                                                       $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                       if ($likecount) {
-                                                          echo count($likecount);
+                                                        //  echo count($likecount);
                                                       }
                                                       ?>
                                                    </span>
@@ -630,20 +630,33 @@
                                              </ul>
                                              <ul class="col-md-6 like_cmnt_count">
                                                 <li>
-                                                   <div class="like_count_ext">
-                                                      <span class="comment_count_img" > 
-                                                      <span>5</span>
-                                                      <span> Comment</span>
-                                                      </span> 
-                                                   </div>
-                                                </li>
-                                                <li>
-                                                   <div class="comnt_count_ext">
-                                                      <span class="comment_like_count_img"> 
-                                                      <span>5</span>
-                                                      <span> Like</span>
-                                                   </div>
-                                                </li>
+                                                                <div class="like_cmmt_space comnt_count_ext like_count_ext_img<?php echo $busdata['image_id']; ?>">
+                                                                    <span class="comment_count" > 
+                                                                        <?php
+                                                                        if (count($commnetcount) > 0) {
+                                                                            echo count($commnetcount); ?>
+                                                                             
+                                                                        </span> 
+                                                                    <span> Comment</span>
+                                                                                <?php }
+                                                                        ?> 
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class=" comnt_count_ext <?php echo 'comnt_count_ext_img' . $busdata['image_id']; ?>">
+                                                                    <span class="comment_like_count"> 
+                                                                       <?php
+                                                                        if (count($likecount) > 0) { 
+                                                                            echo count($likecount); ?>
+                                                                   </span> 
+                                                                    <span> Like</span>
+                                                                <?php   }
+                                                                        ?> 
+                                                                   
+                                                                </div>
+                                                            </li>
+                         
                                              </ul>
                                           </div>
                                        </div>
@@ -2593,9 +2606,9 @@
                // $('.' + 'likepost' + clicked_id).html(data);
                //alert(data.like_user_count);
    
-               $('.' + 'likepostimg' + clicked_id).html(data.like);
+              $('.' + 'likepostimg' + clicked_id).html(data.like);
                $('.likeusernameimg' + clicked_id).html(data.likeuser);
-               $('.comment_like_count_img' + clicked_id).html(data.like_user_count);
+               $('.comnt_count_ext_img' + clicked_id).html(data.like_user_count);
                $('.likeduserlistimg' + clicked_id).hide();
                if (data.like_user_count == '0') {
                    document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
@@ -2644,8 +2657,9 @@
                        $(this).val('');
                    });
                    $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
-                   $('#' + 'insertcountimg' + clicked_id).html(data.count);
-   
+                  // $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                  $('.like_count_ext_img' + clicked_id).html(data.comment_count);
+                 
                }
            });
    
@@ -2666,9 +2680,9 @@
    //                    alert('#' + 'fourimgcomment' + clicked_id);
    //                    alert(data.comment);
    
-                   $('#' + 'insertcountimg' + clicked_id).html(data.count);
+                 //  $('#' + 'insertcountimg' + clicked_id).html(data.count);
                    $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
-   
+                   $('.like_count_ext_img' + clicked_id).html(data.comment_count);
                    //$('#' + 'insertcommenttwo' + clicked_id).html(data);
    
                }
@@ -2728,7 +2742,7 @@
    
                            $('.' + 'insertimgcomment' + clicked_id).html(data.comment);
    //                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
-                           $('.comment_count_img' + clicked_id).html(data.comment_count);
+                           $('.like_count_ext_img' + clicked_id).html(data.comment_count);
                        }
                    });
    
@@ -2743,8 +2757,8 @@
    //alert('#' + 'insertimgcount' + clicked_id);
    
    //                            $('#' + 'insertcountimg' + clicked_id).html(data.count);
-                           $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
-                           $('.comment_count_img' + clicked_id).html(data.comment_count);
+                      $('#' + 'fourimgcomment' + clicked_id).html(data.comment);
+                      $('.like_count_ext_img' + clicked_id).html(data.comment_count);
                        }
                    });
                }
@@ -3166,7 +3180,8 @@
                //$('#' + 'insertimgcount' + post_delete.value).html(data.count);
    //                $('#' + 'insertcountimg' + post_delete.value).html(data.count);
                $('.' + 'insertimgcomment' + post_delete.value).html(data.comment);
-               $('.comment_count_img' + post_delete.value).html(data.comment_count);
+            //   $('.comment_count_img' + post_delete.value).html(data.comment_count);
+               $('.like_count_ext_img' + post_delete.value).html(data.comment_count);
                $('.post-design-commnet-box').show();
            }
        });
@@ -3194,6 +3209,7 @@
                //$('.' + 'insertcommenttwo' + post_delete1.value).html(data);
                $('.' + 'insertimgcommenttwo' + post_delete1.value).html(data.comment);
                $('#' + 'insertimgcount' + post_delete1.value).html(data.count);
+               $('.like_count_ext_img' + post_delete1.value).html(data.comment_count);
                $('.post-design-commnet-box').show();
            }
        });

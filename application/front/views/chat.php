@@ -47,7 +47,11 @@
                                 foreach ($userlist as $user) {
                                     ?>
                                     <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
-                                        <li class="clearfix">
+            <li class="clearfix <?php
+                if ($user['user_id'] == $lstusr) {
+                                            echo "active";
+                                        }
+                                        ?>">
                                             <?php if ($user['user_image']) { ?>
                                                 <div class="chat_heae_img">
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" >
@@ -109,7 +113,7 @@
                             </div>
                         </div>
                         <div class="chat-history">
-                            <ul  id="received" class="padding_less_right padding_less_left">
+                            <ul  id="received" class="padding_less_right">
 
                             </ul>
 
@@ -391,7 +395,7 @@
                     html += ' </div>';
                     html += ' <div class="message my-message">' + data.message + '</div>';
                     html += '</li>';
-                    $('.' + 'status' + touser).html(data.message);
+                    $('.' + 'status' + curuser).html(data.message);
                 }
             }
 //            $('.chat-history').animate({scrollTop: $('.chat-history').height()}, 2000);

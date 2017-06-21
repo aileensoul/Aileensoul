@@ -55,10 +55,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
                                             </div>
         <?php } ?>
-                                        <div class="about">
-                                            <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . "<br>"; ?></a> </div>
-                                            <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
+            <div class="about">
+                   <div class="name"> 
+                              <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . "<br>"; ?></a> </div>
+     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                     <?php echo $user['message']; ?>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <?php
     }
-    foreach ($userlist as $user) {
+    foreach ($userlist as $user) {  
         if ($user['user_id'] != $toid) {
             ?>
                                         <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="chat-history">
-                            <ul  id="received" class="padding_less_right padding_less_left">
+                            <ul  id="received" class="padding_less_right">
 
                             </ul>
 
@@ -384,7 +384,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var userid = '<?php echo $userid; ?>';
             var curuser = data.message_from;
             var touser = data.message_to;
-
+         
             if (curuser == userid) {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
@@ -399,8 +399,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //html += ' <div class="chat-body clearfix">';
                 html += '     <div class="message other-message float-right">' + data.message + '</div>';
                 html += '</li>';
-
-
+                
                 $('.' + 'status' + touser).html(data.message);
             } else {
 
@@ -417,7 +416,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '     <div class="message my-message">' + data.message + '</div>';
                 html += '</li>';
 
-                $('.' + 'status' + touser).html(data.message);
+
+                $('.' + 'status' + curuser).html(data.message);
             }
             
              var $cont = $('.chat-history');

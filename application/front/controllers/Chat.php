@@ -239,7 +239,6 @@ $userlist =  $this->aasort($userlist,"id");
 $this->data['userlist'] = array_merge($return_arraysel,$userlist);
     // khyati changes end 20-4
 
-
 // smily start
 $smileys = _get_smiley_array();
 $this->data['smiley_table'] = $smileys;
