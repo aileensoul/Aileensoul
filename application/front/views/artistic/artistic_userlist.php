@@ -12,36 +12,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<style type="text/css" media="screen">
-    #row2 { overflow: hidden;  width: 100%; }
-    #row2 img { height: 350px;width: 100%; }
-    .upload-img{    float: right;
-                    position: relative;
-                    margin-top: -135px;
-                    right: 50px; }
 
-    label.cameraButton {
-        display: inline-block;
-        margin: 1em 0;
-        cursor: pointer;
-        /* Styles to make it look like a button */
-        padding: 0.5em;
-        border: 2px solid #666;
-        border-color: #EEE #CCC #CCC #EEE;
-        background-color: #DDD;
-        opacity: 0.7;
-    }
-
-    /* Look like a clicked/depressed button */
-    label.cameraButton:active {
-        border-color: #CCC #EEE #EEE #CCC;
-    }
-
-    /* This is the part that actually hides the 'Choose file' text box for camera inputs */
-    label.cameraButton input[accept*="camera"] {
-        display: none;
-    }
-</style>
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
@@ -93,8 +64,8 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -163,7 +134,7 @@
 
         </div>
 
-        <div class="profile-main-rec-box-menu  col-md-12 padding_les ">
+        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les ">
 
             <div class="left-side-menu col-md-1">  </div>
             <div class="right-side-menu col-md-8">
