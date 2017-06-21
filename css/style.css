@@ -592,7 +592,7 @@ padding: 10px 10px 10px 10px ;}
 .header ul li a {
     font-size: 14px;
     color: #fff;
-    padding: 13px;
+    padding: 14px;
     font-weight: 400;
     display: block;
     letter-spacing: 0.5;
@@ -2501,16 +2501,10 @@ ul.business_pf_ct_person_detail li b {
     margin-top: 0px;
 }
 .bui-menu-profile {
-    /*    
-text-align: center*/
-    
-    ;
-    /* height: 8%; */
-    
-   /* float: left;
-    padding-left: 45px;
-    padding-right: 10px;*/
-    /* margin-top: -19px; */
+    float: left;
+    padding-left: 33px;
+    padding-right: 10px;
+   
 }
 .job-menu-profile h5 {
     text-transform: capitalize;
@@ -5800,7 +5794,7 @@ padding-left: 10px;
     }
     .right-side-menu {
         float: left;
-        height: 6.5%;
+        /*height: 6.5%;*/
         margin-left: 10px;
     }
     .profile-box-job-menu ul li a {
@@ -12919,7 +12913,7 @@ images css start*/
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
     .post-design-name ul li .post_dot{font-size: 14px;}
-    .cmy_2{width:88%;  padding-right: 0;}
+    .cmy_2{width:87%;  padding-right: 0;}
     .two-images{height: 150px;}
     .three-image{height: 150px;}
     .four-image{height: 150px;}
@@ -12938,7 +12932,7 @@ images css start*/
     div[class^="likeduserlist"]{float: left; padding-left: 10px; padding-right: 10px;}
     .likeduserlist, .likeduserlist1 {padding-left: 10px; padding-right: 10px;}
     .post-design-commnet-box{padding: 10px;}
-    .editor-content{width: 80%;}
+    .editor-content{width: 78%;}
     .post-edit-popup .editor-content{width: 80%;}
     .post-edit-popup .popup-text textarea{width: 87%;}
     .profile-main-box-buis-menu li a{padding: 10px 5px 12px !important;}
@@ -12953,7 +12947,7 @@ images css start*/
     .more-image{height:119px;}
     .three-image-top{height: 15%;}
     .post-design-name{padding-right: 0;}
-    .editor-content{width: 77%; padding-left: 0;}
+    .editor-content{width: 74%; padding-left: 0;}
     .post-edit-popup .editor-content{width: 76%;}
     .post-edit-popup .popup-text textarea{width: 84%;}
     .comment-name{width: 78%;}
