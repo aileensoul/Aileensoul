@@ -514,3 +514,25 @@
 
  </script>
  <!-- all popup close close using esc end-->
+
+ <!-- contact user count script start -->
+
+<script type="text/javascript">
+    
+    function contact_count(){
+
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/contact_count",
+            type: "POST",
+            success: function (data) {
+               
+                $('#addcontact_count').html(data);
+               
+            }
+        });
+
+    }
+</script>
+
+ <!-- conatct user count script end -->
