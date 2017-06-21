@@ -109,7 +109,7 @@
                             </div>
                         </div>
                         <div class="chat-history">
-                            <ul  id="received" class="padding_less_right">
+                            <ul  id="received" class="padding_less_right padding_less_left">
 
                             </ul>
 
