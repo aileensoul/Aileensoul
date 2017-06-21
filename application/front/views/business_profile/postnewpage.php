@@ -2607,8 +2607,8 @@
                //alert(data.like_user_count);
    
               $('.' + 'likepostimg' + clicked_id).html(data.like);
-               $('.likeusernameimg' + clicked_id).html(data.likeuser);
-               $('.comnt_count_ext_img' + clicked_id).html(data.like_user_count);
+              $('.likeusernameimg' + clicked_id).html(data.likeuser);
+              $('.comnt_count_ext_img' + clicked_id).html(data.like_user_count);
                $('.likeduserlistimg' + clicked_id).hide();
                if (data.like_user_count == '0') {
                    document.getElementById('likeusernameimg' + clicked_id).style.display = "none";

@@ -1331,8 +1331,8 @@ word-break: break-all;
     body{margin-bottom:122px !important;}
 }
 
-.User_Name{    padding-right: 0!important;
+/*.User_Name{    padding-right: 0!important;
     padding-left: 30!important;}
 
-.Pass_word{padding-left: 10px;
-    padding-right: 20px;}
+.Pass_word{padding-left: 10px!important;
+    padding-right: 20px!important;}*/

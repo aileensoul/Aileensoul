@@ -9990,7 +9990,7 @@ style chat css end*/
 
 #s2id_skils{width: 100% !important;}
 #jobseeker_regform #other_keyskill{width:90% !important;}
-.contact-frnd-post{margin-bottom: 100px;}
+.contact-frnd-post{margin-bottom: 100px; width: 100%; float: left;}
 
  #two_images_buip{  float: left;
     
