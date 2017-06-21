@@ -1217,13 +1217,21 @@ foreach ($citiesss as $key1) {
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
 
+        
+        $otherskilldata = explode(',',$this->input->post('other_skill'));
+
+
+            // $other = $this->input->post('other_skill');
+           // echo "<pre>"; print_r($otherskilldata);die();
+            //echo $otherskilldata;die();
+            foreach ($otherskilldata as $dataskill) {
             $data1 = array(
-                'skill' => $this->input->post('other_skill'),
+                'skill' => $dataskill,
                 'type' => 4
             );
             // echo '<pre>'; print_r($data1); die();
             $insertid = $this->common->insert_data_getid($data1, 'skill');
-
+                }
 
             if ($insert_id) {
                 $this->session->set_flashdata('success', 'your post inserted successfully');
