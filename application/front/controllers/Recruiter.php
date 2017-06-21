@@ -967,8 +967,9 @@ foreach ($citiesss as $key1) {
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('status' => '1', 'type' => '1');
+        $contition_array = array('status' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      //  echo "<pre>"; print_r($this->data['skill']);die();
 
         $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
 
@@ -2050,7 +2051,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 //keyskill automatic retrieve cobtroller start
     public function keyskill() {
         $json = [];
-        $where = "type='1' AND status='1'";
+        $where = "status='1'";
 
         //$this->load->database('aileensoul');
 
@@ -2602,7 +2603,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
         foreach ($candidate as $jobcan) { 
          //echo "123"; die();
             if($jobcan['keyskill']){
-               // echo "sss".'<br>';
+              //  echo "sss".'<br>';
             $keyskill = explode(',', $jobcan['keyskill']);
 //echo "<pre>"; print_r($keyskill);
 
@@ -2640,17 +2641,20 @@ $join_str1 = array(
            
 }else{
 
-   // echo "hhhh".'<br>';
+  
             foreach ($userotherskill as $jobcanother) {  //echo "123"; die();
            // $keyskill = explode(',', $jobcanother['skill']);
-//echo "<pre>"; print_r($keyskill);
-
-            $result = array_intersect($postuserarray, $jobcanother['skill']);
-//echo "<pre>"; print_r($result);
+           $arra_skill[] = $jobcanother['skill_id'];
+         // echo "<pre>"; print_r($arra_skill);
+         
+       
+            $result = array_intersect($postuserarray, $arra_skill);
+            $result = array_filter(array_map('trim', $result));
+          //  echo "<pre>"; print_r($result); 
   
       if($result){
 
-    //echo "string";
+   // echo "string"; 
         
 $join_str1 = array(
             array(
@@ -2677,7 +2681,7 @@ $join_str1 = array(
             
          }
            
-
+            unset($arra_skill);
         }
 
 }
@@ -2686,12 +2690,23 @@ $join_str1 = array(
     // echo "<pre>"; Print_r($canlocation);die();
 
 
+foreach ($canlocation as $ke => $arr) {
+
+
+                    $postdata[] = $arr;
+                }
+
+                $new = array();
+                foreach ($postdata as $value) {
+                    $new[$value['user_id']] = $value;
+                }
+
     // die();   
 
 
 //echo "<pre>"; Print_r($new);die();
 
-        $this->data['candidatejob'] = $canlocation;
+        $this->data['candidatejob'] = $new;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();
 
 

@@ -201,7 +201,7 @@
                          
 
                          if(!$row['keyskill']){
-                          echo "otherskill";
+                          //echo "otherskill";
 
                           foreach ($other_skill as $sk) {
                          $sk2[] = $sk['skill']; 

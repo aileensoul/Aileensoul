@@ -684,7 +684,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 $(document).ready(function () {
     var complex = <?php echo json_encode($selectdata); ?>;
     $("#lan").select2({
-        placeholder: "Select a Language"
+        placeholder: "Select a Language",
     }).select2('val', complex);
 });
 </script>
