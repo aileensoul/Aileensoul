@@ -744,7 +744,9 @@ if(date_picker){
                     submitFormat: "dd/mm/yyyy",
                     minYear: 1821,
                     maxYear: today,
-                    defaultDate: date_picker
+                    defaultDate: date_picker,
+                    daySuffixes: false,
+                    monthFormat: "short",
                     //startDate: today,
 
                 });   
@@ -754,6 +756,8 @@ if(date_picker){
                     submitFormat: "dd/mm/yyyy",
                     minYear: 1821,
                     maxYear: today,
+                    daySuffixes: false,
+                    monthFormat: "short",
                     //defaultDate: date_picker
                     //startDate: today,
 
