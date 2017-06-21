@@ -135,7 +135,8 @@ if ($this->session->flashdata('success')) {
  <?php
                                         if ($skill_other) {
                                             ?>
-                                    <select name="skills1[]" id ="skils" tabindex="1" autofocus  multiple="multiple" style="width:100%;">
+                                    <select name="skills1[]" id ="skils" tabindex="1" autofocus  multiple="multiple" style="width:100%;" placeholder='Enter Skill'>
+                                   
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
