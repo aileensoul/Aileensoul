@@ -52,14 +52,14 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
-                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active" <?php } ?>><a href="#">Business Information</a></li>
+                            <ul class="left-form-each">
+                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active init" <?php } ?>><a href="#">Business Information</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/contact_information'); ?>">Contact Information</a></li>
+                                <li class="custom-none <?php if($businessdata[0]['business_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/contact_information'); ?>">Contact Information</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
+                                <li class="custom-none <?php if($businessdata[0]['business_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
 
-                                <li class="<?php if($businessdata[0]['business_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
+                                <li class="custom-none <?php if($businessdata[0]['business_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
 
                             </ul>
                         </div>
