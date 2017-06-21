@@ -236,7 +236,7 @@ if($artuserdata1){
 
 
 
-        <div class="profile_search" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
+        <div class="profile_search fl" style="background-color: white; margin-bottom: 10px; margin-top: 10px;"> 
 
 
 
@@ -398,7 +398,7 @@ if($artuserdata1){
                 ?>
 
                                                    
-            <div id="basic-responsive-image" >
+            <div class="one-image" >
              <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name'])?>"> </a>
                                                     </div>
                                                     
@@ -452,7 +452,7 @@ if($artuserdata1){
                                                     ?>
 
                                                     
-                                                    <div  id="two_manage_images_art" >
+                                                    <div class="two-images">
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$multiimage['image_name']) ?>" > </a>
                                                     </div>
 
@@ -464,14 +464,14 @@ if($artuserdata1){
 
 
                                               
-                                                <div id="three_images_art" >
+                                                <div class="three-image-top">
                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
-                                                <div  id="three_images_2_art">
+                                               <div class="three-image">
                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[1]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
-                                                <div  id="three_images_2_art">
+                                              <div class="three-image">
                                                     <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[2]['image_name'])?>" style="width: 100%; height:100%; "> </a>
                                                 </div>
 
@@ -486,7 +486,7 @@ if($artuserdata1){
                                                     ?>
 
                                                     
-                                                    <div id="responsive_manage-images-breakpoints" style="   ">
+                                                   <div class="four-image">
                                                         <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name'])?>" style="width: 100%; height: 100%;"> </a>
 
                                                     </div>
@@ -506,12 +506,10 @@ if($artuserdata1){
                                                     ?>
 
                                                     
-                                                    <div>
-                                                        <div id="responsive-manage_images_2-breakpoints">
+                                                  <div class="four-image">
                                                             <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $multiimage['image_name']) ?>" style=""> </a>
                                                         </div>
-                                                    </div>
-
+                                                    
                                                     
 
                                                     <?php
@@ -520,31 +518,23 @@ if($artuserdata1){
                                                         break;
                                                 }
                                                 ?>
-                                               
-                                                <div>
-                                                    <div id="responsive-manage_images_3-breakpoints" >
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[3]['image_name'])?>" > </a></div>
+                                             <div class="four-image">
+                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') .$artmultiimage[3]['image_name'])?>" > </a>
 
+   <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>" >
+                                                    <div class="more-image" >
 
-                                                    <div class="manage_images_view_more" >
-
-
-                                                        <a href="<?php echo base_url('artistic/postnewpage/' . $key['art_post_id']) ?>" >View All (+<?php echo (count($artmultiimage) - 4); ?>)</a>
-                                                    </div>
-
-                                                </div>
-                                              
+<span>
+                                                     View All (+<?php echo (count($artmultiimage) - 4); ?>)
+      </span>                                              </div>
+</a>
+                                               </div>
 
 
                                             <?php } ?>
-                                            <div>
-
-
-                                            </div>
-
+                                         
                                         </div>
-                                                              <div>
-                                                </div>
+                                                              
                                             </div>
                                             
                                         </div>

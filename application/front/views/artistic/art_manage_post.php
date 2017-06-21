@@ -25,7 +25,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:330}, 100);
+       $('html,body').animate({scrollTop:265}, 100);
    
    });
    //For Scroll page at perticular position js End
@@ -84,8 +84,8 @@
         </div>
 
 
-        <div class="container">
-            <div class="row" id="row2">
+        <div class="">
+            <div class="" id="row2">
                 <?php
                 $userid = $this->session->userdata('aileenuser');
                 if ($this->uri->segment(3) == $userid) {
@@ -149,10 +149,11 @@
             </div>
 
         </div>
-        <div class="profile-main-rec-box-menu  col-md-12 padding_les">
+        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
             <div class="left-side-menu col-md-1">  </div>
             <div class="right-side-menu col-md-7">
+                <div class=""
                 <ul>
 
 
@@ -177,7 +178,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -186,14 +187,14 @@
                         $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                         ?> 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
                         </li>
 
                     <?php } ?> 
                     <?php
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>        
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -202,7 +203,7 @@
                         $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
                         </li> 
                     <?php } ?>  
 
@@ -264,7 +265,7 @@
         
     </div>
 </div>
-        <div class="middle-part container">
+        <div class="container">
         <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
@@ -315,7 +316,7 @@
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 hidden-sm hidden-xs">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
 
@@ -750,7 +751,7 @@
             </div>
 
             <!-- popup start -->
-            <div class="col-md-7 col-sm-7 "  >
+            <div class="col-md-7 col-sm-12 "  >
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
@@ -781,7 +782,7 @@
                     </div>
 
                 </div>
-            </div>
+           
 
             <!-- The Modal -->
             <div id="myModal3" class="modal-post">
@@ -846,7 +847,7 @@
                 </div>
             </div>
             <!-- popup end -->
-            <div class="col-md-7">
+            
 
                 <div class="job-contact-frnd ">
 
@@ -1527,15 +1528,16 @@
                                                 }
                                                 ?>
                                             </div>
-                                            <div>
-                                                <div id="content" class="col-md-12 inputtype-comment" style="width: 80%; padding-left: 7px;">
+                                           
+                                                <div id="content" class="col-md-12 inputtype-comment cmy_2">
                                                     <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                 </div>    
         <?php echo form_error('post_comment'); ?>
 
                                                 <div class="comment-edit-butn">   
-                                                    <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> </div>
-                                            </div>
+                                                    <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
+                                                </div>
+                                            
 
                                         </div>
                      
@@ -1556,7 +1558,7 @@
 
              </div>
             </div>
-            </div>    
+             
         </div>
     </div>
 </div>

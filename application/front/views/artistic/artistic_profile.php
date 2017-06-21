@@ -21,7 +21,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:330}, 100);
+       $('html,body').animate({scrollTop:265}, 100);
    
    });
    //For Scroll page at perticular position js End
@@ -62,8 +62,8 @@
             </div>
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {
@@ -142,7 +142,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
         </div>
 
-        <div class="profile-main-rec-box-menu  col-md-12 padding_les ">
+        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
 
             <div class="left-side-menu col-md-1">  </div>
             <div class="right-side-menu col-md-7 padding_les_right">
