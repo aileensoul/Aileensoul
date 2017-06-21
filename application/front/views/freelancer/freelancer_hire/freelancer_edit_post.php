@@ -936,6 +936,9 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($freelancerpostdata[0]['post
                     defaultDate: date_picker,
                     daySuffixes: false,
                     monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
                     //startDate: today,
 
                 });   

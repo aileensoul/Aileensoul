@@ -747,6 +747,9 @@ if(date_picker){
                     defaultDate: date_picker,
                     daySuffixes: false,
                     monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
                     //startDate: today,
 
                 });   
@@ -758,6 +761,9 @@ if(date_picker){
                     maxYear: today,
                     daySuffixes: false,
                     monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
                     //defaultDate: date_picker
                     //startDate: today,
 

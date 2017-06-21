@@ -1061,6 +1061,9 @@ var today = yyyy;
                     maxYear: today + 1,
                     daySuffixes: false,
                     monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
                     
                     //startDate: today,
 

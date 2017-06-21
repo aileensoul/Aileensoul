@@ -1234,6 +1234,9 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
                     defaultDate: date_picker,
                     daySuffixes: false,
                     monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
                     //startDate: today,
 
                 });   
