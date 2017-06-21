@@ -61,7 +61,7 @@ a { text-decoration: none; color: #a0b3b0;
     cursor: pointer;
     padding-bottom: 10px; -moz-transition: all 0.4s ease-in; -webkit-transition: all 0.4s ease-in; -o-transition: all 0.4s ease-in; transition: all 0.4s ease-in; }
 a:hover {  color: #a0b3b0; text-decoration: underline; }
-a:focus { outline: none; text-decoration: none;  }
+a:focus { outline: none!important; text-decoration: none!important;  }
 [contenteditable]:active,
 [contenteditable]:focus{
 border:none;

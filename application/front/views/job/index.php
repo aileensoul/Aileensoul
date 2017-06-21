@@ -293,10 +293,11 @@ if (count($nation) > 0) {
                                 <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
                                     <label>Languages Known:<span class="red">*</span></label> 
 
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8" placeholder="Select a Language">
+             <option></option>
 
 <?php foreach ($language1 as $language) { ?>
-                                            <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
+                         <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
 <?php } ?>
 
                                     </select>
@@ -679,20 +680,20 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 <!-- javascript validation End -->
 
 <!-- script for Language textbox automatic end (option 2)-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function () {
     var complex = <?php echo json_encode($selectdata); ?>;
     $("#lan").select2({
         placeholder: "Select a Language",
-    }).select2('val', complex);
+    });
 });
-</script>
-<!-- <script>
+</script> -->
+<script>
 
-    
+    var complex = <?php echo json_encode($selectdata); ?>;
     $("#lan").select2().select2('val', complex)
 
-</script> -->
+</script>
 <!-- script for Language textbox automatic end (option 2)-->
 <script type="text/javascript">
     $(".alert").delay(3200).fadeOut(300);
