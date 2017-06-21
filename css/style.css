@@ -4561,6 +4561,8 @@ border-bottom: 1px solid #000033;
 }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li {
     margin-bottom: 5px;
+    width:100%;
+    float: left;
 }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p a {
     color: #3b5283;
@@ -6883,6 +6885,7 @@ footer .footer-menu li a:hover {
     display: inline-block;
 }
 .flw_msg_btn ul li a:hover {
+    border: 1px solid #d9d9d9;
     -webkit-transform: none;
     transform: none;
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
@@ -6891,9 +6894,9 @@ footer .footer-menu li a:hover {
     background: -o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
     background: -ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
     background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9', GradientType=0);
+    /*filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9', GradientType=0);
     background-color: #e9e9e9;
-    color: #1b8ab9;
+    color: #1b8ab9;*/
 }
 .padding_les {
     padding-right: 0px!important;
@@ -12677,8 +12680,9 @@ left: 0;}
 .business-profile-right .flw_msg_btn ul li a{height: auto;}
 
 .profile-box-art{height: auto !important;}
-.profile-box-art td a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
-.profile-box-art td{padding-left: 0 !important; padding-right: 3px !important;}
+.profile-box-art ul li a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
+.profile-box-art ul li{padding-left: 0 !important; padding-right: 3px !important;}
+.mob-block{display: none;}
 
 /*
 images css start*/
@@ -12869,7 +12873,8 @@ images css start*/
     #add_contact #addcontactContainer{width:100%; top:35px;}
     #add_contact #addcontactContainer::before{display:none;}
     #paddingtop_fixed_art{padding-top: 22px !important;}
-
+    .profile-box-art .right-side-menu{padding-left: 20%;}
+    .profile-box-art .right-side-menu li a{padding-left: 7px !important; padding-right: 7px !important; }
 }
 
 @media screen and (max-width: 639px) {
@@ -12892,6 +12897,8 @@ images css start*/
     .post-edit-popup .popup-text textarea{width: 90%;}
 }
 @media screen and (max-width: 479px) {
+    .mob-block{display: block;}
+    .mob-none{display: none;}
     .pl15-mob{padding-left: 15px;}
     .fw-479{width: 100%;}
     .logo h2{font-size:20px;}
@@ -12912,7 +12919,7 @@ images css start*/
     .popup-img{padding-right: 5px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
-    .profile-box-art .right-side-menu{padding-left: 26%;}
+    .profile-box-art .right-side-menu{padding-left: 0%;}
     .profile-job-profile-menu ul li{padding-left: 0;}
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
@@ -12940,6 +12947,11 @@ images css start*/
     .post-edit-popup .editor-content{width: 80%;}
     .post-edit-popup .popup-text textarea{width: 87%;}
     .profile-main-box-buis-menu li a{padding: 10px 5px 12px !important;}
+    .profile-photo .profile-pho{float: left;}
+    .job-menu-profile.mob-block{width: 75%; margin-top: 0;}
+    .profile-main-rec-box-menu.profile-box-art{width: 100%; float: left; margin-top: 0; text-align: center;}
+    .profile-box-art .left-side-menu{display: none;}
+    .profile-box-art ul{display: inline-block;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
