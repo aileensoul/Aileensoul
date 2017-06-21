@@ -29,7 +29,7 @@
         <div class="row">
         <div class="col-md-12">
                 
-                                      <div class="col-lg-3 col-md-4 col-sm-4">
+                         <div class="col-lg-3 col-md-4 col-sm-4">
                         <div class="padd_set">
                         <div class="left-side-bar">
                             <ul class="left-form-each">

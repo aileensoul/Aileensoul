@@ -1201,11 +1201,12 @@ $('#datepicker').datetimepicker({
     </script>
 
     <style type="text/css">
-      #skils{margin-top: 42px !important;}
+   /*   #skils{margin-top: 42px !important;}
       #minyear{margin-top: 42px !important;}
       #minmonth{margin-top: 42px !important;}
       #maxyear{margin-top: 42px !important;}
-      #maxmonth{margin-top: 42px !important;}
+      #maxmonth{margin-top: 42px !important;}*/
+      #maxmonth-error{margin-top: 42px;}
     </style>
 
   <!-- This Js is used for call popup -->

@@ -587,13 +587,11 @@ input[type="radio"] {
     font-weight: 600;
     padding-left: 19px;}
    .error-msg p, label.error {
-    background: white;
-    color: black !important;
+    background: #737373;
+    color: #fff !important;
     padding: 4px 10px !important;
     position: absolute;
     right: 8px;
-    border: 2px solid red !important;
-    border-radius: 5px;
     z-index: 10;
     font-size: 12px;
 }

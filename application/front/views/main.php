@@ -85,7 +85,7 @@
 
 </div> 
 <div class="col-md-2 col-sm-4 reg_button col-xs-2">
-                         <input type="submit" tabindex="3"  value="login" name="">
+                         <input type="submit" tabindex="3"  value="Login" name="">
       </div>                          </div>
        </form>
 
@@ -251,7 +251,7 @@
 <select name="gen" id="gen" style="padding-right: 0px!important;" tabindex="11">
     <option value=""> Gender </option>
     <option value="M" <?php if($gender == 'M'){ echo 'selected'; }?>> Male </option>
-    <option value="F" <?php if($gender == 'F'){ echo 'selected'; }?>> FeMale </option>
+    <option value="F" <?php if($gender == 'F'){ echo 'selected'; }?>> Female </option>
    </select>
               <?php echo form_error('gen'); ?>  
                 </fieldset>
