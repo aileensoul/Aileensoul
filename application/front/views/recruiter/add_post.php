@@ -600,7 +600,6 @@ if(mm<10) {
 
 //date validation end
 
-
             $(document).ready(function () { 
 
                 $("#artpost").validate({
@@ -752,7 +751,7 @@ if(mm<10) {
                         },
                         last_date: {
 
-                            required: "Last date should be grater than and equal to today's date."
+                            required: "Last Date for apply required"
                         },
                         // minsal:{
                         //     le:"Minimum salary should be less than Maximum salary"
