@@ -12851,10 +12851,7 @@ images css start*/
     .mange_post_image #two_manage_images_art{height: 250px;}
     .business-profile-right{width: 100%; padding: 15px;}
     .buisness-menu{padding-top: 0;}
-    .profile-pho-bui{position: absolute; left: 0; height: 90px;
-    margin-left: 15px;
-    margin-top: 0;
-    width: 80px; top:15px;}
+    .profile-pho-bui{position: absolute; left: 0; height: 90px; margin-left: 15px; margin-top: 0; width: 80px; top:15px;}
     .profile-pho-bui .user-pic{height: 82px; width: 72px;}
     .bui-menu-profile{padding-left: 95px !important;}
     .profile-main-box-buis-menu li a{padding: 10px 17px 12px !important;}
@@ -12865,7 +12862,6 @@ images css start*/
     .profile-main-box-buis-menu .flw_msg_btn{width: 100%;}
     .business-profile-right .flw_msg_btn ul li a{margin-top: 0; padding: 9px !important;}
     .header2 ul li{position: inherit;}
-    
     .mob-width{width: 100%; position: absolute;}
     .header2 .hidden-mob{position: relative; z-index: 99;}
     #add_contact #addcontactContainer{width:100%; top:35px;}
