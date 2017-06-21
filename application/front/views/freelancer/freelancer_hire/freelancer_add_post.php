@@ -1058,7 +1058,9 @@ var today = yyyy;
                     submitFieldName: 'last_date',
                     submitFormat: "dd/mm/yyyy",
                     minYear: today,
-                    maxYear: today + 1
+                    maxYear: today + 1,
+                    daySuffixes: false,
+                    monthFormat: "short",
                     
                     //startDate: today,
 

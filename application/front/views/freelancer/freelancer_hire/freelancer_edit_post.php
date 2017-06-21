@@ -933,7 +933,9 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($freelancerpostdata[0]['post
                     submitFormat: "yyyy-mm-dd",
                     minYear: today,
                     maxYear: today + 1,
-                    defaultDate: date_picker
+                    defaultDate: date_picker,
+                    daySuffixes: false,
+                    monthFormat: "short",
                     //startDate: today,
 
                 });   
