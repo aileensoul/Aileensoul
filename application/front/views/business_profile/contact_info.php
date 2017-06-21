@@ -103,7 +103,7 @@
                                 
 
                                  <fieldset <?php if($contactmobile) {  ?> class="error-msg" <?php } ?>>
-                                    <label>Contact Mobile:<span style="color:red">*</span></label>
+                                    <label>Contact Mobile:</label>
                                     <input name="contactmobile" type="text" tabindex="2"  id="contactmobile" placeholder="Enter contact Mobile" value="<?php if($contactmobile1){ echo $contactmobile1; } ?>"/>
                                      <?php echo form_error('contactmobile'); ?> 
                                 </fieldset>
@@ -321,9 +321,9 @@ $('#searchplace').select2({
 
                          contactmobile: {
 
-                            required: true,
-                            regx1:/^\d+(\.\d+)?$/
-                            //number: true,
+                            
+                            //regx1:/^\d+(\.\d+)?$/
+                            number: true,
                             
                            
                         },
