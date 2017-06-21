@@ -8614,7 +8614,7 @@ label.cameraButton input[accept*="camera"] {
     margin-top: 0px !important;
     margin-left: 1.5% !important;
 }
-.right_left_box_design{padding: 10px 10px 10px 16px !important;}
+.right_left_box_design{padding: 10px 10px 0px 16px !important;}
 .left_box_menubar li:last-child a{text-align: center;}
 /*Vishang 25-5 on */
 
@@ -12677,7 +12677,8 @@ left: 0;}
 .business-profile-right .flw_msg_btn ul li a{height: auto;}
 
 .profile-box-art{height: auto !important;}
-.profile-box-art ul li a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
+.profile-box-art td a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
+.profile-box-art td{padding-left: 0 !important; padding-right: 3px !important;}
 
 /*
 images css start*/
