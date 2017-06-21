@@ -467,7 +467,7 @@
                             <li style="width: 67%">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
-                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$cdata[0]['business_slug']); ?>"><?php echo $cdata[0]['company_name'];?></a>
+                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$cdata[0]['business_slug']); ?>"><?php echo ucwords($cdata[0]['company_name']);?></a>
                           </div>
                           <!-- category start -->
                                 <div>
