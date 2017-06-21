@@ -2501,16 +2501,10 @@ ul.business_pf_ct_person_detail li b {
     margin-top: 0px;
 }
 .bui-menu-profile {
-    /*    
-text-align: center*/
-    
-    ;
-    /* height: 8%; */
-    
-   /* float: left;
-    padding-left: 45px;
-    padding-right: 10px;*/
-    /* margin-top: -19px; */
+    float: left;
+    padding-left: 33px;
+    padding-right: 10px;
+   
 }
 .job-menu-profile h5 {
     text-transform: capitalize;
