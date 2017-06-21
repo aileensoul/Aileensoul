@@ -243,20 +243,20 @@
                                        foreach ($profile as $p) {
                                        //                                                 echo "<pre>"; print_r($p);die();
                                            ?>
-                                    <div class="profile-job-profile-button clearfix box_search_module" style="height: 25%;border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                    <div class="profile-job-profile-button clearfix box_search_module" style="border: 1px solid #efefef;margin-bottom: 20px!important;">
                                        <div class="profile-job-post-location-name-rec">
                                           <div class="module_Ssearch" style="display: inline-block; float: left;">
-                                             <div class="search_img" >
+                                             <div class="search_img" style="height: 110px; width: 108px;" >
                                                 <a style=" " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="">
                                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $p['business_user_image']); ?>" alt="" > </a>
                                              </div>
                                           </div>
                                           <div class="designation_rec" style="    float: left;
                                              width: 60%;
-                                             padding-top: 16px;">
+                                             padding-top: 10px; padding-bottom: 10px;">
                                              <ul>
                                                 <li style="padding-top: 0px;">
-                                                   <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
+                                                   <a  style="font-weight: 600; font-size: 18px;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
                                                 </li>
                                                 <li style="display: block;">
                                                    <a  class="color-search" s title="">
@@ -296,7 +296,7 @@
                                                    </a>
                                                 </li>
                                                 <li style="display: block;">
-                                                   <a title="" class="color-search" style="font-weight: 600;" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
+                                                   <a title="" class="color-search" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
                                                 </li>
                                                 <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                              </ul>
@@ -318,7 +318,7 @@
                                                 </div>
                                                 <?php } ?>
                                              </div>
-                                             </br>
+                                            
                                              <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
                                           </div>
                                        </div>
@@ -353,7 +353,7 @@
                                     <div class="col-md-12 col-sm-12 post-design-box" id="removepost5" style="box-shadow: none; ">
                                        <div class="post_radius_box">
                                           <div class="post-design-search-top col-md-12" style="background-color: none!important;">
-                                             <div class="post-design-pro-img col-md-2">
+                                             <div class="post-design-pro-img ">
                                                 <div id="popup1" class="overlay">
                                                    <div class="popup">
                                                       <div class="pop_content">
@@ -895,16 +895,16 @@
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                 <?php } ?>
                                              </div>
-                                             <div class="">
-                                                <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
-                                                   <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
+                                             
+                                           <div id="content" class="col-md-12 inputtype-comment cmy_2">
+                                                   <div contenteditable="true" class="editable_text" name="<?php echo $p['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $p['business_profile_post_id']; ?>" placeholder="Add a comment ..." onClick="entercomment(<?php echo $p['business_profile_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?> 
                                                 <div class="comment-edit-butn">       
                                                    <button id="<?php echo $p['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                    </button>
                                                 </div>
-                                             </div>
+                                           
                                           </div>
                                        </div>
                                     </div>

@@ -134,3 +134,16 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     margin-bottom: -23px;
 }
+.profile-job-post-location-name-rec ul li{padding: 2px 3px 0 8px;}
+.inner_search {
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-top: none;
+}
+.search_img{border:1px solid #efefef; }
+.designation_rec {
+    float: left;
+    width: 60%;
+    padding-top: 8px;
+}
+

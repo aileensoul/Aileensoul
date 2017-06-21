@@ -863,7 +863,7 @@ if($artuserdata1){
                                                 ?>
                                                                                             </div>
                                             <div class="">
-                                                <div id="content" class="col-md-10  inputtype-comment" style="padding-left: 7px;">
+                                                <div id="content" class="col-md-12 inputtype-comment cmy_2">
                                                     <div contenteditable="true" style="min-height:37px !important; margin-top: 0px!important" class="editable_text" name="<?php echo $key['art_post_id']; ?>" id="<?php echo "post_comment" . $key['art_post_id']; ?>" placeholder="Type Message ..." onclick="entercomment(<?php echo $key['art_post_id']; ?>)"></div>
                                                 </div>
                                                 <?php echo form_error('post_comment'); ?>
