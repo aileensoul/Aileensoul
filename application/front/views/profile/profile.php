@@ -7,7 +7,70 @@
 
 
 <!-- Calender Css Start-->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+   <style type="text/css">
+
+.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 5%;}
+.date-dropdowns .year{margin-right: 0;}
+.example {
+    width: 33%;
+    min-width: 400px;
+    padding: 15px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.example:first-of-type {
+    position: relative;
+    bottom: 35px;
+}
+
+/* Example Heading */
+.example h2 {
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+    font-size: 1.3em;
+    margin: 15px 0;
+    color: #4F5462;
+}
+
+.example input {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    background: #F2F2F2;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: 0.02em;
+    font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+}
+
+.example select {
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px;
+    margin: 0 3px;
+}
+
+.example select.invalid {
+    color: #E9403C;
+}
+
+.example input[type="submit"] {
+    margin-top: 10px;
+}
+
+.example input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+
+</style>
+<!-- css for date picker end-->
    <!-- Calender Css End-->
 
   <section>
@@ -41,7 +104,7 @@
  <?php echo form_open_multipart(base_url('profile/edit_profile'), array('id' => 'basicinfo','name' => 'basicinfo','class' => "clearfix common-form_border")); ?>
                     <fieldset class="">
                       <label>First Name </label>
-                      <input name="first_name" type="text" id="first_name" value="<?php echo $userdata[0]['first_name']?>" onblur="return full_name();"/><span id="fullname-error"></span>   <?php echo form_error('first_name'); ?>
+                      <input name="first_name" type="text" id="first_name" value="<?php echo $userdata[0]['first_name']?>" onblur="return full_name();"/><span id="fullname-error"></span><?php echo form_error('first_name'); ?>
 
                     </fieldset>
                     <fieldset class="">
@@ -60,7 +123,8 @@
       <fieldset>        
 
             <label>Birthday:</label>
-                        <input type="text" name="datepicker" id="datepicker" placeholder="dd/mm/yyyy"   autocomplete="off" value="<?php echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>" >
+
+                        <input type="hidden" id="example2">
 
           <!-- <input name="dob"  type="date" id="date" class="form-control"  value="<?php //echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>"   onblur="return email_id();"/> <span id="email-error"></span> -->
           
@@ -106,8 +170,7 @@
         </div>
       <!-- Calender JS Start-->
 <script src="<?php echo base_url('js/jquery.js'); ?>"></script>
-<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $('#datepicker').datetimepicker({
   //yearOffset:222,
   startDate: "2013/02/14",
@@ -119,42 +182,10 @@ $('#datepicker').datetimepicker({
   //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
 });
 </script>
-<!-- Calender Js End-->
+<!- Calender Js End--> 
 
 <footer>
-        <!-- <div class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer-logo">
-                            <a href="index.html"><img src="images/logo-white.png"></a>
-                        </div>
-                        <ul>
-                            <li>E-912 Titanium City Center Anandngar Ahmedabad-380015</li>
-                            <li><a href="mailto:AileenSoul@gmail.com">AileenSoul@gmail.com</a></li>
-                            <li>+91 903-353-8102</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2017 All Rights Reserved </p>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+        
         <?php echo $footer;  ?>
     </footer>
 
@@ -198,7 +229,7 @@ $('#datepicker').datetimepicker({
                            
                         datepicker: {
 
-                            required: true
+                            required: true,
                             // date: true
                         },
                         gen: {
@@ -270,3 +301,50 @@ $('#datepicker').datetimepicker({
   //script for click on - change to + End
 
 </script>
+
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+<script>
+$(function() {
+                
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
+var date_picker ='<?php echo date('Y-m-d',strtotime($userdata[0]['user_dob']));?>';
+
+
+if(date_picker){
+
+     $("#example2").dateDropdowns({
+                    submitFieldName: 'datepicker',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: 1821,
+                    maxYear: today,
+                    defaultDate: date_picker
+                    //startDate: today,
+
+                });   
+}else if(!date_picker){
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'datepicker',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: 1821,
+                    maxYear: today,
+                    //defaultDate: date_picker
+                    //startDate: today,
+
+                });  
+     } 
+                
+            });
+</script>
+
+<style type="text/css">
+    .date-dropdowns label{margin-top: 42px !important;}
+</style>
+

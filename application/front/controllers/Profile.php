@@ -39,9 +39,9 @@ class Profile extends CI_Controller {
       $this->form_validation->set_rules('first_name', 'first Name', 'required');
         $this->form_validation->set_rules('last_name', 'last Name', 'required');
         $this->form_validation->set_rules('email', ' EmailId', 'required|valid_email');
-         $this->form_validation->set_rules('dob', ' EmailId', 'required|valid_email');
+         $this->form_validation->set_rules('datepicker', ' datepicker', 'required');
      
-      $this->form_validation->set_rules('gender', ' EmailId', 'required|valid_email');
+      $this->form_validation->set_rules('gender', ' gender', 'required');
      
 
 
