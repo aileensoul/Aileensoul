@@ -81,7 +81,7 @@ class Registration extends CI_Controller {
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
-        $this->form_validation->set_rules('passwordreg', 'Passwordreg', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
         // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
         $this->form_validation->set_rules('date','date','required'); 
         $this->form_validation->set_rules('month','month','required'); 
