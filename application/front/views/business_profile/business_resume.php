@@ -599,7 +599,7 @@
                                                             } else {
                                                                 echo $businessdata1[0]['other_business_type'];
                                                             }
-                                                            ?></span> </span>
+                                                            ?></span>
                                                     </li>
 
                                                     <li> <b>Category</b><span><?php
@@ -646,7 +646,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="profile-job-profile-menu">
+                                           <div class="profile-job-profile-menu">
                                               
                                                         <div  class="buisness-profile-pic">
                          <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);  ?>" alt="" > -->
@@ -814,13 +814,15 @@ foreach ($busimagedata as $image) {
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="profile-job-profile-menu">
+                                            <div class="profile-job-profile-menu" style="    width: 100%;
+    float: left;
+    clear: both;
+    padding: 10px 0;
+}">
                                                 <ul class="clearfix">
                                                     <li>
                                                         <div  class="buisness-profile-pic">
-                         <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);  ?>" alt="" > -->
-                                                            <!-- 
-                                                            popup -->
+                       
 
 
 
@@ -891,18 +893,7 @@ foreach ($busimagedata as $image) {
                                         </div> 
                                        
                                       <?php } } ?>
-                                        <div class="profile-job-post-title clearfix">
-                                            <div class="profile-job-profile-button clearfix">
-                                                <div class="profile-job-details">
-                                                    <ul>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="profile-job-profile-menu">
-
-                                            </div>
-                                        </div> 
+                                       
                                     </div>
                                 </div>
                             </div>
