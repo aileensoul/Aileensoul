@@ -199,7 +199,7 @@ class Freelancer extends MY_Controller {
 
         $this->form_validation->set_rules('firstname', 'Full Name', 'required');
         $this->form_validation->set_rules('lastname', 'Last Name', 'required');
-        $this->form_validation->set_rules('phoneno', 'Phone Nunmber Required', 'required');
+        
 
         $this->form_validation->set_rules('email', 'EmailId', 'required|valid_email');
         

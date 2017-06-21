@@ -144,7 +144,7 @@ $phoneno = form_error('phoneno');
                             </fieldset>
 
                             <fieldset <?php if ($phoneno) { ?> class="error-msg " <?php } ?> class="full-width">
-                                <label>Phone number:<span class="red">*</span></label>
+                                <label>Phone number:</label>
                                 <input type="text" name="phoneno" id="phoneno" tabindex="5" placeholder="Enter phone number" value="<?php if ($phoneno1) {
             echo $phoneno1;
         } ?>">
@@ -316,7 +316,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 phoneno: {
 
                             number: true,
-                            required: true,
+                            
                             
                         },
                
