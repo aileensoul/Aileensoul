@@ -84,7 +84,7 @@
         -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
         overflow: visible;
         position: absolute;
-        top: 29px;
+        top: 30px;
         margin-top: 0px;
         z-index: 2;
         display: none;
