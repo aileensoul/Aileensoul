@@ -799,10 +799,10 @@
                                                     ?>
 
                                                     <?php ?>
-                                                        <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                        
                                                        
                                                       <?php   if ($userimageposted) {    ?>
-                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
+                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
                                                         <?php  }else{?>
                                                           <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                                        <?php   }?>
