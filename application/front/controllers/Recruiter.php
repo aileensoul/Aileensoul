@@ -2568,8 +2568,14 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
         $postuserarray = explode(',', $post_skill);
         //print_r($postuserarray); die();
 
+       
+        $contition_array = array('type' => 3,'status' => 1);
+        $userotherskill= $this->data['otherskilluser'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
+
+
+    
         // $join_str = array(
         //     array(
         //         'join_type' => '',
@@ -2591,19 +2597,18 @@ $contition_array = array('status' => '1', 'is_delete' => '0');
 
 //echo "<pre>"; print_r($candidate);die();
         
-
-
-        foreach ($candidate as $jobcan) {  //echo "123"; die();
+     // echo $candidate[0]['keyskill'];
+       
+        foreach ($candidate as $jobcan) { 
+         //echo "123"; die();
+            if($jobcan['keyskill']){
+               // echo "sss".'<br>';
             $keyskill = explode(',', $jobcan['keyskill']);
 //echo "<pre>"; print_r($keyskill);
 
             $result = array_intersect($postuserarray, $keyskill);
 //echo "<pre>"; print_r($result);
-
-
-            
-
-           
+  
       if($result){
 
        //echo "string";
@@ -2633,10 +2638,52 @@ $join_str1 = array(
             
          }
            
+}else{
+
+   // echo "hhhh".'<br>';
+            foreach ($userotherskill as $jobcanother) {  //echo "123"; die();
+           // $keyskill = explode(',', $jobcanother['skill']);
+//echo "<pre>"; print_r($keyskill);
+
+            $result = array_intersect($postuserarray, $jobcanother['skill']);
+//echo "<pre>"; print_r($result);
+  
+      if($result){
+
+    //echo "string";
+        
+$join_str1 = array(
+            array(
+                'join_type' => 'left',
+                'table' => 'job_add_edu',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_edu.user_id'),
+           
+             array(
+                'join_type' => 'left',
+                'table' => 'job_graduation',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_graduation.user_id')
+        );
+
+            $contition_array = array('job_reg.user_id' => $jobcanother['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
+
+
+            $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
+//echo "<pre>"; Print_r($jobrec);
+
+
+            $canlocation[] = $jobrec;
+            
+         }
+           
 
         }
+
+}
+        }
 //die();
-     //echo "<pre>"; Print_r($canlocation);die();
+    // echo "<pre>"; Print_r($canlocation);die();
 
 
     // die();   

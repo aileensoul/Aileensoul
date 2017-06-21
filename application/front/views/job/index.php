@@ -680,15 +680,20 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 <!-- javascript validation End -->
 
 <!-- script for Language textbox automatic end (option 2)-->
-
-
-
-<script>
-
+<script type="text/javascript">
+$(document).ready(function () {
     var complex = <?php echo json_encode($selectdata); ?>;
+    $("#lan").select2({
+        placeholder: "Select a Language"
+    }).select2('val', complex);
+});
+</script>
+<!-- <script>
+
+    
     $("#lan").select2().select2('val', complex)
 
-</script>
+</script> -->
 <!-- script for Language textbox automatic end (option 2)-->
 <script type="text/javascript">
     $(".alert").delay(3200).fadeOut(300);
