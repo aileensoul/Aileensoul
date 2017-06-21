@@ -25,7 +25,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:330}, 100);
+       $('html,body').animate({scrollTop:265}, 100);
    
    });
    //For Scroll page at perticular position js End
@@ -264,7 +264,7 @@
         
     </div>
 </div>
-        <div class="middle-part container">
+        <div class="container">
         <div class="job-menu-profile">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
@@ -315,7 +315,7 @@
 <div class="user-midd-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 hidden-sm">
+            <div class="col-md-4 hidden-sm hidden-xs">
                 <div class="full-box-module business_data">
                     <div class="profile-boxProfileCard  module">
 
