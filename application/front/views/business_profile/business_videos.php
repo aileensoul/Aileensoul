@@ -15,7 +15,8 @@
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <!-- script for cropiee immage End-->
 <!-- END HEADER -->
-<?php echo $business_header2?>
+<?php echo $business_header2_border; ?>
+
 <body   class="page-container-bg-solid page-boxed">
    <section>
       <!-- coer image start-->
@@ -940,7 +941,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:330}, 100);
+       $('html,body').animate({scrollTop:330}, 500);
    
    });
    //For Scroll page at perticular position js End

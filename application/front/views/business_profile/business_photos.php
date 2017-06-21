@@ -20,14 +20,14 @@ start head -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style></style>
 <!-- END HEADER -->
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border; ?>
 <script type="text/javascript">
    //For Scroll page at perticular position js Start
    $(document).ready(function(){
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:275}, 100);
+       $('html,body').animate({scrollTop:275}, 500);
    
    });
    //For Scroll page at perticular position js End

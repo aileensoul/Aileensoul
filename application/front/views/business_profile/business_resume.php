@@ -21,7 +21,7 @@
 <!-- END HEADER -->
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<?php echo $business_header2 ?>
+<?php echo $business_header2_border ?>
 
 <body   class="page-container-bg-solid page-boxed">
 
@@ -1418,7 +1418,7 @@ $(document).ready(function(){
  
 //  $(document).load().scrollTop(1000);
      
-    $('html,body').animate({scrollTop:330}, 100);
+    $('html,body').animate({scrollTop:330}, 500);
 
 });
 //For Scroll page at perticular position js End

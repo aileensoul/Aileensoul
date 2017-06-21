@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <!-- END HEADER -->
-<?php echo $business_header2?>
+<?php echo $business_header2_border; ?>
+
 <body   class="page-container-bg-solid page-boxed">
    <section>
       <!-- coer image start-->
@@ -936,7 +937,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:330}, 100);
+       $('html,body').animate({scrollTop:330}, 500);
    
    });
    //For Scroll page at perticular position js End

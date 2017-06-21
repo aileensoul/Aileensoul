@@ -20,7 +20,7 @@
  <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
     <!-- END HEADER -->
      
-<?php echo $business_header2?>
+<?php echo $business_header2_border ?>
    
   <body   class="page-container-bg-solid page-boxed">
 
