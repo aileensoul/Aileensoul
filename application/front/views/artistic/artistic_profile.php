@@ -1,6 +1,5 @@
 <!-- start head -->
 <?php echo $head; ?>
-
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
@@ -499,6 +498,8 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                 </div> 
 
                             </div> 
+
+                            <?php if($artisticdata[0]['art_bestofmine'] || $artisticdata[0]['art_portfolio']){?>
                             <div class="profile-job-post-title clearfix">
                                 <div class="profile-job-profile-button clearfix">
                                     <div class="profile-job-details">
@@ -510,9 +511,13 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                         </ul>
                                     </div>
                                 </div>
+
+
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                       
+                                      <?php 
+                                       $userid = $this->session->userdata('aileenuser');
+                                      if($artisticdata[0]['art_bestofmine'] == '' && $artisticdata[0]['user_id'] == $userid) {?>
                                         <li><b>Attachment</b> 
 
                                             
@@ -569,14 +574,12 @@ if ($artisticdata[0]['art_bestofmine']) {
                                              
                                            
                                         </li>
+                                        <?php }?>
  
 
                <?php 
-
-               $userid = $this->session->userdata('aileenuser');
-               if($artisticdata[0]['user_id'] == $userid){ 
-
-                    ?>
+                 $userid = $this->session->userdata('aileenuser');
+                if($artisticdata[0]['user_id'] == $userid) {?>
                  <li> <b>Details of Portfolio </b> 
 
                  <span> 
@@ -590,12 +593,11 @@ if ($artisticdata[0]['art_bestofmine']) {
                             } ?>
                            
                   </span></li>
-                         <?php } else{
-                            if($artisticdata[0]['art_portfolio']){ ?>
-                 <li> <b>Details of Portfolio </b> <span> <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?> </span></li>
-                         <?php }  }?>
+                         <?php } ?>
 
                           </div>
+
+
                                     </ul>
                                 </div>
                             </div> 
@@ -620,7 +622,7 @@ if ($artisticdata[0]['art_bestofmine']) {
                 </div>
             </div>
         </div>
-
+<?php }?>
 
     </div>
 </div>
