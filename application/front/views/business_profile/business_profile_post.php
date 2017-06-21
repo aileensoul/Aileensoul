@@ -548,10 +548,10 @@
                                                     }
                                                 }
                                                 ?>
-                                                <div class="seeall">
+                                                <!--div class="seeall">
                                                     <a href="<?php echo base_url('business_profile/userlist'); ?>">All User
                                                     </a>
-                                                </div>
+                                                </div-->
                                             </div>
                                         </li>
                                     </ul>

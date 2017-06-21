@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
+                            <ul class="left-form-each">
                                 <li><a href="<?php echo base_url('business_profile/business_information_update'); ?>">Business Information</a></li> 
 
                                 <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active" <?php } ?>><a href="#">Contact Information</a></li>
