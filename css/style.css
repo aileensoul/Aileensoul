@@ -12667,7 +12667,6 @@ snippet from Animate.css - zoomIn effect
 
 
 /***  eduction tabbing  ***/
-body{height: 100%;}
 
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
@@ -12695,8 +12694,8 @@ images css start*/
 .three-image-top img{height: 100%; width: 100%;}
 .four-image{float: left; text-align: center; height: 250px; width: 50%; padding-right: 1px; padding-bottom: 1px; display: inline-block; position: relative;}
 .four-image img{height: 100%; width: 100%;}
-.more-image{ right: 0px; bottom: 1px; color: white; position: absolute; /* left: 14px; */ cursor: pointer;
-    width: 100%; height: 249px; background: rgba(0, 0, 0, 0.5); padding: 68px;}
+.more-image{ right: 0px; bottom: 1px; color: white; position: absolute; cursor: pointer;
+    width: 100%; height: 249px; background: rgba(0, 0, 0, 0.5);}
  .more-image span{position: absolute; color: white; bottom: 1px; left: 0%; right: 0;}   
 /*images css end*/
 
@@ -12795,7 +12794,7 @@ images css start*/
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
     .profile-main-rec-box-menu li a{padding: 10px 13px;}
-    #notificationLink span{top:-5px; right:7px;}
+    #notificationLink span{top:3px !important; right:5px !important;}
     .header ul li a{padding:5px 10px !important;}
     .main-menu-right{padding-top:6px;}
     .header-left-menu{ position:relative;width:100%;margin-top:-40px;}
@@ -12866,7 +12865,7 @@ images css start*/
     .profile-main-box-buis-menu .flw_msg_btn{width: 100%;}
     .business-profile-right .flw_msg_btn ul li a{margin-top: 0; padding: 9px !important;}
     .header2 ul li{position: inherit;}
-  
+    
     .mob-width{width: 100%; position: absolute;}
     .header2 .hidden-mob{position: relative; z-index: 99;}
     #add_contact #addcontactContainer{width:100%; top:35px;}
@@ -12881,8 +12880,8 @@ images css start*/
     .profile-photo .profile-pho{margin-left: 15px; height: 80px; width: 80px; margin-top: -40px !important;}
     .user-pic{width: 75px; height: 75px;}
     .two-images{height: 200px;}
-    .three-images{height: 200px;}
-    .four-images{height: 200px;}
+    .three-image{height: 200px;}
+    .four-image{height: 200px;}
     .more-image{height:199px;}
     .three-image-top{height: 30%;}
     .editor-content{width:86%;}
@@ -12920,8 +12919,8 @@ images css start*/
     .post-design-name ul li .post_dot{font-size: 14px;}
     .cmy_2{width:88%;  padding-right: 0;}
     .two-images{height: 150px;}
-    .three-images{height: 150px;}
-    .four-images{height: 150px;}
+    .three-image{height: 150px;}
+    .four-image{height: 150px;}
     .more-image{height:149px;}
     .comment-name{width: 79%;}
     .comment-details-menu{padding: 0;}
@@ -12947,8 +12946,8 @@ images css start*/
     .right-side-menu{width: 100%;}
     .cmy_2{width: 84%;}
     .two-images{height: 120px;}
-    .three-images{height: 120px;}
-    .four-images{height: 120px;}
+    .three-image{height: 120px;}
+    .four-image{height: 120px;}
     .more-image{height:119px;}
     .three-image-top{height: 15%;}
     .post-design-name{padding-right: 0;}
