@@ -229,7 +229,7 @@ if ($this->session->flashdata('success')) {
 <div class="modal fade message-box biderror" id="bidmodalskill" role="dialog">
                     <div class="modal-dialog modal-lm">
                         <div class="modal-content">
-                        <button  type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()">&times;</button>         
+                        <button  type="button" class="modal-close" data-dismiss="modal" onclick="closemodel()" id="post">&times;</button>         
                             <div class="modal-body">
                                 <span class="mes"></span>
                             </div>
@@ -693,3 +693,31 @@ return e.which !== 32;
     #skils-error{margin-top: -5px;}
     #other_keyskill-error{margin-top: -5px;margin-right: 58px;}
 </style>
+
+
+<!-- all popup close close using esc start -->
+ <script type="text/javascript">
+   
+
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodalskill').modal('hide');
+    }
+});  
+
+ </script>
+ <!-- all popup close close using esc end -->
+
+ <script type="text/javascript">
+   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+                $(document).ready(function (e) {
+                    $('#post').on('click', function () { 
+
+                        $('#bidmodalskill').modal('show');
+                          return false;
+                    });
+                });
+  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+   
+</script>
