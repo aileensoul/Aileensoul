@@ -230,7 +230,7 @@
                                                 </fieldset>
 
                  <div class="fr job_education_submitbox">
-                   <input type="hidden" name="image_hidden_primary" value="<?php
+                   <input type="text" name="image_hidden_primary" value="<?php
                           if ($edu_certificate_primary1) {
                            echo $edu_certificate_primary1;
                                }
@@ -515,14 +515,14 @@
                 <!-- end of panel -->
 
                 <div class="panel">
-                    <div class="panel-heading" id="panel-heading3">
+                    <div <?php if($this->uri->segment(3) =="graduation"){ ?> class="panel-heading active" <?php }else{ ?> class="panel-heading" <?php } ?>  id="panel-heading3">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#bs-collapse" href="#four" id="toggle3">
                              Graduation
                             </a>
                         </h4>
                     </div>
-                    <div id="four" class="panel-collapse collapse">
+                    <div id="four" <?php if($this->uri->segment(3) =="graduation"){ ?> class="panel-collapse collapse in" <?php }else{ ?> class="panel-collapse collapse" <?php } ?> >
                         <div class="panel-body">
                             <section id="section4">
                                             <!--input type="radio" name="sections" id="option4" <?php

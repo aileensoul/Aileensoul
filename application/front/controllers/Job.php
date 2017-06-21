@@ -906,19 +906,30 @@ $this->load->view('business_profile/temp');
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $job_reg_prev_image = $job_reg_data[0]['edu_certificate_primary'];
-        
+        //  echo "<pre>";print_r( $_POST);die();
+
+        $image_hidden_primary= $this->input->post('image_hidden_primary');
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_edu_main_upload_path');
+
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
+           // echo  $job_bg_full_image;die();
             if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
+                // if($image_hidden_primary==$job_reg_prev_image)
+                // {
+                //    // echo"hi";die();
+                //     unlink($job_bg_full_image);
+                // }
             }
             
             $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                unlink($job_bg_thumb_image);
+                // if($image_hidden_primary==$job_reg_prev_image)
+                // {
+                //     unlink($job_bg_thumb_image);
+                // }
             }
 
 
