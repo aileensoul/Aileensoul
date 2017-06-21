@@ -10,7 +10,7 @@ body {
     margin: 0;
     line-height: 22px;
     font-family: 'Lato', sans-serif;
-    height: 100vh;
+    /*height: 100vh;*/
 }
 p {
     margin: 0;
@@ -9990,7 +9990,7 @@ style chat css end*/
 
 #s2id_skils{width: 100% !important;}
 #jobseeker_regform #other_keyskill{width:90% !important;}
-.contact-frnd-post{margin-bottom: 100px;}
+.contact-frnd-post{margin-bottom: 100px; width: 100%; float: left;}
 
  #two_images_buip{  float: left;
     
@@ -12664,7 +12664,8 @@ snippet from Animate.css - zoomIn effect
 
 
 /***  eduction tabbing  ***/
-
+html{min-height: 100%; position:relative;}
+body{min-height: 100%;}
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
@@ -12786,6 +12787,7 @@ images css start*/
     .custom-right-art{margin-left: 0;}
     #paddingtop_fixed_art.container{padding-left: 0; padding-right: 0;}
     .job-menu-profile{width: auto; padding-left: 15px; margin-top: 10px;}
+    .user-section-free-up{display: none;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
@@ -12876,7 +12878,7 @@ images css start*/
     #add_contact #addcontactContainer::before{display:none;}
     #paddingtop_fixed_art{padding-top: 22px !important;}
     .profile-box-art .right-side-menu{padding-left: 25%;}
-    .profile-box-art .right-side-menu li a{padding-left: 7px !important; padding-right: 7px !important; }
+    .profile-box-art .right-side-menu li a{padding-left: 4px !important; padding-right: 4px !important; font-size: 12px;}
     .art-custom .job-menu-profile{margin-top: 30px;}
 }
 
@@ -12891,7 +12893,7 @@ images css start*/
     .four-image{height: 200px;}
     .more-image{height:199px;}
     .three-image-top{height: 30%;}
-    .editor-content{width:86%;}
+    .editor-content{width:85%;}
    .post-edit-popup .editor-content{width: 87%;}
    .profile-head-text a{font-size: 18px;}
    .profile-head-text_dg a{font-size: 16px;}

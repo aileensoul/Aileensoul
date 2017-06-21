@@ -1013,3 +1013,61 @@ function expyear_change_edittime(){
    #jobtitle-error{margin-right: 35px; margin-top: 0px;}
    #companyname-error{margin-right: 35px; margin-top: 0px;}
 </style>
+<script>
+
+                                        var data = <?php echo json_encode($demo); ?>;
+
+                                        $(function () {
+                                            // alert('hi');
+                                            $("#tags").autocomplete({
+                                                source: function (request, response) {
+                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                    response($.grep(data, function (item) {
+                                                        return matcher.test(item.label);
+                                                    }));
+                                                },
+                                                minLength: 1,
+                                                select: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#tags").val(ui.item.label);
+                                                    $("#selected-tag").val(ui.item.label);
+                                                    // window.location.href = ui.item.value;
+                                                }
+                                                ,
+                                                focus: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#tags").val(ui.item.label);
+                                                }
+                                            });
+                                        });
+
+</script>
+<script>
+
+                                        var data1 = <?php echo json_encode($city_data); ?>;
+
+                                        $(function () {
+                                            // alert('hi');
+                                            $("#searchplace").autocomplete({
+                                                source: function (request, response) {
+                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                    response($.grep(data1, function (item) {
+                                                        return matcher.test(item.label);
+                                                    }));
+                                                },
+                                                minLength: 1,
+                                                select: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#searchplace").val(ui.item.label);
+                                                    $("#selected-tag").val(ui.item.label);
+                                                    // window.location.href = ui.item.value;
+                                                }
+                                                ,
+                                                focus: function (event, ui) {
+                                                    event.preventDefault();
+                                                    $("#searchplace").val(ui.item.label);
+                                                }
+                                            });
+                                        });
+
+</script>

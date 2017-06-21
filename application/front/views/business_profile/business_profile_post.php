@@ -373,7 +373,7 @@
                                                                                 </div>
                                                                             </li>
 
-                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
                         
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">
@@ -448,7 +448,7 @@
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
-                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
                         
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">
@@ -512,7 +512,7 @@
                                                                                     </a> 
                                                                                 </div>
                                                                             </li>
-                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
                         
                                                                             <li>
                                                                                 <div class="post-design-product_follow_main" style="display:block;">

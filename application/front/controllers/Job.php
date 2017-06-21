@@ -906,30 +906,33 @@ $this->load->view('business_profile/temp');
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $job_reg_prev_image = $job_reg_data[0]['edu_certificate_primary'];
-        //  echo "<pre>";print_r( $_POST);die();
+        $edu_certificate_primary = $_FILES['edu_certificate_primary']['name'];
+       
 
         $image_hidden_primary= $this->input->post('image_hidden_primary');
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_edu_main_upload_path');
-
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
-           // echo  $job_bg_full_image;die();
             if (isset($job_bg_full_image)) {
-                // if($image_hidden_primary==$job_reg_prev_image)
-                // {
-                //    // echo"hi";die();
-                //     unlink($job_bg_full_image);
-                // }
+                //delete image from folder when user change image start
+                if($image_hidden_primary==$job_reg_prev_image && $edu_certificate_primary != "")
+                {
+                   
+                    unlink($job_bg_full_image);
+                }
+                //delete image from folder when user change image End
             }
             
             $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                // if($image_hidden_primary==$job_reg_prev_image)
-                // {
-                //     unlink($job_bg_thumb_image);
-                // }
+                  //delete image from folder when user change image Start
+                if($image_hidden_primary==$job_reg_prev_image && $edu_certificate_primary!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
             }
 
 
@@ -1166,19 +1169,37 @@ $this->load->view('business_profile/temp');
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $job_reg_prev_image = $job_reg_data[0]['edu_certificate_secondary'];
-        
+
+        $image_hidden_secondary= $this->input->post('image_hidden_secondary');
+       
+        $edu_certificate_secondary = $_FILES['edu_certificate_secondary']['name'];
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_edu_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
+
+            //delete image from folder when user change image start
+                if($image_hidden_secondary==$job_reg_prev_image && $edu_certificate_secondary != "")
+                {
+                   
+                    unlink($job_bg_full_image);
+                }
+                //delete image from folder when user change image End
+              
             }
             
             $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                unlink($job_bg_thumb_image);
+
+                  //delete image from folder when user change image Start
+                if($image_hidden_secondary==$job_reg_prev_image && $edu_certificate_secondary!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
+                
             }
 
 
@@ -1250,7 +1271,7 @@ $this->load->view('business_profile/temp');
                 'school_secondary' => $this->input->post('school_secondary'),
                 'percentage_secondary' => $this->input->post('percentage_secondary'),
                 'pass_year_secondary' => $this->input->post('pass_year_secondary'),
-                'edu_certificate_secondary' => $certificate,
+                'edu_certificate_secondary' => $job_certificate,
                 'status' => 1
             );
             // echo '<pre>'; print_r($data);die();
@@ -1327,7 +1348,7 @@ $this->load->view('business_profile/temp');
         // }
         //upload education certificate process End
           $error = '';
-        if($_FILES['edu_certificate_secondary']['name'] != '' ){
+        if($_FILES['edu_certificate_higher_secondary']['name'] != '' ){
 
   $job_certificate = '';
             $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
@@ -1382,30 +1403,51 @@ $this->load->view('business_profile/temp');
                 $error = array();
             }
         }
-            if ($error != '') {
+            if ($error) {
+
+              
               
   
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');
             } else {
+
+               
              $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_higher_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $job_reg_prev_image = $job_reg_data[0]['edu_certificate_higher_secondary'];
-        
+
+    $image_hidden_higher_secondary=$this->input->post('image_hidden_higher_secondary');
+    $edu_certificate_higher_secondary = $_FILES['edu_certificate_higher_secondary']['name'];
+
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_edu_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
+                  //delete image from folder when user change image start
+                if($image_hidden_higher_secondary==$job_reg_prev_image && $edu_certificate_higher_secondary!= "")
+                {
+                   
+                    unlink($job_bg_full_image);
+                }
+                //delete image from folder when user change image End
+               
             }
             
+
             $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                unlink($job_bg_thumb_image);
+                   //delete image from folder when user change image Start
+                if($image_hidden_higher_secondary==$job_reg_prev_image && $edu_certificate_higher_secondary!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
+             
             }
 
 
@@ -1419,17 +1461,20 @@ $this->load->view('business_profile/temp');
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if ($userdata) {
-            $edu_certificate_secondary = $_FILES['edu_certificate_higher_secondary']['name'];
+         
+            $edu_certificate_higher_secondary = $_FILES['edu_certificate_higher_secondary']['name'];
 
-            if ($edu_certificate_secondary == "") {
+            if ($edu_certificate_higher_secondary == "") {
                 $data = array(
                     'edu_certificate_higher_secondary' => $this->input->post('image_hidden_higher_secondary')
                 );
-            } else {
+            } 
+            else {
                 $data = array(
-                    'edu_certificate_higher_secondary' => $job_certificate
+                    'edu_certificate_higher_secondary' =>  $job_certificate
                 );
             }
+           // echo "<pre>";print_r( $data);die();
             $updatedata = $this->common->update_data($data, 'job_add_edu', 'user_id', $userid);
 
             $data = array(
@@ -1482,7 +1527,7 @@ $this->load->view('business_profile/temp');
                 'school_higher_secondary' => $this->input->post('school_higher_secondary'),
                 'percentage_higher_secondary' => $this->input->post('percentage_higher_secondary'),
                 'pass_year_higher_secondary' => $this->input->post('pass_year_higher_secondary'),
-                'edu_certificate_higher_secondary' => $certificate,
+                'edu_certificate_higher_secondary' => $job_certificate,
                 'status' => 1
             );
             // echo '<pre>'; print_r($data);die();
@@ -1632,38 +1677,62 @@ $this->load->view('business_profile/temp');
                 $return['msg'] = sprintf($this->lang->line('success_item_added'), "Image", "uploaded");
 
 
-         $contition_array = array('user_id' => $userid);
-        $job_reg_data = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = 'edu_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $job_reg_prev_image = $job_reg_data[0]['edu_certificate'];
+         $contition_array = array('user_id' => $userid);
+        $job_reg_data = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $count_data=count($job_reg_data);
+
+ for ($x = 0; $x < $count_data; $x++) {
+        $job_reg_prev_image = $job_reg_data[$x]['edu_certificate'];
+    
+
+    $image_hidden_degree = $this->input->post('image_hidden_degree' . $job_reg_data[$x]['job_graduation_id']);
+   // echo "<pre>";print_r($image_hidden_degree);die();
+       $edu_certificate = $files['certificate']['name'][$x];
+
         
 
             if ($job_reg_prev_image != '') {
             $job_image_main_path = $this->config->item('job_edu_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-                unlink($job_bg_full_image);
+               //delete image from folder when user change image start
+                if($image_hidden_degree==$job_reg_prev_image && $edu_certificate!= "")
+                {
+                   
+                   unlink($job_bg_full_image);
+                }
+                //delete image from folder when user change image End
             }
             
             $job_image_thumb_path = $this->config->item('job_edu_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-                unlink($job_bg_thumb_image);
+                //delete image from folder when user change image Start
+                if( $image_hidden_degree==$job_reg_prev_image && $edu_certificate!="")
+                {
+                   unlink($job_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
+             
             }
 
-
+}
         }
 
             } else {
 
                 $dataimage= '';
             }
+
         }
        
 //    echo "<pre>";print_r($_FILES);
 // echo "<pre>";print_r($_POST);die();
    //   echo "hello";  echo "<pre>";print_r($dataimage); 
         // Multiple Image insert code End
+          
+
         $contition_array = array('user_id' => $userid);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        //echo '<pre>'; print_r($jobdata); die();

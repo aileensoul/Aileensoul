@@ -1875,18 +1875,53 @@ $new = array();
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $freelancerhiredata = $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $post_skill = $this->data['freelancerhiredata'][0]['post_skill'];
-        $postuserarray = explode(',', $post_skill);
-         // echo "<pre>"; print_r($postuserarray); die();
+       
+
+        //echo "<pre>"; print_r($post_other_skill); die();
         $contition_array = array('is_delete' => 0, 'status' => 1);
 
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        //echo "<pre>"; print_r($candidate); die();
 
+ foreach ($freelancerhiredata as $frdata) {
 
+       
+        $postuserarray = explode(',', $frdata['post_skill']);
+
+        $post_other_skill = $frdata['post_other_skill'];
+
+                
         foreach ($candidate as $frcan) {
+
             $freelancer_post_area = explode(',', $frcan['freelancer_post_area']);
+
             $result = array_intersect($postuserarray, $freelancer_post_area);
+
+            $freelancer_post_otherskill = $frcan['freelancer_post_otherskill'];
+
+         
+
+           $data =  strcmp($freelancer_post_otherskill, $post_other_skill);
+            
+
+           if ($freelancer_post_otherskill != "" && $post_other_skill != "" && $data == 0) {
+
+            
+                $contition_array = array('freelancer_post_reg_id' => $frcan['freelancer_post_reg_id'], 'is_delete' => 0, 'status' => 1,'free_post_step'=> 7);
+
+                $workcandidate1 = $this->data['workcandidate'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = 'freelancer_post_reg_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                echo "<pre>"; print_r($workcandidate);
+                    if($workcandidate[0]['user_id'] != $userid){
+                $freecandidate1[] = $workcandidate1;
+                    }
+               
+           }
+          
+
+
+             $result = array_filter(array_map('trim', $result));
+           // $otherskilldata = array_filter(array_map('trim', $otherskilldata));
+
             
             if ($result) {
 
@@ -1898,11 +1933,72 @@ $new = array();
                 $freecandidate[] = $workcandidate;
                     }
             }
-        }
-//        die();
-//echo "<pre>"; print_r($freecandidate);die();
-        $this->data['candidatefreelancer'] = $freecandidate;
-       // echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
+
+        
+        
+        } 
+    }
+//          echo "hi"; echo "<pre>"; print_r($freecandidate); die();
+
+//echo "hello";  echo "<pre>"; print_r($freecandidate1); die();
+
+     //echo "hi";  echo "<pre>"; print_r($freecandidate1); die();
+
+                if (count($freecandidate) == 0) {
+                
+                $unique = $freecandidate1;
+                
+            } 
+            elseif (count($freecandidate1) == 0) {
+                $unique = $freecandidate;
+                
+            }
+            else {
+                $unique = array_merge($freecandidate, $freecandidate1);
+            }
+
+   //  echo "hello";  echo "<pre>"; print_r($freecandidate1); die();
+
+
+ //         foreach ($unique as $key => $value) {
+ //            foreach ($value as $ke => $val) {
+ //                if ($val != "") {
+
+
+ //                    $result1[] = $val;
+ //                }
+ //            }
+ //        }
+
+
+ // foreach ($result1 as $key => $value) {
+        
+ //            $result11[$key]['value'] = $value;
+ //        }
+        // $resul = array_unique($unique);
+        // echo "<pre>";print_r($resul);die();
+
+
+//echo "<pre>";print_r($unique);
+foreach ($unique as $ke => $arr) {
+    foreach ($arr as $key => $va) {
+        
+    
+                    $postdata[] = $va;
+                }
+            }
+//echo "<pre>";print_r($postdata);
+                $new = array();
+                foreach ($postdata as $value) {
+                    $new[$value['user_id']] = $value;
+                }
+
+
+//echo "<pre>"; print_r($new); die();
+     
+
+$this->data['candidatefreelancer'] = $new;
+       //echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
@@ -1967,10 +2063,9 @@ $new = array();
 
 
 
-
+//echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
         $this->load->view('freelancer/freelancer_hire/recommen_candidate', $this->data);
     }
-
     public function freelancer_edit_post($id) {  
        // echo $id; die();
         $userid = $this->session->userdata('aileenuser');

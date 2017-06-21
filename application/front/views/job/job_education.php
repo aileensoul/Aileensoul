@@ -136,13 +136,7 @@
                     <div id="one" class="panel-collapse collapse">
                         <div class="panel-body">
                             <section id="section1">
-                                            <!--input type="radio" name="sections" id="option1" <?php
-                                            if ($postid == " ") {
-                                                echo "checked";
-                                            }
-                                            ?> -->
-                                            <!--label for="option1" class="label-d">Primary</label -->
-                                            
+                                         
                                             <article class="none_aaaart">
                                                 
                                                 <?php echo form_open_multipart(base_url('job/job_education_primary_insert'), array('id' => 'jobseeker_regform_primary', 'name' => 'jobseeker_regform_primary', 'class' => 'clearfix')); ?>
@@ -230,7 +224,7 @@
                                                 </fieldset>
 
                  <div class="fr job_education_submitbox">
-                   <input type="text" name="image_hidden_primary" value="<?php
+                   <input type="hidden" name="image_hidden_primary" value="<?php
                           if ($edu_certificate_primary1) {
                            echo $edu_certificate_primary1;
                                }
@@ -387,14 +381,7 @@
                     <div id="three"  <?php if($this->uri->segment(3) =="higher-secondary"){ ?> class="panel-collapse collapse in" <?php }else{ ?> class="panel-collapse collapse" <?php } ?> >
                         <div class="panel-body">
                                <section id="section3">
-                                            <!--input type="radio" name="sections" id="option3" <?php
-                                            if ($postid == "higher-secondary") {
-                                                echo "checked";
-                                            }
-                                            ?>>
-                                            <label for="option3" class="label-d">H.S.C</label>
-                                      <article class="none_aaaart">
-                                      <h3>Higher Secondary</h3-->
+                                          
                                                 <?php echo form_open_multipart(base_url('job/job_education_higher_secondary_insert'), array('id' => 'jobseeker_regform_higher_secondary', 'name' => 'jobseeker_regform_higher_secondary', 'class' => 'clearfix')); ?>
 
                                                 <?php
@@ -525,14 +512,7 @@
                     <div id="four" <?php if($this->uri->segment(3) =="graduation"){ ?> class="panel-collapse collapse in" <?php }else{ ?> class="panel-collapse collapse" <?php } ?> >
                         <div class="panel-body">
                             <section id="section4">
-                                            <!--input type="radio" name="sections" id="option4" <?php
-                                            if ($postid == "graduation") {
-                                                echo "checked";
-                                            }
-                                            ?>>
-                                            <label for="option4" class="label-d">Degree</label>
-                                            <article class="none_aaaart">
-                                            <h3>Graduation</h3-->
+                                           
                                   <?php echo form_open_multipart(base_url('job/job_education_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix border_none')); ?>
 
                                                 <?php
@@ -567,10 +547,10 @@
                                   <div id="input<?php echo $y ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $jobgrad[$x]['job_graduation_id']?>">
                                     <input type="hidden" name="education_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
                                        <div class="job_work_experience_main_div">
-                                                            <fieldset class="full-width">
+                                                          <!--   <fieldset class="full-width"> -->
                                                  <h6>Degree :<span class="red">*</span></h6>
                              <select name="degree[]" id="degree1" tabindex="1" autofocus class="degree">
-                       <option value="0">Select your Degree</option>
+                      <option value="" Selected option disabled="">Select your Degree</option>
 
                                  <?php
                         //if(count($degree_data) > 0){ //echo"hii";die();
@@ -591,7 +571,7 @@
                                                                     ?>
                                                                 </select>
                                                                 <?php echo form_error('degree'); ?>
-                                                            </fieldset>
+                                                         <!--    </fieldset> -->
 
                                                             <?php
                                                             $contition_array = array('status' => 1 , 'degree_id' => $degree1);
@@ -603,10 +583,11 @@
                                                             ?>
 
 
-                                                            <fieldset class="full-width">
+                                                        <!--     <fieldset class="full-width"> -->
                                         <h6>Stream :<span class="red">*</span></h6>
+                                     <!--    <?php   if ($stream1) { echo "hi";} ?> -->
                                              <select name="stream[]" id="stream1"  tabindex="2" class="stream" >
-                                            
+                                              <option value="" selected option disabled>Select Degree First</option>
                                            <?php
 
                                            
@@ -615,8 +596,9 @@
                                            // echo "hi"; die();
                          foreach ($stream_data as $cnt) {  
                             ?>
-                    <option value="<?php echo $cnt['stream_id']; ?>" ><?php echo $cnt['stream_name'];?></option>
+                    <option value="<?php echo $cnt['stream_id']; ?>" <?php if ($cnt['stream_id'] == $stream1) echo 'selected'; ?>><?php echo $cnt['stream_name'];?></option>
 
+ 
                                 <?php
                              }
                          }
@@ -624,7 +606,7 @@
                                   else {
                                    // echo "hello"; die();
                                   ?>
-                         <option value="0">Select Degree First</option>
+                         <option value="" selected option disabled>Select Degree First</option>
                               <?php
                                      }
                                  
@@ -632,9 +614,9 @@
                                     ?>
                        </select>
                       <?php echo form_error('stream'); ?> 
-                                                            </fieldset>      
+                                                           <!--  </fieldset>      
 
-                                                            <fieldset class="full-width">
+                                                            <fieldset class="full-width"> -->
                                                 <h6>University :<span class="red">*</span></h6>                                    <select name="university[]" id="university1" tabindex="3" class="university">
 
                               <option value="0" selected option disabled>Select your University</option>
@@ -657,9 +639,9 @@
                             ?>
                   </select>
                                                                 <?php echo form_error('univercity'); ?>
-                                                            </fieldset>      
+                                                            <!-- </fieldset>      
 
-                                                            <fieldset class="full-width">
+                                                            <fieldset class="full-width"> -->
                                                 <h6>College :<span class="red">*</span></h6>
 
                                                  <input type="text" name="college[]" id="college1" tabindex="4" class="college" placeholder="Enter College" value="<?php
@@ -668,10 +650,10 @@
                                                  }
                                                  ?>">
                                    <?php echo form_error('college'); ?>
-                                                            </fieldset>
+                                                            <!-- </fieldset>
 
 
-                                                            <fieldset class="full-width">
+                                                            <fieldset class="full-width"> -->
 
                                          
 
@@ -683,8 +665,8 @@
                                           }
                                       ?>">
                   <?php echo form_error('grade'); ?>
-                                    </fieldset>
-                                <fieldset class="full-width">
+                                  <!--   </fieldset>
+                                <fieldset class="full-width"> -->
                                              <h6>Percentage :<span class="red">*</span></h6>
                           <input type="text" name="percentage[]" id="percentage1" class="percentage" tabindex="6" placeholder="Enter Percentage"  value="<?php
                          if ($percentage1) {
@@ -692,25 +674,8 @@
                            }
                            ?>" />
                   <?php echo form_error('percentage'); ?>
-                           </fieldset>
-                       <fieldset class="full-width">
-                      <h6>Education Certificate:</h6>
-                   <input style="" type="file" name="certificate[]" id="certificate1" tabindex="7" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
-                          <?php
-                          if ($edu_certificate1) {
-                                ?>
- <div class="img_work_exp" style=" margin-top: 14px;" >
-                
-          <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
-</div>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                                <?php echo form_error('certificate'); ?>
-                                                            </fieldset>
 
-                                                            <fieldset class="full-width">
-                                                   <h6>Year Of Passing :<span class="red">*</span></h6>
+                   <h6>Year Of Passing :<span class="red">*</span></h6>
                                                                 <select name="pass_year[]" id="pass_year1" tabindex="8" class="pass_year" >
                 <option value="0" selected option disabled>--SELECT--</option>
                         <?php
@@ -730,7 +695,24 @@
                          ?> 
        </select>
                   <?php echo form_error('pass_year'); ?>
-              </fieldset>
+                         <!--   </fieldset>
+                       <fieldset class="full-width"> -->
+                      <h6>Education Certificate:</h6>
+                   <input style="" type="file" name="certificate[]" id="certificate1" tabindex="7" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
+                          <?php
+                          if ($edu_certificate1) {
+                                ?>
+ <div class="img_work_exp" style=" margin-top: 14px;" >
+                
+          <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
+</div>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                                <?php echo form_error('certificate'); ?>
+                                                       
+                                                  
+          
 
                                                           
 
@@ -771,8 +753,6 @@
                                                  </div>
          <fieldset class="hs-submit full-width job_edu_graduation_nextbtnbox">
 
-                <!--input type="button" id="next" name="next"    tabindex="9"      class="job_edu_graduation_nextbtn" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page_graduation()" -->
-
                                                     </fieldset>
 
                                                     <?php
@@ -785,10 +765,10 @@
                                                         <!-- <fieldset class=""> -->
                                                  <h6>Degree :<span class="red">*</span></h6>
                                                         <select name="degree[]" id="degree1" class="degree">
-                                                            <option value="0">Select your Degree</option>
+                                                            <option value="" Selected option disabled="">Select your Degree</option>
 
                                                             <?php
-                                                            //if(count($degree_data) > 0){ //echo"hii";die();
+                                                         
                                                             foreach ($degree_data as $cnt) {
                                                                 if ($degree1) {
                                                                     ?>
@@ -814,7 +794,7 @@
                                                               <fieldset class=""> -->
                                                  <h6>Stream :<span class="red">*</span></h6>
                                                         <select name="stream[]" id="stream1" class="stream" >
-                                                            <option value="">Select Degree First</option>
+                                                            <option value="" selected option disabled>Select Degree First</option>
                                                             <?php
                                                             if ($stream1) {
                                                                 foreach ($stream_data as $cnt) {
@@ -825,7 +805,7 @@
                                                             }
                                                             else {
                                                                 ?>
-                                                                <option value="0">Select Degree First</option>
+                                                                <option value="" selected option disabled>Select Degree First</option>
                                                                 <?php
                                                             }
                                                             ?>
@@ -983,7 +963,7 @@
                 <!-- end of panel -->
 <fieldset class="hs-submit full-width"  style="">
 
-                <input type="button" id="next" name="next" value="Next1" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
 
                                                     </fieldset>
             </div>
@@ -1582,7 +1562,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     'college[]': {
 
                                         required: true,
-                                        noSpace: true
+                                          regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                                     },
                                      'grade[]': {
@@ -1712,10 +1692,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             $('#input' + num).after(newElem);
                             $('#btnRemove').removeAttr('disabled', 'disabled');
                             $('#input' + newNum + ' #pass_year1').val('0');   
-                            $('#input' + newNum + ' .degree').val('0'); 
+                            $('#input' + newNum + ' .degree').val(''); 
                             $('#input' + newNum + ' .stream').val('');
                             $('#input' + newNum + ' .university').val('0'); 
                             $('#input' + newNum + ' #percentage1').val(''); 
+                            $('#input' + newNum + '.certificate').val(''); 
                             $('#input' + newNum + ' .exp_data').val(''); 
                             $('#input' + newNum + ' .hs-submit').remove();    
                             $("#input" + newNum + ' img').remove();
