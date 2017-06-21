@@ -8953,9 +8953,9 @@ fieldset .add_post_btns:hover {
     display: table;
 }
 .pht_ph_dash {
-    height: 176px;
+    /*height: 176px;
     width: 176px;
-    margin: 3px;
+    margin: 3px;*/
     float: left;
     display: inline-block;
 }
@@ -12683,6 +12683,8 @@ left: 0;}
 .profile-box-art ul li a{height: 50px; padding-top: 7px; padding-bottom: 7px;}
 .profile-box-art ul li{padding-left: 0 !important; padding-right: 3px !important;}
 .mob-block{display: none;}
+.art-custom .job-menu-profile{width: 100%;}
+.job-contact-frnd{width: 100%; float: left;}
 
 /*
 images css start*/
@@ -12948,10 +12950,13 @@ images css start*/
     .post-edit-popup .popup-text textarea{width: 87%;}
     .profile-main-box-buis-menu li a{padding: 10px 5px 12px !important;}
     .profile-photo .profile-pho{float: left;}
-    .job-menu-profile.mob-block{width: 75%; margin-top: 0;}
+    .job-menu-profile.mob-block{width: 72%; margin-top: 0px; padding-bottom: 5px;}
+    .job-menu-profile h5{font-size: 16px; line-height: 1.5;}
     .profile-main-rec-box-menu.profile-box-art{width: 100%; float: left; margin-top: 0; text-align: center;}
     .profile-box-art .left-side-menu{display: none;}
     .profile-box-art ul{display: inline-block;}
+    .profile-text a{font-size: 14px; padding-top: 0; line-height: 1;}
+    .profile-box-art .right-side-menu li a{font-size: 12px;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
@@ -12968,5 +12973,6 @@ images css start*/
     .post-edit-popup .popup-text textarea{width: 84%;}
     .comment-name{width: 78%;}
     .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px !important;}
-    .profile-box-art .right-side-menu{padding-left: 30%;}
+   .profile-box-art .right-side-menu li a{padding-left: 5px !important; padding-right: 5px !important; font-size: 11px;}
+   .job-menu-profile.mob-block{width: 68%;}
 }

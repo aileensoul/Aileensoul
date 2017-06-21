@@ -39,7 +39,7 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
-<?php echo $art_header2; ?>
+<?php echo $art_header2_border; ?>
 
 <style type="text/css">
     .paddingtop_fixed_art{padding-top: 62px!important;}
@@ -302,7 +302,7 @@
         
     </div>
 </div>
-        <div class="container">
+        <div class="container art-custom">
         <div class="job-menu-profile mob-none">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
