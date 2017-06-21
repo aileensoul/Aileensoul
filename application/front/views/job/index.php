@@ -294,12 +294,10 @@ if (count($nation) > 0) {
                                     <label>Languages Known:<span class="red">*</span></label> 
 
              <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
-<?php if($language1) {
- foreach ($language1 as $language) { ?>
-                <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
-            <?php }}else{ ?>
-                <option value="">Select Language</option>
-<?php }?>
+
+<?php foreach ($language1 as $language) { ?>
+                                            <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
+<?php } ?>
 
                                     </select>
 
