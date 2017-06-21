@@ -146,7 +146,7 @@
 
 
                             <fieldset <?php if ($phone) { ?> class="error-msg" <?php } ?> class="full-width">
-                                <label>Phone Number:<span class="red">*</span></label>
+                                <label>Phone Number:</label>
                                 <input type="text" tabindex="5" name="phone" id="phone" placeholder="Enter Phone Number" value="<?php if ($phoneno1) {
     echo $phoneno1;
 } ?>">
@@ -374,7 +374,7 @@ $( "#searchplace" ).autocomplete({
                 phone: {
 
                     number: true,
-                    required: true,
+                    
 
                             
                     },
