@@ -58,7 +58,7 @@
 	.freelancer-banner h2 { margin-bottom: 10px; }
 	.freelancer-banner form fieldset.submit  { float: right; margin-top: 15px; }
 
-	.user-midd-section { margin: 30px 0; }
+	.user-midd-section { /*margin: 30px 0;*/ }
 	.freelancer-title ul li:first-child { width: 100%; }
 	.freelancer-title ul li { padding: 6px 10px; }
 

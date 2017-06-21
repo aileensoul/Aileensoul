@@ -12421,7 +12421,7 @@ end zalak 9-6 css*/
 /***  end  ***/
 
 /*Dhaval 12/6*/
-.profile-job-post-detail  .post-design-box{border:none;}
+.profile-job-post-detail .post-design-box{border:none; margin-bottom: 0;}
 .post-design-commnet-box .editable_text{min-height: 37px !important}
 .notifications li .notification-data-inside div{padding-top: 3px!important  }
 .profile-box-job-menu ul li a{margin-right: 15px !important;}
@@ -12792,6 +12792,7 @@ images css start*/
     
 }
 @media screen and (max-width: 767px) {
+    .pl0-xs{padding-left: 0;}
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
     .profile-main-rec-box-menu li a{padding: 10px 13px;}
@@ -12891,6 +12892,7 @@ images css start*/
     .post-edit-popup .popup-text textarea{width: 90%;}
 }
 @media screen and (max-width: 479px) {
+    .pl15-mob{padding-left: 15px;}
     .fw-479{width: 100%;}
     .logo h2{font-size:20px;}
     .hidden-mob{display: none;}
@@ -12910,6 +12912,7 @@ images css start*/
     .popup-img{padding-right: 5px;}
     .profile-main-rec-box-menu li{padding-left: 2px;}
     .right-side-menu{padding-left: 24%;}
+    .profile-box-art .right-side-menu{padding-left: 26%;}
     .profile-job-profile-menu ul li{padding-left: 0;}
     .post-design-name ul li .post_dot{font-size: 14px;}
     .post-design-product{font-size: 12px;}
@@ -12953,4 +12956,5 @@ images css start*/
     .post-edit-popup .popup-text textarea{width: 84%;}
     .comment-name{width: 78%;}
     .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px !important;}
+    .profile-box-art .right-side-menu{padding-left: 30%;}
 }
