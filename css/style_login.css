@@ -247,7 +247,7 @@ input, textarea,button {
     background: white;
     border: 2px solid #cacaca;
     outline: none;
-    padding: 5px 15px;
+    padding: 5px 15px !important;
     color: #000;
     font-size: 14px;
     font-weight: 400;
@@ -336,7 +336,7 @@ bottom: 0px; height: 50px;}
 }
 .c_account{
   padding-top: 10px;
-  width: 60%;
+text-align: center;
    margin: 0 auto;
 }
 .c_account a span h6{
@@ -1288,7 +1288,7 @@ word-break: break-all;
 .error-msg p, label.error{}
 
 .footer-menu li a:focus{outline:none;}
-
+.c_account span{font-size: 14px;}
 
 /*** media query  ***/
 @media screen and (max-width: 991px){
@@ -1297,6 +1297,7 @@ word-break: break-all;
     .header-left-menu{padding-top:9px;}
 }
 @media screen and (max-width: 767px){
+
     .logo{margin-left:0; text-align:center;}
     .logo span{font-size:22px;}
     .header3{height:auto; margin-bottom:15px;}
@@ -1311,12 +1312,21 @@ word-break: break-all;
 @media screen and (max-width: 479px){
     .fw-479{width:100% !important;}
     .header-left-menu .reg_form{width:100%;}
+    .header-login-main .header-left-menu{padding: 0 15px 0px;}
     .header-left-menu{width:100%; float:left; padding:0 15px 15px;}
     .header-left-menu .reg_form{padding-top:10px;}
     .head_ad h2{font-size:22px; margin-top:0;}
     .main_reg_form{padding:20px 10px;}
     .terms p{font-size:12px;}
     .terms a{font-size:12px;}
+    .forgot a h6{font-size: 12px; margin-top: 31px;}
+    .checkbox2 h6{font-size: 12px;  }
+    .c_account{margin-bottom: 10px;}
+    .c_account span{font-size: 12px;}
+    .c_account  a{font-size: 12px;}
+    .button-block{font-size: 15px; width: 128px;}
+    .login_butn{font-size: 12px!important; padding: 7px 5px!important; margin-top: 10px;}
     footer{height:122px;}
+
     body{margin-bottom:122px !important;}
 }

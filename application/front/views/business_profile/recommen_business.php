@@ -21,8 +21,8 @@
       <!-- further and less -->
       <script>
          $(function () {
-             var showTotalChar = 200, showChar = "More", hideChar = "less";
-             $('.show').each(function () {
+             var showTotalChar = 200, showChar = "ReadMore", hideChar = "";
+             $('.showmore').each(function () {
                  //var content = $(this).text();
                  var content = $(this).html();
                  if (content.length > showTotalChar) {
@@ -486,7 +486,7 @@
                                                    </div>
                                                 </div>
                                                 <div id="editpostdetails5" style="display:block;">
-                                                   <span class="show">  <?php echo ucwords($p['product_description']); ?>
+                                                   <span class="showmore">  <?php echo ucwords($p['product_description']); ?>
                                                    </span>
                                                 </div>
                                                 <div id="editpostdetailbox5" style="display:none;">

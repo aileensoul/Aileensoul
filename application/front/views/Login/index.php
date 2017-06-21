@@ -12,11 +12,12 @@
         <div class="header3">
     <div class="container">
     <div class="row">
-  <div class="col-md-6 col-sm-5">
+    <div class="header-login-main">
+  <div class="col-md-6 col-sm-5 col-xs-6">
                         <div class="logo"><a tabindex="-200" href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
                     </div>
  
-           <div class="col-md-6 col-sm-7 header-left-menu">
+           <div class="col-md-6 col-sm-7  col-xs-6 header-left-menu">
                    <ul class="fr">
                  <!--    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li> -->
                     <li class=""><a  class="login_butn button6" tabindex="8"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
@@ -26,6 +27,7 @@
                                 <!-- Friend Request End-->
 
                                 <!-- END USER LOGIN DROPDOWN -->
+                        </div>
                         </div>
     </div>    
     </div>
@@ -37,8 +39,8 @@
    <div class="container">
         <div class="row">
           <div class="col-md-12">
-          <div class="reg1">
-          
+          <div class="main_reg_form">
+        
             <div class="abt_a">
               <h1><span>Welcome to Aileensoul</span></h1>
             </div>
@@ -47,18 +49,18 @@
 
                     <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
                         
-                          <fieldset class="col-md-12 lgn-s">
+                          <fieldset class="col-md-12 col-sm-12 col-xs-12 lgn-s">
                           <label>Email Address</label>
                                 <input  id="user_name" tabindex="1" placeholder="Enter Email Address"  type="text" name="user_name" autocomplete="off" autofocus />
                             </fieldset>
 
 
-                            <fieldset class="col-md-12 lgn-s">
+                            <fieldset class="col-md-12 col-sm-12 col-xs-12 lgn-s">
                                  <label>Password</label>
                                 <input  type="password" id="password" tabindex="2" placeholder="Enter Password" name="password" class="showpassword"  style="padding-right: 8%;" 
                                />
                             </fieldset>
-                            <fieldset class="col-md-12">
+                            <fieldset class="col-md-12 col-sm-12 col-xs-12">
                              <div class="checkbox2" style="display: block;">
 
                                     <input type="checkbox" name="remember">
@@ -70,14 +72,14 @@
 
                             </fieldset>
 
-<fieldset class="col-md-12">
+<fieldset class="col-md-12 col-sm-12 col-xs-12">
      <button type="submit" id="btnShow" name="login" value="Login" tabindex="3" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px; ">Log In</button>
                            
 </fieldset>
     
-<fieldset class="col-md-12">
+<fieldset class="col-md-12 col-sm-12 col-xs-12">
      <div class="c_account">
-                                <span style="font-size: 14px;">Don't have an account?</span>
+                                <span>Don't have an account?</span>
                                 <a  href="<?php echo base_url('registration'); ?>">Create an account</a>
                             </div>
 </fieldset>
