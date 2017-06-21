@@ -59,21 +59,20 @@
 
                         <?php }?>
             </div>
-            <br>
-            <br>
+    
             <br>
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-4">
                         <div class="left-side-bar">
-                            <ul>
-                                <li><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic Information</a></li>
+                            <ul class="left-form-each">
+                                <li class="custom-none"><a href="<?php echo base_url('artistic/art_basic_information_update'); ?>">Basic Information</a></li>
 
-                                <li><a href="<?php echo base_url('artistic/art_address'); ?>">Address</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('artistic/art_address'); ?>">Address</a></li>
 
-                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active" <?php } ?>><a href="#">Art Information</a></li>
+                                <li <?php if($this->uri->segment(1) == 'artistic'){?> class="active init" <?php } ?>><a href="#">Art Information</a></li>
 
-                                <li class="<?php if($artdata[0]['art_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_portfolio'); ?>">Portfolio</a></li>
+                                <li class="custom-none <?php if($artdata[0]['art_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('artistic/art_portfolio'); ?>">Portfolio</a></li>
 
                             </ul>
                         </div>
