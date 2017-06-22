@@ -98,7 +98,7 @@
                 <?php echo form_error('comp_email'); ?>
 
 					<fieldset <?php if($comp_num) {  ?> class="error-msg" <?php } ?>>
-						<label>Company Number:<span class="red">*</span></label>
+						<label>Company Number:</label>
 						<input name="comp_num"  type="text" id="comp_num" tabindex="3" placeholder="Enter Comapny Number" value="<?php if($compnum){ echo $compnum; } ?>"/><span id="email-error"></span>
 					</fieldset>
 					<?php echo form_error('comp_num'); ?>
@@ -240,7 +240,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         },
                        
                         comp_num:{
-                            required:true,
+                            
                             //minlength:10,
                             //maxlength:11,
                             number: true
