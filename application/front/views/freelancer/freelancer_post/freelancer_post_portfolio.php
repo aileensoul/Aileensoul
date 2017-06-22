@@ -270,13 +270,13 @@ $userid = $this->session->userdata('aileenuser');
        
  $free_reg_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); ?>
 
-        <!-- only pdf insert script strat -->
+
+
 <script type="text/javascript">
+ function portfolio_form_submit(){
 
 
- function portfolio_form_submitone(){ alert("hii");
-
-    var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
+var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
 
     var image_hidden_portfolio = document.getElementById("image_hidden_portfolio").value;
 
@@ -298,7 +298,6 @@ $userid = $this->session->userdata('aileenuser');
 
     }
 
-
       var image_hidden_portfolio_ext = image_hidden_portfolio.split('.').pop();
       
       var allowespdf = ['pdf'];
@@ -310,7 +309,8 @@ $userid = $this->session->userdata('aileenuser');
         event.preventDefault();
         return false;
      }
-      else()
+
+      else
       { 
 
         var fd = new FormData();
@@ -344,14 +344,10 @@ $userid = $this->session->userdata('aileenuser');
         }); 
  
      }
-    
-     event.preventDefault();
+
+  event.preventDefault();
     return false;
 
- }
-
- function portfolio_form_submit(){
-  alert("hii");
  }
 </script>
 
