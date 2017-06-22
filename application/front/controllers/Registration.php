@@ -112,7 +112,7 @@ class Registration extends CI_Controller {
                  'first_name' => $this->input->post('fname'),
                  'last_name' => $this->input->post('lname'),
                  'user_email' => $this->input->post('email'),
-                 'user_password' => md5($this->input->post('passwordreg')),
+                 'user_password' => md5($this->input->post('password')),
                  'user_dob' => $dob,
                  'user_gender' => $this->input->post('gen'),
                  'user_agree' => '1',
