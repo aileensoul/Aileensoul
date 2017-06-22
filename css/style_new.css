@@ -178,11 +178,11 @@ label.error::before{
 /*.padd_set .left-side-bar ul{width: 87%;}*/
 
 .flw_msg_btn ul li{margin-right: 10px!important;}
-.header2 ul li a i{ padding-right: 5px!important;
-    margin-left: -6px !important;}
+.header2 ul li a i{ padding-right: 5px!important;margin-left: -6px !important;}
 
-    .head_title{margin: 5px; display: inline-block; border-bottom: 2px solid;}
-    .popup-textarea textarea{font-size: 13px;}
-    .popup-text textarea{font-size: 15px;}
-    .logo a:focus{outline:none !important;text-decoration: none!important;}
-    .job_paddtop{padding-top: 0px!important;}
+.head_title{margin: 5px; display: inline-block; border-bottom: 2px solid;}
+.popup-textarea textarea{font-size: 13px;}
+.popup-text textarea{font-size: 15px;}
+.logo a:focus{outline:none !important;text-decoration: none!important;}
+.job_paddtop{padding-top: 0px!important;}
+.profile-boxProfileCard_follow {background-color: white;}
