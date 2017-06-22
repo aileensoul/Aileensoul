@@ -147,9 +147,25 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 8px;
 }
 
+@media screen and (max-width: 1200px) {
+.profile-boxProfilebuisness-avatarLink2{height: 75px !important;}  
+.right_left_box_design{padding: 17px 12px 12px 16px !important;}
+
+
+}
+
+@media screen and (max-width: 1024px) {
+.profile-boxProfilebuisness-avatarLink2{height: 65px !important;}  
+.right_left_box_design{padding: 11px 12px 10px 16px !important;}
+
+
+}
 @media screen and (max-width: 991px) {
 .pad-top-res{padding-top: 20px;}
 .fw .job-menu-profile{width: 22.3%;}
+.profile-boxProfilebuisness-avatarLink2{height: 60px !important;}  
+.right_left_box_design{padding: 11px 12px 8px 16px !important;}
+
 
 }
 
@@ -157,5 +173,8 @@ input[type=number]::-webkit-outer-spin-button {
 .folow-ms{width: 100%; float:left;}
 .fw .job-menu-profile {
     width: 27.3%;
+
 }
+
+
 }
