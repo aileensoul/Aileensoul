@@ -131,7 +131,7 @@
                                     
 <!--                                    <input type="reset">
  <a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>">Previous</a>-->
-                                    <input type="submit"  id="submit" tabindex="4" name="submit" value="Submit" onclick="portfolio_form_submit();" >
+                                    <input type="submit"  id="submit" tabindex="4" name="submit" value="Submit" onclick="return portfolio_form_submit();" >
                                     
                                 </fieldset>
 
@@ -274,159 +274,7 @@ $userid = $this->session->userdata('aileenuser');
 <script type="text/javascript">
 
 
-  function portfolio_form_submitone(){  
-  
-    var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
-
-    var image_hidden_portfolio = document.getElementById("image_hidden_portfolio").value;
-//alert(image_hidden_portfolio);
-    var portfolio_attachment = document.getElementById("portfolio_attachment").value;
-
-  var $field = $('#portfolio123');
-  
-  var portfolio = $('#portfolio123').html();
- //alert(portfolio);
- 
-    if(portfolio_attachment == ''){ 
-
-        $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "freelancer/freelancer_post_portfolio_insert" ?>',
-                 data:'portfolio='+portfolio+ '&image_hidden_portfolio=' + image_hidden_portfolio,
-                success:function(data){ 
-                  if(free_post_step == 7){ 
-                  window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
-                  }else{ 
-                    window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
-                  }  
-                }
-            }); 
-    }else if(portfolio == ''){
-
-      var portfolio_attachment_ext = portfolio_attachment.split('.').pop();
-      
-      var allowespdf = ['pdf'];
-      var foundPresentpdf = $.inArray(portfolio_attachment_ext, allowespdf) > -1;
-
-
-      if(foundPresentpdf == true)
-      { 
-
-        var fd = new FormData();
-         
-          if(portfolio_attachment == ''){
-        fd.append("image", $("#image_hidden_portfolio")[0].files[0]);
-
-          } else{     
-        fd.append("image", $("#portfolio_attachment")[0].files[0]);
-         }
-
-        files = this.files;
-
-       
-
-        $.ajax({
-             
-          //  var experience_year = document.querySelector("#input1 #experience_year").value;
-
-            url: "<?php echo base_url(); ?>freelancer/freelancer_post_portfolio_insert",
-            type: "POST",
-        //    data:'file=' + fd + 'portfolio='+portfolio,
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-               // alert(response);
-
-            }
-        }); 
-
-         $.ajax({
-                type:'POST',
-                url:'<?php echo base_url() . "freelancer/freelancer_post_portfolio_insert" ?>',
-                 data:'portfolio='+portfolio,
-                success:function(data){ 
-                  if(free_post_step == 7){ 
-                 // window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
-                  }else{ 
-                     //window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
-              
-                   } 
-                }
-            }); 
-        
-     }
-     else{
-        $(".portfolio_image").html("Please select only pdf file.");
-        event.preventDefault();
-        return false;
-     }
-
-    }
-    else{ 
-      
-      var portfolio_attachment_ext = portfolio_attachment.split('.').pop();
-      
-      var allowespdf = ['pdf'];
-      var foundPresentpdf = $.inArray(portfolio_attachment_ext, allowespdf) > -1;
-
-
-      if(foundPresentpdf == true)
-      { 
-
-        var fd = new FormData();
-                
-        fd.append("image", $("#portfolio_attachment")[0].files[0]);
-
-        files = this.files;
-
-       fd.append('portfolio', portfolio);
-
-        $.ajax({
-
-
-            url: "<?php echo base_url(); ?>freelancer/freelancer_post_portfolio_insert",
-            type: "POST",
-           // data:'file=' + fd + 'portfolio='+portfolio,
-            data: fd,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-               // alert(response);
-
-            }
-        }); 
-
-//        $.ajax({
-//                type:'POST',
-//                url:'<?php echo base_url() . "freelancer/freelancer_post_portfolio_insert" ?>',
-//                 data:'portfolio='+portfolio,
-//                success:function(data){ 
-//                  if(free_post_step == 7){ 
-//                 // window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
-//                  }else{ 
-//                     //window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
-//              
-//                   } 
-//                }
-//            }); 
-   
-        
-        
-     }
-     else{
-        $(".portfolio_image").html("Please select only pdf file.");
-        event.preventDefault();
-        return false;
-     }
-    }
-     event.preventDefault();
-    return false;
-  }
- 
-
-
- function portfolio_form_submit(){ 
+ function portfolio_form_submitone(){ alert("hii");
 
     var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
 
@@ -440,12 +288,16 @@ $userid = $this->session->userdata('aileenuser');
  
  
     
-   
+    if(portfolio_attachment != ''){
       
       var portfolio_attachment_ext = portfolio_attachment.split('.').pop();
       
       var allowespdf = ['pdf'];
-      var foundPresentpdf = $.inArray(portfolio_attachment_ext, allowespdf) > -1;
+      var foundPresentpdf = $.inArray(portfolio_attachment_ext, allowespdf) > -1
+
+
+    }
+
 
       var image_hidden_portfolio_ext = image_hidden_portfolio.split('.').pop();
       
@@ -453,7 +305,12 @@ $userid = $this->session->userdata('aileenuser');
       var foundPresentportfolio = $.inArray(image_hidden_portfolio_ext, allowespdf) > -1;
 
 
-      if(foundPresentpdf == true || foundPresentportfolio == true || foundPresentpdf == '')
+     if(foundPresentpdf == false){ 
+        $(".portfolio_image").html("Please select only pdf file.");
+        event.preventDefault();
+        return false;
+     }
+      else()
       { 
 
         var fd = new FormData();
@@ -487,15 +344,14 @@ $userid = $this->session->userdata('aileenuser');
         }); 
  
      }
-     else{
-        $(".portfolio_image").html("Please select only pdf file.");
-        event.preventDefault();
-        return false;
-     }
     
      event.preventDefault();
     return false;
 
+ }
+
+ function portfolio_form_submit(){
+  alert("hii");
  }
 </script>
 
