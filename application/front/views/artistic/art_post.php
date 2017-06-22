@@ -1255,7 +1255,7 @@
      //echo count($finalsorting);
      //echo count($count);
 
-     if(count($finalsorting) > 0){ echo count($count);
+     if(count($finalsorting) > 0){ 
           if(count($count) == count($finalsorting)){  ?>
          <div class="contact-frnd-post bor_none">
          <div class="text-center rio">
