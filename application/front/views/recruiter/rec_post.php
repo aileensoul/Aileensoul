@@ -32,9 +32,9 @@ echo $head;
 <?php
 $returnpage = $_GET['page'];
 if ($returnpage == 'job') {
-    echo $job_header2;
+    echo $job_header2_border;
 } else {
-    echo $recruiter_header2;
+    echo $recruiter_header2_border;
 }
 ?>
 
@@ -194,8 +194,8 @@ if ($returnpage == 'job') {
         <!-- menubar -->    
     </div>                       
 </div>
-        <div class="middle-part container">
-    <div class="job-menu-profile1 col-md-3">
+        <div class="middle-part container rec_res">
+    <div class="job-menu-profile col-md-3">
                          <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
@@ -251,7 +251,7 @@ if ($returnpage == 'job') {
                                     <div class="profile-job-profile-button clearfix">
        <div class="profile-job-details col-md-12">
           <ul>
-              <li class="fr">
+              <li class="fr date_re">
                   Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                </li>
      
@@ -456,7 +456,7 @@ if ($returnpage == 'job') {
                                     <div class="profile-job-profile-button clearfix">
            <div class="profile-job-details col-md-12">
                   <ul>
-                              <li class="fr">
+                              <li class="fr date_re">
              Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                   </li>
               
