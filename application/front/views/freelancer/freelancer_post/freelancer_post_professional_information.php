@@ -165,7 +165,7 @@
 
 
                                 <select name="skills[]" id ="skill1" tabindex="2" class="keyskil" multiple="multiple" style="width:100%;" >
-
+                                <option></option>
                                     <?php foreach ($skill1 as $skill) { ?>
                                     <option value="<?php echo $skill['skill_id']; ?>"><?php echo $skill['skill']; ?></option>
                                         <!-- <option value="<?php echo $cnt[0]['skill_id']; ?>" ><?php echo $skill['skill']; ?></option> -->
@@ -371,10 +371,26 @@ $( "#searchplace" ).autocomplete({
 
 <script>
 
-    var complex = <?php echo json_encode($selectdata); ?>;
-//alert(complex);
-    $("#skill1").select2().select2('val', complex)
+ var complex = <?php echo json_encode($selectdata); ?>;
 
+//alert(complex);
+   // $("#skill1").select2().select2('val', complex)
+
+ if(complex != '')
+    { 
+        //alert(789);
+         $("#skill1").select2({
+         placeholder: "Select a Language",
+         }).select2('val', complex);
+    }
+   if(complex == '')
+    {
+        //alert(123);
+         $("#skill1").select2({
+         placeholder: "Select a Language",
+ 
+        });
+    }
 </script>
 
 

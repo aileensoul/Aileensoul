@@ -117,7 +117,7 @@
 
 
 
-<div class="container tablate-container"> 
+<div class="container tablate-container art-profile"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -187,12 +187,19 @@
         </div>
         <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-            <div class="left-side-menu col-md-1 ">  </div>
-            <div class="right-side-menu art-side-menu col-md-10">
+           
+            <div class="right-side-menu art-side-menu">
                 
-                    
-                <ul>
-
+               <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
                     </li>
@@ -345,7 +352,7 @@
 
     </div>
 
-
+</div>
 
 
 
@@ -885,7 +892,7 @@
             </div>
             <!-- popup end -->
             
-
+          
                 <div class="job-contact-frnd ">
 
 
@@ -1586,18 +1593,21 @@
 
                             else {
                             ?>
-
+                            <div class="contact-frnd-post bor_none">
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
+                            </div>
                             </div>
 
 <?php } ?>
 
              </div>
             </div>
-             
+            
         </div>
     </div>
+</div>
+    
 </div>
             </section>
         <!-- END CONTAINER -->

@@ -155,9 +155,9 @@
 }
 
 /*vishang 6-5-17 start */
-
+/*
      .profile-job-post-detail .profile-job-post-title .save_saved_btn 
-  { padding: 3px 5px 4px !important; width: 75px; text-align: center; }
+  { padding: 3px 5px 4px !important; width: 75px; text-align: center; }*/
  
              
       
@@ -286,10 +286,9 @@
       /* job on */
       
            .profile-job-details ul li { font-size: 12px; line-height: 17px; }
-           .profile-job-details .post_title { font-size: 16px; width: 60%; }
+/*           .profile-job-details .post_title { font-size: 16px; width: 60%; }*/
            .profile-job-post-detail .profile-job-post-title .button { padding: 1px 12px!important; font-size: 12px;  }
-           .profile-job-post-detail .profile-job-post-title .save_saved_btn {padding: 1px 5px 1px !important; width: 65px;}
-
+          
       /* job off */
 
       /* recruiter on */

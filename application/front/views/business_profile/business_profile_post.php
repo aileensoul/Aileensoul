@@ -663,7 +663,7 @@
                     }
                     ?>
 
-                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
+                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business ">
 
                         <div class="post-editor col-md-12">
                             <div class="main-text-area col-md-12">
@@ -934,8 +934,7 @@
                                                             </span>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                                                          <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis" name="editpostdesc"><?php echo $row['product_description']; ?></textarea>
-                                                            -->
+                                                            
                                                             <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>                  
                                                         </div>
                                                         <button class="fr" id="<?php echo "editpostsubmit" . $row['business_profile_post_id']; ?>" style="display:none;margin: 5px 0; border-radius: 3px;" onClick="edit_postinsert(<?php echo $row['business_profile_post_id']; ?>)">Save
@@ -1450,11 +1449,11 @@
                             }
                         } else {
                             ?>
-
+                            <div class="contact-frnd-post bor_none">
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" >No Post Found.</h4>
                             </div>
-
+                            </div>
                         <?php } ?>
                         <!-- body content end-->
                     </div>
