@@ -204,7 +204,7 @@ input[type=number]::-webkit-outer-spin-button {
 .profile-boxProfilebuisness-avatarLink2{height: 75px !important;}  
 .right_left_box_design{padding: 17px 12px 12px 16px !important;}
 
-
+.rec_check{font-size: 14px;}
 }
 
 @media screen and (max-width: 1024px) {
@@ -232,6 +232,8 @@ input[type=number]::-webkit-outer-spin-button {
     .right-side-menu {
     padding-left: 20%;
 }
+    .rec_res{padding-top: 15px !important; padding-bottom: 0px;}
+    .add-post-button{margin: 0px; margin-top: 10px;}
     .padding_set_res{padding-top: 0px !important;}
     .job-menu-profile{margin-top: 0px;}
     .profile-head-text{font-size:18px !important;}
@@ -263,12 +265,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
     .profile-main-rec-box-menu{margin-top:0px; }
 .profile-job-details{ padding-left: 3px !important; padding-right: 3px !important;  }
-
+fieldset .add_post_btnc{min-width: 83px;
+padding:10px 20px 10px; font-size: 12px;}
+fieldset .add_post_btns{min-width: 83px;
+padding: 5px 5px 7px; font-size: 12px;}
 
 }
 @media screen and (max-width: 360px) {
     .profile-main-rec-box-menu li a{padding: 10px 7px;}
 
+
+.job-menu-profile h5 {
+    font-size: 16px;
+    line-height: 1.5;
+}
 
 .profile-job-details{ padding-left: 3px !important; padding-right: 1px !important;  }
 .profile-job-details .post_title{width: 50%; font-size: 12px;}
