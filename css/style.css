@@ -2362,7 +2362,7 @@ ul.business_pf_ct_person_detail li b {
     padding-left: 10px;}
     .bui_res_i img {width: auto; max-width: 100%; height: 100%;}
 .profile-job-details {
-    float: left;
+   /* float: left;*/
     padding-left: 20px;
 }
 .profile-job-post-detail .profile-job-post-title .button {
