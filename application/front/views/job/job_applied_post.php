@@ -136,7 +136,7 @@
     </div>
     
     </div> 
-    <div class="middle-part container padding_set_res padding_set_res">
+    <div class="middle-part container padding_set_res ">
     <div class="job-menu-profile">
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <div class="profile-text" >
