@@ -479,7 +479,8 @@
                                                         <?php }
                                                          else
                                                          { 
-                                                                echo "";
+                                                                
+
                                                 
                                                          }
                                                 }
@@ -509,8 +510,7 @@
                                                         <?php }
                                                          else
                                                          { 
-                                                                echo "";
-                                                
+                                                               
                                                          }
                                                 }
                                                 ?>
@@ -538,8 +538,38 @@
                                                     <li> <b> Contact Person</b> <span> <?php echo $businessdata1[0]['contact_person']; ?> </span>
                                                     </li>
 
-                                                    <li> <b>Contact Mobile</b><span> <?php echo $businessdata1[0]['contact_mobile']; ?> </span>
+
+
+                                                      <?php if ($businessdata1[0]['user_id'] == $userid) {
+                                                if ($businessdata1[0]['contact_mobile']) {
+                                                    
+                                               
+                                                ?>
+                                                <li> <b>Contact Mobile</b><span> <?php echo $businessdata1[0]['contact_mobile']; ?> </span>
                                                     </li>
+                                                        <?php }
+                                                         else
+                                                         { ?>
+                                                             <li><b> Contact Mobile </b> <span>
+                                                           <?php echo PROFILENA; ?>
+                                                </span> </li>
+                                                       <?php  }
+                                                }
+                                                else
+                                                { 
+                                                    if ($businessdata1[0]['contact_mobile']) {
+                                                        ?>
+                                                  <li> <b>Contact Mobile</b><span> <?php echo $businessdata1[0]['contact_mobile']; ?> </span>
+                                                    </li>
+                                                        <?php }
+                                                         else
+                                                         { 
+                                                                
+                                                
+                                                         }
+                                                }
+                                                ?>
+
                                                     <li><b> Contact Email</b> <span><?php echo $businessdata1[0]['contact_email']; ?></span> </li>
                                                       <?php if ($businessdata1[0]['user_id'] == $userid) {
                                                 if ($businessdata1[0]['contact_website']) {
@@ -569,7 +599,7 @@
                                                         <?php }
                                                          else
                                                          { 
-                                                                echo "";
+                                                                
                                                 
                                                          }
                                                 }

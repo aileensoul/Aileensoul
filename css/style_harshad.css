@@ -1,3 +1,56 @@
+.like_user_list ul{margin: 0; padding: 0; width: 100%; float: left; max-height: 300px; overflow-y: auto;}
+  .like_user_list ul li:last-child{border-bottom: none;}
+  .like_user_list ul li{   
+    margin-right: 15px;
+    width: 100%;
+    list-style: none;
+    float: left;
+    padding: 10px 3px;
+    border-bottom: 1px solid #ddd;
+   }
+  .like_user_list_img {height: 50px; width: 50px;  float: left;}
+  .like_user_list_img img
+  {width: 100%; height: 100%;  border-radius: 4px;}
+.like_user_list_main_desc{width: 80%;    padding: 4px 10px 4px 10px;
+
+    float: left;}
+    .like_user_list{width: 100%; float: left;}
+  .like_user_listq{width: 100%; float: left;}
+.head_main_name{color: #1b8ab9; font-size: 16px; font-weight: 600;}
+.head_main_work{color: #999; font-size: 14px;}
+.head_main_name:hover{text-decoration: none;}
+.like_user_list_main_name{
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.padding_less_right{padding-right: 0px;}
+
+.like_user_list ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.like_user_list ul::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.like_user_list ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.like_user_list ul::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+
+
+
+
 .designation_rec{  float: left;
     width: 60%;
     padding-top: 1px;}
@@ -147,9 +200,25 @@ input[type=number]::-webkit-outer-spin-button {
     padding-top: 8px;
 }
 
+@media screen and (max-width: 1200px) {
+.profile-boxProfilebuisness-avatarLink2{height: 75px !important;}  
+.right_left_box_design{padding: 17px 12px 12px 16px !important;}
+
+
+}
+
+@media screen and (max-width: 1024px) {
+.profile-boxProfilebuisness-avatarLink2{height: 65px !important;}  
+.right_left_box_design{padding: 11px 12px 10px 16px !important;}
+
+
+}
 @media screen and (max-width: 991px) {
 .pad-top-res{padding-top: 20px;}
 .fw .job-menu-profile{width: 22.3%;}
+.profile-boxProfilebuisness-avatarLink2{height: 60px !important;}  
+.right_left_box_design{padding: 11px 12px 8px 16px !important;}
+
 
 }
 
@@ -157,5 +226,8 @@ input[type=number]::-webkit-outer-spin-button {
 .folow-ms{width: 100%; float:left;}
 .fw .job-menu-profile {
     width: 27.3%;
+
 }
+
+
 }

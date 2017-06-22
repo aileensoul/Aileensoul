@@ -293,8 +293,8 @@ if (count($nation) > 0) {
                                 <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
                                     <label>Languages Known:<span class="red">*</span></label> 
 
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8" placeholder="Select a Language">
-             <option></option>
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
+                     <option></option>
 
 <?php foreach ($language1 as $language) { ?>
                          <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
@@ -310,13 +310,13 @@ if (count($nation) > 0) {
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth<span class="red">*</span></label>
                                 
-                                 <input type="hidden" id="example2">
+                                 <input type="hidden" id="datepicker">
                                     <!-- <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy" tabindex="9"  autocomplete="off" value="<?php
-                                     if($dob1){
-                                        echo date('d/m/Y',strtotime($dob1));}
-                                        else{
+                                    // if($dob1){
+                                       // echo date('d/m/Y',strtotime($dob1));}
+                                       // else{
 
-                                           echo date('d/m/Y',strtotime($job[0]['user_dob']));  } ?>" > -->
+                                         //  echo date('d/m/Y',strtotime($job[0]['user_dob']));  } ?>" > -->
 
 
 <?php echo form_error('dob'); ?>
@@ -680,20 +680,38 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 <!-- javascript validation End -->
 
 <!-- script for Language textbox automatic end (option 2)-->
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function () {
+   
     var complex = <?php echo json_encode($selectdata); ?>;
-    $("#lan").select2({
-        placeholder: "Select a Language",
-    });
-});
-</script> -->
-<script>
+    if(complex)
+    {
+         $("#lan").select2({
+         placeholder: "Select a Language",
+         }).select2('val', complex);
+    }
+    else
+    {
+         $("#lan").select2({
+         placeholder: "Select a Language",
+ 
+        });
+    }
 
-    var complex = <?php echo json_encode($selectdata); ?>;
-    $("#lan").select2().select2('val', complex)
+//     $("#lan").select2({
+//         placeholder: "Select a Language",
+//     }).select2('val', complex);
+
+});
+
 
 </script>
+<!-- <script>
+
+   // var complex = <?php echo json_encode($selectdata); ?>;
+    $("#lan").select2().select2('val', complex)
+
+</script> -->
 <!-- script for Language textbox automatic end (option 2)-->
 <script type="text/javascript">
     $(".alert").delay(3200).fadeOut(300);
@@ -734,12 +752,12 @@ var yyyy = today.getFullYear();
 
 var today = yyyy;
 
-var date_picker ='<?php echo date('Y-m-d',strtotime($dob1));?>';
+var date_picker ='<?php echo date('Y-m-d',strtotime($job[0]['user_dob']));?>';
+var  date_picker_edit='<?php echo date('Y-m-d',strtotime($dob1));?>';
 
-
-if(date_picker){
-
-     $("#example2").dateDropdowns({
+if(date_picker_edit=="1970-01-01"){
+ 
+     $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
                     submitFormat: "dd/mm/yyyy",
                     minYear: 1821,
@@ -753,8 +771,26 @@ if(date_picker){
                     //startDate: today,
 
                 });   
+}
+else if(date_picker=="1970-01-01"){
+
+                $("#datepicker").dateDropdowns({
+                    submitFieldName: 'dob',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: 1821,
+                    maxYear: today,
+                    defaultDate: date_picker_edit,
+                    daySuffixes: false,
+                    monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
+                    //startDate: today,
+
+                });   
 }else if(!date_picker){
-                $("#example2").dateDropdowns({
+
+                $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
                     submitFormat: "dd/mm/yyyy",
                     minYear: 1821,
