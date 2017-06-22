@@ -25,7 +25,7 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2; ?>
+<?php echo $recruiter_header2_border; ?>
 
 
 
@@ -174,8 +174,8 @@
     </div>                        
 
 </div>
-        <div class="middle-part container">    
-<div class="job-menu-profile1">
+        <div class="middle-part container rec_res">    
+<div class="job-menu-profile">
         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >

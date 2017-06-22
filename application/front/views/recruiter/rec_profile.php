@@ -3,24 +3,6 @@
 
 <!--post save success pop up style strat -->
 
-<style type="text/css">
-    #popup-form img{display: none;}
-</style>
-<style>
-
-
-.box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
- }
-
-</style>
 
 <!--post save success pop up style end -->
 
@@ -42,12 +24,12 @@
 <?php
  $returnpage= $_GET['page'];
  if($returnpage == 'job'){
-     echo $job_header2; 
+     echo $job_header2_border; 
  }
  elseif($returnpage == 'notification'){
  }
  else{
-  echo $recruiter_header2; 
+  echo $recruiter_header2_border; 
 
  }
 ?>
@@ -59,7 +41,7 @@
            
       <div class="row" id="row1" style="display:none;">
         <div class="col-md-12 text-center">
-        <div id="upload-demo" style="width:100%"></div>
+        <div id="upload-demo" ></div>
         </div>
         <div class="col-md-12 cover-pic">
         <button class="btn btn-success  cancel-result" onclick="">Cancel</button>
@@ -211,8 +193,8 @@
             </div>            
         </div>
             <!-- menubar --> 
-    <div class="middle-part container">
-  <div class="job-menu-profile1 col-md-3 col-xs-12">
+    <div class="middle-part container rec_res">
+  <div class="job-menu-profile">
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >
