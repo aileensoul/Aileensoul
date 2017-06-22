@@ -340,11 +340,11 @@
                                 <!-- Friend Request Start-->
 
                                 <li id="add_contact">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return contactperson();">
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return Notification_contact();">
                                         <span class="hidden-xs">Contact Request &nbsp;</span> 
                                         <i class="fa fa-user" aria-hidden="true"> </i>
 
-                                        <span id="addcontact_count">1</span>
+                                        <span id="addcontact_count"></span>
 
                                     </a>
                                     <div id="addcontactContainer">
@@ -460,6 +460,13 @@
 <script type="text/javascript">
 
 
+function Notification_contact(){
+
+    contactperson();
+    update_contact_count();
+
+}
+
     function contactperson() {
 
         $.ajax({
@@ -471,6 +478,24 @@
                
             }
         });
+
+    }
+
+
+    function update_contact_count(){
+
+
+        $.ajax({
+                url: "<?php echo base_url(); ?>business_profile/update_contact_count",
+                type: "POST",
+                success: function (data) {
+               
+                     //$('#addcontactBody').html(data);
+                  
+                    
+                }
+            });
+
 
     }
      
@@ -515,24 +540,4 @@
  </script>
  <!-- all popup close close using esc end-->
 
- <!-- contact user count script start -->
-
-<script type="text/javascript">
-    
-    function contact_count(){
-
-
-        $.ajax({
-            url: "<?php echo base_url(); ?>business_profile/contact_count",
-            type: "POST",
-            success: function (data) {
-               
-                $('#addcontact_count').html(data);
-               
-            }
-        });
-
-    }
-</script>
-
- <!-- conatct user count script end -->
+ 
