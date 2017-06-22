@@ -630,13 +630,6 @@
                                             </div>
                                         </div> 
 
-                                    <?php
-                                    if ($businessdata1[0]['user_id'] == $userid) {
-
-                                      
-                                           
-                                       
-                                    ?>
                                         <div class="profile-job-post-title clearfix">
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="profile-job-details">
@@ -795,104 +788,6 @@ foreach ($busimagedata as $image) {
                                                   
                                             </div>
                                         </div> 
-                                        <?php
-                                    
-                                        }
-                                    
-                                       else
-                                       { 
-                                        if ($busimagedata) {
-                                            
-                                        
-                                        ?>
-                                         <div class="profile-job-post-title clearfix">
-                                            <div class="profile-job-profile-button clearfix">
-                                                <div class="profile-job-details">
-                                                    <ul>
-                                                        <li><p class="details_all_tital "> Images</p> </li>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="profile-job-profile-menu" style="    width: 100%;
-    float: left;
-    clear: both;
-    padding: 10px 0;
-}">
-                                                <ul class="clearfix">
-                                                    <li>
-                                                        <div  class="buisness-profile-pic">
-                       
-
-
-
-
-
-                                                            <?php
-                                                            $i = 1;
-                                                            foreach ($busimagedata as $image) {
-
-                                                                if ($i <= 2) {
-                                                                    ?>
-                                                                    <div class="column1">
-                                                                        <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-                                                                        </div>
-                                                                    </div>
-    <?php } else { ?>
-                                                                    <div class="column1">
-                                                                        <div class="bui_res_i">  
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
-                                                                        </div></div>
-                                                                    <div class="view_bui"> view all</div>
-
-
-
-                                                                <?php
-                                                                } $i++;
-                                                                if ($i == 4) {
-                                                                    break;
-                                                                }
-                                                            }
-                                                            ?>
-
-
-                                                            <div id="myModal" class="modal">
-                                                                <div class="close cursor" onclick="closeModal()">&times;</div>
-                                                                <div class="modal-content">
-<?php
-$i = 1;
-foreach ($busimagedata as $image) {
-    ?>
-                                                                        <div class="mySlides">
-                                                                            <div class="numbertext"><?php echo $i ?> / <?php echo count($busimagedata); ?></div>
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_main_upload_path') . $image['image_name']); ?> " style="width: 100%; height: 70%;">
-                                                                        </div>
-
-    <?php $i++;
-}
-?>
-
-                                                                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                                                                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                                                                    <div class="caption-container">
-                                                                        <p id="caption"></p>
-                                                                    </div>
-
-
-
-                                                                </div>
-                                                            </div>
-
-
-                                                            <!-- 
-                                                            popup -->
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div> 
-                                       
-                                      <?php } } ?>
                                        
                                     </div>
                                 </div>
