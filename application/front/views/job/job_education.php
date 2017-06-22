@@ -1741,21 +1741,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     <!-- stream change depend on degeree start-->
                     <script>
-                 $('select.degree').change(function(){
-                    //alert('aa');
-
-                  
-                       $(document).on('change', '.clonedInput ', function (event) {
-                          // $(".clonedInput").live("click", function(){
-                          //  alert($(".clonedInput").attr('id'));
-                       
+                 
+            $(document).on('change', '#input1 select.degree', function (event) {
                             var aa = $(this).attr('id');
-                       alert(aa);
-                        // alert($('#input1 select.degree').attr('id'));
                             var lastChar = aa.substr(aa.length - 1);
-
-                            var degreeID = $('option:selected', this).val();
-
+                            var degreeID = $('option:selected', this).val();   
                             if (degreeID) {
 
                                 $.ajax({
@@ -1763,17 +1753,79 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     url: '<?php echo base_url() . "job/ajax_data"; ?>',
                                     data: 'degree_id=' + degreeID,
                                     success: function (html) {
-                                   //alert(html);
-                                  $("#"+aa+" .stream").html(html);
-                                     
-                                    }
+                                        $("#input1 #stream"+ lastChar).html(html); }
                                 });
-                            } else {
-                                $('#stream' + lastChar).html('<option value="">Select Degree first</option>');
-
+                            } else {$('#stream' + lastChar).html('<option value="">Select Degree first</option>');
                             }
                         });
-                      });  
+
+             $(document).on('change', '#input2 select.degree', function (event) {
+                            var aa = $(this).attr('id');
+                            var lastChar = aa.substr(aa.length - 1);
+                            var degreeID = $('option:selected', this).val();   
+                            if (degreeID) {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "job/ajax_data"; ?>',
+                                    data: 'degree_id=' + degreeID,
+                                    success: function (html) {
+                                        $("#input2 #stream"+ lastChar).html(html); }
+                                });
+                            } else {$('#stream' + lastChar).html('<option value="">Select Degree first</option>');
+                            }
+                        });
+
+              $(document).on('change', '#input3 select.degree', function (event) {
+                            var aa = $(this).attr('id');
+                            var lastChar = aa.substr(aa.length - 1);
+                            var degreeID = $('option:selected', this).val();   
+                            if (degreeID) {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "job/ajax_data"; ?>',
+                                    data: 'degree_id=' + degreeID,
+                                    success: function (html) {
+                                        $("#input3 #stream"+ lastChar).html(html); }
+                                });
+                            } else {$('#stream' + lastChar).html('<option value="">Select Degree first</option>');
+                            }
+                        });
+
+               $(document).on('change', '#input4 select.degree', function (event) {
+                            var aa = $(this).attr('id');
+                            var lastChar = aa.substr(aa.length - 1);
+                            var degreeID = $('option:selected', this).val();   
+                            if (degreeID) {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "job/ajax_data"; ?>',
+                                    data: 'degree_id=' + degreeID,
+                                    success: function (html) {
+                                        $("#input4 #stream"+ lastChar).html(html); }
+                                });
+                            } else {$('#stream' + lastChar).html('<option value="">Select Degree first</option>');
+                            }
+                        });
+
+                $(document).on('change', '#input5 select.degree', function (event) {
+                            var aa = $(this).attr('id');
+                            var lastChar = aa.substr(aa.length - 1);
+                            var degreeID = $('option:selected', this).val();   
+                            if (degreeID) {
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '<?php echo base_url() . "job/ajax_data"; ?>',
+                                    data: 'degree_id=' + degreeID,
+                                    success: function (html) {
+                                        $("#input5 #stream"+ lastChar).html(html); }
+                                });
+                            } else {$('#stream' + lastChar).html('<option value="">Select Degree first</option>');
+                            }
+                        });
                     </script>
                     <!-- stream change depend on degeree start-->
 
@@ -2043,4 +2095,5 @@ $(window).load(function(){
     #college1-error{margin-right: 0px;}
     #percentage1-error{margin-right: 0px;}
     #pass_year1-error{margin-right: 0px;}
+    #degree1-error{margin-right: 34px;}
 </style>
