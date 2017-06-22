@@ -1696,9 +1696,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             $('#input' + newNum + ' .stream').val('');
                             $('#input' + newNum + ' .university').val('0'); 
                             $('#input' + newNum + ' #percentage1').val(''); 
-                          // $('#input' + newNum + '.certificate').val('').clone(true); 
-                            // $(".certificate").replaceWith($('#input' + newNum + '.certificate').val('').clone(true));
-                           // $('#input' + newNum + '.certificate').replaceWith($(".certificate").val('').clone(true));
+                          
+                           $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
+
                             $('#input' + newNum + ' .exp_data').val(''); 
                             $('#input' + newNum + ' .hs-submit').remove();    
                             $("#input" + newNum + ' img').remove();
@@ -1741,26 +1741,31 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                     <!-- stream change depend on degeree start-->
                     <script>
-                        $(document).on('change', 'select.degree', function (event) {//alert('SDDSD');
+                 $('select.degree').change(function(){
+                    //alert('aa');
+
+                  
+                       $(document).on('change', '.clonedInput ', function (event) {
+                          // $(".clonedInput").live("click", function(){
+                          //  alert($(".clonedInput").attr('id'));
+                       
                             var aa = $(this).attr('id');
+                       alert(aa);
+                        // alert($('#input1 select.degree').attr('id'));
                             var lastChar = aa.substr(aa.length - 1);
 
                             var degreeID = $('option:selected', this).val();
 
-                            //alert(".DeleteBtn Click Function -  " + $(this).attr('id'));
-
-                            // var degreeID = $(this).val();
-                            //alert(degreeID);
                             if (degreeID) {
 
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "job/ajax_data"; ?>',
                                     data: 'degree_id=' + degreeID,
-                                    success: function (html) {//alert("#stream"+lastChar);
-                                        $("#stream" + lastChar).html(html);
-                                        //   $('#productid2').html(html);
-
+                                    success: function (html) {
+                                   //alert(html);
+                                  $("#"+aa+" .stream").html(html);
+                                     
                                     }
                                 });
                             } else {
@@ -1768,6 +1773,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             }
                         });
+                      });  
                     </script>
                     <!-- stream change depend on degeree start-->
 
@@ -1944,6 +1950,7 @@ else
                                     if (data == 'ok') {
                                         $('.job_work_edit_' + grade_id).remove();
                                     }
+                                    window.location.reload();
                                 }
                             });
                         }
