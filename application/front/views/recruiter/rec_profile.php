@@ -333,18 +333,55 @@ function text2link($text){
 
                                                         ?> </span>
                                                         </li>
-                                                        <li><b> Phone Number</b> <span><?php 
 
-                                                         if($recdata[0]['rec_phone'])
-                                                      {
-                                                        echo $recdata[0]['rec_phone'];
-                                                      }
-                                                      else
-                                                      {
-                                                     echo PROFILENA; 
-                                                      }
 
-                                                         ?></span> </li>
+                                                      
+                                                            <?php
+                                            if ($returnpage == 'job') {
+                                                
+                                               if($recdata[0]['rec_phone'])
+                                                      {
+                                                      ?>
+                                                       <li><b> Phone Number</b> <span><?php 
+
+                                                        
+                                                        echo $recdata[0]['rec_phone']; ?>
+                                                      
+                                                    </span> </li>
+
+                                                      <?php
+                                                      }
+                                                   else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                               if($recdata[0]['rec_phone'])
+                                                      {
+                                                      ?>
+                                                       <li><b> Phone Number</b> <span><?php 
+
+                                                        
+                                                        echo $recdata[0]['rec_phone']; ?>
+                                                      
+                                                    </span> </li>
+
+                                                      <?php
+                                                    }
+                                                  
+                                                   else
+                                                   {
+                                                     ?>
+                                                      <li><b>Phone Number </b> <span>
+                                                       <?php echo PROFILENA; ?></span>
+                                                      </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                         
                                                        
                                                     </ul>
                                                
