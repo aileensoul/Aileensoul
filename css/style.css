@@ -7562,7 +7562,7 @@ input:-moz-placeholder {
     transform: translate(0, -50%);
     cursor: pointer;
     position: absolute;
-    top: 210px;
+    top: 300px;
     width: auto;
     padding: 16px;
     /* margin-top: -50px; */
