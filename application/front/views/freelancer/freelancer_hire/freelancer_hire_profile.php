@@ -316,6 +316,38 @@ function text2link($text){
                                                    <?php 
                                                     }
                                                    } ?>
+
+                                                     <?php
+                                            if ($returnpage == 'freelancer_post') {
+                                                   if ($freelancerhiredata[0]['phone']) {
+                                              ?>
+                                             <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
+                                            <?php
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerhiredata[0]['phone']) {
+                                               ?>
+                                            <li><b> Phone Number</b> <span><?php echo $freelancerhiredata[0]['phone'];?></span> </li>
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Phone Number</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                
                                                 
                                                     </ul>
                                                 </div>
