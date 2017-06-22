@@ -12718,6 +12718,9 @@ images css start*/
 
 
 /***  media query  ***/
+@media (min-width: 1280px){
+    .header2{margin-left: 20px; margin-right: 20px;}
+}
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
 }
