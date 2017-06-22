@@ -208,8 +208,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 1024px) {
-.profile-boxProfilebuisness-avatarLink2{height: 65px !important;}  
-.right_left_box_design{padding: 11px 12px 10px 16px !important;}
+.profile-boxProfilebuisness-avatarLink2{height: 70px !important;}  
+.right_left_box_design{padding: 14px 12px 10px 16px !important;}
 
 
 }
@@ -218,7 +218,7 @@ input[type=number]::-webkit-outer-spin-button {
 .fw .job-menu-profile{width: 22.3%;}
 .profile-boxProfilebuisness-avatarLink2{height: 60px !important;}  
 .right_left_box_design{padding: 11px 12px 8px 16px !important;}
-
+.left_box_menubar li a{font-size: 12px;}
 .profile-job-details .post_title{width: 50% !important;}
 .profile-job-details .job_companyname{width: 300px;}
 }
