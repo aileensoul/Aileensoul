@@ -12806,6 +12806,7 @@ images css start*/
     
 }
 @media screen and (max-width: 767px) {
+    .profile-box{display: none;}
     .pl0-xs{padding-left: 0;}
     .mob-clear{clear:both;}
     .mob-plr0{padding-left: 0; padding-right: 0;}
