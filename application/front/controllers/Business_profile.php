@@ -8562,17 +8562,10 @@ $contition_array = array('status' => '1');
               <ul>
                 <li>
                   <div class="like_user_listq">
-                 
-
-                            <div class="like_user_list_img">
-
-                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                              
-                            </div>
-                         
-
-
-                          <div class="like_user_list_main_desc">
+                       <div class="like_user_list_img">
+         <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                             </div>
+                            <div class="like_user_list_main_desc">
                               <div class="like_user_list_main_name">
                                 <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
                              </div>
@@ -8580,110 +8573,11 @@ $contition_array = array('status' => '1');
                                 <span class="head_main_work">Devlooper</span>
                               </div>
                           </div>
-
-
-                   </div>
+                      </div>
                 </li>
-                 <li>
-                  <div class="like_user_listq">
-                 
-
-                            <div class="like_user_list_img">
-
-                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                              
-                            </div>
-                         
-
-
-                          <div class="like_user_list_main_desc">
-                              <div class="like_user_list_main_name">
-                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
-                             </div>
-                              <div class="like_user_list_current_work">
-                                <span class="head_main_work">Devlooper</span>
-                              </div>
-                          </div>
-
-
-                   </div>
-                </li> <li>
-                  <div class="like_user_listq">
-                 
-
-                            <div class="like_user_list_img">
-
-                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                              
-                            </div>
-                         
-
-
-                          <div class="like_user_list_main_desc">
-                              <div class="like_user_list_main_name">
-                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
-                             </div>
-                              <div class="like_user_list_current_work">
-                                <span class="head_main_work">Devlooper</span>
-                              </div>
-                          </div>
-
-
-                   </div>
-                </li> <li>
-                  <div class="like_user_listq">
-                 
-
-                            <div class="like_user_list_img">
-
-                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                              
-                            </div>
-                         
-
-
-                          <div class="like_user_list_main_desc">
-                              <div class="like_user_list_main_name">
-                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
-                             </div>
-                              <div class="like_user_list_current_work">
-                                <span class="head_main_work">Devlooper</span>
-                              </div>
-                          </div>
-
-
-                   </div>
-                </li> <li>
-                  <div class="like_user_listq">
-                 
-
-                            <div class="like_user_list_img">
-
-                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                              
-                            </div>
-                         
-
-
-                          <div class="like_user_list_main_desc">
-                              <div class="like_user_list_main_name">
-                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
-                             </div>
-                              <div class="like_user_list_current_work">
-                                <span class="head_main_work">Devlooper</span>
-                              </div>
-                          </div>
-
-
-                   </div>
-                </li>
-              
-              </ul>
-
-
-            </div>
-
-<div class="clearfix"></div>
+                </ul>
+          </div>
+  <div class="clearfix"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
