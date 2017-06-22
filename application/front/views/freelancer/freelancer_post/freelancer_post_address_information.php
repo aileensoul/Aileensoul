@@ -130,20 +130,21 @@ $pincode = form_error('pincode');
                                 <label>State:<span class="red">*</span></label>
                                 <select tabindex="2" name="state" id="state">
                                     <?php
+                                    if ($state1) {
                                     foreach ($states as $cnt) {
-                                        if ($state1) {
+                                        
                                             ?>
 
                                             <option value="<?php echo $cnt['state_id']; ?>" <?php if ($cnt['state_id'] == $state1) echo 'selected'; ?>><?php echo $cnt['state_name']; ?></option>
 
                                             <?php
                                         }
-
+                                    }
                                         else {
                                             ?>
                                             <option value="">Select country first</option>
                                             <?php
-                                        }
+                                    
                                     }
                                     ?>
                                 </select>
