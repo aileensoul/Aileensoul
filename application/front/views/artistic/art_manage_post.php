@@ -190,9 +190,16 @@
            
             <div class="right-side-menu art-side-menu">
                 
-                    
-                <ul>
-
+               <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
                     </li>
@@ -885,7 +892,7 @@
             </div>
             <!-- popup end -->
             
-
+          
                 <div class="job-contact-frnd ">
 
 
@@ -1595,7 +1602,7 @@
 
              </div>
             </div>
-             
+            
         </div>
     </div>
 </div>

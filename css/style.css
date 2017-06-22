@@ -5284,6 +5284,7 @@ label.cameraButton input[accept*="camera"] {
     width: 100%;
     float: left;
     z-index: 999;
+    position: relative;
 }
 .post-design-menu {
     border-top: 1px solid #efefef;
@@ -5615,6 +5616,9 @@ padding-left: 10px;
 }
 .comment-edit-butn {
     padding: 0px 0px 6px 0px;
+    bottom: 15px;
+    position: absolute;
+    right: 30px;
 }
 .comment-edit-butn button {
     /*position: absolute; bottom: 11px;*/
@@ -9314,7 +9318,7 @@ fieldset .add_post_btns:hover {
 .bg_following:hover{background-color: #156f95 !important;}
 .like_cmnt_count li{float: right;    word-spacing: 2px;
     letter-spacing: 1px; color: #999!important;}
-.like_cmnt_count li .like_count_ext{padding: 8px; font-size: 12px; color: #999!important;  cursor: default;  word-spacing: 2px;
+.like_cmnt_count li .like_count_ext{padding: 6px; font-size: 12px; color: #999!important;  cursor: default;  word-spacing: 2px;
     letter-spacing: 1px;}
 .like_cmnt_count li .comnt_count_ext{padding: 8px; font-size: 12px; cursor: default;}
 /*.border_left_span{    border-left: 1px solid #999;
@@ -12692,6 +12696,8 @@ left: 0;}
 .art-side-menu .flw_msg_btn a{height:auto; padding-top:8px; padding-bottom: 8px;}
 .flw_msg_btn ul li a:hover{border:1px solid #d9d9d9 !important;}
 #addcontact_count{position:absolute; right:12px; top:3px; line-height:1; border-radius:4px;}
+.art-side-menu .flw_msg_btn{margin-top: 7px; margin-right: 0;}
+.art-side-menu .flw_msg_btn button{margin-top: 0;}
 /*
 images css start*/
 .one-image{height: 333px; width: auto;max-width: 100%; text-align: center; margin-bottom: 5px;}
@@ -12794,10 +12800,11 @@ images css start*/
     .job-menu-profile{width: auto; padding-left: 15px; margin-top: 10px;}
     .user-section-free-up{display: none;}
     .art-inner .job-menu-profile{width: 100%; margin-bottom: 15px}
-    .art-side-menu .flw_msg_btn{margin-top: 5px; margin-right: 0;}
+
     .art-side-menu .flw_msg_btn a{margin-top: 0;}
     .art-side-menu{padding-left: 160px !important;}
     .art-custom{margin-top: 25px;}
+    ul.current-user{float: none;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
@@ -12983,6 +12990,7 @@ images css start*/
     .profile-text a{font-size: 14px; padding-top: 0; line-height: 1;}
     .profile-box-art .right-side-menu li a{font-size: 12px;}
     ul li, ol li {font-size: 12px;}
+    .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
