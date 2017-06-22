@@ -5401,7 +5401,7 @@ $contition_array = array('status' => '1');
                     $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                 }
      $imglikeuser .= '<div class="like_one_other_img">';
-                $imglikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+                $imglikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ');">';
 
                 $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                 $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5480,7 +5480,7 @@ $contition_array = array('status' => '1');
                     }
 
                     $imglikeuser1 .= '<div class="like_one_other_img">';
-                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ');">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5594,7 +5594,7 @@ $contition_array = array('status' => '1');
                         $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userdata['user_id'], 'status' => 1))->row()->company_name;
                     }
         $imglikeuser1 .= '<div class="like_one_other_img">';
-                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $businessprofiledata1[0]['business_profile_post_id'] . ');">';
+                    $imglikeuser1 .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ');">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'post_image_like_id,post_image_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8553,35 +8553,58 @@ $contition_array = array('status' => '1');
         $likelistarray = explode(',', $likeuser);
         
         
-       echo    '<div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">1 Like</h4>
-        </div>
-        <div class="modal-body padding_less_right">
-            <div class="like_user_list">
-              <ul>
-                <li>
-                  <div class="like_user_listq">
-                       <div class="like_user_list_img">
-         <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
-                             </div>
-                            <div class="like_user_list_main_desc">
-                              <div class="like_user_list_main_name">
-                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
-                             </div>
-                              <div class="like_user_list_current_work">
-                                <span class="head_main_work">Devlooper</span>
-                              </div>
-                          </div>
-                      </div>
-                </li>
-                </ul>
-          </div>
-  <div class="clearfix"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>';
+       $modal =    '<div class="modal-header">';
+       $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+       $modal .=   '<h4 class="modal-title">';
+       
+       $modal .=    '' . count($likelistarray) . ' Like';
+       
+       $modal .= '</h4></div>';
+       $modal .= '<div class="modal-body padding_less_right">';
+       $modal .=     '<div class="like_user_list">';
+       $modal .=     '<ul>';
+          foreach ($likelistarray as $key => $value) {
+              
+    $bus_slug = $this->db->get_where('business_profile', array('user_id' => $value))->row()->business_slug;
+    $business_fname = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+    $bus_image = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->business_user_image;
+    $bus_ind = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->industriyal;
+    
+    $bus_cat = $this->db->get_where('industry_type', array('industry_id' => $bus_ind, 'status' => 1))->row()->industry_name;
+          if($bus_cat){
+            $category = $bus_cat;
+          }else{
+            $category = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->other_industrial;
+              
+          }
+       $modal .=  '<li>';
+       $modal .=  '<div class="like_user_listq">';
+       $modal .=  '<a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '" title="' . $business_fname1 . '" class="head_main_name" >';
+       $modal .=  '<div class="like_user_list_img">';
+         if ($bus_image) {
+                    $modal .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $bus_image) . '"  alt="">';
+                } else {
+                    $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+                }
+       $modal .=  '</div>';
+       $modal .=  '<div class="like_user_list_main_desc">';
+       $modal .=  '<div class="like_user_list_main_name">';
+       $modal .=  '' . ucwords($business_fname) . '';
+       $modal .=  '</div></a>';
+       $modal .=  '<div class="like_user_list_current_work">';
+       $modal .=  '<span class="head_main_work">' . $category . '</span>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</li>';
+            }
+       $modal .=  '</ul>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="clearfix"></div>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="modal-footer">';
+       $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+       $modal .=  '</div>';
         
         
 //        echo '<div class="likeduser">';
@@ -8596,6 +8619,8 @@ $contition_array = array('status' => '1');
 //            echo '</a></div>';
 //        }
 //        echo '<div>';
+   
+   echo $modal;
     }
 
     public function imglikeuserlist() {
@@ -8603,18 +8628,75 @@ $contition_array = array('status' => '1');
 
         $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
         $commneteduser = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = 'user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+       $modal =    '<div class="modal-header">';
+       $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+       $modal .=   '<h4 class="modal-title">';
+       
+       $modal .=    '' . count($commneteduser) . ' Like';
+       
+       $modal .= '</h4></div>';
+       $modal .= '<div class="modal-body padding_less_right">';
+       $modal .=     '<div class="like_user_list">';
+       $modal .=     '<ul>';
+          foreach ($commneteduser as $userlist) {
+              
+    $bus_slug = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id']))->row()->business_slug;
+    $business_fname = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->company_name;
+    $bus_image = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->business_user_image;
+    $bus_ind = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->industriyal;
+    
+    $bus_cat = $this->db->get_where('industry_type', array('industry_id' => $bus_ind, 'status' => 1))->row()->industry_name;
+          if($bus_cat){
+            $category = $bus_cat;
+          }else{
+            $category = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->other_industrial;
+              
+          }
+       $modal .=  '<li>';
+       $modal .=  '<div class="like_user_listq">';
+       $modal .=  '<a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '" title="' . $business_fname1 . '" class="head_main_name" >';
+       $modal .=  '<div class="like_user_list_img">';
+         if ($bus_image) {
+                    $modal .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $bus_image) . '"  alt="">';
+                } else {
+                    $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+                }
+       $modal .=  '</div>';
+       $modal .=  '<div class="like_user_list_main_desc">';
+       $modal .=  '<div class="like_user_list_main_name">';
+       $modal .=  '' . ucwords($business_fname) . '';
+       $modal .=  '</div></a>';
+       $modal .=  '<div class="like_user_list_current_work">';
+       $modal .=  '<span class="head_main_work">' . $category . '</span>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</li>';
+            }
+       $modal .=  '</ul>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="clearfix"></div>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="modal-footer">';
+       $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+       $modal .=  '</div>';
+        
+        
 
-        echo '<div class="likeduser">';
-        echo '<div class="likeduser-title">User List</div>';
-        foreach ($commneteduser as $userlist) {
-            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id']))->row()->business_slug;
-
-            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->company_name;
-            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
-            echo ucwords($business_fname1);
-            echo '</a></div>';
-        }
-        echo '<div>';
+   echo $modal;
+        
+//        echo '<div class="likeduser">';
+//        echo '<div class="likeduser-title">User List</div>';
+//        foreach ($commneteduser as $userlist) {
+//            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id']))->row()->business_slug;
+//
+//            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $userlist['user_id'], 'status' => 1))->row()->company_name;
+//            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
+//            echo ucwords($business_fname1);
+//            echo '</a></div>';
+//        }
+//        echo '<div>';
     }
 
     public function bus_img_delete() {

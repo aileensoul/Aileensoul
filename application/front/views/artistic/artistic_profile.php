@@ -93,7 +93,7 @@
         </div>
  
 
-<div class="container tablate-container">
+<div class="container tablate-container art-profile">
 
 <?php
 $userid = $this->session->userdata('aileenuser');
@@ -205,9 +205,18 @@ if ($artisticdata[0]['designation'] == '') {
         
         <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
 
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-7 padding_les_right">
-                <ul>
+            
+            <div class="right-side-menu art-side-menu">
+                <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
 
                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
@@ -266,13 +275,13 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         </li> 
                     <?php } ?>  
                 </ul>
-            </div>
+            
             <?php 
                     $userid  = $this->session->userdata('aileenuser'); 
                     if($artisticdata[0]['user_id'] != $userid){
                       ?>
-            <div class="col-md-2 padding_les" style="width: 24%;">
-                <div class="flw_msg_btn">
+            
+                <div class="flw_msg_btn fr">
                     <ul>
 
                         <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
@@ -462,7 +471,6 @@ $this->db->get_where('states', array('state_id' => $artisticdata[0]['art_state']
                                             </li>
                                             <li><b> City</b> <span><?php echo
 $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))->row()->city_name;
-echo "jjjj";
 ?></span> </li>
 <?php }  else {
            if($artisticdata[0]['user_id'] == $userid){ 
@@ -574,7 +582,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
 
                             </div> 
 
-                            <?php if($artisticdata[0]['art_bestofmine'] || $artisticdata[0]['art_portfolio']){?>
+                            <?php if($artisticdata[0]['user_id'] == $userid){?>
                             <div class="profile-job-post-title clearfix">
                                 <div class="profile-job-profile-button clearfix">
                                     <div class="profile-job-details">
@@ -590,9 +598,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
 
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                      <?php 
-                                       $userid = $this->session->userdata('aileenuser');
-                                      if($artisticdata[0]['art_bestofmine'] == '' && $artisticdata[0]['user_id'] == $userid) {?>
+                                      
                                         <li><b>Attachment</b> 
 
                                             
@@ -622,23 +628,7 @@ if ($artisticdata[0]['art_bestofmine']) {
          <?php } elseif (in_array($ext, $allowespdf)) { ?>
         <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
          <?php
-         } elseif (in_array($ext, $allowesvideo)) { ?> 
-
-                     <video width="320" height="240" controls>
-                 <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="video/mp4">
-                     <source src="movie.ogg" type="video/ogg">
-                         Your browser does not support the video tag.
-                             </video>
-             <?php  } elseif (in_array($ext, $allowesaudio)) { ?>
-              <audio width="120" height="100" controls>
-
-          <source src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']); ?>" type="audio/mp3">
-              <source src="movie.ogg" type="audio/ogg">
-             Your browser does not support the audio tag.
-
-                                                            </audio>
-
-                                                        <?php } ?>  
+         } ?>  
                                                    </div>
 
                                                    <?php } else {
@@ -649,12 +639,9 @@ if ($artisticdata[0]['art_bestofmine']) {
                                              
                                            
                                         </li>
-                                        <?php }?>
+                                        
  
 
-               <?php 
-                 $userid = $this->session->userdata('aileenuser');
-                if($artisticdata[0]['user_id'] == $userid) {?>
                  <li> <b>Details of Portfolio </b> 
 
                  <span> 
@@ -668,13 +655,86 @@ if ($artisticdata[0]['art_bestofmine']) {
                             } ?>
                            
                   </span></li>
-                         <?php } ?>
+</ul>                          </div>
 
-                          </div>
-
-
-                                    </ul>
                                 </div>
+
+                                <?php }else{
+
+                                if($artisticdata[0]['art_bestofmine'] == '' && $artisticdata[0]['art_portfolio'] == '') {}else{?>
+
+                                <div class="profile-job-post-title clearfix">
+                                <div class="profile-job-profile-button clearfix">
+                                    <div class="profile-job-details">
+                                        <ul>
+                                            <li>
+                <p class="details_all_tital ">Portfolio</p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <div class="profile-job-profile-menu">
+                                    <ul class="clearfix">
+                                      
+                                        <li><b>Attachment</b> 
+
+                                            
+                                        <span>
+
+                                         <?php
+if ($artisticdata[0]['art_bestofmine']) {
+    ?>
+                                                <div class="buisness-profile-pic">
+
+
+
+    <?php
+    $allowed = array('gif', 'png', 'jpg');
+    $allowespdf = array('pdf');
+    $allowesvideo = array('mp4', '3gp');
+    $allowesaudio = array('mp3');
+
+    $filename = $artisticdata[0]['art_bestofmine'];
+
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+
+    if (in_array($ext, $allowed)) {
+        ?>
+              <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
+         <?php } elseif (in_array($ext, $allowespdf)) { ?>
+        <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
+         <?php
+         } ?>
+                    </div>
+
+                 <?php }?>
+                        </span>
+
+                                             
+                                           
+                                        </li>
+                                        
+ 
+
+                 <li> <b>Details of Portfolio </b> 
+
+                 <span> 
+                 
+                 <?php if($artisticdata[0]['art_portfolio']){?>
+                 <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?>
+                 <?php } ?>
+                           
+                  </span></li>
+</ul>                          </div>
+
+                                </div>
+
+
+                                <?php } }?>
                             </div> 
 
                         </div>
@@ -684,9 +744,6 @@ if ($artisticdata[0]['art_bestofmine']) {
             </div>
         </div>
 
-
-      
-<?php }?>
             </div>
     </div>
 

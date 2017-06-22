@@ -351,7 +351,7 @@
                                                     </div>
                                                     <div class="profile-job-post-title clearfix">
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details">
+                                                            <div class="profile-job-details col-xs-12">
                                                                 <ul>
                                                                     <li>
                                                                         <a href="#" data-toggle="tooltip" data-placement="top" title="<?php echo $post['exp_month'] . "month  " . $post['exp_year'] . "year"; ?>"><i class="fa fa-star-o" aria-hidden="true"></i>       <?php echo $post['exp_month'] . "month  " . $post['exp_year'] . "year"; ?></a>
