@@ -8672,7 +8672,8 @@ $contition_array = array('status' => '1');
        }elseif($status == 'cancel'){
               $data = array(
             'created_date' => date('Y-m-d H:i:s'),
-            'status' => 'pending'
+            'status' => 'pending',
+            'not_read' => 2
         );
 
 
@@ -8720,7 +8721,8 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
                     'contact_to_id' => $to_id,
                     'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
-                    'status' => 'pending'
+                    'status' => 'pending',
+                    'not_read' => 2
                      );
 
         // echo "<pre>"; print_r($data); die();
@@ -9258,7 +9260,8 @@ public function contact_person_menu(){
        }elseif($status == 'cancel'){
               $data = array(
             'created_date' => date('Y-m-d H:i:s'),
-            'status' => 'pending'
+            'status' => 'pending',
+            'not_read' => 2
         );
 
 
@@ -9278,7 +9281,8 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
                     'contact_to_id' => $to_id,
                     'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
-                    'status' => 'pending'
+                    'status' => 'pending',
+                    'not_read' => 2
                      );
 
         // echo "<pre>"; print_r($data); die();
@@ -9294,5 +9298,43 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
     }
 
 //contact list end
+
+//conatct request count start
+
+public function contact_count(){ 
+
+    $userid = $this->session->userdata('aileenuser');
+
+    $contition_array = array('contact_to_id' => $userid, 'status' => 'pending', 'not_read' => '2');
+    $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     $contactcount = count($contactperson);
+     echo $contactcount; 
+
+    }
+
+public function update_contact_count(){
+
+
+    $userid = $this->session->userdata('aileenuser');
+
+        //echo "<pre>"; print_r($data); die();
+
+        $contition_array = array('not_read' => 2, 'contact_to_id' => $userid, 'status' => 'pending');
+        $result = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $data = array(
+            'not_read' => 1
+        );
+        // echo "<pre>"; print_r($result);die();
+
+        foreach ($result as $cnt) {
+            $updatedata = $this->common->update_data($data, 'contact_person', 'contact_id', $cnt['contact_id']);
+        }
+
+        //echo '<pre>'; print_r($result); 
+        $count = count($updatedata);
+        echo $count;
+}
+//contact request count end
 
 }
