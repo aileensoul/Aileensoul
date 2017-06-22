@@ -298,7 +298,40 @@ function text2link($text) {
 
                                         <li> <b>Email</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_email']; ?> </span>
                                         </li>
-                                        <li><b> PhoneNo</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_phoneno']; ?></span> </li>
+                                       
+
+                                         <?php
+                                            if ($returnpage == 'freelancer_hire') {
+                                                   if ($freelancerpostdata[0]['freelancer_post_phoneno']) {
+                                              ?>
+                                            <li><b> PhoneNo</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_phoneno']; ?></span> </li>
+                                            <?php
+                                           }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                                if ($freelancerpostdata[0]['freelancer_post_phoneno']) {
+                                               ?>
+                                             <li><b> PhoneNo</b> <span><?php echo $freelancerpostdata[0]['freelancer_post_phoneno']; ?></span> </li> 
+                                            <?php
+                                            }              
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>PhoneNo</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                                
+
 
                                              <?php
                                             if ($returnpage == 'freelancer_hire') {
