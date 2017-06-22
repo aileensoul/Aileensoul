@@ -898,7 +898,8 @@ footer {
 .next{right:300px}
 .job-saved-box h3{    border: 1px solid #d9d9d9;}
 .dropdown-menu {
-       left: -39px!important;
+    right: 0;
+    left: inherit;
     position: absolute;
 }
 ul.dropdown-menu li {
@@ -921,7 +922,7 @@ ul.dropdown-menu li a i {
     border: 10px solid black;
     border-color: transparent transparent #fff;
     margin-top: -18px;
-    right: 14.5%;
+    right: 3.5%;
 }
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 
@@ -7815,7 +7816,7 @@ input:-moz-placeholder {
     visibility: visible;
 }
 .dropdown-menu {
-    left: -39px!important;
+    /*left: -39px!important;*/
 }
 /* vishang 4-5-17 */
 
@@ -12718,11 +12719,10 @@ images css start*/
 
 
 /***  media query  ***/
-@media (min-width: 1280px){
-    .header2{margin-left: 20px; margin-right: 20px;}
-}
+
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
+  .header2{margin-left: 16px; margin-right: 16px;}
 }
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
@@ -13014,3 +13014,4 @@ images css start*/
    .profile-box-art .right-side-menu li a{/*padding-left: 5px !important; padding-right: 5px !important;*/ font-size: 11px;}
    .job-menu-profile.mob-block{width: 68%;}
 }
+.flw_msg_btn ul li a{height: auto;}

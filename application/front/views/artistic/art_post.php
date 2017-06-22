@@ -605,7 +605,8 @@
          </div>
     
       <?php
-         if (count($finalsorting) > 0) {
+
+         if (count($finalsorting) > 0) { 
              foreach ($finalsorting as $row) {
                  //  echo '<pre>'; print_r($finalsorting); die();
                  $userid = $this->session->userdata('aileenuser');
@@ -1240,14 +1241,37 @@
                </div>
             </div>
          </div>
-         <?php } } }  else {
-            ?>
+         <?php } 
+         else{
+          $count[] = "abc";
+         }
+
+
+
+       } 
+
+     }   
+
+     //echo count($finalsorting);
+     //echo count($count);
+
+     if(count($finalsorting) > 0){ 
+          if(count($count) == count($finalsorting)){  ?>
          <div class="contact-frnd-post bor_none">
          <div class="text-center rio">
             <h4 class="page-heading  product-listing" >No Post Found.</h4>
          </div>
          </div>
-         <?php } ?>
+         <?php } } else{ ?>
+
+
+          
+         <div class="contact-frnd-post bor_none">
+         <div class="text-center rio">
+            <h4 class="page-heading  product-listing" >No Post Found.</h4>
+         </div>
+         </div>
+         <?php }  ?>
       </div>
       </section>
       <footer>
