@@ -87,9 +87,9 @@
                                     <button type="button" class="close">×</button>
                                     <form>
                                         <div class="new-search-input">
-                                            <input type="search" value="" placeholder="Find Your Job" />
-                                            <input type="search" value="" placeholder="Find Your Location" />
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <input type="search" id="tags" name="skills" value="" placeholder="Find Your Job" />
+                                            <input type="search" id="searchplace" name="searchplace" value="" placeholder="Find Your Location" />
+                                            <button type="submit" onclick="return checkvalue();"  id="search_btn" class="btn btn-primary">Search</button>
                                         </div>
                                     </form>
                                 </div>
