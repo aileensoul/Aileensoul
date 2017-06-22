@@ -85,12 +85,12 @@
 <?php echo $header; ?>
 
 <!-- END HEADER -->
-<?php echo $recruiter_header2; ?>
+<?php echo $recruiter_header2_border; ?>
 <!-- style for span id=notification_count start-->
-<body class="pushmenu-push">
-    <section class="buttonset">
+<body >
+<!--     <section class="buttonset">
         <div id="nav_list"></div>
-    </section>
+    </section> -->
 
     <!-- header end -->
 
@@ -100,12 +100,12 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3"> 
+                    <div class="col-md-2 col-sm-2"> 
                         <div  class="add-post-button">
 
                         
                         </div></div>
-                    <div class="col-md-7 col-sm-7">
+                    <div class="col-md-8 col-sm-8">
 
                         <div>
                             <?php
@@ -262,8 +262,7 @@
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
-                                <fieldset style="cursor:pointer;
-    margin-top: 5px;margin-left: 15px;" class="form-group full-width">
+                                <fieldset class="rec_check form-group full-width">
                                     <input  type="checkbox" tabindex="9" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
@@ -360,7 +359,7 @@
 
 
 
-                                <fieldset style="padding: 3px 3px;" class="hs-submit">
+                                <fieldset  class="hs-submit col-md-12 col-sm-12 col-xs-12">
                                  
                                  <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
                                 

@@ -111,7 +111,7 @@ class Artistic extends MY_Controller {
         }
 
         // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
@@ -277,7 +277,7 @@ class Artistic extends MY_Controller {
 
 
         if ($email1) {
-            $condition_array = array('is_delete' => '0', 'user_id !=' => $userid, 'status' => '1');
+            $condition_array = array('is_delete' => '0', 'user_id !=' => $userid, 'status' => '1' , 'art_step' => 4);
 
             $check_result = $this->common->check_unique_avalibility('art_reg', 'art_email', $email, '', '', $condition_array);
         } else {
@@ -346,7 +346,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             }
         }
         // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -564,7 +564,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $this->data['selectdata'] = $skildata;
         //echo "<pre>"; print_r( $this->data['selectdata']); die();
         // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -740,7 +740,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
 
         // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1045,7 +1045,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 //userlist for followdata strat
         $likeuserarray = explode(',', $this->data['artisticdata'][0]['art_skill']);
         //echo "<pre>"; print_r($likeuserarray); die();
-        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid);
+        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid , 'art_step' => 4);
         $userlist = $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = 'art_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1083,7 +1083,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         // echo "<pre>"; print_r($this->data['userlistview2']); die();
 //using state user     
 
-        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid, 'art_city !=' => $artregcity);
+        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid, 'art_city !=' => $artregcity , 'art_step' => 4);
         $userlist3 = $this->data['userlist3'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = 'art_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1106,7 +1106,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         //echo "<pre>"; print_r($this->data['userlistview3']); die();
 //using last3 user     
-        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid, 'art_city !=' => $artregcity, 'art_state !=' => $artregstate);
+        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid, 'art_city !=' => $artregcity, 'art_state !=' => $artregstate , 'art_step' => 4);
         $userlastview = $this->data['userlastview'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = 'art_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $userlistarray4 = explode(',', $userlastview['art_skill']);
@@ -1143,7 +1143,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $userselectskill = $this->data['artisticdata'][0]['art_skill'];
         //echo  $userselectskill; die();
-        $contition_array = array('art_skill' => $userselectskill, 'status' => '1');
+        $contition_array = array('art_skill' => $userselectskill, 'status' => '1' , 'art_step' => 4);
         $skilldata = $this->data['skilldata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($this->data['skilldata']); die();
@@ -1243,7 +1243,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         //echo "<pre>"; print_r($this->data['finalsorting'] ); die();
         // sorting end
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1348,7 +1348,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artsdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1' , 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1359,7 +1359,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
         //echo "<pre>"; print_r($this->data['artsdata']); die();
         // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1729,10 +1729,10 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              redirect('artistic/');
         }
      //if user deactive profile then redirect to artistic/index untill active profile End
-        $contition_array = array('user_id' => $id);
+        $contition_array = array('user_id' => $id , 'art_step' => 4);
         $this->data['contactperson'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-             $contition_array = array('status' => '1', 'is_delete' => '0');
+             $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1825,7 +1825,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
      //if user deactive profile then redirect to artistic/index untill active profile End
 
-        $contition_array = array('user_id' => $id);
+        $contition_array = array('user_id' => $id ,'art_step' => 4);
         $this->data['contactperson'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2092,12 +2092,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1' , 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -2242,7 +2242,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid);
+        $contition_array = array('is_delete' => 0, 'status' => 1, 'user_id !=' => $userid, 'art_step' => 4);
         $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2251,7 +2251,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $join_str[0]['join_table_id'] = 'follow.follow_to';
         $join_str[0]['from_table_id'] = 'art_reg.art_id';
         $join_str[0]['join_type'] = '';
-        $contition_array = array('follow_to' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1);
+        $contition_array = array('follow_to' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1 , 'art_reg.art_step' => 4);
 
         $this->data['followers'] = count($this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = ''));
 
@@ -2262,13 +2262,13 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $join_str[0]['from_table_id'] = 'art_reg.art_id';
         $join_str[0]['join_type'] = '';
 
-        $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1);
+        $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1,'art_reg.art_step' => 4);
 
         $this->data['following'] = count($this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = ''));
 
         //following end
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0' ,'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -2369,7 +2369,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $follow = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //  echo "<pre>"; print_r($follow); die();
 
-        $contition_array = array('art_id' => $art_id, 'status' => 1, 'is_delete' => 0);
+        $contition_array = array('art_id' => $art_id, 'status' => 1, 'is_delete' => 0 ,'art_step' => 4);
         $followuserid = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2725,7 +2725,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         } else {
 
 
-            $contition_array = array('user_id' => $id, 'status' => '1', 'is_delete' => '0');
+            $contition_array = array('user_id' => $id, 'status' => '1', 'is_delete' => '0', 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2737,12 +2737,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $join_str[0]['from_table_id'] = 'art_reg.art_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_to' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1, 'follow_status' => 1);
+            $contition_array = array('follow_to' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1, 'follow_status' => 1,'art_reg.art_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -2848,7 +2848,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $join_str[0]['from_table_id'] = 'art_reg.art_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1);
+            $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1 ,'art_reg.art_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
@@ -2856,7 +2856,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
             $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $id, $data = '*');
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2865,12 +2865,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $join_str[0]['from_table_id'] = 'art_reg.art_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1);
+            $contition_array = array('follow_from' => $artdata[0]['art_id'], 'follow_status' => 1, 'follow_type' => 1,'art_reg.art_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -3091,7 +3091,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artsdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -3103,7 +3103,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
 //artistics mange post data end
 // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -4795,7 +4795,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         //echo "<pre>"; print_r($this->data['art_data']);die();
 
         //code search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5029,7 +5029,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
 
 
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5047,7 +5047,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $artisticdata1= $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 //code search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5154,7 +5154,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5163,7 +5163,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
 
         //code search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5270,7 +5270,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5280,7 +5280,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
 
         //code search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5388,7 +5388,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else { 
 
-            $contition_array = array('user_id' => $id, 'status' => '1');
+            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5396,7 +5396,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
         //code search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
