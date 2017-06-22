@@ -26,7 +26,7 @@
    //For Scroll page at perticular position js End
 </script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<?php echo $art_header2; ?>
+<?php echo $art_header2_border; ?>
 
 <!-- END HEADER -->
 <body   class="page-container-bg-solid page-boxed">
@@ -91,10 +91,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+ 
 
-<div class="container">
+<div class="container tablate-container">
 
 <?php
 $userid = $this->session->userdata('aileenuser');
@@ -140,119 +139,8 @@ if ($artisticdata[0]['user_id'] == $userid) {
             </div>-->
 
         </div>
-
-        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
-
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-7 padding_les_right">
-                <ul>
-
-
-                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
-                    </li>
-
-                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('artistic/artistic_profile/' . $artisticdata[0]['user_id']); ?>"> Details</a>
-                    </li>
-
-
-<?php
-$userid = $this->session->userdata('aileenuser');
-if ($artisticdata[0]['user_id'] == $userid) {
-    ?>
-
-                                        <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost/' . $artisticdata[0]['user_id']); ?>">Saved Post </a>
-                                        </li> -->
-
-
-
-
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
-                        </li>
-<?php } ?>      
-
-<?php
-$userid = $this->session->userdata('aileenuser');
-if ($artisticdata[0]['user_id'] == $userid) {
-    ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($followerdata)); ?>)</a>
-                        </li>
-                    <?php
-                    } else {
-
-                        $artregid = $artisticdata[0]['art_id'];
-                        $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
-                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                        ?> 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
-                        </li>
-
-                    <?php } ?> 
-
-<?php
-if ($artisticdata[0]['user_id'] == $userid) {
-    ?>      
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
-                        </li>
-                    <?php
-                    } else {
-
-                        $artregid = $artisticdata[0]['art_id'];
-                        $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
-                        $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                        ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" style="padding: 12px 15px 2px 15px" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following  <br> (<?php echo (count($followingotherdata)); ?>)</a>
-                        </li> 
-                    <?php } ?>  
-                </ul>
-            </div>
-            <?php 
-                    $userid  = $this->session->userdata('aileenuser'); 
-                    if($artisticdata[0]['user_id'] != $userid){
-                      ?>
-            <div class="col-md-2 padding_les" style="width: 24%;">
-                <div class="flw_msg_btn">
-                    <ul>
-
-                        <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
-
-<?php
-$userid = $this->session->userdata('aileenuser');
-
-$contition_array = array('user_id' => $userid, 'status' => '1');
-
-$bup_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-$status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $bup_id[0]['art_id'], 'follow_to' => $artisticdata[0]['art_id']))->row()->follow_status;
-//echo "<pre>"; print_r($status); die();
-
-if ($status == 0 || $status == " ") {
-    ?>
-
-                                <div id= "followdiv">
-                                    <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
-                                </div>
-<?php } elseif ($status == 1) { ?>
-                                <div id= "unfollowdiv">
-                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
-                                </div>
-
-
-<?php } ?>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a></li>
-
-                    </ul>
-                </div>
-            </div>
-            <?php
-                    }
-            ?>
-        </div>  
-        <!-- menubar -->                
-    </div>                   
-    <div class="job-menu-profile">
+        
+        <div class="job-menu-profile mob-block">
         <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
 
         <!-- text head start -->
@@ -314,7 +202,185 @@ if ($artisticdata[0]['designation'] == '') {
         </div>
 
     </div>
-    <div class="col-md-7 col-sm-7">
+        
+        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
+
+            <div class="left-side-menu col-md-1">  </div>
+            <div class="right-side-menu col-md-7 padding_les_right">
+                <ul>
+
+
+                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
+                    </li>
+
+                    <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('artistic/artistic_profile/' . $artisticdata[0]['user_id']); ?>"> Details</a>
+                    </li>
+
+
+<?php
+$userid = $this->session->userdata('aileenuser');
+if ($artisticdata[0]['user_id'] == $userid) {
+    ?>
+
+                                        <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_savepost') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_savepost/' . $artisticdata[0]['user_id']); ?>">Saved Post </a>
+                                        </li> -->
+
+
+
+
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist</a>
+                        </li>
+<?php } ?>      
+
+<?php
+$userid = $this->session->userdata('aileenuser');
+if ($artisticdata[0]['user_id'] == $userid) {
+    ?>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($followerdata)); ?>)</a>
+                        </li>
+                    <?php
+                    } else {
+
+                        $artregid = $artisticdata[0]['art_id'];
+                        $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        ?> 
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                        </li>
+
+                    <?php } ?> 
+
+<?php
+if ($artisticdata[0]['user_id'] == $userid) {
+    ?>      
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                        </li>
+                    <?php
+                    } else {
+
+                        $artregid = $artisticdata[0]['art_id'];
+                        $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+                        $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        ?>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following  <br> (<?php echo (count($followingotherdata)); ?>)</a>
+                        </li> 
+                    <?php } ?>  
+                </ul>
+            </div>
+            <?php 
+                    $userid  = $this->session->userdata('aileenuser'); 
+                    if($artisticdata[0]['user_id'] != $userid){
+                      ?>
+            <div class="col-md-2 padding_les" style="width: 24%;">
+                <div class="flw_msg_btn">
+                    <ul>
+
+                        <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
+
+<?php
+$userid = $this->session->userdata('aileenuser');
+
+$contition_array = array('user_id' => $userid, 'status' => '1');
+
+$bup_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$status = $this->db->get_where('follow', array('follow_type' => 1, 'follow_from' => $bup_id[0]['art_id'], 'follow_to' => $artisticdata[0]['art_id']))->row()->follow_status;
+//echo "<pre>"; print_r($status); die();
+
+if ($status == 0 || $status == " ") {
+    ?>
+
+                                <div id= "followdiv">
+                                    <button id="<?php echo "follow" . $artisticdata[0]['art_id']; ?>" onClick="followuser(<?php echo $artisticdata[0]['art_id']; ?>)">Follow</a>
+                                </div>
+<?php } elseif ($status == 1) { ?>
+                                <div id= "unfollowdiv">
+                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+                                </div>
+
+
+<?php } ?>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <?php
+                    }
+            ?>
+        </div>  
+        <!-- menubar -->                
+    </div>    
+    
+</div>
+        <div class="user-midd-section art-inner">
+            <div class="container">
+    <div class="job-menu-profile mob-none">
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
+
+        <!-- text head start -->
+        <div>
+            <div class="profile-text" >
+
+<?php
+if ($artisticdata[0]['designation'] == '') {
+    ?>
+
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    if ($artisticdata[0]['user_id'] == $userid) {
+                        ?> 
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
+                        <?php } ?>
+
+                <?php } else { ?> 
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    if ($artisticdata[0]['user_id'] == $userid) {
+                        ?> 
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                    <?php } else { ?>
+                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                    <?php } ?>
+                <?php } ?>
+
+
+                <!-- The Modal -->
+                <!-- <div id="myModal" class="modal"> -->
+                    <!-- Modal content -->
+                    <!-- <div class="col-md-2"></div> -->
+                    <!-- <div class="modal-content col-md-8">
+                        <span class="close">&times;</span>
+                        <fieldset></fieldset>
+<?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
+
+                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
+
+                        <?php echo form_error('designation'); ?>
+                        </fieldset>
+
+                        <input type="hidden" name="hitext" id="hitext" value="3">
+                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
+                            <?php echo form_close(); ?>
+
+
+
+                    </div>
+ -->
+                    <!-- <div class="col-md-2"></div> -->
+                <!-- </div> -->
+            </div>
+
+
+            <!-- text head end -->
+
+        </div>
+
+    </div>
+    <div class="col-md-7 col-sm-12 col-xs-12 mob-plr0">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Details</h3>
@@ -610,23 +676,11 @@ if ($artisticdata[0]['art_bestofmine']) {
         </div>
 
 
-        <div class="user-midd-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-
-                    </div>
-
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
-        </div>
+      
 <?php }?>
-
+            </div>
     </div>
-</div>
-</div>
+
 </section>
 <footer>
 

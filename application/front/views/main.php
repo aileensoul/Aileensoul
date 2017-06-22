@@ -842,5 +842,5 @@ return e.which !== 32;
   #gen-error{margin-top: -1px;margin-right: 17px;  } 
   #user_name-error{ margin-top: 0px;margin-right: 7px; }
   .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; }
-
+  .main_reg_form label#password-error {margin-top: 34!important}
 </style>

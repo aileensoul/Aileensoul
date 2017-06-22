@@ -187,9 +187,9 @@
         </div>
         <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-7">
-                <div class="table-responsive">
+            <div class="left-side-menu col-md-1 ">  </div>
+            <div class="right-side-menu art-side-menu col-md-10">
+                
                     
                 <ul>
 
@@ -247,13 +247,13 @@
 
 
                 </ul>
-            </div>
+
 
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($artisticdata[0]['user_id'] != $userid) {
                 ?>
-                <div class="col-md-2 padding_les" style="width: 22%;">
+               
                     <div class="flw_msg_btn fr">
                         <ul>
 
@@ -294,7 +294,7 @@
                             <?php } ?>
                         </ul>
                     </div>
-                </div>
+           
             <?php } ?>
 
         </div>  
