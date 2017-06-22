@@ -1795,7 +1795,7 @@ class Notification extends MY_Controller {
         if($user_message){
         $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
         }else{
-        $notmsg .= '<div id="InboxFooter">No Messages</div>';
+        $notmsg .= '<div id="InboxFooter"><a>No Messages</a></div>';
             
         }
         echo $notmsg;
