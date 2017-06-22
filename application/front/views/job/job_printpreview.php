@@ -15,10 +15,10 @@ echo $head;
 <?php 
     $returnpage= $_GET['page'];
     if($returnpage == 'recruiter'){
-        echo $recruiter_header2;
+        echo $recruiter_header2_border;
     }
     else{
-echo $job_header2;
+echo $job_header2_border;
     }?>
 <body   class="page-container-bg-solid page-boxed">
 
@@ -118,7 +118,7 @@ echo $job_header2;
         <?php echo $job_menubar; ?>   
     </div>
 </div>
-<div class="middle-part container">
+<div class="middle-part container res-job-print">
     <div class="job-menu-profile">
         <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> 
             <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
