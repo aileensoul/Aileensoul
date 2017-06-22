@@ -12513,7 +12513,7 @@ bui_images_view_more a:hover{text-decoration: underline;}
 
 
 .clear{clear:both;}
-.custom-right{margin-left: 1%;}
+.custom-right{/*margin-left: 1%;*/}
 .custom-border .headerborder{border-bottom-left-radius:0px; border-bottom-right-radius:0px;}
 #row2{/*border-left: 0;*/}
 
@@ -12671,6 +12671,7 @@ snippet from Animate.css - zoomIn effect
 /***  eduction tabbing  ***/
 html{min-height: 100%; position:relative;}
 body{min-height: 100%;}
+.profile-box{max-width: 430px;}
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
