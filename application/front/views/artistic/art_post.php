@@ -529,7 +529,7 @@
       <!-- Trigger/Open The Modal -->
       <!-- popup end -->
       <div class="col-md-7 col-sm-12 col-md-push-4  custom-right-art">
-      <div>
+     
          <div class="post-editor col-md-12">
             <div class="main-text-area col-md-12">
                <div class="popup-img">
@@ -603,7 +603,7 @@
                </div>
             </div>
          </div>
-      </div>
+    
       <?php
          if (count($finalsorting) > 0) {
              foreach ($finalsorting as $row) {

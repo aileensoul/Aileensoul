@@ -1696,7 +1696,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             $('#input' + newNum + ' .stream').val('');
                             $('#input' + newNum + ' .university').val('0'); 
                             $('#input' + newNum + ' #percentage1').val(''); 
-                            $('#input' + newNum + '.certificate').val(''); 
+                          // $('#input' + newNum + '.certificate').val('').clone(true); 
+                            // $(".certificate").replaceWith($('#input' + newNum + '.certificate').val('').clone(true));
+                           // $('#input' + newNum + '.certificate').replaceWith($(".certificate").val('').clone(true));
                             $('#input' + newNum + ' .exp_data').val(''); 
                             $('#input' + newNum + ' .hs-submit').remove();    
                             $("#input" + newNum + ' img').remove();

@@ -2195,10 +2195,20 @@ $contition_array = array('status' => '1');
         if ($id == $this->data['slug_data'][0]['business_slug'] || $id == '') {
             $contition_array = array('business_slug' => $slug_id, 'status' => '1');
             $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+             $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+        $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         } else {
 
             $contition_array = array('business_slug' => $id, 'status' => '1');
-            $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'is_delete' => '0');
+        $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         }
 
 
@@ -2206,7 +2216,7 @@ $contition_array = array('status' => '1');
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
+         //echo "<pre>";print_r($this->data['busimagedata']);die();
 
 
         $contition_array = array('status' => '1', 'is_delete' => '0');
@@ -2222,9 +2232,7 @@ $contition_array = array('status' => '1');
         // echo "<pre>";print_r($industrytype);die();
 
 
-        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
-        $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+       
         $unique = array_merge($businessdata, $businesstype, $industrytype);
         foreach ($unique as $key => $value) {
             foreach ($value as $ke => $val) {
