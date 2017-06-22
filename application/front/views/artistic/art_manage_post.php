@@ -117,7 +117,7 @@
 
 
 
-<div class="container tablate-container"> 
+<div class="container tablate-container art-profile"> 
 
     <?php
     $userid = $this->session->userdata('aileenuser');
@@ -187,8 +187,8 @@
         </div>
         <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-            <div class="left-side-menu col-md-1 ">  </div>
-            <div class="right-side-menu art-side-menu col-md-10">
+           
+            <div class="right-side-menu art-side-menu">
                 
                     
                 <ul>
@@ -345,7 +345,7 @@
 
     </div>
 
-
+</div>
 
 
 
@@ -1598,6 +1598,8 @@
              
         </div>
     </div>
+</div>
+    
 </div>
             </section>
         <!-- END CONTAINER -->
