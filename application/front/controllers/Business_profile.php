@@ -8551,18 +8551,157 @@ $contition_array = array('status' => '1');
         $countlike = $commnetcount[0]['business_likes_count'] - 1;
 
         $likelistarray = explode(',', $likeuser);
-        echo '<div class="likeduser">';
-        echo '<div class="likeduser-title">User List</div>';
-        foreach ($likelistarray as $key => $value) {
+        
+        
+       echo    '<div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">1 Like</h4>
+        </div>
+        <div class="modal-body padding_less_right">
+            <div class="like_user_list">
+              <ul>
+                <li>
+                  <div class="like_user_listq">
+                 
 
-            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $value))->row()->business_slug;
+                            <div class="like_user_list_img">
 
-            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
-            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
-            echo ucwords($business_fname1);
-            echo '</a></div>';
-        }
-        echo '<div>';
+                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                              
+                            </div>
+                         
+
+
+                          <div class="like_user_list_main_desc">
+                              <div class="like_user_list_main_name">
+                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
+                             </div>
+                              <div class="like_user_list_current_work">
+                                <span class="head_main_work">Devlooper</span>
+                              </div>
+                          </div>
+
+
+                   </div>
+                </li>
+                 <li>
+                  <div class="like_user_listq">
+                 
+
+                            <div class="like_user_list_img">
+
+                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                              
+                            </div>
+                         
+
+
+                          <div class="like_user_list_main_desc">
+                              <div class="like_user_list_main_name">
+                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
+                             </div>
+                              <div class="like_user_list_current_work">
+                                <span class="head_main_work">Devlooper</span>
+                              </div>
+                          </div>
+
+
+                   </div>
+                </li> <li>
+                  <div class="like_user_listq">
+                 
+
+                            <div class="like_user_list_img">
+
+                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                              
+                            </div>
+                         
+
+
+                          <div class="like_user_list_main_desc">
+                              <div class="like_user_list_main_name">
+                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
+                             </div>
+                              <div class="like_user_list_current_work">
+                                <span class="head_main_work">Devlooper</span>
+                              </div>
+                          </div>
+
+
+                   </div>
+                </li> <li>
+                  <div class="like_user_listq">
+                 
+
+                            <div class="like_user_list_img">
+
+                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                              
+                            </div>
+                         
+
+
+                          <div class="like_user_list_main_desc">
+                              <div class="like_user_list_main_name">
+                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
+                             </div>
+                              <div class="like_user_list_current_work">
+                                <span class="head_main_work">Devlooper</span>
+                              </div>
+                          </div>
+
+
+                   </div>
+                </li> <li>
+                  <div class="like_user_listq">
+                 
+
+                            <div class="like_user_list_img">
+
+                                  <img src="https://www.aileensoul.com/uploads/artistic_post/thumbs/file_1497512772_3ItQH.jpg">
+                              
+                            </div>
+                         
+
+
+                          <div class="like_user_list_main_desc">
+                              <div class="like_user_list_main_name">
+                                <a href="#" title="zalak patel" class="head_main_name" >Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel Zalak patel </a>
+                             </div>
+                              <div class="like_user_list_current_work">
+                                <span class="head_main_work">Devlooper</span>
+                              </div>
+                          </div>
+
+
+                   </div>
+                </li>
+              
+              </ul>
+
+
+            </div>
+
+<div class="clearfix"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>';
+        
+        
+//        echo '<div class="likeduser">';
+//        echo '<div class="likeduser-title">User List</div>';
+//        foreach ($likelistarray as $key => $value) {
+//
+//            $bus_slug = $this->db->get_where('business_profile', array('user_id' => $value))->row()->business_slug;
+//
+//            $business_fname1 = $this->db->get_where('business_profile', array('user_id' => $value, 'status' => 1))->row()->company_name;
+//            echo '<div class="likeuser_list"><a href="' . base_url('business_profile/business_resume/' . $bus_slug) . '">';
+//            echo ucwords($business_fname1);
+//            echo '</a></div>';
+//        }
+//        echo '<div>';
     }
 
     public function imglikeuserlist() {
