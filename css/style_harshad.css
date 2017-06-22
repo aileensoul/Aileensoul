@@ -1,3 +1,56 @@
+.like_user_list ul{margin: 0; padding: 0; width: 100%; float: left; max-height: 300px; overflow-y: auto;}
+  .like_user_list ul li:last-child{border-bottom: none;}
+  .like_user_list ul li{   
+    margin-right: 15px;
+    width: 100%;
+    list-style: none;
+    float: left;
+    padding: 10px 3px;
+    border-bottom: 1px solid #ddd;
+   }
+  .like_user_list_img {height: 50px; width: 50px;  float: left;}
+  .like_user_list_img img
+  {width: 100%; height: 100%;  border-radius: 4px;}
+.like_user_list_main_desc{width: 80%;    padding: 4px 10px 4px 10px;
+
+    float: left;}
+    .like_user_list{width: 100%; float: left;}
+  .like_user_listq{width: 100%; float: left;}
+.head_main_name{color: #1b8ab9; font-size: 16px; font-weight: 600;}
+.head_main_work{color: #999; font-size: 14px;}
+.head_main_name:hover{text-decoration: none;}
+.like_user_list_main_name{
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.padding_less_right{padding-right: 0px;}
+
+.like_user_list ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.like_user_list ul::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+.like_user_list ul::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.like_user_list ul::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+
+
+
+
 .designation_rec{  float: left;
     width: 60%;
     padding-top: 1px;}
