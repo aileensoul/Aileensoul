@@ -371,19 +371,21 @@ $( "#searchplace" ).autocomplete({
 
 <script>
 
-    var complex = <?php echo json_encode($selectdata); ?>;
+ var complex = <?php echo json_encode($selectdata); ?>;
 
-alert(complex);
+//alert(complex);
    // $("#skill1").select2().select2('val', complex)
 
  if(complex != '')
-    { alert(789);
+    { 
+        //alert(789);
          $("#skill1").select2({
          placeholder: "Select a Language",
          }).select2('val', complex);
     }
    if(complex == '')
-    {alert(123);
+    {
+        //alert(123);
          $("#skill1").select2({
          placeholder: "Select a Language",
  
