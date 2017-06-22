@@ -1093,7 +1093,7 @@
                                     <?php
                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                        ?>
-                                    <?php if ($art_userimage) { ?>
+                                    <?php if ($art_userimage[0]['art_user_image']) { ?>
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                     <?php
                                        } else {
@@ -1213,7 +1213,7 @@
                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                         ?>
                      <div class="post-design-proo-img">
-                        <?php if ($art_userimage) { ?>
+                        <?php if ($art_userimage[0]['art_user_image']) { ?>
                         <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                         <?php
                            } else {
