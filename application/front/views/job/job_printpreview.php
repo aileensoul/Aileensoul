@@ -204,7 +204,44 @@ echo $job_header2;
                                         <li> <b>Email </b><span> <?php echo $job[0]['email']; ?> </span>
                                         </li>
 
-                                        <li><b> Phone Number</b> <span><?php echo $job[0]['phnno']; ?></span> </li>
+                                     
+
+
+
+                                            <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($job[0]['phnno']) {
+                                                ?>
+                                                 <li><b> Phone Number</b> <span><?php echo $job[0]['phnno']; ?></span> </li>
+
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                if ($job[0]['phnno']) {
+                                                ?>
+                                                   <li><b> Phone Number</b> <span><?php echo $job[0]['phnno']; ?></span> </li>
+
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Phone Number</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
+                                            ?>
 
                                         <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
                                         </li>
@@ -631,8 +668,43 @@ echo $job_header2;
                                                         <li> <b>College  </b><span><?php echo $graduation['college']; ?></span>
                                                         </li>
 
+                                                         <?php
+                                            if ($returnpage == 'recruiter') {
+                                                
+                                                if ($graduation['grade']) {
+                                                ?>
+                                               
                                                         <li> <b>Grade </b><span><?php echo $graduation['grade']; ?></span>
                                                         </li>
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                echo "";
+                                            }
+                                            }
+                                            else
+                                            {
+                                                if ($graduation['grade']) {
+                                                ?>
+                                               
+                                                        <li> <b>Grade </b><span><?php echo $graduation['grade']; ?></span>
+                                                        </li>
+                                                <?php
+                                            }
+
+                                            else
+                                            {
+                                                ?>
+                                                <li><b> Grade</b> <span>
+                                               <?php echo PROFILENA;
+                                                
+
+                                            }
+                                            }
+                                            
+                                            ?>
+
 
                                                         <li> <b>Percentage </b><span><?php echo $graduation['percentage']; ?></span>
                                                         </li>
