@@ -3283,7 +3283,7 @@
    
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "business_profile/imglikeuserlist" ?>',
+           url: '<?php echo base_url() . "business_profile/likeuserlist" ?>',
            data: 'post_id=' + post_id,
            dataType: "html",
            success: function (data) {
