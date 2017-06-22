@@ -112,10 +112,10 @@
 
         </div>
         <!-- menubar -->
-
+<!-- 
         <div class="profile-main-rec-box-menu  col-md-12 ">
 
-            <div class="left-side-menu col-md-2">  </div>
+            <div class="left-side-menu ">  </div>
             <div class="right-side-menu col-md-9 padding_less_right">  
                 <ul class="">
                     <li <?php if ($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('job/job_printpreview'); ?>"> Details</a>
@@ -131,11 +131,12 @@
                     <?php } ?>
                 </ul>
             </div>
-        </div>
+        </div> -->
+        <?php echo $job_menubar; ?>   
     </div>
     
     </div> 
-    <div class="middle-part container">
+    <div class="middle-part container padding_set_res ">
     <div class="job-menu-profile">
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <div class="profile-text" >
@@ -173,7 +174,7 @@
 
     <div class="profile-job-post-title clearfix">
        <div class="profile-job-profile-button clearfix">
-          <div class="profile-job-details col-md-12">
+          <div class="profile-job-details col-md-12 col-xs-12">
                <ul>
                    <li class="fr">
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
@@ -296,7 +297,7 @@
                                             </ul>
                                         </div>
                                         <div class="profile-job-profile-button clearfix">
-                                            <div class="profile-job-details col-md-12">
+                                            <div class="profile-job-details col-md-12 col-xs-12">
                                                 <ul>
                                                      <li class="job_all_post last_date">
                                                     Last Date :<?php if($post['post_last_date'] != "0000-00-00"){ echo date('d-M-Y',strtotime($post['post_last_date'])); }else{ echo PROFILENA;} ?></li>

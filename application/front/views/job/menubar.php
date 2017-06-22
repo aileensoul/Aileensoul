@@ -4,7 +4,7 @@
  $userid = $this->session->userdata('aileenuser');?>
  <div class="profile-main-rec-box-menu col-sm-12 col-md-12 col-lg-12 padding_less_right">
 
-<div class="left-side-menu col-md-2">  </div>
+<div class="left-side-menu ">  </div>
 <div class="right-side-menu col-md-6 padding_less_right">  
     <ul class="">
                                 <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview'){?> class="active" <?php } ?>>

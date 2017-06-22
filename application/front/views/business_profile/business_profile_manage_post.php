@@ -1777,8 +1777,10 @@
                         }
                     } else {
                         ?>
+                        <div class="contact-frnd-post bor_none">
                         <div class="text-center rio">
                             <h4 class="page-heading  product-listing">No Post Found.</h4>
+                        </div>
                         </div>
 
 <?php } ?>

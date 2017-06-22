@@ -337,21 +337,34 @@ $userid = $this->session->userdata('aileenuser');
   
   var artportfolio = $('#artportfolio123').html();
  
+     
+
+  if(bestofmine != ''){ 
+
       var bestofmine_ext = bestofmine.split('.').pop();
       
       var allowespdf = ['pdf'];
       var foundPresentpdf = $.inArray(bestofmine_ext, allowespdf) > -1;
+      }
+      
 
       var bestmine_ext = bestmine.split('.').pop();
       
-      var allowespdf = ['pdf'];
-      var foundPresentportfolio = $.inArray(bestmine_ext, allowespdf) > -1;
+       var allowespdf = ['pdf'];
+       var foundPresentportfolio = $.inArray(bestmine_ext, allowespdf) > -1;
 
 
-       if(foundPresentpdf == true || foundPresentportfolio == true || foundPresentpdf == '')
-       { 
+       if(foundPresentpdf == false)
+       {
+                 $(".bestofmine_image").html("Please select only pdf file.");
+                return false;
+         
+      }
 
-         var fd = new FormData();
+      else{ 
+
+
+        var fd = new FormData();
                 
          fd.append("image", $("#bestofmine")[0].files[0]);
 
@@ -379,10 +392,7 @@ $userid = $this->session->userdata('aileenuser');
             }
          }); 
 
-      }
-      else{
-         $(".bestofmine_image").html("Please select only pdf file.");
-         return false;
+         
       }
     }
     
