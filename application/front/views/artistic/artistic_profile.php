@@ -425,8 +425,17 @@ if ($artisticdata[0]['user_id'] === $userid) {
 
                                         <li> <b>Email </b><span> <?php echo $artisticdata[0]['art_email']; ?> </span>
                                         </li>
-                                        <li><b> Phone Number</b> <span><?php echo $artisticdata[0]['art_phnno']; ?></span> </li>
+                                       
 
+                                         <?php if($artisticdata[0]['art_phnno']){ ?>
+                                            <li><b> Phone Number</b> <span><?php echo $artisticdata[0]['art_phnno']; ?></span> </li>
+
+                                            <?php } else {
+           if($artisticdata[0]['user_id'] == $userid){ 
+                  ?>  
+      <li><b>Phone Number</b> <span>
+             <?php echo PROFILENA;?></span></li><?php  }else{}?>               
+          <?php }?>
                                     </ul>
                                 </div>
                                 <div class="profile-job-post-title clearfix">
