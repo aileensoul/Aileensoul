@@ -1673,6 +1673,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                 return false;
 
                             }
+                           
                               
                            var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
                            var $clone = $('#input' + num).clone();
