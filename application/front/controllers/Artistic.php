@@ -7169,38 +7169,136 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('post_image_id' => $post_id, 'is_unlike' => '0');
         $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        echo '<div class="likeduser">';
-        echo '<div class="likeduser-title">User List</div>';
-        foreach ($commnetcount as $comment) {
-            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
-            echo '<div class="likeuser_list"><a href="' . base_url('artistic/artistic_profile/' . $comment['user_id']) . '">';
-            echo ucwords($art_name1);
-            echo '</a></div>';
-        }
-        echo '<div>';
+        
+           $modal =    '<div class="modal-header">';
+       $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+       $modal .=   '<h4 class="modal-title">';
+       
+       $modal .=    '' . count($commnetcount) . ' Like';
+       
+       $modal .= '</h4></div>';
+       $modal .= '<div class="modal-body padding_less_right">';
+       $modal .=     '<div class="like_user_list">';
+       $modal .=     '<ul>';
+          foreach ($commnetcount as $comment) {
+             
+     $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+     $designation = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->designation;
+     $art_image = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_user_image;
+   
+       $modal .=  '<li>';
+       $modal .=  '<div class="like_user_listq">';
+       $modal .=  '<a href="' . base_url('artistic/artistic_profile/' . $value) . '" title="' . $art_name1 . '" class="head_main_name" >';
+       $modal .=  '<div class="like_user_list_img">';
+       
+       
+         if ($art_image) {
+                    $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
+                } else {
+                    $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+                }
+       $modal .=  '</div>';
+       $modal .=  '<div class="like_user_list_main_desc">';
+       $modal .=  '<div class="like_user_list_main_name">';
+       $modal .=  '' . ucwords($art_name1) . '';
+       $modal .=  '</div></a>';
+       $modal .=  '<div class="like_user_list_current_work">';
+       $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</li>';
+            }
+       $modal .=  '</ul>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="clearfix"></div>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="modal-footer">';
+       $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+       $modal .=  '</div>';
+      
+       echo $modal;
+//        echo '<div class="likeduser">';
+//        echo '<div class="likeduser-title">User List</div>';
+//        foreach ($commnetcount as $comment) {
+//            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+//            echo '<div class="likeuser_list"><a href="' . base_url('artistic/artistic_profile/' . $comment['user_id']) . '">';
+//            echo ucwords($art_name1);
+//            echo '</a></div>';
+//        }
+//        echo '<div>';
     }
 
     public function likeuserlist() {
-        $post_id = $_POST['post_id'];
+       $post_id = $_POST['post_id'];
 
         $contition_array = array('art_post_id' => $post_id, 'status' => '1', 'is_delete' => '0');
         $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+       
         $likeuser = $commnetcount[0]['art_like_user'];
         $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
         $likelistarray = explode(',', $likeuser);
         // $likelistarray = array_reverse($likelistarray);
-        echo '<div class="likeduser">';
-        echo '<div class="likeduser-title">User List</div>';
-        foreach ($likelistarray as $key => $value) {
-            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
-            echo '<div class="likeuser_list"><a href="' . base_url('artistic/artistic_profile/' . $value) . '">';
-            echo ucwords($art_name1);
-            echo '</a></div>';
-        }
-        echo '<div>';
+   
+        
+         $modal =    '<div class="modal-header">';
+       $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+       $modal .=   '<h4 class="modal-title">';
+       
+       $modal .=    '' . count($likelistarray) . ' Like';
+       
+       $modal .= '</h4></div>';
+       $modal .= '<div class="modal-body padding_less_right">';
+       $modal .=     '<div class="like_user_list">';
+       $modal .=     '<ul>';
+          foreach ($likelistarray as $key => $value) {
+             
+     $art_name1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+     $designation = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->designation;
+     $art_image = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_user_image;
+   
+       $modal .=  '<li>';
+       $modal .=  '<div class="like_user_listq">';
+       $modal .=  '<a href="' . base_url('artistic/artistic_profile/' . $value) . '" title="' . $art_name1 . '" class="head_main_name" >';
+       $modal .=  '<div class="like_user_list_img">';
+       
+       
+         if ($art_image && file_exists(base_url($this->config->item('art_profile_thumb_upload_path') . $art_image))) {
+                    $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
+                } else {
+                    $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+                }
+       $modal .=  '</div>';
+       $modal .=  '<div class="like_user_list_main_desc">';
+       $modal .=  '<div class="like_user_list_main_name">';
+       $modal .=  '' . ucwords($art_name1) . '';
+       $modal .=  '</div></a>';
+       $modal .=  '<div class="like_user_list_current_work">';
+       $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</div>';
+       $modal .=  '</li>';
+            }
+       $modal .=  '</ul>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="clearfix"></div>';
+       $modal .=  '</div>';
+       $modal .=  '<div class="modal-footer">';
+       $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+       $modal .=  '</div>';
+      
+       echo $modal;
+//        echo '<div class="likeduser">';
+//        echo '<div class="likeduser-title">User List</div>';
+//        foreach ($likelistarray as $key => $value) {
+//            $art_name1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+//            echo '<div class="likeuser_list"><a href="' . base_url('artistic/artistic_profile/' . $value) . '">';
+//            echo ucwords($art_name1);
+//            echo '</a></div>';
+//        }
+//        echo '<div>';
     }
 
     // khyati changes start 19-5
