@@ -221,7 +221,7 @@
 
                                                         <div class="profile-job-profile-menu  search ">
 
-                 <ul>
+                 <ul class="clearfix">
               
                               <?php
                                if ($p['keyskill']) {  ?>
