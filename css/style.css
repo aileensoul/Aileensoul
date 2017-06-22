@@ -5794,7 +5794,7 @@ padding-left: 10px;
         /*width: 96%;*/
     }
     .left-side-menu {
-        width: 17%;
+        width: 0;
         float: left;
         height: 7%;
         border-right: none;
@@ -12693,7 +12693,7 @@ left: 0;}
 .job-contact-frnd{width: 100%; float: left;}
 .art-side-menu{width: 100%; padding-left: 210px;}
 .art-side-menu ul{float: left;}
-.art-side-menu .flw_msg_btn a{height:auto; padding-top:8px; padding-bottom: 8px;}
+.art-side-menu .flw_msg_btn a{height:auto; padding-top:8px; padding-bottom: 8px; margin-top: 0;}
 .flw_msg_btn ul li a:hover{border:1px solid #d9d9d9 !important;}
 #addcontact_count{position:absolute; right:12px; top:3px; line-height:1; border-radius:4px;}
 .art-side-menu .flw_msg_btn{margin-top: 7px; margin-right: 0;}

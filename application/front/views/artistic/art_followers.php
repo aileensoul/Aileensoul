@@ -83,9 +83,9 @@
             </div>
          </div>
       </div>
-      </div>
-      </div>   
-      <div class="container">
+     
+     
+      <div class="container tablate-container art-profile">
       <?php
          $userid = $this->session->userdata('aileenuser');
          if($artisticdata[0]['user_id'] == $userid){ 
@@ -155,9 +155,18 @@
 
           
          <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les">
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-7">
-               <ul>
+            
+            <div class="right-side-menu art-side-menu">
+               <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
                   <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post'){?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>"> Dashboard</a>
                   </li>
                   <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile'){?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('artistic/artistic_profile/'.$artisticdata[0]['user_id']); ?>"> Details</a>
@@ -175,7 +184,7 @@
                       if($artisticdata[0]['user_id'] == $userid)
                       { 
                        ?>
-                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a style="padding: 12px 15px 2px 15px" title="Followers" href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($followerdata)); ?>)</a>
+                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($followerdata)); ?>)</a>
                   </li>
                   <?php }else{
                      $artregid = $artisticdata[0]['art_id'];
@@ -200,13 +209,13 @@
                   </li>
                   <?php }?>  
                </ul>
-            </div>
+            
             <?php 
                $userid  = $this->session->userdata('aileenuser'); 
                if($artisticdata[0]['user_id'] != $userid){
                  ?>
-            <div class="col-md-2 padding_les" style="width: 24%;">
-               <div class="flw_msg_btn">
+            
+               <div class="flw_msg_btn fr">
                   <ul>
                      <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
                         <?php
@@ -241,6 +250,9 @@
          </div>
          <!-- menubar -->                
       </div>
+      </div>
+       <div class="user-midd-section art-inner">
+           <div class="container">
       <div class="job-menu-profile mob-none">
          <a href="<?php echo site_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>">
             <h5  > <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?>
@@ -271,7 +283,7 @@
          </div>
          <!-- text head end -->
       </div>
-      <div class="col-md-7 col-sm-7 follow_mid">
+      <div class="col-md-7 col-sm-12 follow_mid mob-plr0">
       <div>
          <?php
             if ($this->session->flashdata('error')) {
@@ -358,6 +370,8 @@
             </div>
          </div>
       </div>
+      </div>
+           </div>
    </section>
    <footer>
       <?php echo $footer;  ?>

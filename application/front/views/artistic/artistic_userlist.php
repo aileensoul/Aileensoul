@@ -94,10 +94,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
 
-<div class="container">    
+
+<div class="container tablate-container art-profile">    
     <?php
     $userid = $this->session->userdata('aileenuser');
     if($artisticdata[0]['user_id'] == $userid) {
@@ -133,12 +132,56 @@
                             </div>-->
 
         </div>
+        <div class="job-menu-profile mob-block">
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> <h5 > <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
+            </h5></a>
+        <!-- text head start -->
+        <div class="profile-text" >
 
-        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les ">
+            <?php
+            if ($artisticdata[0]['designation'] == '') {
+                ?>
+                <a id="designation" class="designation" title="Designation">Current Work</a>
+            <?php } else { ?> 
+                <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+            <?php } ?>
 
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-8">
-                <ul>
+
+            <!-- The Modal -->
+            <!-- <div id="myModal" class="modal"> -->
+                <!-- Modal content -->
+                <!-- <div class="col-md-2"></div> -->
+                <!-- <div class="modal-content col-md-8">
+                    <span class="close">&times;</span>
+                    <fieldset></fieldset>
+                    <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
+
+                    <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
+                        <?php echo form_error('designation'); ?>
+                    </fieldset>
+                    <input type="hidden" name="hitext" id="hitext" value="8">
+                    <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
+                    <?php echo form_close(); ?>
+
+
+
+                </div> -->
+                <!-- <div class="col-md-2"></div> -->
+            <!-- </div> -->
+
+        </div>
+        <!-- <div  class="add-post-button">
+
+            <a class="btn btn-3 btn-3b" href="<?php echo site_url('artistic/art_addpost'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Add Post</a>
+        </div> -->
+
+        <!-- text head end -->
+    </div>
+        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
+
+          
+            <div class="right-side-menu art-side-menu">
+                <ul class="current-user">
 
                     <?php if (($this->uri->segment(1) == 'artistic') && ($this->uri->segment(2) == 'artistic_profile') && ($this->uri->segment(3) == $this->session->userdata('aileenuser'))) { ?>
 
@@ -192,7 +235,13 @@
             ?>
         </div>  
         <!-- menubar -->                
-    </div>                                        <div class="job-menu-profile">
+    </div>                                       
+    
+    
+
+        <div class="user-midd-section art-inner">
+            <div class="container">
+    <div class="job-menu-profile mob-none">
         <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> <h5 > <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
             </h5></a>
         <!-- text head start -->
@@ -237,7 +286,7 @@
 
         <!-- text head end -->
     </div>
-    <div class="col-md-7 col-sm-7">
+    <div class="col-md-7 col-sm-12 col-xs-12 mob-plr0">
 
         <div>
             <?php
@@ -331,17 +380,9 @@
         </div>
 
     </div>
-
-    <div class="user-midd-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-
-                </div>
-            </div>
-
-        </div>
     </div>
+            </div>
+        </div>
 </section>
 <footer>
 <?php echo $footer; ?>

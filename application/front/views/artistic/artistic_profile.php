@@ -93,7 +93,7 @@
         </div>
  
 
-<div class="container tablate-container">
+<div class="container tablate-container art-profile">
 
 <?php
 $userid = $this->session->userdata('aileenuser');
@@ -205,9 +205,18 @@ if ($artisticdata[0]['designation'] == '') {
         
         <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
 
-            <div class="left-side-menu col-md-1">  </div>
-            <div class="right-side-menu col-md-7 padding_les_right">
-                <ul>
+            
+            <div class="right-side-menu art-side-menu">
+                <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
 
                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
@@ -266,13 +275,13 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         </li> 
                     <?php } ?>  
                 </ul>
-            </div>
+            
             <?php 
                     $userid  = $this->session->userdata('aileenuser'); 
                     if($artisticdata[0]['user_id'] != $userid){
                       ?>
-            <div class="col-md-2 padding_les" style="width: 24%;">
-                <div class="flw_msg_btn">
+            
+                <div class="flw_msg_btn fr">
                     <ul>
 
                         <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
