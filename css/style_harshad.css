@@ -208,8 +208,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media screen and (max-width: 1024px) {
-.profile-boxProfilebuisness-avatarLink2{height: 65px !important;}  
-.right_left_box_design{padding: 11px 12px 10px 16px !important;}
+.profile-boxProfilebuisness-avatarLink2{height: 70px !important;}  
+.right_left_box_design{padding: 14px 12px 10px 16px !important;}
 
 
 }
@@ -218,16 +218,59 @@ input[type=number]::-webkit-outer-spin-button {
 .fw .job-menu-profile{width: 22.3%;}
 .profile-boxProfilebuisness-avatarLink2{height: 60px !important;}  
 .right_left_box_design{padding: 11px 12px 8px 16px !important;}
-
-
+.left_box_menubar li a{font-size: 12px;}
+.profile-job-details .post_title{width: 50% !important;}
+.profile-job-details .job_companyname{width: 300px;}
 }
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
 .folow-ms{width: 100%; float:left;}
 .fw .job-menu-profile {
     width: 27.3%;
 
 }
+    .job-menu-profile{margin-top: 0px;}
+    .profile-head-text{font-size:18px;}
+    .profile-text a{font-size: 16px;}
+    .profile-main-rec-box-menu{margin-top: -63px;}
+    .res-job-print{ padding-top: 0px !important;} 
+}
+
+@media screen and (max-width: 540px) {
+      .profile-main-rec-box-menu{margin-top: -63px;}
+ 
+    
+    .profile-photo .profile-pho{margin-top: -16px !important;}
+      
+.profile-job-details .post_title{width: 50% !important; font-size: 16px;}
+.date_re{font-size: 12px;}
+.profile-job-details .job_companyname{width: 250px;}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{font-size: 12px;}
+.profile-job-post-detail .profile-job-post-title .button{font-size: 13px; padding: 2px 12px;}
+
+}
+
+@media screen and (max-width: 479px) {
+    .profile-main-rec-box-menu{margin-top:0px; }
+.profile-job-details{ padding-left: 3px !important; padding-right: 3px !important;  }
 
 
+}
+@media screen and (max-width: 360px) {
+    .profile-main-rec-box-menu li a{padding: 10px 7px;}
+
+    .left-side-menu{width: 17%;}
+.profile-job-details{ padding-left: 3px !important; padding-right: 1px !important;  }
+.profile-job-details .post_title{width: 50%; font-size: 12px;}
+.date_re{width: 50%; font-size: 10px;}
+.profile-job-details .job_companyname{width:150px;  }
+.profile-job-details ul li p{font-size: 12px; padding-right: 8px;}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p{font-size: 12px;}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b{width: 30%;}
+.job_all_post{width: 100%; margin-bottom: 10px!important;}
+.profile-job-post-detail .profile-job-post-title .save_saved_btn{padding: 1px 10px 1px !important;
+text-align: center;
+font-size: 12px;}
+
+.profile-job-post-detail .profile-job-post-title .button{font-size: 12px; padding: 1px 11px;}
 }

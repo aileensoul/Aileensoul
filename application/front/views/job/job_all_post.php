@@ -132,9 +132,9 @@
                                                     <!-- vishang 14-4 end -->
                 <div class="profile-job-post-title clearfix">
                   <div class="profile-job-profile-button clearfix">
-                     <div class="profile-job-details col-md-12">
+                     <div class="profile-job-details col-md-12 col-xs-12  padding_job_rs">
                           <ul>
-                          <li class="fr">
+                          <li class="fr date_re">
                                                     Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                                 </li>
                              <li>
@@ -267,7 +267,7 @@
                                                             </ul>
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
-                                                            <div class="profile-job-details col-md-12">
+                                                            <div class="profile-job-details col-md-12 col-xs-12">
                       <ul><li class="job_all_post last_date">
 
                         Last Date : <?php if($post['post_last_date'] != "0000-00-00"){ echo date('d-M-Y',strtotime($post['post_last_date'])); }else{ echo PROFILENA;} ?></li>
