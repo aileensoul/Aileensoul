@@ -133,12 +133,70 @@
                      
 
                  </div>
-          
-                    <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
+           <div class="job-menu-profile mob-block">
+                         <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
+                            <!-- text head start -->
+                    <div class="profile-text" >
+                   
+                     <?php 
+                if($returnpage == ''){   
+                  if ($recdata[0]['designation'] == "") {
+               ?>
+                            <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                        
+                <a id="designation" class="designation" title="Designation">Designation</a>
+            <?php }
+             else {
+               
+                ?> 
+                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+                <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+             <?php }
+             
+             } else {  echo ucwords($recdata[0]['designation']);  }  ?>
 
-<div class="left-side-menu col-md-2">  </div>
-<div class="right-side-menu col-md-7">  
- <ul class="">
+                    <!-- The Modal -->
+            <!--         <div id="myModal" class="modal">
+                      <!-- Modal content --><!-- <div class="col-md-2"></div> -->
+                      <!-- <div class="modal-content col-md-8">
+                        <span class="close">&times;</span>
+                        <fieldset></fieldset>
+                         <?php //echo form_open(base_url('recruiter/recruiter_designation/'), array('id' => 'recdesignation','name' => 'recdesignation', 'class' => 'clearfix')); ?>
+
+  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php //echo $recdata[0]['designation']; ?>"></fieldset> -->
+        <!--  <input type="hidden" name="hitext" id="hitext" value="2">
+  <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
+                        <?php// echo form_close();?>
+  
+                    
+                     
+                    </div>
+                    <div class="col-md-2"></div>
+              </div>
+             --> 
+            </div>
+            
+  <div  class="add-post-button">
+        <?php if($returnpage == '') {?>
+        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+        <?php } ?>
+  </div>
+  </div>
+                    <!-- menubar -->
+                    <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+
+<div class=" right-side-menu art-side-menu padding_less_right">  
+  
+               <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($recdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
                                   
  <li <?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile'){?> class="active" <?php } ?>>
         <?php if($returnpage == 'job'){?>
@@ -175,11 +233,7 @@
 
                                     <?php }?>               
 </ul>
-</div>
-
-   <div class="col-md-2 padding_less_right" style="    width: 24%;
-    ">
-                <div class="flw_msg_btn fr">
+ <div class="flw_msg_btn fr">
                     <ul>
                     <?php
                     if($this->uri->segment(3) != ""){ ?>
@@ -187,14 +241,14 @@
                         <?php } ?>
                     </ul>
                 </div>
-            </div>
+</div>
 
   </div>  
             </div>            
         </div>
             <!-- menubar --> 
     <div class="middle-part container rec_res">
-  <div class="job-menu-profile">
+  <div class="job-menu-profile mob-none">
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h5><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h5></a>
                             <!-- text head start -->
                     <div class="profile-text" >

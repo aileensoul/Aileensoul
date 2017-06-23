@@ -1541,7 +1541,7 @@ $otherdata = $this->common->select_data_by_condition('business_profile_post', $c
 
 $datacount = count($otherdata);
 
-echo $datacount;
+
 
         if (count($otherdata) == 0) {
                     $notfound = '<div class="contact-frnd-post bor_none">';
