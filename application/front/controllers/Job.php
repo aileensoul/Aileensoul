@@ -4476,6 +4476,9 @@ $files[] = $_FILES;
                 'not_read' => 2,
                 'not_from' => 2,
                 'not_product_id' => $app_id,
+                'not_active' => 1
+
+
             );
 
             $updatedata = $this->common->insert_data_getid($data, 'notification');
@@ -4515,6 +4518,7 @@ $files[] = $_FILES;
                 'not_read' => 2,
                 'not_from' => 2,
                 'not_product_id' => $insert_id,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
