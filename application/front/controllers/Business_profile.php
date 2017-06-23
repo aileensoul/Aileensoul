@@ -3834,7 +3834,9 @@ $contition_array = array('status' => '1');
 
 
                 $cmtlike1 = '<a id="' . $businessprofiledata1[0]['business_profile_post_comment_id'] . '" onClick="comment_like1(this.id)">';
-                $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+               // $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+               // $cmtlike1 .= '</i>';
+                 $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span> ';
                 if ($businessprofiledata1[0]['business_comment_likes_count'] > 0) {
@@ -3870,6 +3872,9 @@ $contition_array = array('status' => '1');
                 $cmtlike1 = '<a id="' . $businessprofiledata2[0]['business_profile_post_comment_id'] . '" onClick="comment_like1(this.id)">';
                 $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
+                
+               // $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true">';
+               // $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span>';
                 if ($businessprofiledata2[0]['business_comment_likes_count'] > 0) {
                     $cmtlike1 .= $businessprofiledata2[0]['business_comment_likes_count'] . '';
@@ -7572,7 +7577,7 @@ $contition_array = array('status' => '1');
 
     //mulitple images commnet delete end  
 
-    public function fourcomment($postid) {
+    public function fourcomment($postid='') {
 
         $userid = $this->session->userdata('aileenuser');
 
