@@ -12918,7 +12918,7 @@ images css start*/
     .art-profile .profile-main-rec-box-menu{margin-top: 0;}
     .art-profile .job-menu-profile{width: 76%;}
     .art-side-menu{height: auto; padding-left: 0 !important;}
-    .art-profile .profile-box-art{width:100%; float: left;}
+    .art-profile .profile-box-art{width:100%; float: left; margin-bottom: 15px;}
     .art-side-menu .flw_msg_btn{width:100%; text-align: center; padding: 10px 0;}
     .art-side-menu ul{display: inline-block; float: none;}
     .art-side-menu{text-align: center;}
