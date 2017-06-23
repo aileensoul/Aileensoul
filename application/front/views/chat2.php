@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
-                                            <div class="comment" contentEditable="true" name="comments" id="message"  style="position: relative;"></div>
+                                            <div class="comment" contentEditable="true" name="comments" id="message"  style="position: relative;" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                             <div for="smily"  class="smily_b" >
                                                 <div id="notification_li1" >
                                                     <a class="smil" href="#" id="notificationLink1" ">
@@ -606,4 +606,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         newheight = message.scrollHeight;
         message.style.height = newheight + "px";
     })
+</script>
+<script type="text/javascript">
+
+    var _onPaste_StripFormatting_IEPaste = false;
+
+    function OnPaste_StripFormatting(elem, e) { 
+
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.originalEvent.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (e.clipboardData && e.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (window.clipboardData && window.clipboardData.getData) {
+            // Stop stack overflow
+            if (!_onPaste_StripFormatting_IEPaste) {
+                _onPaste_StripFormatting_IEPaste = true;
+                e.preventDefault();
+                window.document.execCommand('ms-pasteTextOnly', false);
+            }
+            _onPaste_StripFormatting_IEPaste = false;
+        }
+
+    }
+
 </script>
