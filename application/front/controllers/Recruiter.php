@@ -73,7 +73,7 @@ class Recruiter extends MY_Controller {
         $contition_array = array('user_id' => $userid, 're_status' => '1');
         $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        // echo '<pre>'; print_r($userdata); die();
+       //  echo '<pre>'; print_r($userdata); die();
 
         if ($userdata) {
             $step = $userdata[0]['re_step'];
@@ -2576,27 +2576,39 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         $postuserarray = explode(',', $post_skill);
         $postotherarray = explode(',', $post_skill_other);
 
-        foreach ($postotherarray as $key) {
-            echo $key."<br>";
+         // echo "<pre>";print_r($postuserarray);
+         // echo "<pre>";print_r($postotherarray);
 
-        $otherskillid = $this->db->get_where('skill', array('skill' => $key, 'status' => 1))->row()->skill_id;
-            if($otherskillid){
+
+        foreach ($postuserarray as $key) {
+           // echo $key."<br>";
+
+        $otherskillid = $this->db->get_where('skill', array('skill_id' => $key, 'status' => 1))->row()->skill;
+       
                 $skillname[]=$otherskillid;
-            } 
+           
         }
 
-        echo "<pre>";print_r($skillname);
-        echo "<pre>"; print_r($postuserarray);
-       echo  count($skillname);
-        echo count($postuserarray);
-        if($skillname != '' && $postuserarray != ''){
-          $allskill = array_merge($postuserarray,$skillname);  
-        }
-        elseif($skillname != ''){
+         // echo "<pre>";print_r($skillname);die();
+       //  echo "<pre>"; print_r($postuserarray);
+       // echo  count($skillname)."<br>";
+       //  echo count($postuserarray);
+        
+        $allskill[] = array_merge($postotherarray,$skillname);
+        // echo "<pre>";print_r($allskill);
 
+        foreach ($allskill as $key) {
+            foreach ($key as $value) { 
+                if($value != ''){
+               // echo "ggg";
+            $finalallskill[]=$value;
         }
-        $allskill = array_merge($postuserarray,$skillname);
-        echo "<pre>"; print_r($allskill);die();
+            }
+            
+        }
+        // echo "<pre>"; print_r($finalallskill); die();
+        
+        // echo "<pre>"; print_r($allskill);die();
       //  echo "<pre>"; print_r($postuserarray);
        // echo "<pre>";print_r($postotherarray); die();
         //print_r($postuserarray); die();
@@ -2626,12 +2638,24 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         
 
 
-        foreach ($candidate as $jobcan) {  //echo "123"; die();
-            $keyskill = explode(',', $jobcan['keyskill']);
-             $job_skill_other = $this->data['candidate'][0]['other_skill'];
-//echo "<pre>"; print_r($keyskill);
+        foreach ($candidate as $jobcan) {  
 
-            $result = array_intersect($postuserarray, $keyskill);
+            $keyskill = explode(',', $jobcan['keyskill']);
+
+           // echo "<pre>"; print_r($keyskill);
+
+             foreach ($keyskill as $key) {
+
+                 $skillid = $this->db->get_where('skill', array('skill_id' => $key, 'status' => 1))->row()->skill;
+
+            
+                $name[]=$skillid;
+            }
+          
+           // echo "<pre>"; print_r($name);
+
+            $result = in_array($finalallskill, $name);
+
             // $result1 = strcmp($post_skill_other, $job_skill_other);
 //echo "<pre>"; print_r($result);
 
@@ -2641,7 +2665,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
            
       if($result){
 
-       //echo "string";
+       echo "string";
         
 $join_str1 = array(
             array(
@@ -2697,9 +2721,8 @@ $join_str1 = array(
             
 //          }
            
-
+         unset($name);
         }
-//die();
      //echo "<pre>"; Print_r($canlocation);die();
 
 
