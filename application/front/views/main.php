@@ -832,7 +832,7 @@ return e.which !== 32;
 <!-- disable spacebar js end-->
 
 <style type="text/css">
-  #fname-error{margin-top: 33px;margin-right: -3px;}
+  #fname-error{/*margin-top: 33px;margin-right: -3px;*/}
   #lname-error{margin-top:33px;margin-right: 8px;  }
   #email-error{margin-top:33px;margin-right: 8px;  }
   #password-error{margin-top: 33px !important;margin-right: 8px;  }

@@ -291,7 +291,7 @@ textarea,
 select {
     resize: none;
     background: white;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     outline: none;
     padding: 8px 15px;
     color: #000;
@@ -315,7 +315,7 @@ input[type=submit],
 input[type=button],
 button {
     background: #1b8ab9;
-    border: 2px solid #1b8ab9;
+    border: 1px solid #1b8ab9;
     color: #fff;
     font-size: 14px;
     font-weight: 400;
@@ -372,7 +372,7 @@ fieldset {
 }
 fieldset.full-width ul.token-input-list {
     width: 100%;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     border-radius: 4px;
 }
 fieldset ul.token-input-list li input {
@@ -1269,7 +1269,7 @@ ul.dropdown-menu li a i {
     background: #1b8ab9;
 }
 .cv-form form {
-    border: 2px solid #ececec;
+    border: 1px solid #ececec;
     padding: 15px;
 }
 .cv-form h3 {
@@ -1397,7 +1397,7 @@ fieldset.full-width {
 }
 .hs-submit a {
     background: #1b8ab9;
-    border: 2px solid #1b8ab9;
+    border: 1px solid #1b8ab9;
     color: #fff;
     font-size: 18px;
     font-weight: 400;
@@ -1467,7 +1467,7 @@ input.error,
 select.error,
 .has-error textarea,
 textarea.error {
-    border: 2px solid #ff0000;
+    border: 1px solid #ff0000;
 }
 .has-error label,
 .error {
@@ -1559,10 +1559,10 @@ textarea.error {
 /* Error MSG Stylign */
 
 .error-msg input {
-    border: 2px solid #f00;
+    border: 1px solid #f00;
 }
 .error-msg p,
-label.error {
+fieldset label.error {
     background: #737373;
     color: #fff !important;
     padding: 4px 10px !important;
@@ -1572,7 +1572,7 @@ label.error {
     font-size: 12px;
 }
 .error-msg select {
-    border: 2px solid #f00;
+    border: 1px solid #f00;
 }
 /* Profile */
 
@@ -1821,7 +1821,7 @@ ul.business_profile_post_btn li a:hover {
 }
 .business_profile_comment_post {
     display: block;
-    border-bottom: 2px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
     padding: 0 0 15px;
     margin-bottom: 15px;
     text-transform: capitalize;
@@ -1854,7 +1854,7 @@ ul.business_profile_post_btn li a:hover {
 .business_pf_ct_person_form {
     padding-bottom: 0px;
     background-color: white;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     padding: 10px;
     border-radius: 4px;
     padding-bottom: 0px;
@@ -1914,7 +1914,7 @@ ul.business_pf_ct_person_detail li b {
     font-size: 14px;
 }
 .artistic_commentpost {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 14px;
     margin-bottom: 15px;
 }
@@ -1981,7 +1981,7 @@ ul.business_pf_ct_person_detail li b {
     font-size: 14px;
 }
 .artistic_commentpost {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
     padding-bottom: 14px;
     margin-bottom: 15px;
 }
@@ -2132,7 +2132,7 @@ ul.business_pf_ct_person_detail li b {
 }
 .job-search-box1 input {
     background: none;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     outline: none;
     background-color: #ffffff;
     padding: 4px 8px;
@@ -2373,7 +2373,7 @@ ul.business_pf_ct_person_detail li b {
     background-color: #ffffff;
     text-transform: capitalize;
     color: #1b8ab9;
-    border: 2px solid #1b8ab9;
+    border: 1px solid #1b8ab9;
     float: right;
     font-size: 15px;
     font-weight: bold;
@@ -2682,7 +2682,7 @@ ul.buttons li {
     width: 60%px;
     height: auto;
     margin-left: 60px;
-    border-left: 2px solid #000000;
+    border-left: 1px solid #000000;
     margin-top: -29px;
     position: relative;
 }
@@ -4263,7 +4263,7 @@ border-bottom: 1px solid #000033;
     left: 0;*/
 }
 .bg-bg {
-    border-left: 2px solid #d9d9d9;
+    border-left: 1px solid #d9d9d9;
     position: relative;
 }
 .bg-bg:after {
@@ -4977,7 +4977,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 2px solid #666;
+    border: 1px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.3;
@@ -5744,7 +5744,7 @@ padding-left: 10px;
 
 .job-saved-box_2 {
     height: 100%;
-    border: 2px solid #efefef;
+    border: 1px solid #efefef;
     border-top: 0;
 }
 .tabordion input[name="sections"]:checked + .label-d {
@@ -7205,7 +7205,7 @@ li.fr a {
 */
 
 .select2-container--default .select2-selection--multiple {
-    border: 2px solid #cacaca !important;
+    border: 1px solid #cacaca !important;
 }
 /* 21-4-2017 */
 /*
@@ -7231,7 +7231,7 @@ border-bottom: 1px solid #000033;
 }
 #lan-error {
     top: 69px!important;
-    border: 2px solid red;
+    border: 1px solid red;
 }
 .profile-box-job-menu {
     padding-right: 1px !important;
@@ -7254,7 +7254,7 @@ border-bottom: 1px solid #000033;
  rec left box*/
 
 #erroe_nn label select .error {
-    border: 2px solid red!important;
+    border: 1px solid red!important;
 }
 .profile-box-rec-menu ul {
     list-style-type: none;
@@ -7356,7 +7356,7 @@ input:-moz-placeholder {
 
 .job-post-detail .button_applied {
     background: #1b8ab9;
-    border: 2px solid #1b8ab9;
+    border: 1px solid #1b8ab9;
     color: #fff;
     border-radius: 4px;
     font-size: 16px;
@@ -7375,7 +7375,7 @@ input:-moz-placeholder {
 .select2-container-multi .select2-choices {
     padding: 1px 15px!important;
     background: white;
-    border: 2px solid #cacaca!important;
+    border: 1px solid #cacaca!important;
     outline: none!important;
     color: #000!important;
     font-size: 14px!important;
@@ -7720,7 +7720,7 @@ input:-moz-placeholder {
 .editable_text {
     min-height: 40px;
     background: white;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     outline: none;
     padding: 6.5px 15px;
     color: #000;
@@ -7788,7 +7788,7 @@ input:-moz-placeholder {
     position: relative;
     background-color: #fff;
     color: #1b8ab9;
-    border: 2px solid #aaa;
+    border: 1px solid #aaa;
     border-radius: 21px;
 }
 .but1 {
@@ -7849,7 +7849,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 2px solid #666;
+    border: 1px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -8470,7 +8470,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 2px solid #666;
+    border: 1px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -8886,7 +8886,7 @@ fieldset .add_post_btns:hover {
     margin-right: 0px;
 }
 .apply-btn a {
-    border: 2px solid #1b8ab9;
+    border: 1px solid #1b8ab9;
 }
 .dropdown-content2 a i {
     padding-right: 13px;
@@ -9338,7 +9338,7 @@ fieldset .add_post_btns:hover {
     bottom: 0px;
     left: 28%;*/}
     .keyskill_border_active {
- border: 2px solid red !important;
+ border: 1px solid red !important;
 border-radius: 4px;}
 
 
@@ -12505,11 +12505,11 @@ bui_images_view_more a:hover{text-decoration: underline;}
     right: 0;
     bottom: 7px;
 }
-.common-form .keyskill_border_active ul{border:2px solid red !important;}
+.common-form .keyskill_border_active ul{border:1px solid red !important;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
-.common-form span.keyskill_border_active{border:2px solid red!important;}
+.common-form span.keyskill_border_active{border:1px solid red!important;}
 .worktype_minheight{min-height: 80px;}
 /*End*/
 
@@ -12521,7 +12521,7 @@ bui_images_view_more a:hover{text-decoration: underline;}
 
 .tabordion section .label-d{margin: 0 auto; text-align: center; background: none !important; color:#333;}
 .tabordion input[name="sections"]:checked + label::after{font-size: 0;}
-.tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 2px solid #156f95; }
+.tabordion input[name="sections"]:checked + .label-d{background: none !important; color: #156f95; border-bottom: 1px solid #156f95; }
 /*.like_cmnt_count{padding-top: 7px !important;}*/
 .bui_images_view_more span{bottom: 5px;
     left: 0;
