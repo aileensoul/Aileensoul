@@ -1748,7 +1748,6 @@ class Notification extends MY_Controller {
 
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
-
         // uniq array of fromlist  
         foreach ($userlist as $k => $v) {
             foreach ($userlist as $key => $value) {
@@ -1761,15 +1760,23 @@ class Notification extends MY_Controller {
         $userlist = $this->aasort($userlist, "id");
 
         $user_message = array_merge($return_arraysel, $userlist);
-
-
+ 
+  
         // khyati 22-5 chnages end
 
            $notmsg = '<div id="notificationTitle">Messages</div>';
         foreach ($user_message as $msg) {
-
+            
+            $contition_array = array('not_product_id' => $msg['id'],'not_type' => 2);
+            $data = array(' notification.*');
+            $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = "", $groupby = '');
+           
             $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
-            $notmsg .= '<li class="active2"><div class="notification-database">';
+            $notmsg .= '<li class="';
+            if($not[0]['not_active'] == 1){ 
+             $notmsg .= "active2"; 
+              }
+            $notmsg .=  '"><div class="notification-database">';
             $notmsg .= '<div class="notification-pic">';
 
             if($msg['user_image']){
@@ -1782,9 +1789,6 @@ class Notification extends MY_Controller {
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
             $notmsg .= '<div class="msg_desc_a">';
 
-            $contition_array = array('not_product_id' => $msg['id']);
-            $data = array(' notification.*');
-            $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = "", $groupby = '');
 
             $notmsg .= '' . $msg['message'] . '';
 
