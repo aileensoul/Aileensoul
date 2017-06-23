@@ -1601,6 +1601,12 @@
 
 <?php } ?>
 
+<!-- for no post found msg show using ajax start -->
+    <div class="nofoundpost">
+    </div>
+
+<!-- for no post found msg show using ajax end -->
+
              </div>
             </div>
             
