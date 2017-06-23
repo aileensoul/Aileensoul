@@ -291,7 +291,7 @@ textarea,
 select {
     resize: none;
     background: white;
-    border: 1px solid #cacaca;
+    border: 2px solid #cacaca;
     outline: none;
     padding: 8px 15px;
     color: #000;
@@ -1467,7 +1467,7 @@ input.error,
 select.error,
 .has-error textarea,
 textarea.error {
-    border: 1px solid #ff0000;
+    border: 2px solid #ff0000;
 }
 .has-error label,
 .error {
@@ -1559,7 +1559,7 @@ textarea.error {
 /* Error MSG Stylign */
 
 .error-msg input {
-    border: 1px solid #f00;
+    border: 2px solid #f00;
 }
 .error-msg p,
 label.error {
@@ -1572,7 +1572,7 @@ label.error {
     font-size: 12px;
 }
 .error-msg select {
-    border: 1px solid #f00;
+    border: 2px solid #f00;
 }
 /* Profile */
 
@@ -6848,7 +6848,7 @@ footer .footer-menu li a:hover {
 .flw_msg_btn {
     /* padding-left: 10px; */
     /*   width: 62%;*/
-    /*margin-right: 3%;*/
+    margin-right: 3%;
     margin-top: 4px;
     /* margin-left: -1px; */
 }
@@ -7375,7 +7375,7 @@ input:-moz-placeholder {
 .select2-container-multi .select2-choices {
     padding: 1px 15px!important;
     background: white;
-    border: 1px solid #cacaca!important;
+    border: 2px solid #cacaca!important;
     outline: none!important;
     color: #000!important;
     font-size: 14px!important;
@@ -7720,7 +7720,7 @@ input:-moz-placeholder {
 .editable_text {
     min-height: 40px;
     background: white;
-    border: 1px solid #cacaca;
+    border: 2px solid #cacaca;
     outline: none;
     padding: 6.5px 15px;
     color: #000;
@@ -7788,7 +7788,7 @@ input:-moz-placeholder {
     position: relative;
     background-color: #fff;
     color: #1b8ab9;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     border-radius: 21px;
 }
 .but1 {
@@ -7849,7 +7849,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 2px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -8469,7 +8469,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 2px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -12504,11 +12504,11 @@ bui_images_view_more a:hover{text-decoration: underline;}
     right: 0;
     bottom: 7px;
 }
-.common-form .keyskill_border_active ul{border:1px solid red !important;}
+.common-form .keyskill_border_active ul{border:2px solid red !important;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
-.common-form span.keyskill_border_active{border:1px solid red!important;}
+.common-form span.keyskill_border_active{border:2px solid red!important;}
 .worktype_minheight{min-height: 80px;}
 /*End*/
 
