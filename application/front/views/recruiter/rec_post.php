@@ -107,15 +107,17 @@ if ($returnpage == 'job') {
    
   
 
-<div class="container tablate-container">    
-    <div class="upload-img">
+<div class="container tablate-container art-profile">    
+   
         <?php if ($returnpage == '') { ?>
+         <div class="upload-img">
             <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
             </label>
+              </div>
         <?php } ?>
 
-    </div>
+  
 
     <div class="profile-photo">
         <div class="profile-pho">
@@ -139,14 +141,56 @@ if ($returnpage == 'job') {
 
         </div>
 
+            <div class="job-menu-profile mob-block">
+                         <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>
+        <!-- text head start -->
+        <div class="profile-text" >
+       
+            <?php
+            if ($returnpage == '') {  
+                //echo "hii";
+                if ($recdata[0]['designation'] == "") { 
+                    ?>
+                                                    <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                    <a id="designation" class="designation" title="Designation">Designation</a>
+                    <?php
+                } else {
+                    ?> 
+                    
+                    <a id="designation" class="designation" title="<?php echo ucwords($postdataone[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+                    <?php
+                }
+            }
+             else {
+                //echo "hhhhhh";
+                echo ucwords($postdataone['designation']);
+            }
+            ?>
+
+
+        
+        </div>
+     
+        
+        <!-- text head end -->
+    </div>
 
         <!-- menubar -->
-  <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
-         
-<div class="right-side-menu right-side-menu art-side-menu padding_less_right">  
-            
-                <ul class="">
+          <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
+<div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
+  
+            
+           <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($recdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>
@@ -186,13 +230,20 @@ if ($returnpage == 'job') {
                 </div>
             </div>
 
-         
+           
         </div>  
+
+
         <!-- menubar -->    
+      
     </div>                       
-</div>
+</div> <div  class="add-post-button mob-block">
+            <?php if ($returnpage == '') { ?>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+            <?php } ?>
+        </div>
         <div class="middle-part container rec_res">
-    <div class="job-menu-profile col-md-3">
+    <div class="job-menu-profile mob-none">
                          <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >

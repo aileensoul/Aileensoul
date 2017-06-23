@@ -88,7 +88,7 @@
         </div>
        
 
-<div class="container tablate-container">  
+<div class="container tablate-container art-profile">  
  
     <div class="upload-img">
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -111,6 +111,29 @@
             
 
         </div>
+          <div class="job-menu-profile mob-block">
+        <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
+        <!-- text head start -->
+
+        <div class="profile-text" >
+
+            <?php
+            if ($jobdata[0]['designation'] == '') {
+                ?>
+                        <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                <a id="designation" class="designation" title="Designation">Current Work</a>
+            <?php } else {
+                ?> 
+                    <!--<a id="myBtn" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>-->
+                <a id="designation" class="designation" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>
+
+            <?php } ?>
+            </div>
+
+
+          
+        </div>
+
         <!-- menubar -->
 <!-- 
         <div class="profile-main-rec-box-menu  col-md-12 ">
@@ -137,7 +160,7 @@
     
     </div> 
     <div class="middle-part container padding_set_res ">
-    <div class="job-menu-profile">
+    <div class="job-menu-profile mob-none" >
         <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
         <div class="profile-text" >
             <!-- text head start -->

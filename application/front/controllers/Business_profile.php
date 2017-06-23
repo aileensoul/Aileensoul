@@ -1330,7 +1330,7 @@ $contition_array = array('status' => '1');
         }
         array_multisort($post, SORT_DESC, $new);
 
-        $this->data['businessprofiledata'] = $new;
+        $this->data['businessprofiledatapost'] = $new;
 
         //echo "<pre>"; print_r($this->data['businessprofiledata']) ; die();
 // code for search
@@ -1556,6 +1556,202 @@ $datacount = count($otherdata);
                             "notcount" => $datacount,
                 ));
     }
+
+
+    public function business_profile_deleteforpost() {
+
+
+
+$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        $id = $_POST["business_profile_post_id"];
+        //echo $id; die();
+        $data = array(
+            'is_delete' => 1,
+            'modify_date' => date('Y-m-d', time())
+        );
+
+//echo "<pre>"; print_r($data); die();
+        $updatdata = $this->common->update_data($data, 'business_profile_post', 'business_profile_post_id', $id);
+
+        $dataimage = array(
+            'is_deleted' => 0,
+            'modify_date' => date('Y-m-d', time())
+        );
+
+        //echo "<pre>"; print_r($dataimage); die();
+        $updatdata = $this->common->update_data($dataimage, 'post_image', 'post_id', $id);
+
+// for post count start
+
+
+
+ $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['businessdata']); die(); 
+
+$business_profile_id = $this->data['businessdata'][0]['business_profile_id'];
+
+
+
+
+ $contition_array = array('follow_from' => $business_profile_id, 'follow_status' => '1', 'follow_type' => '2');
+
+        $followerdata = $this->data['followerdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>" ; print_r($this->data['followerdata']); die();
+
+        foreach ($followerdata as $fdata) {
+
+            $contition_array = array('business_profile_id' => $fdata['follow_to'],'business_step' => 4);
+
+            $this->data['business_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            // echo "<pre>" ; print_r($this->data['business_data']); die();
+
+            $business_userid = $this->data['business_data'][0]['user_id'];
+            //echo $business_userid; die();
+            $contition_array = array('user_id' => $business_userid, 'status' => '1', 'is_delete' => '0');
+
+            $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            //echo "<pre>"; print_r($this->data['business_profile_data']) ; die();
+
+            $followerabc[] = $this->data['business_profile_data'];
+        }
+        //echo "<pre>" ; print_r($followerabc); die();
+//data fatch using follower end
+//data fatch using industriyal start
+
+        $userselectindustriyal = $this->data['businessdata'][0]['industriyal'];
+
+        $contition_array = array('industriyal' => $userselectindustriyal, 'status' => '1','business_step' => 4);
+        $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r( $businessprofiledata); die();
+
+
+
+        foreach ($businessprofiledata as $fdata) {
+
+
+            $contition_array = array('business_profile_post.user_id' => $fdata['user_id'], 'business_profile_post.status' => '1', 'business_profile_post.user_id !=' => $userid, 'is_delete' => '0');
+
+            $this->data['business_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $industriyalabc[] = $this->data['business_data'];
+        }
+//data fatch using industriyal end
+//data fatch using login user last post start
+
+        $condition_array = array('user_id' => $userid, 'status' => '1', 'is_delete' => '0');
+
+        $business_datauser = $this->data['business_datauser'] = $this->common->select_data_by_condition('business_profile_post', $condition_array, $data = '*', $sortby = 'business_profile_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $userabc[][] = $this->data['business_datauser'][0];
+
+
+
+//data fatch using login user last post end
+//array merge and get unique value  
+
+
+        if (count($industriyalabc) == 0 && count($business_datauser) != 0) {
+
+            $unique = $userabc;
+        } elseif (count($business_datauser) == 0 && count($industriyalabc) != 0) {
+            $unique = $industriyalabc;
+        } elseif (count($business_datauser) != 0 && count($industriyalabc) != 0) {
+            $unique = array_merge($industriyalabc, $userabc);
+        }
+
+        //echo "<pre>"; print_r($unique); die();
+
+        if (count($followerabc) == 0 && count($unique) != 0) {
+            $unique_user = $unique;
+        } elseif (count($unique) == 0 && count($followerabc) != 0) {
+            $unique_user = $followerabc;
+        } else {
+            $unique_user = array_merge($unique, $followerabc);
+        }
+
+
+
+        foreach ($unique_user as $ke => $arr) {
+            foreach ($arr as $k => $v) {
+
+                $postdata[] = $v;
+            }
+        }
+
+        $postdata = array_unique($postdata, SORT_REGULAR);
+
+
+        $new = array();
+        foreach ($postdata as $value) {
+            $new[$value['business_profile_post_id']] = $value;
+        }
+
+        $post = array();
+
+        foreach ($new as $key => $row) {
+
+            $post[$key] = $row['business_profile_post_id'];
+        }
+        array_multisort($post, SORT_DESC, $new);
+
+        $otherdata = $new;
+
+
+// for count end
+
+
+  if(count($otherdata) > 0){
+
+     foreach ($otherdata as $row) {
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
+        $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
+        $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
+                                if (!in_array($userid, $likeuserarray)) {}
+                                    else{
+                                        $count[] = "abc";
+                                    }
+
+     }
+  } 
+
+  if(count($otherdata) > 0){ 
+          if(count($count) == count($otherdata)){  
+        
+                    $datacount = "count";
+
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            } }else{
+
+                    $datacount = "count";
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            }
+
+            echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
+    }
+
 
     public function business_profile_addpost() {
         $userid = $this->session->userdata('aileenuser');
@@ -4911,6 +5107,173 @@ $contition_array = array('status' => '1');
         );
 
         $updatdata = $this->common->update_data($data, 'business_profile_post', 'business_profile_post_id', $post_id);
+
+
+
+       
+        //echo "<pre>"; print_r($this->data['businessdata']); die(); 
+
+        $business_profile_id = $this->data['businessdata'][0]['business_profile_id'];
+
+
+
+        // for post count start
+
+ $contition_array = array('follow_from' => $business_profile_id, 'follow_status' => '1', 'follow_type' => '2');
+
+        $followerdata = $this->data['followerdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>" ; print_r($this->data['followerdata']); die();
+
+        foreach ($followerdata as $fdata) {
+
+            $contition_array = array('business_profile_id' => $fdata['follow_to'],'business_step' => 4);
+
+            $this->data['business_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            // echo "<pre>" ; print_r($this->data['business_data']); die();
+
+            $business_userid = $this->data['business_data'][0]['user_id'];
+            //echo $business_userid; die();
+            $contition_array = array('user_id' => $business_userid, 'status' => '1', 'is_delete' => '0');
+
+            $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            //echo "<pre>"; print_r($this->data['business_profile_data']) ; die();
+
+            $followerabc[] = $this->data['business_profile_data'];
+        }
+        //echo "<pre>" ; print_r($followerabc); die();
+//data fatch using follower end
+//data fatch using industriyal start
+
+        $userselectindustriyal = $this->data['businessdata'][0]['industriyal'];
+
+        $contition_array = array('industriyal' => $userselectindustriyal, 'status' => '1','business_step' => 4);
+        $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>"; print_r( $businessprofiledata); die();
+
+
+
+        foreach ($businessprofiledata as $fdata) {
+
+
+            $contition_array = array('business_profile_post.user_id' => $fdata['user_id'], 'business_profile_post.status' => '1', 'business_profile_post.user_id !=' => $userid, 'is_delete' => '0');
+
+            $this->data['business_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $industriyalabc[] = $this->data['business_data'];
+        }
+//data fatch using industriyal end
+//data fatch using login user last post start
+
+        $condition_array = array('user_id' => $userid, 'status' => '1', 'is_delete' => '0');
+
+        $business_datauser = $this->data['business_datauser'] = $this->common->select_data_by_condition('business_profile_post', $condition_array, $data = '*', $sortby = 'business_profile_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $userabc[][] = $this->data['business_datauser'][0];
+
+
+
+//data fatch using login user last post end
+//array merge and get unique value  
+
+
+        if (count($industriyalabc) == 0 && count($business_datauser) != 0) {
+
+            $unique = $userabc;
+        } elseif (count($business_datauser) == 0 && count($industriyalabc) != 0) {
+            $unique = $industriyalabc;
+        } elseif (count($business_datauser) != 0 && count($industriyalabc) != 0) {
+            $unique = array_merge($industriyalabc, $userabc);
+        }
+
+        //echo "<pre>"; print_r($unique); die();
+
+        if (count($followerabc) == 0 && count($unique) != 0) {
+            $unique_user = $unique;
+        } elseif (count($unique) == 0 && count($followerabc) != 0) {
+            $unique_user = $followerabc;
+        } else {
+            $unique_user = array_merge($unique, $followerabc);
+        }
+
+
+
+        foreach ($unique_user as $ke => $arr) {
+            foreach ($arr as $k => $v) {
+
+                $postdata[] = $v;
+            }
+        }
+
+        $postdata = array_unique($postdata, SORT_REGULAR);
+
+
+        $new = array();
+        foreach ($postdata as $value) {
+            $new[$value['business_profile_post_id']] = $value;
+        }
+
+        $post = array();
+
+        foreach ($new as $key => $row) {
+
+            $post[$key] = $row['business_profile_post_id'];
+        }
+        array_multisort($post, SORT_DESC, $new);
+
+        $otherdata = $new;
+
+
+// for count end
+
+
+  if(count($otherdata) > 0){
+
+     foreach ($otherdata as $row) {
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
+        $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
+        $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
+                                if (!in_array($userid, $likeuserarray)) {}
+                                    else{
+                                        $count[] = "abc";
+                                    }
+
+     }
+  } 
+
+  if(count($otherdata) > 0){ 
+          if(count($count) == count($otherdata)){  
+        
+                    $datacount = "count";
+
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            } }else{
+
+                    $datacount = "count";
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            }
+
+            echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
+
     }
 
 //delete post particular user end  

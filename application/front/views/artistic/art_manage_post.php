@@ -1601,6 +1601,12 @@
 
 <?php } ?>
 
+<!-- for no post found msg show using ajax start -->
+    <div class="nofoundpost">
+    </div>
+
+<!-- for no post found msg show using ajax end -->
+
              </div>
             </div>
             
@@ -3549,11 +3555,15 @@ if (size > 4194304)
                 $.ajax({
                     type: 'POST',
                     url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+                    dataType: 'json',
                     data: 'art_post_id=' + abc,
                     //alert(data);
                     success: function (data) {
 
-                        $('#' + 'removepost' + abc).html(data);
+                        $('#' + 'removepost' + abc).remove();
+                        if(data.notcount == 0){
+                            $('.' + 'nofoundpost').html(data.notfound);
+                            }
 
 
                     }

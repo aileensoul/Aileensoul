@@ -102,18 +102,20 @@
     </div>
 </div>
  
-        <div class="container tablate-container">
+        <div class="container tablate-container art-profile">
 
       
-      <div class="upload-img">
+      
       
         <?php if($returnpage == ''){ ?>
+        <div class="upload-img">
       <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-        <?php }?>
-      </div>
+          </div>
   
+        <?php }?>
+    
             <div class="profile-photo">
               <div class="profile-pho">
 
@@ -175,17 +177,12 @@
               </div>
              --> 
             </div>
-            
-  <div  class="add-post-button">
-        <?php if($returnpage == '') {?>
-        <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
-        <?php } ?>
-  </div>
+      
   </div>
                     <!-- menubar -->
                     <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-<div class=" right-side-menu art-side-menu padding_less_right">  
+<div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
   
                <?php 
                $userid = $this->session->userdata('aileenuser');
@@ -233,6 +230,7 @@
 
                                     <?php }?>               
 </ul>
+
  <div class="flw_msg_btn fr">
                     <ul>
                     <?php
@@ -241,10 +239,18 @@
                         <?php } ?>
                     </ul>
                 </div>
+
 </div>
 
   </div>  
+
+
             </div>            
+        </div>
+        <div  class="add-post-button mob-block">
+            <?php if ($returnpage == '') { ?>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+            <?php } ?>
         </div>
             <!-- menubar --> 
     <div class="middle-part container rec_res">

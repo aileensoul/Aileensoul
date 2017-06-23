@@ -291,7 +291,7 @@ textarea,
 select {
     resize: none;
     background: white;
-    border: 1px solid #cacaca;
+    border: 2px solid #cacaca;
     outline: none;
     padding: 8px 15px;
     color: #000;
@@ -1467,7 +1467,7 @@ input.error,
 select.error,
 .has-error textarea,
 textarea.error {
-    border: 1px solid #ff0000;
+    border: 2px solid #ff0000;
 }
 .has-error label,
 .error {
@@ -1559,7 +1559,7 @@ textarea.error {
 /* Error MSG Stylign */
 
 .error-msg input {
-    border: 1px solid #f00;
+    border: 2px solid #f00;
 }
 .error-msg p,
 label.error {
@@ -1572,7 +1572,7 @@ label.error {
     font-size: 12px;
 }
 .error-msg select {
-    border: 1px solid #f00;
+    border: 2px solid #f00;
 }
 /* Profile */
 
@@ -6848,7 +6848,7 @@ footer .footer-menu li a:hover {
 .flw_msg_btn {
     /* padding-left: 10px; */
     /*   width: 62%;*/
-    /*margin-right: 3%;*/
+    margin-right: 3%;
     margin-top: 4px;
     /* margin-left: -1px; */
 }
@@ -7375,7 +7375,7 @@ input:-moz-placeholder {
 .select2-container-multi .select2-choices {
     padding: 1px 15px!important;
     background: white;
-    border: 1px solid #cacaca!important;
+    border: 2px solid #cacaca!important;
     outline: none!important;
     color: #000!important;
     font-size: 14px!important;
@@ -7720,7 +7720,7 @@ input:-moz-placeholder {
 .editable_text {
     min-height: 40px;
     background: white;
-    border: 1px solid #cacaca;
+    border: 2px solid #cacaca;
     outline: none;
     padding: 6.5px 15px;
     color: #000;
@@ -7788,7 +7788,7 @@ input:-moz-placeholder {
     position: relative;
     background-color: #fff;
     color: #1b8ab9;
-    border: 1px solid #aaa;
+    border: 2px solid #aaa;
     border-radius: 21px;
 }
 .but1 {
@@ -7849,7 +7849,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 2px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -8055,7 +8055,7 @@ fieldset .add_post_btns {
     padding: 5px;
 }
 #paddingtop_fixed {
-    padding-top: 62px!important;
+    padding-top: 84 px!important;
 }
 #paddingtop_fixed_job {
     padding-top: 80px!important;
@@ -8469,7 +8469,7 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 2px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
     background-color: #DDD;
     opacity: 0.7;
@@ -12504,11 +12504,11 @@ bui_images_view_more a:hover{text-decoration: underline;}
     right: 0;
     bottom: 7px;
 }
-.common-form .keyskill_border_active ul{border:1px solid red !important;}
+.common-form .keyskill_border_active ul{border:2px solid red !important;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
-.common-form span.keyskill_border_active{border:1px solid red!important;}
+.common-form span.keyskill_border_active{border:2px solid red!important;}
 .worktype_minheight{min-height: 80px;}
 /*End*/
 
@@ -12716,14 +12716,23 @@ images css start*/
     width: 100%; height: 249px; background: rgba(0, 0, 0, 0.5);}
  .more-image span{position: absolute; color: white; bottom: 1px; left: 0%; right: 0;}   
 /*images css end*/
+/***  search page  ***/
+.inner_search{border-top: 1px solid #ddd !important; width: 100%;}
+
+/*** job recruter and freelancer  ***/
+.profile-box-art .right-menu-jr ul li a{padding-top: 15px; padding-bottom: 15px;}
 
 
 /***  media query  ***/
-
-@media (min-width: 1280px) { 
-  .container {width: 1280px;}   
+@media (min-width: 1400px) { 
+   
   .header2{margin-left: 16px; margin-right: 16px;}
 }
+@media (min-width: 1280px) { 
+  .container {width: 1280px;}   
+  /*.header2{margin-left: 16px; margin-right: 16px;}*/
+}
+
 @media screen and (max-width: 1200px) {
     .action-buttons {height: 25px;margin-top: 3px; padding: 5px 7px; width: 25px;}
     .comment-name{width: 85%;}
@@ -12751,6 +12760,7 @@ images css start*/
     .left_box_menubar li a{padding-bottom: 0 !important;}
     .header2 ul{padding-right: 0;}
     #paddingtop_fixed_art{padding-top: 32px !important;}
+    .header ul li.dropdown-user ul li a{padding: 8px;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -13012,6 +13022,6 @@ images css start*/
     .comment-name{width: 78%;}
     .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px !important;}
    .profile-box-art .right-side-menu li a{/*padding-left: 5px !important; padding-right: 5px !important;*/ font-size: 11px;}
-   .job-menu-profile.mob-block{width: 68%;}
+   .job-menu-profile.mob-block{width: 66%;}
 }
 .flw_msg_btn ul li a{height: auto;}

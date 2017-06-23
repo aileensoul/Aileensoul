@@ -27,9 +27,9 @@ echo $job_header2_border;
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
-                    <div id="upload-demo" style="width:100%"></div>
+                    <div id="upload-demo"></div>
                 </div>
-                <div class="col-md-12 cover-pic" style="padding-top: 25px;text-align: center;">
+                <div class="col-md-12 cover-pic" >
                     <button class="btn btn-success  cancel-result" onclick="" >Cancel</button>
 
                     <button class="btn btn-success set-btn upload-result " onclick="myFunction()">Save</button>
@@ -47,7 +47,7 @@ echo $job_header2_border;
                         </div> </div>
                 </div>
                 <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i" style="background:#e1e1e1;width:100%;padding:30px;height:1px;margin-top:30px"></div>
+                    <div id="upload-demo-i" ></div>
                 </div>
             </div>
 
@@ -84,15 +84,17 @@ echo $job_header2_border;
         </div>
      
         
-<div class="container tablate-container">       
-    <div class="upload-img ">
-
+<div class="container tablate-container art-profile">       
+    
         <?php if($returnpage == ''){ ?>
+        <div class="upload-img ">
+
         <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
+        </div>
         <?php }?>
-    </div>
+    
     <div class="profile-photo">
         <div class="profile-pho">
             <div class="user-pic padd_img">
@@ -115,11 +117,34 @@ echo $job_header2_border;
             <?php // echo form_close(); ?>
                         </div>-->
         </div>
+          <div class="job-menu-profile mob-block">
+        <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
+        <!-- text head start -->
+
+        <div class="profile-text" >
+
+            <?php
+            if ($jobdata[0]['designation'] == '') {
+                ?>
+                        <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                <a id="designation" class="designation" title="Designation">Current Work</a>
+            <?php } else {
+                ?> 
+                    <!--<a id="myBtn" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>-->
+                <a id="designation" class="designation" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>
+
+            <?php } ?>
+            </div>
+
+
+          
+        </div>
+
         <?php echo $job_menubar; ?>   
     </div>
 </div>
 <div class="middle-part container res-job-print">
-    <div class="job-menu-profile">
+    <div class="job-menu-profile mob-none">
         <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>"><h3 class="profile-head-text"> 
             <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
       <?php echo ucfirst($job[0]['fname'] ). ' ' . ucfirst($job[0]['lname']); ?> 

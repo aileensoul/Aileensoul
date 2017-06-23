@@ -2574,6 +2574,31 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
          $post_skill = $this->data['recruiterdata'][0]['post_skill'];
          $post_skill_other = $this->data['recruiterdata'][0]['other_skill'];
         $postuserarray = explode(',', $post_skill);
+        $postotherarray = explode(',', $post_skill_other);
+
+        foreach ($postotherarray as $key) {
+            echo $key."<br>";
+
+        $otherskillid = $this->db->get_where('skill', array('skill' => $key, 'status' => 1))->row()->skill_id;
+            if($otherskillid){
+                $skillname[]=$otherskillid;
+            } 
+        }
+
+        echo "<pre>";print_r($skillname);
+        echo "<pre>"; print_r($postuserarray);
+       echo  count($skillname);
+        echo count($postuserarray);
+        if($skillname != '' && $postuserarray != ''){
+          $allskill = array_merge($postuserarray,$skillname);  
+        }
+        elseif($skillname != ''){
+
+        }
+        $allskill = array_merge($postuserarray,$skillname);
+        echo "<pre>"; print_r($allskill);die();
+      //  echo "<pre>"; print_r($postuserarray);
+       // echo "<pre>";print_r($postotherarray); die();
         //print_r($postuserarray); die();
 
 

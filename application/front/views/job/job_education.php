@@ -619,7 +619,7 @@
                                                             <fieldset class="full-width"> -->
                                                 <h6>University :<span class="red">*</span></h6>                                    <select name="university[]" id="university1" tabindex="3" class="university">
 
-                              <option value="0" selected option disabled>Select your University</option>
+                              <option value="" selected option disabled>Select your University</option>
 
                                     <?php
                               if (count($university_data) > 0) {
@@ -677,7 +677,7 @@
 
                    <h6>Year Of Passing :<span class="red">*</span></h6>
                                                                 <select name="pass_year[]" id="pass_year1" tabindex="8" class="pass_year" >
-                <option value="0" selected option disabled>--SELECT--</option>
+                <option value="" selected option disabled>--SELECT--</option>
                         <?php
                          $curYear = date('Y');
               for ($i = $curYear; $i >= 1900; $i--) {
@@ -820,7 +820,7 @@
                                                         <h6>University :<span class="red">*</span></h6>
                                                         <select name="university[]" id="university1" class="university">
 
-                                                            <option value="0" selected option disabled>Select your University</option>
+                                                            <option value="" selected option disabled>Select your University</option>
 
                                                             <?php
                                                             if (count($university_data) > 0) {
@@ -883,7 +883,7 @@
                                                            <fieldset class=""> -->
                                                         <h6>Year Of Passing :<span class="red">*</span></h6>
                                                         <select name="pass_year[]" id="pass_year1" class="pass_year" >
-                                                            <option value="0" selected option disabled>--SELECT--</option>
+                                                            <option value="" selected option disabled>--SELECT--</option>
 
                                                             <?php
                                                             $curYear = date('Y');
@@ -1692,10 +1692,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                             $('#input' + num).after(newElem);
                             $('#btnRemove').removeAttr('disabled', 'disabled');
-                            $('#input' + newNum + ' #pass_year1').val('0');   
+                            $('#input' + newNum + ' #pass_year1').val('');   
                             $('#input' + newNum + ' .degree').val(''); 
                             $('#input' + newNum + ' .stream').val('');
-                            $('#input' + newNum + ' .university').val('0'); 
+                            $('#input' + newNum + ' .university').val(''); 
                             $('#input' + newNum + ' #percentage1').val(''); 
                           
                            $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
@@ -1859,6 +1859,31 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         //      }
 
                         // }
+// function next_page()
+// {
+
+// //alert(clicked_id);
+ 
+//  var board_primary = document.getElementById('board_primary').value;
+//  var school_primary = document.getElementById('school_primary').value;
+//  var percentage_primary = document.getElementById('percentage_primary').value;
+//  var pass_year_primary = document.getElementById('pass_year_primary').value;
+ 
+       
+//  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
+//  {
+
+//         $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
+//           $('#bidmodal').modal('show');
+
+// }
+// else
+// {
+//    //  location.href = '<?php //echo base_url('job/job_project_update') ?>';
+//     window.location.href = "#"+jobseeker_regform_secondary;
+// }
+ 
+//    }
 function next_page()
 {
 
@@ -1868,66 +1893,220 @@ function next_page()
  var school_primary = document.getElementById('school_primary').value;
  var percentage_primary = document.getElementById('percentage_primary').value;
  var pass_year_primary = document.getElementById('pass_year_primary').value;
- 
-       
- { if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
 
-        $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
-          $('#bidmodal').modal('show');
+var board_secondary = document.getElementById("board_secondary").value;
+var school_secondary = document.getElementById("school_secondary").value;
+var percentage_secondary = document.getElementById("percentage_secondary").value;
+var pass_year_secondary = document.getElementById("pass_year_secondary").value;
 
-}
-else
+var board_higher_secondary = document.getElementById("board_higher_secondary").value;
+var stream_higher_secondary = document.getElementById("stream_higher_secondary").value;
+var school_higher_secondary = document.getElementById("school_higher_secondary").value;
+var percentage_higher_secondary = document.getElementById("percentage_higher_secondary").value;
+var pass_year_higher_secondary = document.getElementById("pass_year_higher_secondary").value;
+
+var num = $('.clonedInput').length;
+
+if(num==1 || num<6)
 {
-   //  location.href = '<?php echo base_url('job/job_project_update') ?>';
-    window.location.href = "#"+jobseeker_regform_secondary;
+     
+        var degree1 = document.querySelector("#input1 .degree").value;
+        var stream1 = document.querySelector("#input1 .stream").value;
+        var university1 = document.querySelector("#input1 .university").value;
+        var college1 = document.querySelector("#input1 .college").value;
+        var percentage1 = document.querySelector("#input1 .percentage").value;
+        var pass_year1 = document.querySelector("#input1 .pass_year").value;
+       
 }
+if(num==2 || (num>1 && num<6))
+{    
+        var degree2= document.querySelector("#input2 .degree").value;
+        var stream2 = document.querySelector("#input2 .stream").value;
+        var university2 = document.querySelector("#input2 .university").value;
+        var college2 = document.querySelector("#input2 .college").value;
+        var percentage2 = document.querySelector("#input2 .percentage").value;
+        var pass_year2 = document.querySelector("#input2 .pass_year").value;
+}
+
+if(num==3 || (num>2 && num<6))
+{    
+    var degree3 = document.querySelector("#input1 .degree").value;
+    var stream3 = document.querySelector("#input3 .stream").value;
+    var university3 = document.querySelector("#input3 .university").value;
+    var college3 = document.querySelector("#input3 .college").value;
+    var percentage3 = document.querySelector("#input3 .percentage").value;
+    var pass_year3 = document.querySelector("#input3 .pass_year").value;
+}
+
+if(num==4 || (num>3 && num<6))
+{     
+    var degree4= document.querySelector("#input2 .degree").value;
+    var stream4 = document.querySelector("#input4 .stream").value;
+    var university4 = document.querySelector("#input4 .university").value;
+    var college4 = document.querySelector("#input4 .college").value;
+    var percentage4 = document.querySelector("#input4 .percentage").value;
+    var pass_year4 = document.querySelector("#input4 .pass_year").value;
+}
+
+if(num==5)
+{  
+    var degree5 = document.querySelector("#input1 .degree").value;
+    var stream5 = document.querySelector("#input5 .stream").value;
+    var university5 = document.querySelector("#input5 .university").value;
+    var college5 = document.querySelector("#input5 .college").value;
+    var percentage5 = document.querySelector("#input5 .percentage").value;
+    var pass_year5 = document.querySelector("#input5 .pass_year").value;
+}
+
+//for clonedInput length 1 start
+if(num==1)
+{
+   
+       
+ if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '')
+ {
+      
+        alert("Must fill out any of four");
+        return false;
+  
+ }
  
+else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
+{
+    if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
+    {
+        if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
+        {
+             alert("Please complete mendatory detail of Secondary Education field ");
+        }
+        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
+        {
+            alert("Please complete mendatory detail of Higher Secondary Education field ");
+        }
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
+        {
+            alert("Please complete mendatory detail of Graduation field ");
+        }
+        else
+        {
+             alert("Please press submit button of Primary Education to  fulfil data ");
+         
+        }
+    }
+    
+    else
+    {
+        alert("Please complete mendatory detail of Primary Education field");
+    }
+}
+
+
+
+else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" || pass_year_secondary!="")
+{
+    if(board_secondary!="" && school_secondary!="" && percentage_secondary!="" && pass_year_secondary!="")
+    {
+        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
+        {
+             alert("Please complete mendatory detail of Primary Education field ");
+        }
+        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
+        {
+            alert("Please complete mendatory detail of Higher Secondary Education field ");
+        }
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
+        {
+            alert("Please complete mendatory detail of Graduation field ");
+        }
+        else
+        {
+             alert("Please press submit button of Secondary Education to fulfil data ");
+         
+        }
+    }
+    
+    else
+    {
+        alert("Please complete mendatory detail of Secondary Education field");
+    }
+}
+
+else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_higher_secondary !="" || percentage_higher_secondary !="" || pass_year_higher_secondary !="")
+{
+    if(board_higher_secondary!="" && stream_higher_secondary!="" && school_higher_secondary!="" && percentage_higher_secondary!="" && pass_year_higher_secondary !="")
+    {
+        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
+        {
+             alert("Please complete mendatory detail of Primary Education field ");
+        }
+        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
+        {
+            alert("Please complete mendatory detail of Secondary Education field ");
+        }
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
+        {
+            alert("Please complete mendatory detail of Graduation field ");
+        }
+        else
+        {
+             alert("Please press submit button of Higher Secondary Education to fulfil data ");
+         
+        }
+    }
+    
+    else
+    {
+        alert("Please complete mendatory detail of Higher Secondary Education field");
+    }
+}
+
+else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="")
+{
+    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" )
+    {
+        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
+        {
+             alert("Please complete mendatory detail of Primary Education field ");
+        }
+        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
+        {
+            alert("Please complete mendatory detail of Secondary Education field ");
+        }
+        else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
+        {
+            alert("Please complete mendatory detail of Higher Secondary Education field ");
+        }
+        else
+        {
+             alert("Please press submit button of Graduation to fulfil data ");
+         
+        }
+    }
+    
+    else
+    {
+        alert("Please complete mendatory detail of Graduation field");
+    }
+}
+
+
    }
-
-
-              </script>
+//for clonedInput length 1 end
+}
+</script>
 
 
                     <script type="text/javascript">
                         function next_page1() {
-                            //alert('ghh');
-                             var board_secondary = document.getElementById("board_secondary").value;
-                             var board_primary=document.getElementById("board_primary").value;
-                             //alert(board_primary);
-                             var school_secondary = document.getElementById("school_secondary").value;
-                             var percentage_secondary = document.getElementById("percentage_secondary").value;
-                             var pass_year_secondary = document.getElementById("pass_year_secondary").value;
-
-                            
-
-                             if(school_secondary == '' || percentage_secondary == '' || pass_year_secondary == '' || board_secondary == ''){
-                                //alert(789);
-                                if(board_primary == ''){
-                                alert("please fill out details");
-                                 return false;
-                             }
-                                 else{
-                                    window.location = "<?php echo base_url() ?>job/job_project_update";
-
-                                 }
-                             }
-                             else{
-                                window.location = "<?php echo base_url() ?>job/job_project_update";
-                             }
-
+                           
+                           
                         }
                     </script>
 
                     <script type="text/javascript">
                         function next_page2() {
                            // alert('ghh');
-                            var board_higher_secondary = document.getElementById("board_higher_secondary").value;
-                             var board_secondary = document.getElementById("board_secondary").value;
-                             var board_primary=document.getElementById("board_primary").value;
-                             var school_higher_secondary = document.getElementById("school_higher_secondary").value;
-                             var percentage_higher_secondary = document.getElementById("percentage_primary").value;
-                             var pass_year_higher_secondary = document.getElementById("pass_year_primary").value;
-
+                            
                             
 
                              if(board_higher_secondary == '' || school_higher_secondary == '' || percentage_higher_secondary == '' || pass_year_higher_secondary == ''){

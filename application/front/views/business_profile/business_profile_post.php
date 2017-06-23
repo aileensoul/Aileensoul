@@ -1,3 +1,4 @@
+
 <!-- start head -->
 <?php echo $head; ?>
 <!--post save success pop up style strat -->
@@ -354,12 +355,21 @@
                                                             ?>                             
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+                     <div class="post-design-pro-img_follow">
 
-                                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
-                                                                        </a>
-                                                                    </div>
+
+                        <?php if ($userlist['business_user_image']) { ?>
+           <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
+              <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+            </a>
+<?php } else { ?>
+            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
+            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                       </a>
+         <?php } ?>                    
+          </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
@@ -497,10 +507,20 @@
                                                             ?>                             
                                                             <div class="profile-job-post-title-inside clearfix">
                                                                 <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
-                                                                    <div class="post-design-pro-img_follow">
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt=""> </a>
-                                                                    </div>
+                 <div class="post-design-pro-img_follow">
+
+                         <?php if ($userlist['business_user_image']) { ?>
+           <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
+              <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+            </a>
+<?php } else { ?>
+            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
+
+            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                       </a>
+         <?php } ?>
+                                                     </div>
                                                                     <div class="post-design-name_follow fl">
                                                                         <ul>
                                                                             <li>
@@ -696,13 +716,14 @@
 
                         <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
-                        if (count($businessprofiledata) > 0) {
-                            foreach ($businessprofiledata as $row) {
+
+                        if (count($businessprofiledatapost) > 0) { 
+                            foreach ($businessprofiledatapost as $row) {
                                 $userid = $this->session->userdata('aileenuser');
                                 $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
                                 $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-     $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
+                           $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
                                 $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                                 $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
@@ -1454,15 +1475,15 @@
                             }
                         } 
 
-
-     if(count($businessprofiledata) > 0){ 
-          if(count($count) == count($businessprofiledata)){  ?>
+ 
+     if(count($businessprofiledatapost) > 0){ 
+          if(count($count) == count($businessprofiledatapost)){  ?>
          <div class="contact-frnd-post bor_none">
          <div class="text-center rio">
             <h4 class="page-heading  product-listing" >No Post Found.</h4>
          </div>
          </div>
-         <?php } } else {
+         <?php } } else { 
                             ?>
                             <div class="contact-frnd-post bor_none">
                             <div class="text-center rio">
@@ -1471,6 +1492,13 @@
                             </div>
                         <?php } ?>
                         <!-- body content end-->
+
+                        <!-- no post found div start -->
+                        <div class="nofoundpost"> 
+                        </div>
+                        <!-- no post found div end -->
+
+
                     </div>
                 </div>
             </div>
@@ -2930,24 +2958,6 @@
 <!-- remove save post start -->
 
 <!-- remove save post end -->
-<!-- remove particular user post start -->
-<script type="text/javascript">
-    function del_particular_userpost(abc)
-    {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/del_particular_userpost" ?>',
-            data: 'business_profile_post_id=' + abc,
-            //alert(data);
-            success: function (data) {
-                $('#' + 'removepost' + abc).html(data);
-                $('#' + 'removepost' + abc).remove;
-
-            }
-        });
-    }
-</script>
-<!-- remove particular user post end -->
 <!-- follow user script start -->
 <script type="text/javascript">
     function followuser(clicked_id)
@@ -3376,18 +3386,49 @@
 <script type="text/javascript">
     function remove_post(abc)
     {
-        //alert(123);
+        
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
+            url: '<?php echo base_url() . "business_profile/business_profile_deleteforpost" ?>',
+            dataType: 'json',
             data: 'business_profile_post_id=' + abc,
             //alert(data);
-            success: function (data) {
-                $('#' + 'removepost' + abc).html(data);
+            success: function (data) { 
+                $('#' + 'removepost' + abc).remove();
+                 if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                    }
+
             }
         });
     }
 </script>
+
+
+<!-- remove particular user post start -->
+<script type="text/javascript">
+    function del_particular_userpost(abc)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/del_particular_userpost" ?>',
+            dataType: 'json',
+            data: 'business_profile_post_id=' + abc,
+            //alert(data);
+            success: function (data) {
+               // $('#' + 'removepost' + abc).html(data);
+                $('#' + 'removepost' + abc).remove();
+                if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                    }
+
+
+            }
+        });
+    }
+</script>
+<!-- remove particular user post end -->
+
 
 
 <!-- post delete login user script start -->
