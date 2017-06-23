@@ -1,3 +1,13 @@
+
+.job-menu-profile{
+    margin-right: 20px;
+}
+.profile-company-name {max-width: 100%;
+float: left;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;}
+
 .like_user_list ul {
     margin: 0;
     padding: 0;
@@ -393,6 +403,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 540px) {
+    .job-menu-profile.mob-block{width: 69%;}
     .profile-box-art .right-menu-jr ul li a {
         padding-top: 8px;
         padding-bottom: 8px;
@@ -449,6 +460,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 360px) {
+    .job-menu-profile.mob-block{width: 62%;}
     .profile-main-rec-box-menu li a {
         padding: 10px 7px;
     }
