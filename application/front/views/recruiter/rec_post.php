@@ -107,7 +107,7 @@ if ($returnpage == 'job') {
    
   
 
-<div class="container tablate-container">    
+<div class="container tablate-container art-profile">    
    
         <?php if ($returnpage == '') { ?>
          <div class="upload-img">
@@ -181,8 +181,16 @@ if ($returnpage == 'job') {
 <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
   
             
-                <ul class="">
-
+           <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($recdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>

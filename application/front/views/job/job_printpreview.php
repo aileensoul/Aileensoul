@@ -84,7 +84,7 @@ echo $job_header2_border;
         </div>
      
         
-<div class="container tablate-container">       
+<div class="container tablate-container art-profile">       
     
         <?php if($returnpage == ''){ ?>
         <div class="upload-img ">

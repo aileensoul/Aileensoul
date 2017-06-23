@@ -87,7 +87,7 @@
         </div>
     
   </div>
-<div class="container tablate-container">    
+<div class="container tablate-container art-profile">    
     <div class="upload-img">
 
 

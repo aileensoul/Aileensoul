@@ -112,7 +112,7 @@
   
  
 
-<div class="container tablate-container">    
+<div class="container tablate-container art-profile">    
     <div class="upload-img">
 
 
@@ -173,11 +173,20 @@
         <!-- text head end -->
     </div>
         <!-- menubar -->
-                    <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+                                 <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-                <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
-                <ul class="">
-
+<div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
+  
+                <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($recruiterdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('recruiter/rec_profile'); ?>">Details</a>
                     </li>

@@ -88,7 +88,7 @@
         </div>
        
 
-<div class="container tablate-container">  
+<div class="container tablate-container art-profile">  
  
     <div class="upload-img">
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
