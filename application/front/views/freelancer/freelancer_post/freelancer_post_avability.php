@@ -238,6 +238,9 @@ $( "#searchplace" ).autocomplete({
 <script type="text/javascript">
 
     //validation for edit email formate form
+     $.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "only 7 digits are allow");
 
     $(document).ready(function () {
 
@@ -250,6 +253,9 @@ $( "#searchplace" ).autocomplete({
                     number: true,
 
                 },
+                work_hour:{
+                    regx:/^.{0,3}$/
+                }
 
                 inday: {
 
