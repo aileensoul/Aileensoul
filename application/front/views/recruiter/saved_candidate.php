@@ -221,7 +221,7 @@
   </div>
 
         <div class="middle-part container rec_res">    
-<div class="job-menu-profile mob-none">
+<div class="job-menu-profile mob-none  pt20">
         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
@@ -259,7 +259,7 @@
         <!-- text head end -->
     </div>
 <!-- <?php //echo "<pre>"; print_r($recdata);die(); ?> -->
-    <div class="col-md-8 col-sm-8 mob-clear">
+    <div class="col-md-8 col-sm-12 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Candidate</h3>

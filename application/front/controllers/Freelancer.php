@@ -2543,6 +2543,7 @@ foreach($citiess as $key){
                 'not_read' => 2,
                 'not_from' => 4,
                 'not_product_id' => $app_id,
+                "not_active" => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
                
             );
@@ -2582,6 +2583,7 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
                 'not_read' => 2,
                 'not_from' => 4,
                 'not_product_id' => $insert_id,
+                "not_active" => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
                 
             );
@@ -3738,6 +3740,7 @@ $this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
             'not_read' => 2,
             'not_from' => 5,
             'not_product_id' => $appid,
+            "not_active" => 1,
             'not_created_date' => date('Y-m-d H:i:s')
         );
 
@@ -4175,6 +4178,7 @@ $contition_array = array('user_id' => $userid);
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 5,
+            "not_active" => 1,
             'not_created_date' => date('Y-m-d H:i:s')
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
