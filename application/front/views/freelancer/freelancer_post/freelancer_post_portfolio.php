@@ -131,7 +131,7 @@
                                     
 <!--                                    <input type="reset">
  <a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>">Previous</a>-->
-                                    <input type="submit"  id="submit" tabindex="4" name="submit" value="Submit" onclick="return portfolio_form_submit();" >
+                                    <input type="submit"  id="submit" tabindex="4" name="submit" value="Submit" onclick="return portfolio_form_submit(event);" >
                                     
                                 </fieldset>
 
@@ -273,10 +273,12 @@ $userid = $this->session->userdata('aileenuser');
 
 
 <script type="text/javascript">
- function portfolio_form_submit(){
+ function portfolio_form_submit(event){
 
 
 var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
+
+//alert(free_post_step);
 
     var image_hidden_portfolio = document.getElementById("image_hidden_portfolio").value;
 

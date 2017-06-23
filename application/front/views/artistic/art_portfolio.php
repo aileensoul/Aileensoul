@@ -123,7 +123,7 @@
                                  <fieldset class="hs-submit full-width">
                                    
                                     
-                <input type="button" tabindex="3"   id="submit" name="submit" value="submit" onclick="portfolio_form_submit();">
+                <input type="button" tabindex="3"   id="submit" name="submit" value="submit" onclick="portfolio_form_submit(event);">
                                    
                                     
                                 </fieldset>
@@ -324,7 +324,7 @@ $userid = $this->session->userdata('aileenuser');
 <script type="text/javascript">
 
 
-  function portfolio_form_submit(){  
+  function portfolio_form_submit(event){  
  
 
     var art_step = "<?php echo $art_reg_data[0]['art_step']; ?>";
