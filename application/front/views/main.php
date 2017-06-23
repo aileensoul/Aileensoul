@@ -830,7 +830,7 @@ return e.which !== 32;
 });//]]>  
 </script>
 <!-- disable spacebar js end-->
-
+<!-- 
 <style type="text/css">
   #fname-error{margin-top: 33px;margin-right: -3px;}
   #lname-error{margin-top:33px;margin-right: 8px;  }
@@ -843,4 +843,4 @@ return e.which !== 32;
   #user_name-error{ margin-top: 0px;margin-right: 7px; }
   .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; }
   .main_reg_form label#password-error {margin-top: 34!important}
-</style>
+</style> -->
