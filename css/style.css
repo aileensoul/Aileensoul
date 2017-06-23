@@ -12674,6 +12674,7 @@ snippet from Animate.css - zoomIn effect
 html{min-height: 100%; position:relative;}
 body{min-height: 100%;}
 .profile-box{max-width: 430px;}
+.dropdown-menu{min-width: 130px;}
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
@@ -12827,6 +12828,7 @@ images css start*/
     .art-side-menu{padding-left: 160px !important;}
     .art-custom{margin-top: 25px;}
     ul.current-user{float: none;}
+    .dropdown-content_hover::before{right: 3px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right{margin-left: 4%;}
