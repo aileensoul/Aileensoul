@@ -832,12 +832,15 @@ return e.which !== 32;
 <!-- disable spacebar js end-->
 
 <style type="text/css">
-
+  #fname-error{margin-top: 33px;margin-right: -3px;}
+  #lname-error{margin-top:33px;margin-right: 8px;  }
+  #email-error{margin-top:33px;margin-right: 8px;  }
+  #password-error{margin-top: 33px !important;margin-right: 8px;  }
   #year-error{margin-top: -1px; margin-right: 115px;  }
   #date-error{margin-top: -1px;margin-right: 115px;  } 
   #month-error{margin-top: -1px;margin-right: 115px;  } 
-  fieldset label#gen-error{bottom: -43px !important;margin-right: 17px;  } 
+  #gen-error{margin-top: -1px;margin-right: 17px;  } 
   #user_name-error{ margin-top: 0px;margin-right: 7px; }
-  .header-left-menu  label#password-error{bottom: 3px;margin-right: 7px; }
+  .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; }
   .main_reg_form label#password-error {margin-top: 34!important}
 </style>

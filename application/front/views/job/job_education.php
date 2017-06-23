@@ -1930,7 +1930,7 @@ if(num==2 || (num>1 && num<6))
 
 if(num==3 || (num>2 && num<6))
 {    
-    var degree3 = document.querySelector("#input3 .degree").value;
+    var degree3 = document.querySelector("#input1 .degree").value;
     var stream3 = document.querySelector("#input3 .stream").value;
     var university3 = document.querySelector("#input3 .university").value;
     var college3 = document.querySelector("#input3 .college").value;
@@ -1940,7 +1940,7 @@ if(num==3 || (num>2 && num<6))
 
 if(num==4 || (num>3 && num<6))
 {     
-    var degree4= document.querySelector("#input4 .degree").value;
+    var degree4= document.querySelector("#input2 .degree").value;
     var stream4 = document.querySelector("#input4 .stream").value;
     var university4 = document.querySelector("#input4 .university").value;
     var college4 = document.querySelector("#input4 .college").value;
@@ -1950,7 +1950,7 @@ if(num==4 || (num>3 && num<6))
 
 if(num==5)
 {  
-    var degree5 = document.querySelector("#input5 .degree").value;
+    var degree5 = document.querySelector("#input1 .degree").value;
     var stream5 = document.querySelector("#input5 .stream").value;
     var university5 = document.querySelector("#input5 .university").value;
     var college5 = document.querySelector("#input5 .college").value;
@@ -2094,11 +2094,11 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 //for clonedInput length 1 end
 
 //for clonedInput length 2 start
-if(num==2)
+if(num==1)
 {
    
        
- if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '')
+ if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '')
  {
       
         alert("Must fill out any of four");
@@ -2118,7 +2118,7 @@ else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pas
         {
             alert("Please complete mendatory detail of Higher Secondary Education field ");
         }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
             alert("Please complete mendatory detail of Graduation field ");
         }
@@ -2149,7 +2149,7 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
         {
             alert("Please complete mendatory detail of Higher Secondary Education field ");
         }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
             alert("Please complete mendatory detail of Graduation field ");
         }
@@ -2178,7 +2178,7 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
         {
             alert("Please complete mendatory detail of Secondary Education field ");
         }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
+        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
             alert("Please complete mendatory detail of Graduation field ");
         }
@@ -2195,9 +2195,9 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     }
 }
 
-else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="" || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
+else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="")
 {
-    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" && degree2!="" && stream2!="" && university2!="" && college2!="" &&  percentage2!="" && pass_year2!="" )
+    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" )
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
@@ -2227,412 +2227,6 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 
    }
 //for clonedInput length 2 end
-
-//for clonedInput length 3 start
-if(num==3)
-{
-   
-   
- if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '')
- {
-      
-        alert("Must fill out any of four");
-        return false;
-  
- }
- 
-else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
-{
-    if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
-    {
-        if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
-        {
-             alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Primary Education field");
-    }
-}
-
-
-
-else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" || pass_year_secondary!="")
-{
-    if(board_secondary!="" && school_secondary!="" && percentage_secondary!="" && pass_year_secondary!="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Secondary Education field");
-    }
-}
-
-else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_higher_secondary !="" || percentage_higher_secondary !="" || pass_year_higher_secondary !="")
-{
-    if(board_higher_secondary!="" && stream_higher_secondary!="" && school_higher_secondary!="" && percentage_higher_secondary!="" && pass_year_higher_secondary !="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
-    }
-}
-
-else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="" || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
-{
-    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" && degree2!="" && stream2!="" && university2!="" && college2!="" &&  percentage2!="" && pass_year2!="" && degree3!="" && stream3!="" && university3!="" && college3!="" &&  percentage3!="" && pass_year3!="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else
-        {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Graduation field");
-    }
-}
-
-
-   }
-//for clonedInput length 3 end
-
-//for clonedInput length 4 start
-if(num==4)
-{
-   
-       
- if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '' && degree4=="" &&  stream4 == '' && university4 == '' && college4 == '' && percentage4 == '' && pass_year4 == '')
- {
-      
-        alert("Must fill out any of four");
-        return false;
-  
- }
- 
-else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
-{
-    if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
-    {
-        if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
-        {
-             alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' )
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Primary Education field");
-    }
-}
-
-
-
-else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" || pass_year_secondary!="")
-{
-    if(board_secondary!="" && school_secondary!="" && percentage_secondary!="" && pass_year_secondary!="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Secondary Education field");
-    }
-}
-
-else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_higher_secondary !="" || percentage_higher_secondary !="" || pass_year_higher_secondary !="")
-{
-    if(board_higher_secondary!="" && stream_higher_secondary!="" && school_higher_secondary!="" && percentage_higher_secondary!="" && pass_year_higher_secondary !="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
-    }
-}
-
-else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="" || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '')
-{
-    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" && degree2!="" && stream2!="" && university2!="" && college2!="" &&  percentage2!="" && pass_year2!="" && degree3!="" && stream3!="" && university3!="" && college3!="" &&  percentage3!="" && pass_year3!="" && degree4!="" && stream4!="" && university4!="" && college4!="" &&  percentage4!="" && pass_year4!="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else
-        {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Graduation field");
-    }
-}
-
-
-   }
-//for clonedInput length 4 end
-
-//for clonedInput length 5 start
-if(num==5)
-{
-   
-       
- if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '' && degree4=="" &&  stream4 == '' && university4 == '' && college4 == '' && percentage4 == '' && pass_year4 == '' && degree5=="" &&  stream5 == '' && university5 == '' && college5 == '' && percentage5 == '' && pass_year5 == '' )
- {
-      
-        alert("Must fill out any of four");
-        return false;
-  
- }
- 
-else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
-{
-    if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
-    {
-        if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
-        {
-             alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Primary Education field");
-    }
-}
-
-
-
-else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" || pass_year_secondary!="")
-{
-    if(board_secondary!="" && school_secondary!="" && percentage_secondary!="" && pass_year_secondary!="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Secondary Education field");
-    }
-}
-
-else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_higher_secondary !="" || percentage_higher_secondary !="" || pass_year_higher_secondary !="")
-{
-    if(board_higher_secondary!="" && stream_higher_secondary!="" && school_higher_secondary!="" && percentage_higher_secondary!="" && pass_year_higher_secondary !="")
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
-        {
-            alert("Please complete mendatory detail of Graduation field ");
-        }
-        else
-        {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
-    }
-}
-
-else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  percentage1 !="" || pass_year1 !="" || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
-{
-    if(degree1!="" && stream1!="" && university1!="" && college1!="" &&  percentage1!="" && pass_year1!="" && degree2!="" && stream2!="" && university2!="" && college2!="" &&  percentage2!="" && pass_year2!="" && degree3!="" && stream3!="" && university3!="" && college3!="" &&  percentage3!="" && pass_year3!="" && degree4!="" && stream4!="" && university4!="" && college4!="" &&  percentage4!="" && pass_year4!="" && degree5!="" && stream5!="" && university5!="" && college5!="" &&  percentage5!="" && pass_year5!="" )
-    {
-        if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
-        {
-             alert("Please complete mendatory detail of Primary Education field ");
-        }
-        else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
-        {
-            alert("Please complete mendatory detail of Secondary Education field ");
-        }
-        else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
-        {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
-        }
-        else
-        {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
-        }
-    }
-    
-    else
-    {
-        alert("Please complete mendatory detail of Graduation field");
-    }
-}
-
-
-   }
-//for clonedInput length 5 end
-
 }
 </script>
 

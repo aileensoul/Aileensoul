@@ -251,9 +251,8 @@
          <!-- menubar -->                
       </div>
       </div>
-       
        <div class="user-midd-section art-inner">
-           <div class="">
+           <div class="container">
       <div class="job-menu-profile mob-none">
          <a href="<?php echo site_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>">
             <h5  > <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?>
@@ -329,9 +328,21 @@
                                              $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
                                           <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a>
                                        </div>
-                                         <div>
+                                          <?php  if ($user['designation']) { ?>
+                                                           <div>
                                                             <a><?php echo ucwords($user['designation']); ?></a>
                                                         </div>
+                                                       <?php  
+                                                        }
+                                                        else
+                                                        {
+                                                          ?>
+                                                          <div>
+                                                            <a><?php echo "Current Work"; ?></a>
+                                                        </div>
+
+                                                      <?php  }
+                                                        ?>
                                  </li>
                                  <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
                                  <?php

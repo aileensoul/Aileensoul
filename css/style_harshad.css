@@ -1,13 +1,3 @@
-
-.job-menu-profile{
-    margin-right: 20px;
-}
-.profile-company-name {width: 100%;
-float: left;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;}
-
 .like_user_list ul {
     margin: 0;
     padding: 0;
@@ -310,8 +300,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 991px) {
-    .add-post-button{margin-top: 5px;}
-    .profile-pho{margin-top: -70px !important;}
+    .profile-pho{margin-top: -64px !important;}
     .pad-top-res {
         padding-top: 20px;
     }
@@ -404,10 +393,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 540px) {
-    .job-menu-profile.mob-block{width: 69%;}
     .profile-box-art .right-menu-jr ul li a {
-        padding-top: 8px !important;
-        padding-bottom: 8px !important;
+        padding-top: 8px;
+        padding-bottom: 8px;
         height: auto;
     }
     .profile-main-rec-box-menu {
@@ -461,7 +449,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 360px) {
-    .job-menu-profile.mob-block{width: 62%;}
     .profile-main-rec-box-menu li a {
         padding: 10px 7px;
     }
@@ -474,7 +461,7 @@ input[type=number]::-webkit-outer-spin-button {
         padding-right: 1px !important;
     }
     .profile-job-details .post_title {
-        width: 43%!important;
+        width: 50%;
         font-size: 12px;
     }
     .date_re {

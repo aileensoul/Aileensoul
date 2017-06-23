@@ -332,9 +332,21 @@
                                                     echo ucwords($user['art_lastname']); ?></a></div>
 
 
-                                                        <div>
+                                                      <?php  if ($user['designation']) { ?>
+                                                           <div>
                                                             <a><?php echo ucwords($user['designation']); ?></a>
                                                         </div>
+                                                       <?php  
+                                                        }
+                                                        else
+                                                        {
+                                                          ?>
+                                                          <div>
+                                                            <a><?php echo "Current Work"; ?></a>
+                                                        </div>
+
+                                                      <?php  }
+                                                        ?>
 
 
                                                 </li>

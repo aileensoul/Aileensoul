@@ -138,16 +138,7 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
-
-             <?php if($key['art_user_image']){?>
-
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt=" ">
-
-                           <?php }else{?>
-
-                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($key['art_name']) . ' ' . ucwords($key['art_lastname']); ?>">
-
-                           <?php }?>
                         </div>
        </div>
    
@@ -195,21 +186,7 @@
          <?php $country = $this->db->get_where('countries', array('country_id' => $key['art_country']))->row()->country_name;
          $city = $this->db->get_where('cities', array('city_id' => $key['art_city']))->row()->city_name;
          ?>
-
-         <?php 
-         if(!$country){ 
-
-         echo $city;
-
-         }else if(!$city){ 
-
-         echo $country;
-
-
-         }else{ 
-         echo $city.",".$country;
-         }
-          ?>
+         <?php echo $country.",".$city; ?>
          </a>
        </li>
       
@@ -219,7 +196,7 @@
         <div class="<?php echo "fruser" . $key['art_id']; ?>">
 <?php  $status  =  $this->db->get_where('follow',array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
 
-if($status == 0 || $status == ''){?>
+if($status == 0 || $status == " "){?>
  
  <div id= "followdiv " class="user_btn">
 
@@ -326,16 +303,8 @@ if($artuserdata1){
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <?php if($key['art_user_image']){?>
                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
-
-                                                  <?php }else{?> 
-                                                  
-                                                   <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($key['art_name']) . ' ' . ucwords($key['art_lastname']); ?>">
-
-                                                  <?php }?>        
-                                                   </div>
+                                                                                                </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
                                                     
