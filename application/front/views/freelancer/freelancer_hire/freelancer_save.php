@@ -271,7 +271,7 @@
 
                                                         <div class="profile-job-profile-menu">
 
-                                                            <ul>
+                                                            <ul class="clearfix">
                                                                 <li><b>Skills</b><span>
                                                                         <?php
                                                                         $comma = " , ";

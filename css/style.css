@@ -8064,11 +8064,11 @@ fieldset .add_post_btns {
     font-size: 19px;
     font-weight: 600;
     width: 60%;
-    word-break: break-word;
+    word-break: break-word !important;
     word-wrap: break-word;
     cursor: default;
     overflow: hidden;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     text-overflow: ellipsis;
 }
 .profile-job-details .job_companyname {
@@ -12510,7 +12510,7 @@ bui_images_view_more a:hover{text-decoration: underline;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
 .common-form span.keyskill_border_active{border:2px solid red!important;}
-.worktype_minheight{min-height: 80px;}
+.worktype_minheight{min-height: 50px;}
 /*End*/
 
 
