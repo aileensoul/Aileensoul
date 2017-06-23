@@ -259,10 +259,6 @@ $( "#searchplace" ).autocomplete({
 
     //validation for edit email formate form
 
-    $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "only 7 digits are allow");
-
     $(document).ready(function () {
 
         $("#freelancer_post_rate").validate({
@@ -272,8 +268,7 @@ $( "#searchplace" ).autocomplete({
                 hourly: {
 
                     number: true,
-                   regx:/^.{0,8}$/
-                   
+
                 },
 
             },

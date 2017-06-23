@@ -248,27 +248,10 @@ $this->data['smiley_table'] = $smileys;
   }
 
   public function abc($id)
-  {       
-    //23-6 khyati code start
-  $this->data['userid'] =  $userid = $this->session->userdata('aileenuser');
-    $contition_array = array('not_id !=' => '');
-    $search_condition = "((not_from_id = '$userid' AND not_to_id = '$id') || (not_from_id = '$id' AND not_to_id = '$userid'))";
-    $activeuser = $this->common->select_data_by_search('notification', $search_condition,$contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str2, $groupby = '');
-   //echo '<pre>'; print_r($activeuser); 
-    foreach($activeuser as $active){
-        
-        $data = array(
-                'not_active' => 2
-            );
-        
-    $updatdata = $this->common->update_data($data, 'notification', 'not_id', $active['not_id']);
-    }
-   
-   //23-6 khyati code end
-     
+  { 
       
    // khyati 25-4 changes start
-
+$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
    
    // last user if $id is null
 

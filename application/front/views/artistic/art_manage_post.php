@@ -386,17 +386,11 @@
                                         $skill1[] = $cache_time;
                                     }
                                     $listFinal = implode(', ', $skill1);
-
-                                    if(!$listFinal){
-
-                  echo $artisticdata[0]['other_skill'];  
-
-                           }else if(!$artisticdata[0]['other_skill']){
-
-                              echo $listFinal;  
-                     }else if($listFinal && $artisticdata[0]['other_skill']){
-                       echo $listFinal . ',' . $artisticdata[0]['other_skill'];
-                          }
+                                    if ($artisticdata[0]['other_skill']) {
+                                        echo $listFinal . ',' . $artisticdata[0]['other_skill'];
+                                    } else {
+                                        echo $listFinal;
+                                    }
                                     ?>   
                                 </td>
                             </tr>
