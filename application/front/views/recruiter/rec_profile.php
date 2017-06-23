@@ -102,18 +102,20 @@
     </div>
 </div>
  
-        <div class="container tablate-container">
+        <div class="container tablate-container art-profile">
 
       
-      <div class="upload-img">
+      
       
         <?php if($returnpage == ''){ ?>
+        <div class="upload-img">
       <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
-        <?php }?>
-      </div>
+          </div>
   
+        <?php }?>
+    
             <div class="profile-photo">
               <div class="profile-pho">
 
@@ -233,6 +235,7 @@
 
                                     <?php }?>               
 </ul>
+
  <div class="flw_msg_btn fr">
                     <ul>
                     <?php
@@ -241,6 +244,7 @@
                         <?php } ?>
                     </ul>
                 </div>
+
 </div>
 
   </div>  
