@@ -218,7 +218,8 @@
                         phoneno: {
 
                             number: true,
-                            
+                             minlength: 8,
+                           maxlength:15
                             
                             
                         },

@@ -333,8 +333,12 @@ var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
             data: fd,
             processData: false,
             contentType: false,
-            success: function (response) {
+            success: function (data) {
+
+            
              if(free_post_step == 7){ 
+
+              
                  window.location= "<?php echo base_url() ?>freelancer/freelancer_post_profile"; 
                  }else{ 
                     window.location= "<?php echo base_url() ?>freelancer/freelancer_apply_post"; 
