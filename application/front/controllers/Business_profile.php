@@ -1,6 +1,4 @@
-
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -4387,7 +4385,8 @@ $contition_array = array('status' => '1');
                 echo json_encode(
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
-                            "like_user_count" => $like_user_count));
+                            "like_user_count" => $like_user_count,
+                            "like_user_total_count"=>$commnetcount[0]['business_likes_count']));
             } else {
                 
             }
@@ -4454,7 +4453,7 @@ $contition_array = array('status' => '1');
                 //$cmtlikeuser .= '<div style="padding-top: 6px; padding-bottom: 6px;">';
                 $cmtlikeuser .= '<div class="like_one_other">';
 
-                $cmtlikeuser .= '<a href="javascript:void(0);" class="ripple like_h_w" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')"';
+                $cmtlikeuser .= '<a href="javascript:void(0);" class="ripple like_h_w" onclick="likeuserlist(' . $businessprofiledata2[0]['business_profile_post_id'] . ')">';
                 $contition_array = array('business_profile_post_id' => $businessprofiledata2[0]['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4496,6 +4495,7 @@ $contition_array = array('status' => '1');
                         array("like" => $cmtlike,
                             "likeuser" => $cmtlikeuser,
                             "like_user_count" => $like_user_count,
+                            "like_user_total_count"=>$commnetcount[0]['business_likes_count']
                 ));
             } else {
                 
