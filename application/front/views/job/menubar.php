@@ -2,9 +2,9 @@
 <?php
  $returnpage= $_GET['page'];
  $userid = $this->session->userdata('aileenuser');?>
- <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+   <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
-<div class="right-side-menu right-side-menu art-side-menu padding_less_right">  
+                <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
     <ul class="">
                                 <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview'){?> class="active" <?php } ?>>
 
