@@ -537,7 +537,13 @@
                      $userimage = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
                      $userimageposted = $this->db->get_where('art_reg', array('user_id' => $this->session->userdata('aileenuser')))->row()->art_user_image;
                      ?>
+
+                     <?php if($artisticdata[0]['art_user_image']){?>
                   <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                  <?php }else{?>
+                   <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                   <?php }?>
+
                </div>
                <div id="myBtn"  class="editor-content popup-text">
                   <span > Post Your Art....</span> 
@@ -556,7 +562,14 @@
                   <div class="post-editor col-md-12 post-edit-popup" id="close">
                   <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
                   <div class="main-text-area col-md-12" >
-                     <div class="popup-img-in col-md-1"> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                     <div class="popup-img-in col-md-1">
+
+                     <?php if($artisticdata[0]['art_user_image']){?>
+                      <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                      <?php }else{?>
+                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                       <?php }?>
+
                      </div>
                      <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                         <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -630,14 +643,29 @@
                         ?>
                      <?php if ($row['posted_user_id']) { ?>
                      <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                     <?php if($userimageposted){?>
+
                      <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                     <?php }else{?>
+                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                      <?php }?>
+
                      </a>
                      <?php } else { ?>
                      <a  class="post_dot" title="" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt=""> </a>
+                     <?php if($art_userimage){?>
+
+                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+                     <?php }else{?>
+
+                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                      <?php }?>
+                      </a>
                      <?php } ?>
                   </div>
                   <div class="post-design-name fl col-md-9">
+                
                      <ul>
                         <?php
                            $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
