@@ -265,7 +265,7 @@
                         //select2 autocomplete End for Location
                     </script>
 <!-- script for country,state,city start -->
- -->
+
 <script type="text/javascript">
 $(document).ready(function(){
     $('#country').on('change',function(){ 
