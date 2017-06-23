@@ -279,11 +279,7 @@ input[type=number]::-webkit-outer-spin-button {
 .search_img {
     border: 1px solid #efefef;
 }
-.designation_rec {
-    float: left;
-    width: 60%;
-    padding-top: 8px;
-}
+
 @media screen and (max-width: 1200px) {
     .profile-boxProfilebuisness-avatarLink2 {
         height: 75px !important;
