@@ -22,9 +22,9 @@
 
 <!-- END HEAD -->
 <!-- start header -->
-<?php echo $header; ?>
+<?php echo $header_border; ?>
 <!-- END HEADER -->
-<?php echo $freelancer_hire_header2; ?>
+<?php echo $freelancer_hire_header2_border; ?>
 
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
@@ -162,7 +162,7 @@
                        
                          <?php 
                $userid = $this->session->userdata('aileenuser');
-               if($freelancerhiredata[0]['user_id'] == $userid){
+               if($freehiredata[0]['user_id'] == $userid){
                
                ?>     
                <ul class="current-user">
@@ -202,7 +202,7 @@
                         <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
                     </div>
         <div class="middle-part container">
-                <div class="job-menu-profile mob-none">
+                <div class="job-menu-profile mob-none pt20">
                   <a href="javascript:void(0);">   <h5> <?php echo ucwords($freehiredata[0]['fullname']) . ' ' . ucwords($freehiredata[0]['username']); ?></h5></a>
                     <div class="profile-text">
                         <?php

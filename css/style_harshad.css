@@ -406,8 +406,8 @@ input[type=number]::-webkit-outer-spin-button {
 @media screen and (max-width: 540px) {
     .job-menu-profile.mob-block{width: 69%;}
     .profile-box-art .right-menu-jr ul li a {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
         height: auto;
     }
     .profile-main-rec-box-menu {
@@ -474,7 +474,7 @@ input[type=number]::-webkit-outer-spin-button {
         padding-right: 1px !important;
     }
     .profile-job-details .post_title {
-        width: 50%;
+        width: 43%!important;
         font-size: 12px;
     }
     .date_re {
