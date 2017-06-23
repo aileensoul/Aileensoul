@@ -216,7 +216,7 @@ if ($freepostdata[0]['designation']) {
                                    ?>
                             </li>
                              <li>
-                              <a href="#" title="Post Title" class="display_inline">
+                              <a href="#" title="Post Title" class="display_inline post_title">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
 
