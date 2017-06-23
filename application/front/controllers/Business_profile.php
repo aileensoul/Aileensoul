@@ -2168,7 +2168,8 @@ $contition_array = array('status' => '1');
             'not_read' => 2,
             'not_product_id' => $insertdata,
             'not_from' => 3,
-            'not_created_date' => date('Y-m-d H:i:s')
+            'not_created_date' => date('Y-m-d H:i:s'),
+            'not_active' => 1
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2806,7 +2807,8 @@ $contition_array = array('status' => '1');
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2839,7 +2841,8 @@ $contition_array = array('status' => '1');
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2947,7 +2950,8 @@ $contition_array = array('status' => '1');
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 6,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -2980,7 +2984,8 @@ $contition_array = array('status' => '1');
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 6,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3673,7 +3678,8 @@ $contition_array = array('status' => '1');
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 3,
-                        'not_created_date' => date('Y-m-d H:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s'),
+                        'not_active' => 1
                     );
 
 
@@ -3812,7 +3818,8 @@ $contition_array = array('status' => '1');
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 3,
-                        'not_created_date' => date('Y-m-d H:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s'),
+                        'not_active' => 1
                     );
 
                     $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -4275,7 +4282,8 @@ $contition_array = array('status' => '1');
                         'not_product_id' => $post_id,
                         'not_from' => 6,
                         'not_img' => 2,
-                        'not_created_date' => date('Y-m-d H:i:s')
+                        'not_created_date' => date('Y-m-d H:i:s'),
+                        'not_active' => 1
                     );
                     //echo "<pre>"; print_r($data); die();
 
@@ -4546,7 +4554,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -4733,7 +4742,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -5755,7 +5765,8 @@ $contition_array = array('status' => '1');
                     'not_product_id' => $post_image,
                     'not_from' => 6,
                     'not_img' => 5,
-                    'not_created_date' => date('Y-m-d H:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s'),
+                    'not_active' => 1
                 );
 
                 $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -5944,7 +5955,8 @@ $contition_array = array('status' => '1');
                             'not_product_id' => $post_image,
                             'not_from' => 6,
                             'not_img' => 5,
-                            'not_created_date' => date('Y-m-d H:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s'),
+                            'not_active' => 1
                         );
 
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -6081,7 +6093,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -6269,7 +6282,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -6454,7 +6468,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
 
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -6646,7 +6661,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 4,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($datanotification); die();
             $insert_id_notification = $this->common->insert_data_getid($datanotification, 'notification');
@@ -6848,7 +6864,8 @@ $contition_array = array('status' => '1');
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
                     'not_img' => 6,
-                    'not_created_date' => date('Y-m-d H:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s'),
+                    'not_active' => 1
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -6958,7 +6975,8 @@ $contition_array = array('status' => '1');
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
                             'not_img' => 6,
-                            'not_created_date' => date('Y-m-d H:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s'),
+                            'not_active' => 1
                         );
                         //echo "<pre>"; print_r($data); die();
                         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -7050,7 +7068,8 @@ $contition_array = array('status' => '1');
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 6,
                     'not_img' => 6,
-                    'not_created_date' => date('Y-m-d H:i:s')
+                    'not_created_date' => date('Y-m-d H:i:s'),
+                    'not_active' => 1
                 );
                 //echo "<pre>"; print_r($datanotification); die();
                 $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -7154,7 +7173,8 @@ $contition_array = array('status' => '1');
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 6,
                             'not_img' => 6,
-                            'not_created_date' => date('Y-m-d H:i:s')
+                            'not_created_date' => date('Y-m-d H:i:s'),
+                            'not_active' => 1
                         );
 
                         $insert_id = $this->common->insert_data_getid($datanotification, 'notification');
@@ -8043,7 +8063,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
@@ -8235,7 +8256,8 @@ $contition_array = array('status' => '1');
                 'not_product_id' => $insert_id,
                 'not_from' => 6,
                 'not_img' => 1,
-                'not_created_date' => date('Y-m-d H:i:s')
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
             );
             //echo "<pre>"; print_r($notificationdata); 
             $insert_id_notification = $this->common->insert_data_getid($notificationdata, 'notification');
