@@ -586,14 +586,15 @@ input[type="radio"] {
     font-size: 15px;
     font-weight: 600;
     padding-left: 19px;}
-   .error-msg p, label.error {
+   .error-msg p, fieldset label.error {
     background: #737373;
     color: #fff !important;
     padding: 4px 10px !important;
     position: absolute;
-    right: 8px;
+    right: 15px;
     z-index: 10;
     font-size: 12px;
+    bottom: -26px;
 }
 .has-error label, .error {
     color: #ff0000 !important;
@@ -1285,7 +1286,14 @@ word-break: break-all;
   margin-top: 2px !important;
   height: 18px !important;}
   #password-error{margin-top: 0px!important;}
-.error-msg p, label.error{}
+.error-msg p, label.error{    background: #737373;
+    color: #fff !important;
+    padding: 4px 10px !important;
+    position: absolute;
+    right: 8px;
+    z-index: 10;
+    font-size: 12px;
+    bottom: -7px;}
 
 .footer-menu li a:focus{outline:none;}
 .c_account span{font-size: 14px;}
