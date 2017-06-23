@@ -140,11 +140,42 @@
 
 
         </div>
+<div class="job-menu-profile mob-block">
+        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
+        <!-- text head start -->
+        <div class="profile-text" >
 
-        <!-- menubar --><div class="profile-main-rec-box-menu  col-md-12 ">
+         <?php 
+                  
+            if ($recruiterdata[0]['designation'] == "") {
 
-            <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-9">
+               
+                ?>
+                       
+                <a id="designation" class="designation" title="Designation">Designation</a>
+            <?php }
+             else {
+               // echo "hello";
+               
+                ?> 
+            
+                <a id="designation" class="designation" title="<?php echo ucwords($recruiterdata[0]['designation']); ?>"><?php echo ucwords($recruiterdata[0]['designation']); ?></a>
+            <?php } ?>
+
+        </div>
+
+
+            
+
+           
+        
+
+        <!-- text head end -->
+    </div>
+        <!-- menubar -->
+                    <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+
+                <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
                 <ul class="">
 
 
@@ -174,8 +205,14 @@
     </div>                        
 
 </div>
+ <div  class="add-post-button mob-block">
+        <?php if($returnpage == '') {?>
+        <a class="btn btn-3 btn-3b" style="background: -o-linear-gradient(top, rgba(248,48,125,1) 0%, rgba(27,138,185,1) 0%, rgba(190,199,202,1) 90%, rgba(204,204,204,1) 98%, rgba(242,230,235,1) 100%);" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+        <?php } ?>
+  </div>
+
         <div class="middle-part container rec_res">    
-<div class="job-menu-profile">
+<div class="job-menu-profile mob-none">
         <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
