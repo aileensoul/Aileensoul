@@ -1272,6 +1272,11 @@
          </div>
          </div>
          <?php }  ?>
+
+         <div class="nofoundpost">
+          </div>
+
+
       </div>
       </section>
       <footer>
@@ -2687,12 +2692,17 @@
    
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
+           url: '<?php echo base_url() . "artistic/art_delete_post" ?>',
+           dataType: 'json',
            data: 'art_post_id=' + abc,
            //alert(data);
            success: function (data) { 
    
-               $('#' + 'removepost' + abc).html(data);
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
+
    
    
            }
@@ -2717,11 +2727,16 @@
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+           dataType: 'json',
            data: 'art_post_id=' + abc,
            //alert(data);
            success: function (data) {
    
-               $('#' + 'removepost' + abc).html(data);
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
+
    
    
            }

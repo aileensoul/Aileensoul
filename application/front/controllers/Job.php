@@ -1729,7 +1729,7 @@ $this->load->view('business_profile/temp');
        
 //    echo "<pre>";print_r($_FILES);
 // echo "<pre>";print_r($_POST);die();
-   //   echo "hello";  echo "<pre>";print_r($dataimage); 
+  //echo "<pre>";print_r($dataimage); die();
         // Multiple Image insert code End
           
 

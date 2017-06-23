@@ -316,7 +316,8 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 phoneno: {
 
                             number: true,
-                            
+                              minlength: 8,
+                           maxlength:15
                             
                         },
                

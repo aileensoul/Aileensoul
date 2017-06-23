@@ -192,3 +192,6 @@ label.error::before{
 .user_lst li .follow-li-text  a{color: #1b8ab9!important;}
 .user_lst li .follow-li-text  a:hover{color: #000!important;}
 .follow_left_box_main_btn button:hover{background-color: #1b8ab9 !important;}
+.profile-box-custom tr:nth-child(4) td span{text-transform: capitalize;}
+.profile-box-custom tr:nth-child(6) td span{text-transform: capitalize;}
+.profile-boxProfileCard tr:nth-child(5) td span{text-transform: :capitalize;}

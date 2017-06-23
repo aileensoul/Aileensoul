@@ -1713,7 +1713,223 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
 
         $updatdata = $this->common->update_data($data, 'post_image', 'post_id', $id);
+
+
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+
+$contition_array = array('user_id' => $userid, 'status' => 1, 'is_delete' => '0');
+$otherdata = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$datacount = count($otherdata);
+
+
+
+        if (count($otherdata) == 0) {
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                }
+
+                echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
+
     }
+
+
+    public function art_delete_post() {
+
+        $id = $_POST['art_post_id'];
+
+         $userid = $this->session->userdata('aileenuser');
+
+
+        $data = array(
+            'is_delete' => 1,
+            'modifiled_date' => date('Y-m-d', time())
+        );
+
+
+        $updatdata = $this->common->update_data($data, 'art_post', 'art_post_id', $id);
+
+        $data = array(
+            'is_deleted' => 0,
+            'modify_date' => date('Y-m-d', time())
+        );
+
+
+        $updatdata = $this->common->update_data($data, 'post_image', 'post_id', $id);
+
+
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['artisticdata']); die();
+        $artregid = $this->data['artisticdata'][0]['art_id'];
+
+
+         $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+        $followerdata1 = $this->data['followerdata1'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['followerdata']); die();
+
+
+        foreach ($followerdata1 as $fdata) {
+
+            $user_id = $this->db->get_where('art_reg', array('art_id' => $fdata['follow_to'], 'status' => '1'))->row()->user_id;
+
+
+            $contition_array = array('art_post.user_id' => $user_id, 'art_post.status' => '1', 'art_post.user_id !=' => $userid, 'art_post.is_delete' => '0');
+            $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+            $followerabc[] = $this->data['art_data'];
+        }
+
+        //echo "<pre>"; print_r($followerabc); die();
+//data fatch using follower end
+//data fatch using skill start
+
+        $userselectskill = $this->data['artisticdata'][0]['art_skill'];
+        //echo  $userselectskill; die();
+        $contition_array = array('art_skill' => $userselectskill, 'status' => '1' , 'art_step' => 4);
+        $skilldata = $this->data['skilldata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['skilldata']); die();
+
+        foreach ($skilldata as $fdata) {
+
+
+            $contition_array = array('art_post.user_id' => $fdata['user_id'], 'art_post.status' => '1', 'art_post.user_id !=' => $userid, 'art_post.is_delete' => '0');
+
+            $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $skillabc[] = $this->data['art_data'];
+        }
+
+
+//data fatch using skill end
+//data fatch using login user last post start
+        $contition_array = array('art_post.user_id' => $userid, 'art_post.status' => '1', 'art_post.is_delete' => '0');
+
+        $art_userdata = $this->data['art_userdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if (count($art_userdata) > 0) {
+            $userabc[][] = $this->data['art_userdata'][0];
+        } else {
+            $userabc[] = $this->data['art_userdata'][0];
+        }
+        //echo "<pre>"; print_r($userabc); die();
+        //echo "<pre>"; print_r($skillabc);  die();
+//data fatch using login user last post end
+//echo count($skillabc);
+//echo count($userabc);
+//echo count($unique);
+//echo count($followerabc); 
+
+
+        if (count($skillabc) == 0 && count($userabc) != 0) {
+            $unique = $userabc;
+        } elseif (count($userabc) == 0 && count($skillabc) != 0) {
+            $unique = $skillabc;
+        } elseif (count($userabc) != 0 && count($skillabc) != 0) {
+            $unique = array_merge($skillabc, $userabc);
+        }
+
+        //echo "<pre>"; print_r($userabc); die();
+        //echo count($followerabc);  echo count($unique); die();
+
+        if (count($followerabc) == 0 && count($unique) != 0) {
+            $unique_user = $unique;
+        } elseif (count($unique) == 0 && count($followerabc) != 0) {
+
+            $unique_user = $followerabc;
+        } elseif (count($unique) != 0 && count($followerabc) != 0) {
+            $unique_user = array_merge($unique, $followerabc);
+        }
+
+
+
+        foreach ($unique_user as $key1 => $val1) {
+            foreach ($val1 as $ke => $va) {
+
+                $qbc[] = $va;
+            }
+        }
+
+
+        $qbc = array_unique($qbc, SORT_REGULAR);
+        //echo "<pre>"; print_r($qbc); die();
+        // sorting start
+
+        $post = array();
+
+        //$i =0;
+        foreach ($qbc as $key => $row) {
+            $post[$key] = $row['art_post_id'];
+         }
+
+        array_multisort($post, SORT_DESC, $qbc);
+        // echo '<pre>';
+        // print_r($qbc);
+        // exit;
+        $otherdata = $qbc;
+
+
+         if (count($otherdata) > 0) { 
+             foreach ($otherdata as $row) {
+                 //  echo '<pre>'; print_r($finalsorting); die();
+                 $userid = $this->session->userdata('aileenuser');
+         
+                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                 $artdelete = $this->data['artdelete'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         
+                 $likeuserarray = explode(',', $artdelete[0]['delete_post']);
+         
+                 if (!in_array($userid, $likeuserarray)) {}else{
+
+                    $count[] = "abc";
+                 }
+
+                  }
+  } 
+//echo count($otherdata); die();
+  if(count($otherdata) > 0){ 
+          if(count($count) == count($otherdata)){ 
+        
+                    $datacount = "count";
+
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            } }else{ 
+
+                    $datacount = "count";
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            }
+
+            echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
+
+
+
+
+    }
+
 
     public function artistic_contactperson($id) {
 
@@ -4986,6 +5202,170 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         );
 
         $updatdata = $this->common->update_data($data, 'art_post', 'art_post_id', $post_id);
+
+
+
+
+         $contition_array = array('user_id' => $userid, 'status' => '1');
+        $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['artisticdata']); die();
+        $artregid = $this->data['artisticdata'][0]['art_id'];
+
+
+         $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
+        $followerdata1 = $this->data['followerdata1'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['followerdata']); die();
+
+
+        foreach ($followerdata1 as $fdata) {
+
+            $user_id = $this->db->get_where('art_reg', array('art_id' => $fdata['follow_to'], 'status' => '1'))->row()->user_id;
+
+
+            $contition_array = array('art_post.user_id' => $user_id, 'art_post.status' => '1', 'art_post.user_id !=' => $userid, 'art_post.is_delete' => '0');
+            $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+            $followerabc[] = $this->data['art_data'];
+        }
+
+        //echo "<pre>"; print_r($followerabc); die();
+//data fatch using follower end
+//data fatch using skill start
+
+        $userselectskill = $this->data['artisticdata'][0]['art_skill'];
+        //echo  $userselectskill; die();
+        $contition_array = array('art_skill' => $userselectskill, 'status' => '1' , 'art_step' => 4);
+        $skilldata = $this->data['skilldata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo "<pre>"; print_r($this->data['skilldata']); die();
+
+        foreach ($skilldata as $fdata) {
+
+
+            $contition_array = array('art_post.user_id' => $fdata['user_id'], 'art_post.status' => '1', 'art_post.user_id !=' => $userid, 'art_post.is_delete' => '0');
+
+            $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $skillabc[] = $this->data['art_data'];
+        }
+
+
+//data fatch using skill end
+//data fatch using login user last post start
+        $contition_array = array('art_post.user_id' => $userid, 'art_post.status' => '1', 'art_post.is_delete' => '0');
+
+        $art_userdata = $this->data['art_userdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if (count($art_userdata) > 0) {
+            $userabc[][] = $this->data['art_userdata'][0];
+        } else {
+            $userabc[] = $this->data['art_userdata'][0];
+        }
+        //echo "<pre>"; print_r($userabc); die();
+        //echo "<pre>"; print_r($skillabc);  die();
+//data fatch using login user last post end
+//echo count($skillabc);
+//echo count($userabc);
+//echo count($unique);
+//echo count($followerabc); 
+
+
+        if (count($skillabc) == 0 && count($userabc) != 0) {
+            $unique = $userabc;
+        } elseif (count($userabc) == 0 && count($skillabc) != 0) {
+            $unique = $skillabc;
+        } elseif (count($userabc) != 0 && count($skillabc) != 0) {
+            $unique = array_merge($skillabc, $userabc);
+        }
+
+        //echo "<pre>"; print_r($userabc); die();
+        //echo count($followerabc);  echo count($unique); die();
+
+        if (count($followerabc) == 0 && count($unique) != 0) {
+            $unique_user = $unique;
+        } elseif (count($unique) == 0 && count($followerabc) != 0) {
+
+            $unique_user = $followerabc;
+        } elseif (count($unique) != 0 && count($followerabc) != 0) {
+            $unique_user = array_merge($unique, $followerabc);
+        }
+
+
+
+        foreach ($unique_user as $key1 => $val1) {
+            foreach ($val1 as $ke => $va) {
+
+                $qbc[] = $va;
+            }
+        }
+
+
+        $qbc = array_unique($qbc, SORT_REGULAR);
+        //echo "<pre>"; print_r($qbc); die();
+        // sorting start
+
+        $post = array();
+
+        //$i =0;
+        foreach ($qbc as $key => $row) {
+            $post[$key] = $row['art_post_id'];
+         }
+
+        array_multisort($post, SORT_DESC, $qbc);
+        // echo '<pre>';
+        // print_r($qbc);
+        // exit;
+        $otherdata = $qbc;
+
+
+         if (count($otherdata) > 0) { 
+             foreach ($otherdata as $row) {
+                 //  echo '<pre>'; print_r($finalsorting); die();
+                 $userid = $this->session->userdata('aileenuser');
+         
+                 $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1');
+                 $artdelete = $this->data['artdelete'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         
+                 $likeuserarray = explode(',', $artdelete[0]['delete_post']);
+         
+                 if (!in_array($userid, $likeuserarray)) {}else{
+
+                    $count[] = "abc";
+                 }
+
+                  }
+  } 
+//echo count($otherdata); die();
+  if(count($otherdata) > 0){ 
+          if(count($count) == count($otherdata)){ 
+        
+                    $datacount = "count";
+
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            } }else{ 
+
+                    $datacount = "count";
+
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                
+            }
+
+            echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
+
     }
 
 //delete post particular user end  

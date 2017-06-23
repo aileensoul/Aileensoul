@@ -324,7 +324,8 @@ $('#searchplace').select2({
                             
                             //regx1:/^\d+(\.\d+)?$/
                             number: true,
-                            
+                             minlength: 8,
+                           maxlength:15
                            
                         },
                        email: {

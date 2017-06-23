@@ -8055,7 +8055,7 @@ fieldset .add_post_btns {
     padding: 5px;
 }
 #paddingtop_fixed {
-    padding-top: 62px!important;
+    padding-top: 84px!important;
 }
 #paddingtop_fixed_job {
     padding-top: 80px!important;
@@ -8137,9 +8137,10 @@ fieldset .add_post_btns {
     min-width: 139px;
     
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    margin-top: 6px;
+    margin-top: 3px !important;
     z-index: 1;
-    left: 17;
+    left: inherit !important;
+    right: -5px !important;
     border-radius: 4px;
 }
 .dropdown-content_hover::before {
@@ -12721,6 +12722,7 @@ images css start*/
 
 /*** job recruter and freelancer  ***/
 .profile-box-art .right-menu-jr ul li a{padding-top: 15px; padding-bottom: 15px;}
+.profile-box-art .right-menu-jr .flw_msg_btn ul li a{padding-top: 8px; padding-bottom: 8px;}
 
 
 /***  media query  ***/
@@ -12760,6 +12762,7 @@ images css start*/
     .left_box_menubar li a{padding-bottom: 0 !important;}
     .header2 ul{padding-right: 0;}
     #paddingtop_fixed_art{padding-top: 32px !important;}
+    .header ul li.dropdown-user ul li a{padding: 8px;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
@@ -12917,7 +12920,7 @@ images css start*/
     .art-profile .profile-main-rec-box-menu{margin-top: 0;}
     .art-profile .job-menu-profile{width: 76%;}
     .art-side-menu{height: auto; padding-left: 0 !important;}
-    .art-profile .profile-box-art{width:100%; float: left;}
+    .art-profile .profile-box-art{width:100%; float: left; margin-bottom: 15px;}
     .art-side-menu .flw_msg_btn{width:100%; text-align: center; padding: 10px 0;}
     .art-side-menu ul{display: inline-block; float: none;}
     .art-side-menu{text-align: center;}
