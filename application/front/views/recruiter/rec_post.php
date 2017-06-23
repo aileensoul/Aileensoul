@@ -237,11 +237,13 @@ if ($returnpage == 'job') {
         <!-- menubar -->    
       
     </div>                       
-</div> <div  class="add-post-button mob-block">
+</div>
             <?php if ($returnpage == '') { ?>
+             <div  class="add-post-button mob-block">
                 <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+                </div>
             <?php } ?>
-        </div>
+        
         <div class="middle-part container rec_res">
     <div class="job-menu-profile mob-none  pt20">
                          <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>

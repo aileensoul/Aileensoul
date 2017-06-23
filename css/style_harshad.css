@@ -2,7 +2,7 @@
 .job-menu-profile{
     margin-right: 20px;
 }
-.profile-company-name {max-width: 100%;
+.profile-company-name {width: 100%;
 float: left;
 white-space: nowrap;
 overflow: hidden;
@@ -310,7 +310,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 991px) {
-    .profile-pho{margin-top: -64px !important;}
+    .add-post-button{margin-top: 5px;}
+    .profile-pho{margin-top: -70px !important;}
     .pad-top-res {
         padding-top: 20px;
     }
