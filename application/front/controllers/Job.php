@@ -332,7 +332,7 @@ $this->load->view('business_profile/temp');
 
 
         if ($email1) {
-            $condition_array = array('is_delete' => '0', 'user_id !=' => $userid, 'status' => '1',,'job_step' => 10);
+            $condition_array = array('is_delete' => '0', 'user_id !=' => $userid, 'status' => '1','job_step' => 10);
 
             $check_result = $this->common->check_unique_avalibility('job_reg', 'email', $email, '', '', $condition_array);
         } else {
@@ -450,7 +450,7 @@ $this->load->view('business_profile/temp');
         }
 
         // code for search
-        $contition_array = array('re_status' => '1',,'re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 3);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         $contition_array = array('status' => '1');
@@ -2207,7 +2207,7 @@ $this->load->view('business_profile/temp');
        // echo "<pre>"; print_r( $this->data['selectdata']); die();
 
         // code for search
-        $contition_array = array('re_status' => '1',,'re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 3);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3436,7 +3436,7 @@ $files[] = $_FILES;
             }
         }
         // code for search
-        $contition_array = array('re_status' => '1',,'re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 3);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3603,7 +3603,7 @@ $files[] = $_FILES;
         }
         
         // code for search
-        $contition_array = array('re_status' => '1',,'re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 3);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3770,7 +3770,7 @@ $files[] = $_FILES;
         }
        
         // code for search
-        $contition_array = array('re_status' => '1',,'re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 3);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
 
