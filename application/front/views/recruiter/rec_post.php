@@ -108,14 +108,16 @@ if ($returnpage == 'job') {
   
 
 <div class="container tablate-container">    
-    <div class="upload-img">
+   
         <?php if ($returnpage == '') { ?>
+         <div class="upload-img">
             <label class="cameraButton"><span class="tooltiptext_rec">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
                 <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
             </label>
+              </div>
         <?php } ?>
 
-    </div>
+  
 
     <div class="profile-photo">
         <div class="profile-pho">
@@ -141,10 +143,10 @@ if ($returnpage == 'job') {
 
 
         <!-- menubar -->
-        <div class="profile-main-rec-box-menu  col-md-12 ">
-
-            <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-7">
+  <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+         
+<div class="right-side-menu right-side-menu art-side-menu padding_less_right">  
+            
                 <ul class="">
 
 
@@ -176,11 +178,7 @@ if ($returnpage == 'job') {
 
                         <?php } ?>   
                 </ul>
-            </div>
-
-            <div class="col-md-2 padding_less_right"  style="    width: 24%;
- ">
-                <div class="flw_msg_btn fr">
+                 <div class="flw_msg_btn fr">
                    <ul>
                     <?php
                     if($this->uri->segment(3) != ""){ ?>
@@ -190,6 +188,7 @@ if ($returnpage == 'job') {
                 </div>
             </div>
 
+         
         </div>  
         <!-- menubar -->    
     </div>                       

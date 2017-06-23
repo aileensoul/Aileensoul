@@ -174,7 +174,7 @@ class Business_profile extends MY_Controller {
 
 
 // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -407,7 +407,7 @@ $contition_array = array('status' => '1');
 
 
         // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -551,12 +551,12 @@ $contition_array = array('status' => '1');
         $email1 = $userdata[0]['contact_email'];
 
         if ($email1) {
-            $condition_array = array('is_deleted' => '0', 'user_id !=' => $userid, 'status' => '1');
+            $condition_array = array('is_deleted' => '0', 'user_id !=' => $userid, 'status' => '1','business_step' => 4);
 
             $check_result = $this->common->check_unique_avalibility('business_profile', 'contact_email', $email, '', '', $condition_array);
         } else {
 
-            $condition_array = array('is_deleted' => '0', 'status' => '1');
+            $condition_array = array('is_deleted' => '0', 'status' => '1','business_step' => 4);
 
             $check_result = $this->common->check_unique_avalibility('business_profile', 'contact_email', $email, '', '', $condition_array);
         }
@@ -611,7 +611,7 @@ $contition_array = array('status' => '1');
         }
         //cho "<pre>"; print_r($this->data['industriyal1']); die();
         // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -766,7 +766,7 @@ $contition_array = array('status' => '1');
             }
         }
 // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($businessdata);die();
         $contition_array = array('status' => '1', 'is_delete' => '0');
@@ -1033,7 +1033,7 @@ $contition_array = array('status' => '1');
         }
 
         // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1157,7 +1157,7 @@ $contition_array = array('status' => '1');
 
         $business_profile_id = $this->data['businessdata'][0]['business_profile_id'];
 
-        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid);
+        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid,'business_step' => 4);
         $userlist = $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 //echo '<pre>';
 //print_r($userlist);
@@ -1180,7 +1180,7 @@ $contition_array = array('status' => '1');
 
         $businessregcity = $this->data['businessdata'][0]['city'];
 
-        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal);
+        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'business_step' => 4);
         $userlist2 = $this->data['userlist2'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1199,7 +1199,7 @@ $contition_array = array('status' => '1');
 
         $businessregstate = $this->data['businessdata'][0]['state'];
 
-        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city !=' => $businessregcity);
+        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city !=' => $businessregcity ,'business_step' => 4);
         $userlist3 = $this->data['userlist3'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1218,7 +1218,7 @@ $contition_array = array('status' => '1');
 
 // using 3 user 
 
-        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city !=' => $businessregcity, 'state !=' => $businessregstate);
+        $contition_array = array('is_deleted' => 0, 'status' => 1, 'user_id !=' => $userid, 'industriyal !=' => $industriyal, 'city !=' => $businessregcity, 'state !=' => $businessregstate,'business_step' => 4);
         $userlastview = $this->data['userlastview'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = 'business_profile_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -1236,7 +1236,7 @@ $contition_array = array('status' => '1');
 
         foreach ($followerdata as $fdata) {
 
-            $contition_array = array('business_profile_id' => $fdata['follow_to']);
+            $contition_array = array('business_profile_id' => $fdata['follow_to'],'business_step' => 4);
 
             $this->data['business_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1258,7 +1258,7 @@ $contition_array = array('status' => '1');
 
         $userselectindustriyal = $this->data['businessdata'][0]['industriyal'];
 
-        $contition_array = array('industriyal' => $userselectindustriyal, 'status' => '1');
+        $contition_array = array('industriyal' => $userselectindustriyal, 'status' => '1','business_step' => 4);
         $businessprofiledata = $this->data['businessprofiledata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        // echo "<pre>"; print_r( $businessprofiledata); die();
 
@@ -1335,7 +1335,7 @@ $contition_array = array('status' => '1');
         //echo "<pre>"; print_r($this->data['businessprofiledata']) ; die();
 // code for search
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1435,7 +1435,7 @@ $contition_array = array('status' => '1');
             //echo "<pre>"; print_r($this->data['business_profile_data']); die();
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -1449,7 +1449,7 @@ $contition_array = array('status' => '1');
         //manage post end
 // code for search
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1541,7 +1541,7 @@ $otherdata = $this->common->select_data_by_condition('business_profile_post', $c
 
 $datacount = count($otherdata);
 
-echo $datacount;
+
 
         if (count($otherdata) == 0) {
                     $notfound = '<div class="contact-frnd-post bor_none">';
@@ -1836,11 +1836,11 @@ echo $datacount;
              redirect('business_profile/');
         }
      //if user deactive profile then redirect to business_profile/index untill active profile End
-        $contition_array = array('user_id' => $id, 'status' => '1');
+        $contition_array = array('user_id' => $id, 'status' => '1','business_step' => 4);
         $this->data['contactperson'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1919,7 +1919,7 @@ $contition_array = array('status' => '1');
         }
      //if user deactive profile then redirect to business_profile/index untill active profile End
 
-        $contition_array = array('user_id' => $id);
+        $contition_array = array('user_id' => $id,'business_step' => 4);
         $this->data['contactperson'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $email = $this->input->post('email');
@@ -2216,7 +2216,7 @@ $contition_array = array('status' => '1');
         $slug_id = $this->data['slug_data'][0]['business_slug'];
 
         if ($id == $this->data['slug_data'][0]['business_slug'] || $id == '') {
-            $contition_array = array('business_slug' => $slug_id, 'status' => '1');
+            $contition_array = array('business_slug' => $slug_id, 'status' => '1','business_step' => 4);
             $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
              $contition_array = array('user_id' => $userid, 'is_delete' => '0');
@@ -2224,7 +2224,7 @@ $contition_array = array('status' => '1');
 
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
            $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -2235,7 +2235,7 @@ $contition_array = array('status' => '1');
         }
 
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -2491,13 +2491,13 @@ $contition_array = array('status' => '1');
         $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
         $join_str[0]['join_type'] = '';
 
-        $contition_array = array('follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 1);
+        $contition_array = array('follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 1 ,'business_profile.business_step' => 4);
 
         $this->data['following'] = count($this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = ''));
 
         //following end
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>";print_r($businessdata);die();
 
@@ -2583,7 +2583,7 @@ $contition_array = array('status' => '1');
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1,'business_step' => 4);
 
         $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2725,7 +2725,7 @@ $contition_array = array('status' => '1');
 
         $artdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('business_profile_id' => $business_id, 'is_deleted' => 0, 'status' => 1,'business_step' => 4);
 
         $busdatatoid = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2940,12 +2940,12 @@ $contition_array = array('status' => '1');
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2);
+            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2,'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1);
+            $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1,'business_step' => 4);
 
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2954,14 +2954,14 @@ $contition_array = array('status' => '1');
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2);
+            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2,'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 
 
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -3055,12 +3055,12 @@ $contition_array = array('status' => '1');
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2);
+            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2,'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id);
+            $contition_array = array('business_slug' => $id,'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -3069,7 +3069,7 @@ $contition_array = array('status' => '1');
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2);
+            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2 , 'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
@@ -3077,7 +3077,7 @@ $contition_array = array('status' => '1');
 
 
 // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -4939,7 +4939,7 @@ $contition_array = array('status' => '1');
         //echo  $slug_id ; die();
         if ($id == $slug_id || $id == '') {
 
-            $contition_array = array('business_slug' => $slug_id, 'status' => '1');
+            $contition_array = array('business_slug' => $slug_id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -4955,7 +4955,7 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -4972,7 +4972,7 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5060,7 +5060,7 @@ $contition_array = array('status' => '1');
         //echo  $slug_id ; die();
         if ($id == $slug_id || $id == '') {
 
-            $contition_array = array('business_slug' => $slug_id, 'status' => '1');
+            $contition_array = array('business_slug' => $slug_id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5068,14 +5068,14 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-         $contition_array = array('status' => '1', 'is_deleted' => '0');
+         $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5163,7 +5163,7 @@ $contition_array = array('status' => '1');
         //echo  $slug_id ; die();
         if ($id == $slug_id || $id == '') {
 
-            $contition_array = array('business_slug' => $slug_id, 'status' => '1');
+            $contition_array = array('business_slug' => $slug_id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5171,7 +5171,7 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5180,7 +5180,7 @@ $contition_array = array('status' => '1');
         }
 
         // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5261,7 +5261,7 @@ $contition_array = array('status' => '1');
              redirect('business_profile/');
         }
      //if user deactive profile then redirect to business_profile/index untill active profile End
-        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $contition_array = array('user_id' => $userid, 'status' => '1','business_step' => 4);
 
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //echo "<pre>"; print_r($this->data['slug_data']); die();
@@ -5277,7 +5277,7 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'status' => '1');
+            $contition_array = array('business_slug' => $id, 'status' => '1','business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -5285,7 +5285,7 @@ $contition_array = array('status' => '1');
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
-          $contition_array = array('status' => '1', 'is_deleted' => '0');
+          $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -9168,7 +9168,7 @@ public function bus_contact($id = "") {
      }else{
 
 
-        $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1,'business_step' => 4);
 
         $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -9184,7 +9184,7 @@ public function bus_contact($id = "") {
 
      }
 
-       $contition_array = array('status' => '1', 'is_deleted' => '0');
+       $contition_array = array('status' => '1', 'is_deleted' => '0','business_step' => 4);
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
