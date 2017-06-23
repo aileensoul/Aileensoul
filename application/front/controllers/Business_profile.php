@@ -1532,6 +1532,29 @@ $contition_array = array('status' => '1');
 
         //echo "<pre>"; print_r($dataimage); die();
         $updatdata = $this->common->update_data($dataimage, 'post_image', 'post_id', $id);
+
+$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+
+$contition_array = array('user_id' => $userid, 'status' => 1, 'is_delete' => '0');
+$otherdata = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$datacount = count($otherdata);
+
+echo $datacount;
+
+        if (count($otherdata) == 0) {
+                    $notfound = '<div class="contact-frnd-post bor_none">';
+                    $notfound .= '<div class="text-center rio">';
+                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '</div></div>';
+                }
+
+                echo json_encode(
+                        array(
+                            "notfound" => $notfound,
+                            "notcount" => $datacount,
+                ));
     }
 
     public function business_profile_addpost() {
