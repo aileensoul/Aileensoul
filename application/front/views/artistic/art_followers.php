@@ -328,6 +328,9 @@
                                              $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
                                           <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a>
                                        </div>
+                                         <div>
+                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                        </div>
                                  </li>
                                  <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
                                  <?php
