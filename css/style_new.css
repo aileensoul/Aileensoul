@@ -191,3 +191,4 @@ label.error::before{
 .user_lst li a{color:#91949d!important;;}
 .user_lst li .follow-li-text  a{color: #1b8ab9!important;}
 .user_lst li .follow-li-text  a:hover{color: #000!important;}
+.follow_left_box_main_btn button:hover{background-color: #1b8ab9 !important;}

@@ -244,9 +244,9 @@ if ($this->session->flashdata('success')) {
 <style type="text/css">
     .keyskil, #other_keyskill1, #other_keyskill{
         width:93% !important;
-        margin-bottom: 5px;
+        
     }    
-.common-form .edit_other_skill1{width: 93% !important;}
+.common-form .edit_other_skill1{width: 93% !important;margin-top: 6px;}
 </style>
 
 
@@ -693,6 +693,7 @@ return e.which !== 32;
 <style type="text/css">
     #skils-error{margin-top: -5px;}
     #other_keyskill-error{margin-top: -5px;margin-right: 58px;}
+    #other_keyskill-688-error{margin-right: 40px;}
 </style>
 
 

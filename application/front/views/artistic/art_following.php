@@ -40,7 +40,7 @@
         <div class="col-md-12 text-center">
         <div id="upload-demo"> </div>
         </div>
-        <div class="col-md-12 cover-pic" >
+        <div class="col-md-12 cover-pic">
             <button class="btn btn-success cancel-result" onclick="" >Cancel</button>
     
         <button class="btn btn-success set-btn upload-result" onclick="myFunction()">Save</button>
