@@ -12719,6 +12719,9 @@ images css start*/
 /***  search page  ***/
 .inner_search{border-top: 1px solid #ddd !important; width: 100%;}
 
+/*** job recruter and freelancer  ***/
+.profile-box-art .right-menu-jr ul li a{padding-top: 15px; padding-bottom: 15px;}
+
 
 /***  media query  ***/
 @media (min-width: 1400px) { 
