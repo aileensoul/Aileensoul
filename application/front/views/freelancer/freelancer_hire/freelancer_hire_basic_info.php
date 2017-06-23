@@ -374,6 +374,8 @@ $( "#searchplace" ).autocomplete({
                 phone: {
 
                     number: true,
+                     minlength: 8,
+                           maxlength:15
                     
 
                             
