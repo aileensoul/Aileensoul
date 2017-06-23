@@ -125,7 +125,7 @@ class Search extends CI_Controller {
 
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname,art_reg.art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-           // echo "<pre>"; print_r($artpost); die();
+           //echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 
             // echo "<pre>"; print_r($fullname) ;
@@ -164,7 +164,7 @@ class Search extends CI_Controller {
             } else {
                //  echo "panalia"; die();
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
-             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg,art_step' => 4);
+             $contition_array = array('art_reg.user_id !=' => $userid ,'art_reg.art_step' => 4);
 
                 // echo $search_condition;
                 $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
