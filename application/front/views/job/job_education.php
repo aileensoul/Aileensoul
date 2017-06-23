@@ -1961,8 +1961,8 @@ if(num==5)
 //for clonedInput length 1 start
 if(num==1)
 {
-   
-       
+   //alert("hi");
+     
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '')
  {
       
@@ -1972,25 +1972,29 @@ if(num==1)
  }
  
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
-{
+{   
     if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
              alert("Please complete mendatory detail of Secondary Education field ");
+             
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
             alert("Please complete mendatory detail of Higher Secondary Education field ");
+           
         }
-        else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
+        else if(degree1!='' ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
+            
             alert("Please complete mendatory detail of Graduation field ");
+            
         }
         else
         {
              alert("Please press submit button of Primary Education to  fulfil data ");
-         
+           
         }
     }
     
@@ -2635,74 +2639,6 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 
 }
 </script>
-
-
-                    <script type="text/javascript">
-                        function next_page1() {
-                           
-                           
-                        }
-                    </script>
-
-                    <script type="text/javascript">
-                        function next_page2() {
-                           // alert('ghh');
-                            
-                            
-
-                             if(board_higher_secondary == '' || school_higher_secondary == '' || percentage_higher_secondary == '' || pass_year_higher_secondary == ''){
-
-                                if(board_secondary == '' && board_primary == ''){
-                                    //alert(hhhhhhhh); return false;
-                                    alert("please fill out details");
-                                 return false;} 
-                                    else{
-                                        window.location = "<?php echo base_url() ?>job/job_project_update";
-                                    }
-                             }
-                             else{
-                                window.location = "<?php echo base_url() ?>job/job_project_update";
-                             }
-
-                        }
-                    </script>
-
-                    <script type="text/javascript">
-                        function next_page_graduation() {
-                            //alert('hfgh');
-
-                             var degree = document.getElementById("degree1").value;
-                             var stream = document.getElementById("stream1").value;
-                             var university = document.getElementById("university1").value;
-                             var college = document.getElementById("college1").value;
-                              var grade = document.getElementById("grade1").value;
-                               var percentage = document.getElementById("percentage1").value;
-                                var pass_year = document.getElementById("pass_year1").value;
-                                var board_higher_secondary = document.getElementById("board_higher_secondary").value;
-                                var board_secondary = document.getElementById("board_secondary").value;
-                             var board_primary=document.getElementById("board_primary").value;
-
-                            //alert(456);
-
-                             if(degree == '' || stream == '' || university == '' || college == ''|| grade == '' || percentage == '' || pass_year == ''){
-
-                                if(board_higher_secondary == '' && board_secondary == '' && board_primary == ''){ 
-                                alert("please fill out details");
-                                 return false;
-                            
-                             }
-                             else{
-                                window.location = "<?php echo base_url() ?>job/job_project_update";
-                             }
-                             }
-                             else{
-                                window.location = "<?php echo base_url() ?>job/job_project_update";
-                             }
-
-                        }
-                    </script>
-
-
 
                     <script type="text/javascript">
                         $(".alert").delay(3200).fadeOut(300);
