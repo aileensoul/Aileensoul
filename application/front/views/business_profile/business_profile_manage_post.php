@@ -3443,6 +3443,7 @@
                             $('#' + 'removepostdata' + abc).html(data);
                         }
                     });
+                    
                 }
             </script>
 
