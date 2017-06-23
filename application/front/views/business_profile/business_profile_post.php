@@ -3386,7 +3386,7 @@
 <script type="text/javascript">
     function remove_post(abc)
     {
-        alert(abc);
+        
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/business_profile_deleteforpost" ?>',
