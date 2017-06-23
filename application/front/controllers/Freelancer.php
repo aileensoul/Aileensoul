@@ -1938,7 +1938,7 @@ $new = array();
         
         } 
     }
-//          echo "hi"; echo "<pre>"; print_r($freecandidate); die();
+//         echo "hi"; echo "<pre>"; print_r($freecandidate); die();
 
 //echo "hello";  echo "<pre>"; print_r($freecandidate1); die();
 
@@ -1957,7 +1957,7 @@ $new = array();
                 $unique = array_merge($freecandidate, $freecandidate1);
             }
 
-   //  echo "hello";  echo "<pre>"; print_r($freecandidate1); die();
+  //  echo "hello";  echo "<pre>"; print_r($unique); die();
 
 
  //         foreach ($unique as $key => $value) {
