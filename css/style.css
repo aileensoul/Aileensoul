@@ -8662,8 +8662,8 @@ label.cameraButton input[accept*="camera"] {
     width: 100%;
 }
 .data_img_2 {
-    height: 77px;
-    width: 71px;
+    /*height: 77px;
+    width: 71px;*/
     z-index: 3;
     position: relative;
     z-index: 3;

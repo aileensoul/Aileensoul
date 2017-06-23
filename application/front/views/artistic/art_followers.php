@@ -251,8 +251,9 @@
          <!-- menubar -->                
       </div>
       </div>
+       
        <div class="user-midd-section art-inner">
-           <div class="container">
+           <div class="">
       <div class="job-menu-profile mob-none">
          <a href="<?php echo site_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>">
             <h5  > <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?>
