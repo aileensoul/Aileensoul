@@ -8055,7 +8055,7 @@ fieldset .add_post_btns {
     padding: 5px;
 }
 #paddingtop_fixed {
-    padding-top: 62px!important;
+    padding-top: 84 px!important;
 }
 #paddingtop_fixed_job {
     padding-top: 80px!important;
@@ -12760,6 +12760,7 @@ images css start*/
     .left_box_menubar li a{padding-bottom: 0 !important;}
     .header2 ul{padding-right: 0;}
     #paddingtop_fixed_art{padding-top: 32px !important;}
+    .header ul li.dropdown-user ul li a{padding: 8px;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed{padding-top: 52px !important;}
