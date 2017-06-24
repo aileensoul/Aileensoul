@@ -72,28 +72,12 @@
                                 </div>
                                     <div class="forgot" style="margin-top: -54px;">
                                     <a  id="myBtn"  data-toggle="modal" data-target="#myModal"> <h6>Forgot Password?</h6></a>
-                                </div>
+                               
+                                    </div>
 
                             </fieldset>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content" style="width: 66%;">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Forgot Password</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-   
-      </div>
-      
-    </div>
-  </div>
+                   
+ 
   
 <fieldset class="col-md-12 col-sm-12 col-xs-12">
      <button type="submit" id="btnShow" name="login" value="Login" tabindex="3" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px; ">Log In</button>
@@ -112,6 +96,41 @@
           </div> 
 </div>           
 </div>
+    
+</form>
+               <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+       <div class="modal-content">
+    <div class="modal-header" style="    width: 100%;
+    text-align: center;">
+
+    <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
+
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+    <div class="modal-body" style="    width: 100%;
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+       </form>
+  </div>
+      <!-- Modal content end-->
+    </div>
+  </div>
 <footer>
         <div class="container">
             <div class="row">
