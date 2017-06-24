@@ -622,7 +622,7 @@
                                              <div class="post-design-menu">
                                                 <ul class="col-md-6">
                                                    <li class="<?php echo 'likepost' . $p['business_profile_post_id']; ?>">
-                                                      <a id="<?php echo $p['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
+                                                      <a class="ripple like_h_w" id="<?php echo $p['business_profile_post_id']; ?>"   onClick="post_like(this.id)">
                                                       <?php
                                                          $userid = $this->session->userdata('aileenuser');
                                                          $contition_array = array('business_profile_post_id' => $p['business_profile_post_id'], 'status' => '1');
@@ -637,7 +637,7 @@
                                                       <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                       </i>
                                                       <?php } ?>
-                                                      <span style="display: none;'">
+                                                      <span style="display: none;">
                                                       <?php
                                                          if ($p['business_likes_count'] > 0) {
                                                              echo $p['business_likes_count'];
@@ -651,7 +651,7 @@
                                                          $contition_array = array('business_profile_post_id' => $p['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                          $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                          ?>
-                                                      <a  onClick="commentall(this.id)" id="<?php echo $p['business_profile_post_id']; ?>">
+                                                      <a class="ripple like_h_w" onClick="commentall(this.id)" id="<?php echo $p['business_profile_post_id']; ?>">
                                                       <i class="fa fa-comment-o" aria-hidden="true"> 
                                                       <span style="display: none;"><?php
                                                          if (count($commnetcount) > 0) {
@@ -663,26 +663,37 @@
                                                    </li>
                                                 </ul>
                                                 <ul class="col-md-6 like_cmnt_count">
-                                                   <li>
-                                                      <div class="like_count_ext">
-                                                         
-                                                           <span class="comment_count"> 5 </span> 
-                                                         <span> Comment</span>
-                                                      </div>
-                                                   </li>
-                                                   <li>
-                                                      <div class="comnt_count_ext">
-                                                           <span class="comment_like_count" > 5 </span> 
-                                                         <span> Like</span>
-                                                      </div>
-                                                   </li>
-                                                </ul>
+                                 <li>
+                                    <div class="like_count_ext">
+                                       <span class="comment_count<?php echo $p['business_profile_post_id']; ?>" > 
+                                       <?php
+                                          if (count($commnetcount) > 0) {
+                                              echo count($commnetcount); ?>
+                                       <span> Comment</span>
+                                       <?php }
+                                          ?> 
+                                       </span> 
+                                    </div>
+                                 </li>
+                                 <li>
+                                    <div class="comnt_count_ext">
+                                       <span class="comment_like_count<?php echo $p['business_profile_post_id']; ?>"> 
+                                       <?php
+                                          if ($p['business_likes_count'] > 0) {
+                                              echo $p['business_likes_count']; ?>
+                                       <span> Like</span>
+                                       <?php   } 
+                                          ?>
+                                       </span> 
+                                    </div>
+                                 </li>
+                              </ul>
                                              </div>
                                           </div>
                                           <?php
                                              if ($p['business_likes_count'] > 0) {
                                                  ?>
-                                          <div class="likeduserlist<?php echo $p['business_profile_post_id'] ?>">
+                                          <div class="likeduserlist1 likeduserlist<?php echo $p['business_profile_post_id'] ?>">
                                              <?php
                                                 $contition_array = array('business_profile_post_id' => $p['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
                                                 $commnetcount = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1102,9 +1113,9 @@
    
                $('.' + 'likepost' + clicked_id).html(data.like);
                $('.likeusername' + clicked_id).html(data.likeuser);
-   
+   $('.comment_like_count' + clicked_id).html(data.like_user_count);
                $('.likeduserlist' + clicked_id).hide();
-               if (data.like_user_count == '0') {
+               if (data.like_user_total_count == '0') {
                    document.getElementById('likeusername' + clicked_id).style.display = "none";
                } else {
                    document.getElementById('likeusername' + clicked_id).style.display = "block";
@@ -1294,8 +1305,10 @@
                                });
    
                                //  $('.insertcomment' + clicked_id).html(data);
-                               $('#' + 'insertcount' + clicked_id).html(data.count);
-                               $('.insertcomment' + clicked_id).html(data.comment);
+//                               $('#' + 'insertcount' + clicked_id).html(data.count);
+//                               $('.insertcomment' + clicked_id).html(data.comment);
+$('.insertcomment' + clicked_id).html(data.comment);
+                                        $('.comment_count' + clicked_id).html(data.comment_count);
    
                            }
                        });
