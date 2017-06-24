@@ -4207,7 +4207,8 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => $cntinsert
+                    "comment_count" => $cntinsert,
+                    "total_comment_count" => count($businessprofiledata),
                     ));
     }
 

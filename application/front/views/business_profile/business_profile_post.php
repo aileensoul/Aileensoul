@@ -797,13 +797,12 @@
 
                                                             <li>
                                                             </li>
-
                                                             <?php if ($row['posted_user_id']) { ?>
                                                                 <li>
                                                                     <div class="else_post_d">
                                                                         <div class="post-design-product">
                                                                             <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                            <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                            <p class="posted_with" > Posted With</p> <a class="other_name name_business post_dot_2"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
                                                                             <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  >
                                                                              <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>  
                                                                    
@@ -815,7 +814,7 @@
                                             $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                         
 
-                                                            <li>
+<!--                                                            <li>
                                                                 <div class="post-design-product">
                                                                     <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
                                                                         <?php
@@ -828,7 +827,7 @@
                                                                         ?>
                                                                     </a>
                                                                 </div>
-                                                            </li>
+                                                            </li>-->
                                                             <?php } else { ?>
                                                                 <li>
                                                                     <div class="post-design-product">
@@ -850,7 +849,7 @@
                                                              <?php 
                 $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                         
-
+                                                                
                                                             <li>
                                                                 <div class="post-design-product">
                                                                     <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
@@ -865,6 +864,7 @@
                                                                     </a>
                                                                 </div>
                                                             </li>
+                                                            
                                                             <li>
                                                             </li> 
                                                         </ul> 

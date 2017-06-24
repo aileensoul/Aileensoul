@@ -290,11 +290,18 @@
                     <!-- PICKUP -->
                     <!-- menubar -->
                     <div class="business-data-menu padding_less_right ">
-
-                        
-
-                        <div class="profile-main-box-buis-menu">  
-                            <ul class="">
+  
+                        <div class="profile-main-box-buis-menu ml0">  
+                                   <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($businessdata1[0]['user_id'] == $userid){
+               
+               ?>     
+             <ul class="current-user bpro-fw6">
+                   
+                   <?php }else{?>
+                 <ul class="bpro-fw">
+                   <?php } ?>
 
 
 

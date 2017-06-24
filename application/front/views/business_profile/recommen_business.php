@@ -1323,6 +1323,7 @@
 //                               $('#' + 'insertcount' + clicked_id).html(data.count);
 //                               $('.insertcomment' + clicked_id).html(data.comment);
                             $('.insertcomment' + clicked_id).html(data.comment);
+                            //$('.comment_count' + clicked_id).html(data.comment_count);
                             $('.comment_count' + clicked_id).html(data.comment_count);
 
                         }
@@ -1341,6 +1342,7 @@
                             //$('#' + 'fourcomment' + clicked_id).html(data);
                             $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                            $('.' + 'comment_count' + clicked_id).html(data.comment_count);
 
                         }
                     });
@@ -1446,6 +1448,10 @@
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                 $('#' + 'insertcount' + post_delete.value).html(data.count);
+                alert('.' + 'comment_count' + clicked_id);
+                alert(data.comment_count);
+                
+                $('.' + 'comment_count' + clicked_id).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -1470,7 +1476,8 @@
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                //$('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.comment_count' + post_delete1.value).html(data.total_comment_count + ' <span> Comment</span>');
                 $('.post-design-commnet-box').show();
             }
         });
