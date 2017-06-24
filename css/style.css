@@ -8064,13 +8064,13 @@ fieldset .add_post_btns {
     font-size: 17px;
     font-weight: 600;
     width: 60%;
-<<<<<<< HEAD
+
     word-break: break-word;
     word-wrap: break-word !important;
-=======
+
     word-break: break-word !important;
     word-wrap: break-word;
->>>>>>> 5d4cbd59fec7e86ca2f398faacff1f2ccbd88e33
+
     cursor: default;
     overflow: hidden;
     /*white-space: nowrap;*/
@@ -12749,6 +12749,11 @@ images css start*/
     background: #f3f9fb !important;
     border:none !important;
 }
+.ui-autocomplete{ -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+    outline: none;}
+.ui-state-focus{margin: 0 !important;}
 
 
 /***  media query  ***/
@@ -12921,7 +12926,7 @@ images css start*/
     .post-editor .popup-social-icon ul li i{font-size: 15px; margin: 0 !important;}
     .post-editor .popup-social-icon ul li i:hover{font-size: 15px;}
     .mange_post_image #two_manage_images_art{height: 250px;}
-    .business-profile-right{width: 100%; padding: 15px;}
+    .business-profile-right{width: 100%; padding-top: 15px;}
     .buisness-menu{padding-top: 0;}
     .profile-pho-bui{position: absolute; left: 0; height: 90px; margin-left: 15px; margin-top: 0; width: 80px; top:15px;}
     .profile-pho-bui .user-pic{height: 82px; width: 72px;}
