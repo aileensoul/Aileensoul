@@ -2,6 +2,10 @@
        <link rel="stylesheet" type="text/css" href="css/style_login.css">
        <link rel="stylesheet" type="text/css" href="css/common-style.css">
        <link rel="stylesheet" type="text/css" href="css/media.css">
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
+<script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
      </head>
 
 
@@ -67,11 +71,30 @@
                                     <h6>Remember me</h6>
                                 </div>
                                     <div class="forgot" style="margin-top: -54px;">
-                                    <a  id="myBtn"> <h6>Forgot Password?</h6></a>
+                                    <a  id="myBtn"  data-toggle="modal" data-target="#myModal"> <h6>Forgot Password?</h6></a>
                                 </div>
 
                             </fieldset>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 66%;">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Forgot Password</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+   
+      </div>
+      
+    </div>
+  </div>
+  
 <fieldset class="col-md-12 col-sm-12 col-xs-12">
      <button type="submit" id="btnShow" name="login" value="Login" tabindex="3" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px; ">Log In</button>
                            

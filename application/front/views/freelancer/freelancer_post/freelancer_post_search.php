@@ -17,7 +17,7 @@
                              <!--    <label>Find Your Location</label>
                               -->  
 
-                               <input type="text" id="searchplace" name="searchplace" placeholder="Find Your freelancer"> 
+                               <input type="text" id="searchplace" name="searchplace" placeholder="Find Your Location"> 
                              <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"></select> -->
                              
                             </fieldset><!-- 
