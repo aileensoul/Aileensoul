@@ -324,6 +324,12 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 767px) {
+    .profile-box-art .right-side-menu{margin-left: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px!important;}
+    .profile-box-art .right-side-menu ul li{width: 33%;}
+    .right-menu-jr .current-user{width: 100%;    }
+    .profile-main-box-buis-menu .flw_msg_btn{margin-bottom: 5px!important}
     .pro-fw{width: 100%;}
     .pro-fw li{ width: 20%; }
     .pro-fw4{width: 100%; border-bottom: 1px solid #d9d9d9;}
@@ -332,7 +338,12 @@ input[type=number]::-webkit-outer-spin-button {
     .bpro-fw li{ width: 20%; }
     .bpro-fw6{width: 100%; border-bottom: 1px solid #d9d9d9;}
     .bpro-fw6 li{width: 16.66%;}
-
+      .bpro-fw6 li a{text-align: center;
+display: inline-block;
+width: 100%;}
+        .bpro-fw li a{text-align: center;
+display: inline-block;
+width: 100%;}
 .circle{top: 21%;}
 
     .profile-box-art .right-menu-jr ul li a {
@@ -341,7 +352,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: auto;
         }
         .right-menu-jr .flw_msg_btn ul li a{padding-top: 7px !important; padding-bottom: 7px !important;}
-    .right-menu-jr .current-user {display: inline-block; float: none; text-align:center; }
+    .right-menu-jr .current-user {display: inline-block; float: left; text-align:center; }
     .folow-ms {
         width: 100%;
         float: left;
@@ -436,6 +447,25 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 479px) {
+    .padding_job_rs ul li {width: 100%;}
+    .padding_job_rs ul li .lction{width: 100%;}
+    .profile-pho-bui{height: 50px; width: 50px; margin-top: 12px;}
+    .profile-pho-bui .user-pic {
+    height: 44px;
+    width: 42px;
+}
+    .bui-menu-profile{width: 70%; overflow: hidden;}
+    .circle{top: 22%;}
+    .addtocont{top:84px;}
+    .bui-menu-profile h4 a{line-height: 22px}
+    .bui-menu-profile .profile-head-text a{font-size: 14px !important; }
+    .bui-menu-profile .profile-head-text {width: 100%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;}
+    .bui-menu-profile .profile-head-text_dg a{font-size: 12px;}
+    .bui-menu-profile{padding-left: 71px!important;}
+    
     .pro-fw li a{}
     .remove_tab a::before{height: 2px;}
     .right-side-menu {
@@ -496,7 +526,7 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 12px;
     }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
-        width: 30%;
+        width: 32%;
     }
     .job_all_post {
         width: 100%;

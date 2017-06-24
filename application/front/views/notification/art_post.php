@@ -243,12 +243,29 @@
 
                                                     <?php if ($art_data[0]['posted_user_id']) { ?>
                                                         <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>">
-                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                                <?php if($userimageposted){?>
+                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                                <?php }else{?>
+<img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+
+                                                <?php }?>
                                                         </a>
 
                                                     <?php } else { ?>
                                                         <a  class="post_dot" title="" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>">
-                                                            <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt=""> </a>
+
+               <?php if($art_userimage){?>
+                <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+                <?php }else{?>
+
+<img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($art_data[0]['art_name']) . ' ' . ucwords($art_data[0]['art_lastname']); ?>">
+
+                
+                <?php }?>
+
+                                                             </a>
 
                                                     <?php } ?>
                                                 </div>
@@ -1001,6 +1018,8 @@
 
                         <?php } ?>
 
+         <div class="nofoundpost">
+          </div>
 
                         
                            
@@ -2484,22 +2503,27 @@
 
                     <script type="text/javascript">
                         function remove_post(abc)
-                        { 
+                         { 
+   
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "artistic/art_delete_post" ?>',
+           dataType: 'json',
+           data: 'art_post_id=' + abc,
+           //alert(data);
+           success: function (data) { 
+   
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
 
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-                                data: 'art_post_id=' + abc,
-                                //alert(data);
-                                success: function (data) { 
-
-                                    $('#' + 'removepost' + abc).html(data);
-
-
-                                }
-                            });
-
-                        }
+   
+   
+           }
+       });
+   
+   }
                     </script>
 
                     <!-- remove save post end -->
@@ -2517,25 +2541,28 @@
                         }
 
                     </script>
-                    <script type="text/javascript">
-                        function del_particular_userpost(abc)
-                        {
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-                                data: 'art_post_id=' + abc,
-                                //alert(data);
-                                success: function (data) {
+<script type="text/javascript">
+function del_particular_userpost(abc)
+   {
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+           dataType: 'json',
+           data: 'art_post_id=' + abc,
+           //alert(data);
+           success: function (data) {
+   
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
 
-                                    $('#' + 'removepost' + abc).html(data);
-
-
-                                }
-                            });
-
-                        }
-
-                    </script>
+   
+   
+           }
+       });
+   
+   }   </script>
 
                     <!-- remove particular user post end -->
 

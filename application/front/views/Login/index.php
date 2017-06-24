@@ -113,7 +113,7 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-       <div class="modal-content">
+       <div class="modal-content"  style="    width: 100%;">
     <div class="modal-header" style="    width: 100%;
     text-align: center;">
 

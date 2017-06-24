@@ -135,14 +135,16 @@ if ($this->session->flashdata('success')) {
  <?php
                                         if ($skill_other) {
                                             ?>
+
                                     <select name="skills1[]" id ="skils" tabindex="1" autofocus  multiple="multiple" style="width:100%;" placeholder='Enter Skill'>
-                                   
+                                     <option></option>
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
                                     </select>
                                     <?php }else{?>
 <select name="skills[]" id ="skils" tabindex="1" autofocus class="keyskil" multiple="multiple" style="width:100%;">
+  <option></option>
 <?php foreach ($skill as $ski) { ?>
                                             <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
 <?php } ?>
@@ -407,7 +409,23 @@ $( "#searchplace" ).autocomplete({
 <script type="text/javascript">
 //select2 autocomplete start for skill
     var complex = <?php echo json_encode($selectdata); ?>;
-    $('#skils').select2().select2('val', complex)
+   // $('#skils').select2().select2('val', complex)
+
+    if(complex != '')
+    { 
+        //alert(789);
+         $("#skils").select2({
+         placeholder: "Select a Language",
+         }).select2('val', complex);
+    }
+   if(complex == '')
+    {
+        //alert(123);
+         $("#skils").select2({
+         placeholder: "Select a Language",
+ 
+        });
+    }
 //select2 autocomplete End for skill
 </script>
 
