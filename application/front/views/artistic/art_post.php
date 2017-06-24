@@ -692,6 +692,16 @@
                       </a>
                      <?php } ?>
                   </div>
+                   <div id="khyati" style="display:block;">
+                      <?php
+                     $small = substr($row['art_description'], 0, 10);
+                     echo $small . '...<div id="kkkk" onClick="khdiv(this.id)">more</div>' ?>
+                   </div>
+                    <div id="khyatii" style="display:none;">
+                      <?php
+                     echo $row['art_description'];
+                   ?>
+                   </div>
                   <div class="post-design-name fl col-md-9">
                      <ul>
                         <?php
@@ -2702,7 +2712,9 @@
                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
                    //alert(data.description);
                    $('#' + 'editpostdata' + abc).html(data.title);
-                   $('#' + 'editpostdetails' + abc).html(data.description);
+                  // $('#' + 'editpostdetails' + abc).html(data.description);
+                   $('#' + 'khyati').html(data.description);
+                 
                }
            });
        }
@@ -2712,6 +2724,12 @@
 <!-- edit post end -->
 <!-- save post start -->
 <script type="text/javascript">
+    
+     function khdiv(abc) {
+   
+    document.getElementById('khyati').style.display = 'none';
+    document.getElementById('khyatii').style.display = 'block';
+   }
    function save_post(abc)
    {
    

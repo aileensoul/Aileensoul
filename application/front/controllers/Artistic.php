@@ -5137,11 +5137,15 @@ $datacount = count($otherdata);
                 $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
-                $com_link = $this->common->make_links($artdata[0]['art_description']);
-                $com_link = substr($com_link, 0, 200);
-                $editpostdes .= '<span class="show">';
-                $editpostdes .= $com_link;
-                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
+//                $com_link = $this->common->make_links($artdata[0]['art_description']);
+//                $com_link = substr($com_link, 0, 200);
+//                $editpostdes .= '<span class="show">';
+//                $editpostdes .= $com_link;
+//                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
+            
+                
+                   $small = substr($artdata[0]['art_description'], 0, 10);
+                    $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(this.id)">more</div>'; 
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
@@ -7888,4 +7892,5 @@ $datacount = count($otherdata);
     }
 
     // khyati changes end 19-5
+    
 }

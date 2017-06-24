@@ -58,7 +58,7 @@
                          echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                 }
 
-?>
+         ?>
       
 
                     <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
