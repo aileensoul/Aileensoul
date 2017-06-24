@@ -625,7 +625,7 @@ $usrsrch .=  '<img src="' . base_url($this->config->item('user_thumb_upload_path
 
     $usrsrch .= '<div class="about">';
     $usrsrch  .= '<div class="name">'; 
-  $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] . '<br></a>'; 
+  $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] . ' ' . $user['last_name'] . '<br></a>'; 
 $usrsrch .= '</div><div class="status">Current Work</div></div></li>';
  } 
 
@@ -876,13 +876,12 @@ $usrsrch .= '</div>';
  } 
   $usrsrch .= '<div class="about">';
   $usrsrch .= '<div class="name">'; 
-  $usrsrch .= '' . $user['first_name'] . '<br> </div>';
+  $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br> </div>';
   $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 19px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-">';
+    text-overflow: ellipsis; ">';
     $usrsrch .= '' . $user['message'] . '';
     $usrsrch .= '</div>';
     $usrsrch .= '</div>';
@@ -1296,7 +1295,7 @@ $usrsrch .= '</div>';
   } 
           $usrsrch .= '<div class="about">';
             $usrsrch .= '<div class="name">'; 
-    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] . '<br></a> </div>';
+    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] . ' ' . $user['last_name'] . '<br></a> </div>';
     $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
@@ -1327,7 +1326,7 @@ $usrsrch .=  '</div>';
   } 
        $usrsrch .=  '<div class="about">';
          $usrsrch .=  '<div class="name">'; 
-    $usrsrch .=  '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '">' . $lstusrdata[0]['first_name'] . '<br></a> </div>';
+    $usrsrch .=  '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '">' . $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] .  '<br></a> </div>';
     $usrsrch .=  '<div class="status' . $lstusrdata[0]['user_id'] . '" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
@@ -1362,7 +1361,7 @@ $usrsrch .=  '</div>';
   } 
      $usrsrch .=  '<div class="about">';
       $usrsrch .=  '<div class="name">'; 
-    $usrsrch .= '' .   $user['first_name'] . '<br></div>';
+    $usrsrch .= '' .   $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';
     $usrsrch .= '<div class="status' . $user['user_id'] .'" style=" width: 145px;
     color: #003;    max-height: 25px;
     white-space: nowrap;
