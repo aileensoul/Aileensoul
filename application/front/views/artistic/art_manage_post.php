@@ -501,6 +501,7 @@
                             <div class="not_available">  <p>    Photos Not Available</p></div>
 
                         <?php } ?>
+                        <div class="dataconphoto"></div>
 
                     </div>
                 </div>
@@ -607,6 +608,7 @@
                             <?php } else { ?>
                                 <div class="not_available">  <p> Video Not Available</p></div>
                             <?php } ?>
+                            <div class="dataconvideo"></div>
                         </table>
 
                     </div>
@@ -716,6 +718,7 @@
                             <?php } else { ?>
                                 <div class="not_available">  <p>  Audio Not Available</p> </div>
                             <?php } ?>
+                            <div class="dataconaudio"></div>
                         </table>
 
                     </div>
@@ -786,6 +789,9 @@
                                 <div class="not_available">  <p>    Pdf Not Available</p>
                                 </div>
                             <?php } ?>
+
+                            <div class="dataconpdf"></div>
+
                         </table>
 
                     </div>
@@ -796,6 +802,26 @@
 
             <!-- popup start -->
             <div class="col-md-7 col-sm-12 "  >
+
+<?php 
+
+$userid = $this->session->userdata('aileenuser');
+$other_user = $artisticdata[0]['art_id'];
+
+$contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+ $userdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$loginuser = $userdata[0]['art_id'];
+
+ $contition_array = array('follow_type' => 1, 'follow_status' => 1);
+
+ $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') OR (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
+
+ $contactperson = $this->common->select_data_by_search('follow', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+//echo "<pre>"; print_r($contactperson); die();
+ if((count($contactperson) == 2) || ($artisticdata[0]['user_id'] == $userid)){
+?>
 
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
@@ -827,7 +853,7 @@
 
                 </div>
            
-
+<?php }?>
             <!-- The Modal -->
             <div id="myModal3" class="modal-post">
 
@@ -2010,10 +2036,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     return false;
   }
   // file type code end
-if (size > 4194304)
+if (size > 10485760)
         {
             //show an alert to the user
-            alert("Allowed file size exceeded. (Max. 4 MB)")
+            alert("Allowed file size exceeded. (Max. 10 MB)")
 
             document.getElementById('row1').style.display = "none";
             document.getElementById('row2').style.display = "block";
@@ -3563,6 +3589,13 @@ if (size > 4194304)
                         $('#' + 'removepost' + abc).remove();
                         if(data.notcount == 0){
                             $('.' + 'nofoundpost').html(data.notfound);
+                            $('.' + 'not_available').remove();
+                            $('.' + 'image_profile').remove();
+                            $('.' + 'dataconpdf').html(data.notpdf);
+                            $('.' + 'dataconvideo').html(data.notvideo);
+                            $('.' + 'dataconaudio').html(data.notaudio);
+                            $('.' + 'dataconphoto').html(data.notphoto);
+
                             }
 
 

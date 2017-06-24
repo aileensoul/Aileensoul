@@ -3944,7 +3944,7 @@ $files[] = $_FILES;
             //echo "bjb"; die();
 
             //for getting data job_reg table
-            $contition_array = array('job_reg.user_id' => $id, 'job_reg.is_delete' => 0, 'job_reg.status' => 1,'job_reg.job_step' => 3);
+            $contition_array = array('job_reg.user_id' => $id, 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
 
             $data = '*';
 

@@ -3875,7 +3875,7 @@ $contition_array = array('status' => '1');
                 
                // $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true">';
                // $cmtlike1 .= '</i>';
-                $cmtlike1 .= '<span>';
+                $cmtlike1 .= '<span> ';
                 if ($businessprofiledata2[0]['business_comment_likes_count'] > 0) {
                     $cmtlike1 .= $businessprofiledata2[0]['business_comment_likes_count'] . '';
                 }
@@ -5839,7 +5839,9 @@ $contition_array = array('status' => '1');
                 echo json_encode(
                         array("like" => $imglike,
                             "likeuser" => $imglikeuser,
-                            "like_user_count" => $like_user_count));
+                            "like_user_count" => $like_user_count,
+                            "like_user_total_count" => count($commneteduser),
+                            ));
             }
         } else {
 
@@ -5919,7 +5921,9 @@ $contition_array = array('status' => '1');
                     echo json_encode(
                             array("like" => $imglike1,
                                 "likeuser" => $imglikeuser1,
-                                "like_user_count" => $like_user_count1));
+                                "like_user_count" => $like_user_count1,
+                                "like_user_total_count" => count($commneteduser),
+                                ));
                 }
             } else {
                 $data = array(

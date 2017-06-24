@@ -846,5 +846,19 @@ $('#country_permenant').on('change', function () {
 
 
 });
+
+// disable spacebar js start
+$(window).load(function(){
+$("#pincode").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
+
+$(window).load(function(){
+$("#pincode_permenant").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
+// disable spacebar js end
 </script>
 

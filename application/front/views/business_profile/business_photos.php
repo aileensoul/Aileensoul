@@ -108,7 +108,7 @@ start head -->
       </div>
       <?php } ?>
       <!-- coer image end-->
-      <div class="container tablate-container art-profile">
+      <div class="container tablate-container">
             <?php
             $userid = $this->session->userdata('aileenuser');
             if ($businessdata1[0]['user_id'] == $userid) {

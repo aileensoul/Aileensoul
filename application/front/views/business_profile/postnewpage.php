@@ -788,7 +788,7 @@
                                                    </div>
                                                    <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
                                                       <?php
-                                                         //                                                                                        echo $this->common->make_links($rowdata['comment']);     echo $new_product_comment = $this->common->make_links($rowdata['comment']);                echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
+                                                                                                                                                 echo $this->common->make_links($rowdata['comment']);     echo $new_product_comment = $this->common->make_links($rowdata['comment']);                echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
                                                                                                                                                  ?>
                                                    </div>
                                                    <!-- edit box start -->
@@ -1564,7 +1564,7 @@
                    $('.likeusername' + clicked_id).html(data.likeuser);
                    $('.comment_like_count' + clicked_id).html(data.like_user_count);
                    $('.likeduserlist' + clicked_id).hide();
-                   if (data.like_user_count == '0') {
+                   if (data.like_user_total_count == '0') {
                        document.getElementById('likeusername' + clicked_id).style.display = "none";
                    } else {
                        document.getElementById('likeusername' + clicked_id).style.display = "block";
@@ -2610,7 +2610,7 @@
               $('.likeusernameimg' + clicked_id).html(data.likeuser);
               $('.comnt_count_ext_img' + clicked_id).html(data.like_user_count);
                $('.likeduserlistimg' + clicked_id).hide();
-               if (data.like_user_count == '0') {
+               if (data.like_user_total_count == '0') {
                    document.getElementById('likeusernameimg' + clicked_id).style.display = "none";
                } else {
                    document.getElementById('likeusernameimg' + clicked_id).style.display = "block";

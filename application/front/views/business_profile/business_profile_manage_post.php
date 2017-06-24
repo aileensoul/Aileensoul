@@ -2135,7 +2135,7 @@
                             $('.likeusername' + clicked_id).html(data.likeuser);
                             $('.comment_like_count' + clicked_id).html(data.like_user_count);
                             $('.likeduserlist' + clicked_id).hide();
-                            if (data.like_user_count == '0') {
+                            if (data.like_user_total_count == '0') {
                                 document.getElementById('likeusername' + clicked_id).style.display = "none";
                             } else {
                                 document.getElementById('likeusername' + clicked_id).style.display = "block";
