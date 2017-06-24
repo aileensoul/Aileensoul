@@ -1405,10 +1405,8 @@ echo $usrsrch;
                 }  
 
      return  $array=$ret;
-
-
-  }
-  
+}
+ 
   public  function scroll(&$array, $key) {
      $this->load->view('scroll');
   
