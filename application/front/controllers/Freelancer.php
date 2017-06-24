@@ -3784,6 +3784,7 @@ $this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
         );
 
         $update = $this->common->update_data($data, 'freelancer_hire_reg', 'user_id', $id);
+        $update = $this->common->update_data($data, 'freelancer_post', 'user_id', $id);
 
         // if ($update) {
 

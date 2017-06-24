@@ -292,7 +292,7 @@
                  if ($row['designation']) {
                   echo $row['designation'];
                 } else {
-                  echo PROFILENA;
+                  echo "Designation";
                    }
                 ?> </a></li>
        </ul>
@@ -660,7 +660,7 @@ $( "#searchplace" ).autocomplete({
                         function savepopup(id) {
                             save_user(id);
                       
-            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+            $('.biderror .mes').html("<div class='pop_content'>Your Freelancer is successfully saved.");
             $('#bidmodal').modal('show');
                         }
                     </script>
