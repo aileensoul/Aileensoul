@@ -1302,7 +1302,7 @@ $loginuser = $userdata[0]['business_profile_id'];
                                                 <?php if (count($businessmultiimage) == 1) { ?>
 
                                                     <?php
-                                                    $allowed = array('gif', 'png', 'jpg');
+                                                    $allowed = array('gif', 'PNG', 'jpg');
                                                     $allowespdf = array('pdf');
                                                     $allowesvideo = array('mp4', 'webm');
                                                     $allowesaudio = array('mp3');
