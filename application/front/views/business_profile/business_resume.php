@@ -456,14 +456,14 @@
                                                     
                                                
                                                 ?>
-                                                <li><b> City:</b> <span><?php
+                                                <li><b> City</b> <span><?php
                                                         echo
                                                         $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
                                                         ?></span> </li>
                                                         <?php }
                                                          else
                                                          { ?>
-                                                             <li><b> City:</b> <span>
+                                                             <li><b> City</b> <span>
                                                            <?php echo PROFILENA; ?>
                                                 </span> </li>
                                                        <?php  }
@@ -472,7 +472,7 @@
                                                 { 
                                                     if ($businessdata1[0]['city']) {
                                                         ?>
-                                                    <li><b> City:</b> <span><?php
+                                                    <li><b> City</b> <span><?php
                                                         echo
                                                         $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
                                                         ?></span> </li>
