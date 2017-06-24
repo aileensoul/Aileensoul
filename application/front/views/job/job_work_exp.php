@@ -883,7 +883,7 @@ function expyear_change_edittime(){
        $('#btnRemove').removeAttr('disabled', 'disabled');
        $('#input' + newNum + ' .experience_year').val('');
        $('#input' + newNum + ' .experience_month').val('');
-      //   $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
+        $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
    
        $('#input' + newNum + ' .hs-submit').remove();
        $("#input" + newNum + ' img').remove();
@@ -1081,8 +1081,7 @@ $(document).ready(function(){
     $(document).on('change', '#input1 .certificate', function() {
          
         var image =  document.querySelector("#input1 .certificate").value;
-        alert(image);
-       
+     
         if(image != '')
         { 
              var image_ext = image.split('.').pop();
