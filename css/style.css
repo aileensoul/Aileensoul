@@ -5633,7 +5633,7 @@ padding-left: 10px;
     bottom: 11px;
 }
 .comment-edit-butn button {
-    padding: 7.5px 10px 7.5px;
+    padding: 6px 10px;
     border-radius: 3px;
     letter-spacing: 0px;
     /*margin-left: -11px;*/
@@ -8949,7 +8949,7 @@ fieldset .add_post_btns:hover {
     padding-left: 3px;
 }
 .edit-comment-box .comment-edit-button button {
-    padding: 8px 18px 7px;
+    padding: 6px 18px;
     position: absolute;
     bottom: 2px;
 }
