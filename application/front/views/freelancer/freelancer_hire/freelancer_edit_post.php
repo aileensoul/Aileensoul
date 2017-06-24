@@ -536,8 +536,8 @@ $( "#searchplace" ).autocomplete({
 
 function checkvalue(){
    //alert("hi");
-  var searchkeyword=document.getElementById('tags').value;
-  var searchplace=document.getElementById('searchplace').value;
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
   // alert(searchkeyword);
   // alert(searchplace);
   if(searchkeyword == "" && searchplace == ""){
@@ -548,8 +548,8 @@ function checkvalue(){
 
 function checkvalue_search() {
        
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
         
         if (searchkeyword == "" && searchplace == "") 
         {
@@ -566,8 +566,8 @@ function checkvalue_search() {
 //alert(clicked_id);
  
  
-   var searchkeyword = document.getElementById('tags').value;
-    var searchplace = document.getElementById('searchplace').value;
+   var searchkeyword = $.trim(document.getElementById('tags').value);
+    var searchplace = $.trim(document.getElementById('searchplace').value);
     
  
    
@@ -587,7 +587,7 @@ function checkvalue_search() {
   function home(clicked_id,searchkeyword,searchplace) {
   
                         
-      $('.biderror .mes').html("<div class='pop_content'>Do you want to discard your changes??<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+      $('.biderror .mes').html("<div class='pop_content'>Do you want to discard your changes?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
 
  }
