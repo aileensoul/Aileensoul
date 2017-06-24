@@ -1,9 +1,6 @@
-
 <!-- start head -->
 <?php echo $head; ?>
 <!--post save success pop up style strat -->
-
-
 
 <!--post save success pop up style end -->
 
@@ -1369,8 +1366,7 @@
                                                                                     $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                                         ?>
-                                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                        </i> 
+                                                                                        <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                                     <?php } else { ?>
                                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                                                         </i>
@@ -1714,9 +1710,9 @@
                 $('.' + 'likepost' + clicked_id).html(data.like);
                 $('.likeusername' + clicked_id).html(data.likeuser);
                 $('.comment_like_count' + clicked_id).html(data.like_user_count);
-
                 $('.likeduserlist' + clicked_id).hide();
-                if (data.like_user_count == '0') {
+                //alert(data.like_user_total_count);
+                if (data.like_user_total_count == '0') {
                     document.getElementById('likeusername' + clicked_id).style.display = "none";
                 } else {
                     document.getElementById('likeusername' + clicked_id).style.display = "block";

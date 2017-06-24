@@ -598,9 +598,9 @@
                                                       
                                                       if ($activedata) {
                                                           ?>
-                                                   <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
+                                                   <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                    <?php } else { ?>
-                                                   <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                   <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
                                                    <?php } ?>
                                                    <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
                                                       $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
@@ -961,7 +961,7 @@
                                        <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                        <?php } else { ?> 
                                        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                       <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
+                                       <i class="fa fa-thumbs-up fa-1x main_color1" aria-hidden="true"></i>
                                        <?php } ?>
                                        <span class="like_As_count">
                                        <?php
@@ -1262,9 +1262,9 @@
                                              
                                              if (!in_array($userid, $likeuserarray)) {
                                                  ?>
-                                          <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i> 
+                                          <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                           <?php } else { ?>
-                                          <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                          <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                           <?php } ?>
                                           <span>
                                           <?php
@@ -1856,7 +1856,7 @@
    //                alert(data.comment_count);
                $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                //$('#' + 'insertcount' + post_delete.value).html(data.count);
-               $('.comment_count' + post_delete.value).html(data.comment_count);
+               $('.comment_count' + post_delete.value).html(data.comment_count + ' Comment');
                $('.post-design-commnet-box').show();
            }
        });
