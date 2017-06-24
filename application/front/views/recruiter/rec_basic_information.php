@@ -161,8 +161,18 @@
                             }
                         });
                         //select2 autocomplete End for Location
+
+
                     </script>
- --> <script type="text/javascript">
+
+
+ --> 
+ <script type="text/javascript">
+var jquery_validate_min = $.noConflict(true);
+</script>
+
+
+ <script type="text/javascript">
 
             //validation for edit email formate form
 

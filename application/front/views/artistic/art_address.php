@@ -18,6 +18,7 @@
       <section>
         <div class="user-midd-section" id="paddingtop_fixed">
            <div class="common-form1">
+             <div class="row">
              <div class="col-md-3 col-sm-4"></div>
 
 
@@ -38,7 +39,7 @@
                       <div class="col-md-6 col-sm-8"><h3>You are making your Artistic Profile.</h3></div>
                         <?php }?>
             </div>
-         
+         </div>
             <br>
             <div class="container">
                 <div class="row">

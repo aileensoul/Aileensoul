@@ -386,9 +386,23 @@ if($status == 0 || $status == " "){?>
                              <div class="">
                          <div class="follow-li-text ">
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
-                                  <div>
+                                  
+                                                        <?php  if ($user['designation']) { ?>
+                                                           <div>
                                                             <a><?php echo ucwords($user['designation']); ?></a>
                                                         </div>
+                                                       <?php  
+                                                        }
+                                                        else
+                                                        {
+                                                          ?>
+                                                          <div>
+                                                            <a><?php echo "Current Work"; ?></a>
+                                                        </div>
+
+                                                      <?php  }
+                                                        ?>
+                                                       
                             </li>
                               <?php
 

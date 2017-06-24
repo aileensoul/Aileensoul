@@ -1856,7 +1856,7 @@
    //                alert(data.comment_count);
                $('.' + 'insertcomment' + post_delete.value).html(data.comment);
                //$('#' + 'insertcount' + post_delete.value).html(data.count);
-               $('.comment_count' + post_delete.value).html(data.comment_count);
+               $('.comment_count' + post_delete.value).html(data.comment_count + ' Comment');
                $('.post-design-commnet-box').show();
            }
        });

@@ -14,10 +14,10 @@
 <?php
     $returnpage=$_GET['page'];
     if($returnpage == 'freelancer_hire'){
-    echo  $freelancer_hire_header2;  
+    echo  $freelancer_hire_header2_border;  
     }
     else{
-echo $freelancer_post_header2;
+echo $freelancer_post_header2_border;
     }?>
 
 
@@ -99,15 +99,17 @@ echo $freelancer_post_header2;
         </div>
     
 
-<div class="container tablate-container">    
+<div class="container tablate-container art-profile">    
+        <?php if($returnpage == ''){?>
     <div class="upload-img">
 
-        <?php if($returnpage == ''){?>
+    
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
+         </div>
         <?php }?>
-    </div>
+   
 
 
     <div class="profile-photo">
@@ -136,16 +138,47 @@ echo $freelancer_post_header2;
             </div>
  -->
         </div>
-        <div class="profile-main-rec-box-menu  col-md-12 ">
 
-            <div class="left-side-menu col-md-2">  </div>
-            <div class="right-side-menu col-md-6"> 
-                <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                    <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
+   <div class="job-menu-profile mob-block">
+      <a href="javascript:void(0);">   <h5> <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h5></a>
+            <div class="profile-text">
+
+         <?php 
+                if($returnpage == ''){
+            if ($freelancerpostdata[0]['designation'] == "") {
+                
+
+                ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                <a id="designation" class="designation" title="Designation">Current Work</a>
+                
+            <?php }
+             else {
+                 
+                ?> 
+                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+                <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                <?php }} else { echo ucwords($freelancerpostdata[0]['designation']);} ?>
+
+            </div>
+        </div>
+
+  <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+
+                <div class=" right-side-menu art-side-menu padding_less_right  right-menu-jr"> 
+                
+                                <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($freelancerpostdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
+                    <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
                         <?php if($returnpage == 'freelancer_hire'){ ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
-                    </td>
+                    </li>
 
 
         <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
@@ -153,21 +186,16 @@ echo $freelancer_post_header2;
 
 
 
-                        <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
-                        </td>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved Post" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
+                        </li>
 
-                        <td <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied  Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
-                        </td>
+                        <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied  Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
+                        </li>
 
 
 <?php } ?>
-                    </tr>
-                </table>
-            
-                </div>
-            </div>
-            <div class="col-md-3" style="width: 33%;">
-                <div class="flw_msg_btn fr">
+                    </ul>
+                  <div class="flw_msg_btn fr">
                     <ul>
                      
                         <li>
@@ -198,13 +226,13 @@ echo $freelancer_post_header2;
                     </ul>
                 </div>
             </div>
-
+           
         </div>
         
     </div>
 </div>
-<div class="middle-part container">
-        <div class="job-menu-profile1">
+<div class="middle-part container pt20">
+        <div class="job-menu-profile mob-none pt-20">
       <a href="javascript:void(0);">   <h5> <?php echo ucwords($freelancerpostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerpostdata[0]['freelancer_post_username']); ?></h5></a>
             <div class="profile-text">
 
@@ -250,7 +278,7 @@ echo $freelancer_post_header2;
         </div> -->
    
 
-    <div class="col-md-8 col-sm-8 mob-clear">
+    <div class="col-md-8 col-sm-12 col-xs-12 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Freelancer Details  </h3>

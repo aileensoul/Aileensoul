@@ -2563,7 +2563,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
-      // echo "<pre>"; print_r($this->data['recruiterdata']); die();
+     // echo "<pre>"; print_r($this->data['recruiterdata']); die();
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 're_status' => 1);
@@ -2572,12 +2572,12 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         // echo "<pre>"; print_r($this->data['recruiterdata1']); die();
 
 
-         $post_skill = $this->data['recruiterdata'][0]['post_skill'];
-         $post_skill_other = $this->data['recruiterdata'][0]['other_skill'];
-        $postuserarray = explode(',', $post_skill);
-        $postotherarray = explode(',', $post_skill_other);
+        //  $post_skill = $this->data['recruiterdata'][0]['post_skill'];
+        //  $post_skill_other = $this->data['recruiterdata'][0]['other_skill'];
+        // $postuserarray = explode(',', $post_skill);
+        // $postotherarray = explode(',', $post_skill_other);
 
-         // echo "<pre>";print_r($postuserarray);
+         //echo "<pre>";print_r($postotherarray); die();
          // echo "<pre>";print_r($postotherarray);
 
 
@@ -2638,12 +2638,45 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 //echo "<pre>"; print_r($candidate);die();
         
 
+         $contition_array = array('user_id !=' => $userid,'type' => 3);
+
+    
+        $candidate1 = $this->data['candidate1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+
+        //  $post_skill = $this->data['recruiterdata'][0]['post_skill'];
+        //  $post_skill_other = $this->data['recruiterdata'][0]['other_skill'];
+        // $postuserarray = explode(',', $post_skill);
+        // $postotherarray = explode(',', $post_skill_other);
+
+
+          foreach ($candidate1 as $jobcan1) {
+
+            $otherskill1 = explode(',', $jobcan1['skill']);
+
+          //  echo "hi"; echo "<pre>"; print_r($otherskill1);
+  
+            }
+
+             foreach ($recruiterdata as $req) {
+
+            $postotherarray = explode(',', $req['other_skill']);
+
+           // echo "hi"; echo "<pre>"; print_r($otherskill1);
+  
+            }
+            // echo "hello"; echo "<pre>"; print_r($postotherarray);
+
+            // die();
+   
 
         foreach ($candidate as $jobcan) {  
 
             $keyskill = explode(',', $jobcan['keyskill']);
 
-           // echo "<pre>"; print_r($keyskill);
+        
 
              foreach ($keyskill as $key) {
 
@@ -2653,20 +2686,48 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 $name[]=$skillid;
             }
           
-           // echo "<pre>"; print_r($name);
+          
+          // if ($otherskill1 == $postotherarray) {
+          //     echo "<pre>";  echo "match";
 
-            $result = in_array($finalallskill, $name);
+           
+          //  }
+          //  else
+          //  {
+          //     echo "<pre>";  echo "not match";
+          //  }
+     
+           
 
-            // $result1 = strcmp($post_skill_other, $job_skill_other);
-//echo "<pre>"; print_r($result);
+
+         //  echo "hi";  echo "<pre>"; print_r($postotherarray); 
+         // echo "nhello";   echo "<pre>"; print_r($otherskill1); 
 
 
+      // echo "hi"; echo "<pre>";print_r($allskill1);
+
+        // foreach ($allskill1 as $key) {
+        //     foreach ($key as $value) { 
+        //         if($value != ''){
+        //        // echo "ggg";
+        //     $finalallskil2[]=$value;
+        // }
+        //     }
             
+        // }
+
+
+          //  echo "<pre>"; print_r($finalallskil2); 
+
+           // $result = in_array($finalallskill, $finalallskil2);
+           // echo "<pre>"; print_r($result); 
+
+
 
            
       if($result){
 
-       echo "string";
+      // echo "string";
         
 $join_str1 = array(
             array(
@@ -2693,44 +2754,11 @@ $join_str1 = array(
             
          }
 
-//          if($result1 == 0 && $post_skill_other != '' &&  $job_skill_other != ''){
 
-//        //echo "string";
-        
-// $join_str1 = array(
-//             array(
-//                 'join_type' => 'left',
-//                 'table' => 'job_add_edu',
-//                 'join_table_id' => 'job_reg.user_id',
-//                 'from_table_id' => 'job_add_edu.user_id'),
-           
-//              array(
-//                 'join_type' => 'left',
-//                 'table' => 'job_graduation',
-//                 'join_table_id' => 'job_reg.user_id',
-//                 'from_table_id' => 'job_graduation.user_id')
-//         );
-
-//             $contition_array = array('job_reg.user_id' => $jobcan['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
-
-
-//             $jobrec = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
-// //echo "<pre>"; Print_r($jobrec);
-
-
-//             $canloc[] = $jobrec;
-            
-//          }
            
          unset($name);
         }
-     //echo "<pre>"; Print_r($canlocation);die();
-
-
-    // die();   
-
-
-//echo "<pre>"; Print_r($new);die();
+     // die();
 
         $this->data['candidatejob'] = $canlocation;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();

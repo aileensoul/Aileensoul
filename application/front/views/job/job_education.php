@@ -79,7 +79,7 @@
                                     ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
 
                                     <li class="custom-none <?php
-                                    if ($jobdata[0]['job_step'] < '6') {
+                                    if ($jobdata[0]['job_step'] < '5') {
                                         echo "khyati";
                                     }
                                     ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
@@ -519,7 +519,7 @@
                                                 $predefine_data = 1;
                                                 if ($jobgrad) {
                                                     $count = count($jobgrad);
-                                                    //echo"<pre>";print_r($count);die();
+                                                  //  echo"<pre>";print_r($count);die();
                                                     for ($x = 0; $x < $count; $x++) {
 
                                                         $degree1 = $jobgrad[$x]['degree'];
@@ -962,8 +962,18 @@
                 </div>
                 <!-- end of panel -->
 <fieldset class="hs-submit full-width"  style="">
-
-                <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+<?php if( $jobdata || $jobgrad)
+{
+?>
+ <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;"  onclick="next_page_edit()">
+<?php
+}
+else
+{
+    ?>
+ <input type="button" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;margin-right: 0px;" onclick="next_page()">
+ <?php } ?>
+               
 
                                                     </fieldset>
             </div>
@@ -2638,6 +2648,12 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 //for clonedInput length 5 end
 
 }
+
+//edit time next page
+function next_page_edit() {
+    alert("Do you want to leave this page?");
+    window.location = "<?php echo base_url() ?>job/job_project_update";
+    }
 </script>
 
                     <script type="text/javascript">

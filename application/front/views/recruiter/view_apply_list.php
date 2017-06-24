@@ -117,7 +117,7 @@ if ($user_data) {
                                                 
                                                   <div class="profile-job-profile-menu">
                                                    
-                                                        <ul>
+                                                        <ul class="clearfix">
                                                         
 
                                          <li> <b> Skill</b> <span>

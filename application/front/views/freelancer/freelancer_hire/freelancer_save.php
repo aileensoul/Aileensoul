@@ -22,7 +22,7 @@
 
 <!-- END HEAD -->
 <!-- start header -->
-<?php echo $header_border; ?>
+<?php echo $header; ?>
 <!-- END HEADER -->
 <?php echo $freelancer_hire_header2_border; ?>
 
