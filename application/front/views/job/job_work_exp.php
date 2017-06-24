@@ -255,7 +255,11 @@
                                     ?>"   />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                  <?php echo form_error('companyphn'); ?>
                                  <label style="    margin-top: -14px; display: block;">Experience Certificate</label>
-                                 <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                                 <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />
+<div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
+                                 &nbsp;&nbsp;&nbsp; 
+
+              
                                  <?php
                                     if ($work_certificate1) {
                                         ?>
@@ -879,10 +883,12 @@ function expyear_change_edittime(){
        $('#btnRemove').removeAttr('disabled', 'disabled');
        $('#input' + newNum + ' .experience_year').val('');
        $('#input' + newNum + ' .experience_month').val('');
+      //   $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
+   
        $('#input' + newNum + ' .hs-submit').remove();
        $("#input" + newNum + ' img').remove();
        $("#input" + newNum + ' .img_work_exp').remove();
-   
+
        
    });
    
@@ -1069,5 +1075,181 @@ function expyear_change_edittime(){
                                                 }
                                             });
                                         });
+
+//for  Work Experience  certificate start
+$(document).ready(function(){
+    $(document).on('change', '#input1 .certificate', function() {
+         
+        var image =  document.querySelector("#input1 .certificate").value;
+        alert(image);
+       
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input1 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input1 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform1").submit(function(){
+            var text = $('#input1 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+    $(document).on('change', '#input2 .certificate', function() {
+         
+        var image =  document.querySelector("#input2 .certificate").value;
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input2 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input2 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform1").submit(function(){
+            var text = $('#input2 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+
+
+    $(document).on('change', '#input3 .certificate', function() {
+        var image =  document.querySelector("#input3 .certificate").value;
+      
+      
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input3 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input3 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform1").submit(function(){
+            var text = $('#input3 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+   $(document).on('change', '#input4 .certificate', function() {
+         
+        var image =  document.querySelector("#input4 .certificate").value;
+       
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input4 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input4 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform1").submit(function(){
+            var text = $('#input4 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+    $(document).on('change', '#input5 .certificate', function() {
+         
+        var image =  document.querySelector("#input5 .certificate").value;
+      
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input5 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input5 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform1").submit(function(){
+            var text = $('#input5 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+});
+//for Work Experience certificate End
 
 </script>
