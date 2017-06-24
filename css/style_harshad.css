@@ -352,7 +352,7 @@ width: 100%;}
     height: auto;
         }
         .right-menu-jr .flw_msg_btn ul li a{padding-top: 7px !important; padding-bottom: 7px !important;}
-    .right-menu-jr .current-user {display: inline-block; float: none; text-align:center; }
+    .right-menu-jr .current-user {display: inline-block; float: left; text-align:center; }
     .folow-ms {
         width: 100%;
         float: left;
