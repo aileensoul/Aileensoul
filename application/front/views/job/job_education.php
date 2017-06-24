@@ -2650,9 +2650,15 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 
 //edit time next page
 function next_page_edit() {
-    alert("Do you want to leave this page?");
-    window.location = "<?php echo base_url() ?>job/job_project_update";
+
+    if (window.confirm('Do you want to leave this page?'))
+    {
+    
+        window.location = "<?php echo base_url() ?>job/job_project_update";
     }
+}
+   
+  
 </script>
 
                     <script type="text/javascript">
