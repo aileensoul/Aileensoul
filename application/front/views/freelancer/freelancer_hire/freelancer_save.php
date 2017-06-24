@@ -251,7 +251,8 @@
                                         ?> 
                                         <div class="job-contact-frnd ">
                                             <div class="job-contact-frnd">
-                                                <div class="profile-job-post-detail clearfix" id="<?php echo "removeapply" . $rec['save_id'] ?>">
+                                            <div id="<?php echo "removeapply" . $rec['save_id'] ?>">
+                                                <div class="profile-job-post-detail clearfix">
                                                     <div class="profile-job-post-title-inside clearfix">
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-post-location-name-rec">
@@ -435,6 +436,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
                                                 </div>
                                             </div>
 
