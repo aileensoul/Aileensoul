@@ -185,7 +185,7 @@
             </div>
 
         </div>
-        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les mb0">
 
            
             <div class="right-side-menu art-side-menu ml0">
@@ -354,7 +354,22 @@
 
 </div>
 
-
+<div class="text-center tab-block">
+    <div class="container mob-inner-page">
+        <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
+            Photo
+        </a>
+        <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
+            Video
+        </a>
+        <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
+            Audio
+        </a>
+        <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
+            PDf
+        </a>
+    </div>
+</div>
 
 
 <div class="user-midd-section">
