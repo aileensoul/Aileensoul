@@ -9613,7 +9613,7 @@ chat end*/
     overflow-y: scroll;
     height: 438px;
     flex-direction: column-reverse;
-    /*display: flex;*/
+    display: flex !important;
 }
 .chat .chat-history .message-data {
     margin-bottom: 15px;
