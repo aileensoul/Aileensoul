@@ -598,9 +598,12 @@
 
 
                             <?php } else { ?>
-                                Photos Not Available
+
+                             <div class="not_available">  <p>     Photos Not Available </p></div>
 
                             <?php } ?>
+
+                            <div class="dataconphoto"></div>
 
                         </div>
                     </div>
@@ -710,8 +713,13 @@
                                         <?php } ?>
                                     </tr>
                                 <?php } else { ?>
-                                    Video Not Available
+
+
+                                <div class="not_available">  <p>     Video Not Available </p></div>
+
                                 <?php } ?>
+
+                                <div class="dataconvideo"></div>
                             </table>
                         </div>
                     </div>
@@ -818,8 +826,13 @@
                                         <?php } ?>
                                     </tr>
                                 <?php } else { ?>
-                                    Audio Not Available
+
+
+                                 <div class="not_available">  <p>   Audio Not Available </p></div>
+
                                 <?php } ?>
+
+                                <div class="dataconaudio"></div>
                             </table>
 
                         </div>
@@ -889,9 +902,12 @@
 
 
                             <?php } else { ?>
-                                Pdf Not Available
+                                
+                                <div class="not_available">  <p> Pdf Not Available </p></div>
 
                             <?php } ?>
+
+                            <div class="dataconpdf"></div>
 
 
 
@@ -3486,6 +3502,16 @@
                             $('#' + 'removeownpost' + abc).remove();
                             if(data.notcount == 0){
                             $('.' + 'nofoundpost').html(data.notfound);
+
+
+                             $('.' + 'not_available').remove();
+                            $('.' + 'image_profile').remove();
+                            $('.' + 'dataconpdf').html(data.notpdf);
+                            $('.' + 'dataconvideo').html(data.notvideo);
+                            $('.' + 'dataconaudio').html(data.notaudio);
+                            $('.' + 'dataconphoto').html(data.notphoto);
+
+
                             }
 
 

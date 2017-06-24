@@ -1546,12 +1546,22 @@ $datacount = count($otherdata);
                     $notfound .= '<div class="text-center rio">';
                     $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
                     $notfound .= '</div></div>';
+
+                     $notvideo = 'Video Not Available';
+                    $notaudio = 'Audio Not Available';
+                    $notpdf = 'Pdf Not Available';
+                    $notphoto = 'Photo Not Available';
+
                 }
 
                 echo json_encode(
                         array(
                             "notfound" => $notfound,
                             "notcount" => $datacount,
+                            "notvideo" => $notvideo,
+                            "notaudio" => $notaudio,
+                            "notpdf" => $notpdf,
+                            "notphoto" => $notphoto,
                 ));
     }
 
