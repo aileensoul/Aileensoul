@@ -180,8 +180,12 @@
         <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
 
           
-            <div class="right-side-menu art-side-menu">
-                <ul class="current-user">
+            <div class="right-side-menu art-side-menu ml0">
+               <ul class="current-user pro-fw">
+                   
+                   <?php }else{?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
 
                     <?php if (($this->uri->segment(1) == 'artistic') && ($this->uri->segment(2) == 'artistic_profile') && ($this->uri->segment(3) == $this->session->userdata('aileenuser'))) { ?>
 

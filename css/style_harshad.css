@@ -324,6 +324,13 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 767px) {
+    .pro-fw{width: 100%;}
+    .pro-fw li{ width: 20%; }
+    .pro-fw4{width: 100%; border-bottom: 1px solid #d9d9d9;}
+    .pro-fw4 li{width: 25%;}
+
+
+
     .profile-box-art .right-menu-jr ul li a {
     padding-top: 14px !important;
     padding-bottom: 14px !important;
@@ -351,9 +358,6 @@ input[type=number]::-webkit-outer-spin-button {
     .right-menu-jr ul {
         display: block;
         float: left;
-    }
-    .profile-box-art ul li a {
-        padding-top: 14px;
     }
     .add-post-button a {
         font-size: 12px;
@@ -428,6 +432,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 479px) {
+    .pro-fw li a{}
     .remove_tab a::before{height: 2px;}
     .right-side-menu {
         padding-left: 25%;
@@ -451,9 +456,12 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 360px) {
-
+    .profile-box-art .right-side-menu .pro-fw li a{padding-left: 1px !important;
+                padding-right: 1px !important;
+                font-size: 11px;
+                text-align: center;}
     .tabs-left > li > a{font-size: 12px;}
-    .nav > li > a{padding: 10px 8px;}
+    .nav > li > a{padding: 10px 7px;}
     .profile-main-rec-box-menu li a {
         padding: 10px 7px;
     }
