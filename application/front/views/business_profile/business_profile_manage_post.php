@@ -919,10 +919,41 @@
                 <!-- popup start -->
                 <div class="col-md-7 custom-right-business"  >
 
+    <?php 
+
+$userid = $this->session->userdata('aileenuser');
+$other_user = $businessdata1[0]['business_profile_id'];
+$other_user_id = $businessdata1[0]['user_id'];
+
+
+$contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+ $userdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$loginuser = $userdata[0]['business_profile_id'];
+
+ $contition_array = array('follow_type' => 2, 'follow_status' => 1);
+
+ $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') OR (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
+
+ $followperson = $this->common->select_data_by_search('follow', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+
+  $contition_array = array('contact_type' => 2);
+
+ $search_condition = "((contact_from_id  = '$userid' AND contact_to_id = ' $other_user_id') OR (contact_from_id  = '$other_user_id' AND contact_to_id = '$userid'))";
+
+ $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+
+//echo "<pre>"; print_r($contactperson); die();
+ if((count($followperson) == 2) || ($businessdata1[0]['user_id'] == $userid) || (count($contactperson) == 1)){
+?>
+
+
                     <div class="post-editor col-md-12">
                         <div class="main-text-area col-md-12">
                             <div class="popup-img"> 
-                                <?php if ($businessdata1[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                <?php if ($businessdata[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                 <?php } else { ?>
                                     <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                                 <?php } ?>
@@ -939,7 +970,7 @@
 
                     </div>
                 
-
+<?php }?>
                 <!-- The Modal -->
                 <div id="myModal3" class="modal-post">
 
@@ -954,9 +985,9 @@
                             <div class="main-text-area col-md-12"  >
                                 <div class="popup-img-in"> 
                                     <?php
-                                    if ($businessdata1[0]['business_user_image'] != '') {
+                                    if ($businessdata[0]['business_user_image'] != '') {
                                         ?>
-                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>"  alt="">
+                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                         <?php
                                     } else {
                                         ?>
