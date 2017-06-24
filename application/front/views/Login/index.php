@@ -49,7 +49,17 @@
               <h1><span>Welcome to Aileensoul</span></h1>
             </div>
        
-                
+             <?php   if ($this->session->flashdata('error')) 
+               {
+                      echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                }
+                if ($this->session->flashdata('success'))
+                 {
+                         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                }
+
+?>
+      
 
                     <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
                         
@@ -111,7 +121,7 @@
         $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
         echo form_open('profile/forgot_password', $form_attribute);
     ?>
-
+    
       <span class="close">&times;</span>
       <label style="color: #a0b3b0;">Forgot Password</label>
     </div>
