@@ -65,7 +65,7 @@
 <!-- 
                                 <li class="custom-none <?php if($jobdata[0]['job_step'] < '5'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
                                
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '6'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
+                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '5'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
 
                                 <li class="custom-none <?php if($jobdata[0]['job_step'] < '7'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
 
