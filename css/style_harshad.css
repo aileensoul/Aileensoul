@@ -328,8 +328,12 @@ input[type=number]::-webkit-outer-spin-button {
     .pro-fw li{ width: 20%; }
     .pro-fw4{width: 100%; border-bottom: 1px solid #d9d9d9;}
     .pro-fw4 li{width: 25%;}
+        .bpro-fw{width: 100%; border-bottom: 1px solid #d9d9d9;}
+    .bpro-fw li{ width: 20%; }
+    .bpro-fw6{width: 100%; border-bottom: 1px solid #d9d9d9;}
+    .bpro-fw6 li{width: 16.66%;}
 
-
+.circle{top: 21%;}
 
     .profile-box-art .right-menu-jr ul li a {
     padding-top: 14px !important;
