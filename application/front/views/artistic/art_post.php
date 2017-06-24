@@ -841,7 +841,7 @@
                         ?>
                      <?php if (count($artmultiimage) == 1) { ?>
                      <?php
-                        $allowed = array('gif', 'png', 'jpg');
+                        $allowed = array('gif', 'PNG', 'jpg');
                         $allowespdf = array('pdf');
                         $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
                         $allowesaudio = array('mp3');
@@ -2890,7 +2890,7 @@
                var vfirstname = fileInput[0].name;
                var ext = vfirstname.split('.').pop();
                var ext1 = vname.split('.').pop();
-               var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+               var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
                var allowesvideo = ['mp4', 'webm'];
                var allowesaudio = ['mp3'];
                var allowespdf = ['pdf'];
@@ -3014,7 +3014,7 @@
                } else if (foundPresentvideo == false) {
    
                    $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                   $('#bidmodal').modal('show');
+                   $('#post').modal('show');
                    setInterval('window.location.reload()', 10000);
    
                     $( document ).on( 'keydown', function ( e ) {

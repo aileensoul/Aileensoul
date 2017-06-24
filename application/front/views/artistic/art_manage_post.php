@@ -1128,7 +1128,7 @@ $loginuser = $userdata[0]['art_id'];
                                                     <?php if (count($artmultiimage) == 1) { ?>
 
                                                         <?php
-                                                        $allowed = array('gif', 'png', 'jpg');
+                                                        $allowed = array('gif', 'png', 'jpg','PNG');
                                                         $allowespdf = array('pdf');
                                                         $allowesvideo = array('mp4', 'webm');
                                                         $allowesaudio = array('mp3');
@@ -3958,7 +3958,7 @@ function imgval(event) {
                var vfirstname = fileInput[0].name;
                var ext = vfirstname.split('.').pop();
                var ext1 = vname.split('.').pop();
-               var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+               var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'PNG'];
                var allowesvideo = ['mp4', 'webm'];
                var allowesaudio = ['mp3'];
                var allowespdf = ['pdf'];
