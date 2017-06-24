@@ -283,11 +283,11 @@
                                                                             </a></li>
 
                                                                         <li style="display: block;"> <a href="#">
-                                                                                <?php
-                                                                                if ($rec['designation']) {
-                                                                                    echo $rec['designation'];
-                                                                                } else {
-                                                                                    echo PROFILENA;
+                          <?php
+                                          if ($rec['designation']) {
+                                                       echo $rec['designation'];
+                                                   } else {
+                                                          echo "Designation";
                                                                                 }
                                                                                 ?> </a> </li>
 
