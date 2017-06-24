@@ -3504,7 +3504,7 @@ $contition_array = array('user_id' => $userid);
 
 $contition_array = array('user_id' => $id, 'status' => '1');
 $this->data['freelancerdata'] = $freelancerdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-  
+ // echo "<pre>"; print_r($this->data['freelancerdata']);die();
 $this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
  }
 
