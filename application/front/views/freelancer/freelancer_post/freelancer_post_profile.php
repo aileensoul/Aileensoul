@@ -1596,7 +1596,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             //alert(123);
                             save_user(id);
                             //alert(456);
-                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                            $('.biderror .mes').html("<div class='pop_content'>Freelancer is successfully saved.");
                             $('#bidmodal').modal('show');
                         }
                     </script>
