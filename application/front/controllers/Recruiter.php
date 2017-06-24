@@ -2656,7 +2656,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
             $otherskill1 = explode(',', $jobcan1['skill']);
 
-            echo "hi"; echo "<pre>"; print_r($otherskill1);
+          //  echo "hi"; echo "<pre>"; print_r($otherskill1);
   
             }
 
@@ -2667,9 +2667,9 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
            // echo "hi"; echo "<pre>"; print_r($otherskill1);
   
             }
-            echo "hello"; echo "<pre>"; print_r($postotherarray);
+            // echo "hello"; echo "<pre>"; print_r($postotherarray);
 
-            die();
+            // die();
    
 
         foreach ($candidate as $jobcan) {  
@@ -2687,15 +2687,15 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             }
           
           
-          if ($otherskill1 == $postotherarray) {
-              echo "<pre>";  echo "match";
+          // if ($otherskill1 == $postotherarray) {
+          //     echo "<pre>";  echo "match";
 
            
-           }
-           else
-           {
-              echo "<pre>";  echo "not match";
-           }
+          //  }
+          //  else
+          //  {
+          //     echo "<pre>";  echo "not match";
+          //  }
      
            
 
@@ -2758,7 +2758,7 @@ $join_str1 = array(
            
          unset($name);
         }
-     die();
+     // die();
 
         $this->data['candidatejob'] = $canlocation;
         //echo "<pre>"; print_r($this->data['candidatejob']);die();
