@@ -429,19 +429,19 @@
 
 </div>
 
-<div class="container">
-    <div class="text-center tab-block">
+<div class="text-center tab-block">
+    <div class="container mob-inner-page">
         <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
-            <i class="fa fa-camera" aria-hidden="true"></i>
+            Photo
         </a>
         <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
-            <i class="fa fa-video-camera" aria-hidden="true"></i>
+            Video
         </a>
         <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
-            <i class="fa fa-music" aria-hidden="true"></i>
+            Audio
         </a>
         <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
-            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+            PDf
         </a>
     </div>
 </div>
@@ -1091,7 +1091,7 @@
                                             </div>
 
 
-                                            <div class="post-design-name fl col-md-9">
+                                            <div class="post-design-name fl col-md-10">
                                                 <ul>
 
                                                     <?php

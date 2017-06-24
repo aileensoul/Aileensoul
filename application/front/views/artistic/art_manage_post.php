@@ -356,16 +356,16 @@
 
 <div class="text-center tab-block">
     <div class="container mob-inner-page">
-        <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
+       <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>">
             Photo
         </a>
-        <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
+       <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>">
             Video
         </a>
-        <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
+       <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>">
             Audio
         </a>
-        <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
+        <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>">
             PDf
         </a>
     </div>
