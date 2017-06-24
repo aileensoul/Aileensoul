@@ -87,7 +87,9 @@
       </div>
       </div>
       </div>   
-      <div class="container">
+
+
+<div class="container tablate-container art-profile"> 
          <?php
             $userid = $this->session->userdata('aileenuser');
             if ($artisticdata[0]['user_id'] == $userid) {
@@ -114,12 +116,46 @@
                   <?php } ?>
                </div>
             </div>
+
+                   <div class="job-menu-profile mob-block">
+          <a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> 
+          <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5> </a>
+
+
+           <div class="profile-text" >
+
+            <?php
+               if ($artisticdata[0]['designation'] == '') {
+                   ?>
+            <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+            <a id="myBtn">Current work</a>
+            <?php } ?>
+            <?php } else { ?> 
+            <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+            <?php } else { ?>
+            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+            <?php } ?>
+            <?php } ?>
+
+            </div>
+         </div>
             <!-- PICKUP -->
             <!-- menubar -->
-            <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les">
-               <div class="left-side-menu col-md-1">  </div>
-               <div class="right-side-menu col-md-7">
-                  <ul class="">
+        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+
+           
+            <div class="right-side-menu art-side-menu">
+             <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?>     
+               <ul class="current-user">
+                   
+                   <?php }else{?>
+                 <ul>
+                   <?php } ?>
                      <li  class="active" <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
                      </li>
                      <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'artistic_profile') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/artistic_profile/' . $artisticdata[0]['user_id']); ?>"> Details</a>
@@ -135,7 +171,7 @@
                         $userid = $this->session->userdata('aileenuser');
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?>
-                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a style="    padding: 7px 15px;"  href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
+                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/followers'); ?>">Followers  <br> (<?php echo (count($followerdata)); ?>)</a>
                      </li>
                      <?php
                         } else {
@@ -163,12 +199,11 @@
                      </li>
                      <?php } ?>  
                   </ul>
-               </div>
-               <?php
+                    <?php
                   $userid = $this->session->userdata('aileenuser');
                   if ($artisticdata[0]['user_id'] != $userid) {
                       ?>
-               <div class="col-md-2 padding_les" style="width: 24%;">
+           
                   <div class="flw_msg_btn">
                      <ul>
                         <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
@@ -198,15 +233,23 @@
                         </li>
                      </ul>
                   </div>
-               </div>
+              
                <?php
                   }
                   ?>
+               </div>
+             
             </div>
             <!-- pickup -->
          </div>
-         <div class="bui-menu-profile col-md-10">
-            <h4 class="profile-head-text"><a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a></h4>
+         <div class="container art-custom">
+        <div class="job-menu-profile mob-none">
+          <a href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id'] . ''); ?>"> 
+          <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5> </a>
+
+
+           <div class="profile-text" >
+
             <?php
                if ($artisticdata[0]['designation'] == '') {
                    ?>
@@ -220,6 +263,8 @@
             <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
             <?php } ?>
             <?php } ?>
+
+            </div>
          </div>
       </div>
       <div class="container " >
