@@ -814,12 +814,12 @@
                            <span class="show_more ft-13 "><?php echo $text; ?></span>
                         </div>-->
                          
-                         <div id="khyati" style="display:block;">
+                         <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($row['art_description'], 0, 10);
                      echo $small . '...<div id="kkkk" onClick="khdiv(' . $row['art_post_id'] . ')">more</div>' ?>
                    </div>
-                    <div id="khyatii" style="display:none;">
+                    <div id="<?php echo "khyatii" . $row['art_post_id']; ?>" style="display:none;">
                       <?php
                      echo $row['art_description'];
                    ?>
@@ -3357,12 +3357,12 @@
                  //  document.getElementById('editpostdetails' + abc).style.display = 'block';
                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                     document.getElementById('khyati').style.display = 'none';
-                 document.getElementById('khyatii').style.display = 'block';
+                     document.getElementById('khyati' + abc).style.display = 'none';
+                 document.getElementById('khyatii' + abc).style.display = 'block';
                    //alert(data.description);
                    $('#' + 'editpostdata' + abc).html(data.title);
                   // $('#' + 'editpostdetails' + abc).html(data.description);
-                   $('#' + 'khyatii').html(data.description);
+                   $('#' + 'khyatii' + abc).html(data.description);
                  
                }
            });
@@ -3379,7 +3379,7 @@
        //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
        document.getElementById('editpostsubmit' + abc).style.display = 'block';
-       document.getElementById('khyatii').style.display = 'none';
+       document.getElementById('khyatii' + abc).style.display = 'none';
    }
 </script>
 <script type="text/javascript">
@@ -3418,10 +3418,10 @@
                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
                    //alert(data.description);
-                   document.getElementById('khyati').style.display = 'block';
+                   document.getElementById('khyati' + abc).style.display = 'block';
                    $('#' + 'editpostdata' + abc).html(data.title);
                   // $('#' + 'editpostdetails' + abc).html(data.description);
-                   $('#' + 'khyati').html(data.description);
+                   $('#' + 'khyati' + abc).html(data.description);
                  
                }
            });
