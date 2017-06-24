@@ -332,6 +332,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 767px) {
+    .custom-right{margin-top: 30px;}
+       .cameraButton .tooltiptext { font-size: 12px;width: 121px; font-weight: 600; margin-top: 21px;}
+    }
     .profile-box-art .right-side-menu{margin-left: 0px;
     padding-left: 0px !important;
     padding-right: 0px!important;}
@@ -455,6 +458,11 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
+    width: 43%;
+}
+    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{width: 57%;}
+ 
     .padding_job_rs ul li {width: 100%;}
     .padding_job_rs ul li .lction{width: 100%;}
     .profile-pho-bui{height: 50px; width: 50px; margin-top: 12px;}
@@ -533,9 +541,7 @@ text-overflow: ellipsis;}
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {
         font-size: 12px;
     }
-    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
-        width: 32%;
-    }
+
     .job_all_post {
         width: 100%;
         margin-bottom: 10px!important;
