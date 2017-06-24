@@ -746,7 +746,7 @@ $config['bus_bg_original_upload_path'] = 'uploads/business_bg/original/';
 
 // BUSINESS POST 
 $config['bus_post_main_upload_path'] = 'uploads/business_post/main/';
-$config['bus_post_main_allowed_types'] = 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm';
+$config['bus_post_main_allowed_types'] = 'gif|jpeg|jpg|PNG|pdf|mp4|mp3|avi|ogg|3gp|webm';
 $config['bus_post_main_max_size'] = '800000'; //in KB
 $config['bus_post_main_max_width'] = '4500';
 $config['bus_post_main_max_height'] = '3000';

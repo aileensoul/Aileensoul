@@ -561,7 +561,7 @@
                             }
                             ?>
                             <?php
-                            $allowed = array('gif', 'png', 'jpg');
+                            $allowed = array('gif', 'PNG', 'jpg');
 
                             foreach ($multipleimage as $mke => $mval) {
 
@@ -3721,7 +3721,7 @@ $loginuser = $userdata[0]['business_profile_id'];
                             var vfirstname = fileInput[0].name;
                             var ext = vfirstname.split('.').pop();
                             var ext1 = vname.split('.').pop();
-                            var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                            var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
                             var allowesvideo = ['mp4', 'webm'];
                             var allowesaudio = ['mp3'];
                             var allowespdf = ['pdf'];

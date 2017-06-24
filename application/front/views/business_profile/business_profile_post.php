@@ -974,7 +974,7 @@
             ?>
                                                             <?php if (count($businessmultiimage) == 1) { ?>
                                                                 <?php
-                                                                $allowed = array('gif', 'png', 'jpg');
+                                                                $allowed = array('gif', 'PNG', 'jpg');
                                                                 $allowespdf = array('pdf');
                                                                 $allowesvideo = array('mp4', 'webm');
                                                                 $allowesaudio = array('mp3');
@@ -3076,7 +3076,7 @@
             event.preventDefault();
             return false;
 
-        } else {
+        } else { alert("hii");
 
             for (var i = 0; i < fileInput.length; i++)
             {
@@ -3084,14 +3084,18 @@
                 var vfirstname = fileInput[0].name;
                 var ext = vfirstname.split('.').pop();
                 var ext1 = vname.split('.').pop();
-                var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+                var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
                 var allowesvideo = ['mp4', 'webm'];
                 var allowesaudio = ['mp3'];
                 var allowespdf = ['pdf'];
+
                 var foundPresent = $.inArray(ext, allowedExtensions) > -1;
+                alert(foundPresent);
                 var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
                 var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
                 var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
+
+                
                 if (foundPresent == true)
                 {
                     var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
