@@ -335,35 +335,67 @@ function text2link($text) {
                                                                     </span>
                                                                 </li>
                                <li> <b> Skills</b> <span> 
-                               <?php
+<?php
                   $comma = ", ";
                   $k = 0;
-                                                                $aud = $post['post_skill'];
-                                                                $aud_res = explode(',', $aud);
-                                                                foreach ($aud_res as $skill) {
-                                                                    if ($k != 0) {
-                                                                        echo $comma;
-                                                                    }
-                                                                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                 $aud = $post['post_skill'];
+                 $aud_res = explode(',', $aud);
 
-                                                                    if($cache_time){
-                                                                    echo $cache_time;}
-                                                                    else{echo PROFILENA;}
-                                                                    $k++;
-                                                                }
-                                                                ?>     
+                 if(!$post['post_skill']){
+
+                    echo $post['post_other_skill'];
+                 }else if(!$post['post_other_skill']){
+
+                     foreach ($aud_res as $skill) {
+                     if ($k != 0) {
+                            echo $comma;
+                     }
+               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                    echo $cache_time;
+                        $k++;
+                    }
+
+                 }else if($post['post_skill'] && $post['post_other_skill']){
+                 foreach ($aud_res as $skill) {
+                     if ($k != 0) {
+                            echo $comma;
+                     }
+               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                    echo $cache_time;
+                        $k++;
+                    } echo "," . $post['post_other_skill']; }
+            ?>     
+
+                               
+                               <!-- <?php
+                  $comma = ", ";
+                  $k = 0;
+                      $aud = $post['post_skill'];
+                      $aud_res = explode(',', $aud);
+                         foreach ($aud_res as $skill) {
+                                    if ($k != 0) {
+                                            echo $comma;
+                                              }
+                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+
+                                  if($cache_time){
+                              echo $cache_time;}
+                              else{echo PROFILENA;}
+                                  $k++;
+                              }
+                                       ?>     
                               
-                                                                    </span>
-                                                                </li>
+                                  </span>
+                          </li>
 
 
-                                                                <?php if ($post['other_skill']) { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
-                                                                    </li>
-                                                                <?php } else { ?>
-                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
-
-                                                                <li><b>Post Description</b><span><p>
+                       <?php if ($post['other_skill']) { ?>
+                            <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
+                                          </li>
+                              <?php } else { ?>
+                          <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
+ -->
+                              <li><b>Post Description</b><span><p>
                                                                             <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
