@@ -5063,9 +5063,12 @@ $contition_array = array('status' => '1');
             }
             if ($this->data['businessdata'][0]['product_description']) {
 
-                $editpostdes = '<span class="show">';
-                $editpostdes .= $this->common->make_links($businessdata[0]['product_description']) . "<br>";
-                $editpostdes .= '</span>';
+//                $editpostdes = '<span class="show">';
+//                $editpostdes .= $this->common->make_links($businessdata[0]['product_description']) . "<br>";
+//                $editpostdes .= '</span>';
+                
+                 $small = substr($businessdata[0]['product_description'], 0, 180);
+                    $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(' . $_POST["business_profile_post_id"] . ')">more</div>'; 
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
@@ -9846,5 +9849,41 @@ public function update_contact_count(){
         echo $count;
 }
 //contact request count end
+
+    
+      public function edit_more_insert() {
+
+      $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_deleted'=> '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($business_deactive)
+        {
+             redirect('business_profile/');
+        }
+     //if user deactive profile then redirect to business_profile/index untill active profile End
+
+        $post_id = $_POST["business_profile_post_id"];
+        
+            $contition_array = array('business_profile_post_id' => $_POST["business_profile_post_id"], 'status' => '1');
+            $businessdata = $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            //echo "<pre>"; print_r($artdata); die();
+          
+            if ($this->data['businessdata'][0]['product_description']) {
+
+               $editpostdes .= $this->data['businessdata'][0]['product_description'];
+            }
+            //echo $editpost;   echo $editpostdes;
+            echo json_encode(
+                    array(
+                        "description" => $editpostdes
+                    ));
+       
+        
+    }
 
 }

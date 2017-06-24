@@ -5144,7 +5144,7 @@ $datacount = count($otherdata);
 //                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
             
                 
-                   $small = substr($artdata[0]['art_description'], 0, 10);
+                   $small = substr($artdata[0]['art_description'], 0, 180);
                     $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(' . $_POST["art_post_id"] . ')">more</div>'; 
             }
             //echo $editpost;   echo $editpostdes;

@@ -940,14 +940,22 @@
                                                                 </div>
                                                             </div>                    
 
-                                                            <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                <span class="show"> 
-            <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
-            <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8'));  ?>
-                                                                    <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                    <?php // echo  nl2br($new_product_description); ?>
-                                                                </span>
-                                                            </div>
+<!--               khyati chnages sstat 24-6         -->
+                         
+                         <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
+                      <?php
+                     $small = substr($row['product_description'], 0, 180);
+                     echo $small . '...<div id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">more</div>' ?>
+                   </div>
+                    <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
+                      <?php
+                     echo $row['product_description'];
+                   ?>
+                   </div>
+                        <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+                           <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['product_description']; ?></div>
+                        </div>
+                         <!-- khyati changes end 24-6 -->
                                                             <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
                                                                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>                  
@@ -2875,65 +2883,7 @@
     //-->
 </script>
 <!--- khyati change end-->
-<!-- edit post start -->
-<script type="text/javascript">
-    function editpost(abc)
-    {
-        $("#myDropdown" + abc).removeClass('show');
-        document.getElementById('editpostdata' + abc).style.display = 'none';
-        document.getElementById('editpostbox' + abc).style.display = 'block';
-        document.getElementById('editpostdetails' + abc).style.display = 'none';
-        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-        document.getElementById('editpostsubmit' + abc).style.display = 'block';
-    }
-</script>
-<script type="text/javascript">
-    function edit_postinsert(abc)
-    {
-        var editpostname = document.getElementById("editpostname" + abc);
-        //var editpostdetails = document.getElementById("editpostdesc" + abc);
-// start khyati code
-        var $field = $('#editpostdesc' + abc);
-        //var data = $field.val();
-        var editpostdetails = $('#editpostdesc' + abc).html();
-//        editpostdetails = editpostdetails.replaceAll('&', '%26');
-        editpostdetails = editpostdetails.replace(/&/g, "%26");
 
-// end khyati code
-
-
-        // $('#editpostdesc' + abc).html("");
-        if (editpostname.value == '' && editpostdetails == '') {
-            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
-            $('#bidmodal').modal('show');
-
-            document.getElementById('editpostdata' + abc).style.display = 'block';
-            document.getElementById('editpostbox' + abc).style.display = 'none';
-            document.getElementById('editpostdetails' + abc).style.display = 'block';
-            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-
-            document.getElementById('editpostsubmit' + abc).style.display = 'none';
-
-        } else {
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
-                data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
-                dataType: "json",
-                success: function (data) {
-                    document.getElementById('editpostdata' + abc).style.display = 'block';
-                    document.getElementById('editpostbox' + abc).style.display = 'none';
-                    document.getElementById('editpostdetails' + abc).style.display = 'block';
-                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                    $('#' + 'editpostdata' + abc).html(data.title);
-                    $('#' + 'editpostdetails' + abc).html(data.description);
-                }
-            });
-        }
-    }
-</script>
-<!-- edit post end -->
 <!-- savepost start -->
 <script type="text/javascript">
     function save_post(abc)
@@ -3632,3 +3582,97 @@
 
 
 <!-- all popup close close using esc end-->
+
+<!--<khyati chnages 24-4 start-->
+<script type="text/javascript">
+    
+     function khdiv(abc) {
+         
+         $.ajax({
+               type: 'POST',
+               url: '<?php echo base_url() . "business_profile/edit_more_insert" ?>',
+               data: 'business_profile_post_id=' + abc,
+               dataType: "json",
+               success: function (data) {
+   
+                   document.getElementById('editpostdata' + abc).style.display = 'block';
+                   document.getElementById('editpostbox' + abc).style.display = 'none';
+                 //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                   document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                   document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                     document.getElementById('khyati' + abc).style.display = 'none';
+                 document.getElementById('khyatii' + abc).style.display = 'block';
+                   //alert(data.description);
+                   $('#' + 'editpostdata' + abc).html(data.title);
+                  // $('#' + 'editpostdetails' + abc).html(data.description);
+                   $('#' + 'khyatii' + abc).html(data.description);
+                 
+               }
+           });
+   
+   }
+   
+   </script>
+<!-- edit post start -->
+<script type="text/javascript">
+    function editpost(abc)
+    {
+        $("#myDropdown" + abc).removeClass('show');
+        document.getElementById('editpostdata' + abc).style.display = 'none';
+        document.getElementById('editpostbox' + abc).style.display = 'block';
+    //    document.getElementById('editpostdetails' + abc).style.display = 'none';
+        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+         document.getElementById('khyatii' + abc).style.display = 'none';
+    }
+</script>
+<script type="text/javascript">
+    function edit_postinsert(abc)
+    {
+        var editpostname = document.getElementById("editpostname" + abc);
+        //var editpostdetails = document.getElementById("editpostdesc" + abc);
+// start khyati code
+        var $field = $('#editpostdesc' + abc);
+        //var data = $field.val();
+        var editpostdetails = $('#editpostdesc' + abc).html();
+//        editpostdetails = editpostdetails.replaceAll('&', '%26');
+        editpostdetails = editpostdetails.replace(/&/g, "%26");
+
+// end khyati code
+
+
+        // $('#editpostdesc' + abc).html("");
+        if (editpostname.value == '' && editpostdetails == '') {
+            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+            $('#bidmodal').modal('show');
+
+            document.getElementById('editpostdata' + abc).style.display = 'block';
+            document.getElementById('editpostbox' + abc).style.display = 'none';
+         //   document.getElementById('editpostdetails' + abc).style.display = 'block';
+            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+
+            document.getElementById('editpostsubmit' + abc).style.display = 'none';
+
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "business_profile/edit_post_insert" ?>',
+                data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('editpostdata' + abc).style.display = 'block';
+                    document.getElementById('editpostbox' + abc).style.display = 'none';
+                   // document.getElementById('editpostdetails' + abc).style.display = 'block';
+                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                    document.getElementById('khyati' + abc).style.display = 'block';
+                    $('#' + 'editpostdata' + abc).html(data.title);
+                    //$('#' + 'editpostdetails' + abc).html(data.description);
+                    $('#' + 'khyati' + abc).html(data.description);
+                }
+            });
+        }
+    }
+</script>
+<!-- edit post end -->
+

@@ -816,7 +816,7 @@
                          
                          <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
-                     $small = substr($row['art_description'], 0, 10);
+                     $small = substr($row['art_description'], 0, 180);
                      echo $small . '...<div id="kkkk" onClick="khdiv(' . $row['art_post_id'] . ')">more</div>' ?>
                    </div>
                     <div id="<?php echo "khyatii" . $row['art_post_id']; ?>" style="display:none;">
