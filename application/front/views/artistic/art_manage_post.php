@@ -501,6 +501,7 @@
                             <div class="not_available">  <p>    Photos Not Available</p></div>
 
                         <?php } ?>
+                        <div class="dataconphoto"></div>
 
                     </div>
                 </div>
@@ -607,6 +608,7 @@
                             <?php } else { ?>
                                 <div class="not_available">  <p> Video Not Available</p></div>
                             <?php } ?>
+                            <div class="dataconvideo"></div>
                         </table>
 
                     </div>
@@ -716,6 +718,7 @@
                             <?php } else { ?>
                                 <div class="not_available">  <p>  Audio Not Available</p> </div>
                             <?php } ?>
+                            <div class="dataconaudio"></div>
                         </table>
 
                     </div>
@@ -786,6 +789,9 @@
                                 <div class="not_available">  <p>    Pdf Not Available</p>
                                 </div>
                             <?php } ?>
+
+                            <div class="dataconpdf"></div>
+
                         </table>
 
                     </div>
@@ -2030,10 +2036,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     return false;
   }
   // file type code end
-if (size > 4194304)
+if (size > 10485760)
         {
             //show an alert to the user
-            alert("Allowed file size exceeded. (Max. 4 MB)")
+            alert("Allowed file size exceeded. (Max. 10 MB)")
 
             document.getElementById('row1').style.display = "none";
             document.getElementById('row2').style.display = "block";
@@ -3583,6 +3589,13 @@ if (size > 4194304)
                         $('#' + 'removepost' + abc).remove();
                         if(data.notcount == 0){
                             $('.' + 'nofoundpost').html(data.notfound);
+                            $('.' + 'not_available').remove();
+                            $('.' + 'image_profile').remove();
+                            $('.' + 'dataconpdf').html(data.notpdf);
+                            $('.' + 'dataconvideo').html(data.notvideo);
+                            $('.' + 'dataconaudio').html(data.notaudio);
+                            $('.' + 'dataconphoto').html(data.notphoto);
+
                             }
 
 
