@@ -4694,7 +4694,8 @@ border-bottom: 1px solid #000033;
 .profile-company-name a {
     font-size: 18px;
     margin-left: 0px;
-    text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
+    /*text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
+    */
     font-weight: 600;
     color: #1b8ab9;
 }
@@ -12764,6 +12765,14 @@ images css start*/
 .post-design-name ul li .else_post_d{padding-left: 7px;}
 .text-center.tab-block a{font-size: 16px; margin:0px 15px; display: inline-block;}
 .mob-inner-page{background: #fff; border-bottom: 1px solid #d9d9d9; padding-top: 10px; padding-bottom: 10px;}
+#addcontactContainer{top:35px !important;}
+.right_left_box_design .profile-company-name{display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto; color: #1b8ab9;}
+#bidmodal{z-index: 10003;}
 
 
 /***  media query  ***/

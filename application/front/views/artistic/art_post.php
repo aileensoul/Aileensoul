@@ -3430,3 +3430,14 @@
    }
 </script>
 <!--- khyati chnage end 24-6 -->
+
+
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $('.modal-close').on('click', function(){
+        $('#myModal').modal('show');
+    });
+    
+</script>

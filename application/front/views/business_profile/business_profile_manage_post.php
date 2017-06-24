@@ -4429,3 +4429,12 @@ $(document).ready(function(){
 <!-- scroll page script end -->
 
 
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $('.modal-close').on('click', function(){
+        $('#myModal').modal('show');
+    });
+    
+</script>
