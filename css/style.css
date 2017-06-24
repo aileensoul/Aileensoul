@@ -7143,9 +7143,10 @@ li.fr a {
 .user_lst ul li .user_btn button {
     margin-top: 10px;
     border-radius: 3px;
-    width: 100px;
-    padding: 8px 0px;
+    width: auto;
+    padding: 8px 15px;
     margin-bottom: 10px;
+    margin-right: 0;
 }
 .user_lst ul li .user_btn_f button {
     margin-top: 10px;
@@ -7633,7 +7634,8 @@ input:-moz-placeholder {
     opacity: 1;
 }
 .hover-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 .box {
     width: 40%;
@@ -12749,11 +12751,16 @@ images css start*/
     background: #f3f9fb !important;
     border:none !important;
 }
-.ui-autocomplete{ -webkit-box-shadow: 0 0 5px 2px #fff;
-    -moz-box-shadow: 0 0 5px 2px #fff;
-    box-shadow: 0 0 5px 2px #fff;
+.ui-autocomplete{ -webkit-box-shadow: 0 0 5px 2px #ddd;
+    -moz-box-shadow: 0 0 5px 2px #ddd;
+    box-shadow: 0 0 5px 2px #ddd;
     outline: none;}
 .ui-state-focus{margin: 0 !important;}
+
+/***  end search dropdown  ***/
+.mySlides .post-design-commnet-box .cmy_2{width:89%;}
+.post-design-name ul li .else_post_d .post-design-product a{padding-left: 0;}
+.post-design-name ul li .else_post_d{padding-left: 7px;}
 
 
 /***  media query  ***/
@@ -12930,7 +12937,7 @@ images css start*/
     .buisness-menu{padding-top: 0;}
     .profile-pho-bui{position: absolute; left: 0; height: 90px; margin-left: 15px; margin-top: 0; width: 80px; top:15px;}
     .profile-pho-bui .user-pic{height: 82px; width: 72px;}
-    .bui-menu-profile{padding-left: 95px !important;}
+    .bui-menu-profile{padding-left: 110px !important;}
     .profile-main-box-buis-menu li a{padding: 10px 17px 12px !important;}
     .buisness-menu::before{top:114px;}
     .business-profile-right .profile-main-box-buis-menu ul li{padding-right: 2px;}
