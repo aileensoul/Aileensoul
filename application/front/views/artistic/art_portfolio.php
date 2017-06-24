@@ -22,6 +22,7 @@
         
         <div class="user-midd-section" id="paddingtop_fixed">
            <div class="common-form1">
+            <div class="row">
              <div class="col-md-3 col-sm-4"></div>
 
               <?php 
@@ -41,7 +42,7 @@
 
                         <?php }?>
             </div>
-        
+        </div>
             <br>
             <div class="container">
                 <div class="row">

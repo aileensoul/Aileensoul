@@ -40,6 +40,7 @@
         
         <div class="user-midd-section" id="paddingtop_fixed">
           <div class="common-form1">
+             <div class="row">
              <div class="col-md-3 col-sm-4"></div>
 
               <?php 
@@ -59,7 +60,7 @@
 
                         <?php }?>
             </div>
-    
+        </div>
             <br>
             <div class="container">
                 <div class="row">
@@ -114,7 +115,6 @@
                                         <label>Art<span style="color:red">*</span></label>
                                        
                                           <select tabindex="1" autofocus name="skills[]" id ="skils" class="keyskil" multiple="multiple" style="width:100%;">
-                                          <option></option>
                                        <?php foreach ($skill as $ski) { ?>
                                       <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                                     <?php } ?>
@@ -463,24 +463,8 @@ function imgval(){
 
 var complex = <?php echo json_encode($selectdata); ?>;
 
-if(complex != '')
-    { 
-        //alert(789);
-         $("#skils").select2({
-         placeholder: "Select your art",
-         }).select2('val', complex);
-    }
-   if(complex == '')
-    {
-        //alert(123);
-         $("#skils").select2({
-         placeholder: "Select your art",
- 
-        });
-    }
 
-
-//$("#skils").select2().select2('val',complex)
+$("#skils").select2().select2('val',complex)
 
 </script>
 <!-- edit time skill fetch end-->

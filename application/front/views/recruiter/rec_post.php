@@ -237,13 +237,11 @@ if ($returnpage == 'job') {
         <!-- menubar -->    
       
     </div>                       
-</div>
+</div> <div  class="add-post-button mob-block">
             <?php if ($returnpage == '') { ?>
-             <div  class="add-post-button mob-block">
                 <a class="btn btn-3 btn-3b" href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
-                </div>
             <?php } ?>
-        
+        </div>
         <div class="middle-part container rec_res">
     <div class="job-menu-profile mob-none  pt20">
                          <a href="javascript:void(0);" title="<?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?>"><h5><?php echo $postdataone[0]['rec_firstname'] . ' ' . $postdataone[0]['rec_lastname']; ?></h5></a>
@@ -1089,6 +1087,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
 
                             if (numItems == '0') {
+                              alert(123);
                                 var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>";
                                 $('.contact-frnd-post').html(nodataHtml);
                             }

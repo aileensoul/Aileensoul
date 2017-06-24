@@ -118,14 +118,14 @@ class Search extends CI_Controller {
             $join_str[0]['from_table_id'] = 'art_post.user_id';
             $join_str[0]['join_type'] = '';
 
-             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg.art_step' => 4);
+             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg,art_step' => 4);
 
             $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
 
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname,art_reg.art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-           //echo "<pre>"; print_r($artpost); die();
+           // echo "<pre>"; print_r($artpost); die();
             $fullname = explode(" ", $searchskill);
 
             // echo "<pre>"; print_r($fullname) ;
@@ -164,7 +164,7 @@ class Search extends CI_Controller {
             } else {
                //  echo "panalia"; die();
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
-             $contition_array = array('art_reg.user_id !=' => $userid ,'art_reg.art_step' => 4);
+             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg,art_step' => 4);
 
                 // echo $search_condition;
                 $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1403,7 +1403,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             // echo "<pre>"; print_r($fielddata);
             // echo $fielddata[0]['category_id'];
 
-            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'],'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7);
+            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'],'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7,'status' => '1');
 
             $join_str[0]['table'] = 'category';
             $join_str[0]['join_table_id'] = 'category.category_id';
@@ -1516,7 +1516,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             // echo "<pre>"; print_r($fielddata);
             // echo $fielddata[0]['category_id'];
 
-            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'], 'freelancer_post_city' => $cache_time,'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7);
+            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'], 'freelancer_post_city' => $cache_time,'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7,'status' => '1');
 
             $join_str[0]['table'] = 'category';
             $join_str[0]['join_table_id'] = 'category.category_id';

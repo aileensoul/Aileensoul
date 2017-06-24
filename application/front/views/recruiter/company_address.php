@@ -267,6 +267,10 @@
 <!-- script for country,state,city start -->
 
 <script type="text/javascript">
+var jquery_validate_min = $.noConflict(true);
+</script>
+
+<script type="text/javascript">
 $(document).ready(function(){
     $('#country').on('change',function(){ 
         var countryID = $(this).val();
