@@ -684,11 +684,11 @@
                                                             
                                                             if(count($busimagedata) > 0){
                                                             
-                                                            $i = 1;
+                                                           
 
                                                             if(count($busimagedata) > 3){
 
-
+ $i = 1;                                                        $k = 1;
                                                                 foreach ($busimagedata as $image) {
 
                                                                 if ($i <= 2) {
@@ -700,7 +700,7 @@
     <?php } else { ?>
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                         <div class="view_bui"> 
                                                                         
                                                                         <a   id="myBtn">view all</a>
@@ -715,13 +715,17 @@
 
                                                                 <?php
                                                                 } $i++;
+                                                                $k++;
                                                                 if ($i == 4) {
                                                                     break;
                                                                 }
+                                                                
                                                             } 
 
 
                                                             }else{
+                                                                 $i = 1;
+                                                                 $k = 1;
                                                             foreach ($busimagedata as $image) {
 
                                                                 if ($i <= 2) {
@@ -733,7 +737,7 @@
     <?php } else { ?>
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">  
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                         <div class="view_bui"> <a >view all</a></div>
 
 
@@ -745,6 +749,7 @@
 
                                                                 <?php
                                                                 } $i++;
+                                                                $k++;
                                                                 if ($i == 4) {
                                                                     break;
                                                                 }
@@ -769,15 +774,15 @@
          <div>
                                  <?php 
 
-
+                                 $j = 1;
                                     foreach ($busimagedata as $imagemul) {
                                        
                                     ?>
                                     <div class="bui_popup_img"> 
-                
-                 
-                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $imagemul['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">   </div> 
-                                    <?php }?>
+                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $imagemul['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $j; ?>)" class="hover-shadow cursor">   </div> 
+                                    <?php 
+                                    $j++;
+                                    }?>
        
          </div>
         </div>

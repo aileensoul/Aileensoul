@@ -4431,3 +4431,12 @@ jQuery(document).mouseup(function (e) {
  </script>
 
 
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $('.modal-close').on('click', function(){
+        $('#myModal').modal('show');
+    });
+    
+</script>
