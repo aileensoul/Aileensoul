@@ -108,7 +108,7 @@
                                   <fieldset class="full-width">
                                          <label>Duration</label>
 
-                                          <input type="text" name="project_duration" tabindex="2"  id="project_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>"/>
+                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>"/>
                                         
                                   </fieldset>
 
@@ -134,7 +134,7 @@
                                <fieldset class="full-width">
                                          <label>Duration</label>
 
-                                          <input type="text" name="training_duration" tabindex="5"  id="training_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
+                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
                                         
                                   </fieldset>
 
@@ -386,16 +386,16 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
 
                                     },
-                                    project_duration:{
-                                      regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-                                    },
+                                    // project_duration:{
+                                    //   regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
+                                    // },
                                     training_as:{
                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                         regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
-                                    training_duration:{
-                                      regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-                                    },
+                                    // training_duration:{
+                                    //   regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
+                                    // },
                                     training_organization:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
@@ -410,6 +410,20 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
   
         </script>
 
+<!-- disable spacebar js start-->
+<script type='text/javascript'>
+$(window).load(function(){
+$("#project_duration").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
 
+$(window).load(function(){
+$("#training_duration").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
+</script>
+<!-- disable spacebar js end-->
 
     
