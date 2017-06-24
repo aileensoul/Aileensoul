@@ -12514,13 +12514,13 @@ bui_images_view_more a:hover{text-decoration: underline;}
 .profile-main-rec-box-menu td.active{background-color: #fff !important;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
-<<<<<<< HEAD
+
 .common-form span.keyskill_border_active{border:1px solid red!important;}
 .worktype_minheight{/*min-height: 80px;*/}
-=======
+
 .common-form span.keyskill_border_active{border:2px solid red!important;}
 .worktype_minheight{min-height: 50px;}
->>>>>>> 5d4cbd59fec7e86ca2f398faacff1f2ccbd88e33
+
 /*End*/
 
 
@@ -13038,7 +13038,7 @@ images css start*/
     .post-edit-popup .editor-content{width: 76%;}
     .post-edit-popup .popup-text textarea{width: 84%;}
     .comment-name{width: 78%;}
-    .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px !important;}
+    .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px 2px !important;}
    .profile-box-art .right-side-menu li a{/*padding-left: 5px !important; padding-right: 5px !important;*/ font-size: 11px;}
    .job-menu-profile.mob-block{width: 66%;}
 }
