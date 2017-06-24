@@ -211,7 +211,7 @@
                                                 <fieldset class="full-width">
                                                     <h6>Education Certificate:</h6>
                                                     <input  type="file" name="edu_certificate_primary" tabindex="5" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
-<div class="bestofmine_image" style="color:#f00; display: block;"></div>
+<div class="bestofmine_image_primary" style="color:#f00; display: block;"></div>
                                                     <?php
                                                     if ($edu_certificate_primary1) {
                                                         ?>
@@ -330,6 +330,7 @@
                                                 <fieldset class="full-width">
                                                     <h6>Education Certificate:</h6>
                                                     <input type="file" tabindex="6" name="edu_certificate_secondary" id="edu_certificate_secondary" class="edu_certificate_secondary" placeholder="CERTIFICATE" multiple="" />
+<div class="bestofmine_image_secondary" style="color:#f00; display: block;"></div>
 
                                                     <?php
                                                     if ($edu_certificate_secondary1) {
@@ -463,6 +464,8 @@
                                                 <fieldset class="full-width">
                                                     <h6>Education Certificate:</h6>
                                                     <input type="file" name="edu_certificate_higher_secondary" id="edu_certificate_higher_secondary" class="edu_certificate_higher_secondary" placeholder="CERTIFICATE" multiple="" tabindex="6" />
+<div class="bestofmine_image_higher_secondary" style="color:#f00; display: block;"></div>
+
 
                                                     <?php
                                                     if ($edu_certificate_higher_secondary1) {
@@ -699,6 +702,7 @@
                        <fieldset class="full-width"> -->
                       <h6>Education Certificate:</h6>
                    <input style="" type="file" name="certificate[]" id="certificate1" tabindex="7" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
+    <div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
                           <?php
                           if ($edu_certificate1) {
                                 ?>
@@ -912,7 +916,7 @@
                                                          <fieldset class="full-width"> -->
                                                         <h6>Education Certificate:</h6>
                                                         <input type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
-
+<div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
                                                         <?php
                                                         if ($edu_certificate1) {
                                                             ?>
@@ -2762,32 +2766,289 @@ $(window).load(function(){
   //script for click on - change to + End
 
 //script for only jpg png image upload start
-   $(document).ready(function(){
-        $('input[type="file"]').change(function(e){
- var image = document.getElementById("edu_certificate_primary").value;
 
-
-  if(image != ''){ 
-
-      var image_ext = image.split('.').pop();
-      var allowesimage = ['jpg','png','jpeg'];
-      var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
-      if(foundPresentImage == false)
-       {
-              $(".bestofmine_image").html("Please select only Image file.");
-              return false;
-         
-      }
-      else
-      {
-       
-        return true;
-      }
-      }
-      
-});
+//for primary Education certificate start
+$(document).ready(function(){
+    $('#edu_certificate_primary').change(function(e){
+        var image = document.getElementById("edu_certificate_primary").value;
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $(".bestofmine_image_primary").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $(".bestofmine_image_primary").html(" ");
+                return true;
+            }
+        }      
     });
+    $("#jobseeker_regform_primary").submit(function(){
+            var text = $('.bestofmine_image_primary').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+});
+//for primary Education certificate End
+
+//for Secondary Education certificate start
+$(document).ready(function(){
+    $('#edu_certificate_secondary').change(function(e){    
+        var image = document.getElementById("edu_certificate_secondary").value;
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $(".bestofmine_image_secondary").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $(".bestofmine_image_secondary").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform_secondary").submit(function(){
+            var text = $('.bestofmine_image_secondary').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+});
+//for Secondary Education certificate End
+
+//for Higher Secondary Education certificate start
+$(document).ready(function(){
+    $('#edu_certificate_higher_secondary').change(function(e){
+        var image = document.getElementById("edu_certificate_higher_secondary").value;
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $(".bestofmine_image_higher_secondary").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $(".bestofmine_image_higher_secondary").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform_higher_secondary").submit(function(){
+            var text = $('.bestofmine_image_higher_secondary').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+});
+//for Higher Secondary Education certificate End
+
+//for Degree certificate start
+$(document).ready(function(){
+    $(document).on('change', '#input1 .certificate', function() {
+         
+        var image =  document.querySelector("#input1 .certificate").value;
        
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input1 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input1 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform").submit(function(){
+            var text = $('#input1 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+    $(document).on('change', '#input2 .certificate', function() {
+         
+        var image =  document.querySelector("#input2 .certificate").value;
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input2 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input2 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform").submit(function(){
+            var text = $('#input2 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+
+
+    $(document).on('change', '#input3 .certificate', function() {
+        var image =  document.querySelector("#input3 .certificate").value;
+      
+      
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input3 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input3 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform").submit(function(){
+            var text = $('#input3 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+   $(document).on('change', '#input4 .certificate', function() {
+         
+        var image =  document.querySelector("#input4 .certificate").value;
+       
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input4 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input4 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform").submit(function(){
+            var text = $('#input4 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+
+    $(document).on('change', '#input5 .certificate', function() {
+         
+        var image =  document.querySelector("#input5 .certificate").value;
+      
+        if(image != '')
+        { 
+             var image_ext = image.split('.').pop();
+             var allowesimage = ['jpg','png','jpeg','gif','pdf'];
+             var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+            if(foundPresentImage == false)
+            {
+                $("#input5 .bestofmine_image_degree").html("Please select only Image file & Pdf File.");
+                return false;  
+            }
+            else
+            {
+                $("#input5 .bestofmine_image_degree").html(" ");
+                return true;
+            }
+        }      
+    });
+    $("#jobseeker_regform").submit(function(){
+            var text = $('#input5 .bestofmine_image_degree').text();
+            if(text=="Please select only Image file & Pdf File.")
+            {     
+                return false;
+            }
+            else
+            {  
+                return true;
+            }
+
+        });
+});
+//for Degree certificate End
 
 //script for only jpg png image upload start
 </script>
