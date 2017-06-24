@@ -211,7 +211,7 @@
                                                 <fieldset class="full-width">
                                                     <h6>Education Certificate:</h6>
                                                     <input  type="file" name="edu_certificate_primary" tabindex="5" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
-
+<div class="bestofmine_image" style="color:#f00; display: block;"></div>
                                                     <?php
                                                     if ($edu_certificate_primary1) {
                                                         ?>
@@ -2761,7 +2761,35 @@ $(window).load(function(){
 
   //script for click on - change to + End
 
+//script for only jpg png image upload start
+   $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+ var image = document.getElementById("edu_certificate_primary").value;
 
+
+  if(image != ''){ 
+
+      var image_ext = image.split('.').pop();
+      var allowesimage = ['jpg','png','jpeg'];
+      var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+      if(foundPresentImage == false)
+       {
+              $(".bestofmine_image").html("Please select only Image file.");
+              return false;
+         
+      }
+      else
+      {
+       
+        return true;
+      }
+      }
+      
+});
+    });
+       
+
+//script for only jpg png image upload start
 </script>
 
 <style type="text/css">

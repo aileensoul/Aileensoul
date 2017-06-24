@@ -905,7 +905,7 @@ function unfollowuser(clicked_id)
                         function picpopup() {
                             
                       
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>This is not valid file. Please Uplode valid Image File.");
             $('#bidmodal').modal('show');
                         }
                     </script>

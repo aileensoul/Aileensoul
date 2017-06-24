@@ -2065,8 +2065,8 @@
             <script type="text/javascript">
                 function checkvalue() {
                     //alert("hi");
-                    var searchkeyword = document.getElementById('tags').value;
-                    var searchplace = document.getElementById('searchplace').value;
+                    var searchkeyword = $.trim(document.getElementById('tags').value);
+                    var searchplace = $.trim(document.getElementById('searchplace').value);
                     // alert(searchkeyword);
                     // alert(searchplace);
                     if (searchkeyword == "" && searchplace == "") {
@@ -4262,21 +4262,11 @@ jQuery(document).mouseup(function (e) {
 
 // pop up open & close aarati code end
 </script>
- <script>
-    function picpopup() {
-                            
-                      
-     $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
-      $('#bidmodal').modal('show');
-        }
- </script>
-
-
  <!-- popup open when profile pic and cover pic formate wrong -->
 <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>This is not valid file. Please Uplode valid Image File.");
             $('#bidmodal').modal('show');
                         }
       </script>

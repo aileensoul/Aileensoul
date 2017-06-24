@@ -437,30 +437,30 @@ public function check_email() { //echo "hello"; die();
           
 
 
-           $comapremaill[] = $email; 
-         foreach($comapremaill as $key => $value) { 
-             if (strpos($value, $allowedgmail) !== false) {   
+          // $comapremaill[] = $email; 
+         //foreach($comapremaill as $key => $value) { 
+             if (strpos($email, $allowedgmail) !== false) {   
         
                 $usermail = 'https://accounts.google.com/';    
-               }elseif(strpos($value, $allowedyahoo) !== false){
+               }elseif(strpos($email, $allowedyahoo) !== false){
                  $usermail = 'https://login.yahoo.com/';
-               }elseif(strpos($value,$hotmail) !== false){
+               }elseif(strpos($email,$hotmail) !== false){
                  $usermail = 'https://outlook.live.com/';
-               } elseif(strpos($value,$outlook) !== false){
+               } elseif(strpos($email,$outlook) !== false){
                  $usermail = 'https://outlook.live.com/';
-               } elseif(strpos($value,$rediff) !== false){
+               } elseif(strpos($email,$rediff) !== false){
                  $usermail = 'https://mypage.rediff.com/login/';
-               } elseif(strpos($value,$zoho) !== false){
+               } elseif(strpos($email,$zoho) !== false){
                  $usermail = 'https://www.zoho.com/mail/login.html';
-               } elseif(strpos($value,$mail) !== false){
+               } elseif(strpos($email,$mail) !== false){
                  $usermail = 'https://www.mail.com/int/';
-               } elseif(strpos($value,$gmx) !== false || strpos($value,$gmx1) !== false){
+               } elseif(strpos($email,$gmx) !== false || strpos($value,$gmx1) !== false){
                  $usermail = 'https://www.gmx.com/';
-               } elseif(strpos($value,$mailchimp) !== false){
+               } elseif(strpos($email,$mailchimp) !== false){
                  $usermail = 'https://login.mailchimp.com/';
                }
                
-              }
+             // }
               echo $usermail; 
 
           
