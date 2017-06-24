@@ -156,14 +156,14 @@
        <li>
       <a style="  font-size: 19px;
          font-weight: 600;" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>">
-       <?php echo $key['art_name'].' '.$key['art_lastname'];?>
+       <?php echo ucwords($key['art_name']).' '.ucwords($key['art_lastname']);?>
        </a>
       </li>
       
      
          <li style="display: block;">
          <a  class="color-search" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>">
-           <?php if($key['designation']){echo $key['designation'];} else{echo PROFILENA;} ?>
+           <?php if($key['designation']){echo $key['designation'];} else{echo "Current work" ;} ?>
          </a>
 
        </li>
