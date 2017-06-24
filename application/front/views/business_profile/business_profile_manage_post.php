@@ -290,11 +290,18 @@
                     <!-- PICKUP -->
                     <!-- menubar -->
                     <div class="business-data-menu padding_less_right ">
-
-                        
-
-                        <div class="profile-main-box-buis-menu">  
-                            <ul class="">
+  
+                        <div class="profile-main-box-buis-menu ml0">  
+                                   <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($businessdata1[0]['user_id'] == $userid){
+               
+               ?>     
+             <ul class="current-user bpro-fw6">
+                   
+                   <?php }else{?>
+                 <ul class="bpro-fw">
+                   <?php } ?>
 
 
 
@@ -1080,8 +1087,8 @@
                                                             <div class="else_post_d">
                                                                 <div class="post-design-product">
                                                                     <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
-                                                                    <p class="posted_with" > Posted With </p>
-                                                                    <a class="other_name"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
+                                                                    <p class="posted_with" > Posted With</p>
+                                                                    <a class="other_name post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
                                                                    <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div></div></li>
 

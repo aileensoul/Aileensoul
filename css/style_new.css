@@ -195,3 +195,8 @@ label.error::before{
 .profile-box-custom tr:nth-child(4) td span{text-transform: capitalize;}
 .profile-box-custom tr:nth-child(6) td span{text-transform: capitalize;}
 .profile-boxProfileCard tr:nth-child(5) td span{text-transform: :capitalize;}
+
+#jobseeker_regform_higher_secondary .job_education_submitbox{margin-top: 20px;}
+#jobseeker_regform_secondary .job_education_submitbox{margin-top: 20px;}
+.cameraButton .tooltiptext{padding: 13px 0 !important;}
+.cameraButton .tooltiptext_rec{padding: 13px 0 !important}

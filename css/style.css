@@ -8055,7 +8055,7 @@ fieldset .add_post_btns {
     padding: 5px;
 }
 #paddingtop_fixed {
-    padding-top: 62px!important;
+    padding-top: 84px!important;
 }
 #paddingtop_fixed_job {
     padding-top: 80px!important;
@@ -8064,13 +8064,13 @@ fieldset .add_post_btns {
     font-size: 17px;
     font-weight: 600;
     width: 60%;
-<<<<<<< HEAD
+
     word-break: break-word;
     word-wrap: break-word !important;
-=======
+
     word-break: break-word !important;
     word-wrap: break-word;
->>>>>>> 5d4cbd59fec7e86ca2f398faacff1f2ccbd88e33
+
     cursor: default;
     overflow: hidden;
     /*white-space: nowrap;*/
@@ -12684,6 +12684,7 @@ snippet from Animate.css - zoomIn effect
 html{min-height: 100%; position:relative;}
 body{min-height: 100%;}
 .profile-box{max-width: 430px;}
+
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
@@ -12734,11 +12735,25 @@ images css start*/
 .pt0{padding-top: 0;} .pt5{padding-top: 5px;} .pt10{padding-top: 10px;} .pt15{padding-top: 15px;} .pt20{padding-top: 20px;}
 .pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 20px;}
 
+.ml0{margin-left: 0;}
+.mt-22{margin-top: -22px;}
+
 .inner_search{border-top: 1px solid #ddd !important; width: 100%;}
 
 /*** job recruter and freelancer  ***/
 .profile-box-art .right-menu-jr ul li a{padding-top: 15px; padding-bottom: 15px;}
 .profile-box-art .right-menu-jr .flw_msg_btn ul li a{padding-top: 8px; padding-bottom: 8px;}
+
+/***  search dropdown design css  ***/
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: #f3f9fb !important;
+    border:none !important;
+}
+.ui-autocomplete{ -webkit-box-shadow: 0 0 5px 2px #fff;
+    -moz-box-shadow: 0 0 5px 2px #fff;
+    box-shadow: 0 0 5px 2px #fff;
+    outline: none;}
+.ui-state-focus{margin: 0 !important;}
 
 
 /***  media query  ***/
@@ -12911,7 +12926,7 @@ images css start*/
     .post-editor .popup-social-icon ul li i{font-size: 15px; margin: 0 !important;}
     .post-editor .popup-social-icon ul li i:hover{font-size: 15px;}
     .mange_post_image #two_manage_images_art{height: 250px;}
-    .business-profile-right{width: 100%; padding: 15px;}
+    .business-profile-right{width: 100%; padding-top: 15px; padding-left: 0;}
     .buisness-menu{padding-top: 0;}
     .profile-pho-bui{position: absolute; left: 0; height: 90px; margin-left: 15px; margin-top: 0; width: 80px; top:15px;}
     .profile-pho-bui .user-pic{height: 82px; width: 72px;}
@@ -13023,6 +13038,7 @@ images css start*/
     .profile-box-art .right-side-menu li a{font-size: 12px;}
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
+    .notification-data-inside h6{font-size: 12px;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}

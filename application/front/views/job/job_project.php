@@ -356,6 +356,20 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 }, "Only space, only number and only special characters are not allow");
 
 
+$.validator.addMethod("regx2", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+},"space are not allow in the begining");
+
+
                             $("#jobseeker_regform").validate({
 
                                 rules: {
@@ -363,19 +377,28 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                                     project_name:{
 
                                         //required: true,
-                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-
+                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
 
                                     project_description:{
-                                      regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                                      regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+                                       regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
 
                                     },
+                                    project_duration:{
+                                      regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
+                                    },
                                     training_as:{
-                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
+                                    },
+                                    training_duration:{
+                                      regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
                                     training_organization:{
-                                      regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                                      regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
+                                       regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     }
 
 

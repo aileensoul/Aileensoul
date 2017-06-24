@@ -681,6 +681,9 @@
 
 
                                                             <?php
+                                                            
+                                                            if(count($busimagedata) > 0){
+                                                            
                                                             $i = 1;
 
                                                             if(count($busimagedata) > 3){
@@ -746,6 +749,12 @@
                                                                     break;
                                                                 }
                                                             } }
+                                                            }
+                                                            else{
+                                                                ?>
+                                                            <span style="padding: 8px;"><h7>No Image Available<h7></span>
+                                                            <?php
+                                                            }
                                                             ?>
  <div class="modal fade modal_popup" id="myModal" role="dialog" style="z-index: 1003">
     <div class="modal-dialog" style="width: 88%;">
@@ -1364,3 +1373,13 @@ $(document).ready(function(){
   }
 </script>
 
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+   $( document ).on( 'keydown', function ( e ) {
+   if ( e.keyCode === 27 ) {
+       closeModal();
+   }
+   });  
+
+</script>
+<!-- all popup close close using esc end-->

@@ -736,8 +736,7 @@
                                           }
                                     ?>
                                <div class="fr img_remove">
-                        <input  style="padding: 6px 9px 6px;
-    font-size: 14px;" class="job_edu_graduation_submit_btn" tabindex="8" type="Submit"  id="next" name="next" value="Submit">
+                        <input  style="font-size: 14px;" class="job_edu_graduation_submit_btn" tabindex="8" type="Submit"  id="next" name="next" value="Submit">
                         <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
                                     </div>
 

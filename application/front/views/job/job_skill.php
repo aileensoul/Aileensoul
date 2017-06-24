@@ -694,6 +694,12 @@ return e.which !== 32;
     #skils-error{margin-top: -5px;}
     #other_keyskill-error{margin-top: -5px;margin-right: 58px;}
     #other_keyskill-688-error{margin-right: 40px;}
+     #other_keyskill-689-error{margin-right: 40px;}
+      #other_keyskill-690-error{margin-right: 40px;}
+       #other_keyskill-691-error{margin-right: 40px;}
+        #other_keyskill-692-error{margin-right: 40px;}
+         #other_keyskill-693-error{margin-right: 40px;}
+          #other_keyskill-694-error{margin-right: 40px;}
 </style>
 
 

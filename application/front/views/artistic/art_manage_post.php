@@ -188,18 +188,18 @@
         <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
 
            
-            <div class="right-side-menu art-side-menu">
+            <div class="right-side-menu art-side-menu ml0">
                 
                <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+             <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
 
                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> Dashboard</a>
                     </li>
@@ -387,9 +387,11 @@
                                     }
                                     $listFinal = implode(', ', $skill1);
                                     if ($artisticdata[0]['other_skill']) {
-                                        echo $listFinal . ',' . $artisticdata[0]['other_skill'];
-                                    } else {
+                                        echo $artisticdata[0]['other_skill'];
+                                    } else if($listFinal) {
                                         echo $listFinal;
+                                    }else{
+                                        echo $listFinal . ',' . $artisticdata[0]['other_skill']; 
                                     }
                                     ?>   
                                 </td>
