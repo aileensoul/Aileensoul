@@ -295,7 +295,7 @@ select {
     outline: none;
     padding: 8px 15px;
     color: #000;
-    font-size: 14px;
+    font-size: 14px !important;
     font-weight: 400;
     border-radius: 4px;
     width: 100%;
@@ -8065,7 +8065,7 @@ fieldset .add_post_btns {
     font-weight: 600;
     width: 60%;
     word-break: break-word;
-    word-wrap: break-word;
+    word-wrap: break-word !important;
     cursor: default;
     overflow: hidden;
     white-space: nowrap;
@@ -12510,7 +12510,7 @@ bui_images_view_more a:hover{text-decoration: underline;}
 .common-form .job-post-detail {border:none;}
 .common-form .keyskill_border_active ul{border:none !important;}
 .common-form span.keyskill_border_active{border:1px solid red!important;}
-.worktype_minheight{min-height: 80px;}
+.worktype_minheight{/*min-height: 80px;*/}
 /*End*/
 
 
@@ -12882,8 +12882,8 @@ images css start*/
     .tabordion section article{left: 100%;}
     .profile-box{position: relative;}
     .job-menu-profile{width: 100%; padding-bottom: 20px;}
-    #paddingtop_fixed{padding-top: 44px !important;}
-    #paddingtop_fixed_job{padding-top: 44px !important;}
+    #paddingtop_fixed{padding-top: 22px !important;}
+    #paddingtop_fixed_job{padding-top: 22px !important;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
     .buisness-profile-txext{width: 21%;}
