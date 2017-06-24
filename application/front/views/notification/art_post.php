@@ -1001,6 +1001,8 @@
 
                         <?php } ?>
 
+         <div class="nofoundpost">
+          </div>
 
                         
                            
@@ -2484,22 +2486,27 @@
 
                     <script type="text/javascript">
                         function remove_post(abc)
-                        { 
+                         { 
+   
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "artistic/art_delete_post" ?>',
+           dataType: 'json',
+           data: 'art_post_id=' + abc,
+           //alert(data);
+           success: function (data) { 
+   
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
 
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/art_deletepost" ?>',
-                                data: 'art_post_id=' + abc,
-                                //alert(data);
-                                success: function (data) { 
-
-                                    $('#' + 'removepost' + abc).html(data);
-
-
-                                }
-                            });
-
-                        }
+   
+   
+           }
+       });
+   
+   }
                     </script>
 
                     <!-- remove save post end -->
@@ -2517,25 +2524,28 @@
                         }
 
                     </script>
-                    <script type="text/javascript">
-                        function del_particular_userpost(abc)
-                        {
-                            $.ajax({
-                                type: 'POST',
-                                url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
-                                data: 'art_post_id=' + abc,
-                                //alert(data);
-                                success: function (data) {
+<script type="text/javascript">
+function del_particular_userpost(abc)
+   {
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "artistic/del_particular_userpost" ?>',
+           dataType: 'json',
+           data: 'art_post_id=' + abc,
+           //alert(data);
+           success: function (data) {
+   
+               $('#' + 'removepost' + abc).remove();
+               if(data.notcount == 'count'){
+                    $('.' + 'nofoundpost').html(data.notfound);
+                   }
 
-                                    $('#' + 'removepost' + abc).html(data);
-
-
-                                }
-                            });
-
-                        }
-
-                    </script>
+   
+   
+           }
+       });
+   
+   }   </script>
 
                     <!-- remove particular user post end -->
 
