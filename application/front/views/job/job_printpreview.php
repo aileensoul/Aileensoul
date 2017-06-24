@@ -840,7 +840,7 @@ echo $job_header2_border;
                                                 
                                                  if ($job[0]['project_duration']) {
                                                             ?>
-                                                            <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?></span>
+                                                            <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?> month</span>
                                                             </li>
                                                             <?php
                                                         }
@@ -902,7 +902,7 @@ echo $job_header2_border;
                                                 
                                                 if ($job[0]['training_duration']) {
                                                             ?>
-                                                            <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?></span>
+                                                            <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?> month</span>
                                                             </li>
                                                             <?php
                                                         }
@@ -991,7 +991,7 @@ echo $job_header2_border;
                 
                                                  if ($job[0]['project_duration']) {
                                                             ?>
-                                                            <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?></span>
+                                                            <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?> month</span>
                                                             </li>
                                                             <?php
                                                         }
@@ -1065,7 +1065,7 @@ echo $job_header2_border;
 <?php
                                               if ($job[0]['training_duration']) {
                                                             ?>
-                                                            <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?></span>
+                                                            <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?> month</span>
                                                             </li>
                                                             <?php
                                                         }
