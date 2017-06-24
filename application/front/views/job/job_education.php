@@ -177,7 +177,7 @@
                                                     if ($percentage_primary1) {
                                                         echo $percentage_primary1;
                                                     }
-                                                    ?>" />
+                                                    ?>" maxlength="5" />
                                                 </fieldset>  
 
                                                 <fieldset class="full-width">
@@ -211,7 +211,7 @@
                                                 <fieldset class="full-width">
                                                     <h6>Education Certificate:</h6>
                                                     <input  type="file" name="edu_certificate_primary" tabindex="5" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
-
+<div class="bestofmine_image" style="color:#f00; display: block;"></div>
                                                     <?php
                                                     if ($edu_certificate_primary1) {
                                                         ?>
@@ -296,7 +296,7 @@
                                                     if ($percentage_secondary1) {
                                                         echo $percentage_secondary1;
                                                     }
-                                                    ?>" />
+                                                    ?>"  maxlength="5" />
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
@@ -429,7 +429,7 @@
                                                     if ($percentage_higher_secondary1) {
                                                         echo $percentage_higher_secondary1;
                                                     }
-                                                    ?>" />
+                                                    ?>"  maxlength="5" />
                                                 </fieldset>      
 
                                                 <fieldset class="full-width">
@@ -663,7 +663,7 @@
                                      if ($grade1) {
                                      echo $grade1;
                                           }
-                                      ?>">
+                                      ?>" maxlength="3">
                   <?php echo form_error('grade'); ?>
                                   <!--   </fieldset>
                                 <fieldset class="full-width"> -->
@@ -672,7 +672,7 @@
                          if ($percentage1) {
                             echo $percentage1;
                            }
-                           ?>" />
+                           ?>" maxlength="5"/>
                   <?php echo form_error('percentage'); ?>
 
                    <h6>Year Of Passing :<span class="red">*</span></h6>
@@ -1270,7 +1270,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 
                                         required: "Percentage Is Required.",
                                          minlength: "Please Select Percentage Between 1-100 Only",
-                                         maxlength: "Please Select Percentage Between 1-100 Only",
+                                         maxlength: "Please Select Percentage",
                                         
 
                                     },
@@ -1295,7 +1295,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                 param = new RegExp("^(?:" + param + ")$");
               }
               return param.test(value);
-            }, "Please Select Percentage In Proper Format");
+            }, "Please Select Percentage Between 1-100 Only");
   
              //pattern validation at percentage end//
         </script>
@@ -1544,7 +1544,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-}, "This is not allow");
+}, "This is not Proper Format of Grade");
 
                             $("#jobseeker_regform").validate({
 
@@ -1576,11 +1576,10 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                                     },
                                      'grade[]': {
  
-                                        regx:/^[a-zA-Z+-]/
-
-                                    //     required: true,
-                                    //     regx:/^[a-zA-Z+-]/
-
+                                        //regx:/^[A-Za-z+-]*$/
+                                        // regx:/^[A-Za-z{1,2}+-{1}]*$/
+                                        regx:/^(?:[ABCD][+-]?|AB[+-]?|[AW]?F)$/
+                                    
                                      },
                                     'percentage[]': {
 
@@ -1598,7 +1597,6 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
                                         required: true,
                                         
-
                                     },
 
                                 },
@@ -2763,7 +2761,35 @@ $(window).load(function(){
 
   //script for click on - change to + End
 
+//script for only jpg png image upload start
+   $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+ var image = document.getElementById("edu_certificate_primary").value;
 
+
+  if(image != ''){ 
+
+      var image_ext = image.split('.').pop();
+      var allowesimage = ['jpg','png','jpeg'];
+      var foundPresentImage = $.inArray(image_ext, allowesimage) > -1;
+      if(foundPresentImage == false)
+       {
+              $(".bestofmine_image").html("Please select only Image file.");
+              return false;
+         
+      }
+      else
+      {
+       
+        return true;
+      }
+      }
+      
+});
+    });
+       
+
+//script for only jpg png image upload start
 </script>
 
 <style type="text/css">

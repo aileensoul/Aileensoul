@@ -429,9 +429,21 @@
 
 </div>
 
-
-<div class="tab-block">
-    fkjds
+<div class="text-center tab-block">
+    <div class="container mob-inner-page">
+        <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
+            Photo
+        </a>
+        <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
+            Video
+        </a>
+        <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
+            Audio
+        </a>
+        <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
+            PDf
+        </a>
+    </div>
 </div>
 
 
@@ -586,9 +598,12 @@
 
 
                             <?php } else { ?>
-                                Photos Not Available
+
+                             <div class="not_available">  <p>     Photos Not Available </p></div>
 
                             <?php } ?>
+
+                            <div class="dataconphoto"></div>
 
                         </div>
                     </div>
@@ -698,8 +713,13 @@
                                         <?php } ?>
                                     </tr>
                                 <?php } else { ?>
-                                    Video Not Available
+
+
+                                <div class="not_available">  <p>     Video Not Available </p></div>
+
                                 <?php } ?>
+
+                                <div class="dataconvideo"></div>
                             </table>
                         </div>
                     </div>
@@ -806,8 +826,13 @@
                                         <?php } ?>
                                     </tr>
                                 <?php } else { ?>
-                                    Audio Not Available
+
+
+                                 <div class="not_available">  <p>   Audio Not Available </p></div>
+
                                 <?php } ?>
+
+                                <div class="dataconaudio"></div>
                             </table>
 
                         </div>
@@ -877,9 +902,12 @@
 
 
                             <?php } else { ?>
-                                Pdf Not Available
+                                
+                                <div class="not_available">  <p> Pdf Not Available </p></div>
 
                             <?php } ?>
+
+                            <div class="dataconpdf"></div>
 
 
 
@@ -1063,7 +1091,7 @@
                                             </div>
 
 
-                                            <div class="post-design-name fl col-md-9">
+                                            <div class="post-design-name fl col-md-10">
                                                 <ul>
 
                                                     <?php
@@ -2037,8 +2065,8 @@
             <script type="text/javascript">
                 function checkvalue() {
                     //alert("hi");
-                    var searchkeyword = document.getElementById('tags').value;
-                    var searchplace = document.getElementById('searchplace').value;
+                    var searchkeyword = $.trim(document.getElementById('tags').value);
+                    var searchplace = $.trim(document.getElementById('searchplace').value);
                     // alert(searchkeyword);
                     // alert(searchplace);
                     if (searchkeyword == "" && searchplace == "") {
@@ -3474,6 +3502,16 @@
                             $('#' + 'removeownpost' + abc).remove();
                             if(data.notcount == 0){
                             $('.' + 'nofoundpost').html(data.notfound);
+
+
+                             $('.' + 'not_available').remove();
+                            $('.' + 'image_profile').remove();
+                            $('.' + 'dataconpdf').html(data.notpdf);
+                            $('.' + 'dataconvideo').html(data.notvideo);
+                            $('.' + 'dataconaudio').html(data.notaudio);
+                            $('.' + 'dataconphoto').html(data.notphoto);
+
+
                             }
 
 
@@ -4224,21 +4262,11 @@ jQuery(document).mouseup(function (e) {
 
 // pop up open & close aarati code end
 </script>
- <script>
-    function picpopup() {
-                            
-                      
-     $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
-      $('#bidmodal').modal('show');
-        }
- </script>
-
-
  <!-- popup open when profile pic and cover pic formate wrong -->
 <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>This is not valid file. Please Uplode valid Image File.");
             $('#bidmodal').modal('show');
                         }
       </script>
@@ -4370,3 +4398,12 @@ $(document).ready(function(){
 <!-- scroll page script end -->
 
 
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $('.modal-close').on('click', function(){
+        $('#myModal').modal('show');
+    });
+    
+</script>

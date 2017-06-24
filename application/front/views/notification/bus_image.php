@@ -356,7 +356,7 @@
                                     </div>
 
 
-                                    <div class="post-design-name fl col-md-9">
+                                    <div class="post-design-name fl col-md-10">
                                         <ul>
 
 

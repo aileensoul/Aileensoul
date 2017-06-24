@@ -185,7 +185,7 @@
             </div>
 
         </div>
-        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+        <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les mb0">
 
            
             <div class="right-side-menu art-side-menu ml0">
@@ -354,7 +354,22 @@
 
 </div>
 
-
+<div class="text-center tab-block">
+    <div class="container mob-inner-page">
+       <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>">
+            Photo
+        </a>
+       <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>">
+            Video
+        </a>
+       <a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>">
+            Audio
+        </a>
+        <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>">
+            PDf
+        </a>
+    </div>
+</div>
 
 
 <div class="user-midd-section">
@@ -970,7 +985,7 @@ $loginuser = $userdata[0]['art_id'];
                                                 </div>
 
 
-                                                <div class="post-design-name fl col-md-9">
+                                                <div class="post-design-name fl col-md-10">
                                                     <ul>
                                                         <li>
                                                                 <?php
@@ -4416,3 +4431,12 @@ jQuery(document).mouseup(function (e) {
  </script>
 
 
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $('.modal-close').on('click', function(){
+        $('#myModal').modal('show');
+    });
+    
+</script>

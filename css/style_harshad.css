@@ -1,3 +1,9 @@
+.left_iner_img_profile {
+    height: 65px;
+    width: 71px;
+    z-index: 3;
+    position: relative;
+}
 .like_user_list ul {
     margin: 0;
     padding: 0;
@@ -158,6 +164,8 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+.modal-body
+{padding: 0px!important}
 .dropdown-content1 {
     z-index: 15;
 }
@@ -324,6 +332,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 767px) {
+    .custom-right{margin-top: 30px;}
+       .cameraButton .tooltiptext { font-size: 12px;width: 121px; font-weight: 600; margin-top: 21px;}
+    }
     .profile-box-art .right-side-menu{margin-left: 0px;
     padding-left: 0px !important;
     padding-right: 0px!important;}
@@ -331,13 +342,13 @@ input[type=number]::-webkit-outer-spin-button {
     .right-menu-jr .current-user{width: 100%;    }
     .profile-main-box-buis-menu .flw_msg_btn{margin-bottom: 5px!important}
     .pro-fw{width: 100%;}
-    .pro-fw li{ width: 20%; }
+    .pro-fw li{ width: 20% !important; }
     .pro-fw4{width: 100%; border-bottom: 1px solid #d9d9d9;}
-    .pro-fw4 li{width: 25%;}
+    .pro-fw4 li{width: 25% !important;}
         .bpro-fw{width: 100%; border-bottom: 1px solid #d9d9d9;}
-    .bpro-fw li{ width: 20%; }
+    .bpro-fw li{ width: 20% !important; }
     .bpro-fw6{width: 100%; border-bottom: 1px solid #d9d9d9;}
-    .bpro-fw6 li{width: 16.66%;}
+    .bpro-fw6 li{width: 16.66% !important;}
       .bpro-fw6 li a{text-align: center;
 display: inline-block;
 width: 100%;}
@@ -352,7 +363,7 @@ width: 100%;}
     height: auto;
         }
         .right-menu-jr .flw_msg_btn ul li a{padding-top: 7px !important; padding-bottom: 7px !important;}
-    .right-menu-jr .current-user {display: inline-block; float: none; text-align:center; }
+    .right-menu-jr .current-user {display: inline-block; float: left; text-align:center; }
     .folow-ms {
         width: 100%;
         float: left;
@@ -426,7 +437,7 @@ width: 100%;}
         padding: 7px 5px 7px 5px !important;
     }
     .profile-photo .profile-pho {
-        margin-top: -30px !important;
+        margin-top: -41px !important;
     }
     .profile-job-details .post_title {
         width: 50% !important;
@@ -447,6 +458,11 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
+    width: 43%;
+}
+    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{width: 57%;}
+ 
     .padding_job_rs ul li {width: 100%;}
     .padding_job_rs ul li .lction{width: 100%;}
     .profile-pho-bui{height: 50px; width: 50px; margin-top: 12px;}
@@ -525,9 +541,7 @@ text-overflow: ellipsis;}
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {
         font-size: 12px;
     }
-    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
-        width: 30%;
-    }
+
     .job_all_post {
         width: 100%;
         margin-bottom: 10px!important;

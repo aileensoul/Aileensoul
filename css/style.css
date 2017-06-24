@@ -9613,7 +9613,7 @@ chat end*/
     overflow-y: scroll;
     height: 438px;
     flex-direction: column-reverse;
-    /*display: flex;*/
+    display: flex !important;
 }
 .chat .chat-history .message-data {
     margin-bottom: 15px;
@@ -12737,8 +12737,9 @@ images css start*/
 .pt0{padding-top: 0;} .pt5{padding-top: 5px;} .pt10{padding-top: 10px;} .pt15{padding-top: 15px;} .pt20{padding-top: 20px;}
 .pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 20px;}
 
-.ml0{margin-left: 0;}
+.ml0{margin-left: 0;} .mb0{margin-bottom: 0 !important;}
 .mt-22{margin-top: -22px;}
+.tab-block{display: none;}
 
 .inner_search{border-top: 1px solid #ddd !important; width: 100%;}
 
@@ -12761,6 +12762,8 @@ images css start*/
 .mySlides .post-design-commnet-box .cmy_2{width:89%;}
 .post-design-name ul li .else_post_d .post-design-product a{padding-left: 0;}
 .post-design-name ul li .else_post_d{padding-left: 7px;}
+.text-center.tab-block a{font-size: 16px; margin:0px 15px; display: inline-block;}
+.mob-inner-page{background: #fff; border-bottom: 1px solid #d9d9d9; padding-top: 10px; padding-bottom: 10px;}
 
 
 /***  media query  ***/
@@ -12806,6 +12809,7 @@ images css start*/
     #paddingtop_fixed{padding-top: 52px !important;}
 }
 @media screen and (max-width: 991px) {
+    .tab-block{display: block;}
     .md-pl0{padding-left: 0;}
     #padding_dash{padding-top:19px !important;}
     .bg-search .header2{width:750px; margin:0 auto;}

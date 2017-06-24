@@ -5137,11 +5137,15 @@ $datacount = count($otherdata);
                 $editpost .= '</a></div>';
             }
             if ($this->data['artdata'][0]['art_description']) {
-                $com_link = $this->common->make_links($artdata[0]['art_description']);
-                $com_link = substr($com_link, 0, 200);
-                $editpostdes .= '<span class="show">';
-                $editpostdes .= $com_link;
-                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
+//                $com_link = $this->common->make_links($artdata[0]['art_description']);
+//                $com_link = substr($com_link, 0, 200);
+//                $editpostdes .= '<span class="show">';
+//                $editpostdes .= $com_link;
+//                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
+            
+                
+                   $small = substr($artdata[0]['art_description'], 0, 180);
+                    $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(' . $_POST["art_post_id"] . ')">more</div>'; 
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
@@ -7888,4 +7892,45 @@ $datacount = count($otherdata);
     }
 
     // khyati changes end 19-5
+    
+    
+      public function edit_more_insert() {
+
+        $userid = $this->session->userdata('aileenuser');
+
+         //if user deactive profile then redirect to artistic/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $artistic_deactive = $this->data['artistic_deactive'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($artistic_deactive)
+        {
+             redirect('artistic/');
+        }
+     //if user deactive profile then redirect to artistic/index untill active profile End
+
+        $post_id = $_POST["art_post_id"];
+       
+
+       
+      
+
+            $contition_array = array('art_post_id' => $_POST["art_post_id"], 'status' => '1');
+            $artdata = $this->data['artdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            
+            if ($this->data['artdata'][0]['art_description']) {
+//              
+                   
+                    $editpostdes .= $this->data['artdata'][0]['art_description'];
+            }
+            //echo $editpost;   echo $editpostdes;
+            echo json_encode(
+                    array(
+                        "description" => $editpostdes
+                    ));
+        
+    }
+
+    
 }

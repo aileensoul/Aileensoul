@@ -332,7 +332,7 @@
                                  }
                                  ?>
                            </div>
-                           <div class="post-design-name fl col-md-9">
+                           <div class="post-design-name fl col-md-10">
                               <ul>
                                  <?php
                                     $companyname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->company_name;

@@ -157,7 +157,14 @@ echo $freelancer_post_header2_border;
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-                <?php }} else { echo ucwords($freelancerpostdata[0]['designation']);} ?>
+                <?php }
+                } else {
+
+                    if($freelancerpostdata[0]['designation'] == ''){ ?>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
+                       <?php }else{ ?>
+                     <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                   <?php  } } ?>
 
             </div>
         </div>
@@ -250,7 +257,13 @@ echo $freelancer_post_header2_border;
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                 <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-                <?php }} else { echo ucwords($freelancerpostdata[0]['designation']);} ?>
+                <?php }} else {
+                    if($freelancerpostdata[0]['designation'] == ""){ ?>
+                     <a id="designation" class="designation" title="Designation">Current Work</a>
+                    <?php }else{ ?>
+                    <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                    
+                   <?php  }} ?>
 
             </div>
         </div>
@@ -1596,7 +1609,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             //alert(123);
                             save_user(id);
                             //alert(456);
-                            $('.biderror .mes').html("<div class='pop_content'>Your post is successfully saved.");
+                            $('.biderror .mes').html("<div class='pop_content'>Freelancer is successfully saved.");
                             $('#bidmodal').modal('show');
                         }
                     </script>

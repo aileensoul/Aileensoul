@@ -217,6 +217,11 @@
       
     </ul>
       </div>
+
+      <?php 
+        $userid = $this->session->userdata('aileenuser');
+
+        if($key['user_id'] == $userid){}else{?>
       <div class="fl search_button">
         <div class="<?php echo "fruser" . $key['art_id']; ?>">
 <?php  $status  =  $this->db->get_where('follow',array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_to'=>$key['art_id'] ))->row()->follow_status; 
@@ -240,7 +245,7 @@ if($status == 0 || $status == " "){?>
       
          <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $key['user_id']); ?>'"> Message</button>
       </div>
-
+<?php }?>
 
 
      </div>
@@ -342,7 +347,7 @@ if($artuserdata1){
 
 
                                                  </div>
-                                            <div class="post-design-name fl col-md-9">
+                                            <div class="post-design-name fl col-md-10">
                                                 <ul>
                                                     
                                                     <li>

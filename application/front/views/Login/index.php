@@ -58,7 +58,7 @@
                          echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                 }
 
-?>
+         ?>
       
 
                     <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
@@ -113,7 +113,7 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-       <div class="modal-content">
+       <div class="modal-content"  style="    width: 100%;">
     <div class="modal-header" style="    width: 100%;
     text-align: center;">
 

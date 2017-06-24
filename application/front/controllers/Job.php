@@ -847,7 +847,7 @@ $this->load->view('business_profile/temp');
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
-
+            //print_r($imgerror);die();
 
             if ($imgerror == '') {
                // echo "hii"; die();
@@ -893,9 +893,6 @@ $this->load->view('business_profile/temp');
         }
             if ($error) {
               
- 
-
-               
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');

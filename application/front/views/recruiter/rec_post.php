@@ -290,6 +290,7 @@ if ($returnpage == 'job') {
                     $returnpage = $_GET['page'];
                     if ($returnpage == 'job')
                     {
+                      if(count($postdata) != ''){
                     foreach ($postdata as $post) {
                         ?>
                         <div class="job-contact-frnd ">
@@ -488,10 +489,15 @@ if ($returnpage == 'job') {
                             </div>
                         </div>
                         <?php
-                    }
+                    } }else{ ?>
+
+                      <div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>
+                   <?php }
                 }
                 else
                     {
+
+                      if(count($postdata) != ''){
                     foreach ($postdata as $post) {
                         ?>
 
@@ -665,6 +671,11 @@ if ($returnpage == 'job') {
                         </div>
                         <?php
                     }
+                  }else{ ?>
+
+                  <div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>
+
+                <?php  }
                 }
                     ?>
 
@@ -1087,7 +1098,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
 
                             if (numItems == '0') {
-                              alert(123);
+                              
                                 var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>";
                                 $('.contact-frnd-post').html(nodataHtml);
                             }
