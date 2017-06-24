@@ -429,9 +429,21 @@
 
 </div>
 
-
-<div class="tab-block">
-    fkjds
+<div class="container">
+    <div class="text-center tab-block">
+        <a href="<?php echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug']) ?>">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+        </a>
+        <a href="<?php echo base_url('business_profile/business_videos/' . $businessdata1[0]['business_slug']) ?>">
+            <i class="fa fa-video-camera" aria-hidden="true"></i>
+        </a>
+        <a href="<?php echo base_url('business_profile/business_audios/' . $businessdata1[0]['business_slug']) ?>">
+            <i class="fa fa-music" aria-hidden="true"></i>
+        </a>
+        <a href="<?php echo base_url('business_profile/business_pdf/' . $businessdata1[0]['business_slug']) ?>">
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+        </a>
+    </div>
 </div>
 
 

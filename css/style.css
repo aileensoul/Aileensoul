@@ -12739,6 +12739,7 @@ images css start*/
 
 .ml0{margin-left: 0;}
 .mt-22{margin-top: -22px;}
+.tab-block{display: none;}
 
 .inner_search{border-top: 1px solid #ddd !important; width: 100%;}
 
@@ -12761,6 +12762,7 @@ images css start*/
 .mySlides .post-design-commnet-box .cmy_2{width:89%;}
 .post-design-name ul li .else_post_d .post-design-product a{padding-left: 0;}
 .post-design-name ul li .else_post_d{padding-left: 7px;}
+.text-center.tab-block a{font-size: 26px; margin:25px 20px 0; display: inline-block;}
 
 
 /***  media query  ***/
@@ -12806,6 +12808,7 @@ images css start*/
     #paddingtop_fixed{padding-top: 52px !important;}
 }
 @media screen and (max-width: 991px) {
+    .tab-block{display: block;}
     .md-pl0{padding-left: 0;}
     #padding_dash{padding-top:19px !important;}
     .bg-search .header2{width:750px; margin:0 auto;}
