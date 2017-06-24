@@ -1051,7 +1051,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
 
                              <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['user_id']) ?>">
                      <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
                       </a>
                                                     </span>
@@ -1110,7 +1110,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                             if (in_array($ext, $allowespdf)) {?>
                                              <li> <b>Attachment</b><span>
                                             <div class="free_attc">
-                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['freelancer_post_portfolio_attachment']) ?>">
+                      <a href="<?php echo base_url('freelancer/pdf/' . $freelancerpostdata[0]['user_id']) ?>">
                      <img src="<?php echo base_url('images/PDF.jpg') ?>" > 
                       </a>
                                                     </span>
