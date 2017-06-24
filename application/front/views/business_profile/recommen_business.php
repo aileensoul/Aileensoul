@@ -883,7 +883,7 @@
                                                                                                         <span role="presentation" aria-hidden="true"> · 
                                                                                                         </span>
                                                                                                         <div class="comment-details-menu">
-                                                                                                            <input type="hidden" name="post_delete"  id="post_delete" value= "<?php echo $pdata['business_profile_post_id']; ?>">
+                                                                                                            <input type="hidden" name="post_delete"  id="post_delete<?php echo $pdata['business_profile_post_comment_id']; ?>" value= "<?php echo $pdata['business_profile_post_id']; ?>">
                                                                                                             <a id="<?php echo $pdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
                                                                                                                 <span class="<?php echo 'insertcomment' . $pdata['business_profile_post_comment_id']; ?>">
                                                                                                                 </span>
@@ -1323,6 +1323,7 @@
 //                               $('#' + 'insertcount' + clicked_id).html(data.count);
 //                               $('.insertcomment' + clicked_id).html(data.comment);
                             $('.insertcomment' + clicked_id).html(data.comment);
+                            //$('.comment_count' + clicked_id).html(data.comment_count);
                             $('.comment_count' + clicked_id).html(data.comment_count);
 
                         }
@@ -1341,6 +1342,7 @@
                             //$('#' + 'fourcomment' + clicked_id).html(data);
                             $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('#' + 'fourcomment' + clicked_id).html(data.comment);
+                            $('.' + 'comment_count' + clicked_id).html(data.comment_count);
 
                         }
                     });
@@ -1435,7 +1437,8 @@
 
     function comment_deleted(clicked_id)
     {
-        var post_delete = document.getElementById("post_delete");
+//        var post_delete = document.getElementById("post_delete");
+        var post_delete = document.getElementById("post_delete" + clicked_id);
         //alert(post_delete.value);
         $.ajax({
             type: 'POST',
@@ -1445,7 +1448,11 @@
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcomment' + post_delete.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete.value).html(data.count);
+                //$('#' + 'insertcount' + post_delete.value).html(data.count);
+//                alert('.' + 'comment_count' + clicked_id);
+//                alert(data.comment_count);
+//                
+                $('.' + 'comment_count' + post_delete.value).html(data.comment_count);
                 $('.post-design-commnet-box').show();
             }
         });
@@ -1460,7 +1467,7 @@
 
     function comment_deletedtwo(clicked_id)
     {
-        var post_delete1 = document.getElementById("post_deletetwo");
+        var post_delete1 = document.getElementById("post_deletetwo" + clicked_id);
         //alert(post_delete.value);
         $.ajax({
             type: 'POST',
@@ -1470,7 +1477,8 @@
             success: function (data) {
                 //alert('.' + 'insertcomment' + clicked_id);
                 $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
-                $('#' + 'insertcount' + post_delete1.value).html(data.count);
+                //$('#' + 'insertcount' + post_delete1.value).html(data.count);
+                $('.comment_count' + post_delete1.value).html(data.total_comment_count + ' <span> Comment</span>');
                 $('.post-design-commnet-box').show();
             }
         });

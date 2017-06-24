@@ -274,7 +274,19 @@
                         
 
                         <div class="profile-main-box-buis-menu">  
-                            <ul class="">
+                         
+                       
+                        <div class="profile-main-box-buis-menu ml0">  
+                                   <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($businessdata1[0]['user_id'] == $userid){
+               
+               ?>     
+             <ul class="current-user bpro-fw6">
+                   
+                   <?php }else{?>
+                 <ul class="bpro-fw">
+                   <?php } ?>
 
  <li <?php if($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post'){?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post/'.$businessdata[0]['business_slug']); ?>">Dashboard</a>
                                     </li>

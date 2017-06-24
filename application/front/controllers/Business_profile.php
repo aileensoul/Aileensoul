@@ -4173,7 +4173,7 @@ $contition_array = array('status' => '1');
 
 
                     $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                    $cmtinsert .= 'id="post_deletetwo"';
+                    $cmtinsert .= 'id="post_deletetwo' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                     $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
@@ -4207,7 +4207,8 @@ $contition_array = array('status' => '1');
         echo json_encode(
                 array("comment" => $cmtinsert,
                     "count" => $cmtcount,
-                    "comment_count" => $cntinsert
+                    "comment_count" => $cntinsert,
+                    "total_comment_count" => count($businessprofiledata),
                     ));
     }
 
@@ -4849,7 +4850,7 @@ $contition_array = array('status' => '1');
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
@@ -7679,7 +7680,7 @@ $contition_array = array('status' => '1');
                     $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $fourdata .= '<div class="comment-details-menu">';
                     $fourdata .= '<input type="hidden" name="post_delete"';
-                    $fourdata .= 'id="post_deletetwo"; value= "' . $rowdata['business_profile_post_id'] . '">';
+                    $fourdata .= 'id="post_deletetwo' . $rowdata['business_profile_post_comment_id'] . '"; value= "' . $rowdata['business_profile_post_id'] . '">';
                     $fourdata .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '"onClick="comment_deletetwo(this.id)"> Delete<span class="insertcommenttwo' . $rowdata['business_profile_post_comment_id'] . '"></span></a></div>';
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -7912,7 +7913,7 @@ $contition_array = array('status' => '1');
                     $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
                     $fourdata .= '<div class="comment-details-menu">';
                     $fourdata .= '<input type="hidden" name="post_delete"';
-                    $fourdata .= 'id="post_deletetwo"; value= "' . $rowdata['business_profile_post_id'] . '">';
+                    $fourdata .= 'id="post_deletetwo' . $rowdata['business_profile_post_comment_id'] . '"; value= "' . $rowdata['business_profile_post_id'] . '">';
                     $fourdata .= '<a id="' . $rowdata['business_profile_post_comment_id'] . '"onClick="comment_deletetwo(this.id)"> Delete<span class="insertcommenttwo' . $rowdata['business_profile_post_comment_id'] . '"></span></a></div>';
                 }
                 $fourdata .= '<span role="presentation" aria-hidden="true"> · </span>';
@@ -8368,7 +8369,7 @@ $contition_array = array('status' => '1');
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                $cmtinsert .= 'id="post_deletetwo"';
+                $cmtinsert .= 'id="post_deletetwo' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                 $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';
@@ -8812,7 +8813,7 @@ $contition_array = array('status' => '1');
 
 
                     $cmtinsert .= '<input type="hidden" name="post_deletetwo"';
-                    $cmtinsert .= 'id="post_deletetwo"';
+                    $cmtinsert .= 'id="post_deletetwo' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'value= "' . $business_profile['business_profile_post_id'] . '">';
                     $cmtinsert .= '<a id="' . $business_profile['business_profile_post_comment_id'] . '"';
                     $cmtinsert .= 'onClick="comment_deletetwo(this.id)">';

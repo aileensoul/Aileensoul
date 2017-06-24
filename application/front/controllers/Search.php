@@ -118,7 +118,7 @@ class Search extends CI_Controller {
             $join_str[0]['from_table_id'] = 'art_post.user_id';
             $join_str[0]['join_type'] = '';
 
-             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg,art_step' => 4);
+             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg.art_step' => 4);
 
             $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
@@ -164,7 +164,7 @@ class Search extends CI_Controller {
             } else {
                //  echo "panalia"; die();
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
-             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg,art_step' => 4);
+             $contition_array = array('art_reg.user_id !=' => $userid ,'art_reg.art_step' => 4);
 
                 // echo $search_condition;
                 $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

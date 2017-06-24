@@ -547,7 +547,7 @@ echo $job_header2_border;
                                                     <li> <b>School </b><span> <?php echo $job_edu[0]['school_primary']; ?></span>
                                                     </li>
 
-                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_primary']; ?></span>
+                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_primary']; ?>%</span>
                                                     </li>
 
                                                     <li> <b>Year of Passing </b><span> <?php echo $job_edu[0]['pass_year_primary']; ?></span>
@@ -589,7 +589,7 @@ echo $job_header2_border;
                                                     <li> <b>School </b><span> <?php echo $job_edu[0]['school_secondary']; ?></span>
                                                     </li>
 
-                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_secondary']; ?></span>
+                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_secondary']; ?>%</span>
                                                     </li>
 
                                                     <li> <b>Year of Passing </b><span> <?php echo $job_edu[0]['pass_year_secondary']; ?></span>
@@ -623,7 +623,7 @@ echo $job_header2_border;
                                                     <li> <b>School </b><span> <?php echo $job_edu[0]['school_higher_secondary']; ?></span>
                                                     </li>
 
-                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_higher_secondary']; ?></span>
+                                                    <li> <b>Percentage </b><span> <?php echo $job_edu[0]['percentage_higher_secondary']; ?>%</span>
                                                     </li>
 
                                                     <li> <b>Year of Passing </b><span> <?php echo $job_edu[0]['pass_year_higher_secondary']; ?></span>
@@ -731,7 +731,7 @@ echo $job_header2_border;
                                             ?>
 
 
-                                                        <li> <b>Percentage </b><span><?php echo $graduation['percentage']; ?></span>
+                                                        <li> <b>Percentage </b><span><?php echo $graduation['percentage'];?>%</span>
                                                         </li>
 
                                                         <li> <b>Year Of Passing </b><span><?php echo $graduation['pass_year']; ?></span>
@@ -744,8 +744,12 @@ echo $job_header2_border;
                                                             ?>
                                                            
                                                             
-                                                            <li><b>Education Certificate </b> <span>
-      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path') . $graduation['edu_certificate']) ?>" data-lightbox="example-1">certificate<?php echo $i; ?></a>
+                                                            <li><b>Education Certificate <?php 
+
+                                                         
+                                                          
+                                                             ?> </b> <span>
+      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$graduation['edu_certificate'])?>" data-lightbox="example-1">certificate <?php echo $new; ?></a>
                                                               </span></li>
 
                                                             <?php
@@ -1425,7 +1429,7 @@ echo $job_header2_border;
                                                                   
                                                               
                                                               <li><b>Experience Certificate </b> <span>
-      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate<?php echo $i; ?></a>
+      <a class="example-image-link" href="<?php echo base_url($this->config->item('job_work_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate<?php echo $i; ?></a>
                                                               </span></li>
 
                                                                 <?php
@@ -2367,4 +2371,6 @@ $(document).ready(function(){
 
 });
 //For Scroll page at perticular position js End
+
+
 </script>              
