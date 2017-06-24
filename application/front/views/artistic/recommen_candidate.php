@@ -138,7 +138,16 @@
      <div class="profile-job-post-location-name-rec">
           <div class="module_Ssearch" style="display: inline-block; float: left;">
              <div class="search_img">
+
+                <?php if($key['art_user_image']){?>
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt=" ">
+               <?php }else{?>
+                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+                                       echo ucwords($key['art_name']);
+                                       echo"&nbsp;";
+                                       echo ucwords($key['art_lastname']);
+                                       ?>">
+                                       <?php }?>
                         </div>
        </div>
    
@@ -186,7 +195,23 @@
          <?php $country = $this->db->get_where('countries', array('country_id' => $key['art_country']))->row()->country_name;
          $city = $this->db->get_where('cities', array('city_id' => $key['art_city']))->row()->city_name;
          ?>
-         <?php echo $country.",".$city; ?>
+         <?php
+
+         if(!$country){
+
+          echo $city;
+
+
+         }else if(!$city){
+
+          echo $country;
+
+
+         }else{
+          echo $city.",".$country;
+         }
+
+           ?>
          </a>
        </li>
       
@@ -303,8 +328,20 @@ if($artuserdata1){
                                                         </div>
                                                     </div>
                                                 </div>
-                                                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
-                                                                                                </div>
+
+                                                <?php if($key['art_user_image']){?>
+                                                   <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
+
+                                                   <?php }else{?>
+                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+                                       echo ucwords($key['art_name']);
+                                       echo"&nbsp;";
+                                       echo ucwords($key['art_lastname']);
+                                       ?>">
+                                          <?php }?>
+
+
+                                                 </div>
                                             <div class="post-design-name fl col-md-9">
                                                 <ul>
                                                     
