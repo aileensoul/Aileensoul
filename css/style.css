@@ -12684,6 +12684,7 @@ snippet from Animate.css - zoomIn effect
 html{min-height: 100%; position:relative;}
 body{min-height: 100%;}
 .profile-box{max-width: 430px;}
+
 /***  business and art harshad  ***/
 .editor-content{width:90%; float: left;}
 .popup-text textarea{width: 91%;}
@@ -12735,6 +12736,7 @@ images css start*/
 .pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 20px;}
 
 .ml0{margin-left: 0;}
+.mt-22{margin-top: -22px;}
 
 .inner_search{border-top: 1px solid #ddd !important; width: 100%;}
 
@@ -13025,6 +13027,7 @@ images css start*/
     .profile-box-art .right-side-menu li a{font-size: 12px;}
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
+    .notification-data-inside h6{font-size: 12px;}
 }
 @media screen and (max-width: 360px) {
     .logo{padding:4px 0;}
