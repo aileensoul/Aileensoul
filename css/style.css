@@ -12744,6 +12744,12 @@ images css start*/
 .profile-box-art .right-menu-jr ul li a{padding-top: 15px; padding-bottom: 15px;}
 .profile-box-art .right-menu-jr .flw_msg_btn ul li a{padding-top: 8px; padding-bottom: 8px;}
 
+/***  search dropdown design css  ***/
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: #f3f9fb !important;
+    border:none !important;
+}
+
 
 /***  media query  ***/
 @media (min-width: 1400px) { 
