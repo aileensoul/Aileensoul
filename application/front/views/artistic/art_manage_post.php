@@ -797,6 +797,26 @@
             <!-- popup start -->
             <div class="col-md-7 col-sm-12 "  >
 
+<?php 
+
+$userid = $this->session->userdata('aileenuser');
+$other_user = $artisticdata[0]['art_id'];
+
+$contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+ $userdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+$loginuser = $userdata[0]['art_id'];
+
+ $contition_array = array('follow_type' => 1, 'follow_status' => 1);
+
+ $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') OR (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
+
+ $contactperson = $this->common->select_data_by_search('follow', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+//echo "<pre>"; print_r($contactperson); die();
+ if((count($contactperson) == 2) || ($artisticdata[0]['user_id'] == $userid)){
+?>
+
                 <div class="post-editor col-md-12">
                     <div class="main-text-area col-md-12" style="padding-left: 1px;">
                         <div class="popup-img"> 
@@ -827,7 +847,7 @@
 
                 </div>
            
-
+<?php }?>
             <!-- The Modal -->
             <div id="myModal3" class="modal-post">
 
