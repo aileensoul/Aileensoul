@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php } ?>
             <div class="about">
                    <div class="name"> 
-                              <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . "<br>"; ?></a> </div>
+                              <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
      <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                     <?php echo $user['message']; ?>
                                             </div>
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
                                             <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" id="status_user">
 
                                             </div>
@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } ?>
                                                 <div class="about">
                                                     <div class="name"> 
-                                                             <?php echo $user['first_name'] . "<br>"; ?></div>
+                                                             <?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                         <?php echo $user['message']; ?>
                                                     </div>
