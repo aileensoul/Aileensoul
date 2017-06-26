@@ -216,3 +216,9 @@ label.error::before{
 .four-image img{border:1px solid #d9d9d9;}
 .one-image img{border:1px solid #d9d9d9;}
 .slider_img img{border:1px solid #d9d9d9;}
+.like_user_list_img img{border:1px solid #d9d9d9;}
+
+
+.column1{margin-bottom: 6px;}
+.profile-job-post-detail .profile-job-post-title .button{padding: 3px 13px !important;}
+.apply-btn a{padding: 3px 13px;}

@@ -95,9 +95,9 @@
                               <h3>Project And Training / Internship</h3>
                              <?php echo form_open(base_url('job/job_project_insert'), array('id' => 'jobseeker_regform','name' => 'jobseeker_regform','class'=>'clearfix')); ?>
 
-                          <div class="job_add_head">
-                                <span>Project</span>
-                            </div>
+                         <div class="text-center">
+      <h5 class="head_title">Project</h5>
+  </div>
                                 <fieldset class="full-width">
                                          <label>Project Name (Title):</label>
 
@@ -120,9 +120,11 @@
                                   </fieldset>
 
 
-                            <center><div class="job_add_head_pro">
-                                <span>Training / Internship</span>
-                            </div></center>
+ <div class="text-center">
+      <h5 class="head_title">Training / Internship</h5>
+  </div>
+                                
+
 
                              <fieldset class="full-width">
                                          <label>Intern / Trainee as</label>

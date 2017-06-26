@@ -136,7 +136,10 @@
         <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
                    
 
-                                <div class="job_add_head"><span >Present Address</span></div>
+                             
+                                <div class="text-center">
+      <h5 class="head_title">Present Address</h5>
+  </div>
 
                                 <?php
                                 $country = form_error('country');
@@ -270,7 +273,9 @@
                                 <fieldset class="hs-submit full-width">
                                 <input type="button" class="job_address_btn"  tabindex="6" value="copy" onClick="copy()"/>
                                 </fieldset>
-                                <div class="job_add_head"><span>Permenant Address</span></div>
+                                <div class="text-center">
+      <h5 class="head_title">Permenant Address</h5>
+  </div>
 
                                 <fieldset <?php if ($country_permenant) { ?> class="error-msg" <?php } ?>>
                                     <label>Country<span class="red">*</span></label>
