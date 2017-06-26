@@ -259,6 +259,19 @@ $( "#searchplace" ).autocomplete({
 
     //validation for edit email formate form
 
+    $.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "upto 8 digit number allow");
+
     $(document).ready(function () {
 
         $("#freelancer_post_rate").validate({
@@ -268,6 +281,7 @@ $( "#searchplace" ).autocomplete({
                 hourly: {
 
                     number: true,
+                    regx1:/^.{0,8}$/
 
                 },
 

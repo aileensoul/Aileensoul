@@ -51,7 +51,7 @@ class Dashboard extends MY_Controller {
               $picture = '';
               }
              */
-
+            
             $user_image = '';
             $user['upload_path'] = $this->config->item('user_main_upload_path');
             $user['allowed_types'] = $this->config->item('user_main_allowed_types');
@@ -65,6 +65,9 @@ class Dashboard extends MY_Controller {
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
+//            echo '<pre>';
+//            print_r($imgerror);
+//            exit();
             if ($imgerror == '') {
                 //Configuring Thumbnail 
                 $user_thumb['image_library'] = 'gd2';

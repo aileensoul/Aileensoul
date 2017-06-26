@@ -5143,10 +5143,14 @@ $datacount = count($otherdata);
 //                $editpostdes .= $com_link;
 //                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
             
+                $small = substr($artdata[0]['art_description'], 0, 180);
+                    $editpostdes .= $small;
+                    if(strlen($artdata[0]['art_description']) >180){
+                        $editpostdes .= '...<span id="kkkk" onClick="khdiv(' . $_POST["art_post_id"] . ')">View More</div>'; 
+                    }
+
                 
-                   $small = substr($artdata[0]['art_description'], 0, 180);
-                    $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(' . $_POST["art_post_id"] . ')">more</div>'; 
-            }
+                }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
                     array("title" => $editpost,
@@ -7596,7 +7600,15 @@ $datacount = count($otherdata);
        $modal .=  '' . ucwords($art_name1) . '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
+
+
+       if($designation){
        $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+        }else{
+       $modal .=  '<span class="head_main_work">Current work</span>';
+
+        }
+
        $modal .=  '</div>';
        $modal .=  '</div>';
        $modal .=  '</div>';
@@ -7657,7 +7669,7 @@ $datacount = count($otherdata);
        $modal .=  '<div class="like_user_list_img">';
        
        
-         if ($art_image && file_exists(base_url($this->config->item('art_profile_thumb_upload_path') . $art_image))) {
+         if ($art_image) {
                     $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
                 } else {
                     $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
@@ -7668,7 +7680,14 @@ $datacount = count($otherdata);
        $modal .=  '' . ucwords($art_name1) . '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
+
+       if($designation){
        $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+        }else{
+       $modal .=  '<span class="head_main_work">Current work</span>';
+
+        }
+
        $modal .=  '</div>';
        $modal .=  '</div>';
        $modal .=  '</div>';

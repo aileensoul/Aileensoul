@@ -606,6 +606,7 @@
    
    document.getElementById('row1').style.display = "none";
    document.getElementById('row2').style.display = "block";
+   $("#upload").val('');
    return false;
    }
    
@@ -723,7 +724,7 @@
                    $('#' + 'removeapply' + abc).html(data).removeClass();
                    $('#' + 'removeapply' + abc).parent();
                    var numItems = $('.contact-frnd-post .job-contact-frnd').length;
-                   alert(numItems);
+                  // alert(numItems);
                    if (numItems == '0') {
                        var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Freelancer Found.</h4></div>";
    

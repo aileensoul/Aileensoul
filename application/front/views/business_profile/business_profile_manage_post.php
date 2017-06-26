@@ -1312,7 +1312,7 @@
                                                     <?php if (count($businessmultiimage) == 1) { ?>
 
                                                         <?php
-                                                        $allowed = array('gif', 'PNG', 'jpg');
+                                                        $allowed = array('gif', 'PNG', 'jpg', 'jpeg');
                                                         $allowespdf = array('pdf');
                                                         $allowesvideo = array('mp4', 'webm');
                                                         $allowesaudio = array('mp3');

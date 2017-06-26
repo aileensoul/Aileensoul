@@ -111,7 +111,7 @@ $work_hour = form_error('work_hour');
 
                             <fieldset class=""<?php if ($work_hour) { ?> class="error-msg" <?php } ?>>
                                 <label>Working hours per week:</label>
-                                <input type="number" name="work_hour" tabindex="2" placeholder="Enter working hour" value="<?php if ($work_hour1) {
+                                <input type="text" name="work_hour" tabindex="2" placeholder="Enter working hour" value="<?php if ($work_hour1) {
     echo $work_hour1;
 } ?>">
 <?php echo form_error('work_hour'); ?>
@@ -245,24 +245,22 @@ $( "#searchplace" ).autocomplete({
 
             rules: {
 
-                inweek: {
-
+                work_hour:{
+                    required: false,
                     number: true,
-
+                    max: 168
                 },
 
-                inday: {
-
-                    number: true,
-
-                },
-
+               
             },
 
             messages: {
+                work_hour:{
+                    max: "Number should be between 0-168"
+                    },
+            }
 
-            },
-
+            
         });
     });
 </script>
@@ -284,7 +282,7 @@ $(window).load(function(){
             
             var searchkeyword = $.trim(document.getElementById('tags').value);
             var searchplace = $.trim(document.getElementById('searchplace').value);
-            // alert(searchke                                    yword);
+             alert(searchkeyword);
             // alert(search                                    place);
             if (searchkeyword == "" && searchplace = = "") {
             //alert('Please enter Key                                        word');

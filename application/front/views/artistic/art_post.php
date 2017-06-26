@@ -152,7 +152,7 @@
                            if ($artisticdata[0]['designation']) {
                                echo ucwords($artisticdata[0]['designation']);
                            } else {
-                               echo "Designation";
+                               echo "Current Work";
                            }
                            ?>
                         </a>
@@ -242,7 +242,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -327,7 +327,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -410,7 +410,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -494,7 +494,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -817,7 +817,11 @@
                          <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($row['art_description'], 0, 180);
-                     echo $small . '...<div id="kkkk" onClick="khdiv(' . $row['art_post_id'] . ')">more</div>' ?>
+                     echo $small;
+
+                     if (strlen($row['art_description']) > 180) {
+                          echo '... <span id="kkkk" onClick="khdiv(' . $row['art_post_id'] . ')">View More</span>';
+                        }?>
                    </div>
                     <div id="<?php echo "khyatii" . $row['art_post_id']; ?>" style="display:none;">
                       <?php
@@ -2669,7 +2673,7 @@
 </script>
 <!-- success message remove after some second end -->
 <!-- edit post start -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
    function editpost(abc)
    {
        document.getElementById('editpostdata' + abc).style.display = 'none';
@@ -2677,7 +2681,7 @@
        //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
        document.getElementById('editpostsubmit' + abc).style.display = 'block';
-       document.getElementById('khyatii').style.display = 'none';
+       document.getElementById('khyati' + abc).style.display = 'none';
    }
 </script>
 <script type="text/javascript">
@@ -2727,7 +2731,7 @@
    
    }
 </script>
-<!-- edit post end -->
+<!- edit post end --> 
 <!-- save post start -->
 <script>
    function save_post(abc)
@@ -3379,7 +3383,9 @@
        //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+       document.getElementById('khyati' + abc).style.display = 'none';
        document.getElementById('khyatii' + abc).style.display = 'none';
+
    }
 </script>
 <script type="text/javascript">
@@ -3436,7 +3442,7 @@
 <!-- all popup close close using esc start -->
 <script type="text/javascript">
 
-    $('.modal-close').on('click', function(){
+    $('#post').on('click', function(){
         $('#myModal').modal('show');
     });
     

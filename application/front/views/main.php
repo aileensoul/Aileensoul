@@ -46,9 +46,12 @@
   <!-- Calender Css Start-->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_login.css'); ?>">
        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+
      </head>
 
 
@@ -67,9 +70,9 @@
  <div class="col-md-4 col-sm-4 col-xs-5 User_Name reg_form ">
                         <input type="text" tabindex="1" name="user_name" tabindex="1" class="User_Name" id="user_name" placeholder="Email Address" value="<?php if (isset($_COOKIE['user_name'])) { echo $_COOKIE['user_name']; } ?>">
 
-                      
+                      <!-- 
                         <input class="rem" type="checkbox"  tabindex="18" class="fl" name="remember" >
-                                     <span class="remb_1" >Remember me</span>
+                                     <span class="remb_1" >Remember me</span> -->
                       
         </div> 
          <div class="col-md-4 col-sm-4 col-xs-5 reg_form Pass_word">              
@@ -77,16 +80,20 @@
 
                                 <input type="hidden" name="hiddenf" id="hiddenf" value="main">
 
-                              <span class="frtgt">
-                              <a  tabindex="19" id="myBtn"> Forgot Password?</a>
-                              </span>
 
 
 
 </div> 
 <div class="col-md-2 col-sm-4 reg_button col-xs-2">
-                         <input type="submit" tabindex="3"  value="Login" name="">
-      </div>                          </div>
+                         <input type="submit" tabindex="3"  class="login_m" value="Login" name="">
+      </div>   
+      <div>
+      
+                              <span class="frtgt">
+                              <a  tabindex="19" id="myBtn"> Forgot Password?</a>
+                              </span>
+      </div>
+                             </div>
        </form>
 
     </div>    
@@ -127,10 +134,59 @@
   </div>
 
 </div>
-   <div class="container">
-        <div class="row">
-            <div class="">
-               <div class="main_reg_form">
+
+<section class="main_image">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-7">
+        <div class="log_text">
+          <p class="log_text_p">
+            We Provide A Platform & Opportunities To
+Every Person In The World To Make Thier Career.
+          </p>
+
+        </div>
+        <div class="slide_log abc">
+            
+           
+	<div class="slides">
+    <ul> <!-- slides -->
+        <li><img src="images/job.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                <h3 >artistic 111 <span>You can get job over here.</span></h3>
+                                      
+                                        </div>
+        </li>
+        <li><img src="images/icon.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 222<span>222</span></h3>
+                                       
+                                        </div>
+        </li>
+        <li><img src="images/job.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 333<span>3333</span></h3>
+                                     
+                                        </div>
+        </li>
+        <li><img src="images/icon.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 44<span>4444</span></h3>
+                                       
+                                        </div>
+        </li>
+    </ul>
+</div>
+        </div>
+
+
+
+
+    </div>
+    
+        
+        <div class="col-md-5">
+        <div class="main_reg_form">
                 <div class="head_ad">
                     <h2>Join Aileensoul - It's Free</h2>
                 </div>
@@ -261,25 +317,21 @@
     </p>
     
 </div>
-
-    <!--  <button class="button3 button-block3 " style="background-image: url(partical/images/bg-button.png); background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">Create an Account</button> -->
-           <input type="submit" value="Create an Account"  tabindex="12" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
-          <!--<div class="or"> <span>or</span></div>-->
+<div>
+     <input type="submit" value="Create an Account"  tabindex="12" name="submit" class="button3 button-block3 " style="background:#87ceff!important;    background-repeat: no-repeat; background-position: right center ; margin-top:  10px;">
+          <div class="or"> <span>or</span></div>
            </form>
-          <!--<button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>-->
-    <!--      
-          <div class="or">Already have an account? <a href="<?php echo base_url('login')?>"  style="color: #a0b3b0;
-    font-size: 17px;
-    font-weight: 600;
-    padding-bottom: 10px;">Sign in</a></div> -->
-        <!--<small class="help-block" data-fv-validator="notEmpty" data-fv-for="agree" data-fv-result="VALID" style="display: none;">You must agree with the terms and conditions</small>-->
+          <button class="button3 button-block3 facebook_ac" tabindex="13" style="background-color: #3b5998!important ;background-repeat: no-repeat; background-position: right center; margin-bottom: 15px;">Sign Up With Facebook</button>
+</div>
          
                </div>
-            </div>
-
-           
-        </div>
     </div>
+      
+    </div>
+  </div>
+
+</section>
+
 
 <footer>
         <div class="container">
@@ -844,3 +896,44 @@ return e.which !== 32;
   .header-left-menu  label#password-error{margin-top: 0px!important;margin-right: 7px; }
   .main_reg_form label#password-error {margin-top: 34!important}
 </style>
+
+
+<!-- <textdesign start> -->
+<script type="text/javascript">
+  $(document).ready(function(){
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+$("p.log_text_p").each(function() {
+  var text = $(this).html();
+  var words = text.split(" ");
+  var spanSentence = "";
+  for (var i = 0; i < words.length; i++) {
+    spanSentence += "<span>" + words[i] + "</span> ";
+  }
+  $(this).html(spanSentence);
+})
+
+$("p.log_text_p span").each(function() {
+  $(this)
+    .css({
+      "transform": "translate(" + getRandomInt(-100, 100) + "px, " + getRandomInt(-100, 100) + "px)"
+    })
+});
+
+setTimeout(function() {
+  $(".log_text_p span").css({
+    "transform": "translate(0, 0)",
+    "opacity": 1
+  });
+}, 50);
+
+
+});
+</script>
+
+
+
+<!-- <textdesign end> -->
