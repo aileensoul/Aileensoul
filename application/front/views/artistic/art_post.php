@@ -3442,7 +3442,7 @@
 <!-- all popup close close using esc start -->
 <script type="text/javascript">
 
-    $('.modal-close').on('click', function(){
+    $('#post').on('click', function(){
         $('#myModal').modal('show');
     });
     

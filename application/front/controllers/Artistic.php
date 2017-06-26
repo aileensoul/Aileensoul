@@ -7661,7 +7661,7 @@ $datacount = count($otherdata);
        $modal .=  '<div class="like_user_list_img">';
        
        
-         if ($art_image && file_exists(base_url($this->config->item('art_profile_thumb_upload_path') . $art_image))) {
+         if ($art_image) {
                     $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
                 } else {
                     $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
