@@ -181,6 +181,12 @@
 
           
             <div class="right-side-menu art-side-menu ml0">
+
+            <?php 
+               $userid = $this->session->userdata('aileenuser');
+               if($artisticdata[0]['user_id'] == $userid){
+               
+               ?> 
                <ul class="current-user pro-fw">
                    
                    <?php }else{?>
