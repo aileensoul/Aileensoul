@@ -1,10 +1,24 @@
 
-
-
-
-
-
-
+input[type=submit]:hover, input[type=button]:hover, button:hover{background: transparent !important;
+    border-color: #000 !important;
+    border-radius: 0px !important;}
+.fancybox-close-small:hover
+{background-color: white !important border-radius:0px !important;}
+.message h2{font-size: 22px !important; margin-bottom: 20px;}
+.mesg_link{ background-color: #1b8ab9; color: #fff;     display: inline-block;
+    padding: 6px 12px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+      line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.message{text-align: center !important;}
 .pop_content .okbtn{margin-right: 20px;}
 .container_chat{padding: 0 40px 12px;}
 .model_ok_cancel{

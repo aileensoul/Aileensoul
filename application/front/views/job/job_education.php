@@ -2629,7 +2629,7 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 //edit time next page
 function next_page_edit() {
 
-    $.fancybox.open('<div class="message"><h2>Do you want to leave this page?</h2><a href="<?php echo base_url() ?>job/job_project_update">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+    $.fancybox.open('<div class="message"><h2>Do you want to leave this page?</h2><a class="mesg_link" href="<?php echo base_url() ?>job/job_project_update">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 }
    
   
