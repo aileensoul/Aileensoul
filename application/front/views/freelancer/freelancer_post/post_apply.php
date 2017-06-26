@@ -216,7 +216,7 @@ if ($freepostdata[0]['designation']) {
                                    ?>
                             </li>
                              <li>
-                              <a href="#" title="Post Title" class="display_inline post_title">
+                              <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'].'?page=freelancer_post'); ?>" title="<?php echo ucwords($post['post_name']); ?>" class="display_inline post_title">
                               <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
 
