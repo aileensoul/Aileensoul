@@ -1147,7 +1147,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     function picpopup() {
                             
                       
-    $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+    $('.biderror .mes').html("<div class='pop_content'>Please select only Image type File.(jpeg,jpg,png,gif)");
     $('#bidmodal').modal('show');
         }
    </script>

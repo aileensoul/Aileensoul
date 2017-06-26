@@ -602,7 +602,7 @@
    
    if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
    //alert('not an image');
-   savepopup();
+   picpopup();
    
    document.getElementById('row1').style.display = "none";
    document.getElementById('row2').style.display = "block";
@@ -801,7 +801,7 @@
     if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
      //alert('not an image');
       $('#profilepic').val('');
-       savepopup();
+       picpopup();
        return false;
         }else{
         readURL(this);}
@@ -841,10 +841,10 @@
           });
 </script>
 <script>
-   function savepopup() {
+   function picpopup() {
                        
                  
-       $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+       $('.biderror .mes').html("<div class='pop_content'>Please select only Image type File.(jpeg,jpg,png,gif)");
        $('#bidmodal').modal('show');
                    }
                
