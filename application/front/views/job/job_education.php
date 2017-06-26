@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 
   <!-- This Css is used for call popup -->
-   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
 <?php if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
@@ -1050,6 +1050,12 @@ else
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
+ <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
+                       
+
+
+
+<!-- This Js is used for call popup -->
 <!-- <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
  -->                    
                     <!-- script for skill textbox automatic end -->
@@ -1977,41 +1983,40 @@ if(num==1)
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '')
  {
       
-        alert("Must fill out any of four");
-        return false;
-  
+    $.fancybox.open('<div class="message"><h2>Must fill out any of four</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+       
  }
- 
+       
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
 {   
     if(board_primary!="" && school_primary!="" && percentage_primary!="" && pass_year_primary!="")
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
-             alert("Please complete mendatory detail of Secondary Education field ");
-             
+             $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field </h2><button data-fancybox-close="" class="btn">OK</button></div>');
+            
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+             $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field </h2><button data-fancybox-close="" class="btn">OK</button></div>');
+            
            
         }
         else if(degree1!='' ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
-            
-            alert("Please complete mendatory detail of Graduation field ");
+             $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field </h2><button data-fancybox-close="" class="btn">OK</button></div>');
             
         }
         else
         {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-           
+           $.fancybox.open('<div class="message"><h2>Please press submit button of Primary Education to  fulfil data </h2><button data-fancybox-close="" class="btn">OK</button></div>');
+            
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Primary Education field");
+         $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2023,26 +2028,26 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+             
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field </h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field </h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Secondary Education field");
+        $.fancybox.open('<div class="message"><h2Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2052,26 +2057,25 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Higher Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2081,26 +2085,25 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Graduation to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Graduation field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>'); 
     }
 }
 
@@ -2115,10 +2118,7 @@ if(num==2)
        
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '')
  {
-      
-        alert("Must fill out any of four");
-        return false;
-  
+      $.fancybox.open('<div class="message"><h2>Must fill out any of four</h2><button data-fancybox-close="" class="btn">OK</button></div>');
  }
  
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
@@ -2127,26 +2127,25 @@ else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pas
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
-             alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Primary Education to  fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Primary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2158,26 +2157,25 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2187,26 +2185,25 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Higher Secondary Education to fulfil data </h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2216,26 +2213,25 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Graduation to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Graduation field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2250,10 +2246,7 @@ if(num==3)
    
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '')
  {
-      
-        alert("Must fill out any of four");
-        return false;
-  
+    $.fancybox.open('<div class="message"><h2>Must fill out any of four</h2><button data-fancybox-close="" class="btn">OK</button></div>');    
  }
  
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
@@ -2262,26 +2255,25 @@ else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pas
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
-             alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Primary Education to  fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Primary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2293,26 +2285,25 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2322,26 +2313,25 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Higher Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2351,26 +2341,25 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Graduation to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Graduation field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2385,10 +2374,7 @@ if(num==4)
        
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '' && degree4=="" &&  stream4 == '' && university4 == '' && college4 == '' && percentage4 == '' && pass_year4 == '')
  {
-      
-        alert("Must fill out any of four");
-        return false;
-  
+      $.fancybox.open('<div class="message"><h2>Must fill out any of four</h2><button data-fancybox-close="" class="btn">OK</button></div>');
  }
  
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
@@ -2397,26 +2383,25 @@ else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pas
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
-             alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' )
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Primary Education to  fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Primary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2428,26 +2413,26 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Secondary Education to fulfil data ");
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
          
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2457,26 +2442,25 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Higher Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2486,26 +2470,25 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Graduation to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Graduation field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2520,10 +2503,7 @@ if(num==5)
        
  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="" && school_secondary == '' && percentage_secondary == '' && pass_year_secondary == '' && board_secondary == '' && board_higher_secondary == '' && stream_higher_secondary == '' && school_higher_secondary == '' && percentage_higher_secondary == '' && pass_year_higher_secondary == '' && degree1=="" &&  stream1 == '' && university1 == '' && college1 == '' && percentage1 == '' && pass_year1 == '' && degree2=="" &&  stream2 == '' && university2 == '' && college2 == '' && percentage2 == '' && pass_year2 == '' && degree3=="" &&  stream3 == '' && university3 == '' && college3 == '' && percentage3 == '' && pass_year3 == '' && degree4=="" &&  stream4 == '' && university4 == '' && college4 == '' && percentage4 == '' && pass_year4 == '' && degree5=="" &&  stream5 == '' && university5 == '' && college5 == '' && percentage5 == '' && pass_year5 == '' )
  {
-      
-        alert("Must fill out any of four");
-        return false;
-  
+      $.fancybox.open('<div class="message"><h2>Must fill out any of four</h2><button data-fancybox-close="" class="btn">OK</button></div>');
  }
  
 else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pass_year_primary!="")
@@ -2532,26 +2512,25 @@ else if(board_primary!="" || school_primary!="" || percentage_primary!="" || pas
     {
         if(school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '' || board_secondary != '')
         {
-             alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Primary Education to  fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Primary Education to  fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Primary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2563,26 +2542,25 @@ else if(board_secondary!="" || school_secondary!="" || percentage_secondary!="" 
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary != '' || stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2592,26 +2570,25 @@ else if( board_higher_secondary!="" || stream_higher_secondary !="" || school_hi
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(degree1!="" ||  stream1 != '' || university1 != '' || college1 != '' ||  percentage1 != '' || pass_year1 != '' || degree2!="" ||  stream2 != '' || university2 != '' || college2 != '' ||  percentage2 != '' || pass_year2 != '' || degree3!="" ||  stream3 != '' || university3 != '' || college3 != '' ||  percentage3 != '' || pass_year3 != '' || degree4!="" ||  stream4 != '' || university4 != '' || college4 != '' ||  percentage4 != '' || pass_year4 != '' || degree5!="" ||  stream5 != '' || university5 != '' || college5 != '' ||  percentage5 != '' || pass_year5 != '')
         {
-            alert("Please complete mendatory detail of Graduation field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Higher Secondary Education to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Higher Secondary Education to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Higher Secondary Education field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2621,26 +2598,25 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
     {
         if(board_primary != '' || school_primary != '' || percentage_primary != '' || pass_year_primary != '')
         {
-             alert("Please complete mendatory detail of Primary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Primary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_secondary != '' || school_secondary != '' || percentage_secondary != '' || pass_year_secondary != '')
         {
-            alert("Please complete mendatory detail of Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else if(board_higher_secondary!="" ||  stream_higher_secondary != '' || school_higher_secondary != '' || percentage_higher_secondary != '' || pass_year_higher_secondary != '')
         {
-            alert("Please complete mendatory detail of Higher Secondary Education field ");
+            $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Higher Secondary Education field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
         else
         {
-             alert("Please press submit button of Graduation to fulfil data ");
-         
+            $.fancybox.open('<div class="message"><h2>Please press submit button of Graduation to fulfil data</h2><button data-fancybox-close="" class="btn">OK</button></div>');
         }
     }
     
     else
     {
-        alert("Please complete mendatory detail of Graduation field");
+        $.fancybox.open('<div class="message"><h2>Please complete mendatory detail of Graduation field</h2><button data-fancybox-close="" class="btn">OK</button></div>');
     }
 }
 
@@ -2653,11 +2629,7 @@ else if( degree1!="" || stream1 !="" || university1 !="" || college1 !="" ||  pe
 //edit time next page
 function next_page_edit() {
 
-    if (window.confirm('Do you want to leave this page?'))
-    {
-    
-        window.location = "<?php echo base_url() ?>job/job_project_update";
-    }
+    $.fancybox.open('<div class="message"><h2>Do you want to leave this page?</h2><a href="<?php echo base_url() ?>job/job_project_update">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 }
    
   
