@@ -108,6 +108,7 @@ class Login extends CI_Controller {
                     if($para == login){
                       
                     $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
+                     
                     redirect('login', 'refresh');
                     }else{
                                          

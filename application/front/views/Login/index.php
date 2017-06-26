@@ -51,13 +51,19 @@
        
              <?php   if ($this->session->flashdata('error')) 
                {
-                      echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+
+                      // echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+
+                      echo $this->session->flashdata('error');
+
+
+
                 }
                 if ($this->session->flashdata('success'))
                  {
                          echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
                 }
-
+               
          ?>
       
 
@@ -195,6 +201,18 @@
 
 </script>
 
+<!-- script for remove flash session message after some time Start -->
+<script type="text/javascript">
+$(document).ready(function(){
+        setTimeout(function() {
+          $('.alert-danger').fadeOut('fast');
+        }, 1500); // <-- time in milliseconds
+    });
+</script>
+<!-- script for remove flash session message after some time End -->
+
 <!-- validation script Start-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <!-- validation script End-->
+
+
