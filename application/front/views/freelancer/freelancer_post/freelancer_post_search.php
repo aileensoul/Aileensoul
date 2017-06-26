@@ -28,7 +28,7 @@
                               <fieldset class="col-md-2 col-sm-2 col-xs-2">
 
                               <label for="search_btn" id="search_f"><i class="fa fa-search" aria-hidden="true"></i></label>
-                                <button onclick="return checkvalue()"  id="search_btn" style="display: none;"> Search</button>
+                                <button onclick="return checkvalue()"  class="search_btn" style="display: none;"> Search</button>
                             </fieldset>
                         <?php echo form_close();?>
                         </div>

@@ -282,7 +282,7 @@ $(window).load(function(){
             
             var searchkeyword = $.trim(document.getElementById('tags').value);
             var searchplace = $.trim(document.getElementById('searchplace').value);
-            // alert(searchke                                    yword);
+             alert(searchkeyword);
             // alert(search                                    place);
             if (searchkeyword == "" && searchplace = = "") {
             //alert('Please enter Key                                        word');
