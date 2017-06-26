@@ -94,7 +94,7 @@
                         </div>
                         </div>
                     </div>
-          <div class="col-md-7">
+          <div class="col-md-7 col-sm-8">
 
      
             <div class="common-form profile_edit main_form">

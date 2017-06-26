@@ -416,13 +416,27 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 767px) {
-        .custom-right{margin-top: 30px;}
-       .cameraButton .tooltiptext { font-size: 12px;width: 121px; font-weight: 600; margin-top: 21px;}
+    .user-midd-section .padd_set{
+        padding: 50px 0px 25px;
+    }
+    .main_form{
+            padding-top: 0px;
+        }
+    .custom-right{
+            margin-top: 30px;
+        }
+    .cameraButton .tooltiptext { 
+        font-size: 12px;width: 121px; font-weight: 600; margin-top: 21px;
+    }
     
-    .profile-box-art .right-side-menu{margin-left: 0px;
+    .profile-box-art .right-side-menu{
+        margin-left: 0px;
     padding-left: 0px !important;
-    padding-right: 0px!important;}
-    .profile-box-art .right-side-menu ul li{width: 33%;}
+    padding-right: 0px!important;
+    }
+    .profile-box-art .right-side-menu ul li{
+        width: 33%;
+    }
     .right-menu-jr .current-user{width: 100%;    }
     .profile-main-box-buis-menu .flw_msg_btn{margin-bottom: 5px!important}
     .pro-fw{width: 100%;}
