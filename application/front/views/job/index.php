@@ -230,7 +230,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($email) { ?> class="error-msg" <?php } ?>>
                                     <label>Email Address <span class="red">*</span></label>
-                                    <input type="email" name="email" id="email" tabindex="3" placeholder="Enter Email Address"  value="<?php if ($email1) {
+                                    <input type="email" name="email" id="email" tabindex="3" placeholder="Enter Email Address *"  value="<?php if ($email1) {
     echo $email1;
 } else {
     echo $job[0]['user_email'];
@@ -246,16 +246,22 @@ $gender = form_error('gender');
                                         <?php echo form_error('phnno'); ?>
                                 </fieldset>
 
-                                <fieldset <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
-                                    <label>Marital Status <span class="red">*</span></label>
-                                    <input type="radio" name="marital_status" tabindex="5" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
-                    <span class="radio_check_text">Married</span>
-                                    
-                                    <input type="radio" name="marital_status" tabindex="6" value="unmarried" id="marital_status" <?php echo ($marital_status1 == 'unmarried') ? 'checked' : '' ?>  > 
-                    <span class="radio_check_text">Unmarried</span>
+                                      <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
+                                    <label>Languages Known:<span class="red">*</span></label> 
 
-                                    <span id="marital_status-error"> </span>
-                                        <?php echo form_error('marital_status'); ?>
+             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
+                     <option></option>
+
+<?php foreach ($language1 as $language) { ?>
+                         <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
+<?php } ?>
+
+                                    </select>
+
+
+<?php echo form_error('lan'); ?>
+
+        
                                 </fieldset>
 
                                 <fieldset <?php if ($nationality) { ?> class="error-msg" <?php } ?>>
@@ -290,22 +296,17 @@ if (count($nation) > 0) {
                                     <?php echo form_error('nationality'); ?>
                                 </fieldset>
 
-                                <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
-                                    <label>Languages Known:<span class="red">*</span></label> 
+                        
+                                  <fieldset <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
+                                    <label>Marital Status <span class="red">*</span></label>
+                                    <input type="radio" name="marital_status" tabindex="5" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
+                    <span class="radio_check_text">Married</span>
+                                    
+                                    <input type="radio" name="marital_status" tabindex="6" value="unmarried" id="marital_status" <?php echo ($marital_status1 == 'unmarried') ? 'checked' : '' ?>  > 
+                    <span class="radio_check_text">Unmarried</span>
 
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
-                     <option></option>
-
-<?php foreach ($language1 as $language) { ?>
-                         <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
-<?php } ?>
-
-                                    </select>
-
-
-<?php echo form_error('lan'); ?>
-
-        
+                                    <span id="marital_status-error"> </span>
+                                        <?php echo form_error('marital_status'); ?>
                                 </fieldset>
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth<span class="red">*</span></label>
