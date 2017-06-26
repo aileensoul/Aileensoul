@@ -258,7 +258,7 @@
           $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 
 
-         if ($post['min_sal'] || $post['max_sal']){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency ." Per Year"; } else { echo PROFILENA;} ?></span>
+         if ($post['min_sal'] !='' || $post['max_sal'] != ''){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency ." Per Year"; } else { echo PROFILENA;} ?></span>
         </li>
                                                                
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>

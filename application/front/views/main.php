@@ -146,91 +146,36 @@ Every Person In The World To Make Thier Career.
           </p>
 
         </div>
-        <div class="slide_log">
-   
-    <div class="carousel fade-carousel slide carousel-fade" data-ride="carousel" data-interval="4000" id="bs-carousel">
-  <!-- Overlay -->
-
-  <!-- Indicators -->
- 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item slides active">
-      <div class="slide-1">
-          <div class="overlay"></div>
-      </div>
-      <div class="hero">        
-       <div class="col-sm-12 col-md-4">
-                                        <div class="animated fadeIn text-center">
-                                            <img src="images/job.png" alt="" class="img-responsive" />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-5 ">
-
-                                        <!-- Slide 1...-->
-                                        <div class="animated fadeIn ">
-                                        <h3 >business profile</h3>
-                                        <p>You can get job over here.</p>
-                                        </div>
-
+        <div class="slide_log abc">
+            
+           
+	<div class="slides">
+    <ul> <!-- slides -->
+        <li><img src="images/job.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                <h3 >artistic 111 <span>You can get job over here.</span></h3>
                                       
-
-                                    </div>
-       
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-2">
-          <div class="overlay"></div>
-      </div>
-      <div class="hero">        
-       <div class="col-sm-12 col-md-4">
-                                        <div class="animated fadeIn text-center">
-                                            <img src="images/job.png" alt="" class="img-responsive" />
                                         </div>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-5 ">
-
-                                        <!-- Slide 1...-->
-                                        <div class="animated fadeIn ">
-                                        <h3 >artistic</h3>
-                                        <p>You can get job over here.</p>
+        </li>
+        <li><img src="images/icon.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 222<span>222</span></h3>
+                                       
                                         </div>
-
-                                      
-
-                                    </div>
-       
-      </div>
-    </div>
-    <div class="item slides">
-      <div class="slide-3">
-          <div class="overlay"></div>
-      </div>
-      <div class="hero">        
-       <div class="col-sm-12 col-md-4">
-                                        <div class="animated fadeIn text-center">
-                                            <img src="images/job.png" alt="" class="img-responsive" />
+        </li>
+        <li><img src="images/job.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 333<span>3333</span></h3>
+                                     
                                         </div>
-                                    </div>
-
-                                    <div class="col-sm-12 col-md-5 ">
-
-                                        <!-- Slide 1...-->
-                                        <div class="animated fadeIn ">
-                                        <h3 >Job Pzzzzzzzzzzzzzzzrofile</h3>
-                                        <p>You can get job over here.</p>
+        </li>
+        <li><img src="images/icon.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 44<span>4444</span></h3>
+                                       
                                         </div>
-
-                                      
-
-                                    </div>
-       
-      </div>
-    </div>
-  </div> 
+        </li>
+    </ul>
 </div>
         </div>
 
@@ -238,7 +183,9 @@ Every Person In The World To Make Thier Career.
 
 
     </div>
-    <div class="col-md-5">
+    
+        
+        <div class="col-md-5">
         <div class="main_reg_form">
                 <div class="head_ad">
                     <h2>Join Aileensoul - It's Free</h2>
@@ -959,7 +906,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-$("p").each(function() {
+$("p.log_text_p").each(function() {
   var text = $(this).html();
   var words = text.split(" ");
   var spanSentence = "";
@@ -969,7 +916,7 @@ $("p").each(function() {
   $(this).html(spanSentence);
 })
 
-$("p span").each(function() {
+$("p.log_text_p span").each(function() {
   $(this)
     .css({
       "transform": "translate(" + getRandomInt(-100, 100) + "px, " + getRandomInt(-100, 100) + "px)"
@@ -986,5 +933,7 @@ setTimeout(function() {
 
 });
 </script>
+
+
 
 <!-- <textdesign end> -->

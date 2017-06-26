@@ -431,9 +431,20 @@ if ($returnpage == 'job') {
                 <li><b>Salary</b><span title="Min - Max"><?php 
 
 
+
+
             $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 
-                echo $post['min_sal']." - ".$post['max_sal'].' '. $currency." Per Year"; ?></span>
+            if($post['min_sal'] != '' || $post['max_sal'] != '')
+            {
+
+                echo $post['min_sal']." - ".$post['max_sal'].' '. $currency." Per Year"; 
+                  }
+                  else
+                  {
+                    echo PROFILENA;
+                  } ?>
+                </span>
                                             </li>
 
                                            <!--  <li><b>Maximum Salary</b><span><?php echo $post['max_sal']; ?></span>
@@ -634,6 +645,7 @@ if ($returnpage == 'job') {
                                             </li>
          <li><b>Salary</b><span title="Min - Max" >
          <?php
+
 
             $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 

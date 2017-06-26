@@ -268,7 +268,14 @@
 
                   $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 
-                if ($post['min_sal'] || $post['max_sal']){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency." Per Year";} else {echo PROFILENA;} ?></span>
+$minval = trim($post['min_sal']);
+$maxval = trim($post['max_sal']);
+
+
+                if ($minval != '' || $maxval != '')
+                  {echo $post['min_sal']." - ".$post['max_sal'].' '. $currency." Per Year";} else {
+                    echo PROFILENA;
+                    } ?></span>
                                                                    </li>
                                             
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
@@ -452,8 +459,17 @@
 
                                                               
         <li><b>Salary</b><span title="Min - Max">
-        <?php echo $post['min_sal']." - ".$post['max_sal']." Per Year"; ?></span>
+
+        <?php 
+        if ($post['min_sal'] != '' || $post['max_sal'] != '') {
+          
+        
+        echo $post['min_sal']." - ".$post['max_sal']." Per Year"; }  else{
+                    echo PROFILENA;
+
+        } ?> </span>
                                                                    </li>
+
                                                                 <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
                                                                 </li>
  <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
