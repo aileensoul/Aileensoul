@@ -1005,11 +1005,12 @@
                                                                 <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                     <!-- one video start -->
                                                                     <div>
-                                                                        <video width="100%" height="350" controls>
+                                                                        <iframe width="100%" height="350" src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>"> </iframe>
+<!--                                                                        <video width="100%" height="350" controls>
                                                                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
-                                                                            <source src="movie.ogg" type="video/ogg">
+                                                                            <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/ogg">
                                                                             Your browser does not support the video tag.
-                                                                        </video>
+                                                                        </video>-->
                                                                     </div>
                                                                     <!-- one video end -->
                                                                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
@@ -1624,7 +1625,6 @@
     jQuery.noConflict();
 
     (function ($) {
-
 
         var data1 = <?php echo json_encode($city_data);
             ?>;
