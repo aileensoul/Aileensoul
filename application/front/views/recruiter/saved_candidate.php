@@ -474,14 +474,10 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                                                                 ?>
 
                 <li><b>Location</b> <span>
-             <?php if($countryname || $cityname )
-                  { 
-                     
-
-                      echo $cityname . ', ' . $countryname; 
-                 } 
-                else
-                    { echo PROFILENA;} ?>
+               <?php  if($cityname){echo $cityname;echo ', ';}
+                                             echo $countryname;
+                                              ?> 
+                
                      </span></li>
 
  <?php if($rec['board_primary'] && $rec['board_secondary'] && $rec['board_higher_secondary'] && $rec['degree']){ ?>
