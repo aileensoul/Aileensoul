@@ -180,7 +180,7 @@ if (count($university_data) > 0) {
 
                             <fieldset <?php if ($percentage) { ?> class="error-msg" <?php } ?>>
                                 <label>Percentage:<!-- <span style="color:red">*</span> --></label>
-                                <input type="number" name="percentage" placeholder="Enter percentage" tabindex="5" value="<?php if ($percentage1) {
+                                <input type="text" name="percentage" placeholder="Enter percentage" tabindex="5" value="<?php if ($percentage1) {
     echo $percentage1;
 } ?>">
                                 <?php echo form_error('percentage'); ?>
@@ -365,9 +365,23 @@ $( "#searchplace" ).autocomplete({
     </script>
 
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
 
         //validation for edit email formate form
+
+
+        //pattern validation at percentage start//
+              $.validator.addMethod("percen", function(value, element, param) {
+              if (this.optional(element)) {
+               return true;
+              }
+              if (typeof param === "string") {
+                param = new RegExp("^(?:" + param + ")$");
+              }
+              return param.test(value);
+            }, "Please Enter Percentage like 89.96.");
+  
+             //pattern validation at percentage end//
 
         $(document).ready(function () {
 
@@ -375,85 +389,32 @@ $( "#searchplace" ).autocomplete({
 
                 rules: {
 
-                    degree: {
-
-                        required: true,
-
-                    },
-
-                    stream: {
-
-                        required: true,
-
-                    },
-                    university: {
-
-                        required: true,
-
-                    },
-
-                    college: {
-
-                        required: true,
-
-                    },
+    
+                   
                     percentage: {
 
-                        required: true,
-                        number: true,
+                       
+                       number:true,
+                     percen: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
 
                     },
 
-                    passingyear: {
-
-                        required: true,
-
-                    },
+                   
 
                 },
 
                 messages: {
 
-                    degree: {
+            
+                  
 
-                        required: "Degree is required.",
-
-                    },
-
-                    stream: {
-
-                        required: "Stream is required.",
-
-                    },
-                    university: {
-
-                        required: "University is required.",
-
-                    },
-
-                    college: {
-
-                        required: "College is required.",
-
-                    },
-                    percentage: {
-
-                        required: "Percentage is required.",
-
-                    },
-
-                    passingyear: {
-
-                        required: "Passing year is required.",
-
-                    },
 
                 },
 
             });
         });
     </script>
- -->
+
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
 </script>
