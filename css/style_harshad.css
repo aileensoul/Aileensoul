@@ -27,16 +27,16 @@ padding-bottom: 20px;
     float: left;
     max-height: 300px;
     overflow-y: auto;
-}
+}/*
 .like_user_list ul li:last-child {
     border-bottom: none;
-}
+}*/
 .like_user_list ul li {
     margin-right: 15px;
     width: 100%;
     list-style: none;
     float: left;
-    padding: 10px 3px;
+    padding: 3px 3px;
     border-bottom: 1px solid #ddd;
 }
 .like_user_list_img {
@@ -53,6 +53,7 @@ padding-bottom: 20px;
     width: 80%;
     padding: 4px 10px 4px 10px;
     float: left;
+    text-align: left;
 }
 .like_user_list {
     width: 100%;

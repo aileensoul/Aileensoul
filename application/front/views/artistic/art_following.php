@@ -542,6 +542,45 @@ if($status == 0 || $status == " "){?>
 <!-- Model Popup Close -->
 
 </html>
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
+
+
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
   <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
@@ -751,10 +790,6 @@ window.onclick = function(event) {
 
 <!-- popup form edit END -->
 
-
-
- <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
  <script type="text/javascript">
 
             //validation for edit email formate form
@@ -886,6 +921,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
+
+    $("#upload").val('');
     return false;
   }
   // file type code end
@@ -1100,45 +1137,12 @@ function unfollowuser_list(clicked_id)
 
 <!-- script for profile pic end -->
 
-<!-- <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script> -->
 
 
-<script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () { 
-
-                $("#userimage").validate({
-
-                    rules: {
-
-                        profilepic: {
-
-                            required: true,
-                         
-                        },
-  
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Photo Required",
-                            
-                        },
-
-                },
-
-                });
-                   });
-  </script>
    <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#bidmodal').modal('show');
                         }
       </script>

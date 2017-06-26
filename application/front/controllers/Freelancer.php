@@ -1368,7 +1368,7 @@ class Freelancer extends MY_Controller {
         $userdatacon = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-         $portfolio = $_POST['portfolio'];
+         $portfolio = trim($_POST['portfolio']);
          $image_hidden_portfolio = $_POST['image_hidden_portfolio'];
          $config = array(
             'upload_path' => $this->config->item('free_portfolio_main_upload_path'),

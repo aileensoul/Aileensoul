@@ -1005,12 +1005,11 @@
                                                                 <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                     <!-- one video start -->
                                                                     <div>
-                                                                        <iframe width="100%" height="350" src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>"> </iframe>
-<!--                                                                        <video width="100%" height="350" controls>
+                                                                            <video width="100%" height="350" controls>
                                                                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
                                                                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/ogg">
                                                                             Your browser does not support the video tag.
-                                                                        </video>-->
+                                                                        </video>
                                                                     </div>
                                                                     <!-- one video end -->
                                                                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
@@ -1536,7 +1535,7 @@
         <div class="modal fade message-box" id="likeusermodal" role="dialog">
             <div class="modal-dialog modal-lm">
                 <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <button type="button" class="modal-close1" data-dismiss="modal">&times;</button>       
                     <div class="modal-body">
                         <span class="mes">
                         </span>

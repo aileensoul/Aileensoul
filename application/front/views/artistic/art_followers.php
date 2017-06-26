@@ -431,6 +431,43 @@
 </html>
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript">
+   //validation for edit email formate form
+   
+   $(document).ready(function () { 
+   
+       $("#userimage").validate({
+   
+           rules: {
+   
+               profilepic: {
+   
+                   required: true,
+                
+               },
+   
+   
+           },
+   
+           messages: {
+   
+               profilepic: {
+   
+                   required: "Photo Required",
+                   
+               },
+   
+       },
+   
+       });
+          });
+</script>
+
+
+
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
@@ -671,8 +708,8 @@
    
      
 </script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
 <script type="text/javascript">
    //validation for edit email formate form
    
@@ -803,6 +840,9 @@
    
        document.getElementById('row1').style.display = "none";
        document.getElementById('row2').style.display = "block";
+
+
+       $("#upload").val('');
        return false;
      }
      // file type code end
@@ -960,38 +1000,7 @@
    });
 </script>
 <!-- script for profile pic end -->
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-<script type="text/javascript">
-   //validation for edit email formate form
-   
-   $(document).ready(function () { 
-   
-       $("#userimage").validate({
-   
-           rules: {
-   
-               profilepic: {
-   
-                   required: true,
-                
-               },
-   
-   
-           },
-   
-           messages: {
-   
-               profilepic: {
-   
-                   required: "Photo Required",
-                   
-               },
-   
-       },
-   
-       });
-          });
-</script>
+
 <script>
    function picpopup() {
    
