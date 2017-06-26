@@ -360,9 +360,25 @@
                                                             <input type="text" id="<?php echo 'editpostname' . $art_data[0]['art_post_id']; ?>" name="editpostname" placeholder="Title" value="<?php echo $art_data[0]['art_post']; ?>">
                                                         </div>
                                             
-                                            <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
+                                            <!-- <div class="margin_btm" id="<?php echo 'editpostdetails' . $art_data[0]['art_post_id']; ?>" style="display:block;"><span class="show">
                                                     <?php print $this->common->make_links($art_data[0]['art_description']); ?></span>
-                                            </div>
+                                            </div> -->
+
+
+                                            <div id="<?php echo "khyati" . $art_data[0]['art_post_id']; ?>" style="display:block;">
+                      <?php
+                     $small = substr($art_data[0]['art_description'], 0, 180);
+                     echo $small;
+
+                     if (strlen($art_data[0]['art_description']) > 180) {
+                          echo '... <span id="kkkk" onClick="khdiv(' . $art_data[0]['art_post_id'] . ')">View More</span>';
+                        }?>
+                   </div>
+                    <div id="<?php echo "khyatii" . $art_data[0]['art_post_id']; ?>" style="display:none;">
+                      <?php
+                     echo $art_data[0]['art_description'];
+                   ?>
+                   </div>
                                             <div id="<?php echo 'editpostdetailbox' . $art_data[0]['art_post_id']; ?>" style="display:none;">
             <div contenteditable="true" id="<?php echo 'editpostdesc' . $art_data[0]['art_post_id']; ?>" name="editpostdesc" placeholder="Description" class="editable_text" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $art_data[0]['art_description']; ?></div> 
                                             </div>
@@ -2019,69 +2035,96 @@
                     </script>
                     <!-- success message remove after some second end -->
                     <!-- edit post start -->
-                    <script type="text/javascript">
-                            
-            function editpost(abc)
-            {
-                //        document.getElementById('editpostdata' + abc).style.display = 'none';
-                //        document.getElementById('editpostbox' + abc).style.display = 'block';
-                //        document.getElementById('editpostdetails' + abc).style.display = 'none';
-                //        document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-                //        document.getElementById('editpostsubmit' + abc).style.display = 'block';
+                   <script type="text/javascript">
+    
+     function khdiv(abc) {
+         
+         $.ajax({
+               type: 'POST',
+               url: '<?php echo base_url() . "artistic/edit_more_insert" ?>',
+               data: 'art_post_id=' + abc,
+               dataType: "json",
+               success: function (data) {
+   
+                   document.getElementById('editpostdata' + abc).style.display = 'block';
+                   document.getElementById('editpostbox' + abc).style.display = 'none';
+                 //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                   document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                   document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                     document.getElementById('khyati' + abc).style.display = 'none';
+                 document.getElementById('khyatii' + abc).style.display = 'block';
+                   //alert(data.description);
+                   $('#' + 'editpostdata' + abc).html(data.title);
+                  // $('#' + 'editpostdetails' + abc).html(data.description);
+                   $('#' + 'khyatii' + abc).html(data.description);
+                 
+               }
+           });
+   
+   }
+   
+   </script>
+   
+   <script type="text/javascript">
+   function editpost(abc)
+   {
+       document.getElementById('editpostdata' + abc).style.display = 'none';
+       document.getElementById('editpostbox' + abc).style.display = 'block';
+       //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
+       document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+       document.getElementById('editpostsubmit' + abc).style.display = 'block';
+       document.getElementById('khyati' + abc).style.display = 'none';
+       document.getElementById('khyatii' + abc).style.display = 'none';
 
-                $('div[id^=myDropdown]').hide().removeClass('show');
-
-               document.getElementById('editpostdata' + abc).style.display = 'none';
-                document.getElementById('editpostbox' + abc).style.display = 'block';
-                document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
-                document.getElementById('editpostdetailbox' + abc).style.display = 'block';
-                document.getElementById('editpostsubmit' + abc).style.display = 'block';
-            }
-        </script>
-                  
-                    <script type="text/javascript">
-                        function edit_postinsert(abc)
-                        {
-                            var editpostname = document.getElementById("editpostname" + abc);
-                            var editpostdetails = document.getElementById("editpostdesc" + abc);
-
-// start khyati code
-                            var $field = $('#editpostdesc' + abc);
-                            //var data = $field.val();
-                            var editpostdetails = $('#editpostdesc' + abc).html();
-// end khyati code
-
-                            if (editpostname.value == '' && editpostdetails == '') {
-                                $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
-                                $('#bidmodal').modal('show');
-
-                                document.getElementById('editpostdata' + abc).style.display = 'block';
-                                document.getElementById('editpostbox' + abc).style.display = 'none';
-                                document.getElementById('editpostdetails' + abc).style.display = 'block';
-                                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-
-                                document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                            } else {
-                                $.ajax({
-                                    type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
-                                    data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
-                                    dataType: "json",
-                                    success: function (data) {
-
-                                        document.getElementById('editpostdata' + abc).style.display = 'block';
-                                        document.getElementById('editpostbox' + abc).style.display = 'none';
-                                        document.getElementById('editpostdetails' + abc).style.display = 'block';
-                                        document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-                                        document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                                        $('#' + 'editpostdata' + abc).html(data.title);
-                                        $('#' + 'editpostdetails' + abc).html(data.description);
-                                    }
-                                });
-                            }
-                        }
-                    </script>
-                    <!-- edit post end -->
+   }
+</script>
+<script type="text/javascript">
+   function edit_postinsert(abc)
+   {
+   
+       var editpostname = document.getElementById("editpostname" + abc);
+       // var editpostdetails = document.getElementById("editpostdesc" + abc);
+       // start khyati code
+       var $field = $('#editpostdesc' + abc);
+       //var data = $field.val();
+       var editpostdetails = $('#editpostdesc' + abc).html();
+       // end khyati code
+   
+       if ((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')) {
+           $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
+           $('#bidmodal').modal('show');
+   
+           document.getElementById('editpostdata' + abc).style.display = 'block';
+           document.getElementById('editpostbox' + abc).style.display = 'none';
+         //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+           document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+   
+           document.getElementById('editpostsubmit' + abc).style.display = 'none';
+       } else {
+           $.ajax({
+               type: 'POST',
+               url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
+               data: 'art_post_id=' + abc + '&art_post=' + editpostname.value + '&art_description=' + editpostdetails,
+               dataType: "json",
+               success: function (data) {
+   
+                   document.getElementById('editpostdata' + abc).style.display = 'block';
+                   document.getElementById('editpostbox' + abc).style.display = 'none';
+                 //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                   document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                   document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                   //alert(data.description);
+                   document.getElementById('khyati' + abc).style.display = 'block';
+                   $('#' + 'editpostdata' + abc).html(data.title);
+                  // $('#' + 'editpostdetails' + abc).html(data.description);
+                   $('#' + 'khyati' + abc).html(data.description);
+                 
+               }
+           });
+       }
+   
+   }
+</script>                    <!-- edit post end -->
                     <!-- remove save post start -->
 
                     <script type="text/javascript">
