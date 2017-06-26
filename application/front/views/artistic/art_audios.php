@@ -734,6 +734,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
+    $("#upload").val('');
     return false;
   }
   // file type code end
@@ -887,7 +888,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
        <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#bidmodal').modal('show');
                         }
       </script>

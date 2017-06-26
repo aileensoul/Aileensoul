@@ -811,6 +811,49 @@
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <!--<script src="<?php //echo base_url('js/jquery.jMosaic.js');  ?>"></script>-->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript">
+   //validation for edit email formate form
+   
+   $(document).ready(function () {
+   
+       $("#userimage").validate({
+   
+           rules: {
+   
+               profilepic: {
+   
+                   required: true,
+   
+               },
+   
+           },
+   
+           messages: {
+   
+               profilepic: {
+   
+                   required: "Photo Required",
+   
+               },
+   
+           },
+   
+       });
+   });
+   
+   
+   
+   $(document).on('keydown', function (e) {
+       if (e.keyCode === 27) {
+           $("#myModal1").hide();
+       }
+   });
+</script>
+
+
 <script>
    var data = <?php echo json_encode($demo); ?>;
    // alert(data);
@@ -1623,6 +1666,8 @@
    
    document.getElementById('row1').style.display = "none";
    document.getElementById('row2').style.display = "block";
+
+   $("#upload").val('');
    return false;
    }
    // file type code end
@@ -2216,45 +2261,6 @@
    });
 </script>
 <!-- script for profile pic end -->
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-<script type="text/javascript">
-   //validation for edit email formate form
-   
-   $(document).ready(function () {
-   
-       $("#userimage").validate({
-   
-           rules: {
-   
-               profilepic: {
-   
-                   required: true,
-   
-               },
-   
-           },
-   
-           messages: {
-   
-               profilepic: {
-   
-                   required: "Photo Required",
-   
-               },
-   
-           },
-   
-       });
-   });
-   
-   
-   
-   $(document).on('keydown', function (e) {
-       if (e.keyCode === 27) {
-           $("#myModal1").hide();
-       }
-   });
-</script>
 <script type="text/javascript">
    $(document).ready(function () {
        $("html,body").animate({scrollTop: 350}, 100); //100ms for example
@@ -2295,7 +2301,7 @@
 <script>
    function picpopup() {
    
-          $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+          $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
           $('#bidmodal').modal('show');
                       }
     
