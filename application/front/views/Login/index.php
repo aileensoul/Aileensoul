@@ -165,3 +165,36 @@
         </div>
         </footer>
 </body>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          /* validation */
+          $("#login_form").validate({
+              rules: {
+                  user_name: {
+                      required: true,
+                        },
+                   password: {
+                          required: true,
+                            }
+                        },
+            messages:  {
+                    user_name: {
+                    required: "Email Address Is Required.",
+                      },
+
+                    password: {
+                    required: "Password Is Required.",
+                           }
+                   },
+                });
+            /* validation */
+                                    
+          });
+
+
+</script>
+
+<!-- validation script Start-->
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<!-- validation script End-->
