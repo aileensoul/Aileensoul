@@ -32,7 +32,7 @@
                                  <?php }else{?>
 
                                 <label for="search_btn" id="search_f"><i class="fa fa-search" aria-hidden="true"></i></label>
-                               <input type="submit" name="search_submit" value="Search" onclick="return checkvalue()"   id="search_btn" style="display: none;">
+                               <input type="submit" name="search_submit" value="Search" onclick="return checkvalue()"   class="search_btn" style="display: none;">
 
                            <?php } ?>
                             </fieldset>
