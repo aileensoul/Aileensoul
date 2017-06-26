@@ -269,7 +269,7 @@ if ($status == 0 || $status == " ") {
                                 </div>
 <?php } elseif ($status == 1) { ?>
                                 <div id= "unfollowdiv">
-                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
+                                    <button class="bg_following" id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
                                 </div>
 
 
