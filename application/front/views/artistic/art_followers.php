@@ -391,20 +391,7 @@
    <footer>
       <?php echo $footer;  ?>
    </footer>
-   <!-- Bid-modal  -->
-   <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-      <div class="modal-dialog modal-lm">
-         <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-            <div class="modal-body">
-               <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-               <span class="mes"></span>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- Model Popup Close -->
-   <!-- Bid-modal-2  -->
+     <!-- Bid-modal-2  -->
    <div class="modal fade message-box" id="bidmodal-2" role="dialog">
       <div class="modal-dialog modal-lm">
          <div class="modal-content">
@@ -427,44 +414,60 @@
       </div>
    </div>
    <!-- Model Popup Close -->
+
+    <!-- Bid-modal  -->
+   <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+      <div class="modal-dialog modal-lm">
+         <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+               <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+               <span class="mes"></span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Model Popup Close -->
+
 </body>
 </html>
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js'); ?>"></script>
-<script type="text/javascript">
-   //validation for edit email formate form
-   
-   $(document).ready(function () { 
-   
-       $("#userimage").validate({
-   
-           rules: {
-   
-               profilepic: {
-   
-                   required: true,
-                
-               },
-   
-   
-           },
-   
-           messages: {
-   
-               profilepic: {
-   
-                   required: "Photo Required",
-                   
-               },
-   
-       },
-   
-       });
-          });
-</script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+        <script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({ 
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+
+                        },
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Image Required",
+
+                        },
+
+                    },
+
+                });
+            });
+        </script>
 
 
 
