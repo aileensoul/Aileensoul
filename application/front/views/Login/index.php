@@ -206,7 +206,7 @@
 $(document).ready(function(){
         setTimeout(function() {
           $('.alert-danger').fadeOut('fast');
-        }, 1500); // <-- time in milliseconds
+        }, 3500); // <-- time in milliseconds
     });
 </script>
 <!-- script for remove flash session message after some time End -->
