@@ -433,7 +433,7 @@
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js'); ?>"></script>
 <script type="text/javascript">
    //validation for edit email formate form
    
