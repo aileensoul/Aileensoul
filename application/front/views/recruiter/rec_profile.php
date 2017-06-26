@@ -1074,10 +1074,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
   }
   // file type code end
 
-        if (size > 4194304)
+        if (size > 10485760)
         {
             //show an alert to the user
-            alert("Allowed file size exceeded. (Max. 4 MB)")
+            alert("Allowed file size exceeded. (Max. 10 MB)")
 
             document.getElementById('row1').style.display = "none";
             document.getElementById('row2').style.display = "block";

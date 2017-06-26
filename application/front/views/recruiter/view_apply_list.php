@@ -506,6 +506,8 @@ $contition_array = array('user_id' => $row['userid']);
 
                   <?php }else{?> <li> No Education </li> <?php }?>
 
+
+
  
    <li><b>E-mail</b>
       <span><?php
@@ -513,10 +515,21 @@ $contition_array = array('user_id' => $row['userid']);
      ?></span>
      </li>
 
+
                <li><b>Mobile Number</b>
-                      <span><?php
+                      <span>
+
+                      <?php
+                      if($row['phnno'])
+                      {
                    echo $row['phnno'];
-                     ?></span>
+                 }
+                     else
+                      {
+                                             echo PROFILENA;
+
+                        
+                        }?></span>
                </li>
 
 
