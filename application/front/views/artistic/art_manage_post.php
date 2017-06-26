@@ -284,7 +284,7 @@
                                     </div>
                                 <?php } elseif ($status == 1) { ?>
                                     <div id= "unfollowdiv">
-                                        <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
+                                        <button class="bg_following" id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</button>
                                     </div>
 
 
@@ -1737,6 +1737,42 @@ $loginuser = $userdata[0]['art_id'];
 
 
 
+ <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+        <script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({ 
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+
+                        },
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Image Required",
+
+                        },
+
+                    },
+
+                });
+            });
+        </script>
+
+
+
  <script type="text/javascript">
    //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
                 $(document).ready(function () { 
@@ -2050,6 +2086,8 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
+
+    $("#upload").val('');
     return false;
   }
   // file type code end
@@ -2234,41 +2272,7 @@ if (size > 10485760)
 
         <!-- popup form edit END -->
 
-        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-        <script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () {
-
-                $("#userimage").validate({
-
-                    rules: {
-
-                        profilepic: {
-
-                            required: true,
-
-                        },
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Photo Required",
-
-                        },
-
-                    },
-
-                });
-            });
-        </script>
-
+       
         <script type="text/javascript">
 
             //validation for edit email formate form
@@ -4373,7 +4377,7 @@ video js preview end -->
 <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#bidmodal').modal('show');
                         }
       </script>

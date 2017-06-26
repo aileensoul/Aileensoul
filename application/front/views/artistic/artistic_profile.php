@@ -303,7 +303,7 @@ if ($status == 0 || $status == " ") {
                                 </div>
 <?php } elseif ($status == 1) { ?>
                                 <div id= "unfollowdiv">
-                                    <button id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
+                                    <button class="bg_following" id="<?php echo "unfollow" . $artisticdata[0]['art_id']; ?>" onClick="unfollowuser(<?php echo $artisticdata[0]['art_id']; ?>)"> Following</a>
                                 </div>
 
 
@@ -1015,7 +1015,7 @@ $( "#searchplace" ).autocomplete({
 <!-- popup form edit END -->
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <script type="text/javascript">
 
@@ -1133,21 +1133,45 @@ $( "#searchplace" ).autocomplete({
 
     });
 
-    $('#upload').on('change', function () {
+
+
+    $("#upload").change(function () { 
 
         var fd = new FormData();
         fd.append("image", $("#upload")[0].files[0]);
 
 // pallavi code start for file type support
+        files = this.files;
+        size = files[0].size;
+
 if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     //alert('not an image');
     picpopup();
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
+
+   $("#upload").val('');
+ //document.getElementById("upload").setTextValue() = "";
+
     return false;
   }
   // file type code end
+
+  if (size > 10485760)
+        {
+            //show an alert to the user
+            alert("Allowed file size exceeded. (Max. 10 MB)")
+
+            document.getElementById('row1').style.display = "none";
+            document.getElementById('row2').style.display = "block";
+
+            // window.location.href = "https://www.aileensoul.com/dashboard"
+            //reset file upload control
+            return false;
+        }
+
+
         $.ajax({
 
             url: "<?php echo base_url(); ?>artistic/image",
@@ -1288,7 +1312,7 @@ $('#bidmodal-2').modal('show');
    <script>
      function picpopup() {
 
-            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#bidmodal').modal('show');
                         }
       </script>
