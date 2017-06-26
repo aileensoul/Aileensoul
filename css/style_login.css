@@ -219,7 +219,7 @@ color: #a0b3b0;
 }
 label .req {
   margin: 2px;
-  color: #3db0c1;
+  color: #1b8ab8;
 }
 
 
@@ -245,7 +245,7 @@ label.highlight {
 input, textarea,button {
  resize: none;
     background: white;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     outline: none;
     padding: 5px 15px !important;
     color: #000;
@@ -257,7 +257,7 @@ input, textarea,button {
 .reg_button input[type="submit"]{background-color: #fff; padding: 3.5px 10px; color: #1b8ab8; border:1px solid #1b8ab8;}
 input:focus, textarea:focus {
   outline: 0;
-  border: 1px solid #3db0c1;
+  border: 1px solid #1b8ab8;
   
  
 }
@@ -272,7 +272,7 @@ label {    font-size: 16px;
     padding-left: 2px}
 fieldset { width: 50%; float: left; padding: 4px 8px; position: relative; }
 textarea {
-  border: 2px solid #a0b3b0;
+  border: 1px solid #a0b3b0;
   resize: vertical;
 }
 
@@ -764,7 +764,7 @@ text-decoration-line: underline!important;
     color: #000;
     padding: 12px 20px;
     box-sizing: border-box;
-    /* border: 2px solid #ccc; */
+    /* border: 1px solid #ccc; */
     border-radius: 4px;
     /* background-color: #f8f8f8; */
     font-size: 16px;
@@ -903,7 +903,7 @@ text-decoration-line: underline!important;
   margin: 0 auto;
   background: rgba(255,255,255,0.2);
   padding: 35px;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   border-radius: 20px/50px;
   background-clip: padding-box;
   text-align: center;
@@ -991,7 +991,7 @@ textarea {overflow: hidden;}
 
 .editable_text{
   background: white;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     outline: none;
     padding: 8px 15px;
     color: #000;
@@ -1151,7 +1151,7 @@ word-break: break-all;
     padding: 20px;
    max-width:510px; margin: 0 auto;}
 .date_tm select{padding-right:14px!important;    padding: 4px;
-    border: 2px solid #cacaca;
+    border: 1px solid #cacaca;
     border-radius: 3px;
 
    }
@@ -1185,7 +1185,7 @@ word-break: break-all;
    }
    .contactx{margin: 10px;}
    .contactx input{padding: 12px;}
-   .contactx textarea{resize: none; height: 160px; border: 2px solid #cacaca;outline: none;}
+   .contactx textarea{resize: none; height: 160px; border: 1px solid #cacaca;outline: none;}
     .aboutus{
           position: relative;
     top: 65px;
