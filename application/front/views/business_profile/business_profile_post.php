@@ -945,7 +945,7 @@
                          <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($row['product_description'], 0, 180);
-                     echo $small . '...<div id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">more</div>' ?>
+                     echo $small . '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</div>' ?>
                    </div>
                     <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
                       <?php
