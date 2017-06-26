@@ -302,7 +302,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);   ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);     ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
@@ -815,25 +815,25 @@
                                                                     <!--                                                            <li>
                                                                                                                                     <div class="post-design-product">
                                                                                                                                         <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
-                <?php
-                if ($category) {
+                                                                    <?php
+                                                                    if ($category) {
 
-                    echo ucwords($category);
-                } else {
-                    echo ucwords($businessdata[0]['other_industrial']);
-                }
-                ?>
+                                                                        echo ucwords($category);
+                                                                    } else {
+                                                                        echo ucwords($businessdata[0]['other_industrial']);
+                                                                    }
+                                                                    ?>
                                                                                                                                         </a>
                                                                                                                                     </div>
                                                                                                                                 </li>-->
-            <?php } else { ?>
+                                                                <?php } else { ?>
                                                                     <li>
                                                                         <div class="post-design-product">
                                                                             <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
-                <?php echo ucwords($companyname); ?>  </a>
+                                                                                <?php echo ucwords($companyname); ?>  </a>
                                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                                             <div class="datespan"> <span class="ctre_date" > 
-                <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
+                                                                                    <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
 
                                                                                 </span></div>
 
@@ -843,21 +843,21 @@
 
                                                                     </li>
 
-            <?php } ?>
+                                                                <?php } ?>
                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
 
 
                                                                 <li>
                                                                     <div class="post-design-product">
                                                                         <a class="buuis_desc_a" href="javascript:void(0);"  title="Category">
-            <?php
-            if ($category) {
+                                                                            <?php
+                                                                            if ($category) {
 
-                echo ucwords($category);
-            } else {
-                echo ucwords($businessdata[0]['other_industrial']);
-            }
-            ?>
+                                                                                echo ucwords($category);
+                                                                            } else {
+                                                                                echo ucwords($businessdata[0]['other_industrial']);
+                                                                            }
+                                                                            ?>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -871,11 +871,11 @@
                                                             </a>
                                                             <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
 
-            <?php
-            if ($row['posted_user_id'] != 0) {
+                                                                <?php
+                                                                if ($row['posted_user_id'] != 0) {
 
-                if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
-                    ?>
+                                                                    if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
+                                                                        ?>
                                                                         <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                                             </i> Delete Post
@@ -885,8 +885,8 @@
                                                                             </i>Edit
                                                                         </a>
 
-                <?php } else {
-                    ?>
+                                                                    <?php } else {
+                                                                        ?>
 
                                                                         <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                                             <i class="fa fa-trash-o" aria-hidden="true">
@@ -897,10 +897,10 @@
                                                                             </i> Contact Person
                                                                         </a>
 
-                    <?php
-                }
-            } else {
-                ?>
+                                                                        <?php
+                                                                    }
+                                                                } else {
+                                                                    ?>
                                                                     <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
                                                                         <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                                             <i class="fa fa-trash-o" aria-hidden="true">
@@ -910,7 +910,7 @@
                                                                             <i class="fa fa-pencil-square-o" aria-hidden="true">
                                                                             </i>Edit
                                                                         </a>
-                <?php } else { ?>
+                                                                    <?php } else { ?>
                                                                         <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
                                                                             <i class="fa fa-trash-o" aria-hidden="true">
                                                                             </i> Delete Post
@@ -920,10 +920,10 @@
                                                                             <i class="fa fa-user" aria-hidden="true">
                                                                             </i> Contact Person
                                                                         </a>
-                    <?php
-                }
-            }
-            ?>
+                                                                        <?php
+                                                                    }
+                                                                }
+                                                                ?>
 
 
                                                             </div>
@@ -932,7 +932,7 @@
                                                             <div class="ft-15 t_artd">
                                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                     <a >
-            <?php echo $this->common->make_links($row['product_name']); ?>
+                                                                        <?php echo $this->common->make_links($row['product_name']); ?>
                                                                     </a>
                                                                 </div>
                                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
@@ -940,22 +940,26 @@
                                                                 </div>
                                                             </div>                    
 
-<!--               khyati chnages sstat 24-6         -->
-                         
-                         <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
-                      <?php
-                     $small = substr($row['product_description'], 0, 180);
-                     echo $small . '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</div>' ?>
-                   </div>
-                    <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
-                      <?php
-                     echo $row['product_description'];
-                   ?>
-                   </div>
-                        <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                           <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['product_description']; ?></div>
-                        </div>
-                         <!-- khyati changes end 24-6 -->
+                                                            <!--               khyati chnages sstat 24-6         -->
+
+                                                            <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
+                                                                <?php
+                                                                $small = substr($row['product_description'], 0, 180);
+                                                                echo $small;
+                                                                if (strlen($row['product_description']) > 180) {
+                                                                    echo '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</span>';
+                                                                }
+                                                                ?>
+                                                            </div>
+                                                            <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
+                                                                <?php
+                                                                echo $row['product_description'];
+                                                                ?>
+                                                            </div>
+                                                            <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+                                                                <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['product_description']; ?></div>
+                                                            </div>
+                                                            <!-- khyati changes end 24-6 -->
                                                             <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
                                                                 <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>                  
@@ -968,10 +972,10 @@
                                                     <div class="post-design-mid col-md-12 padding_adust" >
                                                         <!-- multiple image code  start-->
                                                         <div>
-            <?php
-            $contition_array = array('post_id' => $row['business_profile_post_id'], 'is_deleted' => '1', 'image_type' => '2');
-            $businessmultiimage = $this->data['businessmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            ?>
+                                                            <?php
+                                                            $contition_array = array('post_id' => $row['business_profile_post_id'], 'is_deleted' => '1', 'image_type' => '2');
+                                                            $businessmultiimage = $this->data['businessmultiimage'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                            ?>
                                                             <?php if (count($businessmultiimage) == 1) { ?>
                                                                 <?php
                                                                 $allowed = array('gif', 'PNG', 'jpg');
@@ -989,7 +993,7 @@
                                                                         </a>
                                                                     </div>
                                                                     <!-- one image end -->
-                <?php } elseif (in_array($ext, $allowespdf)) { ?>
+                                                                <?php } elseif (in_array($ext, $allowespdf)) { ?>
                                                                     <!-- one pdf start -->
                                                                     <div>
                                                                         <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
@@ -998,7 +1002,7 @@
                                                                         </a>
                                                                     </div>
                                                                     <!-- one pdf end -->
-                <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+                                                                <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                     <!-- one video start -->
                                                                     <div>
                                                                         <video width="100%" height="350" controls>
@@ -1008,7 +1012,7 @@
                                                                         </video>
                                                                     </div>
                                                                     <!-- one video end -->
-                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                                                <?php } elseif (in_array($ext, $allowesaudio)) { ?>
                                                                     <!-- one audio start -->
                                                                     <div class="audio_main_div">
                                                                         <div class="audio_img">
@@ -1026,8 +1030,8 @@
                                                                         </div>
                                                                     </div> 
                                                                     <!-- one audio end -->
-                <?php } ?>
-            <?php } elseif (count($businessmultiimage) == 2) { ?>
+                                                                <?php } ?>
+                                                            <?php } elseif (count($businessmultiimage) == 2) { ?>
                                                                 <?php
                                                                 foreach ($businessmultiimage as $multiimage) {
                                                                     ?>
@@ -1038,8 +1042,8 @@
                                                                         </a>
                                                                     </div>
                                                                     <!-- two image end -->
-                <?php } ?>
-            <?php } elseif (count($businessmultiimage) == 3) { ?>
+                                                                <?php } ?>
+                                                            <?php } elseif (count($businessmultiimage) == 3) { ?>
                                                                 <!-- three image start -->
                                                                 <div class="three-image-top" >
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
@@ -1058,10 +1062,10 @@
                                                                     </a>
                                                                 </div>
                                                                 <!-- three image end -->
-            <?php } elseif (count($businessmultiimage) == 4) { ?>
-                <?php
-                foreach ($businessmultiimage as $multiimage) {
-                    ?>
+                                                            <?php } elseif (count($businessmultiimage) == 4) { ?>
+                                                                <?php
+                                                                foreach ($businessmultiimage as $multiimage) {
+                                                                    ?>
                                                                     <!-- four image start -->
                                                                     <div class="four-image">
                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
@@ -1069,8 +1073,8 @@
                                                                         </a>
                                                                     </div>
                                                                     <!-- four image end -->
-                <?php } ?>
-            <?php } elseif (count($businessmultiimage) > 4) { ?>
+                                                                <?php } ?>
+                                                            <?php } elseif (count($businessmultiimage) > 4) { ?>
                                                                 <?php
                                                                 $i = 0;
                                                                 foreach ($businessmultiimage as $multiimage) {
@@ -1084,12 +1088,12 @@
                                                                     </div>
 
                                                                     <!-- five image end -->
-                    <?php
-                    $i++;
-                    if ($i == 3)
-                        break;
-                }
-                ?>
+                                                                    <?php
+                                                                    $i++;
+                                                                    if ($i == 3)
+                                                                        break;
+                                                                }
+                                                                ?>
                                                                 <!-- this div view all image start -->
 
                                                                 <div class="four-image">
@@ -1099,7 +1103,7 @@
                                                                     <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>" >
                                                                         <div class="more-image" >
                                                                             <span>View All (+
-                <?php echo (count($businessmultiimage) - 4); ?>)</span>
+                                                                                <?php echo (count($businessmultiimage) - 4); ?>)</span>
 
                                                                         </div>
 
@@ -1109,7 +1113,7 @@
 
 
                                                                 <!-- this div view all image end -->
-            <?php } ?>
+                                                            <?php } ?>
                                                             <div>
                                                             </div>
                                                         </div>
@@ -1120,43 +1124,43 @@
                                                             <ul class="col-md-6 col-sm-6 col-xs-6">
                                                                 <li class="<?php echo 'likepost' . $row['business_profile_post_id']; ?>">
                                                                     <a id="<?php echo $row['business_profile_post_id']; ?>" class="ripple like_h_w"  onClick="post_like(this.id)">
-            <?php
-            $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
-            $active = $this->data['active'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            $likeuser = $this->data['active'][0]['business_like_user'];
-            $likeuserarray = explode(',', $active[0]['business_like_user']);
-            if (!in_array($userid, $likeuserarray)) {
-                ?>               
-                                    <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                </i>-->
+                                                                        <?php
+                                                                        $userid = $this->session->userdata('aileenuser');
+                                                                        $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
+                                                                        $active = $this->data['active'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                        $likeuser = $this->data['active'][0]['business_like_user'];
+                                                                        $likeuserarray = explode(',', $active[0]['business_like_user']);
+                                                                        if (!in_array($userid, $likeuserarray)) {
+                                                                            ?>               
+                                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                        </i>-->
                                                                             <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
-            <?php } else { ?> 
+                                                                        <?php } else { ?> 
                     <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
                                                                                 </i>-->
                                                                             <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
-            <?php } ?>
+                                                                        <?php } ?>
                                                                         <span class="like_As_count">
-                                                                        <?php
-                                                                        if ($row['business_likes_count'] > 0) {
-                                                                            echo $row['business_likes_count'];
-                                                                        }
-                                                                        ?>
+                                                                            <?php
+                                                                            if ($row['business_likes_count'] > 0) {
+                                                                                echo $row['business_likes_count'];
+                                                                            }
+                                                                            ?>
                                                                         </span>
                                                                     </a>
                                                                 </li>
                                                                 <li id="<?php echo "insertcount" . $row['business_profile_post_id']; ?>" style="visibility:show">
-            <?php
-            $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
-            $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            ?>
+                                                                    <?php
+                                                                    $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1', 'is_delete' => '0');
+                                                                    $commnetcount = $this->common->select_data_by_condition('business_profile_post_comment', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                    ?>
                                                                     <a  onClick="commentall(this.id)" id="<?php echo $row['business_profile_post_id']; ?>" class="ripple like_h_w">
                                                                         <i class="fa fa-comment-o" aria-hidden="true"> 
-                                                                    <?php
-                                                                    /*   if (count($commnetcount) > 0) {
-                                                                      echo count($commnetcount);
-                                                                      } */
-                                                                    ?>
+                                                                            <?php
+                                                                            /*   if (count($commnetcount) > 0) {
+                                                                              echo count($commnetcount);
+                                                                              } */
+                                                                            ?>
                                                                         </i> 
                                                                     </a>
                                                                 </li>
@@ -1166,10 +1170,10 @@
                                                                 <li>
                                                                     <div class="like_count_ext">
                                                                         <span class="comment_count<?php echo $row['business_profile_post_id']; ?>" > 
-            <?php
-            if (count($commnetcount) > 0) {
-                echo count($commnetcount);
-                ?>
+                                                                            <?php
+                                                                            if (count($commnetcount) > 0) {
+                                                                                echo count($commnetcount);
+                                                                                ?>
                                                                                 <span> Comment</span>
                                                                             <?php }
                                                                             ?> 
@@ -1181,10 +1185,10 @@
                                                                 <li>
                                                                     <div class="comnt_count_ext">
                                                                         <span class="comment_like_count<?php echo $row['business_profile_post_id']; ?>"> 
-            <?php
-            if ($row['business_likes_count'] > 0) {
-                echo $row['business_likes_count'];
-                ?>
+                                                                            <?php
+                                                                            if ($row['business_likes_count'] > 0) {
+                                                                                echo $row['business_likes_count'];
+                                                                                ?>
 
                                                                                 <span> Like</span>
                                                                             <?php }
@@ -1484,15 +1488,16 @@
                                             <h4 class="page-heading  product-listing" >No Post Found.</h4>
                                         </div>
                                     </div>
-    <?php }
-} else {
-    ?>
+                                    <?php
+                                }
+                            } else {
+                                ?>
                                 <div class="contact-frnd-post bor_none">
                                     <div class="text-center rio">
                                         <h4 class="page-heading  product-listing" >No Post Found.</h4>
                                     </div>
                                 </div>
-<?php } ?>
+                            <?php } ?>
                             <!-- body content end-->
 
                             <!-- no post found div start -->
@@ -1508,7 +1513,7 @@
 
         </section>
         <footer>
-<?php echo $footer; ?>
+            <?php echo $footer; ?>
         </footer>
         <!-- Bid-modal  -->
         <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1581,7 +1586,7 @@
 
 
                                                         var data = <?php echo json_encode($demo);
-?>;
+            ?>;
                                                         //alert(data);
                                                         $(function () {
                                                             // alert('hi');
@@ -1622,7 +1627,7 @@
 
 
         var data1 = <?php echo json_encode($city_data);
-?>;
+            ?>;
         //alert(data);
         $(function () {
             // alert('hi');
@@ -1986,7 +1991,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                          ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                            ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -3076,7 +3081,8 @@
             event.preventDefault();
             return false;
 
-        } else { alert("hii");
+        } else {
+            alert("hii");
 
             for (var i = 0; i < fileInput.length; i++)
             {
@@ -3095,7 +3101,7 @@
                 var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
                 var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
 
-                
+
                 if (foundPresent == true)
                 {
                     var foundPresent1 = $.inArray(ext1, allowedExtensions) > -1;
@@ -3232,7 +3238,7 @@
 <!-- post insert developing code end  -->
 
 
-<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
 <script type="text/javascript">
     function contentedit(clicked_id) {
         //alert(clicked_id);
@@ -3546,7 +3552,7 @@
     jQuery(document).mouseup(function (e) {
 
         var container1 = $("#myModal");
-       
+
         jQuery(document).mouseup(function (e)
         {
             var container = $("#close");
@@ -3577,11 +3583,11 @@
             $('#likeusermodal').modal('hide');
         }
     });
-    
-    $('.modal-close').on('click', function(){
+
+    $('.modal-close').on('click', function () {
         $('#myModal').modal('show');
     });
-    
+
 </script>
 
 
@@ -3589,34 +3595,34 @@
 
 <!--<khyati chnages 24-4 start-->
 <script type="text/javascript">
-    
-     function khdiv(abc) {
-         
-         $.ajax({
-               type: 'POST',
-               url: '<?php echo base_url() . "business_profile/edit_more_insert" ?>',
-               data: 'business_profile_post_id=' + abc,
-               dataType: "json",
-               success: function (data) {
-   
-                   document.getElementById('editpostdata' + abc).style.display = 'block';
-                   document.getElementById('editpostbox' + abc).style.display = 'none';
-                 //  document.getElementById('editpostdetails' + abc).style.display = 'block';
-                   document.getElementById('editpostdetailbox' + abc).style.display = 'none';
-                   document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                     document.getElementById('khyati' + abc).style.display = 'none';
-                 document.getElementById('khyatii' + abc).style.display = 'block';
-                   //alert(data.description);
-                   $('#' + 'editpostdata' + abc).html(data.title);
-                  // $('#' + 'editpostdetails' + abc).html(data.description);
-                   $('#' + 'khyatii' + abc).html(data.description);
-                 
-               }
-           });
-   
-   }
-   
-   </script>
+
+    function khdiv(abc) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/edit_more_insert" ?>',
+            data: 'business_profile_post_id=' + abc,
+            dataType: "json",
+            success: function (data) {
+
+                document.getElementById('editpostdata' + abc).style.display = 'block';
+                document.getElementById('editpostbox' + abc).style.display = 'none';
+                //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                document.getElementById('khyati' + abc).style.display = 'none';
+                document.getElementById('khyatii' + abc).style.display = 'block';
+                //alert(data.description);
+                $('#' + 'editpostdata' + abc).html(data.title);
+                // $('#' + 'editpostdetails' + abc).html(data.description);
+                $('#' + 'khyatii' + abc).html(data.description);
+
+            }
+        });
+
+    }
+
+</script>
 <!-- edit post start -->
 <script type="text/javascript">
     function editpost(abc)
@@ -3624,10 +3630,11 @@
         $("#myDropdown" + abc).removeClass('show');
         document.getElementById('editpostdata' + abc).style.display = 'none';
         document.getElementById('editpostbox' + abc).style.display = 'block';
-    //    document.getElementById('editpostdetails' + abc).style.display = 'none';
+        //    document.getElementById('editpostdetails' + abc).style.display = 'none';
         document.getElementById('editpostdetailbox' + abc).style.display = 'block';
         document.getElementById('editpostsubmit' + abc).style.display = 'block';
-         document.getElementById('khyatii' + abc).style.display = 'none';
+        document.getElementById('khyatii' + abc).style.display = 'none';
+        document.getElementById('khyati' + abc).style.display = 'none';
     }
 </script>
 <script type="text/javascript">
@@ -3652,7 +3659,7 @@
 
             document.getElementById('editpostdata' + abc).style.display = 'block';
             document.getElementById('editpostbox' + abc).style.display = 'none';
-         //   document.getElementById('editpostdetails' + abc).style.display = 'block';
+            //   document.getElementById('editpostdetails' + abc).style.display = 'block';
             document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
             document.getElementById('editpostsubmit' + abc).style.display = 'none';
@@ -3666,7 +3673,7 @@
                 success: function (data) {
                     document.getElementById('editpostdata' + abc).style.display = 'block';
                     document.getElementById('editpostbox' + abc).style.display = 'none';
-                   // document.getElementById('editpostdetails' + abc).style.display = 'block';
+                    // document.getElementById('editpostdetails' + abc).style.display = 'block';
                     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                     document.getElementById('editpostsubmit' + abc).style.display = 'none';
                     document.getElementById('khyati' + abc).style.display = 'block';
