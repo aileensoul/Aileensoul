@@ -964,6 +964,7 @@ if ($returnpage == 'job') {
                     //alert(hi);
                     document.getElementById('row1').style.display = "block";
                     document.getElementById('row2').style.display = "none";
+                     $("#upload").val('');
                 }
             </script>
 

@@ -1399,7 +1399,7 @@
 <div class="modal fade message-box" id="likeusermodal" role="dialog" style="z-index: 999999 !important;">
     <div class="modal-dialog modal-lm">
         <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <button type="button" class="modal-close1" data-dismiss="modal">&times;</button>       
             <div class="modal-body">
                 <span class="mes">
                 </span>
