@@ -431,7 +431,7 @@
                                             <div class="profile-job-details">
                                                 <ul>
                                                     <li>
-                                                        <p class="details_all_tital "> Basic Information</p> 
+                                                        <p class="details_all_tital"> Basic Information</p> 
                                                     </li>
 
                                                 </ul>
@@ -527,7 +527,7 @@
                                                     <ul>
 
                                                         <li>
-                                                            <p class="details_all_tital "> Contact Information</p>
+                                                            <p class="details_all_tital"> Contact Information</p>
                                                         </li>
 
                                                     </ul>
@@ -614,7 +614,7 @@
                                                 <div class="profile-job-details">
                                                     <ul>
                                                         <li>
-                                                            <p class="details_all_tital ">Professional Information</p>
+                                                            <p class="details_all_tital">Professional Information</p>
                                                         </li>
 
                                                     </ul>
@@ -664,7 +664,7 @@
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="profile-job-details">
                                                     <ul>
-                                                        <li><p class="details_all_tital "> Images</p> </li>
+                                                        <li><p class="details_all_tital"> Images</p> </li>
 
                                                     </ul>
                                                 </div>
@@ -694,7 +694,8 @@
                                                                 if ($i <= 2) {
                                                                     ?>
                                                                     <div class="column1">
-                                                                        <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                                                                        <div class="bui_res_i">          
+                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                         </div>
                                                                     </div>
     <?php } else { ?>
