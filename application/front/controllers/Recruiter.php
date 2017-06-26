@@ -2463,7 +2463,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
 
               foreach ($jobr as $ke => $arr) {
-    foreach ($arr as $key => $va) {
+               foreach ($arr as $key => $va) {
         
     
                     $skildataa[] = $va;

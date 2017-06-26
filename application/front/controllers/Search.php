@@ -2069,7 +2069,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3);
 
-            $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process';
+            $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
             $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' )";
 
@@ -2079,6 +2079,8 @@ if ($searchkeyword == "" && $searchplace == "") {
             // $contion_array = array('post_name=' => $search_job );
             //    $resultsrecruiter = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
             //      // echo "<pre>"; print_r($resultsrecruiter); 
+           //  $results = array_filter(array_map('trim', $results));
+
 
 
             foreach ($recskillpost as $ke => $arr) {
@@ -2094,6 +2096,7 @@ if ($searchkeyword == "" && $searchplace == "") {
                 $new[$value['post_id']] = $value;
             }
 
+            //echo '<pre>'; print_r($results); die();
 
 
             if (count($new) == 0) {
@@ -2159,7 +2162,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3);
 
-            $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id';
+            $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
             $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%')";
 
@@ -2185,6 +2188,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             }
 
 
+        // echo '<pre>'; print_r($results); die();
 
 
             if (count($new) == 0) {
@@ -2193,7 +2197,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             } else {
                 $unique = array_merge($new, $results);
             }
-            //echo "<pre>"; print_r($unique); die();
+           // echo "<pre>"; print_r($unique); die();
         }
 
 
@@ -2201,7 +2205,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         $this->data['postdetail'] = $unique;
 
-        // echo "<pre>"; print_r($this->data['postdetail']); die();
+   // echo "<pre>"; print_r($this->data['postdetail']); die();
 // code for search
         $contition_array = array('re_status' => '1' ,'re_step' => 3);
 
