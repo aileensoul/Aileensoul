@@ -157,24 +157,31 @@ Every Person In The World To Make Thier Career.
                                       
                                         </div>
         </li>
-        <li><img src="images/icon.png" alt="" class="img-responsive" />
+        <li><img src="images/rec.png" alt="" class="img-responsive" />
             <div class="slide-text">
                                         <h3 >artistic 222<span>222</span></h3>
                                        
                                         </div>
         </li>
-        <li><img src="images/job.png" alt="" class="img-responsive" />
+        <li><img src="images/freelancer.png" alt="" class="img-responsive" />
             <div class="slide-text">
                                         <h3 >artistic 333<span>3333</span></h3>
                                      
                                         </div>
         </li>
-        <li><img src="images/icon.png" alt="" class="img-responsive" />
+        <li><img src="images/business.png" alt="" class="img-responsive" />
             <div class="slide-text">
                                         <h3 >artistic 44<span>4444</span></h3>
                                        
                                         </div>
         </li>
+        <li><img src="images/art.png" alt="" class="img-responsive" />
+            <div class="slide-text">
+                                        <h3 >artistic 44<span>4444</span></h3>
+                                       
+                                        </div>
+        </li>
+       
     </ul>
 </div>
         </div>

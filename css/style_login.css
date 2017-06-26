@@ -1414,7 +1414,7 @@ word-break: break-all;
  
     /* css3 animation */
     -webkit-animation-name: anim_slides;
-    -webkit-animation-duration: 24.0s;
+    -webkit-animation-duration: 28.0s;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-direction: normal;
@@ -1422,7 +1422,7 @@ word-break: break-all;
     -webkit-animation-play-state: running;
     -webkit-animation-fill-mode: forwards;
     -moz-animation-name: anim_slides;
-    -moz-animation-duration: 24.0s;
+    -moz-animation-duration: 28.0s;
     -moz-animation-timing-function: linear;
     -moz-animation-iteration-count: infinite;
     -moz-animation-direction: normal;
@@ -1443,6 +1443,10 @@ word-break: break-all;
 .slides ul  li:nth-child(4), .slides ul  li:nth-child(4) div {
     -webkit-animation-delay: 18.0s;
     -moz-animation-delay: 18.0s;
+}
+.slides ul  li:nth-child(5), .slides ul  li:nth-child(5) div {
+    -webkit-animation-delay: 24.0s;
+    -moz-animation-delay: 24.0s;
 }
 .slides ul li img {
     display:block;
@@ -1465,6 +1469,10 @@ word-break: break-all;
         left:100%;
         opacity:0;
     }
+    50% {
+        left:100%;
+        opacity:0;
+    }
     100% {
         left:100%;
         opacity:0;
@@ -1484,6 +1492,10 @@ word-break: break-all;
         opacity:1;
     }
     25% {
+        left:100%;
+        opacity:0;
+    }
+    50% {
         left:100%;
         opacity:0;
     }
