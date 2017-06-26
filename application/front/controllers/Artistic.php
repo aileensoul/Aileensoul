@@ -7600,7 +7600,15 @@ $datacount = count($otherdata);
        $modal .=  '' . ucwords($art_name1) . '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
+
+
+       if($designation){
        $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+        }else{
+       $modal .=  '<span class="head_main_work">Current work</span>';
+
+        }
+
        $modal .=  '</div>';
        $modal .=  '</div>';
        $modal .=  '</div>';
@@ -7672,7 +7680,14 @@ $datacount = count($otherdata);
        $modal .=  '' . ucwords($art_name1) . '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
+
+       if($designation){
        $modal .=  '<span class="head_main_work">' . $designation . '</span>';
+        }else{
+       $modal .=  '<span class="head_main_work">Current work</span>';
+
+        }
+
        $modal .=  '</div>';
        $modal .=  '</div>';
        $modal .=  '</div>';

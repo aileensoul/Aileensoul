@@ -152,7 +152,7 @@
                            if ($artisticdata[0]['designation']) {
                                echo ucwords($artisticdata[0]['designation']);
                            } else {
-                               echo "Designation";
+                               echo "Current Work";
                            }
                            ?>
                         </a>
@@ -242,7 +242,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -327,7 +327,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -410,7 +410,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
@@ -494,7 +494,7 @@
                                                       if ($userlist['designation']) {
                                                           echo $userlist['designation'];
                                                       } else {
-                                                          echo "Designation";
+                                                          echo "Current Work";
                                                       }
                                                       ?>
                                                 </p>
