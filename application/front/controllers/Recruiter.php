@@ -2419,8 +2419,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
           }
 
-        
-
+     
         
         
         $contition_array = array('user_id !=' => $userid,'type' => 3);
@@ -2462,11 +2461,25 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
        
    }
 
-        // echo "<pre>"; print_r($jobrec); 
 
-         // die();
+              foreach ($jobr as $ke => $arr) {
+    foreach ($arr as $key => $va) {
+        
+    
+                    $skildataa[] = $va;
+                }
+            }
+//echo "<pre>";print_r($postdata);
+                $new = array();
+                foreach ($skildataa as $value) {
+                    $new[$value['user_id']] = $value;
+                }
+
+        //echo "<pre>"; print_r($new); 
+
+        // die();
       
-        $this->data['candidatejob'] = $jobr;
+        $this->data['candidatejob'] = $new;
       
 //code for search
 
