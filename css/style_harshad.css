@@ -33,6 +33,7 @@ padding-bottom: 20px;
 }*/
 .like_user_list ul li {
     margin-right: 15px;
+    margin-bottom: 0px;
     width: 100%;
     list-style: none;
     float: left;
@@ -62,6 +63,7 @@ padding-bottom: 20px;
 .like_user_listq {
     width: 100%;
     float: left;
+    padding: 6px 0px 6px 0px;
 }
 .head_main_name {
     color: #1b8ab9;
