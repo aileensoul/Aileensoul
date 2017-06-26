@@ -304,24 +304,25 @@ input[type=number]::-webkit-outer-spin-button {
 .search_img {
     border: 1px solid #efefef;
 }
-
+/*
 .panel-body label, .common-form fieldset label{display: none;}
 input, textarea, select {border:none; border-bottom: 1px solid #ddd; 
     border-radius: 0px; 
-    padding-left: 0;}
+    padding-left: 0;
+    margin-bottom: 15px;}
 .common-form .select2-container-multi .select2-choices {border:none !important; 
     border-bottom: 1px solid #ddd !important;
      border-radius: 0px !important; 
      padding-left: 0
-     background: none;}
+     background: none !important;}
 
-
+.select2-choices{background:none !important; }
 .has-error input, input.error, select.error, .has-error textarea, textarea.error{border:none; border-bottom: 1px solid #ff0000;}
 
 .error-msg p, label.error {
-    bottom: -36px;
+    bottom: -12px;
 
-     background: #fff; 
+     background: none !important; 
     color: red !important;
     padding: 4px 10px !important;
     position: absolute;
@@ -330,7 +331,7 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     font-size: 12px;
 }
 
-
+*/
 
 
 @media screen and (max-width: 1200px) {
