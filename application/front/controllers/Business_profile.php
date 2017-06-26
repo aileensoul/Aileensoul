@@ -8988,7 +8988,7 @@ $contition_array = array('status' => '1');
         
         
        $modal =    '<div class="modal-header">';
-       $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
+  //     $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
        $modal .=   '<h4 class="modal-title">';
        
        $modal .=    '' . count($likelistarray) . ' Like';
@@ -9036,9 +9036,9 @@ $contition_array = array('status' => '1');
        $modal .=  '</div>';
        $modal .=  '<div class="clearfix"></div>';
        $modal .=  '</div>';
-       $modal .=  '<div class="modal-footer">';
-       $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-       $modal .=  '</div>';
+     //  $modal .=  '<div class="modal-footer">';
+      // $modal .=  '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+     //  $modal .=  '</div>';
         
         
 //        echo '<div class="likeduser">';
