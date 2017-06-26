@@ -106,26 +106,30 @@ class Login extends CI_Controller {
                 } else {
 
                     if($para == login){
+                      
                     $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
                     redirect('login', 'refresh');
                     }else{
-                      $this->session->set_flashdata('error1', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
+                                         
+
+                      $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Credential.</div>');
                     redirect('login', 'refresh');
 
                     }
                 }
-            } else {
+             }
+             // else {
 
 
-                  if($para == login){
-                $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
-                redirect('login', 'refresh');
-                 }else{
-                   $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
-                redirect('login', 'refresh');
+            //       if($para == login){
+            //     $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
+            //     redirect('login', 'refresh');
+            //      }else{
+            //        $this->session->set_flashdata('error', '<div class="alert alert-danger">Please Enter Valid Login Detail.</div>');
+            //     redirect('login', 'refresh');
 
-                 }
-            }
+            //      }
+            // }
         } else {
             $this->load->view('Login/index', $this->data);
         }

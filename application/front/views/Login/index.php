@@ -62,7 +62,7 @@
       
 
                     <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
-                        
+                     
                           <fieldset class="col-md-12 col-sm-12 col-xs-12 lgn-s">
                           <label>Email Address</label>
                                 <input  id="user_name" tabindex="1" placeholder="Enter Email Address"  type="text" name="user_name" autocomplete="off" autofocus />
