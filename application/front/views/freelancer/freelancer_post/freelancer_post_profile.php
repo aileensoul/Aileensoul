@@ -161,9 +161,9 @@ echo $freelancer_post_header2_border;
                 } else {
 
                     if($freelancerpostdata[0]['designation'] == ''){ ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
+                        <a title="Designation">Current Work</a>
                        <?php }else{ ?>
-                     <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                    <a title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
                    <?php  } } ?>
 
             </div>

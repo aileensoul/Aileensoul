@@ -158,7 +158,19 @@ echo $freelancer_hire_header2_border;} ?>
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
                     <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-                    <?php } }else {echo ucwords($freelancerpostdata[0]['designation']); }?></div>
+                    <?php } }else {
+
+                        if($freelancerpostdata[0]['designation'] == ''){ ?>
+
+                         <a id="designation" class="designation" title="Designation">Current Work</a>
+
+                  <?php   }else{ ?>
+
+                             <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
+
+                    <?php    }
+                        }?></div>
+                    
 
         
         </div>
@@ -236,7 +248,14 @@ echo $freelancer_hire_header2_border;} ?>
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
                     <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
-                    <?php } }else {echo ucwords($freelancerpostdata[0]['designation']); }?></div>
+                    <?php } }else {
+                        if($freelancerhiredata[0]['designation'] == ''){ ?>
+                        <a   title="Designation">Current Work</a>
+                       <?php  }
+                        else{
+                            echo ucwords($freelancerpostdata[0]['designation']);
+                        } 
+                        }?></div>
 
             <div  class="add-post-button">
                 <?php if($returnpage==''){ ?>
