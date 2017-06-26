@@ -853,7 +853,8 @@ footer {
     background: #ffffff;
     color: #1b8ab9;
     border-radius: 4px;
-    padding: 4px 20px 4px;
+    /*padding: 4px 20px 4px;*/
+    padding: 3px 13px;
     display: inline-block;
     font-weight: 500;
     text-transform: capitalize;
@@ -4366,6 +4367,7 @@ border-bottom: 1px solid #000033;
     /*margin-right: 10px;*/
     float: left;
     margin-bottom: 0px;
+    margin-right: 10px !important;
     padding-left: 0px;
     /*   border-right: 1px solid #000000;*/
 }
@@ -4763,6 +4765,7 @@ form {
 }
 .popup-text textarea {
     height: 39px;
+    font-size: 13px;
     width: 100%;
     /*line-height: 1;*/
     resize: none;
@@ -4877,6 +4880,7 @@ form {
     border: none;
     width: 100%;
     height: auto;
+    font-size: 13px;
     min-height: 100px;
     color: #000;
     padding: 12px 20px 0px 0px;
@@ -5979,6 +5983,7 @@ follow box*/
 .follow_left_box_main_btn button:hover {
     -webkit-transform: none;
     transform: none;
+    background-color: #1b8ab9 !important;
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: -moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
     background: -webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
@@ -6051,6 +6056,7 @@ follow box*/
 .profile-boxProfileCard_follow {
     position: relative;
     max-height: 268px;
+    background-color: white;
     height: auto;
     overflow: hidden;
 }
@@ -6524,6 +6530,7 @@ follow box*/
 }
 .designation_rec_1 ul li {
     list-style: none;
+    display: flex !important;
 }
 .msg_flw_btn {
     margin-top: -60px;
@@ -8212,7 +8219,7 @@ fieldset .add_post_btns {
     color: #fff;
     opacity: 0.6;
     text-align: center;
-    padding: 13px 0px 10px;
+    padding: 13px 0px;
     position: absolute;
     z-index: 1;
     font-weight: 600;
@@ -8234,6 +8241,39 @@ fieldset .add_post_btns {
     visibility: visible;
 }
 /* End dhaval*/
+/*Dhaval 26/6*/
+.user_lst li .follow-li-text  a{color: #1b8ab9!important;}
+.user_lst li .follow-li-text  a:hover{color: #000!important;}
+.logo a:focus{outline:none !important;text-decoration: none!important;}
+.buisness-profile-pic-candidate{border:1px solid #d9d9d9;}
+.popup-img img{border:1px solid #d9d9d9;}
+.post-design-pro-img img{border:1px solid #d9d9d9;}
+.post-design-proo-img{border:1px solid #d9d9d9;}
+.post-design-pro-comment-img{border:1px solid #d9d9d9;}
+.post-design-pro-img_follow img{border:1px solid #d9d9d9;}
+.follow-img{border:1px solid #d9d9d9;}
+.edit_bui_img{border:1px solid #d9d9d9;}
+.buisness-profile-pic img{border:1px solid #d9d9d9;}
+.all-box li img{border:1px solid #d9d9d9;}
+.four-image img{border:1px solid #d9d9d9;}
+.one-image img{border:1px solid #d9d9d9;}
+.slider_img img{border:1px solid #d9d9d9;}
+.like_user_list_img img{border:1px solid #d9d9d9;}
+.profile-box-custom tr:nth-child(4) td span{text-transform: capitalize;}
+.profile-box-custom tr:nth-child(6) td span{text-transform: capitalize;}
+.change-password .change-password-box{margin: 0;}
+.header2 ul li .dropdown-content_hover a i{ padding-right: 5px!important;margin-left: -6px !important;}
+.head_title{margin: 5px; display: inline-block; border-bottom: 2px solid;}
+.job_paddtop{padding-top: 0px!important;}
+.bor_none{border-top: 1px solid #d9d9d9;}
+.user_lst li a{color:#91949d!important;}
+.profile-job-post-detail .buisness-profile-pic{padding: 14px 4px ;}
+#jobseeker_regform_higher_secondary .job_education_submitbox{margin-top: 20px;}
+#jobseeker_regform_secondary .job_education_submitbox{margin-top: 20px;}
+
+
+/*End*/
+
 /*Dhaval Tooltip */
 
 .cameraButton .tooltiptext {
@@ -8243,7 +8283,7 @@ fieldset .add_post_btns {
     color: #fff;
     opacity: 0.6;
     text-align: center;
-    padding: 13px 0px 15px;
+    padding: 13px 0px;
     position: absolute;
     z-index: 1;
     font-weight: 800;
@@ -8740,6 +8780,7 @@ label.cameraButton input[accept*="camera"] {
 .column1 {
     float: left;
     float: left;
+    margin-bottom: 6px;
     width: 227px;
     height: 173px;
 }
@@ -9270,6 +9311,7 @@ fieldset .add_post_btns:hover {
 
 .profile-job-post-detail .profile-job-post-title .button {
     font-size: 15px;
+    padding: 3px 13px !important;
     font-weight: bold;
 }
 .msg_btn {

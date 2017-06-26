@@ -134,7 +134,7 @@
 
 
 
-.change-password .change-password-box{margin: 0;}
+
 /*.action-button #notification_count{padding: 4px !important;}*/
 /*.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{word-break: break-all;}*/
 
@@ -173,55 +173,39 @@ label.error::before{
     border:2px solid red;
     border-radius: 5px;
 }*/
-.designation_rec_1 ul li{display: flex!important;}
+/*.designation_rec_1 ul li{display: flex!important;}*/
 
 /*.padd_set .left-side-bar ul{width: 87%;}*/
 
-.flw_msg_btn ul li{margin-right: 10px!important;}
-.header2 ul li .dropdown-content_hover a i{ padding-right: 5px!important;margin-left: -6px !important;}
+/*.flw_msg_btn ul li{margin-right: 10px!important;}*/
+/*.header2 ul li .dropdown-content_hover a i{ padding-right: 5px!important;margin-left: -6px !important;}*/
 
-.head_title{margin: 5px; display: inline-block; border-bottom: 2px solid;}
-.popup-textarea textarea{font-size: 13px;}
-.popup-text textarea{font-size: 15px;}
-.logo a:focus{outline:none !important;text-decoration: none!important;}
-.job_paddtop{padding-top: 0px!important;}
-.profile-boxProfileCard_follow {background-color: white;}
-.bor_none{border-top: 1px solid #d9d9d9;}
+/*.head_title{margin: 5px; display: inline-block; border-bottom: 2px solid;}*/
+/*.popup-textarea textarea{font-size: 13px;}
+.popup-text textarea{font-size: 15px;}*/
+/*.logo a:focus{outline:none !important;text-decoration: none!important;}*/
+/*.job_paddtop{padding-top: 0px!important;}*/
+/*.profile-boxProfileCard_follow {background-color: white;}*/
+/*.bor_none{border-top: 1px solid #d9d9d9;}*/
 
-.user_lst li a{color:#91949d!important;;}
-.user_lst li .follow-li-text  a{color: #1b8ab9!important;}
-.user_lst li .follow-li-text  a:hover{color: #000!important;}
-.follow_left_box_main_btn button:hover{background-color: #1b8ab9 !important;}
-.profile-box-custom tr:nth-child(4) td span{text-transform: capitalize;}
-.profile-box-custom tr:nth-child(6) td span{text-transform: capitalize;}
-.profile-boxProfileCard tr:nth-child(5) td span{text-transform: :capitalize;}
+/*.user_lst li a{color:#91949d!important;;}*/
+/*.user_lst li .follow-li-text  a{color: #1b8ab9!important;}
+.user_lst li .follow-li-text  a:hover{color: #000!important;}*/
+/*.follow_left_box_main_btn button:hover{background-color: #1b8ab9 !important;}*/
 
+
+
+/*.cameraButton .tooltiptext{padding: 13px 0 !important;}*/
+/*.cameraButton .tooltiptext_rec{padding: 13px 0 !important}*/
+/*.profile-job-post-detail .buisness-profile-pic{padding: 14px 4px ;}
 #jobseeker_regform_higher_secondary .job_education_submitbox{margin-top: 20px;}
 #jobseeker_regform_secondary .job_education_submitbox{margin-top: 20px;}
-.cameraButton .tooltiptext{padding: 13px 0 !important;}
-.cameraButton .tooltiptext_rec{padding: 13px 0 !important}
-.profile-job-post-detail .buisness-profile-pic{padding: 14px 4px ;}
+*/
 
 
-.buisness-profile-pic-candidate{border:1px solid #d9d9d9;}
-.popup-img img{border:1px solid #d9d9d9;}
-.post-design-pro-img img{border:1px solid #d9d9d9;}
-.post-design-proo-img{border:1px solid #d9d9d9;}
-.post-design-pro-comment-img{border:1px solid #d9d9d9;}
-.post-design-pro-img_follow img{border:1px solid #d9d9d9;}
-.follow-img{border:1px solid #d9d9d9;}
-.edit_bui_img{border:1px solid #d9d9d9;}
-.buisness-profile-pic img{border:1px solid #d9d9d9;}
-.all-box li img{border:1px solid #d9d9d9;}
-.four-image img{border:1px solid #d9d9d9;}
-.one-image img{border:1px solid #d9d9d9;}
-.slider_img img{border:1px solid #d9d9d9;}
-.like_user_list_img img{border:1px solid #d9d9d9;}
-
-
-.column1{margin-bottom: 6px;}
-.profile-job-post-detail .profile-job-post-title .button{padding: 3px 13px !important;}
-.apply-btn a{padding: 3px 13px;}
+/*.column1{margin-bottom: 6px;}*/
+/*.profile-job-post-detail .profile-job-post-title .button{padding: 3px 13px !important;}*/
+/*.apply-btn a{padding: 3px 13px;}*/
 
 
 
