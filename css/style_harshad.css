@@ -310,11 +310,26 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 1024px) {
+    .chat .chat-history .other-message::after{
+        left: 96%;
+    }
+    .message-data-name {
+        margin-right: 1%;
+      
+    }
+       .container_chat{
+        padding-right: 20px !important;
+    }
+ 
+    .people-list{
+        width: 24%;
+    }
     .container_chat {
              padding: 0 19px 13px;
+             
     }
     .chat{
-        width:724px
+        width:76%;
     }
     .profile-boxProfilebuisness-avatarLink2 {
         height: 70px !important;
@@ -324,9 +339,22 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 991px) {
-    .container_chat{padding-right: 20px !important;}
-    .chat{width: 76%;}
-    .people-list{width: 24%;}
+    .chat .chat-history .message-data.align-right .message-data-time{
+        font-size: 12px;
+    }
+   .message-data-name {
+        margin-right: 2%;
+        font-size: 14px;
+    }
+    .chat .chat-history .other-message::after{
+        left: 93%;
+    }
+    .chat{
+        width: 68%;
+    }
+    .people-list{
+        width: 32%;
+    }
 
     .profile-pho{margin-top: -64px !important;}
     .pad-top-res {
