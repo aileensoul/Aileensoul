@@ -8446,7 +8446,7 @@ audio*/
 cover pic css*/
 
 .pop_content .okbtn {
-    position: absolute;
+    /*position: absolute;*/
     transition: all 200ms;
     font-size: 16px;
     text-decoration: none;
@@ -8504,7 +8504,7 @@ label.cameraButton input[accept*="camera"] {
     padding: 5px;
 }
 .pop_content .cnclbtn {
-    position: absolute;
+   /* position: absolute;*/
     transition: all 200ms;
     font-size: 16px;
     text-decoration: none;
@@ -8520,9 +8520,9 @@ label.cameraButton input[accept*="camera"] {
     text-align: center;
     margin-top: 40px;
 }
-.model_ok_cancel {
+/*.model_ok_cancel {
     width: 200px !important;
-}
+}*/
 /* vishang 24-5-17 start */
 
 .display_inline_block {
