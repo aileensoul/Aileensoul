@@ -9226,6 +9226,30 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
   $contactdata .= '</div>';
   $contactdata .= '</a>';
        }
+
+       elseif($status == 'reject'){
+              $data = array(
+           'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending',
+            'not_read' => 2
+
+        );
+
+
+$updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+ $contactdata =  '<a href="#" onclick="return contact_person_model(' . $to_id .","."'". 'pending' ."'".');" style="cursor: pointer;">';
+ $contactdata .=  '<div class="">';
+ $contactdata .=  '<div id="ripple" class="centered">';
+ $contactdata .=  '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+
+
+  $contactdata .=   '</div>';
+  $contactdata .=   '<div class="addtocont">';
+  $contactdata .= '<span class="ft-13"><i class="icon-user"></i>Cancel contact</span>';
+  $contactdata .= '</div>';
+  $contactdata .= '</div>';
+  $contactdata .= '</a>';
+       }
        
      }else{
           
@@ -9771,6 +9795,22 @@ public function contact_person_menu(){
   
        
        }elseif($status == 'cancel'){
+              $data = array(
+            'created_date' => date('Y-m-d H:i:s'),
+            'status' => 'pending',
+            'not_read' => 2
+        );
+
+
+$updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
+ 
+ $contactdata =  '<button onClick="contact_person_cancle('. $to_id .","."'". 'pending' ."'".')">';
+
+
+ $contactdata .=  'Cancel request';
+  $contactdata .= '</button>';
+       }
+       elseif($status == 'reject'){
               $data = array(
             'created_date' => date('Y-m-d H:i:s'),
             'status' => 'pending',
