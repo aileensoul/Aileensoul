@@ -1,4 +1,5 @@
 .pop_content .okbtn{margin-right: 20px;}
+.container_chat{padding: 0 40px 12px;}
 .model_ok_cancel{
   width: 100%;
 float: left;
@@ -260,6 +261,7 @@ input[type=number]::-webkit-outer-spin-button {
 .chat_nobcx {
     border: 1px solid #ccc;
     float: left;
+    width: 100%;
 }
 .people-list ul::-moz-scrollbar {
     -webkit-appearance: none;
@@ -308,6 +310,12 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 1024px) {
+    .container_chat {
+             padding: 0 19px 13px;
+    }
+    .chat{
+        width:724px
+    }
     .profile-boxProfilebuisness-avatarLink2 {
         height: 70px !important;
     }
@@ -316,6 +324,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 991px) {
+    .container_chat{padding-right: 20px !important;}
+    .chat{width: 76%;}
+    .people-list{width: 24%;}
+
     .profile-pho{margin-top: -64px !important;}
     .pad-top-res {
         padding-top: 20px;
@@ -340,7 +352,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 @media screen and (max-width: 767px) {
-    .custom-right{margin-top: 30px;}
+        .custom-right{margin-top: 30px;}
        .cameraButton .tooltiptext { font-size: 12px;width: 121px; font-weight: 600; margin-top: 21px;}
     
     .profile-box-art .right-side-menu{margin-left: 0px;
