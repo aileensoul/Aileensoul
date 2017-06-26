@@ -234,7 +234,7 @@
  <div class="flw_msg_btn fr">
                     <ul>
                     <?php
-                    if($this->uri->segment(3) != ""){ ?>
+                    if($this->uri->segment(3) != "" && $this->uri->segment(3) != $userid){ ?>
                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
                         <?php } ?>
                     </ul>
@@ -1216,7 +1216,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                         function picpopup() {
                             
                       
-            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only image Type is Supported");
             $('#bidmodal').modal('show');
                         }
                     </script> 

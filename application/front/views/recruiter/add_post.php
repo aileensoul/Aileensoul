@@ -700,7 +700,7 @@ if(mm<10) {
 
                         post_name: {
 
-                            required: "Jobtitle  Is Required."
+                            required: "Job title  Is Required."
                         },
                           'skills[]': {
 

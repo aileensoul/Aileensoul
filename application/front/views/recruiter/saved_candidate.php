@@ -141,7 +141,7 @@
 
         </div>
 <div class="job-menu-profile mob-block">
-        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
+        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['userid']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
 
@@ -222,7 +222,7 @@
 
         <div class="middle-part container rec_res">    
 <div class="job-menu-profile mob-none  pt20">
-        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['user_id']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
+        <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata[0]['userid']); ?>"><h5><?php echo $recruiterdata[0]['rec_firstname'] . ' ' . $recruiterdata[0]['rec_lastname']; ?></h5></a>
         <!-- text head start -->
         <div class="profile-text" >
 
@@ -297,12 +297,12 @@
                   <?php
                  if ($rec['job_user_image']) {
                     ?>
-               <a href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
+               <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
                <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
                      <?php
                        } else {
                           ?> </a>
-               <a href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
+               <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
                <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"> </a>
                        <?php
                       }
@@ -317,13 +317,13 @@
                 <div class="designation_rec_1 fl ">
              <ul>
                 <li> 
-      <a class="post_name"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
+      <a class="post_name"  href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>">
         <?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?></a>
                  </li>
    
           <li style="display: block;">
 
-                <a class="post_designation"  href="<?php echo base_url('job/job_printpreview/' . $rec['user_id']); ?>" title=" <?php echo $rec['designation']; ?>">
+                <a class="post_designation"  href="<?php echo base_url('job/job_printpreview/' . $rec['userid']); ?>" title=" <?php echo $rec['designation']; ?>">
                  <?php
                if ($rec['designation']) {
                     ?>
@@ -352,7 +352,7 @@
                                           
                                             <div class="profile-job-profile-menu">
                                                 <ul class="clearfix">
-                 <?php $contition_array = array('user_id' => $rec['user_id'], 'type' => 3, 'status' => 1);
+                 <?php $contition_array = array('user_id' => $rec['userid'], 'type' => 3, 'status' => 1);
         unset($other_skill);
         //echo "<pre>"; print_r($other_skill);
             $other_skill = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -429,7 +429,7 @@
 
                   <?php if($rec['experience'] != 'Fresher'){?>
 <?php 
-$contition_array =array('user_id' => $rec['user_id'], 'experience' => 'Experience', 'status' => '1');
+$contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience', 'status' => '1');
 
         
             $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
@@ -793,8 +793,8 @@ $contition_array =array('user_id' => $rec['user_id'], 'experience' => 'Experienc
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="apply-btn fr" >
                                      <?php $userid = $this->session->userdata('aileenuser');
-                                     if($userid != $rec['user_id']){ ?>
-                                             <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
+                                     if($userid != $rec['userid']){ ?>
+                                             <a href="<?php echo base_url('chat/abc/' . $rec['userid']); ?>">Message</a>
                                        <!--<a href="#popup1" class="button">Remove Candidate </a>-->
                                                     <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
                                      <?php } ?>
@@ -1322,7 +1322,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                         function picpopup() {
                             
                       
-            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+            $('.biderror .mes').html("<div class='pop_content'>Only image Type is Supported");
             $('#bidmodal').modal('show');
                         }
                     </script>

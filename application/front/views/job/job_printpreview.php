@@ -1634,7 +1634,10 @@ else
                                                     </div>
 
                                                     <?php
-                                            if ($returnpage == 'recruiter') { ?>
+                                            if ($returnpage == 'recruiter') { 
+                                             if ($job[0]['carrier']) 
+                                                          {
+                                                            ?>
                                                     <div class="profile-job-post-title clearfix">
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="profile-job-details">
@@ -1672,7 +1675,7 @@ else
                                                         </div>
 
                                                     </div>
-                                                    <?php } 
+                                                    <?php } }
                                                     else
                                                         {
                                                             ?>
