@@ -157,8 +157,13 @@
 
                      <?php }else{?> 
                       <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
-                     <?php }} else {echo ucwords($freelancerhiredata[0]['designation']);}
-                     ?>
+                     <?php }} else {
+                        if($freelancerhiredata[0]['designation'] == ''){ ?>
+                       <a id="designation" class="designation" title="Designation">Current Work</a>
+                  <?php   }
+                      else{ ?>
+                        <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
+                    <?php   }  }?>
                       </div>
     
                       </div>
@@ -242,7 +247,15 @@
 
                      <?php }else{?> 
                       <a id="designation" class="designation" title="<?php echo ucwords($freelancerhiredata[0]['designation']); ?>"><?php echo ucwords($freelancerhiredata[0]['designation']); ?></a>
-                     <?php }} else {echo ucwords($freelancerhiredata[0]['designation']);}
+                     <?php }
+                   } else {
+                      if($freelancerhiredata[0]['designation'] == ''){ ?>
+                      <a   title="Designation">Current Work</a> 
+                      <?php }
+                      else{ ?>
+                      <a   title=" <?php echo ucwords($freelancerhiredata[0]['designation']); ?>">
+                      <?php echo ucwords($freelancerhiredata[0]['designation']); ?> </a>
+                    <?php  } }
                      ?>
                       </div>
                            
