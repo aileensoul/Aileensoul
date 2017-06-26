@@ -696,15 +696,6 @@ $(window).load(function(){
 });
 </script>
 
-<!-- disable spacebar js start-->
-<script type='text/javascript'>
-$(window).load(function(){
-$("input").on("keydown", function (e) {
-return e.which !== 32;
-});
-});//]]>  
-</script>
-<!-- disable spacebar js end-->
 
 
 
