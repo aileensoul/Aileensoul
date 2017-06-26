@@ -240,7 +240,7 @@ $(document).ready(function(){
             ?>
 
 
-             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == ''){?>
+             <?php if($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject'){?>
                   <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
 
             <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
@@ -265,10 +265,14 @@ $(document).ready(function(){
                             Cancel request  
                      <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
                         In your contact
-                   <?php  }else{ ?>
+                   <?php  }elseif($contactperson[0]['status'] == 'reject'){ ?>
 
                       Add to contact
-                   <?php } ?>
+                   <?php } else{?>
+
+                   Add to contact
+                   <?php }?>
+
                             </span>
                         </div>
                     </div>
