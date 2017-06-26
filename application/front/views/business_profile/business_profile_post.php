@@ -347,7 +347,6 @@
                                                             $contition_array = array('follow_to' => $userlist['business_profile_id'], 'follow_from' => $followfrom, 'follow_status' => '1', 'follow_type' => '2');
                                                             $businessfollow = $this->data['businessfollow'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '1', $offset = '', $join_str = array(), $groupby = '');
 
-
                                                             if (!$businessfollow) {
                                                                 ?>                             
                                                                 <div class="profile-job-post-title-inside clearfix">
@@ -978,7 +977,7 @@
                                                             ?>
                                                             <?php if (count($businessmultiimage) == 1) { ?>
                                                                 <?php
-                                                                $allowed = array('gif', 'PNG', 'jpg');
+                                                                $allowed = array('gif', 'PNG', 'jpg', 'jpeg');
                                                                 $allowespdf = array('pdf');
                                                                 $allowesvideo = array('mp4', 'webm');
                                                                 $allowesaudio = array('mp3');
@@ -3081,7 +3080,7 @@
             return false;
 
         } else {
-            alert("hii");
+//            alert("hii");
 
             for (var i = 0; i < fileInput.length; i++)
             {
@@ -3095,7 +3094,7 @@
                 var allowespdf = ['pdf'];
 
                 var foundPresent = $.inArray(ext, allowedExtensions) > -1;
-                alert(foundPresent);
+//                alert(foundPresent);
                 var foundPresentvideo = $.inArray(ext, allowesvideo) > -1;
                 var foundPresentaudio = $.inArray(ext, allowesaudio) > -1;
                 var foundPresentpdf = $.inArray(ext, allowespdf) > -1;
