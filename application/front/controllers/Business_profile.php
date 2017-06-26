@@ -5068,7 +5068,10 @@ $contition_array = array('status' => '1');
 //                $editpostdes .= '</span>';
                 
                  $small = substr($businessdata[0]['product_description'], 0, 180);
-                    $editpostdes .= $small . '...<div id="kkkk" onClick="khdiv(' . $_POST["business_profile_post_id"] . ')">more</div>'; 
+                    $editpostdes .= $small;
+                    if(strlen($businessdata[0]['product_description']) >180){
+                        $editpostdes .= '...<span id="kkkk" onClick="khdiv(' . $_POST["business_profile_post_id"] . ')">View More</div>'; 
+                    }
             }
             //echo $editpost;   echo $editpostdes;
             echo json_encode(

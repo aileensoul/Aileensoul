@@ -36,7 +36,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-       
+
         <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/3.3.0/select2.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
@@ -157,205 +157,205 @@
     </head>
     <body class="page-container-bg-solid page-boxed">
         <section>
-        <div class="user-midd-section" id="paddingtop_fixed">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4  profile-box profile-box-left">
-                        <div class="">
-                            <!-- <div class="full-box-module">    
-                                <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover">    
-                                        <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
-                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                           
-                                            <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php
-                                            } else {
-                                                ?>
-                                                <div> 
-                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php } ?>
-                                        </a>
+            <div class="user-midd-section" id="paddingtop_fixed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4  profile-box profile-box-left">
+                            <div class="">
+                                <!-- <div class="full-box-module">    
+                                    <div class="profile-boxProfileCard  module">
+                                        <div class="profile-boxProfileCard-cover">    
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                               href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
+                                               tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
+                                               
+                                <?php if ($businessdata[0]['profile_background'] != '') { ?>
+                                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                                </div> <?php
+                                } else {
+                                    ?>
+                                                                <div> 
+                                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                                </div> <?php } ?>
+                                            </a>
+                                        </div>
+                                        <div class="profile-boxProfileCard-content clearfix">
+                                            <div class="buisness-profile-txext col-md-4">
+                                                <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
+                                <?php
+                                if ($businessdata[0]['business_user_image']) {
+                                    ?>
+                                                                    <div> 
+                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                                    </div>
+                                <?php } else { ?> <div> 
+                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                                    </div>  <?php } ?>                           
+                                                   
+                                                </a>
+                                            </div>
+                                            <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
+                                                <span class="profile-company-name ">
+                                                    <a class="ml-4" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                <?php echo ucwords($businessdata[0]['company_name']); ?>
+                                                    </a> 
+                                                </span>
+                                <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                <div class="profile-boxProfile-name">
+                                                    <a style="padding-left:3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                <?php
+                                if ($category) {
+                                    echo $category;
+                                } else {
+                                    echo $businessdata[0]['other_industrial'];
+                                }
+                                ?>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="profile-box-bui-menu  col-md-12">
+                                                <ul class="">
+                                                    <li 
+                                <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
+                                <?php } ?>>
+                                                        <a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                                                        </a>
+                                                    </li>
+                                                    <li 
+                                <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
+                                <?php } ?>>
+                                                        <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                                                            <br> (<?php echo (count($businessfollowerdata)); ?>)
+                                                        </a>
+                                                    </li>
+                                                    <li 
+                                <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
+                                <?php } ?>>
+                                                        <a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
+                                                            <br> (<?php echo (count($businessfollowingdata)); ?>) 
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="profile-boxProfileCard-content clearfix">
-                                        <div class="buisness-profile-txext col-md-4">
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
-                                                <?php
-                                                if ($businessdata[0]['business_user_image']) {
+                                </div> -->
+                                <div class="full-box-module">   
+                                    <div class="profile-boxProfileCard  module">
+                                        <div class="profile-boxProfileCard-cover"> 
+                                            <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
+                                               href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
+                                               tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
+                                                <!-- box image start -->
+                                                <?php if ($businessdata[0]['profile_background'] != '') { ?>
+                                                    <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                    </div> <?php
+                                                } else {
                                                     ?>
                                                     <div> 
-                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                    </div>
-                                                <?php } else { ?> <div> 
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                    </div>  <?php } ?>                           
-                                               
+                                                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                    </div> <?php } ?>
                                             </a>
                                         </div>
-                                        <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
-                                            <span class="profile-company-name ">
-                                                <a class="ml-4" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
-                                                    <?php echo ucwords($businessdata[0]['company_name']); ?>
-                                                </a> 
-                                            </span>
-                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                            <div class="profile-boxProfile-name">
-                                                <a style="padding-left:3px;" href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                        <div class="profile-boxProfileCard-content clearfix">
+                                            <div class="left_side_box_img buisness-profile-txext">
+
+                                                <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
                                                     <?php
-                                                    if ($category) {
-                                                        echo $category;
-                                                    } else {
-                                                        echo $businessdata[0]['other_industrial'];
-                                                    }
-                                                    ?>
+                                                    if ($businessdata[0]['business_user_image']) {
+                                                        ?>
+                                                        <div class="left_iner_img_profile"> 
+                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                        </div>
+                                                    <?php } else { ?>
+                                                        <div class="left_iner_img_profile">  
+                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                        </div>  <?php } ?>                           
+                                                    <!-- 
+                            <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
+                            width: 68px;">
+                                                    -->
                                                 </a>
                                             </div>
+                                            <div class="right_left_box_design ">
+                                                <span class="profile-company-name ">
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
+                                                        <?php echo ucwords($businessdata[0]['company_name']); ?>
+                                                    </a> 
+                                                </span>
+
+                                                <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                <div class="profile-boxProfile-name">
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                        <?php
+                                                        if ($category) {
+                                                            echo $category;
+                                                        } else {
+                                                            echo $businessdata[0]['other_industrial'];
+                                                        }
+                                                        ?>
+                                                    </a>
+                                                </div>
+                                                <ul class=" left_box_menubar">
+                                                    <li
+                                                        <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
+                                                        <?php } ?>>
+                                                        <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
+                                                        </a>
+                                                    </li>
+                                                    <li 
+                                                        <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
+                                                        <?php } ?>>
+                                                        <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
+                                                            <br> (<?php echo (count($businessfollowerdata)); ?>)
+                                                        </a>
+                                                    </li>
+                                                    <li  
+                                                        <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
+                                                        <?php } ?>>
+                                                        <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
+                                                            <br> (<?php echo (count($businessfollowingdata)); ?>) 
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="profile-box-bui-menu  col-md-12">
-                                            <ul class="">
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
-                                                    </a>
-                                                </li>
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                                        <br> (<?php echo (count($businessfollowerdata)); ?>)
-                                                    </a>
-                                                </li>
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
-                                                        <br> (<?php echo (count($businessfollowingdata)); ?>) 
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    </div>                             
                                 </div>
-                            </div> -->
-                             <div class="full-box-module">   
-      <div class="profile-boxProfileCard  module">
-                                    <div class="profile-boxProfileCard-cover"> 
-                                             <a class="profile-boxProfileCard-bg u-bgUserColor a-block"
-                                           href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>"
-                                           tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
-                                            <!-- box image start -->
-                                            <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php
-                                            } else {
-                                                ?>
-                                                <div> 
-                                                    <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                </div> <?php } ?>
-                                        </a>
-                                    </div>
-                                    <div class="profile-boxProfileCard-content clearfix">
-                                    <div class="left_side_box_img buisness-profile-txext">
-                                        
-                                            <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>" title="<?php echo $businessdata[0]['company_name']; ?>" tabindex="-1" aria-hidden="true" rel="noopener" >
-                                                <?php
-                                                if ($businessdata[0]['business_user_image']) {
-                                                    ?>
-                                                    <div class="left_iner_img_profile"> 
-                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                    </div>
-                                                <?php } else { ?>
-                                                  <div class="left_iner_img_profile">  
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                    </div>  <?php } ?>                           
-                                                <!-- 
-                        <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                        width: 68px;">
-                                                -->
-                                            </a>
-                                    </div>
-                                    <div class="right_left_box_design ">
-                                      <span class="profile-company-name ">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
-                                                    <?php echo ucwords($businessdata[0]['company_name']); ?>
-                                                </a> 
-                                            </span>
 
-                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                            <div class="profile-boxProfile-name">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
-                                                    <?php
-                                                    if ($category) {
-                                                        echo $category;
-                                                    } else {
-                                                        echo $businessdata[0]['other_industrial'];
-                                                    }
-                                                    ?>
-                                                </a>
-                                            </div>
-                                               <ul class=" left_box_menubar">
-                                                <li
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
-                                                    </a>
-                                                </li>
-                                                <li 
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                                        <br> (<?php echo (count($businessfollowerdata)); ?>)
-                                                    </a>
-                                                </li>
-                                                <li  
-                                                    <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
-                                                    <?php } ?>>
-                                                    <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
-                                                        <br> (<?php echo (count($businessfollowingdata)); ?>) 
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                    </div>
-                                    </div>
-       </div>                             
-    </div>
-                            
-                      
+
+                            </div>
+
+
+                            <br>
+
+                            <div id="result"></div>   
+
                         </div>
+                        <!-- popup start -->
 
+                        <!-- Trigger/Open The Modal -->
+                        <!-- <div id="myBtn">Open Modal</div>-->
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal-post">
+                            <!-- Modal content -->
 
-                        <br>
-
-                        <div id="result"></div>   
-
-                    </div>
-                    <!-- popup start -->
-
-                    <!-- Trigger/Open The Modal -->
-                    <!-- <div id="myBtn">Open Modal</div>-->
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal-post">
-                        <!-- Modal content -->
-                       
-                    </div>
-                    <!-- popup end -->  
-                    <?php
-                    if ($this->session->flashdata('error')) {
-                        echo $this->session->flashdata('error');
-                    }
-                    ?>
-
-                       <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
-
-                        <!-- body content start-->
-
+                        </div>
+                        <!-- popup end -->  
                         <?php
+                        if ($this->session->flashdata('error')) {
+                            echo $this->session->flashdata('error');
+                        }
+                        ?>
+
+                        <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business">
+
+                            <!-- body content start-->
+
+                            <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
-                        if (count($busienss_data) > 0) {
-                           
+                            if (count($busienss_data) > 0) {
+
                                 $userid = $this->session->userdata('aileenuser');
                                 $contition_array = array('business_profile_post_id' => $busienss_data[0]['business_profile_post_id'], 'status' => '1');
                                 $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -441,8 +441,8 @@
                                                                             <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
                                                                             <p class="posted_with" > Posted With </p> <a class="other_name name_business"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
                                                                             <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  >
-                                                                             <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($busienss_data[0]['created_date']))); ?>  
-                                                                   
+                                                                                <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($busienss_data[0]['created_date']))); ?>  
+
                                                                             </span> </div></div>
                                                                 </li>
                                                             <?php } else { ?>
@@ -450,10 +450,10 @@
                                                                     <div class="post-design-product">
                                                                         <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucwords($companyname); ?>";>
                                                                             <?php echo ucwords($companyname); ?>  </a>
-                                                                 <span role="presentation" aria-hidden="true"> · </span>
+                                                                        <span role="presentation" aria-hidden="true"> · </span>
                                                                         <div class="datespan"> <span class="ctre_date" > 
-                                                                                 <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($busienss_data[0]['created_date']))); ?>
-                                                                              
+                                                                                <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($busienss_data[0]['created_date']))); ?>
+
                                                                             </span></div>
 
                                                                     </div>
@@ -545,7 +545,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="post-design-desc">
-                                                       <div class="ft-15 t_artd">
+                                                        <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
                                                                 <a >
                                                                     <?php echo $this->common->make_links($busienss_data[0]['product_name']); ?>
@@ -556,15 +556,27 @@
                                                             </div>
                                                         </div>                    
 
-                                                        <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
-                                                            <span class="show"> 
-                                                                <?php
-                                                           
-                                                            $new_product_description = $this->common->make_links($busienss_data[0]['product_description']); ?>
-                                                                <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php // echo  nl2br($new_product_description); ?>
-                                                            </span>
+                        <!--                                                        <div id="<?php echo 'editpostdetails' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
+                                                                                    <span class="show"> 
+                                                        <?php $new_product_description = $this->common->make_links($busienss_data[0]['product_description']); ?>
+                                                        <?php // echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                        <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                        <?php // echo  nl2br($new_product_description); ?>
+                                                                                    </span>
+                                                                                </div>-->
+                                                        <div id="<?php echo "khyati" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
+                                                            <?php
+                                                            $small = substr($busienss_data[0]['product_description'], 0, 180);
+                                                            echo $small;
+                                                            if (strlen($busienss_data[0]['product_description']) > 180) {
+                                                                echo '... <span id="kkkk" onClick="khdiv(' . $busienss_data[0]['business_profile_post_id'] . ')">View More</span>';
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <div id="<?php echo "khyatii" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
+                                                            <?php
+                                                            echo $busienss_data[0]['product_description'];
+                                                            ?>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $busienss_data[0]['business_profile_post_id']; ?>" style="display:none;">
                                                           <!-- <textarea id="<?php echo 'editpostdesc' . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis" name="editpostdesc"><?php echo $busienss_data[0]['product_description']; ?></textarea>
@@ -643,7 +655,7 @@
                                                             foreach ($businessmultiimage as $multiimage) {
                                                                 ?>
                                                                 <!-- two image start -->
-                                                               <div class="two-images">
+                                                                <div class="two-images">
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>">
                                                                         <img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
@@ -652,18 +664,18 @@
                                                             <?php } ?>
                                                         <?php } elseif (count($businessmultiimage) == 3) { ?>
                                                             <!-- three image start -->
-                                                           <div class="three-image-top" >
+                                                            <div class="three-image-top" >
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                              <div class="three-image" >
+                                                            <div class="three-image" >
 
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
                                                             </div>
-                                                             <div class="three-image" >
+                                                            <div class="three-image" >
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_post_id']) ?>">
                                                                     <img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> 
                                                                 </a>
@@ -688,7 +700,7 @@
                                                                 ?>
                                                                 <!-- five image start -->
                                                                 <div>
-                                                                 <div class="four-image" >
+                                                                    <div class="four-image" >
                                                                         <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>">
                                                                             <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                         </a>
@@ -703,21 +715,21 @@
                                                             ?>
                                                             <!-- this div view all image start -->
                                                             <div>
-                                                              <div class="four-image" >
+                                                                <div class="four-image" >
                                                                     <a href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>">
                                                                         <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style="width: 100%; height: 100%;"> 
                                                                     </a>
                                                                     <a class="text-center" href="<?php echo base_url('business_profile/postnewpage/' . $busienss_data[0]['business_profile_post_id']) ?>" >
-                                                                <div class="more-image" >
-                                                                    <span>View All (+
-                                                                        <?php echo (count($businessmultiimage) - 4); ?>)</span>
-                                                                    
+                                                                        <div class="more-image" >
+                                                                            <span>View All (+
+                                                                                <?php echo (count($businessmultiimage) - 4); ?>)</span>
+
+                                                                        </div>
+
+                                                                    </a>
                                                                 </div>
 
-                                                                </a>
-                                                                </div>
 
-                                                                
                                                             </div>
                                                             <!-- this div view all image end -->
                                                         <?php } ?>
@@ -739,8 +751,8 @@
                                                                     $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
-                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                        </i>-->
+                                        <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                    </i>-->
                                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                     <?php } else { ?> 
                 <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -779,12 +791,13 @@
                                                                     <span class="comment_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>" > 
                                                                         <?php
                                                                         if (count($commnetcount) > 0) {
-                                                                            echo count($commnetcount); ?>
-                                                                        <span> Comment</span>
-                                                                       <?php } 
+                                                                            echo count($commnetcount);
+                                                                            ?>
+                                                                            <span> Comment</span>
+                                                                        <?php }
                                                                         ?> 
                                                                     </span> 
-                                                                   
+
                                                                 </div>
                                                             </li>
 
@@ -792,15 +805,16 @@
                                                                 <div class="comnt_count_ext">
                                                                     <span class="comment_like_count<?php echo $busienss_data[0]['business_profile_post_id']; ?>"> 
                                                                         <?php
-                                                                        if ($busienss_data[0]['business_likes_count'] > 0 ) { 
-                                                                            echo $busienss_data[0]['business_likes_count']; ?>
-                                                                        
-                                                                         <span> Like</span>
-                                                                      <?php  } 
+                                                                        if ($busienss_data[0]['business_likes_count'] > 0) {
+                                                                            echo $busienss_data[0]['business_likes_count'];
+                                                                            ?>
+
+                                                                            <span> Like</span>
+                                                                        <?php }
                                                                         ?>
-                                                                       
+
                                                                     </span> 
-                                                                    
+
                                                                 </div></li>
                                                         </ul>
                                                     </div>
@@ -1064,89 +1078,88 @@
                                                             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
                                                         <?php } ?>
                                                     </div>
-                                                
-                                                        <div id="content" class="col-md-12  inputtype-comment cmy_2" >
-                                                            <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                                                        </div>
-                                                        <?php echo form_error('post_comment'); ?> 
-                                                        <div class="comment-edit-butn">       
-                                                            <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
-                                                            </button>
-                                                        </div>
-                                                
+
+                                                    <div id="content" class="col-md-12  inputtype-comment cmy_2" >
+                                                        <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
+                                                    </div>
+                                                    <?php echo form_error('post_comment'); ?> 
+                                                    <div class="comment-edit-butn">       
+                                                        <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
+                                                        </button>
+                                                    </div>
+
                                                 </div>
                                                 <!-- comment end -->
                                             </div>
                                         </div></div>
                                     <?php
                                 }
-                        
-                        } else {
-                            ?>
+                            } else {
+                                ?>
 
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                            </div>
+                                <div class="text-center rio">
+                                    <h4 class="page-heading  product-listing" >No Post Found.</h4>
+                                </div>
 
-                        <?php } ?>
-                        <!-- body content end-->
-                    </div>
-                </div>
-            </div>
-        </div>
-  
-        </section>
-<footer>
-    <?php echo $footer; ?>
-</footer>
-<!-- Bid-modal  -->
-<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-    <div class="modal-dialog modal-lm">
-        <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;
-            </button>       
-            <div class="modal-body">
-              <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                <span class="mes">
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Model Popup Close -->
-
-<!-- Bid-modal-2  -->
-<div class="modal fade message-box" id="likeusermodal" role="dialog">
-    <div class="modal-dialog modal-lm">
-        <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-            <div class="modal-body">
-                <span class="mes">
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Model Popup Close -->
-
-
-             <!-- Bid-modal for this modal appear or not start -->
-            <div class="modal fade message-box" id="post" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <span class="mes">
-                            </span>
+                            <?php } ?>
+                            <!-- body content end-->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Bid-modal for this modal appear or not  Popup Close -->
-            
+
+        </section>
+        <footer>
+            <?php echo $footer; ?>
+        </footer>
+        <!-- Bid-modal  -->
+        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;
+                    </button>       
+                    <div class="modal-body">
+                      <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Model Popup Close -->
+
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="likeusermodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Model Popup Close -->
 
 
-</body>
+        <!-- Bid-modal for this modal appear or not start -->
+        <div class="modal fade message-box" id="post" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bid-modal for this modal appear or not  Popup Close -->
+
+
+
+    </body>
 </html>
 
 
@@ -1170,7 +1183,7 @@
 
 
                                                         var data = <?php echo json_encode($demo);
-    ?>;
+            ?>;
                                                         //alert(data);
                                                         $(function () {
                                                             // alert('hi');
@@ -1205,41 +1218,41 @@
 
 <script>
 
-                                                    jQuery.noConflict();
+    jQuery.noConflict();
 
-                                                    (function ($) {
+    (function ($) {
 
 
-                                                        var data1 = <?php echo json_encode($city_data);
-    ?>;
-                                                        //alert(data);
-                                                        $(function () {
-                                                            // alert('hi');
-                                                            $("#searchplace").autocomplete({
-                                                                source: function (request, response) {
-                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                    response($.grep(data1, function (item) {
-                                                                        return matcher.test(item.label);
-                                                                    }));
-                                                                }
-                                                                ,
-                                                                minLength: 1,
-                                                                select: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#searchplace").val(ui.item.label);
-                                                                    $("#selected-tag").val(ui.item.label);
-                                                                    // window.location.href = ui.item.value;
-                                                                }
-                                                                ,
-                                                                focus: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#searchplace").val(ui.item.label);
-                                                                }
-                                                            });
-                                                        }
-                                                        );
+        var data1 = <?php echo json_encode($city_data);
+            ?>;
+        //alert(data);
+        $(function () {
+            // alert('hi');
+            $("#searchplace").autocomplete({
+                source: function (request, response) {
+                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                    response($.grep(data1, function (item) {
+                        return matcher.test(item.label);
+                    }));
+                }
+                ,
+                minLength: 1,
+                select: function (event, ui) {
+                    event.preventDefault();
+                    $("#searchplace").val(ui.item.label);
+                    $("#selected-tag").val(ui.item.label);
+                    // window.location.href = ui.item.value;
+                }
+                ,
+                focus: function (event, ui) {
+                    event.preventDefault();
+                    $("#searchplace").val(ui.item.label);
+                }
+            });
+        }
+        );
 
-                                                    })(jQuery);
+    })(jQuery);
 
 </script>
 
@@ -1287,7 +1300,7 @@
         }
     });
 </script>
- --><!-- like comment script start -->
+--><!-- like comment script start -->
 <!-- post like script start -->
 <script type="text/javascript">
     function post_like(clicked_id)
@@ -1379,7 +1392,7 @@
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                 //   $('#' + 'insertcount' + clicked_id).html(data.count);
+                    //   $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('.insertcomment' + clicked_id).html(data.comment);
                     $('.comment_count' + clicked_id).html(data.comment_count);
                 }
@@ -1396,7 +1409,7 @@
                     $('textarea').each(function () {
                         $(this).val('');
                     });
-                   // $('#' + 'insertcount' + clicked_id).html(data.count);
+                    // $('#' + 'insertcount' + clicked_id).html(data.count);
                     $('#' + 'fourcomment' + clicked_id).html(data.comment);
                     $('.comment_count' + clicked_id).html(data.comment_count);
                 }
@@ -1510,7 +1523,7 @@
                                 $(this).val('');
                             });
                             //  $('.insertcomment' + clicked_id).html(data);
-                           // $('#' + 'insertcount' + clicked_id).html(data.count);
+                            // $('#' + 'insertcount' + clicked_id).html(data.count);
                             $('.insertcomment' + clicked_id).html(data.comment);
                             $('.comment_count' + clicked_id).html(data.comment_count);
 
@@ -1575,7 +1588,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                         ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                            ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -1622,7 +1635,7 @@
     function comment_delete(clicked_id) {
         $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deleted(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
-        
+
     }
 
     function comment_deleted(clicked_id)
@@ -2357,15 +2370,15 @@
         }
 
 
-        $( document ).on( 'keydown', function ( e ) {
-                                        if ( e.keyCode === 27 ) { 
+        $(document).on('keydown', function (e) {
+            if (e.keyCode === 27) {
 
-                                        document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
-                                         $(".dropdown-content1").removeClass('show');
+                document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
+                $(".dropdown-content1").removeClass('show');
 
-                            }
-                           
-                        }); 
+            }
+
+        });
 
     }
     // Close the dropdown if the user clicks outside of it
@@ -2479,9 +2492,11 @@
         $("#myDropdown" + abc).removeClass('show');
         document.getElementById('editpostdata' + abc).style.display = 'none';
         document.getElementById('editpostbox' + abc).style.display = 'block';
-        document.getElementById('editpostdetails' + abc).style.display = 'none';
+//        document.getElementById('editpostdetails' + abc).style.display = 'none';
         document.getElementById('editpostdetailbox' + abc).style.display = 'block';
         document.getElementById('editpostsubmit' + abc).style.display = 'block';
+        document.getElementById('khyatii' + abc).style.display = 'none';
+        document.getElementById('khyati' + abc).style.display = 'none';
     }
 </script>
 <script type="text/javascript">
@@ -2506,7 +2521,7 @@
 
             document.getElementById('editpostdata' + abc).style.display = 'block';
             document.getElementById('editpostbox' + abc).style.display = 'none';
-            document.getElementById('editpostdetails' + abc).style.display = 'block';
+//            document.getElementById('editpostdetails' + abc).style.display = 'block';
             document.getElementById('editpostdetailbox' + abc).style.display = 'none';
 
             document.getElementById('editpostsubmit' + abc).style.display = 'none';
@@ -2520,11 +2535,13 @@
                 success: function (data) {
                     document.getElementById('editpostdata' + abc).style.display = 'block';
                     document.getElementById('editpostbox' + abc).style.display = 'none';
-                    document.getElementById('editpostdetails' + abc).style.display = 'block';
+//                    document.getElementById('editpostdetails' + abc).style.display = 'block';
                     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                     document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                    document.getElementById('khyati' + abc).style.display = 'block';
                     $('#' + 'editpostdata' + abc).html(data.title);
-                    $('#' + 'editpostdetails' + abc).html(data.description);
+                    //                                $('#' + 'editpostdetails' + abc).html(data.description);
+                    $('#' + 'khyati' + abc).html(data.description);
                 }
             });
         }
@@ -2727,17 +2744,17 @@
         {
 
             $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
-                        $('#post').modal('show');
+            $('#post').modal('show');
             // window.location='';
 
-            $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+            $(document).on('keydown', function (e) {
+                if (e.keyCode === 27) {
+                    //$( "#bidmodal" ).hide();
+                    $('#bidmodal').modal('hide');
+                    $('.modal-post').show();
 
-                                       }
-                                    });  
+                }
+            });
             event.preventDefault();
             return false;
 
@@ -2767,14 +2784,14 @@
                         setInterval('window.location.reload()', 10000);
                         // window.location='';
 
-                        $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                        $(document).on('keydown', function (e) {
+                            if (e.keyCode === 27) {
+                                //$( "#bidmodal" ).hide();
+                                $('#bidmodal').modal('hide');
+                                $('.modal-post').show();
 
-                                       }
-                                    });  
+                            }
+                        });
                         event.preventDefault();
                         return false;
                     }
@@ -2787,14 +2804,14 @@
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
 
-                        $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                        $(document).on('keydown', function (e) {
+                            if (e.keyCode === 27) {
+                                //$( "#bidmodal" ).hide();
+                                $('#bidmodal').modal('hide');
+                                $('.modal-post').show();
 
-                                       }
-                                    });  
+                            }
+                        });
                         event.preventDefault();
                         return false;
                     }
@@ -2807,14 +2824,14 @@
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
 
-                        $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                        $(document).on('keydown', function (e) {
+                            if (e.keyCode === 27) {
+                                //$( "#bidmodal" ).hide();
+                                $('#bidmodal').modal('hide');
+                                $('.modal-post').show();
 
-                                       }
-                                    });  
+                            }
+                        });
                         event.preventDefault();
                         return false;
                     }
@@ -2828,14 +2845,14 @@
                             $('#bidmodal').modal('show');
                             setInterval('window.location.reload()', 10000);
 
-                            $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                            $(document).on('keydown', function (e) {
+                                if (e.keyCode === 27) {
+                                    //$( "#bidmodal" ).hide();
+                                    $('#bidmodal').modal('hide');
+                                    $('.modal-post').show();
 
-                                       }
-                                    });  
+                                }
+                            });
                             event.preventDefault();
                             return false;
                         }
@@ -2844,14 +2861,14 @@
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
 
-                        $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                        $(document).on('keydown', function (e) {
+                            if (e.keyCode === 27) {
+                                //$( "#bidmodal" ).hide();
+                                $('#bidmodal').modal('hide');
+                                $('.modal-post').show();
 
-                                       }
-                                    });  
+                            }
+                        });
                         event.preventDefault();
                         return false;
                     }
@@ -2861,14 +2878,14 @@
                     $('#bidmodal').modal('show');
                     setInterval('window.location.reload()', 10000);
 
-                    $( document ).on( 'keydown', function ( e ) {
-                                          if ( e.keyCode === 27 ) {
-                                        //$( "#bidmodal" ).hide();
-                                        $('#bidmodal').modal('hide');
-                                        $('.modal-post').show();
+                    $(document).on('keydown', function (e) {
+                        if (e.keyCode === 27) {
+                            //$( "#bidmodal" ).hide();
+                            $('#bidmodal').modal('hide');
+                            $('.modal-post').show();
 
-                                       }
-                                    });  
+                        }
+                    });
                     event.preventDefault();
                     return false;
 
@@ -2879,17 +2896,17 @@
 </script>
 <script type="text/javascript">
 //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
-                $(document).ready(function () {
-                    $('#post').on('click', function () {
+    $(document).ready(function () {
+        $('#post').on('click', function () {
 
-                        $('.modal-post').show();
-                       //  location.reload(false);
-                    });
-                });
-  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
-            </script>
+            $('.modal-post').show();
+            //  location.reload(false);
+        });
+    });
+    //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
+</script>
 
-          
+
 <!-- post insert developing code end  -->
 
 
@@ -3099,22 +3116,22 @@
     });
 </script>
 <script type="text/javascript">
-    $(document).on('keydown', function (e) { 
-    if (e.keyCode === 27) {
-        if($('.modal-post').show()){
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            if ($('.modal-post').show()) {
 
-          $( document ).on( 'keydown', function ( e ) {
-          if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-       $('.modal-post').hide();
-        }
-       });  
-     
+                $(document).on('keydown', function (e) {
+                    if (e.keyCode === 27) {
+                        //$( "#bidmodal" ).hide();
+                        $('.modal-post').hide();
+                    }
+                });
 
+
+            }
+            document.getElementById('myModal').style.display = "none";
         }
-         document.getElementById('myModal').style.display = "none";
-         }
- });
+    });
 </script>
 <script>
 // Get the modal
@@ -3171,26 +3188,26 @@
     }
 
 </script>
- <script type="text/javascript">            
-            // pop up open & close aarati code start 
-jQuery(document).mouseup(function (e) {
-            
-             var container1 = $("#myModal");
-            
-                    jQuery(document).mouseup(function (e)
-                      {
-                        var container = $("#close");
+<script type="text/javascript">
+    // pop up open & close aarati code start 
+    jQuery(document).mouseup(function (e) {
 
-          
-                if (!container.is(e.target) // if the target of the click isn't the container...
-                && container.has(e.target).length === 0) // ... nor a descendant of the container
+        var container1 = $("#myModal");
+
+        jQuery(document).mouseup(function (e)
+        {
+            var container = $("#close");
+
+
+            if (!container.is(e.target) // if the target of the click isn't the container...
+                    && container.has(e.target).length === 0) // ... nor a descendant of the container
             {
-              
+
                 container1.hide();
             }
         });
-               
-        });
+
+    });
 
 // pop up open & close aarati code end
 
@@ -3199,14 +3216,45 @@ jQuery(document).mouseup(function (e) {
 
 
 <!-- all popup close close using esc start -->
- <script type="text/javascript">
+<script type="text/javascript">
 
-    $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#likeusermodal').modal('hide');
-    }
-});  
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            //$( "#bidmodal" ).hide();
+            $('#likeusermodal').modal('hide');
+        }
+    });
 
- </script>
- <!-- all popup close close using esc end-->
+</script>
+<!-- all popup close close using esc end-->
+<!--<khyati chnages 24-4 start-->
+            <script type="text/javascript">
+
+                function khdiv(abc) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/edit_more_insert" ?>',
+                        data: 'business_profile_post_id=' + abc,
+                        dataType: "json",
+                        success: function (data) {
+
+                            document.getElementById('editpostdata' + abc).style.display = 'block';
+                            document.getElementById('editpostbox' + abc).style.display = 'none';
+                            //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                            document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                            document.getElementById('khyati' + abc).style.display = 'none';
+                            document.getElementById('khyatii' + abc).style.display = 'block';
+                            //alert(data.description);
+                            $('#' + 'editpostdata' + abc).html(data.title);
+                            // $('#' + 'editpostdetails' + abc).html(data.description);
+                            $('#' + 'khyatii' + abc).html(data.description);
+
+                        }
+                    });
+
+                }
+
+            </script>
+            <!-- edit post start -->

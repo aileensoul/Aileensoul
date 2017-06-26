@@ -3498,7 +3498,6 @@
                             data: 'business_profile_post_id=' + abc + '&product_name=' + editpostname.value + '&product_description=' + editpostdetails,
                             dataType: "json",
                             success: function (data) {
-
                                 document.getElementById('editpostdata' + abc).style.display = 'block';
                                 document.getElementById('editpostbox' + abc).style.display = 'none';
 //                                document.getElementById('editpostdetails' + abc).style.display = 'block';
