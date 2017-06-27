@@ -61,7 +61,7 @@
 
                                 <li class="custom-none"><a href="<?php echo base_url('freelancer/freelancer_post_rate'); ?>">Rate</a></li>
 
-                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active init" <?php } ?>><a href="#">ADD Your Avability</a></li>
+                                <li <?php if ($this->uri->segment(1) == 'freelancer') { ?> class="active init" <?php } ?>><a href="#">Add Your Avability</a></li>
 
                                 <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '5') {
     echo "khyati";
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="common-form common-form_border">
-                            <h3>ADD Your Avability</h3>
+                            <h3>Add Your Avability</h3>
                             <?php echo form_open(base_url('freelancer/freelancer_post_avability_insert'), array('id' => 'freelancer_post_avability', 'name' => 'freelancer_post_avability', 'class' => 'clearfix')); ?>
 
 
