@@ -163,7 +163,7 @@
 
                                         <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
-                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <a>Current Work </a>
                     <?php } ?>
 
                 <?php } ?>
@@ -309,28 +309,13 @@ if($status == 0 || $status == " "){?>
                      if($artisticdata[0]['designation'] == '')
                      {
                      ?>
-   <?php
-    $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid){ 
-    ?>
-
-                     <a id="designation" class="designation" title="Designation">
-                     <?php }?>
-
+  
+                      <a>Current Work</a>
                      <?php }else{?>
 
-                     <?php
-    $userid = $this->session->userdata('aileenuser');
-    if($artisticdata[0]['user_id'] == $userid){ 
-    ?>
-                      <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                      <?php }else{?>
-
-                      <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                       <?php }?>
-
-                      <?php }?>
                   
+                      <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                      <?php }?>                  
             </div>
             
 
