@@ -333,8 +333,15 @@ $maxval = trim($post['max_sal']);
                                             <?php
                                         }
                                     } else {
-                                        echo 'No Data Available';
-                                    }
+                                       ?>
+                                         <div class="text-center rio">
+                                                <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
+                                                <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
+                                                <ul>
+                                                    <li style="text-transform:none !important; list-style: none;">Make sure you used the right keywords.</li>
+                                                </ul>
+                                            </div>
+                               <?php     }
                                 } else {
                                     if (count($postdetail) > 0) {
                                         foreach ($postdetail as $post_key => $post) {
@@ -534,8 +541,16 @@ $maxval = trim($post['max_sal']);
                                             <?php
                                         }
                                     } else {
-                                        echo 'no data available';
-                                    }
+                                      ?>
+
+                                         <div class="text-center rio">
+                                                <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
+                                                <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
+                                                <ul>
+                                                    <li style="text-transform:none !important; list-style: none;">Make sure you used the right keywords.</li>
+                                                </ul>
+                                            </div>
+                                   <?php }
                                 }
                                 ?>
 
