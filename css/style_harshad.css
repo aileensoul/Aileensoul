@@ -365,6 +365,7 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 1024px) {
+    .folle_text{width: 59%;}
     .chat .chat-history .other-message::after{
         left: 96%;
     }
@@ -576,13 +577,17 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+    .user_lst li .follow-li-text a{font-size: 16px;}
+    .user_btn button{font-size: 12px; width: 80px; padding: 6px 7px; margin-top: 10px;}
     .modal.in .modal-dialog{
         width: 90%;
         margin:0 auto; 
     }
     .folle_text{
-        width: 61%;
+        width: 48%;
     }
+    .profile-job-post-location-name{ padding: 6px 0px; }
+    .follow-img{height: 50px; width:50px;}
      .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
     width: 43%;
     }
@@ -631,6 +636,23 @@ text-overflow: ellipsis;}
     }
 }
 @media screen and (max-width: 360px) {
+    .user_lst li .follow-li-text a{font-size: 14px;}
+    .profile-job-post-location-name ul li .follow-li-text{padding: 0px;}
+    .user_btn button {
+    font-size: 10px;
+    width: 64px;
+    padding: 2px 3px;
+    margin-bottom: 11px;
+    margin-top: 10px;
+    }
+   .folle_text {
+    width: 43%;
+    padding-left: 3px;
+    }
+    .follow-img{
+        height: 40px; width:40px;
+    }
+   .rsp{padding-left: 3px;}
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b{width: 50%;}
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{width: 48%;}
     .profile-box-art .right-side-menu .pro-fw li a{padding-left: 1px !important;

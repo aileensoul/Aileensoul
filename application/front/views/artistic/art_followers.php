@@ -293,7 +293,7 @@
                         <div class="profile-job-post-location-name">
                            <div class="user_lst">
                               <ul>
-                                 <li class="fl" style="padding-left: 0px;">
+                                 <li class="fl" >
                                     <div class="follow-img">
                                        <?php 
                                           $followerid =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->user_id; ?>

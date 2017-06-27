@@ -355,7 +355,7 @@ if($status == 0 || $status == " "){?>
                                                 <div class="profile-job-post-location-name">
                                                     <div class="user_lst"><ul>
 
-                            <li class="fl padding_les_left">
+                            <li class="fl padding_les_left rsp">
                             <div class="follow-img">
                                  <?php if($this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image != ''){ ?>
                                  <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
@@ -396,7 +396,7 @@ if($status == 0 || $status == " "){?>
 
                             if($artisticdata[0]['user_id'] == $userid){ 
                              ?>
-                             <li class="fr <?php echo "fruser" . $userid['follow_to']; ?>">
+                             <li class="fr rsap <?php echo "fruser" . $userid['follow_to']; ?>">
 
                               <?php
 
@@ -408,7 +408,7 @@ if($status == 0 || $status == " "){?>
     
         if($status[0]['follow_status'] == 1){ ?>
 
-                            <div class="user_btn_f " id= "unfollowdiv">
+                            <div class="user_btn " id= "unfollowdiv">
                             <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_list(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                            </div>
 <?php } ?>
@@ -442,7 +442,7 @@ if($status == 0 || $status == " "){?>
 
     <?php }else{ ?>
 
-                     <div class="user_btn_f follow_btn_<?php echo $user['follow_to']; ?>" id= "unfollowdiv">
+                     <div class="user_btn follow_btn_<?php echo $user['follow_to']; ?>" id= "unfollowdiv">
                             <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                            </div>   
 
