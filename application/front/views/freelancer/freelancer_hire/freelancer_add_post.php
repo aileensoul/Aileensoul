@@ -206,7 +206,7 @@
                   <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?>>
                         <label>Skills of Requirements:<span style="color:red">*</span></label>
                          <select tabindex="4" class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
-                        <span id="fullname-error"></span>s
+                        <span id="fullname-error"></span>
                         <?php echo form_error('skills'); ?>
                        </fieldset>
 
