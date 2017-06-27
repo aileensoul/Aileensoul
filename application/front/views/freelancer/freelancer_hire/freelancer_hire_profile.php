@@ -143,7 +143,7 @@
                     </div>
                         <div class="job-menu-profile mob-block">
                     <a href="javascript:void(0);">
-                           <h5> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h5>
+                           <h3> <?php echo ucwords($freelancerhiredata[0]['fullname']) . ' '.ucwords($freelancerhiredata[0]['username']); ?></h3>
                            </a>
                            <div class="profile-text">
 
