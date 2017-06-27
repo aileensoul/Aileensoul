@@ -570,6 +570,10 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+    .modal.in .modal-dialog{
+        width: 90%;
+        margin:0 auto; 
+    }
     .folle_text{
         width: 61%;
     }
