@@ -621,6 +621,8 @@ text-overflow: ellipsis;}
     }
 }
 @media screen and (max-width: 360px) {
+    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b{width: 50%;}
+    .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{width: 48%;}
     .profile-box-art .right-side-menu .pro-fw li a{padding-left: 1px !important;
                 padding-right: 1px !important;
                 font-size: 11px;
