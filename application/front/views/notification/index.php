@@ -82,7 +82,7 @@
                                             </div>
                                            
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <h6><?php echo "<font color='#4e6db1'><b><i> Recruiter</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b>  From " . ucwords($companyname) . "  Invited You For An Interview."; ?></h6>
+                                                <h6><?php echo "<b><i> Recruiter</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b>  From " . ucwords($companyname) . "  Invited You For An Interview."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                     <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -517,7 +517,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<font color='#4e6db1'><b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied On Your Job Post."; ?></h6>
+                                                    <h6><?php echo "<b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied On Your Job Post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
                                                         <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>

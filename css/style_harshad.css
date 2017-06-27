@@ -458,6 +458,7 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     .profile-box-art .right-side-menu ul li{
         width: 33%;
     }
+    .profile-box-art .right-menu-jr ul li{width: auto;}
     .right-menu-jr .current-user{width: 100%;    }
     .profile-main-box-buis-menu .flw_msg_btn{margin-bottom: 5px!important}
     .pro-fw{width: 100%;}
