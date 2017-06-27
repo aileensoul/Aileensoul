@@ -52,18 +52,15 @@ class Dashboard extends MY_Controller {
               }
              */
             
-//            echo '<pre>';
-//            print_r($_FILES);
-//            exit;
-            
             $user_image = '';
             $user['upload_path'] = $this->config->item('user_main_upload_path');
             $user['allowed_types'] = $this->config->item('user_main_allowed_types');
-            $user['max_size'] = $this->config->item('user_main_max_size');
-            $user['max_width'] = $this->config->item('user_main_max_width');
-            $user['max_height'] = $this->config->item('user_main_max_height');
-            $user['remove_spaces'] = true;
+            //$user['max_size'] = $this->config->item('user_main_max_size');
+            //$user['max_width'] = $this->config->item('user_main_max_width');
+            //$user['max_height'] = $this->config->item('user_main_max_height');
+            //$user['remove_spaces'] = true;
             $user['quality'] = "50%";
+            $user['maintain_ratio'] = TRUE;
             $user['encrypt_name'] = TRUE;
             $this->load->library('upload');
             $this->upload->initialize($user);
