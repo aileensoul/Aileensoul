@@ -362,7 +362,7 @@
                                  </div> 
                                  <?php }else if($user['follow_from'] == $artisticdatauser[0]['art_id']){ ?>
                                  <?php }else{ ?>
-                                 <div class=" user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
+                                 <div class=" user_btn follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
                                  <button class="bg_following" id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
                                  </div>   
                                  <?php }?>
