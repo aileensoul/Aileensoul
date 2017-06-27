@@ -573,7 +573,11 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+    .folle_text{
+        width: 61%;
+    }
      .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
+    }
     width: 43%;
 }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span{width: 57%;}

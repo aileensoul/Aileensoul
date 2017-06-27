@@ -206,7 +206,7 @@
                   <fieldset class="full-width" <?php if($skills) {  ?> class="error-msg" <?php } ?>>
                         <label>Skills of Requirements:<span style="color:red">*</span></label>
                          <select tabindex="4" class="keyskil" name="skills[]" id="skills" multiple="multiple" style="cursor: default;"></select>
-                        <span id="fullname-error"></span>
+                        <span id="fullname-error"></span>s
                         <?php echo form_error('skills'); ?>
                        </fieldset>
 
@@ -302,7 +302,7 @@
 
 
 
-                         <fieldset <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
+                         <fieldset class="col-md-6" <?php if($est_time) {  ?> class="error-msg" <?php } ?>>
                         <label>Estimated time of project:</label>
                         <input tabindex="11" name="est_time" type="text" id="est_time" placeholder="Enter Estimated time in month/year" /><span id="fullname-error"></span>
                         <?php echo form_error('est_time'); ?>
@@ -323,7 +323,14 @@
                         <input name="location" type="text" id="location" placeholder="Enter Location" /><span id="fullname-error"></span>
                          <?php echo form_error('location'); ?>
                     </fieldset> -->
+                    <fieldset>
+                        <label>State:<span style="color:red">*</span></label>
 
+                        <select tabindex="13" name="" id="">
+                         <option value="" selected option disabled>Select State</option>
+                         
+                      </select>
+                    </fieldset>
 
                     <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                 <label>Country:<span style="color:red">*</span></label>
