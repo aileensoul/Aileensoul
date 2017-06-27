@@ -370,7 +370,7 @@ if($status == 0 || $status == " "){?>
                             <li class="folle_text">
                              <div class="">
                          <div class="follow-li-text ">
-                                <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
+                                <a title="<?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?>" href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
                                   
                                                         <?php  if ($user['designation']) { ?>
                                                            <div>

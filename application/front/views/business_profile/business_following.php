@@ -482,7 +482,7 @@ $(document).ready(function(){
 
                          <!-- <?php $slug =  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->business_slug;?>
  -->
-                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>"><?php echo  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->company_name;?></a></div>
+                                <a title="" href="<?php echo base_url('business_profile/business_profile_manage_post/'.$slug); ?>"><?php echo  $this->db->get_where('business_profile',array('business_profile_id' => $user['follow_to']))->row()->company_name;?></a></div>
 
 
                                 <!-- category start -->

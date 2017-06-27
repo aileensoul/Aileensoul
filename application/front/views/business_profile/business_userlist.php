@@ -419,7 +419,7 @@
                             <li class="folle_text">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
-                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>"><?php echo $user['company_name'];?></a>
+                                <a title="<?php echo $user['company_name'];?>" href="<?php echo base_url('business_profile/business_profile_manage_post/'.$user['business_slug']); ?>"><?php echo $user['company_name'];?></a>
                           </div>
                           <!-- category start -->
                                 <div>
