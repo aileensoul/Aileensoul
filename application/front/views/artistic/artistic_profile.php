@@ -725,7 +725,11 @@ if ($artisticdata[0]['art_bestofmine']) {
                  
                  <?php if($artisticdata[0]['art_portfolio']){?>
                  <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?>
-                 <?php } ?>
+                 <?php }else{
+
+                     echo PROFILENA;
+                    
+                    } ?>
                            
                   </span></li>
 </ul>                          </div>
