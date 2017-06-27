@@ -2360,9 +2360,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $recruiterdata = $this->data['recruiterdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-    // echo "<pre>"; print_r($this->data['recruiterdata']); 
-
-
+    
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 're_status' => 1);
          $this->data['recruiterdata1'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2372,7 +2370,55 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'keyskill,job_id,user_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //  echo "<pre>"; print_r($candidate); die();
+
+         foreach($recruiterdata as $recru){
+
+     
+        if ($recru['other_skill'] != '') {
+            
+        $contition_array1 = array('type'=>'3','FIND_IN_SET("'.$recru['other_skill'].'",skill)!='=>'0'); 
+
+
+        $candidate1[] = $this->data['candidate1'] = $this->common->select_data_by_condition('skill', $contition_array1, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
+        }
+ 
+      }
+
+     // echo "<pre>"; print_r($candidate1);
+
+
+   foreach ($candidate1 as $key => $candi) {
+
+    foreach ($candi as $ke) {
+        
+         $join_str1 = array(
+            array(
+                'join_type' => 'left',
+                'table' => 'job_add_edu',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_add_edu.user_id'),
+           
+             array(
+                'join_type' => 'left',
+                'table' => 'job_graduation',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_graduation.user_id')
+        );
+
+            $contition_array = array('job_reg.user_id' => $ke['user_id'], 'job_reg.is_delete' => 0, 'job_reg.status' => 1,'job_reg.job_step' => 10);
+
+
+            $jobr11[] = $this->data['jobrec'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = 'job_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby = '');
+    }       
+          
+}
+
+//echo "<pre>"; print_r($jobr11);
+  
+
+              
+       
 
        
           
@@ -2419,50 +2465,23 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
           }
 
-     
-        
-        
-        $contition_array = array('user_id !=' => $userid,'type' => 3);
+          //echo "<pre>"; print_r($jobr);  die();
 
-        $candidate1 = $this->data['candidate1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-          foreach ($candidate1 as $jobcan1) {
-
-            $jobothrskill = explode(',', $jobcan1['skill']);
-
-
+      if (count($jobr11) == 0) {
+                
+                $unique = $jobr;
+                
+            } 
+            elseif (count($jobr) == 0) {
+                $unique = $jobr11;
+                
+            }
+            else {
+                $unique = array_merge($jobr11, $jobr);
             }
 
-               foreach($recruiterdata as $recru){
 
-            $postotherarray[] = explode(',', $recru['other_skill']);
-
-               }
-
-        // echo "<pre>"; print_r($jobothrskill);  
-         
-        //  echo "<pre>"; print_r($postotherarray);  
-         
-            foreach ($candidate as $jobcan) {
-
-
- 
-           foreach ($jobothrskill as $jobother) {
-            
-
-          $result = array_intersect($jobother, $postotherarray);
-
-
-        //print_r($result); 
-        
-
-           } 
-       
-   }
-
-
-              foreach ($jobr as $ke => $arr) {
+              foreach ($unique as $ke => $arr) {
                foreach ($arr as $key => $va) {
         
     
