@@ -367,7 +367,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li class="folle_text" style="width: 67%">
+                            <li class="folle_text">
                              <div class="">
                          <div class="follow-li-text ">
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
@@ -529,41 +529,6 @@ if($status == 0 || $status == " "){?>
 </html>
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-<script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () { 
-
-                $("#userimage").validate({
-
-                    rules: {
-
-                        profilepic: {
-
-                            required: true,
-                         
-                        },
-  
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Photo Required",
-                            
-                        },
-
-                },
-
-                });
-                   });
-  </script>
 
 
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -772,6 +737,43 @@ window.onclick = function(event) {
 }
 </script>
  
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
 
 <!-- popup form edit END -->
 

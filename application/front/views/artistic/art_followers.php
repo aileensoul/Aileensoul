@@ -121,7 +121,6 @@
             <!-- text head start -->
             <div class="profile-text" >
 
-               
                 <?php
                 if ($artisticdata[0]['designation'] == '') {
                     ?>
@@ -267,6 +266,8 @@
                         </a>
 
                     <?php } ?>
+
+
          </div>
          <!-- text head end -->
       </div>
@@ -307,7 +308,7 @@
                                        <?php } ?> 
                                     </div>
                                  </li>
-                                 <li style="width: 67%">
+                                 <li class="folle_text">
                                     <div class="">
                                        <div class="follow-li-text">
                                           <?php 
@@ -420,41 +421,6 @@
 </html>
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-        <script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () { 
-
-                $("#userimage").validate({ 
-
-                    rules: {
-
-                        profilepic: {
-
-                            required: true,
-
-                        },
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Image Required",
-
-                        },
-
-                    },
-
-                });
-            });
-        </script>
 
 
 
@@ -698,6 +664,41 @@
    
      
 </script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+        <script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({ 
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+
+                        },
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Image Required",
+
+                        },
+
+                    },
+
+                });
+            });
+        </script>
+
+
 
 
 <script type="text/javascript">
@@ -832,7 +833,7 @@
        document.getElementById('row2').style.display = "block";
 
 
-       $("#upload").val('');
+        $("#upload").val('');
        return false;
      }
      // file type code end
@@ -994,7 +995,7 @@
 <script>
    function picpopup() {
    
-          $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+          $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
           $('#bidmodal').modal('show');
                       }
     
