@@ -409,9 +409,30 @@
                                                                 </li>
                              <li><b>Total Experience</b><span>
                               <?php
-                         if ($rec['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
-                                       echo $rec['freelancer_post_exp_year'] . ' ' . $rec['freelancer_post_exp_month'];
-                                              } else {
+                         if ($rec['freelancer_post_exp_year'] || $rec['freelancer_post_exp_month']) {
+
+                     if($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] == ''){
+                  echo "1 year";
+                }elseif($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] == '0 year'){
+                   echo "1 year";
+                 }elseif($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] != ''){
+                 $year=explode(' ', $rec['freelancer_post_exp_year']);
+                // echo $year;
+                 $totalyear= $year[0] + 1;
+                 echo $totalyear. " year";
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == ''){
+                    echo $rec['freelancer_post_exp_year'];
+
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                  
+                  echo $rec['freelancer_post_exp_year'];
+                 }
+                 else{
+                  
+                  echo $rec['freelancer_post_exp_year'] . ' ' . $rec['freelancer_post_exp_month'];
+                 }
+                                              } 
+                                              else {
                                            echo PROFILENA;
                                               }
                                   ?></span>
