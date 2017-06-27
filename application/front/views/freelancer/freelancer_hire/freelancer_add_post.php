@@ -993,7 +993,7 @@ if(mm<10) {
 $(document).ready(function(){
     $('#country').on('change',function(){ 
         var countryID = $(this).val();
-        alert(countryID);
+        
         if(countryID){
             $.ajax({
                 type:'POST',
