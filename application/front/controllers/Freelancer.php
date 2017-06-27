@@ -1731,58 +1731,100 @@ public function ajax_dataforcity() {
       
      // $_POST["country_id"] = ;
 
+//        if(isset($_POST["country_id"]) && !empty($_POST["country_id"])){ 
+//     //Get all state data
+//          $contition_array = array('country_id' => $_POST["country_id"] , 'status' => 1);
+
+//      $state =  $this->data['states'] =  $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+//      foreach ($state as $st) { 
+
+//       $contition_array = array('state_id' => $st["state_id"] , 'status' => 1);
+
+//       $this->data['finalcitylist'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      
+
+//       $city[] = $this->data['finalcitylist'];
+//      }
+  
+//      $this->data['city'] = $city;
+//      //echo "<pre>"; print_r($this->data['city']);die();
+    
+//     //Count total number of rows
+
+// $new = array();
+//      foreach($city as $key => $val){
+//      foreach($val as $key1 => $val1){
+
+//       $return = array();
+//      // $return = $val1;
+//        $return['city_id'] = $val1['city_id'];
+//        $return['city_name'] = $val1['city_name'];
+       
+//        array_push($new,$return);
+//      }
+      
+//      }
+    
+  
+
+//    $citdata =  $this->aasort($new,"city_name");
+
+//     //Display states list
+//     if(count($citdata) > 0){ 
+//         echo '<option value="">Select City</option>';
+//      foreach($citdata as $ct){
+      
+
+//         echo '<option value="'.$ct['city_id'].'">'.$ct['city_name'].'</option>';
+     
+//        }
+//     }else{  
+//         echo '<option value="">City not available</option>';
+//     }
+// }
+
+
+
+//ajax data for country and state and city
        if(isset($_POST["country_id"]) && !empty($_POST["country_id"])){ 
     //Get all state data
          $contition_array = array('country_id' => $_POST["country_id"] , 'status' => 1);
-
      $state =  $this->data['states'] =  $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-     foreach ($state as $st) { 
-
-      $contition_array = array('state_id' => $st["state_id"] , 'status' => 1);
-
-      $this->data['finalcitylist'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      
-
-      $city[] = $this->data['finalcitylist'];
-     }
-  
-     $this->data['city'] = $city;
-     //echo "<pre>"; print_r($this->data['city']);die();
-    
+   
     //Count total number of rows
-
-$new = array();
-     foreach($city as $key => $val){
-     foreach($val as $key1 => $val1){
-
-      $return = array();
-     // $return = $val1;
-       $return['city_id'] = $val1['city_id'];
-       $return['city_name'] = $val1['city_name'];
-       
-       array_push($new,$return);
-     }
-      
-     }
+   
     
-  
-
-   $citdata =  $this->aasort($new,"city_name");
-
     //Display states list
-    if(count($citdata) > 0){ 
-        echo '<option value="">Select City</option>';
-     foreach($citdata as $ct){
-      
-
-        echo '<option value="'.$ct['city_id'].'">'.$ct['city_name'].'</option>';
+    if(count($state) > 0){
+        echo '<option value="">Select state</option>';
+     foreach($state as $st){
+            echo '<option value="'.$st['state_id'].'">'.$st['state_name'].'</option>';
      
-       }
-    }else{  
-        echo '<option value="">City not available</option>';
+        }
+    }else{
+        echo '<option value="">State not available</option>';
     }
 }
+
+if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
+    //Get all city data
+     $contition_array = array('state_id' => $_POST["state_id"] , 'status' => 1);
+     $city =  $this->data['city'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+    
+    //Display cities list
+    if(count($city) > 0){
+        echo '<option value="">Select city</option>';
+        foreach($city as $cit){
+            echo '<option value="'.$cit['city_id'].'">'.$cit['city_name'].'</option>';
+        }
+    }else{
+        echo '<option value="">City not available</option>';
+    }
+    }
+
+
 
 }
 
@@ -1804,7 +1846,7 @@ $new = array();
        // $this->form_validation->set_rules('year', 'Year', 'required');
         //$this->form_validation->set_rules('location', 'Location', 'required');
         $this->form_validation->set_rules('country', 'Country', 'required');
-      //  $this->form_validation->set_rules('city', 'City', 'required');
+      $this->form_validation->set_rules('state', 'state', 'required');
        // $this->form_validation->set_rules('last_date', 'Last date', 'required');
 
 
@@ -1844,6 +1886,7 @@ $new = array();
                 'post_last_date' => $lastdate,
                 //'post_location' => $this->input->post('location'),
                 'country' => trim($this->input->post('country')),
+                'state' => trim($this->input->post('state')),
                 'city' => trim($this->input->post('city')),
                 'user_id' => $userid,
                 'created_date' => date('Y-m-d', time()),
@@ -2097,54 +2140,24 @@ $this->data['candidatefreelancer'] = $new;
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('post_id' => $id, 'is_delete' => 0);
-            $statedata=$this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $userdata=$this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             //echo $statedata[0]['country'];die();
 
-$contition_array = array('status' => 1,'country_id' => $statedata[0]['country']);
+$contition_array = array('status' => 1,'country_id' => $userdata[0]['country']);
         $state=$this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         //for getting city data
+            $contition_array = array('status' => 1,'state_id'=> $userdata[0]['state']);
+            $this->data['cities'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
         //echo "<pre>"; print_r($state);
 
 
 
-        foreach ($state as $st) {
-           // echo $st['state_id']."<br>";
-           $contition_array = array('state_id' => $st['state_id'] , 'status' => '1');
-
-      $this->data['citylist'] =  $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-            $citi[]=$this->data['citylist'];
-        }
-
-    $new=array();
-        foreach($citi as $key => $val){
-     foreach($val as $key1 => $val1){
-
-      $return = array();
-     // $return = $val1;
-       $return['city_id'] = $val1['city_id'];
-       $return['city_name'] = $val1['city_name'];
-       
-       array_push($new,$return);
-     }
       
-     }
-   
-    //echo "<pre>"; print_r($new);die();
-        $post = array();
-
-        //$i =0;
-        foreach ($new as $key => $row) {
-            $post[$key] = $row['city_name'];
-            //  $qbc[$i]['created_date'] = $this->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date'])));
-            //$i++;
-        }
-
-        array_multisort($post, SORT_ASC, $new);
-
         
-
-     $this->data['cities']=$new;
-       // echo "<pre>"; print_r($this->data['cities']);die();
+         // echo "<pre>"; print_r($this->data['cities']);die();
 
         // $contition_array = array('status' => 1);
         // $citiess=$this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2168,6 +2181,7 @@ $contition_array = array('status' => 1,'country_id' => $statedata[0]['country'])
 
         $this->data['country1'] = $this->data['freelancerpostdata'][0]['country'];
         $this->data['city1'] = $this->data['freelancerpostdata'][0]['city'];
+        $this->data['state1'] = $this->data['freelancerpostdata'][0]['state'];
 
         $skildata = explode(',', $this->data['freelancerpostdata'][0]['post_skill']);
         $this->data['selectdata'] = $skildata;

@@ -323,14 +323,7 @@
                         <input name="location" type="text" id="location" placeholder="Enter Location" /><span id="fullname-error"></span>
                          <?php echo form_error('location'); ?>
                     </fieldset> -->
-                    <fieldset>
-                        <label>State:<span style="color:red">*</span></label>
-
-                        <select tabindex="13" name="" id="">
-                         <option value="" selected option disabled>Select State</option>
-                         
-                      </select>
-                    </fieldset>
+                    
 
                     <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                 <label>Country:<span style="color:red">*</span></label>
@@ -362,6 +355,15 @@
                    <?php echo form_error('country'); ?>
                   </fieldset>
 
+<fieldset>
+                        <label>State:<span style="color:red">*</span></label>
+
+                        <select tabindex="13" name="state" id="state">
+                        <?php ?>
+                         <option value="" selected option disabled>Select country first</option>
+                         
+                      </select>
+                    </fieldset>
                   <fieldset>
                     <label> City:</label>
                   <select tabindex="14" name="city" id="city">
@@ -986,24 +988,67 @@ if(mm<10) {
 <!-- country city dependent -->
 
 <script type="text/javascript">
+
+
 $(document).ready(function(){
     $('#country').on('change',function(){ 
         var countryID = $(this).val();
+        alert(countryID);
         if(countryID){
             $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
                 data:'country_id='+countryID,
                 success:function(html){
-                    $('#city').html(html); 
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
                 }
             }); 
         }else{
-            $('#city').html('<option value="">Select Country first</option>'); 
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
         }
     });
     
+    $('#state').on('change',function(){
+        var stateID = $(this).val();
+        if(stateID){
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
+                data:'state_id='+stateID,
+                success:function(html){
+                    $('#city').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
 });
+
+
+
+// ...................................................
+// $(document).ready(function(){
+//     $('#country').on('change',function(){ 
+//         var countryID = $(this).val();
+//         if(countryID){
+//             $.ajax({
+//                 type:'POST',
+//                 url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
+//                 data:'country_id='+countryID,
+//                 success:function(html){
+//                     $('#city').html(html); 
+//                 }
+//             }); 
+//         }else{
+//             $('#city').html('<option value="">Select Country first</option>'); 
+//         }
+//     });
+    
+// });
+// ..........................................
 </script>
 
 
