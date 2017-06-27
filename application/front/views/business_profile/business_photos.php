@@ -1788,6 +1788,7 @@ start head -->
    
    document.getElementById('row1').style.display = "none";
    document.getElementById('row2').style.display = "block";
+   $("#upload").val('');
    return false;
    }
    // file type code end
