@@ -1588,7 +1588,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
  
                                         //regx:/^[A-Za-z+-]*$/
                                         // regx:/^[A-Za-z{1,2}+-{1}]*$/
-                                        regx:/^(?:[ABCD][+-]?|AB[+-]?|[AW]?F)$/
+                                        regx:/^(?:[ABCD][+-]?|AB[+-]?|[ABCD][+][+]|[AW]?F)$/
                                     
                                      },
                                     'percentage[]': {

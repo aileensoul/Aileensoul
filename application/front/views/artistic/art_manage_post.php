@@ -886,7 +886,7 @@ $loginuser = $userdata[0]['art_id'];
                             </div>
                             <div id="myBtn3"    class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyup=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                <div class="fifty_val">  
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
@@ -4231,7 +4231,7 @@ $(document).ready(function(){
                     // If required Alert can be removed. 
                     var msg = "You have reached your maximum limit of characters allowed";
                     //    alert(msg);
-                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                   // my_form.text_num.value = maxLen - my_form.my_text.value.length;
                     $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
                     $('#bidmodal').modal('show');
                     // Reached the Maximum length so trim the textarea
@@ -4329,6 +4329,8 @@ video js preview end -->
                 $('#myModal3').modal(show);
             });
 
+
+
             $(document).on('keydown', function (e) {
 
                 if (e.keyCode === 27) {
@@ -4347,6 +4349,19 @@ video js preview end -->
             }
                 
             });
+
+
+
+
+            $( document ).on( 'keydown', function ( e ) {
+       if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+           $('#post').modal('hide');
+            $('.modal-post').show();
+
+       }
+   });  
+   
 
 
         </script>

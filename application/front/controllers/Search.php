@@ -1403,7 +1403,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             // echo "<pre>"; print_r($fielddata);
             // echo $fielddata[0]['category_id'];
 
-            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'],'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7,'status' => '1');
+            $contition_array = array('freelancer_post_field' => $fielddata[0]['category_id'],'freelancer_post_reg.user_id !=' => $userid ,'freelancer_post_reg.free_post_step' => 7,'freelancer_post_reg.status' => '1');
 
             $join_str[0]['table'] = 'category';
             $join_str[0]['join_table_id'] = 'category.category_id';

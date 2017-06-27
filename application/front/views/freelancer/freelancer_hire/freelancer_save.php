@@ -407,14 +407,35 @@
                                                                         ?>
                                                                     </span>
                                                                 </li>
-                                                                <li><b>Total Experience</b><span>
-                                                                        <?php
-                                                                        if ($rec['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
-                                                                            echo $rec['freelancer_post_exp_year'] . ' ' . $rec['freelancer_post_exp_month'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?></span>
+                             <li><b>Total Experience</b><span>
+                              <?php
+                         if ($rec['freelancer_post_exp_year'] || $rec['freelancer_post_exp_month']) {
+
+                     if($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] == ''){
+                  echo "1 year";
+                }elseif($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] == '0 year'){
+                   echo "1 year";
+                 }elseif($rec['freelancer_post_exp_month'] == '12 month' && $rec['freelancer_post_exp_year'] != ''){
+                 $year=explode(' ', $rec['freelancer_post_exp_year']);
+                // echo $year;
+                 $totalyear= $year[0] + 1;
+                 echo $totalyear. " year";
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == ''){
+                    echo $rec['freelancer_post_exp_year'];
+
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                  
+                  echo $rec['freelancer_post_exp_year'];
+                 }
+                 else{
+                  
+                  echo $rec['freelancer_post_exp_year'] . ' ' . $rec['freelancer_post_exp_month'];
+                 }
+                                              } 
+                                              else {
+                                           echo PROFILENA;
+                                              }
+                                  ?></span>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -424,12 +445,12 @@
 
 
 
-                                                                <?php
-                                                                $userid = $this->session->userdata('aileenuser');
-                                                                if ($userid != $row['user_id']) {
-                                                                    ?>
-                                                                    <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
-                                                                    <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
+                              <?php
+                       $userid = $this->session->userdata('aileenuser');
+                                  if ($userid != $rec['user_id']) {
+                                                 ?>
+                          <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
+                               <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
                                                                 <?php } ?>
                                                        <!--  <a href="<?php //echo '#popup3' . $rec['save_id'];  ?>">Remove Candidate</a> -->
 

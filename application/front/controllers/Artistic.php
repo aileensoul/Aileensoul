@@ -5416,14 +5416,12 @@ $datacount = count($otherdata);
 
 
 
-            $join_str[0]['table'] = 'post_image';
-            $join_str[0]['join_table_id'] = 'post_image.post_id';
-            $join_str[0]['from_table_id'] = 'art_post.art_post_id';
-            $join_str[0]['join_type'] = '';
+            $contition_array = array('image_type' => 1, 'is_deleted' => '1');
 
-            $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
+            $artistic_data = $this->data['artistic_data'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+//echo "<pre>"; print_r($this->data['artistic_data']); die();
+
         } else {
 
             $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
@@ -5433,15 +5431,15 @@ $datacount = count($otherdata);
 
 
 
-            $join_str[0]['table'] = 'post_image';
-            $join_str[0]['join_table_id'] = 'post_image.post_id';
-            $join_str[0]['from_table_id'] = 'art_post.art_post_id';
-            $join_str[0]['join_type'] = '';
+            // $join_str[0]['table'] = 'post_image';
+            // $join_str[0]['join_table_id'] = 'post_image.post_id';
+            // $join_str[0]['from_table_id'] = 'art_post.art_post_id';
+            // $join_str[0]['join_type'] = '';
 
 
-            $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
+            $contition_array = array('image_type' => 1, 'is_deleted' => '1');
 
-             $artisticdata1= $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+             $artisticdata1= $this->data['artistic_data'] = $this->common->select_data_by_condition('post_image', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 //code search
         $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);

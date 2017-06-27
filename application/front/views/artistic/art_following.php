@@ -382,7 +382,7 @@ if($status == 0 || $status == " "){?>
                             <?php } ?> 
                             </div>
                             </li>
-                            <li style="width: 67%">
+                            <li class="folle_text" style="width: 67%">
                              <div class="">
                          <div class="follow-li-text ">
                                 <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>

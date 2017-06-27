@@ -362,11 +362,31 @@
                </li>
                   <li><b>Total Experience</b>
                      <span> <?php
-                       if ($row['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
+       if ($row['freelancer_post_exp_year'] || $row['freelancer_post_exp_month']) {
+                if($row['freelancer_post_exp_month'] == '12 month' && $row['freelancer_post_exp_year'] == ''){
+                  echo "1 year";
+                }elseif($row['freelancer_post_exp_month'] == '12 month' && $row['freelancer_post_exp_year'] == '0 year'){
+                   echo "1 year";
+                 }elseif($row['freelancer_post_exp_month'] == '12 month' && $row['freelancer_post_exp_year'] != ''){
+                 $year=explode(' ', $row['freelancer_post_exp_year']);
+                // echo $year;
+                 $totalyear= $year[0] + 1;
+                 echo $totalyear. " year";
+                 }elseif($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == ''){
+                    echo $row['freelancer_post_exp_year'];
+
+                 }elseif($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '0 month'){
+                  
+                  echo $row['freelancer_post_exp_year'];
+                 }
+                 else{
+                  
                   echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
-                  } else {
-                       echo PROFILENA;
-                     }
+                 }
+                  
+                  }else{
+                    echo PROFILENA;
+                  }
                  ?></span>
               </li>
          </ul>

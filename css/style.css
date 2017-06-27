@@ -308,7 +308,7 @@ label {
     text-transform: capitalize;
 }
 select {
-    padding: 8px 15px;
+    padding: 10px 15px;
     font-size: 16px;
 }
 input[type=submit],
@@ -5957,7 +5957,8 @@ follow box*/
 .user_btn button {
     letter-spacing: 1px;
     width: 87px;
-    padding: 5px 7px;
+    padding: 8px 7px;
+    margin-bottom: 15px;
     background: rgb(44, 83, 158);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
@@ -7148,15 +7149,15 @@ li.fr a {
 }
 */
 
-.user_lst ul li .user_btn button {
+/*.user_lst ul li .user_btn button {
     margin-top: 10px;
     border-radius: 3px;
     width: auto;
     padding: 8px 15px;
     margin-bottom: 10px;
     margin-right: 0;
-}
-.user_lst ul li .user_btn_f button {
+}*/
+./*user_lst ul li .user_btn_f button {
     margin-top: 10px;
     border-radius: 3px;
     width: 100px;
@@ -7170,7 +7171,7 @@ li.fr a {
     padding: 8px 0px;
     margin-bottom: 10px;
 }
-/*.user_lst ul li .user_btn_i button{ margin-top: 10px;   border-radius: 3px; width: 100px;
+*//*.user_lst ul li .user_btn_i button{ margin-top: 10px;   border-radius: 3px; width: 100px;
                                       padding: 8px 0px; margin-bottom: 10px;}*/
 
 .select2-container .select2-choices {

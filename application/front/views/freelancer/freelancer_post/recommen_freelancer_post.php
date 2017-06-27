@@ -413,9 +413,11 @@ function text2link($text) {
                                                                 <li>
                                                                     <b>Required Experience</b>
                                                                     <span>
-                                                                        <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
+         <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
             echo $post['post_exp_year'].".";   ?><?php  echo $post['post_exp_month']." Year";}
-                else{echo PROFILENA;} ?>
+                else{
+                    echo PROFILENA;
+                    } ?>
                                                                     </span>
                                                                 </li>
 
