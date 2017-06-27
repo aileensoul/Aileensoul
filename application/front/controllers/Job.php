@@ -5375,7 +5375,8 @@ public function job_applied_post() {
             $university = $this->data['university'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
           
             if (count($university) > 0) {
-                echo '<option value="">Select stream</option>';
+                echo ' <option value="" selected option disabled>Select your University</option>
+';
                 foreach ($university as $st) {
                     echo '<option value="' . $st['university_id'] . '">' . $st['university_name'] . '</option>';
                     }      
