@@ -334,7 +334,7 @@
                                                         <?php } ?> 
                                                     </div>
                                                 </li>
-                                                <li style="width:67%;">
+                                                <li class="folle_text">
                                                     <div class="">
                                                         <div class="follow-li-text ">
                                                             <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']);

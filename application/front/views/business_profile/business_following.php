@@ -476,7 +476,7 @@ $(document).ready(function(){
                             <?php } ?> 
                             </div>
                             </li>
-                            <li style="width: 67%">
+                            <li class="folle_text">
                              <div class="">
                          <div class="follow-li-text " style="padding: 0;">
 
@@ -532,7 +532,7 @@ $(document).ready(function(){
     
         if($status[0]['follow_status'] == 1){ ?>
 
-                            <div class="user_btn_f" id= "unfollowdiv">
+                            <div class="user_btn" id= "unfollowdiv">
                             <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_list(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                            </div>
 <?php } ?>
