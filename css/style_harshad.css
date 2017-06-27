@@ -1,7 +1,7 @@
-
+/*
 input[type=submit]:hover, input[type=button]:hover, button:hover{background: transparent !important;
     border-color: #000 !important;
-    border-radius: 0px !important;}
+    border-radius: 0px !important;}*/
 .fancybox-close-small:hover
 {background-color: white !important border-radius:0px !important;}
 .message h2{font-size: 22px !important; margin-bottom: 20px;}

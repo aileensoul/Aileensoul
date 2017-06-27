@@ -86,7 +86,7 @@
                                 if ($freepostdata[0]['free_post_step'] < '4') {
                                     echo "khyati";
                                 }
-                                ?>"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">ADD Your Avability</a></li>
+                                ?>"><a href="<?php echo base_url('freelancer/freelancer_post_avability'); ?>">Add Your Avability</a></li>
                                 <li class="custom-none <?php
                                 if ($freepostdata[0]['free_post_step'] < '5') {
                                     echo "khyati";
