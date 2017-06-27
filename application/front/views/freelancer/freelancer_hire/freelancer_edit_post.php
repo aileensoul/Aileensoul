@@ -352,6 +352,35 @@
                    <?php echo form_error('country'); ?>
                   </fieldset>
 
+    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
+                  <label>State:<span class="red">*</span></label>
+                   <select tabindex="2" name="state" id="state">
+                  <?php
+                                          if($state1)
+
+                                            {
+                                            foreach($states as $cnt){
+                                                
+                                                 
+                                              ?>
+
+                                                 <option value="<?php echo $cnt['state_id']; ?>" <?php if($cnt['state_id']==$state1) echo 'selected';?>><?php echo $cnt['state_name'];?></option>
+                                               
+                                                <?php
+                                                } }
+                                              
+                                                else
+                                                {
+                                            ?>
+                                                 <option value="">Select country first</option>
+                                                  <?php
+                                            
+                                            }
+                                            ?>
+                </select>
+                                <?php echo form_error('state'); ?>
+                  </fieldset>
+
                   <fieldset>
                     <label> City:</label>
                   <select name="city" id="city" tabindex="14">
@@ -368,7 +397,7 @@
 
                                                 <?php
                                                 } }
-                                                else if($country1)
+                                                else if($state1)
                                              {
                                             ?>
                                             <option value="">Select City</option>
@@ -385,7 +414,7 @@
                                                 else
                                                 {
                                             ?>
-                                        <option value="">Select Country first</option>
+                                        <option value="">Select state first</option>
 
                                          <?php
                                             
@@ -852,23 +881,42 @@ if(mm<10) {
 <!-- country city dependent -->
 
 <script type="text/javascript">
+
 $(document).ready(function(){
     $('#country').on('change',function(){ 
         var countryID = $(this).val();
+        alert(countryID);
         if(countryID){
             $.ajax({
                 type:'POST',
                 url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
                 data:'country_id='+countryID,
                 success:function(html){
-                    $('#city').html(html); 
+                    $('#state').html(html);
+                    $('#city').html('<option value="">Select state first</option>'); 
                 }
             }); 
         }else{
-            $('#city').html('<option value="">Select Country first</option>'); 
+            $('#state').html('<option value="">Select country first</option>');
+            $('#city').html('<option value="">Select state first</option>'); 
         }
     });
     
+    $('#state').on('change',function(){
+        var stateID = $(this).val();
+        if(stateID){
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url() . "freelancer/ajax_dataforcity"; ?>',
+                data:'state_id='+stateID,
+                success:function(html){
+                    $('#city').html(html);
+                }
+            }); 
+        }else{
+            $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });
 });
 </script>
 <!-- script for skill textbox automatic start (option 2)-->
