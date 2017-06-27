@@ -436,6 +436,9 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 767px) {
+        .alert{font-size: 16px;
+        padding:12px; }
+
     .user-midd-section .padd_set{
         padding: 50px 0px 25px;
     }
@@ -577,6 +580,9 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+    .alert{font-size: 16px;
+        padding:7px; }
+    .post-editor .popup-social-icon ul li i{font-size: 12px;}
     .user_lst li .follow-li-text a{font-size: 16px;}
     .user_btn button{font-size: 12px; width: 80px; padding: 6px 7px; margin-top: 10px;}
     .modal.in .modal-dialog{
