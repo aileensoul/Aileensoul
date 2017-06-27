@@ -620,7 +620,13 @@
                                                            <!--  </fieldset>      
 
                                                             <fieldset class="full-width"> -->
-                                                <h6>University :<span class="red">*</span></h6>                                    <select name="university[]" id="university1" tabindex="3" class="university">
+                                                <h6>University :<span class="red">*</span></h6>     
+
+                                                
+                                                <a href="javascript:void(0);" id="add_university" class="add_university" ><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                           
+
+                                                <select name="university[]" id="university1" tabindex="3" class="university">
 
                               <option value="" selected option disabled>Select your University</option>
 
@@ -821,6 +827,9 @@
                                                   
                                                         <fieldset class=""> -->
                                                         <h6>University :<span class="red">*</span></h6>
+
+                                                         <a href="javascript:void(0);" id="add_university" class="add_university" ><i class="fa fa-plus" aria-hidden="true"></i></a>
+
                                                         <select name="university[]" id="university1" class="university">
 
                                                             <option value="" selected option disabled>Select your University</option>
@@ -1051,6 +1060,7 @@ else
 
 <!-- This Js is used for call popup -->
  <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
+
                        
 
 
@@ -1855,52 +1865,44 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         $(".alert").delay(3200).fadeOut(300);
                     </script>
 
-
-                    <!-- script start for next button -->
-                    <script type="text/javascript">
-                        // function next_page() {
-
-                        //      var board_primary = document.getElementById("board_primary").value;
-                        //      var school_primary = document.getElementById("school_primary").value;
-                        //      var percentage_primary = document.getElementById("percentage_primary").value;
-                        //      var pass_year_primary = document.getElementById("pass_year_primary").value;
-
-                            
-
-                        //      if(board_primary == '' || school_primary == '' || percentage_primary == '' || pass_year_primary == ''){
-                        //         alert("please fill out details");
-                        //          return false;
-                        //      }
-                        //      else{
-                        //         window.location = "<?php echo base_url() ?>job/job_project_update";
-                        //      }
-
-                        // }
-// function next_page()
-// {
-
-// //alert(clicked_id);
+<script type="text/javascript">
  
-//  var board_primary = document.getElementById('board_primary').value;
-//  var school_primary = document.getElementById('school_primary').value;
-//  var percentage_primary = document.getElementById('percentage_primary').value;
-//  var pass_year_primary = document.getElementById('pass_year_primary').value;
- 
-       
-//  if(board_primary=="" && school_primary=="" && percentage_primary=="" && pass_year_primary=="")
-//  {
+$(document).on("click", ".add_university", function(e) {
+   $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
 
-//         $('.biderror .mes').html("<div class='pop_content'> please fill out details<div class='model_ok_cancel'></div>");
-//           $('#bidmodal').modal('show');
-
-// }
-// else
-// {
-//    //  location.href = '<?php //echo base_url('job/job_project_update') ?>';
-//     window.location.href = "#"+jobseeker_regform_secondary;
-// }
+    $('.message #univer').on('click', function () {
+    var $textbox = $('.message').find('input[type="text"]'),
+    textVal  = $textbox.val();
+    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "job/job_other_university" ?>',
+                        data: 'other_university=' + textVal,
+                        success: function (response) {
+                     
+                             if(response == 0)
+                            {
+                              $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                            }
+                            else if(response == 1)
+                            {
+                              $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                            }  
+                            else
+                            {
+                                 $.fancybox.close();
+                                  $('.university').html(response);
+                            }
+                        }
+                    });
+    
+                });
+    });
  
-//    }
+</script>
+
+<!-- script start for next button -->
+<script type="text/javascript">
+                 
 function next_page()
 {
 
@@ -3034,3 +3036,4 @@ $(document).ready(function(){
     #pass_year1-error{margin-right: 0px;}
     #degree1-error{margin-right: 34px;}
 </style>
+

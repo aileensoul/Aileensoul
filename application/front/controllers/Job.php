@@ -5345,5 +5345,51 @@ public function job_applied_post() {
             echo 'ok';
         }
     }
-//reactivate accont end    
+//reactivate accont end 
+
+//add other_university into database start 
+ public function job_other_university(){
+        $other_university = $_POST['other_university'];
+         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        $contition_array = array('university_name' => $other_university, 'is_delete' => '0', 'status' => '1');
+        $userdata = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $count=count($userdata);
+
+    if($other_university != NULL)
+     {
+        if($count==0)
+        {
+                  $data = array(
+                    'university_name' => $other_university,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 1,
+                    'is_delete' => 0,
+                    'is_other' => '1',
+                    'user_id' => $userid
+                    );
+        $insert_id = $this->common->insert_data_getid($data, 'university');
+                if ($insert_id) 
+                {
+                     $contition_array = array('is_delete' => '0', 'status' => '1');
+            $university = $this->data['university'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          
+            if (count($university) > 0) {
+                echo '<option value="">Select stream</option>';
+                foreach ($university as $st) {
+                    echo '<option value="' . $st['university_id'] . '">' . $st['university_name'] . '</option>';
+                    }      
+                }      
+        }
+    }else{
+            echo 0;
+            }
+    }
+    else
+    {
+        echo 1;
+    }
+}
+//add other_university into database End   
+    
 }
