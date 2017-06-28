@@ -552,3 +552,17 @@ $(window).load(function(){
     #experience_year-error{margin-top: 42px;margin-left: 15px;}
     #experience_month-error{margin-top: 39px;margin-left: 15px;}
 </style>
+
+<script type="text/javascript">
+            function checkvalue() {
+            
+            var searchkeyword = $.trim(document.getElementById('tags').value);
+            var searchplace = $.trim(document.getElementById('searchplace').value);
+            // alert(searchke                                    yword);
+            // alert(search                                    place);
+            if (searchkeyword == "" && searchplace = = "") {
+            //alert('Please enter Key                                        word');
+            return  false;
+            }
+            }
+        </script> 
