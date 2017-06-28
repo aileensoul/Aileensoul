@@ -323,7 +323,7 @@
    
           <li style="display: block;">
 
-                <a class="post_designation"  href="<?php echo base_url('job/job_printpreview/' . $rec['userid']); ?>" title=" <?php echo $rec['designation']; ?>">
+                <a class="post_designation"  href="javascript:void(0)" title=" <?php echo $rec['designation']; ?>">
                  <?php
                if ($rec['designation']) {
                     ?>

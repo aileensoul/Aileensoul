@@ -305,7 +305,7 @@ if ($returnpage == 'job') {
                </li>
      
               <li>
-              <a class="post_title" href="#" title="Post Title">
+              <a class="post_title" href="javascript:void(0)" title="Post Title">
                <?php echo $post['post_name'] ?> </a>     </li>
      
              <li>  
@@ -336,7 +336,7 @@ if ($returnpage == 'job') {
 
 
 
-                                                    <a class="display_inline" title="<?php echo $post['re_comp_name']?>" href="#">
+                                                    <a class="display_inline" title="<?php echo $post['re_comp_name']?>" href="javascript:void(0)">
 
       
                                                      <?php   $out = strlen($post['re_comp_name']) > 40 ? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
@@ -344,7 +344,7 @@ if ($returnpage == 'job') {
                                                                  
                                                             echo $out;?> </a>
                                                 </li>
-                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo ucwords($post['rec_firstname']).''.ucwords($post['rec_lastname']); ?> </a></li>
+                                                <li><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucwords($post['rec_firstname']).''.ucwords($post['rec_lastname']); ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
@@ -526,7 +526,7 @@ if ($returnpage == 'job') {
                   </li>
               
                   <li>
-               <a class="post_title" href="#" title="Post Title">
+               <a class="post_title" href="javascript:void(0)" title="Post Title">
                   <?php echo $post['post_name'] ?> </a>     </li>
                   
                     <li> 
@@ -548,14 +548,14 @@ if ($returnpage == 'job') {
                        
            </div>
            <?php   }    ?>
-                                                      <a class="display_inline" title="<?php echo $post['re_comp_name'];?>" href="#"> <?php 
+                                                      <a class="display_inline" title="<?php echo $post['re_comp_name'];?>" href="javascript:void(0)"> <?php 
                                                           $out = strlen($post['re_comp_name']) > 40? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
 
                                                                  
                                                             echo $out;
                                                      ?> </a>
                                                 </li>
-                                                <li><a class="display_inline" title="Recruiter Name" href="#"> <?php echo ucwords($post['rec_firstname']) . ' '.ucwords($post['rec_lastname']) ; ?> </a></li>
+                                                <li><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucwords($post['rec_firstname']) . ' '.ucwords($post['rec_lastname']) ; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
