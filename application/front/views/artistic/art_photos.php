@@ -204,7 +204,7 @@
                   if ($artisticdata[0]['user_id'] != $userid) {
                       ?>
            
-                  <div class="flw_msg_btn">
+                  <div class="flw_msg_btn fr">
                      <ul>
                         <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
                            <?php
@@ -232,7 +232,7 @@
                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a>
                         </li>
                      </ul>
-                  </div>
+                  </  div>
               
                <?php
                   }
