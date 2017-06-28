@@ -4310,39 +4310,55 @@ $files[] = $_FILES;
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($jobdata);
+       // echo "<pre>"; print_r($jobdata[0]['other_skill']);
            $job_skill = $this->data['jobdata'][0]['keyskill'];
             $postuserarray = explode(',', $job_skill);
 // post detail
         $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
 //        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //echo "<pre>"; print_r($postdata);
-        
-        //echo $jobdata[0]['ApplyFor'];
-        $newarray = array();
+
+         $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
+        $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+       
+   //for getting data from rec_post table for keyskill    
         foreach ($postdata as $post) {
             $skill_id = explode(',', $post['post_skill']);
-
               $result = array_intersect($postuserarray, $skill_id);
-            
-                
+  
                  if (count($result) > 0) { 
-
-                    $contition_array = array('post_id' => $post['post_id']);
+                   // echo "<pre>";print_r($post['post_skill']);
+                    // $contition_array = array('FIND_IN_SET("'.$job_skill.'",post_skill)!='=>'0');
+                    
+                    $contition_array = array('post_id' => $post['post_id'] );
                     $data = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                   //echo "<pre>"; print_r($data);
+                  
                     if($data[0]['user_id'] != $userid ){
                        
                     $recommendata[] = $data;
+                    
                     }
+
                 }
-            
+          
         }
-        //echo "<pre>"; print_r($newarray);
-//die();
-        $this->data['postdetail'] = $recommendata;
-        //echo "<pre>"; print_r($this->data['postdetail']);die();
+       
+   //for getting data from skill table for other skill
+       foreach ($skill_data as $skill) {  
+
+         $contition_array = array('other_skill' => $skill['skill']);
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata1[] = $data1;
+               }
+//$this->data['postdetail'] 
+
+               $unique= array_merge($recommendata,$recommendata1);
+//array_unique is used for remove duplicate values
+               $qbc = array_unique($unique, SORT_REGULAR);
+               
+                 $this->data['postdetail'] = $qbc;
+               
         $this->data['falguni'] = 1;
 // code for search
         $contition_array = array('re_status' => '1','re_step' => 3);
