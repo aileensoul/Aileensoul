@@ -106,9 +106,9 @@
                                   </fieldset>
 
                                   <fieldset class="full-width">
-                                         <label>Duration</label>
+                                         <label>Duration (in Month)</label>
 
-                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>"/>
+                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Enter Duration"   value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>" />
                                         
                                   </fieldset>
 
@@ -134,9 +134,9 @@
                               </fieldset>
 
                                <fieldset class="full-width">
-                                         <label>Duration</label>
+                                         <label>Duration (in Month)</label>
 
-                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Ex:- 3 month / 4 month" value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
+                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Enter Duration"  value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
                                         
                                   </fieldset>
 
@@ -388,25 +388,37 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
 
                                     },
-                                    // project_duration:{
-                                    //   regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-                                    // },
+                                    project_duration:{
+                                     maxlength: 2,
+                                    },
                                     training_as:{
                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                         regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
-                                    // training_duration:{
-                                    //   regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-                                    // },
+                                    training_duration:{
+                                      maxlength: 2,
+                                    },
                                     training_organization:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                        regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-                                    }
+                                    },
 
+                                },
+                     messages: {
 
-                                }
+                                    project_duration: {
 
+                                      maxlength: "Duration Is Not More Than Two Digit",
 
+                                    },
+
+                                    training_duration: {
+
+                                         maxlength: "Duration Is Not More Than Two Digit",
+
+                                    },
+
+                                  }
                             });
                         });
   
