@@ -365,6 +365,7 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 1024px) {
+    .header ul li a{padding: 13px 12px;}
     .folle_text{width: 59%;}
     .chat .chat-history .other-message::after{
         left: 96%;
@@ -484,6 +485,7 @@ width: 100%;}
     padding-bottom: 14px !important;
     height: auto;
         }
+       .profile-box-art .right-side-menu .flw_msg_btn ul li{width: auto;}
         .right-menu-jr .flw_msg_btn ul li a{padding-top: 7px !important; padding-bottom: 7px !important;}
     .right-menu-jr .current-user {display: inline-block; float: left; text-align:center; }
     .folow-ms {
@@ -555,7 +557,7 @@ width: 100%;}
         margin-top: -63px;
     }
     .art-side-menu .flw_msg_btn a {
-        width: 70px;
+        width: 88px;
         padding: 7px 5px 7px 5px !important;
     }
     .profile-photo .profile-pho {
@@ -580,6 +582,11 @@ width: 100%;}
     }
 }
 @media screen and (max-width: 479px) {
+    .profile-job-details .job_companyname{font-size: 10px; line-height: 1;
+font-weight: 500;}
+    .profile-job-details .display_inline{font-size: 10px; line-height: 1;
+font-weight: 500;}
+
     .alert{font-size: 16px;
         padding:7px; }
     .post-editor .popup-social-icon ul li i{font-size: 12px;}
@@ -642,6 +649,7 @@ text-overflow: ellipsis;}
     }
 }
 @media screen and (max-width: 360px) {
+    .padding_job_r ul .date_re{padding-left: 15px;}
     .user_lst li .follow-li-text a{font-size: 14px;}
     .profile-job-post-location-name ul li .follow-li-text{padding: 0px;}
     .user_btn button {
