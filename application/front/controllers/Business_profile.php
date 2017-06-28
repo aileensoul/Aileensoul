@@ -9342,7 +9342,7 @@ $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $
      
       }else{
          
-    $contactdata =     '<ul>';
+    $contactdata =     '<ul class="contct-no">';
     $contactdata .=    '<li>';
     $contactdata .=    '<div class="addcontact-left">';
     $contactdata .=    '<a href="#">';

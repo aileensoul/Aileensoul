@@ -151,7 +151,7 @@
                         </div>
        </div>
    
-       <div class="designation_rec" >
+       <div class="designation_rec " style="padding-top: 10px;" >
           <ul class="search_ul_an">
        <li>
       <a style="  font-size: 19px;
@@ -273,7 +273,7 @@ if($artuserdata1){
        <h4 class="search_head">Posts</h4>
 
 
-       <div class="inner_search">
+       <div class="inner_search fw">
        
        
 
@@ -949,8 +949,8 @@ if($artuserdata1){
          else { ?>
                                           <div class="text-center rio">
                                                 <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
-                                                <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
-                                                <ul>
+                                                <p style="text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
+                                                <ul class="padding_less_left">
                                                     <li style="text-transform:none !important; list-style: none;">Make sure you used the right keywords.</li>
                                                 </ul>
                                             </div>

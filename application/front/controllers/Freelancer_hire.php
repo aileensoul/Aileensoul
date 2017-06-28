@@ -194,11 +194,11 @@ $results = array_unique($result);
           {
             $data = array(
 
-                 'fullname' => $this->input->post('fname'),
-                 'username' => $this->input->post('lname'),
-                 'email' => $this->input->post('email'),
-                 'skyupid' => $this->input->post('skyupid'),
-                 'phone' => $this->input->post('phone'),    
+                 'fullname' => trim($this->input->post('fname')),
+                 'username' => trim($this->input->post('lname')),
+                 'email' => trim($this->input->post('email')),
+                 'skyupid' => trim($this->input->post('skyupid')),
+                 'phone' => trim($this->input->post('phone')),    
                  'modified_date' => date('Y-m-d h:i:s')
                   ); 
             $updatedata =   $this->common->update_data($data,'freelancer_hire_reg','user_id',$userid);
@@ -216,11 +216,11 @@ $results = array_unique($result);
           {
             $data = array(
 
-                 'fullname' => $this->input->post('fname'),
-                 'username' => $this->input->post('lname'),
-                 'email' => $this->input->post('email'),
-                 'skyupid' => $this->input->post('skyupid'),
-                 'phone' => $this->input->post('phone'),
+                 'fullname' => trim($this->input->post('fname')),
+                 'username' => trim($this->input->post('lname')),
+                 'email' => trim($this->input->post('email')),
+                 'skyupid' => trim($this->input->post('skyupid')),
+                 'phone' => trim($this->input->post('phone')),
                  'status' => 1,
                 'is_delete' => 0,
                  'created_date' => date('Y-m-d h:i:s'),
@@ -256,7 +256,7 @@ $results = array_unique($result);
 
 public function check_email() {
 
-        $email = $this->input->post('email');
+        $email = trim($this->input->post('email'));
 
          $userid = $this->session->userdata('aileenuser');
 
@@ -526,11 +526,11 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
       if($userdata){
         $data = array(
 
-                 'country' => $this->input->post('country'),
-                 'state' => $this->input->post('state'),
-                 'city' => $this->input->post('city'),
-                 'pincode' => $this->input->post('pincode'),
-                 'address' => $this->input->post('address'),
+                 'country' => trim($this->input->post('country')),
+                 'state' => trim($this->input->post('state')),
+                 'city' => trim($this->input->post('city')),
+                 'pincode' => trim($this->input->post('pincode')),
+                 'address' => trim($this->input->post('address')),
                  'modified_date' => date('Y-m-d h:i:s')
                  
                   );
@@ -559,11 +559,11 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
           
            $data = array(
 
-                 'country' => $this->input->post('country'),
-                 'state' => $this->input->post('state'),
-                 'city' => $this->input->post('city'),
-                 'pincode' => $this->input->post('pincode'),
-                 'address' => $this->input->post('address'),
+                 'country' => trim($this->input->post('country')),
+                 'state' => trim($this->input->post('state')),
+                 'city' => trim($this->input->post('city')),
+                 'pincode' => trim($this->input->post('pincode')),
+                 'address' => trim($this->input->post('address')),
                  'modified_date' => date('Y-m-d h:i:s'),
                  'user_id'=> $userid,
                  'free_hire_step' => 2 
@@ -721,7 +721,7 @@ $results = array_unique($result);
           
            $data = array(
 
-                'professional_info' => $this->input->post('professional_info'),
+                'professional_info' => trim($this->input->post('professional_info')),
                  'modified_date' => date('Y-m-d h:i:s'),
                  'user_id'=> $userid ,
                  'free_hire_step' => 3

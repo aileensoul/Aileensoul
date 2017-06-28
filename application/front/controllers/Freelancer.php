@@ -169,7 +169,7 @@ class Freelancer extends MY_Controller {
 
 
         $data = array(
-            'designation' => $this->input->post('designation'),
+            'designation' => trim($this->input->post('designation')),
             'modified_date' => date('Y-m-d', time())
         );
 
@@ -234,11 +234,11 @@ class Freelancer extends MY_Controller {
                 }
 
                 $data = array(
-                    'freelancer_post_fullname' => $this->input->post('firstname'),
-                    'freelancer_post_username' => $this->input->post('lastname'),
-                    'freelancer_post_skypeid' => $this->input->post('skypeid'),
-                    'freelancer_post_email' => $this->input->post('email'),
-                    'freelancer_post_phoneno' => $this->input->post('phoneno'),
+                    'freelancer_post_fullname' => trim($this->input->post('firstname')),
+                    'freelancer_post_username' => trim($this->input->post('lastname')),
+                    'freelancer_post_skypeid' => trim($this->input->post('skypeid')),
+                    'freelancer_post_email' => trim($this->input->post('email')),
+                    'freelancer_post_phoneno' => trim($this->input->post('phoneno')),
                     'user_id' => $userid,
                     'modify_date' => date('Y-m-d', time())
                 );
@@ -257,11 +257,11 @@ class Freelancer extends MY_Controller {
             } else {
 
                 $data = array(
-                    'freelancer_post_fullname' => $this->input->post('firstname'),
-                    'freelancer_post_username' => $this->input->post('lastname'),
-                    'freelancer_post_skypeid' => $this->input->post('skypeid'),
-                    'freelancer_post_email' => $this->input->post('email'),
-                    'freelancer_post_phoneno' => $this->input->post('phoneno'),
+                    'freelancer_post_fullname' => trim($this->input->post('firstname')),
+                    'freelancer_post_username' => trim($this->input->post('lastname')),
+                    'freelancer_post_skypeid' => trim($this->input->post('skypeid')),
+                    'freelancer_post_email' => trim($this->input->post('email')),
+                    'freelancer_post_phoneno' => trim($this->input->post('phoneno')),
                     'user_id' => $userid,
                     'created_date' => date('Y-m-d', time()),
                     'status' => 1,
@@ -289,7 +289,7 @@ class Freelancer extends MY_Controller {
 //check email avilibity start
     public function check_email() {
 
-        $email = $this->input->post('email');
+        $email = trim($this->input->post('email'));
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -543,11 +543,11 @@ class Freelancer extends MY_Controller {
                 }
 
                 $data = array(
-                    'freelancer_post_country' => $this->input->post('country'),
-                    'freelancer_post_state' => $this->input->post('state'),
-                    'freelancer_post_city' => $this->input->post('city'),
-                    'freelancer_post_address' => $this->input->post('postaladdress'),
-                    'freelancer_post_pincode' => $this->input->post('pincode'),
+                    'freelancer_post_country' => trim($this->input->post('country')),
+                    'freelancer_post_state' => trim($this->input->post('state')),
+                    'freelancer_post_city' => trim($this->input->post('city')),
+                    'freelancer_post_address' => trim($this->input->post('postaladdress')),
+                    'freelancer_post_pincode' => trim($this->input->post('pincode')),
                     'modify_date' => date('Y-m-d', time())
                 );
 
@@ -742,12 +742,12 @@ class Freelancer extends MY_Controller {
                 }
 
                 $data = array(
-                    'freelancer_post_field' => $this->input->post('field'),
+                    'freelancer_post_field' => trim($this->input->post('field')),
                     'freelancer_post_area' => implode(',', $skill1),
-                    'freelancer_post_otherskill' => $this->input->post('otherskill'),
-                    'freelancer_post_skill_description' => $this->input->post('skill_description'),
-                    'freelancer_post_exp_month' => $this->input->post('experience_month'),
-                    'freelancer_post_exp_year' => $this->input->post('experience_year'),
+                    'freelancer_post_otherskill' => trim($this->input->post('otherskill')),
+                    'freelancer_post_skill_description' => trim($this->input->post('skill_description')),
+                    'freelancer_post_exp_month' => trim($this->input->post('experience_month')),
+                    'freelancer_post_exp_year' => trim($this->input->post('experience_year')),
                     'modify_date' => date('Y-m-d', time())
                 );
 
@@ -870,7 +870,7 @@ class Freelancer extends MY_Controller {
 
             if ($this->input->post('fixed_rate') == 1) {
                 $data = array(
-                    'freelancer_post_fixed_rate' => $this->input->post('fixed_rate'),
+                    'freelancer_post_fixed_rate' => trim($this->input->post('fixed_rate')),
                 );
             } else {
                 $data = array(
@@ -906,8 +906,8 @@ class Freelancer extends MY_Controller {
             }
 
             $data = array(
-                'freelancer_post_hourly' => $this->input->post('hourly'),
-                'freelancer_post_ratestate' => $this->input->post('state'),
+                'freelancer_post_hourly' => trim($this->input->post('hourly')),
+                'freelancer_post_ratestate' => trim($this->input->post('state')),
                 'modify_date' => date('Y-m-d', time())
             );
 
@@ -1055,8 +1055,8 @@ class Freelancer extends MY_Controller {
             }
 
             $data = array(
-                'freelancer_post_job_type' => $this->input->post('job_type'),
-                'freelancer_post_work_hour' => $this->input->post('work_hour'),
+                'freelancer_post_job_type' => trim($this->input->post('job_type')),
+                'freelancer_post_work_hour' => trim($this->input->post('work_hour')),
                 'modify_date' => date('Y-m-d', time())
             );
 
@@ -1232,12 +1232,12 @@ class Freelancer extends MY_Controller {
                 }
 
                 $data = array(
-                    'freelancer_post_degree' => $this->input->post('degree'),
-                    'freelancer_post_stream' => $this->input->post('stream'),
-                    'freelancer_post_univercity' => $this->input->post('university'),
-                    'freelancer_post_collage' => $this->input->post('college'),
-                    'freelancer_post_percentage' => $this->input->post('percentage'),
-                    'freelancer_post_passingyear' => $this->input->post('passingyear'),
+                    'freelancer_post_degree' => trim($this->input->post('degree')),
+                    'freelancer_post_stream' => trim($this->input->post('stream')),
+                    'freelancer_post_univercity' => trim($this->input->post('university')),
+                    'freelancer_post_collage' => trim($this->input->post('college')),
+                    'freelancer_post_percentage' => trim($this->input->post('percentage')),
+                    'freelancer_post_passingyear' => trim($this->input->post('passingyear')),
                     'modify_date' => date('Y-m-d', time())
                 );
 
@@ -1874,15 +1874,15 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
             $data = array(
                 'post_name' => trim($this->input->post('post_name')),
                 'post_description' => trim($this->input->post('post_desc')),
-                'post_field_req' => $this->input->post('fields_req'),
+                'post_field_req' => trim($this->input->post('fields_req')),
                 'post_skill' => implode(',', $skills),
                 'post_other_skill' => trim($this->input->post('other_skill')),
                 'post_est_time' => trim($this->input->post('est_time')),
                 'post_rate' => trim($this->input->post('rate')),
-                'post_currency' => $this->input->post('currency'),
-                'post_rating_type' => $this->input->post('rating'),
-                'post_exp_month' => $this->input->post('month'),
-                'post_exp_year' => $this->input->post('year'),
+                'post_currency' => trim($this->input->post('currency')),
+                'post_rating_type' => trim($this->input->post('rating')),
+                'post_exp_month' => trim($this->input->post('month')),
+                'post_exp_year' => trim($this->input->post('year')),
                 'post_last_date' => $lastdate,
                 //'post_location' => $this->input->post('location'),
                 'country' => trim($this->input->post('country')),
@@ -2286,18 +2286,18 @@ foreach($citiess as $key){
             $data = array(
                 'post_name' =>trim( $this->input->post('post_name')),
                 'post_description' => trim($this->input->post('post_desc')),
-                'post_field_req' => $this->input->post('fields_req'),
+                'post_field_req' => trim($this->input->post('fields_req')),
                 'post_skill' => implode(',', $skills),
                 'post_other_skill' => trim($this->input->post('other_skill')),
                 'post_est_time' => trim($this->input->post('est_time')),
                 'post_rate' => trim($this->input->post('rate')),
-                'post_currency' => $this->input->post('currency'),
-                'post_rating_type' => $this->input->post('rating'),
-                'post_exp_month' => $this->input->post('month'),
-                'post_exp_year' => $this->input->post('year'),
+                'post_currency' => trim($this->input->post('currency')),
+                'post_rating_type' => trim($this->input->post('rating')),
+                'post_exp_month' => trim($this->input->post('month')),
+                'post_exp_year' => trim($this->input->post('year')),
                 'post_last_date' => $lastdate,
-                'country' => $this->input->post('country'),
-                'city' => $this->input->post('city'),
+                'country' => trim($this->input->post('country')),
+                'city' => trim($this->input->post('city')),
                 'modify_date' => date('Y-m-d', time()),
             );
 
@@ -4126,7 +4126,7 @@ $contition_array = array('user_id' => $userid);
 
 
         $data = array(
-            'designation' => $this->input->post('designation'),
+            'designation' => trim($this->input->post('designation')),
             'modify_date' => date('Y-m-d', time())
         );
 
