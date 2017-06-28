@@ -63,9 +63,9 @@ class Registration extends CI_Controller {
 //        $bod = $this->input->post('datepicker');
 //                $bod = str_replace('/', '-', $bod);
 
-      $date = $this->input->post('date');
-      $month = $this->input->post('month');
-      $year = $this->input->post('year');
+      $date = $this->input->post('selday');
+      $month = $this->input->post('selmonth');
+      $year = $this->input->post('selyear');
       
       $dob = $year . '-' . $month . '-' . $date;
      
@@ -78,15 +78,15 @@ class Registration extends CI_Controller {
         $ip = $this->input->ip_address();
         // $this->form_validation->set_rules('uname', 'Username', 'required');
       
-        $this->form_validation->set_rules('fname', 'Firstname', 'required');
-        $this->form_validation->set_rules('lname', 'Lastname', 'required');
-        $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('first_name', 'Firstname', 'required');
+        $this->form_validation->set_rules('last_name', 'Lastname', 'required');
+        $this->form_validation->set_rules('email_reg', 'Store  email', 'required|valid_email');
+        $this->form_validation->set_rules('password_reg', 'Password', 'trim|required');
         // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
-        $this->form_validation->set_rules('date','date','required'); 
-        $this->form_validation->set_rules('month','month','required'); 
-        $this->form_validation->set_rules('year','year','required'); 
-        $this->form_validation->set_rules('gen', 'Gender', 'required');
+        $this->form_validation->set_rules('selday','date','required'); 
+        $this->form_validation->set_rules('selmonth','month','required'); 
+        $this->form_validation->set_rules('selyear','year','required'); 
+        $this->form_validation->set_rules('selgen', 'Gender', 'required');
      
          
        //  $username=$this->input->post('user');
@@ -109,12 +109,12 @@ class Registration extends CI_Controller {
          { 
             $data = array(
                //  'user_name' => $this->input->post('uname'),
-                 'first_name' => $this->input->post('fname'),
-                 'last_name' => $this->input->post('lname'),
-                 'user_email' => $this->input->post('email'),
-                 'user_password' => md5($this->input->post('password')),
+                 'first_name' => $this->input->post('first_name'),
+                 'last_name' => $this->input->post('last_name'),
+                 'user_email' => $this->input->post('email_reg'),
+                 'user_password' => md5($this->input->post('password_reg')),
                  'user_dob' => $dob,
-                 'user_gender' => $this->input->post('gen'),
+                 'user_gender' => $this->input->post('selgen'),
                  'user_agree' => '1',
                  'is_delete' => '0',
                  'status' => '1',
@@ -161,9 +161,10 @@ class Registration extends CI_Controller {
 
            if($insert_id)
         {
-        $this->session->set_userdata('aileenuser', $insert_id);
+             $this->session->set_userdata('aileenuser', $insert_id);
                       // $this->session->set_userdata('aileenusername', $user_check[0]['user_name']);
-                     redirect('dashboard', 'refresh');
+                    // redirect('dashboard', 'refresh');
+             echo "ok";
 
         }
        else
@@ -222,6 +223,43 @@ public function check_email() { //echo "hello"; die();
         }
         //}
 //Registrtaion email already exist checking controller End
+
+
+// login check and email validation start
+public function check_login() {
+        $email_login = $this->input->post('email_login');
+        $password_login = $this->input->post('password_login');
+
+
+
+        $contition_array = array('user_email' => $email_login);
+        $result = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+
+
+        $userinfo = $this->common->check_login($email_login, $password_login);
+
+        if (count($userinfo) > 0) {
+            if ($userinfo[0]['status'] == "2") {
+                echo 'Sorry, user is Inactive.';
+            } else {
+               // $userinfo[0]['user_id'] = $this->input->post('user_id');
+                $this->session->set_userdata('aileenuser', $userinfo[0]['user_id']);
+                echo 'ok';
+                
+            }
+        } else if($email_login == $result[0]['user_email']) {
+            echo 'password';
+        }else{
+
+            echo 'Please enter valid email address';
+
+
+        }
+
+    }
+//login validation end
+
 
     // main registratin image insert page Start
     public function registration_image($user_id)

@@ -454,7 +454,7 @@
                     </div>
                 </div>
                 <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>">
-                <div class="full-box-module business_data">
+                <div class="full-box-module business_data" id="autorefresh">
                     <div class="profile-boxProfileCard  module buisness_he_module" style="">
 
                         <div class="head_details">
@@ -1707,10 +1707,10 @@ $loginuser = $userdata[0]['art_id'];
 
 
         <!-- Bid-modal  -->
-        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+        <div class="modal fade message-box biderror" id="profileimage" role="dialog">
             <div class="modal-dialog modal-lm">
                 <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <button type="button" class="modal-close" data-dismiss="modal" id="profileimage">&times;</button>       
                     <div class="modal-body">
 
                         <span class="mes"></span>
@@ -1788,19 +1788,7 @@ $loginuser = $userdata[0]['art_id'];
 
 
 
- <script type="text/javascript">
-   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
-                $(document).ready(function () { 
-                    $('#post').on('click', function () {
-
-                        $('.modal-post').show();
-                       //  location.reload(false);
-                    });
-                });
-  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
-   
-</script>
-<!-- insert validation end -->
+ 
 
 
             <script>
@@ -3511,18 +3499,7 @@ if (size > 10485760)
 
 
 
-        <!-- falguni post in sert script start -->
-
-        <script type="text/javascript">
-
-            $(document).ready(function () {
-                $('.modal-close').on('click', function () {
-                    $('.modal-post').hide();
-                });
-            });
-
-        </script>
-
+        
         <!-- falguni script end -->
 
 
@@ -3632,8 +3609,9 @@ if (size > 10485760)
                             $('.' + 'dataconaudio').html(data.notaudio);
                             $('.' + 'dataconphoto').html(data.notphoto);
 
-                            }
 
+                            $('#autorefresh').delay(10000).load('<?php echo base_url() . "artistic/art_manage_post" ?>');
+                        }
 
                     }
                 });
@@ -4324,47 +4302,6 @@ video js preview strat -->
 <!-- 
 video js preview end -->
 
-        <script>
-            $('.modal-close').on('click', function () {
-                $('#myModal3').modal(show);
-            });
-
-
-
-            $(document).on('keydown', function (e) {
-
-                if (e.keyCode === 27) {
-           if($('.modal-post').show()){
-   
-             $( document ).on( 'keydown', function ( e ) {
-             if ( e.keyCode === 27 ) {
-           //$( "#bidmodal" ).hide();
-          $('.modal-post').hide();
-           }
-          });  
-        
-   
-           }
-            document.getElementById('myModal3').style.display = "none";
-            }
-                
-            });
-
-
-
-
-            $( document ).on( 'keydown', function ( e ) {
-       if ( e.keyCode === 27 ) {
-           //$( "#bidmodal" ).hide();
-           $('#post').modal('hide');
-            $('.modal-post').show();
-
-       }
-   });  
-   
-
-
-        </script>
 
         <script type="text/javascript">
 
@@ -4398,37 +4335,13 @@ video js preview end -->
      function picpopup() {
 
             $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
-            $('#bidmodal').modal('show');
+            $('#profileimage').modal('show');
                         }
       </script>
       <!-- popup end -->
         
  <script type="text/javascript">
-//all popup close close using esc start 
-    $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal').modal('hide');
-    }
-}); 
-
-
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal-2').modal('hide');
-    }
-});
-
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#likeusermodal').modal('hide');
-    }
-});  
-// all popup close close using esc end 
+    // all popup close close using esc end 
 
  // pop up open & close aarati code start 
 jQuery(document).mouseup(function (e) {
@@ -4455,12 +4368,53 @@ jQuery(document).mouseup(function (e) {
  </script>
 
 
+ <!-- all script using esc start -->
 
-<!-- all popup close close using esc start -->
 <script type="text/javascript">
 
-    $('.modal-close').on('click', function(){
-        $('#myModal').modal('show');
+
+ $('#post').on('click', function(){
+        $('#myModal3').modal('show');
     });
-    
+
+ $('#profileimage').on('click', function(){
+        $('#bidmodal-2').modal('show');
+    });
+
+
 </script>
+
+
+<script type="text/javascript">
+    
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+
+
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#myModal3').hide();
+         
+    }
+});  
+
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#profileimage').hide();
+         $('#bidmodal-2').show();
+
+    }
+});  
+
+
+</script>
+ <!-- all script using esc end -->
+
