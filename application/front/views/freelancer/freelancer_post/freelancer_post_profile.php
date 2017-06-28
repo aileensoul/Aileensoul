@@ -150,7 +150,7 @@ echo $freelancer_post_header2_border;
                 
 
                 ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                <a id="designation" class="designation" title="Designation">Current Work</a>
+                <a id="designation" class="designation" title="Designation">Designation</a>
                 
             <?php }
              else {
@@ -162,7 +162,7 @@ echo $freelancer_post_header2_border;
                 } else {
 
                     if($freelancerpostdata[0]['designation'] == ''){ ?>
-                        Current Work
+                        Designation
                        <?php }else{ ?>
                    <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
                    <?php  } } ?>
