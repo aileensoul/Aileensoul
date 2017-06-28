@@ -316,7 +316,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 phoneno: {
 
                             number: true,
-                              minlength: 8,
+                            minlength: 8,
                            maxlength:15
                             
                         },
@@ -344,6 +344,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     remote: "Email already exists."
                 },
 
+                phoneno:{
+                    minlength:"Minimum length 8 digit",
+                    maxlength:"Maximum length 15 digit"
+
+                }
 
             },
 

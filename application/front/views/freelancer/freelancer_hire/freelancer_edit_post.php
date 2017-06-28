@@ -828,6 +828,9 @@ if(mm<10) {
                         country:{
                           required:true,
                         },
+                        state:{
+                          required:true,
+                        }
                       
                     },
 
@@ -870,6 +873,9 @@ if(mm<10) {
                        country:{
                         required:"Please Select Country"
                        },
+                       state:{
+                        required:"Please select State"
+                       }
 
                     }
 

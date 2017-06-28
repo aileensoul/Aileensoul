@@ -375,7 +375,7 @@ $( "#searchplace" ).autocomplete({
 
                     number: true,
                      minlength: 8,
-                           maxlength:15
+                      maxlength:15
                     
 
                             
@@ -403,6 +403,12 @@ $( "#searchplace" ).autocomplete({
                     email: "Please enter valid email id",
                     remote: "Email already exists"
                 },
+                phone:{
+                    minlength:"Minimum length 8 digit",
+                    maxlength: "Maximum length 15 digit"
+
+
+                }
 
             },
 
