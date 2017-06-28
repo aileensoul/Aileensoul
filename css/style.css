@@ -9417,7 +9417,8 @@ border-radius: 4px;}
 
 /*
 style chat css start*/
-
+.cancel-result{color: #1b8ab9; background-color: #fff; border-color: #1b8ab9;}
+.upload-result{color: #fff; background-color: rgba(27,138,185,0.8); border-color: #1b8ab9;}
 /*  chat css*/
 
 div .comment {
