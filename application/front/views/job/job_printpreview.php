@@ -163,7 +163,26 @@ echo $job_header2_border;
                 <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
             <?php }
             
-            } else { echo ucwords($job[0]['designation']); } ?>
+            } else { 
+
+
+                if ($job[0]['designation'] == '') { ?>
+                
+                            <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                           <a id="designation"> <?php
+                
+                echo "Current Work"; ?> </a> 
+              
+           <?php  } else { ?>
+              <a id="designation"> <?php
+                
+                echo ucwords($job[0]['designation']); ?> </a> <?php } 
+                            } ?>
+
+
+
+
+             
             <!-- The Modal -->
             <!--            <div id="myModal" class="modal">
                              Modal content <div class="col-md-2"></div>
