@@ -873,7 +873,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                            <?php
                                         if ($freelancerpostdata[0]['freelancer_post_percentage']) {
                                         ?>
-                                            <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']; ?> </span>
+                                            <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']. " %"; ?> </span>
                                             </li>
                                             <?php }
                                             else
@@ -980,7 +980,7 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                            <?php
                                         if ($freelancerpostdata[0]['freelancer_post_percentage']) {
                                         ?>
-                                            <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']; ?> </span>
+                                            <li> <b>Percentage</b><span> <?php echo $freelancerpostdata[0]['freelancer_post_percentage']." %"; ?> </span>
                                             </li>
                                             <?php }
                                             else
