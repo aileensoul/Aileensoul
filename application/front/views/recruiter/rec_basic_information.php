@@ -138,7 +138,7 @@
  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
 <!-- Field Validation Js End -->
 
 <!-- <script>
@@ -167,10 +167,10 @@
 
 
  --> 
- <script type="text/javascript">
-var jquery_validate_min = $.noConflict(true);
+<!--  <script type="text/javascript">
+var jquery_validate = $.noConflict(true);
 </script>
-
+ -->
 
  <script type="text/javascript">
 
