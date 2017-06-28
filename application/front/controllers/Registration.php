@@ -183,7 +183,7 @@ class Registration extends CI_Controller {
 public function check_email() { //echo "hello"; die();
         // if ($this->input->is_ajax_request() && $this->input->post('email')) {
 
-        $email = $this->input->post('email');
+        $email_reg = $this->input->post('email_reg');
 
         // $userid = $this->session->userdata('aileenuser');
 
@@ -209,7 +209,7 @@ public function check_email() { //echo "hello"; die();
        
           $condition_array = array('is_delete' => '0' , 'status' => '1');
         
-        $check_result = $this->common->check_unique_avalibility('user', 'user_email', $email, '', '', $condition_array);
+        $check_result = $this->common->check_unique_avalibility('user', 'user_email', $email_reg, '', '', $condition_array);
      
        // }
 
@@ -218,7 +218,7 @@ public function check_email() { //echo "hello"; die();
         die();
         } else {
         echo 'false';
-        die();
+      
         }
         }
         //}

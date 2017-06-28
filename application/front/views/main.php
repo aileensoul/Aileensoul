@@ -188,10 +188,10 @@
         </div>
         <div class="col-md-6 col-sm-8">
           <ul>
-            <li><a href="#">About Us</a>|</li>
-            <li><a href="#">Contact Us</a>|</li>
-            <li><a href="#">Blogs</a>|</li>
-            <li><a href="#">Send Us Feedback</a></li>
+            <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
+            <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
+            <li><a href="javascript:void(0);">Blogs</a>|</li>
+            <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>
       </div>
@@ -351,6 +351,17 @@
                                         },
                                         email_reg: {
                                             required: true,
+                                             remote: {
+                                               url: "<?php echo site_url() . 'registration/check_email' ?>",
+                                             type: "post",
+                                              data: {
+                                    email_reg: function () {
+                                     // alert("hi");
+                                        return $("#email_reg").val();
+                                    },
+                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                },
+                              },
                                         },
                                         password_reg: {
                                             required: true,
@@ -383,6 +394,7 @@
                                                 },
                                                 email_reg: {
                                                     required: "Please enter email address",
+                                                    remote: "Email address already exists",
                                                 },
                                                 password_reg: {
                                                     required: "Please enter password",

@@ -1,218 +1,256 @@
-     <head> 
-       <link rel="stylesheet" type="text/css" href="css/style_login.css">
-       <link rel="stylesheet" type="text/css" href="css/common-style.css">
-       <link rel="stylesheet" type="text/css" href="css/media.css">
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
-<!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
-<script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
-     </head>
-
-
-
-<body class="main_bdy_c">
-<header>
-    
-        <div class="header3">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>aileensoul main</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/common-style.css">
+  <link rel="stylesheet" href="css/style-main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+</head>
+<body>
+<div class="main-inner">
+  <header>
     <div class="container">
-    <div class="row">
-    <div class="header-login-main">
-  <div class="col-md-6 col-sm-5 col-xs-6">
-                        <div class="logo"><a tabindex="-200" href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
-                    </div>
- 
-           <div class="col-md-6 col-sm-7  col-xs-6 header-left-menu">
-                   <ul class="fr">
-                 <!--    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li> -->
-                    <li class=""><a  class="login_butn button6" tabindex="8"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
-                      
-                    </ul>
-
-                                <!-- Friend Request End-->
-
-                                <!-- END USER LOGIN DROPDOWN -->
-                        </div>
-                        </div>
-    </div>    
-    </div>
-     
-    </div>
-
-
-</header>
-   <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-          <div class="main_reg_form">
-        
-            <div class="abt_a">
-              <h1><span>Welcome to Aileensoul</span></h1>
-            </div>
-       
-             <?php   if ($this->session->flashdata('error')) 
-               {
-
-                      // echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
-
-                      echo $this->session->flashdata('error');
-
-
-
-                }
-                if ($this->session->flashdata('success'))
-                 {
-                         echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
-                }
-               
-         ?>
-      
-
-                    <form action="<?php echo base_url(); ?>login/check_login" method="post" id="login_form" name="login_form">
-                     
-                          <fieldset class="col-md-12 col-sm-12 col-xs-12 lgn-s">
-                          <label>Email Address</label>
-                                <input  id="user_name" tabindex="1" placeholder="Enter Email Address"  type="text" name="user_name" autocomplete="off" autofocus />
-                            </fieldset>
-
-
-                            <fieldset class="col-md-12 col-sm-12 col-xs-12 lgn-s">
-                                 <label>Password</label>
-                                <input  type="password" id="password" tabindex="2" placeholder="Enter Password" name="password" class="showpassword"  style="padding-right: 8%;" 
-                               />
-                            </fieldset>
-                            <fieldset class="col-md-12 col-sm-12 col-xs-12">
-                             <div class="checkbox2" style="display: block;">
-
-                                    <input type="checkbox" name="remember">
-                                    <h6>Remember me</h6>
-                                </div>
-                                    <div class="forgot" style="margin-top: -54px;">
-                                    <a  id="myBtn"  data-toggle="modal" data-target="#myModal"> <h6>Forgot Password?</h6></a>
-                               
-                                    </div>
-
-                            </fieldset>
-                   
- 
-  
-<fieldset class="col-md-12 col-sm-12 col-xs-12">
-     <button type="submit" id="btnShow" name="login" value="Login" tabindex="3" class="button button-block vfhh" style="background:#1b8ab8!important; background-repeat: no-repeat; background-position: right center; margin-top: 0px; ">Log In</button>
-                           
-</fieldset>
-    
-<fieldset class="col-md-12 col-sm-12 col-xs-12">
-     <div class="c_account">
-                                <span>Don't have an account?</span>
-                                <a  href="<?php echo base_url('registration'); ?>">Create an account</a>
-                            </div>
-</fieldset>
-               
-            </div>
-
-          </div> 
-</div>           
-</div>
-    
-</form>
-               <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-       <div class="modal-content"  style="    width: 100%;">
-    <div class="modal-header" style="    width: 100%;
-    text-align: center;">
-
-    <?php
-        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
-        echo form_open('profile/forgot_password', $form_attribute);
-    ?>
-    
-      <span class="close">&times;</span>
-      <label style="color: #a0b3b0;">Forgot Password</label>
-    </div>
-    <div class="modal-body" style="    width: 100%;
-    text-align: center;">
-        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-                                            <input style="" type="text" name="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-
-    </div>
-    <div class="modal-footer ">
-      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-       -->                        <div class="submit_btn">              <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
-       </div>
-    </div>
-       </form>
-  </div>
-      <!-- Modal content end-->
-    </div>
-  </div>
-<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" style="padding-bottom: 1px!important; padding: 12px;">
-                <div class="footer-menu pull-left">
-                    <p style="color: #fff;">&copy; 2017 | by <a href="#" style="color: #fff;">Aileensoul</a></p>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="footer-menu pull-right">
-                    <nav>
-                        <ul>
-                          <li> <b><a class="" tabindex="4" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
-                                    <li> <b><a class="" tabindex="5" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
-                                    <li><b><a tabindex="6" class="" href="javascript:void(0);">Blog</a> </b></li>
-                                    <li> <b><a class="" tabindex="7" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
-                        </ul>
-                    </nav>
-                </div>
-                </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-3">
+          <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
+        </div>
+        <div class="col-md-8 col-sm-9">
+            <div class="btn-right pull-right">
+              
+              <a href="<?php echo base_url('registration'); ?>" class="btn3">creat an account</a>
             </div>
         </div>
-        </footer>
-</body>
+      </div>
+    </div>
+  </header>
+  <section class="middle-main">
+    <div class="container">
+      
+        <div class="title">
+          <h1 class="ttc">Welcome To Aileensoul</h1>
+        </div>
+        <div class="inner-form">
+          <div class="login">
+            
+            <form role="form">
+                
 
-<script type="text/javascript">
-  $(document).ready(function () {
-          /* validation */
-          $("#login_form").validate({
-              rules: {
-                  user_name: {
-                      required: true,
-                        },
-                   password: {
-                          required: true,
-                            }
-                        },
-            messages:  {
-                    user_name: {
-                    required: "Email Address Is Required.",
-                      },
+                <div class="form-group">
+                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address*">
+                </div>
+              <div class="form-group">
+                  <input type="password" name="password" id="password" class="form-control input-sm" placeholder="password*">
+                </div>
+              
+              
+              
+              <p class="pb15 text-center">
+                <a href="#">Forgot Password ?</a>
+              </p>
+                <p>
+                <a href="#" class="btn1">Login</a>
+              </p>
+              <p class="pt15 text-center">
+                Don't have an account? <a href="<?php echo base_url('registration'); ?>">Create an account</a>
+              </p>
+              </form>
+            
+          </div>
+        </div>
+        
+      
+    </div>
+  </section>
 
-                    password: {
-                    required: "Password Is Required.",
-                           }
-                   },
-                });
-            /* validation */
-                                    
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-4">
+          © 2017 | by Aileensoul
+        </div>
+        <div class="col-md-6 col-sm-8">
+          <ul>
+            <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
+            <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
+            <li><a href="javascript:void(0);">Blogs</a>|</li>
+            <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script>
+  $( document ).ready(function() {
+    
+    // text animation effect 
+    var $lines = $('.top-middle h3.text-effect');
+      $lines.hide();
+      var lineContents = new Array();
+
+      var terminal = function() {
+
+        var skip = 0;
+        typeLine = function(idx) {
+        idx == null && (idx = 0);
+        var element = $lines.eq(idx);
+        var content = lineContents[idx];
+        if(typeof content == "undefined") {
+          $('.skip').hide();
+          return;
+        }
+        var charIdx = 0;
+
+        var typeChar = function() {
+          var rand = Math.round(Math.random() * 150) + 25;
+
+          setTimeout(function() {
+          var char = content[charIdx++];
+          element.append(char);
+          if(typeof char !== "undefined")
+            typeChar();
+          else {
+            element.append('<br/><span class="output">' + element.text().slice(9, -1) + '</span>');
+            element.removeClass('active');
+            typeLine(++idx);
+          }
+          }, skip ? 0 : rand);
+        }
+        content = '' + content + '';
+        element.append(' ').addClass('active');
+        typeChar();
+        }
+
+        $lines.each(function(i) {
+        lineContents[i] = $(this).text();
+        $(this).text('').show();
+        });
+
+        typeLine();
+      }
+
+      terminal();
+      
+      
+      
+      //  login form css
+      // button ripple effect from @ShawnSauce 's pen http://codepen.io/ShawnSauce/full/huLEH
+      
+      $(function(){
+        
+        var animationLibrary = 'animate';
+        
+        $.easing.easeOutQuart = function (x, t, b, c, d) {
+        return -c * ((t=t/d-1)*t*t*t - 1) + b;
+        };
+        $('[ripple]:not([disabled],.disabled)')
+        .on('mousedown', function( e ){
+        
+        var button = $(this);
+        var touch = $('<touch><touch/>');
+        var size = button.outerWidth() * 1.8;
+        var complete = false;
+        
+        $(document)
+        .on('mouseup',function(){
+          var a = {
+          'opacity': '0'
+          };
+          if( complete === true ){
+          size = size * 1.33;
+          $.extend(a, {
+            'height': size + 'px',
+            'width': size + 'px',
+            'margin-top': -(size)/2 + 'px',
+            'margin-left': -(size)/2 + 'px'
           });
+          }
+          
+          touch
+          [animationLibrary](a, {
+          duration: 500,
+          complete: function(){touch.remove();},
+          easing: 'swing'
+          });
+        });
+        
+        touch
+        .addClass( 'touch' )
+        .css({
+          'position': 'absolute',
+          'top': e.pageY-button.offset().top + 'px',
+          'left': e.pageX-button.offset().left + 'px',
+          'width': '0',
+          'height': '0'
+        });
+        
+        /* IE8 will not appendChild */
+        button.get(0).appendChild(touch.get(0));
+        
+        touch
+        [animationLibrary]({
+          'height': size + 'px',
+          'width': size + 'px',
+          'margin-top': -(size)/2 + 'px',
+          'margin-left': -(size)/2 + 'px'
+        }, {
+          queue: false,
+          duration: 500,
+          'easing': 'easeOutQuart',
+          'complete': function(){
+          complete = true
+          }
+        });
+        });
+      });
 
+      var username = $('#username'), 
+        password = $('#password'), 
+        erroru = $('erroru'), 
+        errorp = $('errorp'), 
+        submit = $('#submit'),
+        udiv = $('#u'),
+        pdiv = $('#p');
 
+      username.blur(function() {
+        if (username.val() == '') {
+        udiv.attr('errr','');
+        } else {
+        udiv.removeAttr('errr');
+        }
+      });
+
+      password.blur(function() {
+      if(password.val() == '') {
+        pdiv.attr('errr','');
+        } else {
+        pdiv.removeAttr('errr');
+        }
+      });
+
+      submit.on('click', function(event) {
+        event.preventDefault();
+        if (username.val() == '') {
+        udiv.attr('errr','');
+        } else {
+        udiv.removeAttr('errr');
+        } 
+        if(password.val() == '') {
+        pdiv.attr('errr','');
+        } else {
+        pdiv.removeAttr('errr');
+        }
+      });
+      
+
+      
+      
+  
+  });
 </script>
 
-<!-- script for remove flash session message after some time Start -->
-<script type="text/javascript">
-$(document).ready(function(){
-        setTimeout(function() {
-          $('.alert-danger').fadeOut('slow');
-        }, 3000); // <-- time in milliseconds
-    });
-</script>
-<!-- script for remove flash session message after some time End -->
-
-<!-- validation script Start-->
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-<!-- validation script End-->
-
-
+</body>
+</html>
