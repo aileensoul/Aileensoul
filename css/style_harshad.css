@@ -323,6 +323,8 @@ input[type=number]::-webkit-outer-spin-button {
 .search_img {
     border: 1px solid #efefef;
 }
+.pluni
+
 /*
 .panel-body label, .common-form fieldset label{display: none;}
 input, textarea, select {border:none; border-bottom: 1px solid #ddd; 
@@ -437,6 +439,17 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 767px) {
+    .cover-pic {
+    position: absolute !important;
+    top: inherit;
+  
+    right: -30px;
+    bottom: 20%;
+    z-index: 99;
+}
+    .upload-img{
+        margin-top: -72px !important;
+    }
         .alert{font-size: 16px;
         padding:12px; }
 
