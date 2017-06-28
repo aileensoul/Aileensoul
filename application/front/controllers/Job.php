@@ -4351,12 +4351,10 @@ $files[] = $_FILES;
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata1[] = $data1;
                }
-//$this->data['postdetail'] 
 
                $unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
-               
                  $this->data['postdetail'] = $qbc;
                
         $this->data['falguni'] = 1;
