@@ -15,7 +15,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-3">
-          <h2 class="logo"><a href="#">Aileensoul</a></h2>
+          <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
         </div>
         <div class="col-md-8 col-sm-9">
           <form class="header-login" name="login_form" id="login_form" method="post">
