@@ -153,7 +153,7 @@ echo $freelancer_hire_header2_border;} ?>
                 if ($freelancerpostdata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
-                    <a id="designation" class="designation" title="Designation">Current Work</a>
+                    <a id="designation" class="designation" title="Designation">Designation</a>
 
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
@@ -162,7 +162,7 @@ echo $freelancer_hire_header2_border;} ?>
 
                         if($freelancerpostdata[0]['designation'] == ''){ ?>
 
-                         <a id="designation" class="designation" title="Designation">Current Work</a>
+                         Designation
 
                   <?php   }else{ ?>
 
@@ -243,14 +243,14 @@ echo $freelancer_hire_header2_border;} ?>
                 if ($freehiredata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
-                    <a id="designation" class="designation" title="Designation">Current Work</a>
+                    <a id="designation" class="designation" title="Designation">Designation</a>
 
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
                     <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>
                     <?php } }else {
                         if($freehiredata[0]['designation'] == ''){ ?>
-                        <a   title="Designation">Current Work</a>
+                        Designation
                        <?php  }
                         else{
                             echo ucwords($freehiredata[0]['designation']);
