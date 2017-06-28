@@ -454,7 +454,8 @@ $( document ).on( 'keydown', function ( e ) {
 
                                  <?php }else{?>
 
-                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>">All</a></li>
+                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><i class="fa fa-th" aria-hidden="true"></i>
+</a></li>
                                  <?php } ?>
 
                                
@@ -464,7 +465,7 @@ $( document ).on( 'keydown', function ( e ) {
   </a></li> -->
                                 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs">Notification</em> <i class="fa fa-bell" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="fa fa-bell" aria-hidden="true"></i>
 
                                         <span id="notification_count"></span>
 
@@ -486,7 +487,7 @@ $( document ).on( 'keydown', function ( e ) {
                                     <?php if  ($message_count) { ?>
                                                    <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
-                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs">Messages </em><i class="fa fa-commenting" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><i class="fa fa-commenting" aria-hidden="true"></i>
                                         <span id="message_count"></span>
                                     </a>
 
@@ -520,12 +521,13 @@ $( document ).on( 'keydown', function ( e ) {
                                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" />
                                         <?php } ?>
 
-                                        <span class="username username-hide-on-mobile hidden-xs"> <?php
+                                        <span class="u2 username username-hide-on-mobile hidden-xs"> <?php
                                             if (isset($userdata[0]['first_name'])) {
                                                 echo $userdata[0]['first_name'];
                                             }
                                             ?> </span>
-                                        <i class="fa fa-angle-down" ></i>
+                                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+
                                     </a>
 
 
@@ -557,6 +559,10 @@ $( document ).on( 'keydown', function ( e ) {
                                  <?php } ?>
                                             
                                         </li> -->
+                                        <li class="my_account">
+                                        <div class="my_S">Account</div>
+                                            
+                                        </li>
                                         <li class="Setting">
                                             <a href="<?php echo base_url('profile') ?>">
                                                 <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 

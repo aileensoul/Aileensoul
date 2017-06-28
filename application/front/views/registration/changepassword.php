@@ -46,7 +46,7 @@
                     </div>
 
                 
-                <div class="col-md-8">
+                <div class="col-md-7 col-sm-8">
                     <div class="change-password">
     
         <div class="change-password-box">

@@ -590,7 +590,7 @@ padding: 10px 10px 10px 10px ;}
     position: relative;
 }
 .header ul li a {
-    font-size: 14px;
+    font-size: 18px;
     color: #fff;
     padding: 14px;
     font-weight: 400;
@@ -889,9 +889,11 @@ footer {
     background: #000;
 }
 .dropdown .img-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
+    width: 25px;
+height: 25px;
+border-radius: 100%;
+margin-right: 4px;
+border: 2px solid white;
 }
 .dropdown {
     position: relative;
@@ -934,7 +936,7 @@ ul.dropdown-menu li a i {
 .header ul li.dropdown-user ul li a {
     padding: 6px 10px;
     font-size: 13px;
-    color: #000;
+    color: #787878;
 }
 .header ul li.dropdown-user ul li a:hover {
     background: #1b8ab9;
