@@ -145,6 +145,7 @@ echo $freelancer_post_header2_border;
 
          <?php 
                 if($returnpage == ''){
+                    
             if ($freelancerpostdata[0]['designation'] == "") {
                 
 
@@ -161,9 +162,9 @@ echo $freelancer_post_header2_border;
                 } else {
 
                     if($freelancerpostdata[0]['designation'] == ''){ ?>
-                        <a title="Designation">Current Work</a>
+                        Current Work
                        <?php }else{ ?>
-                    <a title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                   <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
                    <?php  } } ?>
 
             </div>
@@ -259,9 +260,9 @@ echo $freelancer_post_header2_border;
                 <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
                 <?php }} else {
                     if($freelancerpostdata[0]['designation'] == ""){ ?>
-                     <a id="designation" class="designation" title="Designation">Current Work</a>
+                     Current Work
                     <?php }else{ ?>
-                    <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                   <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
                     
                    <?php  }} ?>
 
