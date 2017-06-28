@@ -1610,6 +1610,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             'fresher' => $this->input->post('fresher'),
             'min_sal' => trim($this->input->post('minsal')),
             'max_sal' => trim($this->input->post('maxsal')),
+                'other_skill' => $this->input->post('other_skill'),
+            
                 'post_currency' => $this->input->post('currency'),
             
             'modify_date' => date('y-m-d h:i:s')
