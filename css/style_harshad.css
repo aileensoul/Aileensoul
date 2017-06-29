@@ -23,6 +23,12 @@ padding-bottom: 9px !important;
     padding-bottom: 14px !important;
     padding: 16px
 }
+.my_S{
+    padding: 2px 11px;
+font-size: 16px;
+color: #787878;
+border-bottom: 1px solid #787878;
+}
 /*
 input[type=submit]:hover, input[type=button]:hover, button:hover{background: transparent !important;
     border-color: #000 !important;

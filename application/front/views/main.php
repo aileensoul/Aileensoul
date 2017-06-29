@@ -166,7 +166,7 @@
                 </div>
               <div class="form-group dob">
                 <select class="day" name="selday" id="selday">
-                  <option value="">DD</option>
+                  <option value="" disabled selected value>DD</option>
                   <?php
                   for($i = 1; $i <= 31; $i++){
                   ?>
@@ -176,7 +176,7 @@
                   ?>
                 </select>
                 <select class="month" name="selmonth" id="selmonth">
-                  <option value="">MM</option>
+                  <option value="" disabled selected value>MM</option>
                   <?php
                   for($i = 1; $i <= 12; $i++){
                   ?>
@@ -186,7 +186,7 @@
                   ?>
                 </select>
                 <select class="year" name="selyear" id="selyear">
-                  <option value="">YYYY</option>
+                  <option value="" disabled selected value>YYYY</option>
                   <?php
                   for($i = date('Y'); $i >= 1900; $i--){
                   ?>
@@ -200,7 +200,7 @@
               
               <div class="form-group gender-custom">
                 <select class="gender" name="selgen" id="selgen">
-                  <option value="">Gender</option>
+                  <option value="" disabled selected value>Gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
                 </select>
