@@ -1685,7 +1685,7 @@ $loginuser = $userdata[0]['art_id'];
         <div class="modal fade message-box" id="bidmodal-2" role="dialog">
             <div class="modal-dialog modal-lm">
                 <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal" id="bidmodal-2">&times;</button>         
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
                     <div class="modal-body">
                         <span class="mes">
                             <div id="popup-form">
@@ -4347,55 +4347,17 @@ video js preview end -->
 <!-- popup open when profile pic and cover pic formate wrong -->
 <script>
      function picpopup() {
-         $('#image .mes').html("<div class='pop_content'>Only Image Type Supported");
-            $('#image').modal('show');
-
-<<<<<<< HEAD
-            // $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
-            // $('#bidmodal').modal('show');
-=======
-            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+         $('#profileimage .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#profileimage').modal('show');
->>>>>>> 0de13728c4de0d0f1a4698ed73d8389f00625078
+
                         }
       </script>
       <!-- popup end -->
         
  <script type="text/javascript">
-<<<<<<< HEAD
+
 //all popup close close using esc start 
-    $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-if(document.getElementById('image').style.display == "block"){
-   document.getElementById('bidmodal-2').style.display = "block";
-           //alert("hi");
-           //$( "#bidmodal" ).hide();
-          $('#image').hide();
-            //$('#bidmodal-2').modal('show');
-         
-           $('.modal-post').hide();
-           }
-           else
-           {
-            // alert("hi1");
-             $('#bidmodal-2').modal('hide');
-          $('.modal-post').hide();
-           }
-       
-       
-    }
-}); 
-
-
-
-//      $( document ).on( 'keydown', function ( e ) {
-//     if ( e.keyCode === 27 ) {
-//         //$( "#bidmodal" ).hide();
-//         $('#bidmodal-2').modal('hide');
-//           $('.modal-post').hide();
-
-//     }
-// });
+   
 
 
      $( document ).on( 'keydown', function ( e ) {
@@ -4405,9 +4367,9 @@ if(document.getElementById('image').style.display == "block"){
     }
 });  
 // all popup close close using esc end 
-=======
+
     // all popup close close using esc end 
->>>>>>> 0de13728c4de0d0f1a4698ed73d8389f00625078
+
 
  // pop up open & close aarati code start 
 jQuery(document).mouseup(function (e) {
@@ -4443,10 +4405,6 @@ jQuery(document).mouseup(function (e) {
         $('#myModal3').modal('show');
     });
 
- $('#profileimage').on('click', function(){
-        $('#bidmodal-2').modal('show');
-    });
-
 
 </script>
 
@@ -4468,19 +4426,24 @@ $( document ).on( 'keydown', function ( e ) {
         $('#myModal3').hide();
          
     }
-});  
+}); 
 
-
-$( document ).on( 'keydown', function ( e ) {
+ $( document ).on( 'keydown', function (e) {
     if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#profileimage').hide();
-         $('#bidmodal-2').show();
-
+if(document.getElementById('profileimage').style.display === "block"){
+ $('#profileimage').hide();
+          //alert("hi");
+document.getElementById('bidmodal-2').style.display = "block";
+$('.modal-post').hide();
+           }
+           else
+           {
+            //alert("hi1");
+                $('#bidmodal-2').modal('hide');
+                $('.modal-post').hide();
+           }          
     }
-});  
-
-
+}); 
 </script>
  <!-- all script using esc end -->
 
