@@ -29,10 +29,11 @@ class Feedback extends CI_Controller {
 
  public function feedback_insert() 
   { 
-       
-        $email = $_POST['email']; 
-         $subject = $_POST['subject'];
-         $message = $_POST['message']; 
+         $email = $_POST['feedback_firstname']; 
+         $email = $_POST['feedback_lastname']; 
+         $email = $_POST['feedback_email']; 
+         $subject = $_POST['feedback_subject'];
+         $message = $_POST['feedback_message']; 
           
            $data = array(
                          'user_email' => $email,
@@ -44,6 +45,9 @@ class Feedback extends CI_Controller {
                 ); 
                 //echo"<pre>"; print_r($data); die();
               $insert_id =   $this->common->insert_data_getid($data,'feedback'); 
+              if($insert_id){
+                echo "ok";
+              }
 }
     
   }
