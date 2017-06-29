@@ -19,7 +19,7 @@
 <?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
-<div class="js">
+
 <body class="page-container-bg-solid page-boxed">
    <div id="preloader"></div>
    <section>
