@@ -1738,7 +1738,21 @@ $loginuser = $userdata[0]['art_id'];
             <div class="modal fade message-box" id="post" role="dialog">
                 <div class="modal-dialog modal-lm">
                     <div class="modal-content">
-                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <button type="button" class="modal-close" id="post" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
+
+             <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="image" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="image" data-dismiss="modal">&times;</button>       
                         <div class="modal-body">
                             <span class="mes">
                             </span>
@@ -4333,15 +4347,29 @@ video js preview end -->
 <!-- popup open when profile pic and cover pic formate wrong -->
 <script>
      function picpopup() {
-
-            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+         $('#profileimage .mes').html("<div class='pop_content'>Only Image Type Supported");
             $('#profileimage').modal('show');
+
                         }
       </script>
       <!-- popup end -->
         
  <script type="text/javascript">
+
+//all popup close close using esc start 
+   
+
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#likeusermodal').modal('hide');
+    }
+});  
+// all popup close close using esc end 
+
     // all popup close close using esc end 
+
 
  // pop up open & close aarati code start 
 jQuery(document).mouseup(function (e) {
@@ -4377,10 +4405,6 @@ jQuery(document).mouseup(function (e) {
         $('#myModal3').modal('show');
     });
 
- $('#profileimage').on('click', function(){
-        $('#bidmodal-2').modal('show');
-    });
-
 
 </script>
 
@@ -4402,19 +4426,24 @@ $( document ).on( 'keydown', function ( e ) {
         $('#myModal3').hide();
          
     }
-});  
+}); 
 
-
-$( document ).on( 'keydown', function ( e ) {
+ $( document ).on( 'keydown', function (e) {
     if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#profileimage').hide();
-         $('#bidmodal-2').show();
-
+if(document.getElementById('profileimage').style.display === "block"){
+ $('#profileimage').hide();
+          //alert("hi");
+document.getElementById('bidmodal-2').style.display = "block";
+$('.modal-post').hide();
+           }
+           else
+           {
+            //alert("hi1");
+                $('#bidmodal-2').modal('hide');
+                $('.modal-post').hide();
+           }          
     }
-});  
-
-
+}); 
 </script>
  <!-- all script using esc end -->
 

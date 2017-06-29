@@ -32,26 +32,32 @@
         <div class="title">
           <h1 class="ttc">Welcome To Aileensoul</h1>
         </div>
+
+
+         <div id="error"></div>
+
+
+         
         <div class="inner-form">
           <div class="login">
             
-            <form role="form">
+            <form role="form" name="login_form" id="login_form" method="post">
                 
 
                 <div class="form-group">
-                  <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address*">
+                  <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address*">
                 </div>
               <div class="form-group">
-                  <input type="password" name="password" id="password" class="form-control input-sm" placeholder="password*">
+                  <input type="password" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password*">
                 </div>
               
               
               
               <p class="pb15 text-center">
-                <a href="#">Forgot Password ?</a>
+                <a href="javascript:void(0)" id="myBtn">Forgot Password ?</a>
               </p>
                 <p>
-                <a href="#" class="btn1">Login</a>
+                <button class="btn1">Login</button>
               </p>
               <p class="pt15 text-center">
                 Don't have an account? <a href="<?php echo base_url('registration'); ?>">Create an account</a>
@@ -64,6 +70,49 @@
       
     </div>
   </section>
+
+
+   <!-- model for forgot password start -->
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+
+
+  <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
+
+    <div class="modal-header" style="width: 100%; text-align: center;">
+
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+
+
+    <div class="modal-body" style="    width: 100%;
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->  
+        <div class="submit_btn">              
+        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+  <!-- model for forgot password end -->
+
+
 
   <footer>
     <div class="container">
@@ -133,124 +182,151 @@
       }
 
       terminal();
-      
-      
-      
-      //  login form css
-      // button ripple effect from @ShawnSauce 's pen http://codepen.io/ShawnSauce/full/huLEH
-      
-      $(function(){
-        
-        var animationLibrary = 'animate';
-        
-        $.easing.easeOutQuart = function (x, t, b, c, d) {
-        return -c * ((t=t/d-1)*t*t*t - 1) + b;
-        };
-        $('[ripple]:not([disabled],.disabled)')
-        .on('mousedown', function( e ){
-        
-        var button = $(this);
-        var touch = $('<touch><touch/>');
-        var size = button.outerWidth() * 1.8;
-        var complete = false;
-        
-        $(document)
-        .on('mouseup',function(){
-          var a = {
-          'opacity': '0'
-          };
-          if( complete === true ){
-          size = size * 1.33;
-          $.extend(a, {
-            'height': size + 'px',
-            'width': size + 'px',
-            'margin-top': -(size)/2 + 'px',
-            'margin-left': -(size)/2 + 'px'
-          });
-          }
-          
-          touch
-          [animationLibrary](a, {
-          duration: 500,
-          complete: function(){touch.remove();},
-          easing: 'swing'
-          });
-        });
-        
-        touch
-        .addClass( 'touch' )
-        .css({
-          'position': 'absolute',
-          'top': e.pageY-button.offset().top + 'px',
-          'left': e.pageX-button.offset().left + 'px',
-          'width': '0',
-          'height': '0'
-        });
-        
-        /* IE8 will not appendChild */
-        button.get(0).appendChild(touch.get(0));
-        
-        touch
-        [animationLibrary]({
-          'height': size + 'px',
-          'width': size + 'px',
-          'margin-top': -(size)/2 + 'px',
-          'margin-left': -(size)/2 + 'px'
-        }, {
-          queue: false,
-          duration: 500,
-          'easing': 'easeOutQuart',
-          'complete': function(){
-          complete = true
-          }
-        });
-        });
-      });
-
-      var username = $('#username'), 
-        password = $('#password'), 
-        erroru = $('erroru'), 
-        errorp = $('errorp'), 
-        submit = $('#submit'),
-        udiv = $('#u'),
-        pdiv = $('#p');
-
-      username.blur(function() {
-        if (username.val() == '') {
-        udiv.attr('errr','');
-        } else {
-        udiv.removeAttr('errr');
-        }
-      });
-
-      password.blur(function() {
-      if(password.val() == '') {
-        pdiv.attr('errr','');
-        } else {
-        pdiv.removeAttr('errr');
-        }
-      });
-
-      submit.on('click', function(event) {
-        event.preventDefault();
-        if (username.val() == '') {
-        udiv.attr('errr','');
-        } else {
-        udiv.removeAttr('errr');
-        } 
-        if(password.val() == '') {
-        pdiv.attr('errr','');
-        } else {
-        pdiv.removeAttr('errr');
-        }
-      });
-      
-
-      
-      
-  
   });
 </script>
+
+
+<!-- script for login  user valoidtaion start -->
+
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+                            //validation for edit email formate form
+                            $(document).ready(function () {
+                                /* validation */
+                                $("#login_form").validate({
+                                    rules: {
+                                        email_login: {
+                                            required: true,
+                                        },
+                                        password_login: {
+                                            required: true,
+                                        }
+                                    },
+                                    messages:
+                                            {
+                                                email_login: {
+                                                    required: "Please enter email address",
+                                                },
+                                                password_login: {
+                                                    required: "Please enter password",
+                                                }
+                                            },
+                                    submitHandler: submitForm
+                                });
+                                /* validation */
+                                /* login submit */
+                                function submitForm()
+                                { 
+                                    var email_login = $("#email_login").val();
+                                    var password_login = $("#password_login").val();
+                                    var post_data = {
+                                        'email_login': email_login,
+                                        'password_login': password_login,
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                                    }
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() ?>registration/check_login',
+                                        data: post_data,
+                                        beforeSend: function ()
+                                        {
+                                            $("#error").fadeOut();
+                                            $("#btn-login").html('Login ...');
+                                        },
+                                        success: function (response)
+                                        { 
+                                            if (response == "ok") {
+                                                $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
+
+                                               window.location= "<?php echo base_url() ?>dashboard"; 
+
+                                                //setTimeout(' window.location.href = "<?php //echo base_url() ?>home"; ', 4000);
+                                               // setTimeout(' window.location.href = ""; ', 4000);
+                                            }else if(response == "password"){
+
+                                             $("#error").fadeIn(1000, function () {
+                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
+                                                    $("#btn-login").html('Login');
+                                                }); 
+
+                                            }
+                                            else { 
+                                                $("#error").fadeIn(1000, function () {
+                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
+                                                    $("#btn-login").html('Login');
+                                                });
+                                            }
+                                        }
+                                    });
+                                    return false;
+                                }
+                                /* login submit */
+                            });
+
+
+
+</script>
+
+
+<!-- login validtaion and submit end -->
+
+
+
+<!-- forgot password script start -->
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<!-- forgot password script end -->
+<script type="text/javascript">
+$(document).ready(function () { //aletr("hii");
+          /* validation */
+          $("#forgot_password").validate({
+              rules: {
+                  forgot_email: {
+                      required: true,
+                        }
+                  
+                        },
+            messages:  {
+                    forgot_email: {
+                    required: "Email Address Is Required.",
+                      }
+
+                    
+                   },
+                });
+            /* validation */
+                                    
+          });
+</script>
+
 
 </body>
 </html>

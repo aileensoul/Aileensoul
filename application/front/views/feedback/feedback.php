@@ -1,167 +1,267 @@
-     <head> 
-       <link rel="stylesheet" type="text/css" href="css/style_login.css">
-       <link rel="stylesheet" type="text/css" href="css/common-style.css">
-       <link rel="stylesheet" type="text/css" href="css/media.css">
-     </head>
-
-
-
-<body class="main_bdy_c">
-<header>
-    
-        <div class="header3">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>aileensoul main</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/common-style.css">
+  <link rel="stylesheet" href="css/style-main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+</head>
+<body>
+<div class="main-inner">
+  <header>
     <div class="container">
-    <div class="row">
-  <div class="col-md-6 col-sm-5">
-                        <div class="logo"><a href="<?php echo base_url('main') ?>"><!-- <img src="<?php// echo base_url('images/logo.png'); ?>"> --> <span >Aileensoul</span></a></div>
-                    </div>
- 
-           <div class="col-md-6 col-sm-7 header-left-menu">
-                   <ul class="fr">
-                    <li class=""><a class="login_butn"  href="<?php echo base_url('login') ?>">Login</a></li>
-                    <li class=""><a class="crt_butn button6"  href="<?php echo base_url('registration') ?>">Create an account</a></li>
-                      
-                    </ul>
-
-                                <!-- Friend Request End-->
-
-                                <!-- END USER LOGIN DROPDOWN -->
-                        </div>
-    </div>    
-    </div>
-     
-    </div>
-
-
-</header>
-   <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="contus">
-            <div class="abt_a">
-              <h1><span>SEND US FEEDBACK</span></h1>
-            </div>
-                 <?php echo form_open_multipart(base_url('feedback/feedback_insert'),array('id' => 'feedbackform','name' => 'feedbackform','class' => "clearfix")); ?>
-<!--                 <form id="feedbackform " class="clearfix" method="post" enctype="multipart/form-data" action="<?// echo base_url('feedback/feedback_insert'); ?>">-->
-                 <fieldset class="col-md-12 par-3">
-                 <div class="contactx">
-                     <input type="text"  name="contact_email" id="contact_email" placeholder="Enter  Email"> <span id="contact_email-error"> </span>
-                 </div>
-                </fieldset>
-                 <fieldset class="col-md-12 par-3">
-               <div class="contactx">
-                    <input type="text" name="contact_subject" id="contact_subject" placeholder="Enter Subject"> <span id="contact_subject-error"> </span></div>
-                </fieldset>
-                <fieldset class="col-md-12 par-3">
-                <div class="contactx">
-                
-                     <textarea name="contact_message" class="description " id="contact_message" placeholder="Message*"></textarea>
-                </div>
-                </fieldset>
-              
-                <fieldset class="btnsa" style="float: right;">
-                <button>Submit</button>    
-                </fieldset>
-                 </form>
-            </div>
-          </div> 
-</div>           
-</div>
-<footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6" style="padding-bottom: 1px!important; padding: 12px;">
-                <div class="footer-menu pull-left">
-                    <p style="color: #fff;">&copy; 2017 | by <a href="#" style="color: #fff;">Aileensoul</a></p>
-                </div>
-                </div>
-                <div class="col-md-6">
-                <div class="footer-menu pull-right">
-                    <nav>
-                        <ul>
-                          <li> <b><a class="" href="<?php echo base_url('about_us'); ?>">About Us</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('contact_us'); ?>">Contact Us</a> </b></li>
-                                    <li><b><a class="" href="javascript:void(0);">Blog</a> </b></li>
-                                    <li> <b><a class="" href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a> </b></li>
-                        </ul>
-                    </nav>
-                </div>
-                </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-3">
+          <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
+        </div>
+        <div class="col-md-8 col-sm-9">
+            <div class="btn-right pull-right">
+              <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
+              <a href="<?php echo base_url('registration'); ?>" class="btn3">creat an account</a>
             </div>
         </div>
-        </footer>
+      </div>
+    </div>
+  </header>
+  <section class="middle-main">
+    <div class="container">
+      
+        <div class="title">
+          <h1>Send us feedback</h1>
+        </div>
+
+        <div id="feedbacksucc"></div>
+
+        
+        <div class="inner-form">
+          <div class="login">
+            
+            <form role="form" name="feedback_form" id="feedback_form" method="post">
+                <div class="row">
+                  <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="feedback_firstname" id="feedback_firstname" class="form-control input-sm required" placeholder="First Name*">
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="feedback_lastname" id="feedback_lastname" class="form-control input-sm" placeholder="Last Name*">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="email" name="feedback_email" id="feedback_email" class="form-control input-sm" placeholder="Email Address*">
+                </div>
+              <div class="form-group">
+                  <input type="text" name="feedback_subject" id="feedback_subject" class="form-control input-sm" placeholder="Subject*">
+                </div>
+              <div class="form-group">
+                <textarea type="text" id="feedback_message" name="feedback_message" class="form-control" placeholder="Message*"></textarea>
+                  
+                </div>
+              
+              
+              <p class="pb15">
+                <span class="red">*</span>All fields are mendatory
+              </p>
+                <p>
+                <button class="btn1">Submit</button>
+              </p>
+              </form>
+            
+          </div>
+        </div>
+        
+      
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-4">
+          © 2017 | by Aileensoul
+        </div>
+        <div class="col-md-6 col-sm-8">
+          <ul>
+            <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
+            <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
+            <li><a href="javascript:void(0);">Blogs</a>|</li>
+            <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script>
+  $( document ).ready(function() {
+    
+    // text animation effect 
+    var $lines = $('.top-middle h3.text-effect');
+      $lines.hide();
+      var lineContents = new Array();
+
+      var terminal = function() {
+
+        var skip = 0;
+        typeLine = function(idx) {
+        idx == null && (idx = 0);
+        var element = $lines.eq(idx);
+        var content = lineContents[idx];
+        if(typeof content == "undefined") {
+          $('.skip').hide();
+          return;
+        }
+        var charIdx = 0;
+
+        var typeChar = function() {
+          var rand = Math.round(Math.random() * 150) + 25;
+
+          setTimeout(function() {
+          var char = content[charIdx++];
+          element.append(char);
+          if(typeof char !== "undefined")
+            typeChar();
+          else {
+            element.append('<br/><span class="output">' + element.text().slice(9, -1) + '</span>');
+            element.removeClass('active');
+            typeLine(++idx);
+          }
+          }, skip ? 0 : rand);
+        }
+        content = '' + content + '';
+        element.append(' ').addClass('active');
+        typeChar();
+        }
+
+        $lines.each(function(i) {
+        lineContents[i] = $(this).text();
+        $(this).text('').show();
+        });
+
+        typeLine();
+      }
+
+      terminal();
+    
+  
+  });
+</script>
+
+
+
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
+<!-- validation for edit email formate form strat -->
+
+<script>
+                            $(document).ready(function () { 
+                                $("#feedback_form").validate({ 
+                                    rules: {
+                                        feedback_firstname: {
+                                            required: true,
+                                        },
+                                        feedback_lastname: {
+                                            required: true,
+                                        },
+                                        feedback_email: {
+                                            required: true,
+                                        },
+                                        feedback_subject: {
+                                            required: true,
+                                        },
+                                        feedback_message: {
+                                            required: true,
+                                        }
+                                        
+                                    },
+
+
+                                    messages:
+                                            {
+                                                feedback_firstname: {
+                                                    required: "Please enter first name",
+                                                },
+                                                feedback_lastname: {
+                                                    required: "Please enter last name",
+                                                },
+                                                feedback_email: {
+                                                    required: "Please enter email address",
+                                                    
+                                                },
+                                                feedback_subject: {
+                                                    required: "Please enter subject",
+                                                },
+                                              
+                                                feedback_message: {
+                                                    required: "Please enter your feedback",
+                                                }
+                                               
+                                            },
+                                    submitHandler: submitRegisterForm
+                                });
+                                /* register submit */
+                                function submitRegisterForm()
+                                {
+                                    var feedback_firstname = $("#feedback_firstname").val();
+                                    var feedback_lastname = $("#feedback_lastname").val();
+                                    var feedback_email = $("#feedback_email").val();
+                                    var feedback_subject = $("#feedback_subject").val();
+                                    var feedback_message = $("#feedback_message").val();
+                                    
+                                    
+                                    var post_data = {
+                                        'feedback_firstname': feedback_firstname,
+                                        'feedback_lastname': feedback_lastname,
+                                        'feedback_email': feedback_email,
+                                        'feedback_subject': feedback_subject,
+                                        'feedback_message': feedback_message,
+                                        
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+                                    }
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() ?>feedback/feedback_insert',
+                                        data: post_data,
+                                        beforeSend: function ()
+                                        {
+                                            $("#register_error").fadeOut();
+                                            $("#btn-register").html('Sign Up ...');
+                                        },
+                                        success: function (response)
+                                        {
+                                            if (response == "ok") {
+
+                                              $("#feedback_firstname").val('');
+                                              $("#feedback_lastname").val('');
+                                              $("#feedback_email").val('');
+                                              $("#feedback_subject").val('');
+                                              $("#feedback_message").val('');
+                                              
+                                                 $("#feedbacksucc").fadeIn(1000, function () {
+                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your message send successfully' + ' !</div>');
+                                                    $("#btn-register").html('Sign Up');
+                                                });
+                                               // setTimeout(' window.location.href = "<?php //echo base_url() ?>dashboard"; ', 4000);
+                                            }
+                                            else {
+                                                $("#feedbacksucc").fadeIn(1000, function () {
+                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not send successfully' + ' !</div>');
+                                                    $("#btn-register").html('Sign Up');
+                                                });
+                                            }
+                                        }
+                                    });
+                                    return false;
+                                }
+                               });
+
+</script>
+
+
 </body>
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-<script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () { 
-
-                $("#feedbackform").validate({ 
-
-                    rules: { 
-
-                        contact_email: {
-
-                            required: true,
-                            email: true,
-
-                        },
-
-
-                        contact_subject: {
-                            required: true,
-                            
-                        },
-
-                        contact_message: {
-                            required: true,
-                            
-                        },
-
-                         },
-
-                    messages: {
-
-                        contact_email: {
-
-                            required: "Email Is Required.",
-                            email: "Type email in valid format",
-                            
-                        },
-
-                        
-
-                        contact_subject: {
-                            required: "Subject is required",
-                            
-                        },
-
-                        contact_message: {
-                            required: "Description is required",
-                            
-                        },
-                        
-
-                    },
-
-                });
-                   });
-  </script>
-
 </html>
-
-<style type="text/css">
-  
-  
-  #contact_email-error{margin-top: 46px;margin-right: 5px;}
-  #contact_subject-error{margin-top: 48px;margin-right: 5px;}
-  #contact_message-error{margin-top: 160px;margin-right: 5px;}
-</style>

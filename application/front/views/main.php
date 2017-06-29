@@ -27,13 +27,55 @@
             </div>
             <div class="btn-right">
               <button class="btn1">Login</button>
-              <a href="#" class="f-pass">Forgot Password?</a>
+              <a tabindex="19" id="myBtn" class="f-pass" href="javascript:void(0)">Forgot Password?</a>
             </div>
           </form>
         </div>
       </div>
     </div>
   </header>
+
+
+
+  <!-- model for forgot password start -->
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+
+
+  <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
+
+    <div class="modal-header" style="width: 100%; text-align: center;">
+
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+
+
+    <div class="modal-body" style="    width: 100%;
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->  
+        <div class="submit_btn">              
+        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+  <!-- model for forgot password end -->
 
   <div id="error"></div>
   <section class="middle-main">
@@ -42,7 +84,7 @@
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
             <h3 class="text-effect">We Provide A Platform & Opportunities To</h3>
-            <h3 class="text-effect">Every Person In The World To Make Thier Career.</h3>
+            <h3 class="text-effect">Every Person In The World To Make Their Career.</h3>
           </div>
           <div class="bottom-middle">
             <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -469,6 +511,65 @@
                                });
 
 </script>
+
+
+
+
+<!-- forgot password script start -->
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<!-- forgot password script end -->
+<script type="text/javascript">
+$(document).ready(function () { //aletr("hii");
+          /* validation */
+          $("#forgot_password").validate({
+              rules: {
+                  forgot_email: {
+                      required: true,
+                        }
+                  
+                        },
+            messages:  {
+                    forgot_email: {
+                    required: "Email Address Is Required.",
+                      }
+
+                    
+                   },
+                });
+            /* validation */
+                                    
+          });
+</script>
+
 
 </body>
 </html>
