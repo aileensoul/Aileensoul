@@ -859,7 +859,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             var searchplace = $.trim(document.getElementById('searchplace').value);
             // alert(searchke                                    yword);
             // alert(search                                    place);
-            if (searchkeyword == "" && searchplace = = "") {
+            if (searchkeyword == "" && searchplace == "") {
             //alert('Please enter Key                                        word');
             return  false;
             }

@@ -375,7 +375,7 @@ $(window).load(function(){
             var searchplace = $.trim(document.getElementById('searchplace').value);
             // alert(searchke                                    yword);
             // alert(search                                    place);
-            if (searchkeyword == "" && searchplace = = "") {
+            if (searchkeyword == "" && searchplace == "") {
             //alert('Please enter Key                                        word');
             return  false;
             }

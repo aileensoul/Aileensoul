@@ -284,7 +284,7 @@ $(window).load(function(){
             var searchplace = $.trim(document.getElementById('searchplace').value);
              alert(searchkeyword);
             // alert(search                                    place);
-            if (searchkeyword == "" && searchplace = = "") {
+            if (searchkeyword == "" && searchplace == "") {
             //alert('Please enter Key                                        word');
             return  false;
             }

@@ -556,20 +556,19 @@ $( "#searchplace" ).autocomplete({
                     }
                 </script>
                 
-                <script type="text/javascript">
-            function checkvalue() {
-            
-            var searchkeyword = $.trim(document.getElementById('tags').value);
-            var searchplace = $.trim(document.getElementById('searchplace').value);
-            // alert(searchke                                    yword);
-            // alert(search                                    place);
-            if (searchkeyword == "" && searchplace = = "") {
-            //alert('Please enter Key                                        word');
-            return  false;
-            }
-            }
-        </script> 
-    
+         <script type="text/javascript">
+    function checkvalue() {
+        //alert("hi");
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+</script> 
          <script type="text/javascript">
                     function apply_post(abc, xyz) {
                         //var alldata = document.getElementById("allpost" + abc);
