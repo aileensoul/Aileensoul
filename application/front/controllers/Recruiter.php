@@ -2163,6 +2163,19 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 echo $saveuser;
             }
         } else {
+
+
+        $contition_array = array('from_id' => $userid, 'to_id' => $id, 'status' => 0, 'save_type' => 1);
+        $user_data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if($user_data){
+
+            if ($user_data) {
+
+                $saveuser = 'Saved';
+                echo $saveuser;
+            }
+        }else{
+
             $data = array(
                 'from_id' => $userid,
                 'to_id' => $id,
@@ -2180,6 +2193,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 $saveuser = 'Saved';
                 echo $saveuser;
             }
+          }
         }
     }
 
