@@ -66,6 +66,7 @@ class Registration extends CI_Controller {
       $date = $this->input->post('selday');
       $month = $this->input->post('selmonth');
       $year = $this->input->post('selyear');
+      $email_reg = $this->input->post('email_reg');
       
       $dob = $year . '-' . $month . '-' . $date;
      
@@ -98,6 +99,14 @@ class Registration extends CI_Controller {
 
        
         //echo ($this->input->valid_ip($ip)?'Valid':'Not Valid');
+
+
+         $contition_array = array('user_email' => $email_reg, 'is_delete' => '0' , 'status' => '1');
+         $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         if($userdata){
+
+         }else{
+
 
         if ($this->form_validation->run() == FALSE) 
         { 
@@ -175,6 +184,8 @@ class Registration extends CI_Controller {
       
 
       }
+     }
+
     }
     //Show main registratin page insert End
 
