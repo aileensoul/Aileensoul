@@ -23,6 +23,22 @@ class Dashboard extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
         // echo $userid; die();
         $this->data['userdata'] = $this->common->select_data_by_id('user', 'user_id', $userid, $data = '*', $join_str = array());
+
+
+        $contition_array = array('user_id' => $userid, 'status' => '1');
+         $this->data['job'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+          $contition_array = array('user_id' => $userid, 're_status' => '1');
+            $recrdata = $this->data['recrdata'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $this->data['busdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+//echo '<pre>'; print_r($this->data['busdata'][0]); die();
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $this->data['artdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         //echo '<pre>'; print_r($this->data['userdata']); die();
         $this->load->view('dashboard/cover', $this->data);
     }

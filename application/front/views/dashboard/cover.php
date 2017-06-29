@@ -74,16 +74,21 @@
                             <img src="img/pic.jpg">
                         </div>
                         <div class="profile-detail">
-                            <h2>John Smith Carton</h2>
+                            <h2><?php echo ucwords($userdata[0]['first_name']); echo ucwords($userdata[0]['last_name']);?></h2>
+
                             <p>Ahmedabad, Gujarat</p>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="all-profile">
+
+
+                <?php if($job[0]['job_step'] != 9){?>
                 <div class="box-profile deactive-profile">
+
                     <div class="profile-box-1 job">
-                        <a class="active-profile" href="#">
+                        <a class="active-profile" href="<?php echo base_url('job'); ?>">
                             <div class="all-img">
                                 <img src="img/job.png">
                             </div>
@@ -95,14 +100,38 @@
                     </div>
                     <div class="profile-box-1 box-hover">
                         <div class="hover-content">
-                            <p><a href="#">How it work</a></p>
-                            <p><a href="#">Register</a></p>
+                            <p><a href="<?php echo base_url('job'); ?>">How it work</a></p>
+                            <p><a href="<?php echo base_url('job'); ?>">Register</a></p>
                         </div>
                     </div>
                 </div>
+
+                <?php }else{ ?>
+
+
+                <div class="box-profile">
+
+                    <div class="profile-box-1 job">
+                        <a class="active-profile" href="<?php echo base_url('job'); ?>">
+                            <div class="all-img">
+                                <img src="img/job.png">
+                            </div>
+                            <div class="all-discription">
+                                <h4>Job Profile</h4>
+                                <p>You can get job here.</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <?php }?>
+
+                <?php if($recrdata[0]['re_step'] != 3){?>
+
                 <div class="box-profile deactive-profile">
                     <div class="profile-box-1 rec">
-                        <a class="active-profile" href="#">
+                        <a class="active-profile" href="<?php echo base_url('recruiter'); ?>">
                             <div class="all-img">
                                 <img src="img/rec.png">
                             </div>
@@ -114,14 +143,34 @@
                     </div>
                     <div class="profile-box-1 box-hover">
                         <div class="hover-content">
-                            <p><a href="#">How it work</a></p>
-                            <p><a href="#">Register</a></p>
+                            <p><a href="<?php echo base_url('recruiter'); ?>">How it work</a></p>
+                            <p><a href="<?php echo base_url('recruiter'); ?>">Register</a></p>
                         </div>
                     </div>
                 </div>
+
+                <?php }else{?>
+
+                <div class="box-profile">
+                    <div class="profile-box-1 rec">
+                        <a class="active-profile" href="<?php echo base_url('recruiter'); ?>">
+                            <div class="all-img">
+                                <img src="img/rec.png">
+                            </div>
+                            <div class="all-discription">
+                                <h4>Recruiter Profile</h4>
+                                <p>You can get employee over here.</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <?php }?>
+
                 <div class="box-profile deactive-profile">
                     <div class="profile-box-1 free">
-                        <a class="active-profile" href="#">
+                        <a class="active-profile" href="<?php echo base_url('freelancer'); ?>">
                             <div class="all-img">
                                 <img src="img/freelancer.png">
                             </div>
@@ -133,14 +182,18 @@
                     </div>
                     <div class="profile-box-1 box-hover">
                         <div class="hover-content">
-                            <p><a href="#">How it work</a></p>
-                            <p><a href="#">Register</a></p>
+                            <p><a href="<?php echo base_url('freelancer'); ?>">How it work</a></p>
+                            <p><a href="<?php echo base_url('freelancer'); ?>">Register</a></p>
                         </div>
                     </div>
                 </div>
+
+
+                <?php if($busdata[0]['business_step'] != 4){ ?>
+
                 <div class="box-profile deactive-profile">
                     <div class="profile-box-1 bus">
-                        <a class="active-profile" href="#">
+                        <a class="active-profile" href="<?php echo base_url('business_profile'); ?>">
                             <div class="all-img">
                                 <img src="img/business.png">
                             </div>
@@ -152,14 +205,34 @@
                     </div>
                     <div class="profile-box-1 box-hover">
                         <div class="hover-content">
-                            <p><a href="#">How it work</a></p>
-                            <p><a href="#">Register</a></p>
+                            <p><a href="<?php echo base_url('business_profile'); ?>">How it work</a></p>
+                            <p><a href="<?php echo base_url('business_profile'); ?>">Register</a></p>
                         </div>
                     </div>
                 </div>
+                <?php }else{?>
+
+
+                <div class="box-profile">
+                    <div class="profile-box-1 bus">
+                        <a class="active-profile" href="<?php echo base_url('business_profile'); ?>">
+                            <div class="all-img">
+                                <img src="img/business.png">
+                            </div>
+                            <div class="all-discription">
+                                <h4>Business Profile</h4>
+                                <p>You can grow your business over here.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <?php }?>
+
+                <?php if($artdata[0]['art_step'] != 4){?>
                 <div class="box-profile deactive-profile">
                     <div class="profile-box-1 art">
-                        <a class="active-profile" href="#">
+                        <a class="active-profile" href="<?php echo base_url('artistic'); ?>">
                             <div class="all-img">
                                 <img src="img/art.png">
                             </div>
@@ -171,11 +244,33 @@
                     </div>
                     <div class="profile-box-1 box-hover">
                         <div class="hover-content">
-                            <p><a href="#">How it work</a></p>
-                            <p><a href="#">Register</a></p>
+                            <p><a href="<?php echo base_url('artistic'); ?>">How it work</a></p>
+                            <p><a href="<?php echo base_url('artistic'); ?>">Register</a></p>
                         </div>
                     </div>
                 </div>
+
+                <?php }else{?>
+
+
+                 <div class="box-profile">
+                    <div class="profile-box-1 art">
+                        <a class="active-profile" href="<?php echo base_url('artistic'); ?>">
+                            <div class="all-img">
+                                <img src="img/art.png">
+                            </div>
+                            <div class="all-discription">
+                                <h4>artistic Profile</h4>
+                                <p>You can get job here.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+
+                <?php }?>
                 
             </section>
         </div>
