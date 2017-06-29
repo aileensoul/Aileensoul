@@ -241,7 +241,7 @@
 
                                         <?php } ?>
                                     </div>
-                                    <div class="post-design-name fl col-md-10">
+                                    <div class="post-design-name fl col-xs-8 col-md-10">
                                         <ul>
                                             <?php
                                             $firstname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_name;
