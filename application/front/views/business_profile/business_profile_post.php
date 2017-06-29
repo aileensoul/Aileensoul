@@ -302,7 +302,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);     ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);      ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
@@ -594,7 +594,8 @@
                                 <span class="close1">&times;
                                 </span>
                                 <div class="post-editor col-md-12 post-edit-popup" id="close">
-                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
+                                    <?php // echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form')); ?>
                                     <div class="main-text-area col-md-12" >
                                         <div class="popup-img-in"> 
                                             <?php
@@ -709,7 +710,7 @@
 
 
                             <!-- body content start-->
-
+                            <div class="business-all-post">
                             <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
 
@@ -1004,7 +1005,7 @@
                                                                 <?php } elseif (in_array($ext, $allowesvideo)) { ?>
                                                                     <!-- one video start -->
                                                                     <div>
-                                                                            <video width="100%" height="350" controls>
+                                                                        <video width="100%" height="350" controls>
                                                                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/mp4">
                                                                             <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']); ?>" type="video/ogg">
                                                                             Your browser does not support the video tag.
@@ -1131,8 +1132,8 @@
                                                                         $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                         if (!in_array($userid, $likeuserarray)) {
                                                                             ?>               
-                                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                        </i>-->
+                                                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                            </i>-->
                                                                             <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                         <?php } else { ?> 
                     <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1477,91 +1478,92 @@
                                     }
                                 }
                             }
-
-
-                            if (count($businessprofiledatapost) > 0) {
-                                if (count($count) == count($businessprofiledatapost)) {
-                                    ?>
-                                    <div class="contact-frnd-post bor_none">
-                                        <div class="text-center rio">
-                                            <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                                        </div>
-                                    </div>
-                                    <?php
-                                }
-                            } else {
+                            ?>
+                        </div>
+                        <?php
+                        if (count($businessprofiledatapost) > 0) {
+                            if (count($count) == count($businessprofiledatapost)) {
                                 ?>
                                 <div class="contact-frnd-post bor_none">
                                     <div class="text-center rio">
                                         <h4 class="page-heading  product-listing" >No Post Found.</h4>
                                     </div>
                                 </div>
-                            <?php } ?>
-                            <!-- body content end-->
-
-                            <!-- no post found div start -->
-                            <div class="nofoundpost"> 
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <div class="contact-frnd-post bor_none">
+                                <div class="text-center rio">
+                                    <h4 class="page-heading  product-listing" >No Post Found.</h4>
+                                </div>
                             </div>
-                            <!-- no post found div end -->
+                        <?php } ?>
+                        <!-- body content end-->
 
-
+                        <!-- no post found div start -->
+                        <div class="nofoundpost"> 
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <!-- no post found div end -->
 
-        </section>
-        <footer>
-            <?php echo $footer; ?>
-        </footer>
-        <!-- Bid-modal  -->
-        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" data-dismiss="modal">&times;
-                    </button>       
-                    <div class="modal-body">
-                      <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                        <span class="mes">
-                        </span>
+
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Model Popup Close -->
 
-        <!-- Bid-modal-2  -->
-        <div class="modal fade message-box" id="likeusermodal" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close1" data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <span class="mes">
-                        </span>
-                    </div>
+    </section>
+    <footer>
+        <?php echo $footer; ?>
+    </footer>
+    <!-- Bid-modal  -->
+    <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+        <div class="modal-dialog modal-lm">
+            <div class="modal-content">
+                <button type="button" class="modal-close" data-dismiss="modal">&times;
+                </button>       
+                <div class="modal-body">
+                  <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                    <span class="mes">
+                    </span>
                 </div>
             </div>
         </div>
-        <!-- Model Popup Close -->
+    </div>
+    <!-- Model Popup Close -->
 
-
-        <!-- Bid-modal for this modal appear or not start -->
-        <div class="modal fade message-box" id="post" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <span class="mes">
-                        </span>
-                    </div>
+    <!-- Bid-modal-2  -->
+    <div class="modal fade message-box" id="likeusermodal" role="dialog">
+        <div class="modal-dialog modal-lm">
+            <div class="modal-content">
+                <button type="button" class="modal-close1" data-dismiss="modal">&times;</button>       
+                <div class="modal-body">
+                    <span class="mes">
+                    </span>
                 </div>
             </div>
         </div>
-        <!-- Bid-modal for this modal appear or not  Popup Close -->
+    </div>
+    <!-- Model Popup Close -->
+
+
+    <!-- Bid-modal for this modal appear or not start -->
+    <div class="modal fade message-box" id="post" role="dialog">
+        <div class="modal-dialog modal-lm">
+            <div class="modal-content">
+                <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                <div class="modal-body">
+                    <span class="mes">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bid-modal for this modal appear or not  Popup Close -->
 
 
 
-    </body>
+</body>
 </html>
 
 
@@ -1579,41 +1581,41 @@
 
 <script>
 
-                                                    jQuery.noConflict();
+                                                                jQuery.noConflict();
 
-                                                    (function ($) {
+                                                                (function ($) {
 
 
-                                                        var data = <?php echo json_encode($demo);
-            ?>;
-                                                        //alert(data);
-                                                        $(function () {
-                                                            // alert('hi');
-                                                            $("#tags").autocomplete({
-                                                                source: function (request, response) {
-                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                    response($.grep(data, function (item) {
-                                                                        return matcher.test(item.label);
-                                                                    }));
-                                                                }
-                                                                ,
-                                                                minLength: 1,
-                                                                select: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#tags").val(ui.item.label);
-                                                                    $("#selected-tag").val(ui.item.label);
-                                                                    // window.location.href = ui.item.value;
-                                                                }
-                                                                ,
-                                                                focus: function (event, ui) {
-                                                                    event.preventDefault();
-                                                                    $("#tags").val(ui.item.label);
-                                                                }
-                                                            });
-                                                        }
-                                                        );
+                                                                    var data = <?php echo json_encode($demo);
+        ?>;
+                                                                    //alert(data);
+                                                                    $(function () {
+                                                                        // alert('hi');
+                                                                        $("#tags").autocomplete({
+                                                                            source: function (request, response) {
+                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                response($.grep(data, function (item) {
+                                                                                    return matcher.test(item.label);
+                                                                                }));
+                                                                            }
+                                                                            ,
+                                                                            minLength: 1,
+                                                                            select: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                // window.location.href = ui.item.value;
+                                                                            }
+                                                                            ,
+                                                                            focus: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                    );
 
-                                                    })(jQuery);
+                                                                })(jQuery);
 
 </script>
 
@@ -1625,7 +1627,7 @@
     (function ($) {
 
         var data1 = <?php echo json_encode($city_data);
-            ?>;
+        ?>;
         //alert(data);
         $(function () {
             // alert('hi');
@@ -1989,7 +1991,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                            ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                             ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -3684,4 +3686,32 @@
     }
 </script>
 <!-- edit post end -->
+<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
 
+<script>
+    jQuery(document).ready(function ($) {
+
+        var options = {
+            beforeSend: function () {
+                // Replace this with your loading gif image
+                document.getElementById("myModal").style.display="none";
+                $(".business-all-post").prepend('<p><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+            },
+            complete: function (response) {
+                
+                // Output AJAX response to the div container
+              // console.log(response.responseText);
+//                    $(".upload-image-messages").html(response.responseText);
+            //    document.getElementById("myModal").style.display="none";
+//                $(".business-all-post").prepend(response.responseText);
+                $(".business-all-post").html(response.responseText);
+                $(".bor_none").hide();
+                $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
+            }
+        };
+        // Submit the form
+        $(".upload-image-form").ajaxForm(options);
+        return false;
+    });
+</script>
