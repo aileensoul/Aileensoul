@@ -576,7 +576,7 @@ $('#skils').select2().select2('val', complex)
 
      if(clicked_id==4)
     {
-       if(searchkeyword=="" && searchplace=="" )
+       if(searchkeyword != "" && searchplace !="" )
        {
             return checkvalue_search;
        }

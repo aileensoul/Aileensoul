@@ -781,9 +781,10 @@ $( "#searchplace" ).autocomplete({
 
 <script type="text/javascript">
     function checkvalue() {
-//alert("hi");
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+alert("hi");
+  var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        
 // alert(searchkeyword);
 // alert(searchplace);
         if (searchkeyword == "" && searchplace == "") {
@@ -791,6 +792,20 @@ $( "#searchplace" ).autocomplete({
             return false;
         }
     }
+
+      function checkvalue_search() {
+        alert("hello");
+       
+        var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        
+        if (searchkeyword == "" && searchplace == "") 
+        {
+          //  alert('Please enter Keyword');
+            return false;
+        }
+    }
+
 </script>
 
 

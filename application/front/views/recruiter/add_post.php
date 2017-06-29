@@ -842,7 +842,8 @@ if(mm<10) {
 
 <script type="text/javascript">
     function checkvalue() {
-     
+//alert("hi");
+
         var searchkeyword =$.trim(document.getElementById('tags').value);
         var searchplace =$.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
@@ -856,7 +857,8 @@ if(mm<10) {
     function checkvalue_search() {
        
         var searchkeyword =$.trim(document.getElementById('tags').value);
-        var searchplace = $.trim(document.getElementById('searchplace').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
         
         if (searchkeyword == "" && searchplace == "") 
         {
@@ -889,10 +891,11 @@ if(mm<10) {
  var maxsal = document.getElementById('maxsal').value;
  var currency = document.getElementById('currency').value;
  
-   var searchkeyword = document.getElementById('tags').value;
-    var searchplace = document.getElementById('searchplace').value;
+    var searchkeyword =$.trim(document.getElementById('tags').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
        
- if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="")
+ if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
     
     if(clicked_id==1)
@@ -908,8 +911,11 @@ if(mm<10) {
             location.href = '<?php echo base_url() ?>recruiter/rec_basic_information';
     }
     if(clicked_id==4)
+
     {
-       if(searchkeyword=="" && searchplace=="" )
+
+
+       if(searchkeyword == "" && searchplace =="" )
        {
             return checkvalue_search;
        }
