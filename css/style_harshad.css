@@ -522,6 +522,10 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 767px) {
+    #paddingtop_fixed
+    {
+        padding-top: 34px !important;
+    }
     .dropdown-menu {
         left: inherit !important;
         right: 0px !important;
@@ -702,6 +706,22 @@ input, textarea, select {border:none; border-bottom: 1px solid #ddd;
     }
 }
 @media screen and (max-width: 540px) {
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      font-size: 13px;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+         font-size: 13px;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+         font-size: 13px;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       font-size: 13px;
+    }
+    .popup-textarea textarea
+    {
+        min-height: 35px;
+    }
     .tabs-left > li > a {
         font-size: 15px;
     }
