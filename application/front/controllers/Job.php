@@ -4356,6 +4356,7 @@ $files[] = $_FILES;
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $this->data['postdetail'] = $qbc;
+//echo "<pre>";print_r($recommendata1);die();
                
         $this->data['falguni'] = 1;
 // code for search
