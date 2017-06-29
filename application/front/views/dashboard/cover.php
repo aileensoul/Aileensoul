@@ -82,7 +82,7 @@
             </section>
             <section class="all-profile">
                 <div class="box-profile deactive-profile">
-                    <div class="profile-box job">
+                    <div class="profile-box-1 job">
                         <a class="active-profile" href="#">
                             <div class="all-img">
                                 <img src="img/job.png">
@@ -93,7 +93,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="profile-box box-hover">
+                    <div class="profile-box-1 box-hover">
                         <div class="hover-content">
                             <p><a href="#">How it work</a></p>
                             <p><a href="#">Register</a></p>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="box-profile deactive-profile">
-                    <div class="profile-box rec">
+                    <div class="profile-box-1 rec">
                         <a class="active-profile" href="#">
                             <div class="all-img">
                                 <img src="img/rec.png">
@@ -112,7 +112,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="profile-box box-hover">
+                    <div class="profile-box-1 box-hover">
                         <div class="hover-content">
                             <p><a href="#">How it work</a></p>
                             <p><a href="#">Register</a></p>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="box-profile deactive-profile">
-                    <div class="profile-box free">
+                    <div class="profile-box-1 free">
                         <a class="active-profile" href="#">
                             <div class="all-img">
                                 <img src="img/freelancer.png">
@@ -131,7 +131,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="profile-box box-hover">
+                    <div class="profile-box-1 box-hover">
                         <div class="hover-content">
                             <p><a href="#">How it work</a></p>
                             <p><a href="#">Register</a></p>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 <div class="box-profile deactive-profile">
-                    <div class="profile-box bus">
+                    <div class="profile-box-1 bus">
                         <a class="active-profile" href="#">
                             <div class="all-img">
                                 <img src="img/business.png">
@@ -150,7 +150,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="profile-box box-hover">
+                    <div class="profile-box-1 box-hover">
                         <div class="hover-content">
                             <p><a href="#">How it work</a></p>
                             <p><a href="#">Register</a></p>
@@ -158,7 +158,7 @@
                     </div>
                 </div>
                 <div class="box-profile deactive-profile">
-                    <div class="profile-box art">
+                    <div class="profile-box-1 art">
                         <a class="active-profile" href="#">
                             <div class="all-img">
                                 <img src="img/art.png">
@@ -169,7 +169,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="profile-box box-hover">
+                    <div class="profile-box-1 box-hover">
                         <div class="hover-content">
                             <p><a href="#">How it work</a></p>
                             <p><a href="#">Register</a></p>
