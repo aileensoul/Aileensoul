@@ -110,15 +110,11 @@ header h2{
 	background:transparent;
 	border:none;
 	border-bottom:1px solid #fff;
-	padding-left:0;
 	border-radius:0px;
 	box-shadow:none;
 	font-size:15px;
 	color:#fff;
-	height:35px;
-	
-	
-	
+	height:35px;	
 }
 .header-login input:focus{
 	box-shadow:none;
@@ -262,7 +258,6 @@ a:hover{
 .login .form-group input, .login .form-group select, .login .form-group textarea {
 	border:none;
 	border-bottom:1px solid #d9d9d9;
-	padding-left:0;
 	border-radius:0px;
 	box-shadow:none;
 	font-size:15px;
@@ -450,16 +445,18 @@ footer ul li a:hover{
 .dob .error{
 	position: absolute;
 	left: 0;
-	bottom: -15px;
-	margin-bottom: 15px;
+	bottom: -25px;
+	
 }
 .gender-custom{position: relative;}
 .gender-custom .error{
 	position: absolute;
 	left: 0;
-	bottom: -15px;
-	margin-bottom: 15px;
+	bottom: -25px;
+	
 }
+.form-group{position: relative;}
+.form-group label.error{position: absolute; left: 0;}
 
 
 
