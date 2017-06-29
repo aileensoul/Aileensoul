@@ -571,5 +571,20 @@ $(document).ready(function () { //aletr("hii");
 </script>
 
 
+<script type="text/javascript">
+   //For Scroll page at perticular position js Start
+   $(document).ready(function(){
+    
+   //  $(document).load().scrollTop(1000);
+
+   
+        
+       $("#email_reg").val('');
+       $("#password_reg").val('');
+   
+   });
+   //For Scroll page at perticular position js End
+</script>
+
 </body>
 </html>

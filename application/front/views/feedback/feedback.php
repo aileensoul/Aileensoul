@@ -243,14 +243,14 @@
                                               $("#feedback_message").val('');
                                               
                                                  $("#feedbacksucc").fadeIn(1000, function () {
-                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your message send successfully' + ' !</div>');
+                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your feedback send successfully' + ' !</div>');
                                                     $("#btn-register").html('Sign Up');
                                                 });
                                                // setTimeout(' window.location.href = "<?php //echo base_url() ?>dashboard"; ', 4000);
                                             }
                                             else {
                                                 $("#feedbacksucc").fadeIn(1000, function () {
-                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not send successfully' + ' !</div>');
+                                                    $("#feedbacksucc").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your feedback not send successfully' + ' !</div>');
                                                     $("#btn-register").html('Sign Up');
                                                 });
                                             }

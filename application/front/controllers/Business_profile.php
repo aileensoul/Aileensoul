@@ -1873,6 +1873,11 @@ class Business_profile extends MY_Controller {
                         //echo "<pre>"; print_r($data1);
                         $insert_id1 = $this->common->insert_data_getid($data1, 'post_image');
                     }
+                    else
+                    {
+                        echo $this->upload->display_errors();
+                        exit;
+                    }
                 } else {
                     $this->session->set_flashdata('error', '<div class="col-md-7 col-sm-7 alert alert-danger1">Something went to wrong in uploded file.</div>');
                     if ($id == manage) {

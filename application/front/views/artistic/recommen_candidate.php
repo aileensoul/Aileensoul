@@ -347,7 +347,7 @@ if($artuserdata1){
 
 
                                                  </div>
-                                            <div class="post-design-name fl col-md-10">
+                                            <div class="post-design-name fl col-xs-8 col-md-10">
                                                 <ul>
                                                     
                                                     <li>

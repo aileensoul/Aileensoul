@@ -29,14 +29,16 @@ class Feedback extends CI_Controller {
 
  public function feedback_insert() 
   { 
-         $email = $_POST['feedback_firstname']; 
-         $email = $_POST['feedback_lastname']; 
-         $email = $_POST['feedback_email']; 
+         $feedback_firstname = $_POST['feedback_firstname']; 
+         $feedback_lastname = $_POST['feedback_lastname']; 
+         $feedback_email = $_POST['feedback_email']; 
          $subject = $_POST['feedback_subject'];
          $message = $_POST['feedback_message']; 
           
            $data = array(
-                         'user_email' => $email,
+                          'first_name' => $feedback_firstname,
+                          'last_name' => $feedback_lastname,
+                         'user_email' => $feedback_email,
                           'subject' => $subject,
                           'description' => $message,
                          'created_date' => date('Y-m-d', time()),

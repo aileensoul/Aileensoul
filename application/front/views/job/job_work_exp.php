@@ -19,7 +19,7 @@
 <?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
-<div class="js">
+
 <body class="page-container-bg-solid page-boxed">
    <div id="preloader"></div>
    <section>
@@ -331,7 +331,7 @@
                                  <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                  <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                               </select>
-                              <select style="width:46%;" name="experience_month[]" id="experience_month" class="experience_month keyskil">
+                              <select style="width:46%;" name="experience_month[]" id="experience_month" class="experience_month keyskil" disabled>
                                  <option value="" selected option disabled>Month</option>
                                  <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; ?>>0 month</option>
                                  <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -469,122 +469,270 @@
 
 <script type="text/javascript">
 
- function expyear_change(){
+// $('#input1 .experience_year').on('change', function(){
+//     if($(this).val()){
+     
+       
+//        $('#input1 .experience_month').attr('disabled', false);
+//     }else{
+      
+//         $('#input1 .experience_month').attr('disabled', 'disabled');
+//     }
+// });
+function expyear_change(){
 
      var num = $('.clonedInput').length;
    //  alert(num);
     
-     if(num==1)
-     {
+if(num==1)
+{
        
        var experience_year =  document.getElementById('experience_year').value;
+       //first if is used for disble exp_month disable
+       if(experience_year)
+       {
+          $('#experience_month').attr('disabled', false);
+          //this if is used for disable 0 month disable
          if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
          else{
            $("#experience_month option[value='0 month']").attr('disabled',false);}
-     }
+        }
+         else
+         {
+           $('#experience_month').attr('disabled', 'disabled');
+         }
+}
 
-     if(num==2)
-     {
+if(num==2)
+{
      
         var experience_year =  document.getElementById('experience_year').value;
          var experience_year2 =  document.getElementById('experience_year2').value;
+
+  if(experience_year)
+  {
+          $('#experience_month').attr('disabled', false);
 
         if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month').attr('disabled', 'disabled');
+  }
+        
+  if(experience_year2)
+  {
+          $('#experience_month2').attr('disabled', false);
 
-          
           if(experience_year2==='0 year'){
            $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
           else{
            $("#experience_month2 option[value='0 month']").attr('disabled',false);}
-     }
+  }
+  else
+  {
+           $('#experience_month2').attr('disabled', 'disabled');
+  }
+}
       
-    if(num==3)
-     {
+if(num==3)
+{
         var experience_year =  document.getElementById('experience_year').value;
         var experience_year2 =  document.getElementById('experience_year2').value;
         var experience_year3 =  document.getElementById('experience_year3').value;
+  if(experience_year)
+  {
+          $('#experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month option[value='0 month']").attr('disabled',false);
          }
+  }
+  else
+  {
+           $('#experience_month').attr('disabled', 'disabled');
+  }
+
+if(experience_year2)
+  {
+          $('#experience_month2').attr('disabled', false);
 
         if(experience_year2==='0 year'){
            $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month2').attr('disabled', 'disabled');
+  }
+
+if(experience_year3)
+  {
+          $('#experience_month3').attr('disabled', false);
 
         if(experience_year3==='0 year'){
            $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month3 option[value='0 month']").attr('disabled',false);}
-     }
+  }
+  else
+  {
+           $('#experience_month3').attr('disabled', 'disabled');
+  }
+}
 
-   if(num==4)
-     {
+if(num==4)
+{
         var experience_year =  document.getElementById('experience_year').value;
         var experience_year2 =  document.getElementById('experience_year2').value;
         var experience_year3 =  document.getElementById('experience_year3').value;
         var experience_year4 =  document.getElementById('experience_year4').value;
+
+  if(experience_year)
+  {
+          $('#experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month').attr('disabled', 'disabled');
+  }
+
+if(experience_year2)
+  {
+          $('#experience_month2').attr('disabled', false);
           
         if(experience_year2==='0 year'){
            $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month2 option[value='0 month']").attr('disabled',false);}
-          
+  }
+  else
+  {
+           $('#experience_month2').attr('disabled', 'disabled');
+  }
+ 
+ if(experience_year3)
+  {
+          $('#experience_month3').attr('disabled', false);
+         
           if(experience_year3==='0 year'){
            $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
           else{
            $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month3').attr('disabled', 'disabled');
+  }
+
+if(experience_year4)
+  {
+          $('#experience_month4').attr('disabled', false);
 
           if(experience_year4==='0 year'){
            $("#experience_month4 option[value='0 month']").attr('disabled',true);} 
           else{
            $("#experience_month4 option[value='0 month']").attr('disabled',false);}
-     }
+  }
+  else
+  {
+           $('#experience_month4').attr('disabled', 'disabled');
+  }
+}
 
-    if(num==5)
-    {
+if(num==5)
+{
         var experience_year =  document.getElementById('experience_year').value;
         var experience_year2 =  document.getElementById('experience_year2').value;
         var experience_year3 =  document.getElementById('experience_year3').value;
         var experience_year4 =  document.getElementById('experience_year4').value;
         var experience_year5 =  document.getElementById('experience_year5').value;
+  
+  if(experience_year)
+  {
+          $('#experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month').attr('disabled', 'disabled');
+  }
+
+if(experience_year2)
+  {
+          $('#experience_month2').attr('disabled', false);
 
         if(experience_year2==='0 year'){
            $("#experience_month2 option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month2 option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month2').attr('disabled', 'disabled');
+  }
+
+if(experience_year3)
+  {
+          $('#experience_month3').attr('disabled', false);
 
         if(experience_year3==='0 year'){
           $("#experience_month3 option[value='0 month']").attr('disabled',true);} 
         else{
            $("#experience_month3 option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month3').attr('disabled', 'disabled');
+  }
+
+if(experience_year4)
+  {
+          $('#experience_month4').attr('disabled', false);
 
         if(experience_year4==='0 year'){
            $("#experience_month4 option[value='0 month']").attr('disabled',true);}
         else{
-           $("#experience_month4 option[value='0 month']").attr('disabled',false);} 
-          
+           $("#experience_month4 option[value='0 month']").attr('disabled',false);}
+  }
+  else
+  {
+           $('#experience_month4').attr('disabled', 'disabled');
+  } 
+  
+  if(experience_year5)
+  {
+          $('#experience_month5').attr('disabled', false);
+      
         if(experience_year5==='0 year'){
            $("#experience_month5 option[value='0 month']").attr('disabled',true);}
         else{
            $("#experience_month5 option[value='0 month']").attr('disabled',false);} 
-     }
-  
+    }
+  else
+  {
+           $('#experience_month5').attr('disabled', 'disabled');
   }
+
+    }
+  
+}
 
 
 function expyear_change_edittime(){
@@ -884,6 +1032,8 @@ function expyear_change_edittime(){
        $('#btnRemove').removeAttr('disabled', 'disabled');
        $('#input' + newNum + ' .experience_year').val('');
        $('#input' + newNum + ' .experience_month').val('');
+       $('#input'+newNum+ ' .experience_month').attr("disabled", "disabled");
+     
         $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
    
        $('#input' + newNum + ' .hs-submit').remove();
