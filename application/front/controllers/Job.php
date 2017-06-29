@@ -4352,7 +4352,22 @@ $files[] = $_FILES;
                     $recommendata1[] = $data1;
                }
 
-               $unique= array_merge($recommendata,$recommendata1);
+
+
+                 if (count($recommendata) == 0) {
+                
+                $unique = $recommendata1;
+                
+            } 
+            elseif (count($recommendata1) == 0) {
+                $unique = $recommendata;
+                
+            }
+            else {
+                $unique = array_merge($recommendata1, $recommendata);
+            }
+
+              //$unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $this->data['postdetail'] = $qbc;
