@@ -160,7 +160,7 @@
                                 </fieldset>
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">No of Position:<!-- <span style="color:red">*</span> --></label>
+                                    <label class="control-label">No of Position:<span style="color:red">*</span> </label>
                                     <input name="position_no" type="text"  id="position" value="1" tabindex="4" placeholder="Enter No of Candidate" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
@@ -688,9 +688,9 @@ if(mm<10) {
                               min: 0,
                              greaterThan: "#minsal"
                         },
-                        // position_no:{
-                        //     required:true
-                        // },
+                        position_no:{
+                            required:true
+                        },
                       
 
 
@@ -758,9 +758,9 @@ if(mm<10) {
                         maxsal:{
                             greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
-                        // position_no:{
-                        //     required:"No candidate required."
-                        // },
+                        position_no:{
+                            required:"No candidate required."
+                        },
 
 
                     }

@@ -155,7 +155,7 @@
                     </fieldset>
 
                      <fieldset class="full-width">
-                        <label>No of position:<!-- <span style="color:red">*</span> --></label>
+                        <label>No of position:<span style="color:red">*</span></label>
                         
                         <input name="position" type="text" tabindex="4"  id="position" value="<?php echo $postdata[0]['post_position']; ?>" placeholder="Enter No of Candidate"/>
                         <span id="fullname-error"></span>
@@ -945,9 +945,9 @@ jQuery.noConflict();
                               min: 0,
                              greaterThan: "#minsal"
                         },
-                        // position_no:{
-                        //     required:true
-                        // },
+                        position_no:{
+                            required:true
+                        },
                       
 
 
@@ -1018,9 +1018,9 @@ jQuery.noConflict();
                         maxsal:{
                             greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
-                        // position_no:{
-                        //     required:"No candidate required."
-                        // },
+                        position_no:{
+                            required:"No candidate required."
+                        },
 
 
                     }
