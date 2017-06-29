@@ -711,8 +711,8 @@
 
                             <!-- body content start-->
                             <div class="business-all-post">
-                                <div id="progress-div"><div id="progress-bar"></div></div>
-                                <div id="targetLayer"></div>
+<!--                                <div id="progress-div"><div id="progress-bar"></div></div>
+                                <div id="targetLayer"></div>-->
                                 <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
 
@@ -980,9 +980,11 @@
                                                                 ?>
                                                                 <?php if (count($businessmultiimage) == 1) { ?>
                                                                     <?php
-                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg');
+//                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
+                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
+                                                                    
                                                                     $allowespdf = array('pdf');
-                                                                    $allowesvideo = array('mp4', 'webm');
+                                                                    $allowesvideo = array('mp4', 'webm', 'qt', 'mov');
                                                                     $allowesaudio = array('mp3');
                                                                     $filename = $businessmultiimage[0]['image_name'];
                                                                     $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -3690,7 +3692,7 @@
 <!-- edit post end -->
 <!--<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
 <script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
-<script type = "text/javascript" src = "<?php echo base_url() ?>js/jquery.form.min.js"></script>
+<!--<script type = "text/javascript" src = "<?php echo base_url() ?>js/jquery.form.min.js"></script>-->
 
 <script>
     jQuery(document).ready(function ($) {
@@ -3699,15 +3701,15 @@
             beforeSend: function () {
                 // Replace this with your loading gif image
                 //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
-                document.getElementById("progress-div").style.display = "block";
-                $("#progress-bar").width('0%');
+//                document.getElementById("progress-div").style.display = "block";
+//                $("#progress-bar").width('0%');
                 document.getElementById("myModal").style.display = "none";
-                //$(".business-all-post").prepend('<p><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                $(".business-all-post").prepend('<p><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
             },
-            uploadProgress: function (event, position, total, percentComplete) {
-                $("#progress-bar").width(percentComplete + '%');
-                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
-            },
+//            uploadProgress: function (event, position, total, percentComplete) {
+//                $("#progress-bar").width(percentComplete + '%');
+//                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
+//            },
             complete: function (response) {
 
                 // Output AJAX response to the div container
@@ -3727,10 +3729,10 @@
     });
 </script>
 
-
+<!--
 <style>
 #progress-bar {background-color: #12CC1A !important; height:20px !important; color: #ccc!important; width:0% !important; -webkit-transition: width .3s;-moz-transition: width .3s;transition: width .3s;}
 #progress-div {display:none; float: left !important;  border:#0FA015 1px solid !important; padding: 5px 0px !important; margin:30px 0px !important; border-radius:4px !important; text-align:center !important;}
 #targetLayer{width:100% !important; text-align:center !important;}
 
-</style>
+</style>-->
