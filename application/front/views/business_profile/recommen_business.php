@@ -439,7 +439,7 @@
                                                                                 }
                                                                                 ?>
                                                                             </div>
-                                                                            <div class="post-design-name fl col-md-10">
+                                                                            <div class="post-design-name col-xs-8 fl col-md-10">
                                                                                 <ul>
                                                                                     <li>
                                                                                     </li>
