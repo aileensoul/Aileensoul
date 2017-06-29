@@ -64,7 +64,8 @@
             <section class="banner">
                 <div class="banner-box">
                     <div class="banner-img">
-                        <img src="img/banner1.jpg">
+                        <!-- <img src="img/banner1.jpg"> -->
+                        <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                     </div>
                     <div class="upload-camera">
                         <a href="#"><img src="img/cam.png"></a>
