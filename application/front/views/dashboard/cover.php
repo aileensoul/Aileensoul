@@ -70,9 +70,26 @@
                         <a href="#"><img src="img/cam.png"></a>
                     </div>
                     <div class="left-profile">
+
+
                         <div class="profile-photo">
-                            <img src="img/pic.jpg">
+
+
+                         <?php
+                $image_ori = $userdata[0]['user_image'];
+                if ($image_ori) {
+                    ?>
+                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
+
+                <?php } else { ?>
+
+                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
+                   <?php } ?>
+
+                   <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                         </div>
+
+
                         <div class="profile-detail">
                             <h2><?php echo ucwords($userdata[0]['first_name']); echo ucwords($userdata[0]['last_name']);?></h2>
 
@@ -276,6 +293,45 @@
         </div>
     </div>
 
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="bidmodal-2" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+            <div class="modal-body">
+                <span class="mes">
+                    <div id="popup-form">
+<?php echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image"/>
+</div>
+                        <!--<input type="hidden" name="hitext" id="hitext" value="3">-->
+                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
+<?php echo form_close(); ?>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bid-modal-2  -->
+
+
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
     <footer>
         <div class="container">
             <div class="row">
@@ -284,10 +340,10 @@
                 </div>
                 <div class="col-md-6 col-sm-8">
                     <ul>
-                        <li><a href="#">About Us</a>|</li>
-                        <li><a href="#">Contact Us</a>|</li>
-                        <li><a href="#">Blogs</a>|</li>
-                        <li><a href="#">Send Us Feedback</a></li>
+                        <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
+                        <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
+                        <li><a href="javascript:void(0);">Blogs</a>|</li>
+                        <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
                     </ul>
                 </div>
             </div>
@@ -317,6 +373,117 @@
     
     });
 </script>
+
+
+
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script>
+                    function updateprofilepopup(id) {
+                        $('#bidmodal-2').modal('show');
+                    }
+</script>
+
+
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        // pallavi code for not supported file type 15/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
+    });
+</script>
+
+<!-- script for profile pic end -->
+
+
+ <script>
+         function picpopup() {           
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
+
+  <script type="text/javascript">
+// all popup close close using esc start
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+    //all popup close close using esc end
+</script>
+    
+
+
 
 </body>
 </html>
