@@ -181,7 +181,7 @@
                            
                            <div id="input<?php echo $y; ?>" style="margin-bottom:4px;" class="clonedInput job_work_edit_<?php echo $workdata[$x]['work_id']?>">
                             
-                           
+                               <div class="job_work_experience_main_div">
                                  <label>Experience<span class="red">*</span></label>
                                  <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
                                     <option value="" selected option disabled>Year</option>
@@ -408,7 +408,7 @@
                            <?php echo form_close(); ?> 
                         
        
-
+                           </div>
                        
 
                     </div>
