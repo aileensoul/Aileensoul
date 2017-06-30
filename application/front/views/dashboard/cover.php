@@ -6,73 +6,39 @@
   <title>aileensoul main</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/common-style.css">
-  <link rel="stylesheet" href="css/style-main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+
+
+  </head>
 <body>
 <?php echo $head; ?>
 
 <?php echo $header; ?>
-    <!-- <header class="main-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-3">
-                    <h2 class="logo"><a href="#">Aileensoul</a></h2>
-                </div> -->
-                <!--div class="col-md-8 col-sm-9">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><img src="img/all.png"></a></li>
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/noty.png"></a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                            </li>
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/msg.png"></a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                            </li>
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user-icone" src="img/user.jpg"> User Name <b class="caret"></b></a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                            </li>
-                        </ul>
-                </div-->
-           <!--  </div>
-        </div>
-    </header> -->
+
+<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script> 
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+ -->  
+ <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+
+
+  <link rel="stylesheet" href="css/common-style.css">
+ <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<!--END HEADER -->
+
+  <link rel="stylesheet" href="css/style-main.css">
+ 
     <div class="middle-section">
         <div class="container">
             <section class="banner">
                 <div class="banner-box">
-                    <div class="banner-img" id="row2">
-                        <!-- <img src="img/banner1.jpg"> -->
+                     <!-- coer image start-->
+        <div class="container" id="padding_dash">
 
-                        
-                        <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / >
-                        
-                    </div>
-
-                        <!-- <a href="#"><img src="img/cam.png"></a> -->
-                         <div  id="row1" style="display:none;">
+            <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
                     <div id="upload-demo"></div>
                 </div>
@@ -100,10 +66,49 @@
                 </div>
             </div>
 
-                    <div class="upload-camera">
 
-                        <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-                    </div>
+
+
+            <div class="container">
+                <div class="row" id="row2">
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+                    $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    //echo "<pre>";print_r($image);
+                    $image_ori = $image[0]['profile_background'];
+                    if ($image_ori) {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
+                    <?php }
+                    ?>
+
+                </div>
+            </div>
+        </div>
+       
+
+<div class="container">   
+<div class="row"> 
+    <div class="upload-img">
+
+
+        <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
+            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+        </label>
+    </div>
+     </div>
+</div>
+       
+        <!-- coer image end-->
+
+                  
 
                     <div class="left-profile">
 
