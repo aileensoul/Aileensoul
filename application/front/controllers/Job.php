@@ -3939,7 +3939,7 @@ $files[] = $_FILES;
             $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
 
             $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      //   echo "<pre>";print_r( $this->data['other_skill']);die();
+       // echo "<pre>";print_r( $this->data['other_skill']);die();
         } else {
             //echo "bjb"; die();
 
@@ -3975,6 +3975,11 @@ $files[] = $_FILES;
 
             $this->data['job_work'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
             //echo "<pre>";print_r($this->data['job_work']);die();
+             //for getting other skill data
+            $contition_array = array('user_id' => $id, 'type' => 3, 'status' => 1);
+
+            $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        // echo "<pre>";print_r( $this->data['other_skill']);die();
         }
 
 
