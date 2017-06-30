@@ -38,7 +38,7 @@
 <?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');   ?>">
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');     ?>">
 --><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
@@ -211,9 +211,9 @@
 
                                 if ($status == 0 || $status == " ") {
                                     ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                          </div>
                                 <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                          </div>
                                 <?php } ?>
                                           </div> 
                                           <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -273,13 +273,13 @@
                                                             Cancel request  
                                                         <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
                                                             In your contact
-                                                        <?php  }elseif($contactperson[0]['status'] == 'reject'){ ?>
+                                                        <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
 
-                                                               Add to contact
-                                                         <?php } else{?>
+                                                            Add to contact
+                                                        <?php } else { ?>
 
-                                                       Add to contact
-                                                         <?php }?>
+                                                            Add to contact
+                                                        <?php } ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -318,8 +318,8 @@
                                         $userid = $this->session->userdata('aileenuser');
                                         if ($businessdata1[0]['user_id'] == $userid) {
                                             ?> 
-                                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                                </li> -->
+                                                                                                                                  <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                                        </li> -->
 
                                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                             </li>
@@ -542,7 +542,7 @@
                             <div class="profile-boxProfileCard  module buisness_he_module" >
 
                                 <div class="head_details">
-                                    <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug'])   ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
+                                    <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug'])     ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
                                 </div>
 
                                 <?php
@@ -561,7 +561,7 @@
                                 }
                                 ?>
                                 <?php
-                                $allowed = array('gif', 'PNG', 'jpg');
+                                $allowed = array('jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
 
                                 foreach ($multipleimage as $mke => $mval) {
 
@@ -1253,13 +1253,13 @@
                                                         </div>
                                                     </div>
 
-                <!--                                                <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
-                                                                    <span class="show">  
+                                <!--                                                <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
+                                                                                    <span class="show">  
                                                     <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
                                                     <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
                                                     <?php //echo  nl2br($new_product_description);  ?>
-                                                                    </span>
-                                                                </div>-->
+                                                                                    </span>
+                                                                                </div>-->
                                                     <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                                                         <?php
                                                         $small = substr($row['product_description'], 0, 180);
@@ -1276,8 +1276,8 @@
                                                     </div>
                                                     <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                                                    </textarea> 
+                                                                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                                                                    </textarea> 
                                                         -->
                                                         <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
 
@@ -1312,7 +1312,7 @@
                                                     <?php if (count($businessmultiimage) == 1) { ?>
 
                                                         <?php
-                                                        $allowed = array('gif', 'PNG', 'jpg', 'jpeg');
+                                                        $allowed = array('jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
                                                         $allowespdf = array('pdf');
                                                         $allowesvideo = array('mp4', 'webm');
                                                         $allowesaudio = array('mp3');
@@ -1499,11 +1499,11 @@
                                                                 if (!in_array($userid, $likeuserarray)) {
                                                                     ?>               
 
-                                                                                                    <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                                                                            <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
                                                                     <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                                 <?php } else { ?> 
-                                                                                                    <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                                                                                            <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
                                                                     <i class="fa fa-thumbs-up main_color fa-1x" aria-hidden="true"></i>
                                                                 <?php } ?>
 
@@ -1738,7 +1738,7 @@
                                                                                 $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                                                                                 if (!in_array($userid, $likeuserarray)) {
                                                                                     ?>
-                                                                                           <!-- <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>  -->
+                                                                                                   <!-- <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>  -->
                                                                                     <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                                 <?php } else { ?>
                                                                                     <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
@@ -1951,17 +1951,17 @@
                 $('#file-fr').fileinput({
                     language: 'fr',
                     uploadUrl: '#',
-                    allowedFileExtensions: ['jpg', 'png', 'gif']
+                    allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
                 });
                 $('#file-es').fileinput({
                     language: 'es',
                     uploadUrl: '#',
-                    allowedFileExtensions: ['jpg', 'png', 'gif']
+                    allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
                 });
 
                 $("#file-1").fileinput({
                     uploadUrl: '#', // you must set a valid URL here else you will get an error
-                    allowedFileExtensions: ['jpg', 'png', 'gif'],
+                    allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'],
                     overwriteInitial: false,
                     maxFileSize: 1000,
                     maxFilesNum: 10,
@@ -1998,7 +1998,7 @@
                 $(document).ready(function () {
                     $("#test-upload").fileinput({
                         'showPreview': false,
-                        'allowedFileExtensions': ['jpg', 'png', 'gif'],
+                        'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'],
                         'elErrorContainer': '#errorBlock'
                     });
                     $("#kv-explorer").fileinput({
@@ -3735,8 +3735,8 @@
                             var vfirstname = fileInput[0].name;
                             var ext = vfirstname.split('.').pop();
                             var ext1 = vname.split('.').pop();
-                            var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
-                            var allowesvideo = ['mp4', 'webm'];
+                            var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
+                            var allowesvideo = ['mp4', 'webm', 'qt', 'mov'];
                             var allowesaudio = ['mp3'];
                             var allowespdf = ['pdf'];
 
@@ -3751,8 +3751,11 @@
 
                                 if (foundPresent1 == true && fileInput.length <= 10) {
                                 } else {
-
-                                    $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                    if (fileInput.length > 10) {
+                                        $('.biderror .mes').html("<div class='pop_content'>You can not upload more than 10 files at a time.");
+                                    } else {
+                                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                                    }
                                     $('#bidmodal').modal('show');
                                     setInterval('window.location.reload()', 10000);
                                     $(document).on('keydown', function (e) {
@@ -4487,51 +4490,52 @@
 
             </script>
             <!-- edit post start -->
+
+
+<!--<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
+            <script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
+            <!--<script type = "text/javascript" src = "<?php echo base_url() ?>js/jquery.form.min.js"></script>-->
+
+            <script>
+                jQuery(document).ready(function ($) {
+
+                    var options = {
+                        beforeSend: function () {
+                            // Replace this with your loading gif image
+                            //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
+                            //                document.getElementById("progress-div").style.display = "block";
+                            //                $("#progress-bar").width('0%');
+                            document.getElementById("myModal3").style.display = "none";
+                            $(".fw").prepend('<p style="text-align:center;"><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                        },
+                        //            uploadProgress: function (event, position, total, percentComplete) {
+                        //                $("#progress-bar").width(percentComplete + '%');
+                        //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
+                        //            },
+                        complete: function (response) {
+
+                            // Output AJAX response to the div container
+                            // console.log(response.responseText);
+                            //                    $(".upload-image-messages").html(response.responseText);
+                            //    document.getElementById("myModal").style.display="none";
+                            //                $(".business-all-post").prepend(response.responseText);
+                            //                $('#progress-bar').hide();
+                            $('.loader').remove();
+                            $(".fw").prepend(response.responseText);
+                            //$(".bor_none").hide();
+                            $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
+                        }
+                    };
+                    // Submit the form
+                    $(".upload-image-form").ajaxForm(options);
+                    return false;
+                });
+            </script>
+
+            <!--
+            <style>
+            #progress-bar {background-color: #12CC1A !important; height:20px !important; color: #ccc!important; width:0% !important; -webkit-transition: width .3s;-moz-transition: width .3s;transition: width .3s;}
+            #progress-div {display:none; float: left !important;  border:#0FA015 1px solid !important; padding: 5px 0px !important; margin:30px 0px !important; border-radius:4px !important; text-align:center !important;}
+            #targetLayer{width:100% !important; text-align:center !important;}
             
-            
-            <!--<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
-<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
-<!--<script type = "text/javascript" src = "<?php echo base_url() ?>js/jquery.form.min.js"></script>-->
-
-<script>
-    jQuery(document).ready(function ($) {
-
-        var options = {
-            beforeSend: function () {
-                // Replace this with your loading gif image
-                //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
-//                document.getElementById("progress-div").style.display = "block";
-//                $("#progress-bar").width('0%');
-                document.getElementById("myModal3").style.display = "none";
-                $(".fw").prepend('<p><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
-            },
-//            uploadProgress: function (event, position, total, percentComplete) {
-//                $("#progress-bar").width(percentComplete + '%');
-//                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
-//            },
-            complete: function (response) {
-
-                // Output AJAX response to the div container
-                // console.log(response.responseText);
-//                    $(".upload-image-messages").html(response.responseText);
-                //    document.getElementById("myModal").style.display="none";
-//                $(".business-all-post").prepend(response.responseText);
-//                $('#progress-bar').hide();
-                $(".fw").html(response.responseText);
-                //$(".bor_none").hide();
-                $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
-            }
-        };
-        // Submit the form
-        $(".upload-image-form").ajaxForm(options);
-        return false;
-    });
-</script>
-
-<!--
-<style>
-#progress-bar {background-color: #12CC1A !important; height:20px !important; color: #ccc!important; width:0% !important; -webkit-transition: width .3s;-moz-transition: width .3s;transition: width .3s;}
-#progress-div {display:none; float: left !important;  border:#0FA015 1px solid !important; padding: 5px 0px !important; margin:30px 0px !important; border-radius:4px !important; text-align:center !important;}
-#targetLayer{width:100% !important; text-align:center !important;}
-
-</style>-->
+            </style>-->

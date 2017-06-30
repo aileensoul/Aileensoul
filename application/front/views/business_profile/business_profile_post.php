@@ -302,7 +302,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);        ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);         ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
@@ -711,8 +711,8 @@
 
                             <!-- body content start-->
                             <div class="business-all-post">
-<!--                                <div id="progress-div"><div id="progress-bar"></div></div>
-                                <div id="targetLayer"></div>-->
+                                <!--                                <div id="progress-div"><div id="progress-bar"></div></div>
+                                                                <div id="targetLayer"></div>-->
                                 <?php
 //echo "<pre>"; print_r($businessprofiledata); die();
 
@@ -982,7 +982,7 @@
                                                                     <?php
 //                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
                                                                     $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
-                                                                    
+
                                                                     $allowespdf = array('pdf');
                                                                     $allowesvideo = array('mp4', 'webm', 'qt', 'mov');
                                                                     $allowesaudio = array('mp3');
@@ -1136,8 +1136,8 @@
                                                                             $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>               
-                                                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                                        </i>-->
+                                                                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                                            </i>-->
                                                                                 <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                             <?php } else { ?> 
                         <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1585,41 +1585,41 @@
 
 <script>
 
-                                                        jQuery.noConflict();
+                                                                    jQuery.noConflict();
 
-                                                        (function ($) {
+                                                                    (function ($) {
 
 
-                                                            var data = <?php echo json_encode($demo);
+                                                                        var data = <?php echo json_encode($demo);
             ?>;
-                                                            //alert(data);
-                                                            $(function () {
-                                                                // alert('hi');
-                                                                $("#tags").autocomplete({
-                                                                    source: function (request, response) {
-                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                        response($.grep(data, function (item) {
-                                                                            return matcher.test(item.label);
-                                                                        }));
-                                                                    }
-                                                                    ,
-                                                                    minLength: 1,
-                                                                    select: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                        $("#selected-tag").val(ui.item.label);
-                                                                        // window.location.href = ui.item.value;
-                                                                    }
-                                                                    ,
-                                                                    focus: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                    }
-                                                                });
-                                                            }
-                                                            );
+                                                                        //alert(data);
+                                                                        $(function () {
+                                                                            // alert('hi');
+                                                                            $("#tags").autocomplete({
+                                                                                source: function (request, response) {
+                                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                    response($.grep(data, function (item) {
+                                                                                        return matcher.test(item.label);
+                                                                                    }));
+                                                                                }
+                                                                                ,
+                                                                                minLength: 1,
+                                                                                select: function (event, ui) {
+                                                                                    event.preventDefault();
+                                                                                    $("#tags").val(ui.item.label);
+                                                                                    $("#selected-tag").val(ui.item.label);
+                                                                                    // window.location.href = ui.item.value;
+                                                                                }
+                                                                                ,
+                                                                                focus: function (event, ui) {
+                                                                                    event.preventDefault();
+                                                                                    $("#tags").val(ui.item.label);
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                        );
 
-                                                        })(jQuery);
+                                                                    })(jQuery);
 
 </script>
 
@@ -1995,7 +1995,7 @@
         //      z.style.display = 'block';
         //      $.ajax({ 
         //             type:'POST',
-        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                               ?>',
+        //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                ?>',
         //             data:'art_post_id='+clicked_id,
         //             //alert(data);
         //             success:function(data){
@@ -2939,19 +2939,19 @@
     $('#file-fr').fileinput({
         language: 'fr',
         uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif']
+        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
     });
     $('#file-es').fileinput({
         language: 'es',
         uploadUrl: '#',
-        allowedFileExtensions: ['jpg', 'png', 'gif']
+        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
     });
     $("#file-0").fileinput({
-        'allowedFileExtensions': ['jpg', 'png', 'gif']
+        'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
     });
     $("#file-1").fileinput({
         uploadUrl: '#', // you must set a valid URL here else you will get an error
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
+        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'],
         overwriteInitial: false,
         maxFileSize: 1000,
         maxFilesNum: 10,
@@ -3016,7 +3016,7 @@
     $(document).ready(function () {
         $("#test-upload").fileinput({
             'showPreview': false,
-            'allowedFileExtensions': ['jpg', 'png', 'gif'],
+            'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'],
             'elErrorContainer': '#errorBlock'
         });
         $("#kv-explorer").fileinput({
@@ -3094,7 +3094,7 @@
                 var vfirstname = fileInput[0].name;
                 var ext = vfirstname.split('.').pop();
                 var ext1 = vname.split('.').pop();
-                var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
+                var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
                 var allowesvideo = ['mp4', 'webm'];
                 var allowesaudio = ['mp3'];
                 var allowespdf = ['pdf'];
@@ -3189,7 +3189,11 @@
                             return false;
                         }
                     } else {
-                        $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                        if (fileInput.length > 10) {
+                            $('.biderror .mes').html("<div class='pop_content'>You can not upload more than 10 files at a time.");
+                        } else {
+                            $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
+                        }
                         $('#bidmodal').modal('show');
                         setInterval('window.location.reload()', 10000);
 
@@ -3704,7 +3708,7 @@
 //                document.getElementById("progress-div").style.display = "block";
 //                $("#progress-bar").width('0%');
                 document.getElementById("myModal").style.display = "none";
-                $(".business-all-post").prepend('<p><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                $(".business-all-post").prepend('<p style="text-align:center;"><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
             },
 //            uploadProgress: function (event, position, total, percentComplete) {
 //                $("#progress-bar").width(percentComplete + '%');
@@ -3718,7 +3722,9 @@
                 //    document.getElementById("myModal").style.display="none";
 //                $(".business-all-post").prepend(response.responseText);
 //                $('#progress-bar').hide();
-                $(".business-all-post").html(response.responseText);
+                $('.loader').remove();
+                $('.business-all-post div:first').remove();
+                $(".business-all-post").prepend(response.responseText);
                 //$(".bor_none").hide();
                 $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
             }

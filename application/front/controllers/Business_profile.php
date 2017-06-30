@@ -2026,14 +2026,16 @@ class Business_profile extends MY_Controller {
         array_multisort($post, SORT_DESC, $new);
         $businessprofiledatapost = $new;
         
-        foreach ($businessprofiledatapost as $row) {
+        $row = $businessprofiledatapost[0];
+        
+        //foreach ($businessprofiledatapost as $row) {
             $userid = $this->session->userdata('aileenuser');
             $contition_array = array('business_profile_post_id' => $row['business_profile_post_id'], 'status' => '1');
             $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
             $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+            
             $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
             if (!in_array($userid, $likeuserarray)) {
 
@@ -2635,7 +2637,7 @@ class Business_profile extends MY_Controller {
 
             echo $return_html;
         }
-        }
+    //    }
 
 
 
