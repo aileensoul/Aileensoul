@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <!-- This Css is used for call popup -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
    
 
@@ -279,7 +279,7 @@
                                  <?php if ($y != 1) {
                                     ?>
                                  <div class="hs-submit full-width fl " style="margin-top: 29px;">
-                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="delete_job_work(<?php echo $workdata[$x]['work_id']; ?>);">
+                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="home(<?php echo $workdata[$x]['work_id']; ?>);">
                                  </div>
                                  <?php } ?>
                               </div>
@@ -456,7 +456,8 @@
 
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
+<!-- This Js is used for call popup -->
+<script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- duplicate div end -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
@@ -739,121 +740,250 @@ function expyear_change_edittime(){
 
      var num = $('.clonedInput').length;
 
-     if(num==1)
-     {
+if(num==1)
+{
        var experience_year = document.querySelector("#input1 #experience_year").value;
        
-         
+if(experience_year)
+  {
+          $('#input1 #experience_month').attr('disabled', false);
+
         var experience_year =  document.getElementById('experience_year').value;
          if(experience_year==='0 year'){
            $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
          else{
            $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
-     }
+  }
+  else
+  {
+           $('#input1 #experience_month').attr('disabled', 'disabled');
+  }
+}
 
-     if(num==2)
-     {
+if(num==2)
+{
    
         var experience_year =  document.querySelector("#input1 #experience_year").value;
          var experience_year2 =  document.querySelector("#input2 #experience_year").value;
         
+  if(experience_year)
+  {
+          $('#input1 #experience_month').attr('disabled', false);
 
         if(experience_year==='0 year'){
            $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
-
-          
+  }
+  else
+  {
+           $('#input1 #experience_month').attr('disabled', 'disabled');
+  }
+    
+  if(experience_year2)
+  {
+          $('#input2 #experience_month').attr('disabled', false);      
           if(experience_year2==='0 year'){
            $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
            $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
-     }
+    }
+  else
+  {
+           $('#input2 #experience_month').attr('disabled', 'disabled');
+  }
+}
       
-    if(num==3)
-     {
+if(num==3)
+{
         var experience_year =  document.querySelector("#input1 #experience_year").value;
         var experience_year2 =  document.querySelector("#input2 #experience_year").value;
         var experience_year3 = document.querySelector("#input3 #experience_year").value;
+
+  if(experience_year)
+  {
+          $('#input1 #experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input1 #experience_month option[value='0 month']").attr('disabled',false);
          }
+  }
+  else
+  {
+           $('#input1 #experience_month').attr('disabled', 'disabled');
+  }
+
+  if(experience_year2)
+  {
+          $('#input2 #experience_month').attr('disabled', false);
 
         if(experience_year2==='0 year'){
            $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
+    }
+  else
+  {
+           $('#input2 #experience_month').attr('disabled', 'disabled');
+  }
+
+if(experience_year3)
+  {
+          $('#input3 #experience_month').attr('disabled', false);
 
         if(experience_year3==='0 year'){
            $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
-     }
+    }
+  else
+  {
+           $('#input3 #experience_month').attr('disabled', 'disabled');
+  }
+}
 
-   if(num==4)
-     {
+if(num==4)
+{
         var experience_year =  document.querySelector("#input1 #experience_year").value;
         var experience_year2 =  document.querySelector("#input2 #experience_year").value;
         var experience_year3 =  document.querySelector("#input3 #experience_year").value;
         var experience_year4 = document.querySelector("#input4 #experience_year").value;
+
+   if(experience_year)
+  {
+          $('#input1 #experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
-          
+  }
+  else
+  {
+           $('#input1 #experience_month').attr('disabled', 'disabled');
+  }
+ 
+  if(experience_year2)
+  {
+          $('#input2 #experience_month').attr('disabled', false);         
         if(experience_year2==='0 year'){
            $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
-          
+  }
+  else
+  {
+           $('#input2 #experience_month').attr('disabled', 'disabled');
+  }
+   
+ if(experience_year3)
+  {
+          $('#input3 #experience_month').attr('disabled', false);       
           if(experience_year3==='0 year'){
            $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
            $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
+   }
+  else
+  {
+           $('#input3 #experience_month').attr('disabled', 'disabled');
+  }
+
+ if(experience_year4)
+  {
+          $('#input4 #experience_month').attr('disabled', false);
 
           if(experience_year4==='0 year'){
            $("#input4 #experience_month option[value='0 month']").attr('disabled',true);} 
           else{
            $("#input4 #experience_month option[value='0 month']").attr('disabled',false);}
-     }
+    }
+  else
+  {
+           $('#input4 #experience_month').attr('disabled', 'disabled');
+  }
+}
 
-    if(num==5)
-    {
+if(num==5)
+{
         var experience_year =  document.querySelector("#input1 #experience_year").value;
         var experience_year2 =  document.querySelector("#input2 #experience_year").value;
         var experience_year3 =  document.querySelector("#input3 #experience_year").value;
         var experience_year4 =  document.querySelector("#input4 #experience_year").value;
         var experience_year5 =  document.querySelector("#input5 #experience_year").value;
 
+ if(experience_year)
+  {
+          $('#input1 #experience_month').attr('disabled', false);
+
         if(experience_year==='0 year'){
            $("#input1 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input1 #experience_month option[value='0 month']").attr('disabled',false);}
+   }
+  else
+  {
+           $('#input1 #experience_month').attr('disabled', 'disabled');
+  }
+
+ if(experience_year2)
+  {
+          $('#input2 #experience_month').attr('disabled', false);
 
         if(experience_year2==='0 year'){
            $("#input2 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input2 #experience_month option[value='0 month']").attr('disabled',false);}
+   }
+  else
+  {
+           $('#input2 #experience_month').attr('disabled', 'disabled');
+  }
+
+ if(experience_year3)
+  {
+          $('#input3 #experience_month').attr('disabled', false);
 
         if(experience_year3==='0 year'){
           $("#input3 #experience_month option[value='0 month']").attr('disabled',true);} 
         else{
            $("#input3 #experience_month option[value='0 month']").attr('disabled',false);}
+   }
+  else
+  {
+           $('#input3 #experience_month').attr('disabled', 'disabled');
+  }
+
+ if(experience_year4)
+  {
+          $('#input4 #experience_month').attr('disabled', false);
 
         if(experience_year4==='0 year'){
            $("#input4 #experience_month option[value='0 month']").attr('disabled',true);}
         else{
            $("#input4 #experience_month option[value='0 month']").attr('disabled',false);} 
-          
+   }
+  else
+  {
+           $('#input4 #experience_month').attr('disabled', 'disabled');
+  }
+
+ if(experience_year5)
+  {
+        $('#input5 #experience_month').attr('disabled', false);         
         if(experience_year5==='0 year'){
            $("#input5 #experience_month option[value='0 month']").attr('disabled',true);}
         else{
            $("#input5 #experience_month option[value='0 month']").attr('disabled',false);} 
-     }
-  
+   }
+  else
+  {
+           $('#input5 #experience_month').attr('disabled', 'disabled');
   }
+}
+}
 
 </script>
 
@@ -1090,17 +1220,13 @@ function expyear_change_edittime(){
 <script type="text/javascript">
 //This function work after solve issue of bootstrap start
    function home(work_id) {
-  
-                              
-      $('.biderror .mes').html("<div class='pop_content'> Do you want to Delete this Work Experience?<div class='model_ok_cancel'><a class='okbtn' id=" + work_id + " onClick='delete_job_work("+ work_id +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-          $('#bidmodal').modal('show');
-
+   
+    $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a class="mesg_link btn" onclick="return delete_job_work(' + work_id + ');">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
  }
 //This function work after solve issue of bootstrap End
 
    function delete_job_work(work_id) {
-    
-
+  
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "job/jon_work_delete" ?>',
@@ -1112,7 +1238,7 @@ function expyear_change_edittime(){
                    $('.job_work_edit_' + work_id).remove();
                  
                }
-                window.location.reload();
+                 window.location.reload();
            }
        });
    }
