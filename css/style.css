@@ -8157,7 +8157,7 @@ fieldset .add_post_btns {
     min-width: 139px;
     
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    margin-top: 3px !important;
+    margin-top: 7px !important;
     z-index: 1;
     left: inherit !important;
     right: -5px !important;
@@ -12989,7 +12989,9 @@ images css start*/
     .profile-box{position: relative;}
     .job-menu-profile{width: 100%; padding-bottom: 20px;}
     #paddingtop_fixed{padding-top: 22px !important;}
-    #paddingtop_fixed_job{padding-top: 22px !important;}
+    #paddingtop_fixed_job{padding-top: 35px !important;}
+    .left-side-bar ul li a{font-size: 16px;}
+    .common-form h3{font-size: 14px;}
     .right-side-menu{padding-left: 20%;}
     .right-side-menu{float: none;}
     .buisness-profile-txext{width: 21%;}
@@ -13058,6 +13060,7 @@ images css start*/
    .profile-head-text_dg a{font-size: 16px;}
 }
 @media screen and (max-width: 539px) {
+      #row2 img{min-height:180px; height:auto; max-height: 180px;}
     .post-edit-popup .editor-content{width: 86%;}
     .post-edit-popup .popup-text textarea{width: 90%;}
 }
