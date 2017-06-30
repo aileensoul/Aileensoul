@@ -158,7 +158,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Job Profile</h4>
-                                <p>You can get job here.</p>
+                                <p>Find best job options and connect with recruiters.</p>
                             </div>
                         </a>
                     </div>
@@ -182,7 +182,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Job Profile</h4>
-                                <p>You can get job here.</p>
+                                <p>Find best job options and connect with recruiters.</p>
                             </div>
                         </a>
                     </div>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Recruiter Profile</h4>
-                                <p>You can get employee over here.</p>
+                                <p>Hire quality employees here.</p>
                             </div>
                         </a>
                     </div>
@@ -223,7 +223,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Recruiter Profile</h4>
-                                <p>You can get employee over here.</p>
+                                <p>Hire quality employees here.</p>
                             </div>
                         </a>
                     </div>
@@ -240,7 +240,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Freelancer Profile</h4>
-                                <p>You can get freelance work over here.</p>
+                                <p>Hire freelancers and also find freelance work.</p>
                             </div>
                         </a>
                     </div>
@@ -263,7 +263,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Business Profile</h4>
-                                <p>You can grow your business over here.</p>
+                                <p>Grow your business network.</p>
                             </div>
                         </a>
                     </div>
@@ -285,7 +285,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Business Profile</h4>
-                                <p>You can grow your business over here.</p>
+                                <p>Grow your business network.</p>
                             </div>
                         </a>
                     </div>
@@ -302,7 +302,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Artistic Profile</h4>
-                                <p>You can get job here.</p>
+                                <p>Show your art & talent to the world.</p>
                             </div>
                         </a>
                     </div>
@@ -325,7 +325,7 @@
                             </div>
                             <div class="all-discription">
                                 <h4>Artistic Profile</h4>
-                                <p>You can get job here.</p>
+                                <p>Show your art & talent to the world.</p>
                             </div>
                         </a>
                     </div>
