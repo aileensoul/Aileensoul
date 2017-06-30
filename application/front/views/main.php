@@ -96,7 +96,7 @@
                     <img src="img/job.png">
                     <div class="carousel-text">
                       <h3>Job Profile</h3>
-                      <p>You can get job over here.</p>
+                      <p>Find best job options and connect with recruiters.</p>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@
                     <img src="img/rec.png">
                     <div class="carousel-text">
                       <h3>Recruiter Profile</h3>
-                      <p>You can get Recruiter over here.</p>
+                      <p>Hire quality employees here.</p>
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                     <img src="img/freelancer.png">
                     <div class="carousel-text">
                       <h3>Freelancer Profile</h3>
-                      <p>You can get Freelancer Work over here.</p>
+                      <p>Hire freelancers and also find freelance work.</p>
                     </div>
                   </div>
                 </div>
@@ -123,7 +123,7 @@
                     <img src="img/business.png">
                     <div class="carousel-text">
                       <h3>Business Profile</h3>
-                      <p>You can get Business over here.</p>
+                      <p>Grow your business network.</p>
                     </div>
                   </div>
                 </div>
@@ -132,7 +132,7 @@
                     <img src="img/art.png">
                     <div class="carousel-text">
                       <h3>Artistic Profile</h3>
-                      <p>You can get Artistic over here.</p>
+                      <p> Show your art & talent to the world.</p>
                     </div>
                   </div>
                 </div>
