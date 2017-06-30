@@ -478,6 +478,11 @@ footer ul li a:hover{
 	padding:30px 25px;
 	text-align:center;
 }
+.banner-box .left-profile .profile-photo{
+	width:150px;
+	height:150px;
+	margin:0 auto;
+}
 .banner-box .left-profile .profile-photo img{
 	width:150px;
 	height:150px;
@@ -485,9 +490,15 @@ footer ul li a:hover{
 	margin:0 auto;
 	border-radius:100%;
 }
-.uplod-profile{
+.upload-profile{
 	position:absolute;
-
+	 background-color: rgba(0,0,0,0.4);
+  width: 150px;
+  height: 150px;
+  border-radius:100%;
+ 
+  left:0;
+  bottom:0;
 }
 .upload-profile .fa-camera::before{
 	display:none;

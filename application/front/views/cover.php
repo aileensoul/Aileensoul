@@ -95,7 +95,10 @@
                    <?php } ?>
 
                    <a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-                       <span class="fa-camera"></span>
+                       <span class="upload-photo">
+						<img src="img/cam.png">
+						<span class="upload-text">Upload profilepic</span>
+					   </span>
                    </a>
                         </div>
 
