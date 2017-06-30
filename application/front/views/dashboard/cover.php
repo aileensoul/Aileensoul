@@ -63,13 +63,44 @@
         <div class="container">
             <section class="banner">
                 <div class="banner-box">
-                    <div class="banner-img">
+                    <div class="banner-img" id="row2">
                         <!-- <img src="img/banner1.jpg"> -->
+
+                        
                         <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / >
+                        
                     </div>
 
-                    <div class="upload-camera">
                         <!-- <a href="#"><img src="img/cam.png"></a> -->
+                         <div  id="row1" style="display:none;">
+                <div class="col-md-12 text-center">
+                    <div id="upload-demo"></div>
+                </div>
+                <div class="col-md-12 cover-pic" >
+                    <button class="btn btn-success  cancel-result" onclick="myFunction()">Cancel</button>
+
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
+
+                    <div id="message1" style="display:none;">
+                        <div class="loader"><div id="floatBarsG">
+                                <div id="floatBarsG_1" class="floatBarsG"></div>
+                                <div id="floatBarsG_2" class="floatBarsG"></div>
+                                <div id="floatBarsG_3" class="floatBarsG"></div>
+                                <div id="floatBarsG_4" class="floatBarsG"></div>
+                                <div id="floatBarsG_5" class="floatBarsG"></div>
+                                <div id="floatBarsG_6" class="floatBarsG"></div>
+                                <div id="floatBarsG_7" class="floatBarsG"></div>
+                                <div id="floatBarsG_8" class="floatBarsG"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12"  style="visibility: hidden; ">
+                    <div id="upload-demo-i"></div>
+                </div>
+            </div>
+
+                    <div class="upload-camera">
 
                         <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
                     </div>
@@ -91,7 +122,9 @@
                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
                    <?php } ?>
 
-                   <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+                   <a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
+                       <span class="fa-camera"></span>
+                   </a>
                         </div>
 
 
@@ -106,7 +139,7 @@
             <section class="all-profile">
 
 
-                <?php if($job[0]['job_step'] != 9){?>
+                <?php if($job[0]['job_step'] != 10){?>
                 <div class="box-profile deactive-profile">
 
                     <div class="profile-box-1 job">
