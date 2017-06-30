@@ -295,8 +295,11 @@ a:hover{
 	text-decoration:underline;
 }
 .login .btn1{
-	display:block;
+	display:inline-block;
 	text-transform:uppercase;
+}
+#register_form p{
+	text-align:center;
 }
 
 
@@ -458,13 +461,13 @@ footer ul li a:hover{
 }
 .banner-box{
 	position:relative;
-	margin-top:15px;
+	/*margin-top:15px;*/
 
 }
 .banner-box .banner-img{
 	max-height:350px;
 }
-.banner-box img{
+.banner-box img.main-cover{
 	width:100%;
 	height:350px;
 }
@@ -472,7 +475,7 @@ footer ul li a:hover{
 	position:absolute;
 	width:290px;
 	height:100%;
-	background:rgba(255, 255, 255, 0.5);
+	background:rgba(255, 255, 255, 0.8);
 	top:0;
 	left:0;
 	padding:30px 25px;
@@ -483,7 +486,12 @@ footer ul li a:hover{
 	height:150px;
 	margin:0 auto;
 }
-.banner-box .left-profile .profile-photo img{
+.profile-table{
+	position: relative;
+    top: 50%;
+    transform: translate(0px, -50%);
+}
+.banner-box .left-profile .profile-photo img.main-pic{
 	width:150px;
 	height:150px;
 	border:4px solid #1b8ab9;
@@ -492,30 +500,41 @@ footer ul li a:hover{
 }
 .upload-profile{
 	position:absolute;
-	 background-color: rgba(0,0,0,0.4);
-  width: 150px;
-  height: 150px;
-  border-radius:100%;
- 
-  left:0;
-  bottom:0;
-}
-.upload-profile .fa-camera::before{
+	background-color: rgba(0,0,0,0.4);
+	width: 150px;
+	height: 150px;
+	border-radius:100%;
+	padding:30px 15px;
+	left:0;
+	bottom:0;
 	display:none;
 }
-.upload-profile .fa-camera{
-	background: rgba(0, 0, 0, 0) url("../img/cam.png") repeat scroll 0 0 / 100% auto;
-    display: block;
-    height: 17px;
-    width: 20px;
-	
+.profile-photo:hover .upload-profile{
+	display:block;
 }
-.upload-camera #upload{
+.upload-img-new .upload-text{
+	color: #fff;
+    display: block;
+    padding-top: 10px;
+}
+.cameraButton .fa.fa-camera{
 	width:40px;
 	height:34px;
 	background:url('../img/cam.png');
 	border:none;
 	padding:5px;
+}
+.cameraButton .fa-camera::before{
+	display:none;
+}
+.upload-img label.cameraButton{
+	height: 42px;
+    line-height: 1;
+    padding: 3px 4px;
+    width: 50px;
+	background:rgba(0,0,0,0.8);
+	border-radius:4px;
+	border:none;
 }
 .banner-box .upload-camera{
 	position:absolute;
@@ -584,6 +603,7 @@ footer ul li a:hover{
 .profile-box-1 .all-discription{
 	width:100%;
 	float:left;
+	padding:0 25px;
 }
 .profile-box-1 .all-discription h4{
 	font-size:24px;

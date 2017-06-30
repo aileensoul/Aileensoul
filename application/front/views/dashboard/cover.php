@@ -36,7 +36,7 @@
             <section class="banner">
                 <div class="banner-box">
                      <!-- coer image start-->
-        <div class="container" id="padding_dash">
+        <div class="" id="">
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -80,11 +80,11 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img class="main-cover" src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
-                        <div class="bg-images">
+                        <div class="main-cover" class="bg-images">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
@@ -111,7 +111,7 @@
                   
 
                     <div class="left-profile">
-
+						<div class="profile-table">
 
                         <div class="profile-photo">
 
@@ -120,24 +120,28 @@
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
-                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
+                    <img class="main-pic" src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
 
                 <?php } else { ?>
 
-                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
+                    <img class="main-pic" src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
                    <?php } ?>
 
                    <a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-                       <span class="fa-camera"></span>
+						<span class="upload-img-new">
+							<img src="img/cam.png">
+							<span class="upload-text">update profile picture</span>
+						</span>
                    </a>
                         </div>
 
 
                         <div class="profile-detail">
-                            <h2><?php echo ucwords($userdata[0]['first_name']); echo ucwords($userdata[0]['last_name']);?></h2>
+                            <h2><?php echo ucwords($userdata[0]['first_name']); echo '&nbsp;'; echo ucwords($userdata[0]['last_name']);?></h2>
 
                             <p>Ahmedabad, Gujarat</p>
                         </div>
+						</div>
                     </div>
                 </div>
             </section>
