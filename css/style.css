@@ -12904,7 +12904,7 @@ images css start*/
     .profile-boxProfileCard-content::before{top: 50px !important;}
     .right-side-menu{float: none; padding-left: 20%;}
     .header2 ul{padding-right: 0;}
-    .header2 .dropdown_hover .dropdown-content_hover{left: inherit; right: -10px;}
+    .header2 .dropdown_hover .dropdown-content_hover{left: inherit; right: -10px !important;}
     .left_iner_img_profile{height: 60px; width: 60px;}
     /***  business and art ***/
     .profile-box-custom{position: relative; display: none;}
