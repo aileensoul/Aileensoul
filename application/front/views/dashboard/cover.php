@@ -67,9 +67,13 @@
                         <!-- <img src="img/banner1.jpg"> -->
                         <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / >
                     </div>
+
                     <div class="upload-camera">
-                        <a href="#"><img src="img/cam.png"></a>
+                        <!-- <a href="#"><img src="img/cam.png"></a> -->
+
+                        <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
                     </div>
+
                     <div class="left-profile">
 
 
@@ -484,6 +488,141 @@
 </script>
     
 
+<!-- cover image start -->
+<script>
+    function myFunction() {
+        document.getElementById("upload-demo").style.visibility = "hidden";
+        document.getElementById("upload-demo-i").style.visibility = "hidden";
+        document.getElementById('message1').style.display = "block";
+
+        // setTimeout(function () { location.reload(1); }, 9000);
+
+    }
+
+
+    function showDiv() {
+        document.getElementById('row1').style.display = "block";
+        document.getElementById('row2').style.display = "none";
+    }
+</script>
+
+
+<script type="text/javascript">
+    $uploadCrop = $('#upload-demo').croppie({
+        enableExif: true,
+        viewport: {
+            width: 1250,
+            height: 350,
+            type: 'square'
+        },
+        boundary: {
+            width: 1250,
+            height: 350
+        }
+    });
+
+
+
+    $('.upload-result').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (resp) {
+
+
+            $.ajax({
+                //url: "https://www.aileensoul.com/dashboard/ajaxpro",
+                url: "<?php echo base_url() ?>dashboard/ajaxpro",
+                type: "POST",
+                data: {"image": resp},
+                success: function (data) {
+                    html = '<img src="' + resp + '" />';
+                    if (html) {
+                        window.location.reload();
+                    }
+                    //  $("#kkk").html(html);
+                }
+            });
+
+        });
+    });
+
+    $('.cancel-result').on('click', function (ev) {
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+    });
+    //aarati code start
+    $('#upload').on('change', function () {
+        var reader = new FileReader();
+        //alert(reader);
+        reader.onload = function (e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function () {
+                console.log('jQuery bind complete');
+            });
+
+        }
+        reader.readAsDataURL(this.files[0]);
+
+
+
+    });
+
+    $('#upload').on('change', function () {
+
+        var fd = new FormData();
+        fd.append("image", $("#upload")[0].files[0]);
+
+        files = this.files;
+        size = files[0].size;
+
+        //alert(size);
+
+        // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    $("#upload").val('');
+
+    return false;
+  }
+  // file type code end
+
+        if (size > 10485760)
+        {
+            //show an alert to the user
+            alert("Allowed file size exceeded. (Max. 10 MB)")
+
+            document.getElementById('row1').style.display = "none";
+            document.getElementById('row2').style.display = "block";
+
+            // window.location.href = "https://www.aileensoul.com/dashboard"
+            //reset file upload control
+            return false;
+        }
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>dashboard/image",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                //alert(response);
+
+            }
+        });
+    });
+
+//aarati code end
+</script>
+<!-- cover image end -->
 
 
 </body>
