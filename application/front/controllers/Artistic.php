@@ -2099,6 +2099,7 @@ $datacount = count($otherdata);
             'not_read' => 2,
             'not_product_id' => $insertdata,
             'not_from' => 3,
+            'not_active' => 1,
             'not_created_date' => date('Y-m-d H:i:s')
         );
 
@@ -2616,6 +2617,7 @@ $datacount = count($otherdata);
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 //echo '<pre>'; print_r($data); die();
@@ -2651,6 +2653,7 @@ $datacount = count($otherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
@@ -2752,6 +2755,7 @@ $datacount = count($otherdata);
                 'not_read' => 2,
                 'not_product_id' => $follow[0]['follow_id'],
                 'not_from' => 3,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
@@ -2787,6 +2791,7 @@ $datacount = count($otherdata);
                 'not_read' => 2,
                 'not_product_id' => $insert,
                 'not_from' => 3,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
@@ -3671,6 +3676,7 @@ $datacount = count($otherdata);
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 3,
+                        'not_active' => 1,
                         'not_created_date' => date('Y-m-d H:i:s')
                     );
 
@@ -3810,6 +3816,7 @@ $datacount = count($otherdata);
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 3,
+                        'not_active' => 1,
                         'not_created_date' => date('Y-m-d H:i:s')
                     );
 
@@ -4241,6 +4248,7 @@ $datacount = count($otherdata);
                         'not_product_id' => $post_id,
                         'not_from' => 3,
                         'not_img' => 2,
+                        'not_active' => 1,
                         'not_created_date' => date('Y-m-d H:i:s')
                     );
 
@@ -4525,6 +4533,7 @@ $datacount = count($otherdata);
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
@@ -4703,6 +4712,7 @@ $datacount = count($otherdata);
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 1,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($notificationdata); 
@@ -5924,6 +5934,7 @@ $datacount = count($otherdata);
                     'not_product_id' => $post_image,
                     'not_from' => 3,
                     'not_img' => 5,
+                    'not_active' => 1,
                     'not_created_date' => date('Y-m-d H:i:s')
                 );
 
@@ -6082,6 +6093,7 @@ $datacount = count($otherdata);
                             'not_product_id' => $post_image,
                             'not_from' => 3,
                             'not_img' => 5,
+                            'not_active' => 1,
                             'not_created_date' => date('Y-m-d H:i:s')
                         );
 
@@ -6221,6 +6233,7 @@ $datacount = count($otherdata);
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
@@ -6414,6 +6427,7 @@ $datacount = count($otherdata);
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
 
@@ -6590,6 +6604,7 @@ $datacount = count($otherdata);
                     'not_product_id' => $post_image_comment_id,
                     'not_from' => 3,
                     'not_img' => 6,
+                    'not_active' => 1,
                     'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
@@ -6694,6 +6709,7 @@ $datacount = count($otherdata);
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 3,
                             'not_img' => 6,
+                            'not_active' => 1,
                             'not_created_date' => date('Y-m-d H:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
@@ -6786,6 +6802,7 @@ $datacount = count($otherdata);
                     'not_product_id' => $insertdata,
                     'not_from' => 3,
                     'not_img' => 6,
+                    'not_active' => 1,
                     'not_created_date' => date('Y-m-d H:i:s')
                 );
                 //echo "<pre>"; print_r($data); die();
@@ -6888,6 +6905,7 @@ $datacount = count($otherdata);
                             'not_product_id' => $post_image_comment_id,
                             'not_from' => 3,
                             'not_img' => 6,
+                            'not_active' => 1,
                             'not_created_date' => date('Y-m-d H:i:s')
                         );
                         //echo "<pre>"; print_r($data); die();
@@ -7762,6 +7780,7 @@ $datacount = count($otherdata);
                 'not_product_id' => $insert_id,
                 'not_from' => 3,
                 'not_img' => 4,
+                'not_active' => 1,
                 'not_created_date' => date('Y-m-d H:i:s')
             );
             //echo "<pre>"; print_r($datanotification); die();
