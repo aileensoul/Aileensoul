@@ -444,6 +444,11 @@ $( document ).on( 'keydown', function ( e ) {
                             <a tabindex="-200" href="<?php echo base_url('dashboard') ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
+
+                    
+<?php 
+   $userid = $this->session->userdata('aileenuser');
+if($userid){?>
                     <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
                         <div class="main-menu-right">
                             <ul class="">
@@ -596,6 +601,9 @@ $( document ).on( 'keydown', function ( e ) {
                             </ul>
                         </div>
                     </div>
+
+
+                    <?php }?>
                 </div>
             </div>
         </div>
