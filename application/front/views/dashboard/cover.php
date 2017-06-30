@@ -239,7 +239,7 @@
                                 <img src="img/freelancer.png">
                             </div>
                             <div class="all-discription">
-                                <h4>freelancer Profile</h4>
+                                <h4>Freelancer Profile</h4>
                                 <p>You can get freelance work over here.</p>
                             </div>
                         </a>
@@ -301,7 +301,7 @@
                                 <img src="img/art.png">
                             </div>
                             <div class="all-discription">
-                                <h4>artistic Profile</h4>
+                                <h4>Artistic Profile</h4>
                                 <p>You can get job here.</p>
                             </div>
                         </a>
@@ -324,7 +324,7 @@
                                 <img src="img/art.png">
                             </div>
                             <div class="all-discription">
-                                <h4>artistic Profile</h4>
+                                <h4>Artistic Profile</h4>
                                 <p>You can get job here.</p>
                             </div>
                         </a>
