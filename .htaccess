@@ -26,8 +26,6 @@ AddType audio/ogg ogg oga
 AddType video/webm webm
 </IfModule>
 
-
-
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
