@@ -307,7 +307,7 @@
                                             }
                                             else {
                                                 $("#register_error").fadeIn(1000, function () {
-                                                    $("#register_error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
+                                                    $("#register_error").html('<div class="alert alert-danger registration"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
                                                     $("#btn-register").html('Sign Up');
                                                 });
                                             }
