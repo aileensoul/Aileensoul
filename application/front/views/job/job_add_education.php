@@ -36,7 +36,7 @@
 
                                 <li class="<?php if($jobdata[0]['job_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
 
-                                <li class="<?php if($jobdata[0]['job_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
+                                <li class="<?php if($jobdata[0]['job_step'] < '3'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Career Objectives</a></li>
                             </ul>
                         </div>
                     </div>

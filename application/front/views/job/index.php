@@ -161,7 +161,7 @@
 
                                 <li class="custom-none <?php if ($jobdata[0]['job_step'] < '9') {
                                 echo "khyati";
-                            } ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Carrier Objectives</a></li>
+                            } ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Career Objectives</a></li>
                             </ul>
                         </div>
                     </div>

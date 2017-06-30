@@ -64,7 +64,7 @@
                                 <li class="custom-none"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
                                 <li class="custom-none"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
                                 <li class="custom-none"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
-                                <li <?php if($this->uri->segment(1) == 'job'){?> class="active init" <?php } ?>><a href="#">Carrier Objectives</a></li>
+                                <li <?php if($this->uri->segment(1) == 'job'){?> class="active init" <?php } ?>><a href="#">Career Objectives</a></li>
                             </ul>
                         </div>
                     </div>
