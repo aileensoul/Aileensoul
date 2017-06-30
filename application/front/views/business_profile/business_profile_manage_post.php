@@ -484,8 +484,7 @@
                                 </tr>
                                 <tr>
                                     <td class="business_data_td1"><i class="fa fa-mobile"></i></td>
-                                    <td class="business_data_td2"><span><?php  if($businessdata1[0]['contact_mobile'] != '0') 
-                                    { echo $businessdata1[0]['contact_mobile']; }else{ echo '-';} ?></span></td>
+                                    <td class="business_data_td2"><span><?php  if($businessdata1[0]['contact_mobile'] != '0')                                     { echo $businessdata1[0]['contact_mobile']; }else{ echo '-';} ?></span></td>
                                 </tr>
 
                                 <tr>
