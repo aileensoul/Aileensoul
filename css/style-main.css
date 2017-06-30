@@ -486,9 +486,17 @@ footer ul li a:hover{
 	border-radius:100%;
 }
 .uplod-profile{
-	
+	position:absolute;
+
 }
-.uplod-profile .fa-camera{
+.upload-profile .fa-camera::before{
+	display:none;
+}
+.upload-profile .fa-camera{
+	background: rgba(0, 0, 0, 0) url("../img/cam.png") repeat scroll 0 0 / 100% auto;
+    display: block;
+    height: 17px;
+    width: 20px;
 	
 }
 .upload-camera #upload{
@@ -677,6 +685,13 @@ transition: background-color 600s ease-in-out 0s;
 -webkit-text-fill-color:#fff !important;
 }
 
+/***  alert message  ***/
+.alert-danger.main{
+	left: 35%;
+    position: absolute;
+    width: 30%;
+	text-align:center;
+}
 
 
 

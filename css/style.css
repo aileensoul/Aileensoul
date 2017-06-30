@@ -12822,15 +12822,22 @@ images css start*/
     width: auto; color: #1b8ab9;}
 #bidmodal{z-index: 10003;}
 
-.alert.alert-danger{background-color: #f2dede;
-    border-color: #ebccd1;
-    color: #a94442;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    width: 26%;}
+.alert.alert-danger{
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+	left: 0;
+	margin: 0 auto;
+	margin-top: 0px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	width: 29%;
+	z-index: 9;
+	font-size: 18px;
+	top: 0;
+	margin-top: -10px;
+}
 
 /***  media query  ***/
 @media (min-width: 1400px) { 
