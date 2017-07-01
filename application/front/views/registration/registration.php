@@ -55,7 +55,7 @@
               <div class="form-group">
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
-              <div class="form-group">
+              <div class="form-group dob">
                 <select class="day" name="selday" id="selday">
                   <option value="" disabled selected value>DD</option>
                   <?php
@@ -88,7 +88,7 @@
                 </select>
               </div>
               
-              <div class="form-group">
+              <div class="form-group gender-custom">
                 <select class="gender" name="selgen" id="selgen">
                   <option value="" disabled selected value>Gender</option>
                   <option value="M">Male</option>

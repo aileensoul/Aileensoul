@@ -902,7 +902,7 @@ border: 2px solid white;
 .job-saved-box h3{    border: 1px solid #d9d9d9;}
 .dropdown-menu {
     right: 0;
-    left: inherit;
+    left: inherit !important;
     position: absolute;
 }
 ul.dropdown-menu li {
