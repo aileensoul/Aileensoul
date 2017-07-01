@@ -247,6 +247,9 @@ a:hover{
 	background:#fff;
 	width:80%;
 	margin:0 auto;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
 }
 .login h4{
 	padding:15px; 
@@ -576,7 +579,7 @@ footer ul li a:hover{
 	
 }
 .box-profile.deactive-profile{
-	border:none;
+	border:1px solid #ddd;
 }
 .all-profile a.active-profile{
 	position:relative; 
