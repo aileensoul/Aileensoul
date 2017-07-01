@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<head>
-  <title>aileensoul main</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  </head>
-<body>
+<!-- head -->
 <?php echo $head; ?>
 
 <?php echo $header; ?>
+<!-- head -->
 
 <script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script> 
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
- -->  
- <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-
-
-
-  <link rel="stylesheet" href="css/common-style.css">
- <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
+  <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>"> -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <!--END HEADER -->
 
-  <link rel="stylesheet" href="css/style-main.css">
- 
-    <div class="middle-section">
-        <div class="container">
-            <section class="banner">
-                <div class="banner-box">
-                     <!-- coer image start-->
-        <div class="" id="">
+
+<body   class="page-container-bg-solid page-boxed">
+
+    <section>
+        <!-- coer image start-->
+        <div class="container" id="padding_dash">
 
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
@@ -80,11 +62,11 @@
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img class="main-cover" src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
-                        <div class="main-cover" class="bg-images">
+                        <div class="bg-images">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
@@ -108,243 +90,115 @@
        
         <!-- coer image end-->
 
-                  
-
-                    <div class="left-profile">
-						<div class="profile-table">
-
-                        <div class="profile-photo">
-
-
-                         <?php
+<div class="profile-photo">
+    <div class="profile-main-pho">
+        <div class="user-pic-picture">
+            <div class="user-pic">
+                <?php
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
-                    <img class="main-pic" src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
+                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" >
 
-                <?php } else { ?>
+<?php } else { ?>
 
-                    <img class="main-pic" src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
-                   <?php } ?>
+                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" > 
+<?php } ?>
+            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
 
-                   <a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-						<span class="upload-img-new">
-							<img src="img/cam.png">
-							<span class="upload-text">update profile picture</span>
-						</span>
-                   </a>
-                        </div>
+                <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
 
-                        <div class="profile-detail">
-                            <h2><?php echo ucwords($userdata[0]['first_name']); echo '&nbsp;'; echo ucwords($userdata[0]['last_name']);?></h2>
-
-                            <p>Ahmedabad, Gujarat</p>
-                        </div>
-						</div>
-                    </div>
-                </div>
-            </section>
-            <section class="all-profile">
-
-
-                <?php if($job[0]['job_step'] != 10){?>
-                <div class="box-profile deactive-profile">
-
-                    <div class="profile-box-1 job">
-                        <a class="active-profile" href="<?php echo base_url('job'); ?>">
-                            <div class="all-img">
-                                <img src="img/job.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Job Profile</h4>
-                                <p>Find best job options and connect with recruiters.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="profile-box-1 box-hover">
-                        <div class="hover-content">
-                            <p><a href="<?php echo base_url('job'); ?>">How it work</a></p>
-                            <p><a href="<?php echo base_url('job'); ?>">Register</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <?php }else{ ?>
-
-
-                <div class="box-profile">
-
-                    <div class="profile-box-1 job">
-                        <a class="active-profile" href="<?php echo base_url('job'); ?>">
-                            <div class="all-img">
-                                <img src="img/job.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Job Profile</h4>
-                                <p>Find best job options and connect with recruiters.</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                </div>
-
-                <?php }?>
-
-                <?php if($recrdata[0]['re_step'] != 3){?>
-
-                <div class="box-profile deactive-profile">
-                    <div class="profile-box-1 rec">
-                        <a class="active-profile" href="<?php echo base_url('recruiter'); ?>">
-                            <div class="all-img">
-                                <img src="img/rec.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Recruiter Profile</h4>
-                                <p>Hire quality employees here.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="profile-box-1 box-hover">
-                        <div class="hover-content">
-                            <p><a href="<?php echo base_url('recruiter'); ?>">How it work</a></p>
-                            <p><a href="<?php echo base_url('recruiter'); ?>">Register</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <?php }else{?>
-
-                <div class="box-profile">
-                    <div class="profile-box-1 rec">
-                        <a class="active-profile" href="<?php echo base_url('recruiter'); ?>">
-                            <div class="all-img">
-                                <img src="img/rec.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Recruiter Profile</h4>
-                                <p>Hire quality employees here.</p>
-                            </div>
-                        </a>
-                    </div>
-                    
-                </div>
-
-                <?php }?>
-
-                <div class="box-profile deactive-profile">
-                    <div class="profile-box-1 free">
-                        <a class="active-profile" href="<?php echo base_url('freelancer'); ?>">
-                            <div class="all-img">
-                                <img src="img/freelancer.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Freelancer Profile</h4>
-                                <p>Hire freelancers and also find freelance work.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="profile-box-1 box-hover">
-                        <div class="hover-content">
-                            <p><a href="<?php echo base_url('freelancer'); ?>">How it work</a></p>
-                            <p><a href="<?php echo base_url('freelancer'); ?>">Register</a></p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <?php if($busdata[0]['business_step'] != 4){ ?>
-
-                <div class="box-profile deactive-profile">
-                    <div class="profile-box-1 bus">
-                        <a class="active-profile" href="<?php echo base_url('business_profile'); ?>">
-                            <div class="all-img">
-                                <img src="img/business.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Business Profile</h4>
-                                <p>Grow your business network.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="profile-box-1 box-hover">
-                        <div class="hover-content">
-                            <p><a href="<?php echo base_url('business_profile'); ?>">How it work</a></p>
-                            <p><a href="<?php echo base_url('business_profile'); ?>">Register</a></p>
-                        </div>
-                    </div>
-                </div>
-                <?php }else{?>
-
-
-                <div class="box-profile">
-                    <div class="profile-box-1 bus">
-                        <a class="active-profile" href="<?php echo base_url('business_profile'); ?>">
-                            <div class="all-img">
-                                <img src="img/business.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Business Profile</h4>
-                                <p>Grow your business network.</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <?php }?>
-
-                <?php if($artdata[0]['art_step'] != 4){?>
-                <div class="box-profile deactive-profile">
-                    <div class="profile-box-1 art">
-                        <a class="active-profile" href="<?php echo base_url('artistic'); ?>">
-                            <div class="all-img">
-                                <img src="img/art.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Artistic Profile</h4>
-                                <p>Show your art & talent to the world.</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="profile-box-1 box-hover">
-                        <div class="hover-content">
-                            <p><a href="<?php echo base_url('artistic'); ?>">How it work</a></p>
-                            <p><a href="<?php echo base_url('artistic'); ?>">Register</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <?php }else{?>
-
-
-                 <div class="box-profile">
-                    <div class="profile-box-1 art">
-                        <a class="active-profile" href="<?php echo base_url('artistic'); ?>">
-                            <div class="all-img">
-                                <img src="img/art.png">
-                            </div>
-                            <div class="all-discription">
-                                <h4>Artistic Profile</h4>
-                                <p>Show your art & talent to the world.</p>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-
-
-
-                <?php }?>
-                
-            </section>
+            </div>
         </div>
+       
+    </div>
+    <div class="main-font-name">
+        <h5 align="center"> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h5>
+        <div>
+            <p align="center"><?php echo ucwords($userdata[0]['user_name']) ?></p>  
+        </div>   
+
+        <div class="profile-text1" >
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            $this->db->select('*');
+            $this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
+            $this->db->where('user_id', $userid);
+            $result = $this->db->get('user')->result_array();
+
+
+            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
+                ?>
+
+                <div class="alert alert-danger txt_cen">
+
+
+                    <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">
+                        Verify Your E-mail Account
+                    </a>
+
+                </div>
+
+            <?php }
+            ?>
+
+        </div> 
     </div>
 
+
+    <div class="user-midd-section">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-2"></div> -->
+                <div class="col-md-12 col-sm-12">
+                    <div class="mid-bar">
+                        <div class="first-mid-bar">
+                            <ul class="clearfix">
+                                <li><a href="<?php echo base_url('job'); ?>">Job Profile</a></li>
+                                <li><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></li>
+                                <li><a href="<?php echo base_url('freelancer'); ?>">Freelancer Profile</a></li>
+
+                            </ul>
+                        </div>
+                        <div  class="second-mid-bar">
+                            <ul class="clearfix">
+
+                                <li><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></li>
+                                <li><a href="<?php echo base_url('artistic'); ?>">Artistic Profile</a></li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- 	<div class="col-md-2">
+                        </div> -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- model for popup start -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model for popup -->
+<!-- Model Popup Open -->
 <!-- Bid-modal-2  -->
 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
     <div class="modal-dialog modal-lm">
         <div class="modal-content">
-            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>     	
             <div class="modal-body">
                 <span class="mes">
                     <div id="popup-form">
@@ -364,65 +218,9 @@
     </div>
 </div>
 <!-- Bid-modal-2  -->
+<!-- Model Popup Close -->
 
-
-<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                        <div class="modal-dialog modal-lm">
-                            <div class="modal-content">
-                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
-                                <div class="modal-body">
-                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                                    <span class="mes"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-4">
-                    © 2017 | by Aileensoul
-                </div>
-                <div class="col-md-6 col-sm-8">
-                    <ul>
-                        <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
-                        <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-                        <li><a href="javascript:void(0);">Blogs</a>|</li>
-                        <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-<script>
-    $( document ).ready(function() {
-    
-        // hover
-        $(function(){
-        $(".dropdown").hover(            
-                function() {
-                    $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
-                    $(this).toggleClass('open');
-                    //$('b', this).toggleClass("caret caret-up");                
-                },
-                function() {
-                    $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
-                    $(this).toggleClass('open');
-                    //$('b', this).toggleClass("caret caret-up");                
-                });
-        });
-
-            
-            
-    
-    });
-</script>
-
-
-
+<!-- end search validation -->
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
                     function updateprofilepopup(id) {
@@ -430,105 +228,34 @@
                     }
 </script>
 
+<script>
+// Get the modal
+    var modal = document.getElementById('myModal');
 
-<!-- script for profile pic strat -->
-<script type="text/javascript">
-    
+// Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-     function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            
-            reader.onload = function (e) {
-            
-            document.getElementById('preview').style.display = 'block';
-                $('#preview').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(input.files[0]);
+// Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
     }
-    
-    $("#profilepic").change(function(){
-        // pallavi code for not supported file type 15/06/2017
-      profile = this.files;
-      //alert(profile);
-      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
-       //alert('not an image');
-        $('#profilepic').val('');
-         picpopup();
-         return false;
-          }else{
-          readURL(this);}
-
-          // end supported code 
-    });
 </script>
 
-<!-- script for profile pic end -->
-
-
- <script>
-         function picpopup() {           
-            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
-            $('#bidmodal').modal('show');
-                        }
-                    </script>
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-<script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () { 
-
-                $("#userimage").validate({
-
-                    rules: {
-
-                        profilepic: {
-
-                            required: true,
-                         
-                        },
-  
-
-                    },
-
-                    messages: {
-
-                        profilepic: {
-
-                            required: "Photo Required",
-                            
-                        },
-
-                },
-
-                });
-                   });
-  </script>
-
-  <script type="text/javascript">
-// all popup close close using esc start
-    $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal-2').modal('hide');
-    }
-});  
-
-     $( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#bidmodal').modal('hide');
-    }
-});  
-    //all popup close close using esc end
-</script>
-    
 
 <!-- cover image start -->
 <script>
@@ -629,8 +356,6 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
     document.getElementById('row1').style.display = "none";
     document.getElementById('row2').style.display = "block";
-    $("#upload").val('');
-
     return false;
   }
   // file type code end
@@ -666,6 +391,124 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 </script>
 <!-- cover image end -->
 
+<script>
+    function sendmail(abc) {
+
+//alert(abc);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>registration/res_mail",
+            type: "POST",
+            data: 'user_email=' + abc,
+            success: function (response) { 
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully..");
+                  $('#bidmodal').modal('show');
+                  window.open(response);
+            }
+        });
+    }
+</script>
+
+
 
 </body>
 </html>
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        // pallavi code for not supported file type 15/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
+    });
+</script>
+
+<!-- script for profile pic end -->
+
+<!-- popup for file type -->
+  <script>
+         function picpopup() {           
+            $('.biderror .mes').html("<div class='pop_content'>Image Type is not Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
+
+  <script type="text/javascript">
+// all popup close close using esc start
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+    //all popup close close using esc end
+</script>
+    
