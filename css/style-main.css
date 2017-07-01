@@ -562,17 +562,21 @@ footer ul li a:hover{
 	display:inline-block;
 	margin:0 35px 20px;
 	position:relative;
+	border:1px solid #1b8ab9;
+	background:#fff;
 }
 .profile-box-1{
 	width:265px;
 	height:265px;
 	border-radius:100%;
-	background:#fff;
 	display:inline-block;
 	text-align:center;
 	padding:40px 10px 30px;
 	position:relative;
 	
+}
+.box-profile.deactive-profile{
+	border:none;
 }
 .all-profile a.active-profile{
 	position:relative; 
@@ -645,9 +649,9 @@ footer ul li a:hover{
 }
 .profile-box-1.job:before{
 	position:absolute;
-	bottom:-88%;
+	bottom:-87%;
 	width:12px;
-	left:95%;
+	left:96%;
 	height:100%;
 	background:#e0e0e0;
 	content:"";
@@ -671,10 +675,10 @@ footer ul li a:hover{
 }
 .profile-box-1.art:after{
 	position:absolute;
-	top:-17%;
+	top:-18%;
 	width:12px;
 	left:17%;
-	height:67px;
+	height:68px;
 	background:#e0e0e0;
 	content:"";
 	transform: rotate(-30deg);
@@ -727,9 +731,10 @@ transition: background-color 600s ease-in-out 0s;
 
 
 /***  media query  ***/
+
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
-  /*.header2{margin-left: 16px; margin-right: 16px;}*/
+  
 }
 @media screen and (max-width: 1199px) {
 	.login{width:100%;}

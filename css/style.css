@@ -12843,6 +12843,9 @@ images css start*/
    
   .header2{margin-left: 16px; margin-right: 16px;}
 }
+@media screen and (min-width: 1280px) and (max-width: 1280px){
+	.header2{margin-left: 16px; margin-right: 16px;}
+}
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
   /*.header2{margin-left: 16px; margin-right: 16px;}*/
