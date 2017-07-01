@@ -271,11 +271,11 @@
                                     <label class="control-label">Job description:<span style="color:red">*</span></label>
 
 
-                                    <!-- <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
+                                    <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
+
+
+                                   <!--   <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="post_desc" id="post_desc" rows="4" cols="50" placeholder="Enter Job Description"></div>
  -->
-
-                                     <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="post_desc" id="post_desc" rows="4" cols="50" placeholder="Enter Job Description"></div>
-
 
 
                                     <?php echo form_error('post_desc'); ?>
@@ -288,9 +288,9 @@
 
 
 
-                                   <!--  <textarea name="interview" id="interview" rows="4" tabindex="11" cols="50"  placeholder="Enter Interview Process" style="resize: none;"></textarea>
- -->
-                                    <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="interview" id="interview" rows="4" cols="50" placeholder="Interview process"></div>
+                                    <textarea name="interview" id="interview" rows="4" tabindex="11" cols="50"  placeholder="Enter Interview Process" style="resize: none;"></textarea>
+
+                                   <!--  <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="interview" id="interview" rows="4" cols="50" placeholder="Interview process"></div> -->
 
 
                                     <?php echo form_error('interview'); ?> 

@@ -687,16 +687,18 @@ $this->load->view('business_profile/temp');
      //if user deactive profile then redirect to job/index untill active profile End
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
-        //for getting degree data
-        $contition_array = array('status' => 1);
+        //for getting degree data Strat
+        $contition_array = array('status' => 1 , 'is_delete' => '0' ,'degree_name !=' => "Other");
         $this->data['degree_data'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //for getting degree data End
 
-        //for getting univesity data
+        //for getting univesity data Start
         $contition_array = array('is_delete' => '0','status' => 1,'university_name !=' => "Other");
         $this->data['university_data'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
          $contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
         $this->data['university_otherdata'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         //for getting univesity data End
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4333,6 +4335,11 @@ $files[] = $_FILES;
    //for getting data from rec_post table for keyskill    
         foreach ($postdata as $post) {
             $skill_id = explode(',', $post['post_skill']);
+
+             $skill_id = array_filter(array_map('trim', $skill_id));
+             $postuserarray = array_filter(array_map('trim', $postuserarray));
+           // echo "<pre>"; print_r($skill_id);
+//echo "<pre>"; print_r($postuserarray);
               $result = array_intersect($postuserarray, $skill_id);
   
                  if (count($result) > 0) { 
@@ -4351,30 +4358,34 @@ $files[] = $_FILES;
                 }
           
         }
-       
+        //die();
+        //  echo "<pre>";print_r($recommendata);die();
+     //  echo "<pre>";print_r($skill_data);die();
    //for getting data from skill table for other skill
        foreach ($skill_data as $skill) {  
 
-         $contition_array = array('other_skill' => $skill['skill']);
+          $contition_array = array('FIND_IN_SET("'.$skill['skill'].'",other_skill)!='=>'0'); 
+         //$contition_array = array('other_skill' => $skill['skill']);
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata1[] = $data1;
+
                }
-
-
 
                  if (count($recommendata) == 0) {
                 
                 $unique = $recommendata1;
+           // $unique = array_filter(array_map('trim', $unique));
                 
             } 
             elseif (count($recommendata1) == 0) {
                 $unique = $recommendata;
-                
+               //   $unique = array_filter(array_map('trim', $unique));
             }
             else {
                 $unique = array_merge($recommendata1, $recommendata);
+                  //$unique = array_filter(array_map('trim', $unique));
             }
-
+        
               //$unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
