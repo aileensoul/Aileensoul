@@ -117,9 +117,9 @@
                                         <?php
                                        // echo "<pre>"; print_r($candidatejob);die();
                                         if ($candidatejob) {
-                                            foreach ($candidatejob as $row) {
+                                            foreach ($candidatejob as $canrow) {
 
-                                              // foreach($canrow as $row){
+                                              foreach($canrow as $row){
                                                 ?>
                                                 <div class="profile-job-post-detail clearfix">
       <div class="profile-job-post-title-inside clearfix">
@@ -665,7 +665,8 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                 </div>
                                                 <?php
                                             }
-                                        } else {
+                                        } 
+                                      }else {
                                             ?>
                                             <div class="text-center rio">
                                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Recommended Candidate Found.</h4>

@@ -1231,7 +1231,8 @@ foreach ($citiesss as $key1) {
             foreach ($otherskilldata as $dataskill) {
             $data1 = array(
                 'skill' => $dataskill,
-                'type' => 4
+                'type' => 4,
+                'user_id' => $userid
             );
             // echo '<pre>'; print_r($data1); die();
             $insertid = $this->common->insert_data_getid($data1, 'skill');
@@ -2381,18 +2382,24 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
          $this->data['recruiterdata1'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-       
+           $contition_array = array('user_id' => $userid,'type' => '4','status' => 1);
+
+      $skillotherdata =  $this->data['skillotherdata'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+// echo "<pre>";
+// print_r($skillotherdata); die();       
          $contition_array = array('job_reg.user_id !=' => $userid,'job_step' => 10);
 
     
         $candidate = $this->data['candidate'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'keyskill,job_id,user_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-         foreach($recruiterdata as $recru){
+         foreach($skillotherdata as $othrd){
 
-     
-        if ($recru['other_skill'] != '') {
+
+    //echo "<pre>"; print_r($othrd['skill']);
+        if ($othrd['skill'] != '') {
             
-        $contition_array1 = array('type'=>'3','FIND_IN_SET("'.$recru['other_skill'].'",skill)!='=>'0'); 
+        $contition_array1 = array('type'=>'3','FIND_IN_SET("'.$othrd['skill'].'",skill)!='=>'0'); 
+ // echo "<pre>"; print_r($contition_array1); 
 
 
         $candidate1[] = $this->data['candidate1'] = $this->common->select_data_by_condition('skill', $contition_array1, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2401,7 +2408,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
  
       }
 
-     // echo "<pre>"; print_r($candidate1);
+     //  echo "<pre>"; print_r($candidate1); 
+     // die();
 
 
    foreach ($candidate1 as $key => $candi) {
@@ -2496,23 +2504,30 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 $unique = array_merge($jobr11, $jobr);
             }
 
+// echo "<pre>";print_r($jobr);
+// echo "<pre>";print_r($jobr11);
 
-              foreach ($unique as $ke => $arr) {
-               foreach ($arr as $key => $va) {
+//die();
+
+//               foreach ($unique as $ke => $arr) {
+//                foreach ($arr as $va) {
         
     
-                    $skildataa[] = $va;
-                }
-            }
-//echo "<pre>";print_r($postdata);
-                $new = array();
-                foreach ($skildataa as $value) {
-                    $new[$value['user_id']] = $value;
-                }
+//                     $skildataa[] = $va;
+//                 }
+//             }
+// //echo "<pre>";print_r($postdata);
+//                 $new = array();
+//                 foreach ($skildataa as $value) {
+//                     $new[$value['user_id']] = $value;
+//                 }
 
-        //echo "<pre>"; print_r($new); 
+             $new = array_unique($unique, SORT_REGULAR);
+                 
 
-        // die();
+    //echo "<pre>"; print_r($new); 
+
+       // die();
       
         $this->data['candidatejob'] = $new;
       
