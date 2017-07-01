@@ -1737,6 +1737,13 @@ $datacount = count($otherdata);
                     $notphoto = 'Photo Not Available';
                 }
 
+                // echo $notfound;
+                // echo $datacount;
+                // echo $notvideo;
+                // echo $notaudio;
+                // echo $notpdf;
+                // echo $notphoto; die();
+
                 echo json_encode(
                         array(
                             "notfound" => $notfound,

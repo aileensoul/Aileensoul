@@ -3624,7 +3624,7 @@ if (size > 10485760)
                             $('.' + 'dataconphoto').html(data.notphoto);
 
 
-                            $('#autorefresh').delay(10000).load('<?php echo base_url() . "artistic/art_manage_post" ?>');
+                            // $('#autorefresh').delay(10000).load('<?php //echo base_url() //. "artistic/art_manage_post" ?>');
                         }
 
                     }
