@@ -166,7 +166,7 @@
                 </div>
               <div class="form-group dob">
                 <select class="day" name="selday" id="selday">
-                  <option value="" disabled selected value>DD</option>
+                  <option value="" disabled selected value>Date</option>
                   <?php
                   for($i = 1; $i <= 31; $i++){
                   ?>
@@ -176,17 +176,28 @@
                   ?>
                 </select>
                 <select class="month" name="selmonth" id="selmonth">
-                  <option value="" disabled selected value>MM</option>
-                  <?php
-                  for($i = 1; $i <= 12; $i++){
-                  ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                  <?php
-                  }
-                  ?>
+                  <option value="" disabled selected value>Month</option>
+                  //<?php
+//                  for($i = 1; $i <= 12; $i++){
+//                  ?>
+                  <option value="1">Jan</option>
+                  <option value="2">Feb</option>
+                  <option value="3">Mar</option>
+                  <option value="4">Apr</option>
+                  <option value="5">May</option>
+                  <option value="6">Jun</option>
+                  <option value="7">Jul</option>
+                  <option value="8">Aug</option>
+                  <option value="9">Sep</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+                  //<?php
+//                  }
+//                  ?>
                 </select>
                 <select class="year" name="selyear" id="selyear">
-                  <option value="" disabled selected value>YYYY</option>
+                  <option value="" disabled selected value>Year</option>
                   <?php
                   for($i = date('Y'); $i >= 1900; $i--){
                   ?>
