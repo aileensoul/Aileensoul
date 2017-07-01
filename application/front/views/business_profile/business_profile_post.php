@@ -1,10 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?>
-<!--post save success pop up style strat -->
-
-<!--post save success pop up style end -->
-
-<!-- END HEAD -->
+<!-- end head -->
 <!-- start header -->
 <?php echo $header; ?>
 <!-- <script src="<?php echo base_url('js/fb_login.js'); ?>">
@@ -611,8 +607,7 @@
                                             ?>
                                         </div>
                                         <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
-                                            <!--<textarea id= "test-upload-product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>-->
-                                            <textarea id= "test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
+                                            <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
                                             <div class="fifty_val">                       
                                                 <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                             </div>

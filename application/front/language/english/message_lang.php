@@ -1,14 +1,20 @@
 <?php
 
-
 // BUSINESS PROFILE VARIABLE START
-
 // BUSINESS PROFILE
 
-$lang["post_your_product"] = "Post Your Product...";
-$lang["msg_last_name"] = "Last Name";
-$lang["msg_dob"] = "Date of Birth";
-$lang["msg_address"] = "Address";
+/* DASHBOARD */
 
+$lang["post_your_product"] = "Post Your Product...";
+
+/* DASHBOARD */
+
+
+/* BUSINESS INFORMATION */
+
+$lang["bus_reg_title"] = "You are making your Business Profile.";
+$lang["bus_reg_edit_title"] = "You are updating your Business Profile.";
+
+/* BUSINESS INFORMATION */
 
 // BUSINESS PROFILE VARIABLE END
