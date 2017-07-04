@@ -96,7 +96,7 @@
 
                                          
 
-                                          <span id ="filename" style="color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;"><?php echo $portfolio_attachment1; ?></span><span class="file_name"></span>
+                                          <span id ="filename" class="file_name_pdf"><?php echo $portfolio_attachment1; ?></span><span class="file_name"></span>
  
                       <div class="portfolio_image" style="color:#f00; display: block;"></div>
            
