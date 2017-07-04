@@ -13633,12 +13633,15 @@ padding-bottom: 10px !important;
         padding: 6px 7px;
         margin-top: 10px;
     }
-=======
+
 	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 6px; font-size:22px;}
 	.editable_text{padding-right:45px;}
->>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
+
 }
 @media screen and (max-width: 360px) {
+    .padd_img{
+    padding-left: 3px !important;
+    padding-top: 4px !important;}
     .padding_job_r ul .date_re {
         padding-left: 15px;
     }
