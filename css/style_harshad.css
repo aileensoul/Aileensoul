@@ -1,4 +1,4 @@
-select{color: #ccc;}
+select{color: #ccc; text-transform: capitalize;}
 
 
 select option:not(:checked) { color: black; }
