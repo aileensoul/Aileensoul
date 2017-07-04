@@ -611,9 +611,7 @@ if($userid){?>
         </div>
     </header>
 
-    <section class="buttonset">
-        <div id="nav_list"></div>
-    </section>
+    
 
     <!-- header end -->
 
