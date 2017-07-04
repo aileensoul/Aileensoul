@@ -12518,7 +12518,7 @@ end zalak 9-6 css*/
 
 /*Dhaval 17/6*/
 .like_cmmt_space{margin-left: 6px;}
-.deactive{padding-top: 120px;}
+.deactive{padding-top: 20px;}
 .mar_left{margin-left: 6px !important;}
 .business_pf_ct_person_form form  ul li span{
     word-wrap: break-word;
@@ -13097,6 +13097,7 @@ padding-bottom: 10px !important;
 
 /***  7-4-17 h ***/
 .mob-comment{display:none;}
+header.animated{z-index:9;}
 
 /***  media query  ***/
 @media (min-width: 1400px) { 
@@ -13532,9 +13533,9 @@ padding-bottom: 10px !important;
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
     .notification-data-inside h6{font-size: 12px;}
-<<<<<<< HEAD
+
 	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 7px; font-size:22px;}
-=======
+
       .user_lst li .follow-li-text a {
         font-size: 16px;
     }
@@ -13648,7 +13649,7 @@ padding-bottom: 10px !important;
     }
 
 	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 6px; font-size:22px;}
->>>>>>> fb62d1718e0f4d60d6da177251ebed6446786e8a
+
 	.editable_text{padding-right:45px;}
 
 }
