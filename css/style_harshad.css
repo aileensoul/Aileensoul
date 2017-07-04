@@ -18,14 +18,7 @@ text-overflow: ellipsis;}
 @media screen and (max-width: 1024px) {}
 @media screen and (max-width: 991px) {
       .dropdown-menu::before{right: 3.5%;}
-    .header ul li a {
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
-    }
-    .header ul li.dropdown-user a {
-        padding-top: 13px !important;
-        padding-bottom: 10px !important;
-    }
+   
     .chat .chat-history .message-data.align-right .message-data-time {
         font-size: 12px;
     }
@@ -101,10 +94,7 @@ text-overflow: ellipsis;}
     .main-menu-right {
         padding-top: 0PX;
     }
-    .header ul li.dropdown-user a {
-        padding-top: 9px !important;
-        padding-bottom: 7px !important;
-    }
+   
     .cover-pic {
         position: absolute !important;
         top: inherit;

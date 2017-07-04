@@ -6892,8 +6892,7 @@ footer .footer-menu li a:hover {
     display: inline-block;
     cursor: pointer;
     color: #9C9999;
-    font-family: Arial;
-    font-size: 13px;
+     font-size: 13px;
     margin-top: 3px;
     /* box-shadow: 2px -2px 8px #9C9999; */
     /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
@@ -13255,6 +13254,10 @@ padding-bottom: 10px !important;
     
 }
 @media screen and (max-width: 767px) {
+     .header ul li.dropdown-user a {
+        padding-top: 9px !important;
+        padding-bottom: 7px !important;
+    }
     .mob-block{display: block;}
     .mob-none{display: none;}
     .profile-box{display: none;}
@@ -13263,7 +13266,7 @@ padding-bottom: 10px !important;
     .mob-plr0{padding-left: 0; padding-right: 0;}
     .profile-main-rec-box-menu li a{padding: 10px 13px;}
     #notificationLink span{top:3px !important; right:5px !important;}
-    .header ul li a{padding:5px 10px !important;}
+    .header ul li a{padding:11px 10px !important;}
    
     .header-left-menu{ position:relative;width:100%;margin-top:-40px;}
     .main-menu-right ul li#notification_li{position:inherit !important;}
@@ -13727,12 +13730,14 @@ padding-bottom: 10px !important;
     .more-image{height:119px;}
     .three-image-top{height: 15%;}
     .post-design-name{padding-right: 0;}
-    .editor-content{width: 74%; padding-left: 0;}
-    .post-edit-popup .editor-content{width: 76%;}
-    .post-edit-popup .popup-text textarea{width: 84%;}
+    .editor-content{width: 69%; padding-left: 0;}
+    .post-edit-popup .editor-content{width: 72%;}
+    .post-edit-popup .popup-text textarea{width: 79%;}
     .comment-name{width: 78%;}
+    .popup-text textarea::-webkit-input-placeholder {
+    font-size: 10px;}
     .profile-main-box-buis-menu li a{font-size: 10px; height: 40px; padding: 5px 2px !important;}
-   .profile-box-art .right-side-menu li a{/*padding-left: 5px !important; padding-right: 5px !important;*/ font-size: 11px;}
+   .profile-box-art .right-side-menu li a{ font-size: 14px; font-weight: 500;}
    .job-menu-profile.mob-block{width: 66%;}
 }
 
