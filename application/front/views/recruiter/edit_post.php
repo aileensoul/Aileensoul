@@ -90,7 +90,7 @@
             <div class="container">
                 <div class="row">
                   <div class="col-md-3"> </div>
-                    <div class="col-md-7 col-sm-7">
+                    <div class="col-md-7 col-sm-7 ">
                      
                     <div class="common-form">
                     <h3 class="h3_edit">Edit Post</h3>
@@ -1193,11 +1193,7 @@ $('#datepicker').datetimepicker({
 <!-- Calender Js End
 
 -->
-    <script type="text/javascript">
-      $(document).ready(function() {
-  $("html,body").animate({scrollTop: 200}, 100); //100ms for example
-});
-    </script>
+   
 
     <style type="text/css">
    /*   #skils{margin-top: 42px !important;}
