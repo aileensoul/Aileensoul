@@ -118,8 +118,8 @@ class Registration extends CI_Controller {
          { 
             $data = array(
                //  'user_name' => $this->input->post('uname'),
-                 'first_name' => $this->input->post('first_name'),
-                 'last_name' => $this->input->post('last_name'),
+                 'first_name' => trim($this->input->post('first_name')),
+                 'last_name' => trim($this->input->post('last_name')),
                  'user_email' => $this->input->post('email_reg'),
                  'user_password' => md5($this->input->post('password_reg')),
                  'user_dob' => $dob,

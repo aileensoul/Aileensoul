@@ -10,11 +10,11 @@
                if($jobdata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+               <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
                                   
                                 <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview'){?> class="active" <?php } ?>>
 

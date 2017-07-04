@@ -126,10 +126,11 @@
                      if($freepostdata[0]['user_id'] == $userid){
                      
                      ?>     
-                  <ul class="current-user">
-                  <?php }else{?>
-                  <ul>
-                     <?php } ?>
+                   <ul class="current-user pro-fw">
+                   
+                   <?php }else{?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
                      <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">
                         Details</a>
                      </li>
