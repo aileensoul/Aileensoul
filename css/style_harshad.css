@@ -3,6 +3,7 @@ white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;}
 @media screen and (max-width: 1200px) {
+        #paddingtop_fixed{padding-top: 84px !important;}
     .profile-boxProfilebuisness-avatarLink2 {
         height: 75px !important;
     }
@@ -101,7 +102,6 @@ text-overflow: ellipsis;}
     {
     padding: 2px 8px 2px;
     font-size: 12px;
-}
     }
     #paddingtop_fixed
     {
