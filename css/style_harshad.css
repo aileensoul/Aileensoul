@@ -99,6 +99,7 @@ text-overflow: ellipsis;}
     }
 }
 @media screen and (max-width: 767px) {
+  
     .buisness-profile-pic-candidate
     {
         margin-left: 6px;
