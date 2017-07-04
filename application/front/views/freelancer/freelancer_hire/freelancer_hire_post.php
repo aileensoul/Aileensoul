@@ -182,11 +182,11 @@ echo $freelancer_hire_header2_border;} ?>
                if($freehiredata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+                   <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>>
                         <?php if($returnpage=='freelancer_post') {?><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile/'.$this->uri->segment(3).'?page=freelancer_post'); ?>">Employer Details</a> <?php } else {?> <a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a> <?php }?>
                     </li>

@@ -165,12 +165,11 @@
                if($freehiredata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+                 <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
-                                  
+                 <ul class="pro-fw4">
+                   <?php } ?>                                    
                             <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_hire_profile')) { ?> class="active" <?php } ?>><a title="Employer Details" href="<?php echo base_url('freelancer/freelancer_hire_profile'); ?>">Employer Details</a>
                             </li>
 
