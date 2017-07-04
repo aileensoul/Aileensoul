@@ -13412,7 +13412,7 @@ padding-bottom: 10px !important;
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
     .notification-data-inside h6{font-size: 12px;}
-	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 6px; font-size:22px;}
+	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 7px; font-size:22px;}
 	.editable_text{padding-right:45px;}
 }
 @media screen and (max-width: 360px) {
