@@ -184,10 +184,6 @@
         </div>
     </header>
 
-    <section class="buttonset">
-        <div id="nav_list"></div>
-    </section>
-
     <!-- header end -->
 
     <!-- script for update all read notification start-->
