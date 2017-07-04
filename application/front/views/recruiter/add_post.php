@@ -432,10 +432,10 @@
 
 </script>
 
-<!-- <script src="<?php //echo base_url('js/jquery.wallform.js'); ?>"></script>
- <script src="<?php //echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php //echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php //secho base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> -->
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
@@ -699,8 +699,8 @@ if(mm<10) {
                             // },
                              number:true,
                               min: 0,
-                             greaterThan: "#minsal"
-                           maxlength:11
+                             greaterThan: "#minsal",
+                            maxlength:11
                         },
                         // position_no:{
                         //     required:true
