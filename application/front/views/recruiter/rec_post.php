@@ -186,11 +186,11 @@ if ($returnpage == 'job') {
                if($recdata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+                 <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
 
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>
