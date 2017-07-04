@@ -204,7 +204,9 @@ echo $freelancer_post_header2_border;
 
 <?php } ?>
                     </ul>
-                  
+                     <div class="flw_msg_btn fr">
+                    <ul>
+                     
                             
  <?php 
    $userid = $this->session->userdata('aileenuser');
@@ -213,9 +215,7 @@ echo $freelancer_post_header2_border;
   if($userid != $this->uri->segment(3)){ 
       if($this->uri->segment(3) != ""){
     if (!$data) {  ?> 
-                      <div class="flw_msg_btn fr">
-                    <ul>
-                     
+                   
                         <li>
                           <!--   <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>"> -->
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
@@ -231,10 +231,10 @@ echo $freelancer_post_header2_border;
                       <li>
            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
                  </li>
+                  
+      <?php }} ?>
                    </ul>
                 </div>
-      <?php }} ?>
-                  
             </div>
            
         </div>

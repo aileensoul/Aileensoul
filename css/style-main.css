@@ -774,6 +774,7 @@ transition: background-color 600s ease-in-out 0s;
 	
 }
 @media screen and (max-width: 767px) {
+	.main-login{background-size: cover;}
 	header h2{text-align:center; padding-bottom:15px;}
 	.header-login{text-align:center;}
 	.top-middle{min-height:auto; padding:0 0 15px; text-align:center;}
