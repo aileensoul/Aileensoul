@@ -179,11 +179,12 @@ echo $freelancer_post_header2_border;
                if($freelancerpostdata[0]['user_id'] == $userid){
                
                ?>     
-               <ul class="current-user">
+                     <ul class="current-user pro-fw">
                    
                    <?php }else{?>
-                 <ul>
-                   <?php } ?>
+                 <ul class="pro-fw4">
+                   <?php } ?>  
+
                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>>
                         <?php if($returnpage == 'freelancer_hire'){ ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile/').$this->uri->segment(3).'?page=freelancer_hire'; ?>">Details</a><?php } else { ?><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a><?php } ?>
                     </li>
@@ -203,10 +204,7 @@ echo $freelancer_post_header2_border;
 
 <?php } ?>
                     </ul>
-                  <div class="flw_msg_btn fr">
-                    <ul>
-                     
-                        <li>
+                  
                             
  <?php 
    $userid = $this->session->userdata('aileenuser');
@@ -215,7 +213,10 @@ echo $freelancer_post_header2_border;
   if($userid != $this->uri->segment(3)){ 
       if($this->uri->segment(3) != ""){
     if (!$data) {  ?> 
-                        <li> 
+                      <div class="flw_msg_btn fr">
+                    <ul>
+                     
+                        <li>
                           <!--   <input type="hidden" id="<?php echo 'hideenuser' . $this->uri->segment(3); ?>" value= "<?php echo $this->uri->segment(3); ?>"> -->
                     <a id="<?php echo $this->uri->segment(3); ?>" onClick="savepopup(<?php echo $this->uri->segment(3); ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $this->uri->segment(3); ?>">
                         Save
@@ -230,9 +231,10 @@ echo $freelancer_post_header2_border;
                       <li>
            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
                  </li>
-      <?php }} ?>
-                    </ul>
+                   </ul>
                 </div>
+      <?php }} ?>
+                  
             </div>
            
         </div>
