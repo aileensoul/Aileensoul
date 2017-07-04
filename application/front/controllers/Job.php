@@ -3908,7 +3908,7 @@ $files[] = $_FILES;
             $data = '*';
 
             $this->data['job'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-          //  echo "<pre>";print_r( $this->data['job']);die();
+          // echo "<pre>";print_r( $this->data['job']);die();
             //for getting data job_add_edu table
             $contition_array = array('user_id' => $userid, 'status' => '1');
 
