@@ -8020,7 +8020,6 @@ fieldset .add_post_btns {
     background: -o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
     background: -ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
     background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9', GradientType=0);
     background-color: #e9e9e9;
     color: #666666;
 }
@@ -13237,7 +13236,12 @@ padding-bottom: 10px !important;
     .job-menu-profile{width: 100%; padding-left: 15px; margin-top: 10px;}
     .user-section-free-up{display: none;}
     .art-inner .job-menu-profile{width: 100%; margin-bottom: 15px}
-
+     .profile-job-details .job_companyname {
+        width: 300px;
+    }
+    .profile-job-details .post_title {
+        width: 50% !important;
+    }
     .art-side-menu .flw_msg_btn a{margin-top: 0;}
     .art-side-menu{padding-left: 160px !important;}
     .art-custom{margin-top: 25px;}
@@ -13254,6 +13258,7 @@ padding-bottom: 10px !important;
     
 }
 @media screen and (max-width: 767px) {
+    .post-design-name ul li .post_dot1{font-size: 14px;}
      .header ul li.dropdown-user a {
         padding-top: 9px !important;
         padding-bottom: 7px !important;
@@ -13376,7 +13381,12 @@ padding-bottom: 10px !important;
     .post-edit-popup .popup-text textarea{width: 90%;}
 }
 @media screen and (max-width: 540px) {
+    .profile-job-details .job_companyname{width: 208px;}
      .file_name_pdf{font-size: 12px;}
+
+    .profile-job-details .post_title {
+        width: 46% !important;
+    }
 
     .alert.alert-danger {
     background-color: #f2dede;
@@ -13450,13 +13460,13 @@ padding-bottom: 10px !important;
     }
 }
 @media screen and (max-width: 479px) {
-<<<<<<< HEAD
+
     .post-design-desc {
             font-style: 12px;
     }
-=======
+
 	.mob-comment{display:block; position:absolute; bottom:0; right:0;}
->>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
+
     .mob-plr0{padding-left: 0; padding-right: 0;}
     .pl15-mob{padding-left: 15px;}
     .fw-479{width: 100%;}
@@ -13482,12 +13492,10 @@ padding-bottom: 10px !important;
     .profile-job-profile-menu ul li{padding-left: 0;}
     .post-design-name ul li .post_dot{font-size: 14px; max-width: 66%;}
     .post-design-product{font-size: 12px;}
-<<<<<<< HEAD
     .cmy_2{width:87%;  padding-right: 0;}
-=======
     .post-design-name ul li .post_dot{font-size: 14px;}
     .cmy_2{width:97%;  padding-right: 0; position:relativ;}
->>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
+
     .two-images{height: 150px;}
     .three-image{height: 150px;}
     .four-image{height: 150px;}
@@ -13521,7 +13529,6 @@ padding-bottom: 10px !important;
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
     .notification-data-inside h6{font-size: 12px;}
-<<<<<<< HEAD
       .user_lst li .follow-li-text a {
         font-size: 16px;
     }

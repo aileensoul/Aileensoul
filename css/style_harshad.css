@@ -53,12 +53,8 @@ text-overflow: ellipsis;}
     .left_box_menubar li a {
         font-size: 12px;
     }
-    .profile-job-details .post_title {
-        width: 50% !important;
-    }
-    .profile-job-details .job_companyname {
-        width: 300px;
-    }
+    
+   
 }
 @media screen and (max-width: 767px) {
   
