@@ -166,7 +166,7 @@
                 </div>
               <div class="form-group dob">
                 <select class="day" name="selday" id="selday">
-                  <option value="" disabled selected value>Date</option>
+                  <option value="" disabled selected value>Day</option>
                   <?php
                   for($i = 1; $i <= 31; $i++){
                   ?>

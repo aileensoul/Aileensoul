@@ -80,7 +80,7 @@
 
 
 <?php echo $header; ?>
-   <?php echo $recruiter_header2; ?>
+   <?php echo $recruiter_header2_border; ?>
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
 
@@ -90,7 +90,7 @@
             <div class="container">
                 <div class="row">
                   <div class="col-md-3"> </div>
-                    <div class="col-md-7 col-sm-7">
+                    <div class="col-md-7 col-sm-7 ">
                      
                     <div class="common-form">
                     <h3 class="h3_edit">Edit Post</h3>
@@ -1199,11 +1199,7 @@ $('#datepicker').datetimepicker({
 <!-- Calender Js End
 
 -->
-    <script type="text/javascript">
-      $(document).ready(function() {
-  $("html,body").animate({scrollTop: 200}, 100); //100ms for example
-});
-    </script>
+   
 
     <style type="text/css">
    /*   #skils{margin-top: 42px !important;}

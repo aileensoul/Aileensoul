@@ -52,7 +52,7 @@ $(window).load(function(){
 
 </style>
 <!-- style for span id=notification_count end-->
-
+<link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
@@ -434,8 +434,8 @@ $( document ).on( 'keydown', function ( e ) {
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> This alert box could indicate a successful or positive action.
   </div> -->
-    <header>
-        <div class="header">
+    <header class="">
+        <div class="header animated fadeInDownBig">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
@@ -604,14 +604,14 @@ if($userid){?>
 
 
                     <?php }?>
-                </div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </header>
 
-    <section class="buttonset">
-        <div id="nav_list"></div>
-    </section>
+    
 
     <!-- header end -->
 

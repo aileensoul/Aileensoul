@@ -1,5 +1,6 @@
 <!--start head -->
 <?php echo $head; ?>
+
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <?php echo $header; ?>
@@ -109,7 +110,7 @@
       <div class="user-midd-section" id="paddingtop_fixed">
       <div class="container">
       <div class="row">
-      <div class="profile-art-box profile-box-custom col-md-4 ">
+      <div class="profile-art-box profile-box-custom col-md-4 animated fadeInLeftBig">
          <?php ?>
          <div class="full-box-module">
             <div class="profile-boxProfileCard  module">
@@ -528,7 +529,7 @@
       <!-- popup start -->
       <!-- Trigger/Open The Modal -->
       <!-- popup end -->
-      <div class="col-md-7 col-sm-12 col-md-push-4  custom-right-art">
+      <div class="col-md-7 col-sm-12 col-md-push-4  custom-right-art animated fadeInUp">
      
          <div class="post-editor col-md-12">
             <div class="main-text-area col-md-12">
@@ -561,73 +562,7 @@
                </div>
             </div>
          </div>
-         <!-- The Modal -->
-         <div id="myModal" class="modal-post">
-            <!-- Modal content -->
-            <div class="modal-content-post">
-               <span class="close1">&times;</span>
-                  <div class="post-editor col-md-12 post-edit-popup" id="close">
-                  <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
-                  <div class="main-text-area " >
-                     <div class="popup-img-in "> 
-
-                     <?php if($artisticdata[0]['art_user_image']){?>
-                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
-                     <?php }else{?>
-
-                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($artisticdata[0]['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>">
-
-                     <?php }?>
-
-                     </div>
-                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
-                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
- <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur="check_length(this.form)" name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
-                        <div class="fifty_val">                       
-                           <input size=1 class="text_num" value=50 name=text_num readonly> 
-                        </div>
-                   
-                      <div class="padding-left padding_les_left camer_h">
-                        <i class=" fa fa-camera" >
-                        </i> 
-                     </div>
-                       </div>
-                  </div>
-                  <div class="row"></div>
-                  <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                     <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
-                     <output id="list"></output>
-                  </div>
-                  <!--   <span class="fr">
-                     <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-                  <div class="popup-social-icon">
-                     <ul class="editor-header">
-                        <li>
-                           <div class="col-md-12">
-                              <div class="form-group">
-                                 <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
-                              </div>
-                           </div>
-                           <label for="file-1">
-                           <i class=" fa fa-camera upload_icon"  > Photo</i>
-                           <i class=" fa fa-video-camera upload_icon"  > Video </i>
-                           <i class="fa fa-music upload_icon "  > Audio </i>
-                           <i class=" fa fa-file-pdf-o upload_icon"  > PDF </i>
-                           </label>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="fr">
-                     <button type="submit"  value="Submit">Post</button>    
-                  </div>
-                  <?php echo form_close(); ?>
-               </div>
-            </div>
-         </div>
+         
     
       <?php
 
@@ -1198,12 +1133,14 @@
                               </div>
                               <div class="edit-comment-box">
                                  <div class="inputtype-edit-comment">
-                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?></div>
+                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?>
+									
+									</div>
                                     <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
                                  </div>
                               </div>
                               <div class="art-comment-menu-design">
-                                 <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
+                                <div class="comment-details-menu" id="<?php echo 'likecomment1' . $rowdata['artistic_post_comment_id']; ?>">
                                     <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>"   onClick="comment_like1(this.id)">
                                     <?php
                                        $userid = $this->session->userdata('aileenuser');
@@ -1227,8 +1164,8 @@
                                        ?>
                                     </span>
                                     </a>
-                                 </div>
-                                 <?php
+                                </div>
+                                <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     
                                     if ($rowdata['user_id'] == $userid) {
@@ -1244,7 +1181,7 @@
                                        </a>
                                     </div>
                                  </div>
-                                 <?php } ?>
+                                <?php } ?>
                                  <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     
@@ -1285,7 +1222,7 @@
                         $userid = $this->session->userdata('aileenuser');
                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
                         ?>
-                     <div class="post-design-proo-img">
+                     <div class="post-design-proo-img hidden-mob">
                         <?php if ($art_userimage[0]['art_user_image']) { ?>
                         <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                         <?php
@@ -1299,9 +1236,13 @@
                      <div class="">
                         <div id="content" class="col-md-12 inputtype-comment cmy_2" >
                            <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+						   <div class="mob-comment">
+							<button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)"><img src="../img/send.png"></button> 
+							
+						   </div>
                         </div>
                         <?php echo form_error('post_comment'); ?>
-                        <div class=" comment-edit-butn" >   
+                        <div class=" comment-edit-butn hidden-mob" >   
                            <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                         </div>
                      </div>
@@ -1393,6 +1334,73 @@
                 </div>
             </div>
             <!-- Bid-modal for this modal appear or not  Popup Close -->
+		<!-- The Modal -->
+         <div id="myModal" class="modal-post">
+            <!-- Modal content -->
+            <div class="modal-content-post">
+               <span class="close1">&times;</span>
+                  <div class="post-editor col-md-12 post-edit-popup" id="close">
+                  <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+                  <div class="main-text-area " >
+                     <div class="popup-img-in "> 
+
+                     <?php if($artisticdata[0]['art_user_image']){?>
+                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                     <?php }else{?>
+
+                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+                                       echo ucwords($artisticdata[0]['art_name']);
+                                       echo"&nbsp;";
+                                       echo ucwords($artisticdata[0]['art_lastname']);
+                                       ?>">
+
+                     <?php }?>
+
+                     </div>
+                     <div id="myBtn"  class="editor-content col-md-10 popup-text" >
+                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
+ <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur="check_length(this.form)" name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
+                        <div class="fifty_val">                       
+                           <input size=1 class="text_num" value=50 name=text_num readonly> 
+                        </div>
+                   
+                      <div class="padding-left padding_les_left camer_h">
+                        <i class=" fa fa-camera" >
+                        </i> 
+                     </div>
+                       </div>
+                  </div>
+                  <div class="row"></div>
+                  <div  id="text"  class="editor-content col-md-12 popup-textarea" >
+                     <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description"></textarea>
+                     <output id="list"></output>
+                  </div>
+                  <!--   <span class="fr">
+                     <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+                  <div class="popup-social-icon">
+                     <ul class="editor-header">
+                        <li>
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                              </div>
+                           </div>
+                           <label for="file-1">
+                           <i class=" fa fa-camera upload_icon"  > Photo</i>
+                           <i class=" fa fa-video-camera upload_icon"  > Video </i>
+                           <i class="fa fa-music upload_icon "  > Audio </i>
+                           <i class=" fa fa-file-pdf-o upload_icon"  > PDF </i>
+                           </label>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="fr">
+                     <button type="submit"  value="Submit">Post</button>    
+                  </div>
+                  <?php echo form_close(); ?>
+               </div>
+            </div>
+         </div>
    </body>
 </html>
 <script>
