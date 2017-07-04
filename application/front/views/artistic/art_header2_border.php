@@ -1,5 +1,5 @@
 
-<header>
+<header class="animated fadeInDownBig">
     <div class="bg-search">
         <div class="header2 headerborder">
             <div class="container">

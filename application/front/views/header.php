@@ -434,7 +434,7 @@ $( document ).on( 'keydown', function ( e ) {
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Success!</strong> This alert box could indicate a successful or positive action.
   </div> -->
-    <header>
+    <header class=" animated fadeInDownBig">
         <div class="header">
             <div class="container">
                 <div class="row">
@@ -604,7 +604,9 @@ if($userid){?>
 
 
                     <?php }?>
-                </div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </header>
