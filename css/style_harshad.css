@@ -1,3 +1,7 @@
+.profile-job-post-location-name-rec .post_name{width: 93%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;}
 @media screen and (max-width: 1200px) {
     .profile-boxProfilebuisness-avatarLink2 {
         height: 75px !important;
@@ -93,6 +97,12 @@
     }
 }
 @media screen and (max-width: 767px) {
+    .apply-btn a
+    {
+    padding: 2px 8px 2px;
+    font-size: 12px;
+}
+    }
     #paddingtop_fixed
     {
         padding-top: 34px !important;
@@ -282,6 +292,26 @@
     }
 }
 @media screen and (max-width: 540px) {
+
+    .alert.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    left: 0;
+    margin: 0 auto;
+        margin-top: 0px;
+    margin-top: 0px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 55%;
+    z-index: 9;
+    font-size: 12px;
+    margin-top: -19px;
+    }
+    .profile-job-post-location-name-rec .post_name{
+        font-size: 14px;
+    }
     ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
       font-size: 13px;
     }
@@ -331,7 +361,7 @@
     }
     .profile-job-post-detail .profile-job-post-title .button {
         font-size: 13px;
-        padding: 2px 12px;
+        padding: 2px 12px !important;
     }
 }
 @media screen and (max-width: 479px) {
@@ -532,6 +562,6 @@
     }
     .profile-job-post-detail .profile-job-post-title .button {
         font-size: 12px;
-        padding: 1px 5px;
+        padding: 1px 5px !important;
     }
 }
