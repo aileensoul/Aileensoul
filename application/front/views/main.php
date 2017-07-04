@@ -251,6 +251,10 @@
     </div>
   </footer>
 </div>
+
+</body>
+</html>
+
 <script>
   $( document ).ready(function() {
     
@@ -597,5 +601,21 @@ $(document).ready(function () { //aletr("hii");
    //For Scroll page at perticular position js End
 </script>
 
-</body>
-</html>
+
+
+<script type="text/javascript">
+// disable spacebar js start
+$(document).ready(function(){
+$("#email_reg").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
+
+$(document).ready(function(){
+  $("#password_reg").on("keydown", function (e) {
+return e.which !== 32;
+});
+}); 
+
+// disable spacebar js end
+</script>
