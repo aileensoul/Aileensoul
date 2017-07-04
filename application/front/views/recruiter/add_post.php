@@ -690,6 +690,7 @@ if(mm<10) {
                         },
                         minsal:{
                             number:true
+
                            // le:"#maxsal"
                         },
                         maxsal:{
@@ -698,7 +699,8 @@ if(mm<10) {
                             // },
                              number:true,
                               min: 0,
-                             greaterThan: "#minsal"
+                             greaterThan: "#minsal",
+                            maxlength:11
                         },
                         // position_no:{
                         //     required:true

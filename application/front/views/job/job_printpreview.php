@@ -105,20 +105,20 @@
                               </div>-->
             </div>
             <div class="job-menu-profile mob-block">
-               <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>">
-                  <h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5>
+               <a  href="<?php echo site_url('job/job_printpreview/' . $job[0]['user_id']); ?>">
+                  <h5 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h5>
                </a>
                <!-- text head start -->
                <div class="profile-text" >
                   <?php
-                     if ($jobdata[0]['designation'] == '') {
+                     if ($job[0]['designation'] == '') {
                          ?>
                   <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
                   <a id="designation" class="designation" title="Designation">Current Work</a>
                   <?php } else {
                      ?> 
-                  <!--<a id="myBtn" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>-->
-                  <a id="designation" class="designation" title="<?php echo ucwords($jobdata[0]['designation']); ?>"><?php echo ucwords($jobdata[0]['designation']); ?></a>
+                
+                  <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
                   <?php } ?>
                </div>
             </div>

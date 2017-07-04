@@ -732,8 +732,7 @@ transition: background-color 600s ease-in-out 0s;
 	text-align:center;
 }
 
-
-
+section { overflow: hidden; }
 /***  media query  ***/
 
 @media (min-width: 1280px) { 
@@ -749,7 +748,31 @@ transition: background-color 600s ease-in-out 0s;
 	.profile-box-1.bus::before, .profile-box-1.art::before {height: 60px; left: 74%;}
 	.profile-box-1.art::after{height: 60px; left: 22%;}
 }
+@media screen and (max-width: 1024px) {
+
+
+	.middle-section{padding-top: 24PX;}
+
+
+}
+
 @media screen and (max-width: 991px) {
+		.banner-box .left-profile{left: 0px!important;}
+	.m-h-a{max-height: 215px;}
+	.upload-profile
+	{
+	width: 115px;
+	height: 120px;
+	padding: 25px 11px;
+	left: 0;
+	bottom: -6px;
+	}
+	.banner-box .left-profile{width: 235px;}
+	.banner-box .left-profile .profile-photo{width: 114px; height: 114px;}
+	.banner-box .left-profile .profile-photo img.main-pic{width: 120px; height: 120px;}
+	.profile-detail h2{font-size: 20px;}
+
+
 	.header-login .input{width:25%;}
 	.top-middle h3{font-size:18px;}
 	.bottom-middle{padding:0;}
@@ -795,13 +818,17 @@ transition: background-color 600s ease-in-out 0s;
 	.title h1{font-size:35px;}
 	.about-content{font-size:14px;}
 	.main-inner .middle-main{padding:20px 0;}
-	.banner{margin-left:-15px; margin-right:-15px;}
+	.banner{/*margin-left: -15px;
+		margin-right: -15px;*/
+		width: 100%;
+		float: left;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:250px; height:250px;}
 	.hover-content p{padding:25px 0;}
 	.profile-box-1.bus::before{left:47%; top:-8%;}
 	.profile-box-1.art::after{left:20%;}
 }
 @media screen and (max-width: 640px) {
+	.banner-box .left-profile{left: 0px!important;}
 	.box-profile{margin:0 10px 20px;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:200px; height:200px;}
 	.profile-box-1 .all-img img{width:70px;}
@@ -812,13 +839,14 @@ transition: background-color 600s ease-in-out 0s;
 	.hover-content p{padding:22px 0;}
 	.profile-box-1.art:before, .profile-box-1.art::after {height:47px;}
 	.banner-box .left-profile{width:200px;}
-	.banner-box .left-profile .profile-photo img{width:80px; height:80px;}
+	.banner-box .left-profile .profile-photo img{width:35px; height:35px;}
 	.banner-box .left-profile{padding:30px 10px;}
 	.profile-detail h2{font-size:22px;}
 	.banner-box .banner-img{max-height:250px;}
 	.banner-box img{height:250px;}
 }
 @media screen and (max-width: 479px) {
+	.profile-detail h2{font-size: 17px;}
 	.header-login .input{width:45%;}
 	.middle-main{padding:30px 0;}
 	.login{width:100%;}

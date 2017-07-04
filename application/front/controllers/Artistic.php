@@ -5120,6 +5120,8 @@ $datacount = count($otherdata);
 
         $userid = $this->session->userdata('aileenuser');
 
+        //echo "<pre>"; print_r($_POST); die();
+
          //if user deactive profile then redirect to artistic/index untill active profile start
          $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
@@ -5133,7 +5135,7 @@ $datacount = count($otherdata);
 
         $post_id = $_POST["art_post_id"];
         $art_post = $_POST["art_post"];
-        $art_description = $_POST["art_description"];
+       $art_description = $_POST["art_description"]; 
 
         $data = array(
             'art_post' => $art_post,

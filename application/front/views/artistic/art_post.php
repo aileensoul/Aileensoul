@@ -828,7 +828,7 @@
                    ?>
                    </div>
                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-                           <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Description" ><?php echo $row['art_description']; ?></div>
+                           <div id="plainText" contenteditable="true" class="textbuis editable_text margin_btm <?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc" placeholder="Description" ><?php echo $row['art_description']; ?></div>
                         </div>
                          <!-- khyati changes end 24-6 -->
                         <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
@@ -3405,6 +3405,43 @@
 
    }
 </script>
+
+
+
+<script type="text/javascript">
+
+   
+
+   var $plainText = $("#plainText");
+
+   $plainText.on('paste', function (e) {
+    window.setTimeout(function () {
+        $plainText.html(removeAllTags(replaceStyleAttr($plainText.html())));
+    }, 0);
+});
+
+
+function replaceStyleAttr (str) { 
+    return str.replace(/(<[\w\W]*?)(style)([\w\W]*?>)/g, function (a, b, c, d) {
+        return b + 'style_replace' + d;
+    });
+}
+
+
+
+function removeAllTags (str) {
+
+
+    var str = str.replace(/<\/?(\w+)\s*[\w\W]*?>/g, '');
+    return str.replace(/&nbsp;/g, '<br/>');
+  
+
+}
+
+</script>
+
+
+
 <script type="text/javascript">
    function edit_postinsert(abc)
    {
@@ -3412,11 +3449,11 @@
        var editpostname = document.getElementById("editpostname" + abc);
        // var editpostdetails = document.getElementById("editpostdesc" + abc);
        // start khyati code
-       var $field = $('#editpostdesc' + abc);
+       var $field = $('.editpostdesc' + abc);
        //var data = $field.val();
-       var editpostdetails = $('#editpostdesc' + abc).html();
+       var editpostdetails = $('.editpostdesc' + abc).html();
        // end khyati code
-   
+   //alert(editpostdetails);
        if ((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')) {
            $('.biderror .mes').html("<div class='pop_content'>You must either fill title or description.");
            $('#bidmodal').modal('show');
@@ -3427,7 +3464,10 @@
            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
    
            document.getElementById('editpostsubmit' + abc).style.display = 'none';
-       } else {
+       } else { 
+
+   //alert(editpostdetails);
+
            $.ajax({
                type: 'POST',
                url: '<?php echo base_url() . "artistic/edit_post_insert" ?>',
@@ -3467,30 +3507,3 @@
 
 
 
-<script type="text/javascript">
-
-    var _onPaste_StripFormatting_IEPaste = false;
-
-    function OnPaste_StripFormatting(elem, e) { 
-
-        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.originalEvent.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (e.clipboardData && e.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (window.clipboardData && window.clipboardData.getData) {
-            // Stop stack overflow
-            if (!_onPaste_StripFormatting_IEPaste) {
-                _onPaste_StripFormatting_IEPaste = true;
-                e.preventDefault();
-                window.document.execCommand('ms-pasteTextOnly', false);
-            }
-            _onPaste_StripFormatting_IEPaste = false;
-        }
-
-    }
-
-</script>

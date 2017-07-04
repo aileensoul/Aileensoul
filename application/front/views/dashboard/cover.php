@@ -69,8 +69,8 @@
 
 
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="m-h-a" id="">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
