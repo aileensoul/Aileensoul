@@ -13095,6 +13095,10 @@ padding-bottom: 10px !important;
     color: #787878;
     border-bottom: 1px solid #d9d9d9;
 }
+
+/***  7-4-17 h ***/
+.mob-comment{display:none;}
+
 /***  media query  ***/
 @media (min-width: 1400px) { 
    
@@ -13443,9 +13447,13 @@ padding-bottom: 10px !important;
     }
 }
 @media screen and (max-width: 479px) {
+<<<<<<< HEAD
     .post-design-desc {
             font-style: 12px;
     }
+=======
+	.mob-comment{display:block; position:absolute; bottom:0; right:0;}
+>>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
     .mob-plr0{padding-left: 0; padding-right: 0;}
     .pl15-mob{padding-left: 15px;}
     .fw-479{width: 100%;}
@@ -13471,7 +13479,12 @@ padding-bottom: 10px !important;
     .profile-job-profile-menu ul li{padding-left: 0;}
     .post-design-name ul li .post_dot{font-size: 14px; max-width: 66%;}
     .post-design-product{font-size: 12px;}
+<<<<<<< HEAD
     .cmy_2{width:87%;  padding-right: 0;}
+=======
+    .post-design-name ul li .post_dot{font-size: 14px;}
+    .cmy_2{width:97%;  padding-right: 0; position:relativ;}
+>>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
     .two-images{height: 150px;}
     .three-image{height: 150px;}
     .four-image{height: 150px;}
@@ -13505,6 +13518,7 @@ padding-bottom: 10px !important;
     ul li, ol li {font-size: 12px;}
     .comment-edit-butn{float: left; padding: 0 50px 6px; position: inherit; bottom: inherit; right: inherit;}
     .notification-data-inside h6{font-size: 12px;}
+<<<<<<< HEAD
       .user_lst li .follow-li-text a {
         font-size: 16px;
     }
@@ -13616,6 +13630,10 @@ padding-bottom: 10px !important;
         padding: 6px 7px;
         margin-top: 10px;
     }
+=======
+	.mob-comment button{background:none; color:#1b8ab9; padding:0px 0 6px; font-size:22px;}
+	.editable_text{padding-right:45px;}
+>>>>>>> 99d17aaccfcc9954192486986b6111b1322ece93
 }
 @media screen and (max-width: 360px) {
     .padding_job_r ul .date_re {
