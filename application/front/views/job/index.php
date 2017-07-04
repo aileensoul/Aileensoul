@@ -323,8 +323,14 @@ if (count($nation) > 0) {
 
                                 <fieldset <?php if ($gender) { ?> class="error-msg" <?php } ?>>
                                     <label>Gender<span class="red">*</span></label>
-                                    <input type="radio" name="gender" value="male" id="gender" tabindex="9" <?php echo ($gender1 == 'male') ? 'checked' : '' ?>>Male
-                                    <input type="radio" name="gender" value="female" id="gender" tabindex="9" <?php echo ($gender1 == 'female') ? 'checked' : '' ?> >Female
+                                    <input type="radio" name="gender" value="male" id="gender" tabindex="9" <?php if($gender1){if($gender1 == 'male') { echo 'checked' ; }}
+                                    else { if($job[0]['user_gender'] == 'M'){ echo 'checked' ; }}
+                                       
+                                    ?>>Male
+                                    <input type="radio" name="gender" value="female" id="gender" tabindex="9" <?php  if($gender1){if($gender1 == 'female') { echo 'checked' ; }}
+                                    else { if($job[0]['user_gender'] == 'F'){echo 'checked' ; }}
+                                       
+                                    ?> >Female
                                     <span id="gender-error"> </span>
 <?php echo form_error('gender'); ?>
                                 </fieldset>
@@ -547,6 +553,33 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 }, "Number, space and special character are not allowed");
 
 
+// for date validtaion start
+
+jQuery.validator.addMethod("isValid", function (value, element) {
+
+var todaydate = new Date();
+var dd = todaydate.getDate();
+var mm = todaydate.getMonth()+1; //January is 0!
+var yyyy = todaydate.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+   var todaydate = yyyy+'-'+mm+'-'+dd;
+
+    var one = new Date(value).getTime();
+    var second = new Date(todaydate).getTime();
+   
+    return one <= second;
+}, "Last date should be Less than Or equal to today date");
+
+//date validation end
+
         $("#jobseeker_regform").validate({
 
             ignore: ".language",
@@ -612,7 +645,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 dob: {
 
                     required: true,
-
+                    isValid: 'Last date should be Less than Or equal to today date',
                 },
                 gender: {
 
@@ -748,7 +781,7 @@ if(date_picker_edit=="1970-01-01"){
  
      $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
-                    submitFormat: "dd/mm/yyyy",
+                    submitFormat: "yyyy-mm-dd",
                     minYear: 1821,
                     maxYear: today,
                     defaultDate: date_picker,
@@ -758,14 +791,14 @@ if(date_picker_edit=="1970-01-01"){
                     monthLabel: 'MM',
                     yearLabel: 'YYYY',
                     //startDate: today,
-
+ 
                 });   
 }
 else if(date_picker=="1970-01-01"){
 
                 $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
-                    submitFormat: "dd/mm/yyyy",
+                    submitFormat: "yyyy-mm-dd",
                     minYear: 1821,
                     maxYear: today,
                     defaultDate: date_picker_edit,
@@ -781,7 +814,7 @@ else if(date_picker=="1970-01-01"){
 
                 $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
-                    submitFormat: "dd/mm/yyyy",
+                    submitFormat: "yyyy-mm-dd",
                     minYear: 1821,
                     maxYear: today,
                     daySuffixes: false,

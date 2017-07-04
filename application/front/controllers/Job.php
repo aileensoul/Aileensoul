@@ -26,13 +26,7 @@ class Job extends MY_Controller {
 
     //job seeker basic info controller start
 
- public function temp() {
-
-$this->load->view('business_profile/temp');
- }
     public function index() {
-
-      
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -43,8 +37,8 @@ $this->load->view('business_profile/temp');
             $this->load->view('job/reactivate', $this->data);
         } else {
 
-            $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+         
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');           
             $this->data['job'] = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
            //echo "<pre>"; print_r($this->data['job']); die();
 
