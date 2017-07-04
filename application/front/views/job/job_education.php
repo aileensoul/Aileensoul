@@ -476,6 +476,7 @@
                                                 <?php
                                                    }
                                                    ?>
+        <option value="<?php echo $degree_otherdata[0]['degree_id']; ?> "><?php echo $degree_otherdata[0]['degree_name']; ?></option>  
                                              </select>
                                              <?php echo form_error('degree'); ?>
                                              <!--    </fieldset> -->
@@ -660,13 +661,15 @@
                                                 //}
                                                 }
                                                 ?>
+    <option value="<?php echo $degree_otherdata[0]['degree_id']; ?> "><?php echo $degree_otherdata[0]['degree_name']; ?></option> 
+
                                           </select>
                                           <?php echo form_error('degree'); ?>
                                           <!--     </fieldset>
                                              <fieldset class=""> -->
                                           <h6>Stream :<span class="red">*</span></h6>
                                           <select name="stream[]" id="stream1" class="stream" >
-                                             <option value="" selected option disabled>Select Degree First</option>
+                                             
                                              <?php
                                                 if ($stream1) {
                                                     foreach ($stream_data as $cnt) {
@@ -1627,14 +1630,15 @@
                });
            
 </script>
-<!-- stream change depend on degeree start-->
-<!-- <script type="text/javascript">   
-   $(".formSentMsg").delay(3200).fadeOut(300);
-   </script> -->
+<!-- stream change depend on degeree End-->
+
 <script type="text/javascript">
    $(".alert").delay(3200).fadeOut(300);
 </script>
+
 <script type="text/javascript">
+
+//Click on University other option process Start 
    $(document).on('change', '.university', function (event) {
       var item=$(this);
       var uni=(item.val());
@@ -1671,7 +1675,92 @@
       }
      
    });
-  
+//Click on University other option process End 
+
+//Click on Degree other option process Start 
+   $(document).on('change', '.degree', function (event) {
+      var item=$(this);
+      var degree=(item.val());
+     
+      if(degree == 54)
+      {
+
+            $.fancybox.open('<div class="message"><h2>Add Degree</h2><input type="text" name="other_degree" id="other_degree"><h2>Add Stream</h2><select name="other_degree" id="other_degree" class="other_degree">  <option value="" Selected option disabled="">Select your Stream</option><?php foreach ($stream_alldata as $stream){?><option value="<?php echo $stream['stream_id']; ?>"><?php echo $stream['stream_name']; ?></option><?php } ?>  <option value="<?php echo $stream_otherdata[0]['stream_id']; ?> "><?php echo $stream_otherdata[0]['stream_name']; ?></option> </select><a id="univer" class="btn">OK</a></div>');
+
+             $('.message #univer').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_degree" ?>',
+                          data: 'other_degree=' + textVal,
+                          success: function (response) {
+                       
+                               if(response == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written Degree already available in Degree Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty Degree is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                    $('.degree').html(response);
+                              }
+                          }
+                      });
+      
+                  });
+
+
+       }
+
+
+
+   });
+
+ $(document).on('change', '.message #other_degree', function (event) {
+
+var item1=$(this);
+var other_degree=(item1.val());
+ 
+ if(other_degree == 61)
+{
+    $.fancybox.open('<div class="message1"><h2>Add Stream</h2><input type="text" name="other_degree1" id="other_degree1"><a id="univer1" class="btn">OK</a></div>');
+
+      $('.message1 #univer1').on('click', function () {
+      var $textbox1 = $('.message1').find('input[type="text"]'),
+      textVal1  = $textbox1.val();
+
+       $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_stream" ?>',
+                          data: 'other_stream=' + textVal1,
+                          success: function (response) {
+                       
+                               if(response == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written Stream already available in  Stream Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty Stream is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                    $('.message #other_degree').html(response);
+                              }
+                          }
+                      });
+    
+      });
+}
+       
+       }); 
+//Click on Degree other option process End
 </script>
 <!-- script start for next button -->
 <script type="text/javascript">

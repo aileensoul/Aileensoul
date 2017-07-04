@@ -684,15 +684,28 @@ class Job extends MY_Controller {
         //for getting degree data Strat
         $contition_array = array('status' => 1 , 'is_delete' => '0' ,'degree_name !=' => "Other");
         $this->data['degree_data'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         $contition_array = array('status' => 1 , 'is_delete' => '0' ,'degree_name' => "Other");
+        $this->data['degree_otherdata'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //for getting degree data End
 
         //for getting univesity data Start
+        
         $contition_array = array('is_delete' => '0','status' => 1,'university_name !=' => "Other");
         $this->data['university_data'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
          $contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
         $this->data['university_otherdata'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
          //for getting univesity data End
+
+        //For getting all Stream Strat
+         $contition_array = array('status' => 1,'is_delete' => 0,'stream_name !=' => "Other");                                         
+        $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
+
+          $contition_array = array('status' => 1,'is_delete' => 0,'stream_name' => "Other");                                         
+        $stream_otherdata = $this->data['stream_otherdata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
+       // echo "<pre>";print_r($stream_alldata);die();
+        //For getting all Stream End
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $userdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5439,6 +5452,108 @@ echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $uni
         echo 1;
     }
 }
-//add other_university into database End   
+//add other_university into database End 
+
+//add other_degree into database start 
+ public function job_other_degree(){
+        $other_degree = $_POST['other_degree'];
+         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        $contition_array = array('degree_name' => $other_degree, 'is_delete' => '0', 'status' => '1');
+        $userdata = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $count=count($userdata);
+
+    if($other_degree != NULL)
+     {
+        if($count==0)
+        {
+                  $data = array(
+                    'degree_name' => $other_degree,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 1,
+                    'is_delete' => 0,
+                    'is_other' => '1',
+                    'user_id' => $userid
+                    );
+        $insert_id = $this->common->insert_data_getid($data, 'degree');
+                if ($insert_id) 
+                {
+                     $contition_array = array('is_delete' => '0', 'status' => '1','degree_name !=' => "Other");
+            $degree = $this->data['degree'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          
+            if (count($degree) > 0) {
+                echo ' <option value="" Selected option disabled="">Select your Degree</option>
+';
+                foreach ($degree as $st) {
+                    echo '<option value="' . $st['degree_id'] . '">' . $st['degree_name'] . '</option>';
+                    }      
+                }  
+//For Getting Other at end
+$contition_array = array('is_delete' => '0' , 'status' => 1,'degree_name' => "Other");
+$degree_otherdata = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
+     
+echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
+        }
+    }else{
+            echo 0;
+            }
+    }
+    else
+    {
+        echo 1;
+    }
+}
+//add other_degree into database End  
+
+//add other_stream into database start 
+ public function job_other_stream(){
+        $other_stream = $_POST['other_stream'];
+         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+        $contition_array = array('stream_name' => $other_stream, 'is_delete' => '0', 'status' => '1');
+        $userdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $count=count($userdata);
+
+    if($other_stream != NULL)
+     {
+        if($count==0)
+        {
+                  $data = array(
+                    'stream_name' => $other_stream,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 1,
+                    'is_delete' => 0
+                    // 'is_other' => '1',
+                    // 'user_id' => $userid
+                    );
+        $insert_id = $this->common->insert_data_getid($data, 'stream');
+                if ($insert_id) 
+                {
+                     $contition_array = array('is_delete' => '0', 'status' => '1','stream_name !=' => "Other");
+            $stream = $this->data['stream'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          
+            if (count($stream) > 0) {
+                echo ' <option value="" Selected option disabled="">Select your Stream</option>
+';
+                foreach ($stream as $st) {
+                    echo '<option value="' . $st['stream_id'] . '">' . $st['stream_name'] . '</option>';
+                    }      
+                }  
+//For Getting Other at end
+$contition_array = array('is_delete' => '0' , 'status' => 1,'stream_name' => "Other");
+$stream_otherdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
+     
+echo '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $stream_otherdata[0]['stream_name'] . '</option>';   
+        }
+    }else{
+            echo 0;
+            }
+    }
+    else
+    {
+        echo 1;
+    }
+}
+//add other_degree into database End  
     
 }
