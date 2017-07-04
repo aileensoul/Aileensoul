@@ -80,7 +80,7 @@
 
 
 <?php echo $header; ?>
-   <?php echo $recruiter_header2; ?>
+   <?php echo $recruiter_header2_border; ?>
     <!-- END HEADER -->
     <body class="page-container-bg-solid page-boxed">
 

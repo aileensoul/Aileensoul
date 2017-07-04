@@ -293,7 +293,7 @@ select {
     background: white;
     border: 1px solid #cacaca;
     outline: none;
-    padding: 8px 15px;
+    padding: 9px 15px;
     color: #000;
     font-size: 14px !important;
     font-weight: 400;
@@ -310,6 +310,7 @@ label {
 select {
     padding: 10px 15px;
     font-size: 16px;
+    color: #ccc;
 }
 input[type=submit],
 input[type=button],
@@ -4017,7 +4018,7 @@ width: 100%;
 
 .a-inlineBlock {
     display: inline-block!important;
-    max-width: 100%;
+    width: 75px;
     z-index: 3;
     position: relative;
     height: 75px;
@@ -13381,6 +13382,7 @@ padding-bottom: 10px !important;
     .post-edit-popup .popup-text textarea{width: 90%;}
 }
 @media screen and (max-width: 540px) {
+    .posted_with{font-size: 10px;}
     .profile-job-details .job_companyname{width: 208px;}
      .file_name_pdf{font-size: 12px;}
 
@@ -13490,11 +13492,11 @@ padding-bottom: 10px !important;
     .right-side-menu{padding-left: 24%;}
     .profile-box-art .right-side-menu{padding-left: 0%; padding-right: 0; margin-left: 0;}
     .profile-job-profile-menu ul li{padding-left: 0;}
-    .post-design-name ul li .post_dot{font-size: 14px; max-width: 66%;}
+    .post-design-name ul li .post_dot{font-size: 14px; max-width: 63%;}
     .post-design-product{font-size: 12px;}
     .cmy_2{width:87%;  padding-right: 0;}
     .post-design-name ul li .post_dot{font-size: 14px;}
-    .cmy_2{width:97%;  padding-right: 0; position:relativ;}
+    .cmy_2{width:87%;  padding-right: 0; position:relative;}
 
     .two-images{height: 150px;}
     .three-image{height: 150px;}
