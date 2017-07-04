@@ -635,11 +635,13 @@ if(mm<10) {
                          regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             // required:true 
                         },
-                        position_no:{
+                       position_no:{
+                            required: true,
                              number:true,
-                             min: 1,   
-                             reg_candidate:/^-?(([0-9]{0,100}))$/
+                             min: 1,
+                            reg_candidate:/^-?(([0-9]{0,100}))$/
                         },
+
 
                          minyear: {
                             
@@ -698,9 +700,9 @@ if(mm<10) {
                               min: 0,
                              greaterThan: "#minsal"
                         },
-                        position_no:{
-                            required:true
-                        },
+                        // position_no:{
+                        //     required:true
+                        // },
                       
 
 
@@ -721,6 +723,9 @@ if(mm<10) {
                         other_skill: {
 
                             require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
+                        },
+                         position_no:{
+                          required: "You Have TO Select Minimum 1 Candidate"
                         },
                         minyear: {
 
@@ -768,9 +773,7 @@ if(mm<10) {
                         maxsal:{
                             greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
-                        position_no:{
-                            required:"No candidate required."
-                        },
+                       
 
 
                     }

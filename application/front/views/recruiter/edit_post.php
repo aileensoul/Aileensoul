@@ -1019,7 +1019,7 @@ jQuery.noConflict();
                             greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
                         position_no:{
-                            required:"No candidate required."
+                            required:"Number of position required."
                         },
 
 
