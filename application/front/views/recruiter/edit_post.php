@@ -148,7 +148,7 @@
                    </fieldset>
 
                    <fieldset class="full-width">
-                        <label class="control-label">Other skills:<span style="color:red">*</span></label>
+                        <label class="control-label">Other skills:<!-- <span style="color:red">*</span> --></label>
                         <input name="other_skill" type="text" id="other_skill" tabindex="3" placeholder=" Enter Skill Name" class="skill_other" value="<?php echo $postdata[0]['other_skill']; ?>"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('other_skill'); ?>
@@ -885,7 +885,9 @@ jQuery.noConflict();
                             required: true,
                              number:true,
                              min: 1,
-                            reg_candidate:/^-?(([0-9]{0,100}))$/
+                            reg_candidate:/^-?(([0-9]{0,100}))$/,
+                            range: [1, 100]
+                            
                         },
 
                          minyear: {
@@ -934,7 +936,9 @@ jQuery.noConflict();
                             
                         },
                         minsal:{
-                            number:true
+                            number:true,
+                            maxlength:11
+
                            // le:"#maxsal"
                         },
                         maxsal:{
@@ -943,7 +947,9 @@ jQuery.noConflict();
                             // },
                              number:true,
                               min: 0,
-                             greaterThan: "#minsal"
+                             greaterThan: "#minsal",
+                            maxlength:11
+
                         },
                         position_no:{
                             required:true
