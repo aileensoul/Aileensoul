@@ -76,7 +76,7 @@
 
 
 <div id="myModal" class="modal">
-  <div class="modal-content">
+  <div class="modal-content md-2">
 
 
   <?php
@@ -102,7 +102,7 @@
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
         <div class="submit_btn">              
-        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 

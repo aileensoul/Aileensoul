@@ -502,7 +502,7 @@ footer ul li a:hover{
 .main-inner{
 	background:#f3f3f3;
 	padding-bottom:60px;
-        height: 100vh;
+
 }
 .main-inner .middle-main{
 	padding:35px 0;
@@ -957,13 +957,19 @@ transition: background-color 600s ease-in-out 0s;
 }
 
 section { overflow: hidden; }
+.md-2{width: 450px!important;
+margin: 0 auto;     
+    -webkit-transition: height .25s ease, width .25s ease;
+    transition: height .25s ease, width .25s ease;
+    -webkit-transform: translate(50%,50%);
+    transform: translate(0%, 50%);}
+    .modal{   background-color: rgba(0, 0, 0, 0.5);}
+.sign_in{width:100%; text-align:center;}
+.sign_in p a:hover{text-decoration:underline;}
 /***  media query  ***/
 @media (min-height: 500px){
-    .mid-trns{transform: translate(-50%,-50%);
-                top: 50%;
-                position: absolute;
-                left: 50%;
-            }
+    .mid-trns{transform: translate(-50%,-50%);top: 50%; position: absolute; left: 50%;}
+	.main-inner{height: 100vh;}
 }
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
@@ -1092,6 +1098,7 @@ section { overflow: hidden; }
 	.banner-box .left-profile{width:150px;}
 	.login .form-group select.year{width:65px;}
 	.login h4{font-size:20px;}
+	.md-2{width:90% !important;}
 	
 }
 
