@@ -26,7 +26,7 @@
       </div>
     </div>
   </header>
-  <section class="middle-main">
+  <section class="middle-main mid-trns">
     <div class="container">
       
       

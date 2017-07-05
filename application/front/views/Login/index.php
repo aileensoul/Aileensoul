@@ -27,7 +27,7 @@
     </div>
   </header>
   <section class="middle-main mid-trns">
-    <div class="container">
+    <div class="">
       
       
 
@@ -87,21 +87,21 @@
     <div class="modal-header" style="width: 100%; text-align: center;">
 
       <span class="close">&times;</span>
-      <label style="color: #a0b3b0;">Forgot Password</label>
+      <label style="color: #1b8ab9;">Forgot Password</label>
     </div>
 
 
     <div class="modal-body" style="    width: 100%;
     text-align: center;">
-        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+        <label  style="margin-bottom: 15px; color: #5b5b5b;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email Address" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
 
     <div class="modal-footer ">
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
-        <div class="submit_btn">              
+        <div class="submit_btn text-center">              
         <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
