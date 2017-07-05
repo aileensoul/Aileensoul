@@ -25,7 +25,7 @@
     
    //  $(document).load().scrollTop(1000);
         
-       $('html,body').animate({scrollTop:265}, 500);
+       $('html,body').animate({scrollTop:246}, 500);
    
    });
    //For Scroll page at perticular position js End
@@ -38,7 +38,7 @@
 <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <?php echo $art_header2_border; ?>
 
 <style type="text/css">
@@ -1094,14 +1094,7 @@ $loginuser = $userdata[0]['art_id'];
                                                         <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
                                                             <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Title" value="<?php echo $row['art_post']; ?>">
                                                         </div>
-                         <!-- <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block;">
-
-                            <?php
-                                                            //echo $row['art_description'];
-                            $text = $this->common->make_links($row['art_description']);
-                                                            ?>
-                             <span  class="show ft-13"><?php echo $text; ?></span>
-                      </div> -->
+                          
 
                       <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
@@ -3679,7 +3672,7 @@ if (size > 10485760)
                  //  document.getElementById('editpostdetails' + abc).style.display = 'block';
                    document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                    document.getElementById('editpostsubmit' + abc).style.display = 'none';
-                     document.getElementById('khyati' + abc).style.display = 'none';
+                 document.getElementById('khyati' + abc).style.display = 'none';
                  document.getElementById('khyatii' + abc).style.display = 'block';
                    //alert(data.description);
                    $('#' + 'editpostdata' + abc).html(data.title);
@@ -3717,7 +3710,7 @@ if (size > 10485760)
        //var data = $field.val();
        var editpostdetails = $('#editpostdesc' + abc).html();
 
-       editpostdetails = editpostdetails.replace(/&gt;/g,">");
+       editpostdetails = editpostdetails.replace(/&gt;/gi,">");
        
        editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
 
@@ -3725,7 +3718,7 @@ if (size > 10485760)
 
 
 
-alert(editpostdetails);
+//alert(editpostdetails);
 
        //editpostdetails = editpostdetails.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
 
