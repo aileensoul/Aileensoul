@@ -22,10 +22,16 @@ body{
 
 /***  buttons  ***/
 .btn1{
-	background:#1b8ab9;
+	background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
+	background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
+	background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 ); /* ie6-9 */
 	font-size:16px;
 	color:#fff;
-	padding:10px 25px;
+	padding:5px 25px;
 	text-align:center;
 	border-radius:4px;
 	display:inline-block;
@@ -86,14 +92,20 @@ body{
 }
 
 .main-login{
-	background:url('../img/main-bg.jpg') no-repeat; 
-	background-size:100%;
+	/*background:url('../img/main-bg.jpg') no-repeat; 
+	background-size:100%;*/
 	padding-bottom:60px;
 }
 
 /***  header  ***/
 header{
-	background:rgba(0,0,0,0.3);
+background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
+background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
+background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 ); /* ie6-9 */
 	padding:15px 0;
 }
 header .logo a{
@@ -127,6 +139,8 @@ header h2{
 	padding-top:10px;
 	padding-bottom:10px;
 	line-height:1;
+	background:#fff;
+	color:#1b8ab9;
 }
 .header-login input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #ddd;
@@ -151,14 +165,15 @@ a:hover{
 /***  middle part  ***/
 .middle-main{
 	padding:55px 0;
+	background:url('../img/bg.png');
 }
 .top-middle{
 	padding:45px 0;
-	min-height:170px;
+	min-height:190px;
 }
 .top-middle h3{
-	font-size:26px; 
-	color:#fff; 
+	font-size:30px; 
+	color:#505050; 
 	line-height:1.5;
 	margin:0;
 }
@@ -212,7 +227,7 @@ a:hover{
     }
 } 
 .carousel-fade .carousel-caption {
-	text-shadow: 0 1px 4px rgba(0,0,0,.9);
+	text-shadow: none;
 	font-size:17px;
 	position:inherit;
 	left:0;
@@ -222,10 +237,15 @@ a:hover{
 	font-family: 'Lato', sans-serif;
 	font-weight: 600;
 	margin-bottom:0;
+	color:#1b8ab9;
+	background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   
 }
 .carousel-fade .carousel-caption p{
 	font-size:20px;
+	color:#2b2c2c;
 }
 .carousel-fade .carousel-caption img{
 	float:left;
@@ -234,7 +254,7 @@ a:hover{
 	float:left;
 	padding-left: 30px;
     text-align: left;
-	padding-top:60px;
+	padding-top:35px;
 }
 /***  end slider  ***/
 .bottom-middle{
@@ -247,17 +267,19 @@ a:hover{
 	background:#fff;
 	width:80%;
 	margin:0 auto;
-
+	border:1px solid #c7c7c7;
+	border-radius:5px;
 }
 .login h4{
 	padding:15px; 
 	text-align:center;
 	margin:0;
-	background:#f3f3f3;
-	color:#444444;
+	color:#1b8ab9;
+	border-bottom:1px solid #c7c7c7;
+	font-size:24px;
 }
 .login form{
-	padding:15px 25px;
+	padding:15px 20px;
 }
 .login .form-group input, .login .form-group select, .login .form-group textarea {
 	border:none;
@@ -298,10 +320,9 @@ a:hover{
 .login .btn1{
 	display:inline-block;
 	text-transform:uppercase;
+	width:100%;
 }
-.login p{
-	text-align:center;
-}
+
 
 
 /***  footer  ***/
