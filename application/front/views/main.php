@@ -92,7 +92,7 @@ margin: 0 auto;
       <div class="row">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect"><p>We Provide Platform & Opportunities To </p><p>Every Person In The World To Make Their Career.</p></h3>
+            <h3 class="text-effect"><p>We provide platform & opportunities to </p><p>Every person in the world to make their career.</p></h3>
            
           </div>
           <div class="bottom-middle">
@@ -608,6 +608,9 @@ return e.which !== 32;
 });
 }); 
 
+jQuery('.carousel').carousel({
+		interval: 3000
+	});
 
 
 // disable spacebar js end
