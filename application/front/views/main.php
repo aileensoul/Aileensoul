@@ -168,7 +168,7 @@ margin: 0 auto;
                 </div>
 
                 <div class="form-group">
-                  <input type="email" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address">
+                  <input type="text" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address" autocomplete="off">
                 </div>
               <div class="form-group">
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
@@ -417,6 +417,7 @@ margin: 0 auto;
                                         },
                                         email_reg: {
                                             required: true,
+                                            email:true,
                                              remote: {
                                                url: "<?php echo site_url() . 'registration/check_email' ?>",
                                              type: "post",
