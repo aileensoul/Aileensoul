@@ -216,7 +216,7 @@
                                 /* validation */
                                 /* login submit */
                                 function submitForm()
-                                { 
+                                {
                                     var email_login = $("#email_login").val();
                                     var password_login = $("#password_login").val();
                                     var post_data = {
@@ -226,7 +226,7 @@
                                     }
                                     $.ajax({
                                         type: 'POST',
-                                        url: '<?php echo base_url() ?>registration/check_login',
+                                        url: '<?php echo base_url() ?>login/check_login',
                                         data: post_data,
                                         beforeSend: function ()
                                         {

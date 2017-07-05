@@ -359,7 +359,7 @@ margin: 0 auto;
                                     }
                                     $.ajax({
                                         type: 'POST',
-                                        url: '<?php echo base_url() ?>registration/check_login',
+                                        url: '<?php echo base_url() ?>login/check_login',
                                         data: post_data,
                                         beforeSend: function ()
                                         {
