@@ -30,10 +30,12 @@
 
                 <div class="alert alert-danger txt_cen">
 
-
+					<h1>Thank You</h1>
+					<p><i class="fa fa-check" aria-hidden="true"></i></p>
                     <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">
                         Verify Your E-mail Account
                     </a>
+					
 
                 </div>
 
