@@ -242,7 +242,7 @@ margin: 0 auto;
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container pt20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
