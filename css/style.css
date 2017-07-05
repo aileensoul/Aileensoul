@@ -4825,7 +4825,7 @@ border-bottom: 1px solid #000033;
     height: auto;
     background-color: #e8f3f8;
     padding: 5px;
-    padding-left: 14px;
+    padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
     border-radius: 4px;
@@ -15076,14 +15076,14 @@ top: 8px;}
         padding-right: 0;
     }
     .editor-content {
-        width: 69%;
+        width: 78%;
         padding-left: 0;
     }
     .post-edit-popup .editor-content {
-        width: 72%;
+        width: 76.post-editor%;
     }
     .post-edit-popup .popup-text textarea {
-        width: 79%;
+        width: 88%;
     }
     .comment-name {
         width: 78%;
