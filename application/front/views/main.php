@@ -9,6 +9,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
+.md-2{width: 33%!important;
+margin: 0 auto;     
+    -webkit-transition: height .25s ease, width .25s ease;
+    transition: height .25s ease, width .25s ease;
+    -webkit-transform: translate(50%,50%);
+    transform: translate(0%, 50%);}
+    .modal{   background-color: rgba(0, 0, 0, 0.5);}
+</style>
 <body>
 <div class="main-login">
   <header>
@@ -41,7 +50,7 @@
 
 
 <div id="myModal" class="modal">
-  <div class="modal-content">
+  <div class="modal-content md-2">
 
 
   <?php
@@ -49,14 +58,14 @@
         echo form_open('profile/forgot_password', $form_attribute);
     ?>
 
-    <div class="modal-header" style="width: 100%; text-align: center;">
+    <div class="modal-header" style=" text-align: center;">
 
       <span class="close">&times;</span>
       <label style="color: #a0b3b0;">Forgot Password</label>
     </div>
 
 
-    <div class="modal-body" style="    width: 100%;
+    <div class="modal-body" style=" 
     text-align: center;">
         <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
         <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">

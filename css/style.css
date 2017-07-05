@@ -8909,7 +8909,7 @@ label.cameraButton input[accept*="camera"] {
 }
 .data_img_2 {
     height: 67px;
-    width: 71px;
+    width: 67px;
     z-index: 3;
     position: relative;
     z-index: 3;
@@ -9295,6 +9295,7 @@ fieldset .add_post_btns:hover {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 .circle:hover {} .circle:before,
 .circle:after {
     content: '';

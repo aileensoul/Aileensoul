@@ -80,7 +80,7 @@ text-overflow: ellipsis;}
     }
     #paddingtop_fixed
     {
-        padding-top: 34px !important;
+        padding-top: 69px !important;
     }
     .dropdown-menu {
         left: inherit !important;
@@ -263,6 +263,6 @@ text-overflow: ellipsis;}
         padding-top: 0px !important;
     }
 }
-@media screen and (max-width: 540px) {}
+@media screen and (max-width: 540px) { .profile-job-post-location-name-rec .post_designation{font-size: 12PX;} }
 @media screen and (max-width: 479px) {}
 @media screen and (max-width: 360px) {}
