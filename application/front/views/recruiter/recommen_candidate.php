@@ -170,7 +170,7 @@
                <?php
            } else {
                   ?>
-            <?php echo "Designation"; ?>
+            <?php echo "Current Work"; ?>
                 <?php
                }
                    ?> 

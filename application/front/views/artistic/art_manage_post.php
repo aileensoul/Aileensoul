@@ -3716,6 +3716,18 @@ if (size > 10485760)
        var $field = $('#editpostdesc' + abc);
        //var data = $field.val();
        var editpostdetails = $('#editpostdesc' + abc).html();
+       editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
+       editpostdetails = editpostdetails.replace(/&gt;/gi, '%3e');
+
+
+alert(editpostdetails);
+
+       //editpostdetails = editpostdetails.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');
+
+       // editpostdetails = editpostdetails.replace(/>/,"&dt;");
+       //alert(editpostdetails);
+      // return false;
+      
        // end khyati code
    
        if ((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')) {
