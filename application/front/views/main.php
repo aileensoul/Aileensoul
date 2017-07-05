@@ -92,8 +92,8 @@ margin: 0 auto;
       <div class="row">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect">We Provide A Platform & Opportunities To</h3>
-            <h3 class="text-effect">Every Person In The World To Make Their Career.</h3>
+            <h3 class="text-effect"><p>We Provide Platform & Opportunities To </p><p>Every Person In The World To Make Their Career.</p></h3>
+           
           </div>
           <div class="bottom-middle">
             <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -122,7 +122,7 @@ margin: 0 auto;
                   <div class="carousel-caption">
                     <img src="img/freelancer.png">
                     <div class="carousel-text">
-                      <h3>Freelancer Profile</h3>
+                      <h3>Freelance Profile</h3>
                       <p>Hire freelancers and also find freelance work.</p>
                     </div>
                   </div>
@@ -227,8 +227,8 @@ margin: 0 auto;
               </div>
               
               <p class="form-text">
-                By Clicking on create an account button you agree our<br>
-                <a href="#">Terms and Condition</a> and <a href="#">Privacy Policy</a>.
+                By Clicking on create an account button you agree our<br class="mob-none">
+                <a href="#">Terms and Condition</a>.
               </p>
                 <p>
                 <button class="btn1">Create an account</button>
@@ -243,7 +243,7 @@ margin: 0 auto;
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container pt20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul
@@ -265,57 +265,38 @@ margin: 0 auto;
 </html>
 
 <script>
-  $( document ).ready(function() {
-    
-    // text animation effect 
-    var $lines = $('.top-middle h3.text-effect');
-      $lines.hide();
-      var lineContents = new Array();
+ $(document).ready(function(){
 
-      var terminal = function() {
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-        var skip = 0;
-        typeLine = function(idx) {
-        idx == null && (idx = 0);
-        var element = $lines.eq(idx);
-        var content = lineContents[idx];
-        if(typeof content == "undefined") {
-          $('.skip').hide();
-          return;
-        }
-        var charIdx = 0;
+$(".text-effect p").each(function() {
+  var text = $(this).html();
+  var words = text.split(" ");
+  var spanSentence = "";
+  for (var i = 0; i < words.length; i++) {
+    spanSentence += "<span>" + words[i] + "</span> ";
+  }
+  $(this).html(spanSentence);
+})
 
-        var typeChar = function() {
-          var rand = Math.round(Math.random() * 150) + 25;
+$(".text-effect p span").each(function() {
+  $(this)
+    .css({
+      "transform": "translate(" + getRandomInt(-100, 100) + "px, " + getRandomInt(-100, 100) + "px)"
+    })
+});
 
-          setTimeout(function() {
-          var char = content[charIdx++];
-          element.append(char);
-          if(typeof char !== "undefined")
-            typeChar();
-          else {
-            element.append('<br/><span class="output">' + element.text().slice(9, -1) + '</span>');
-            element.removeClass('active');
-            typeLine(++idx);
-          }
-          }, skip ? 0 : rand);
-        }
-        content = '' + content + '';
-        element.append(' ').addClass('active');
-        typeChar();
-        }
-
-        $lines.each(function(i) {
-        lineContents[i] = $(this).text();
-        $(this).text('').show();
-        });
-
-        typeLine();
-      }
-
-      terminal();
-  
+setTimeout(function() {
+  $(".text-effect p span").css({
+    "transform": "translate(0, 0)",
+    "opacity": 1
   });
+}, 50);
+
+
+});
 </script>
 
 
@@ -626,6 +607,8 @@ $(document).ready(function(){
 return e.which !== 32;
 });
 }); 
+
+
 
 // disable spacebar js end
 </script>
