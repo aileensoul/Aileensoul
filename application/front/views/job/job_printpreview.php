@@ -19,7 +19,7 @@
    }?>
 <body   class="page-container-bg-solid page-boxed">
    <section class="custom-row">
-      <div class="container" id="paddingtop_fixed">
+      <div class="container animated fadeInLeftBig" id="paddingtop_fixed">
          <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
                <div id="upload-demo"></div>
@@ -74,7 +74,7 @@
             </div>
          </div>
       </div>
-      <div class="container tablate-container art-profile">
+      <div class="container tablate-container art-profile animated fadeInLeftBig">
          <?php if($returnpage == ''){ ?>
          <div class="upload-img ">
             <label class="cameraButton"> <span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -125,7 +125,7 @@
             <?php echo $job_menubar; ?>   
          </div>
       </div>
-      <div class="middle-part container res-job-print">
+      <div class="middle-part container res-job-print animated fadeInUpBig">
          <div class="job-menu-profile mob-none">
             <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>">
                <h3 class="profile-head-text">
