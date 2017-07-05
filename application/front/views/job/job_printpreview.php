@@ -241,6 +241,8 @@
                                              }
                                              
                                              ?>
+											 </span>
+											 </li>
                                        <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
                                        </li>
                                        <li> <b>Nationality </b><span>
