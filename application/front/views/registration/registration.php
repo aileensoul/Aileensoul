@@ -114,6 +114,13 @@
                 <p>
                 <button class="btn1">Create an account</button>
               </p>
+              
+              <div class="sign_in">
+                <p>
+                    Already have an account ? <a href="" > Sign In </a>
+                </p>
+                    </div>
+            
               </form>
             
           </div>
