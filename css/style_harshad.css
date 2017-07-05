@@ -5,7 +5,7 @@ select option:not(:checked) { color: black; }
  
     
 select option:checked { color: black; }
-
+.header2 ul li.active a{padding: 12px 10px 10px}
 
 
 select option[disabled]:first-child { display: none; }
