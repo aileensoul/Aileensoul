@@ -9,15 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-<style type="text/css">
-.md-2{width: 33%!important;
-margin: 0 auto;     
-    -webkit-transition: height .25s ease, width .25s ease;
-    transition: height .25s ease, width .25s ease;
-    -webkit-transform: translate(50%,50%);
-    transform: translate(0%, 50%);}
-    .modal{   background-color: rgba(0, 0, 0, 0.5);}
-</style>
 <body>
 <div class="main-inner">
   <header>
@@ -85,7 +76,7 @@ margin: 0 auto;
 
 
 <div id="myModal" class="modal">
-  <div class="modal-content md-2">
+  <div class="modal-content">
 
 
   <?php
@@ -254,14 +245,14 @@ margin: 0 auto;
                                             }else if(response == "password"){
 
                                              $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
+                                                    $("#error").html('<div class="alert alert-danger login"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 }); 
 
                                             }
                                             else { 
                                                 $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
+                                                    $("#error").html('<div class="alert alert-danger login"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 });
                                             }

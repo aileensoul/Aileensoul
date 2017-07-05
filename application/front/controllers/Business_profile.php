@@ -153,9 +153,6 @@ class Business_profile extends MY_Controller {
         $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-
-
-
         if ($userdata) {
             $step = $userdata[0]['business_step'];
 
