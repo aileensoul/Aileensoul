@@ -406,6 +406,13 @@ footer ul li a:hover{
 }
 .title{
 	text-align:center;
+        	background: white;
+            width: 400px;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #c7c7c7;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
 }
 .title h1{
 	display:inline-block; 
@@ -785,7 +792,26 @@ transition: background-color 600s ease-in-out 0s;
 transition: background-color 600s ease-in-out 0s;
 -webkit-text-fill-color:#fff !important;
 }
+.carousel.carousel-fade .item {
+ -webkit-transition: opacity 0.5s ease-in-out;
+ -moz-transition: opacity 0.5s ease-in-out;
+ -ms-transition: opacity 0.5s ease-in-out;
+ -o-transition: opacity 0.5s ease-in-out;
+ transition: opacity 0.5s ease-in-out;
+ opacity:0;
+}
 
+.carousel.carousel-fade .active.item {
+ opacity:1;
+}
+
+.carousel.carousel-fade .active.left,
+.carousel.carousel-fade .active.right {
+ left: 0;
+ z-index: 2;
+ opacity: 0;
+ filter: alpha(opacity=0);
+}
 /***  alert message  ***/
 .alert-danger.main{
 	left: 35%;
