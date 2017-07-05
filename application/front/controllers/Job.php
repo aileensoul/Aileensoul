@@ -5535,6 +5535,7 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
     {
         echo 1;
     }
+   
 }
 //add other_degree into database End  
 
@@ -5542,11 +5543,7 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
  public function job_other_stream(){
         $other_stream = $_POST['other_stream'];
          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-//        $contition_array = array('stream_name' => $other_stream, 'is_delete' => '0', 'status' => '1');
-//        $userdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//        $count=count($userdata);
-//        
+      
          $contition_array = array('is_delete' => '0','stream_name' => $other_stream);
          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
          $userdata = $this->data['userdata'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5575,26 +5572,33 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
                $stream = $this->data['stream'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                
             if (count($stream) > 0) {
-                echo ' <option value="" Selected option disabled="">Select your Stream</option>
-';
-                foreach ($stream as $st) {
-                    echo '<option value="' . $st['stream_id'] . '">' . $st['stream_name'] . '</option>';
-                    }      
+               $select = '<option value="" selected option disabled="">Select your Stream</option>';
+                
+                    foreach ($stream as $st) {
+                        
+                 $select .= '<option value="' . $st['stream_id'] . '"';
+                     if($st['stream_name'] == $other_stream){
+                   $select .= 'selected'; 
+                       }
+                       $select .=    '>' . $st['stream_name'] . '</option>';
+                            }      
                 }  
 //For Getting Other at end
 $contition_array = array('is_delete' => '0' , 'status' => 1,'stream_name' => "Other");
 $stream_otherdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
      
-echo '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $stream_otherdata[0]['stream_name'] . '</option>';   
+$select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $stream_otherdata[0]['stream_name'] . '</option>';   
         }
     }else{
-            echo 0;
+            $select .= 0;
             }
     }
     else
     {
-        echo 1;
+        $select .= 1;
     }
+    
+    echo $select;
 }
 //add other_degree into database End  
     
