@@ -550,7 +550,7 @@ if($fbdata){
     // login check and email validation start
 public function check_login() {
         $email_login = $this->input->post('email_login');
-        $password_login = $this->input->post('password_login');
+        $password_login =  $this->input->post('password_login');
 
 
 

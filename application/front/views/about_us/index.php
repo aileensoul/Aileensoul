@@ -29,7 +29,7 @@
   <section class="middle-main">
     <div class="container">
       
-        <div class="title">
+        <div class="titlea">
           <h1>About us</h1>
         </div>
         <div class="about-content">
@@ -48,7 +48,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container pt-20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul

@@ -26,13 +26,10 @@
       </div>
     </div>
   </header>
-  <section class="middle-main">
+  <section class="middle-main mid-trns">
     <div class="container">
       
-        <div class="title">
-          <h1 class="ttc">Welcome To Aileensoul</h1>
-        </div>
-
+      
 
          <div id="error"></div>
 
@@ -40,7 +37,10 @@
          
         <div class="inner-form">
           <div class="login">
-            
+              <div class="title">
+          <h1 class="ttc">Welcome To Aileensoul</h1>
+        </div>
+
             <form role="form" name="login_form" id="login_form" method="post">
                 
 
@@ -76,7 +76,7 @@
 
 
 <div id="myModal" class="modal">
-  <div class="modal-content">
+  <div class="modal-content md-2">
 
 
   <?php
@@ -102,7 +102,7 @@
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
         <div class="submit_btn">              
-        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 
@@ -115,7 +115,7 @@
 
 
   <footer>
-    <div class="container">
+    <div class="container pt-20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul
