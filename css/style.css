@@ -13632,7 +13632,7 @@ header.animated{z-index:9;}
     fieldset .add_post_btns {
         min-width: 83px;
         padding: 5px 5px 7px;
-        font-size: 12px;
+        font-size: 12px !important;
     }
     .modal.in .modal-dialog {
         width: 90%;
