@@ -582,7 +582,7 @@
                                              <?php                                
                                                 $i = 1;
                                                                foreach ($job_graduation as $graduation) {
-                                                                                    ['degree']) {  ?>
+                                                                                     if ($graduation['degree']) {  ?>
                 <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
                                                 <li> <b> Degree</b> <span>
                                                    <?php
