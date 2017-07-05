@@ -741,12 +741,7 @@
                            </div>
                         </div>
                          
-<!--               khyati chnages sstat 24-6         <div  id="<?php echo 'editpostdetails' . $row['art_post_id']; ?>" style="display:block ; ">
-                           <?php
-                              $text = $this->common->make_links($row['art_description']);
-                              ?>
-                           <span class="show_more ft-13 "><?php echo $text; ?></span>
-                        </div>-->
+
                          
                          <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
@@ -763,7 +758,7 @@
                    ?>
                    </div>
                         <div id="<?php echo 'editpostdetailbox' . $row['art_post_id']; ?>" style="display:none;">
-                           <div id="plainText" contenteditable="true" class="textbuis editable_text margin_btm <?php echo 'editpostdesc' . $row['art_post_id']; ?>" name="editpostdesc" placeholder="Description" ><?php echo $row['art_description']; ?></div>
+                           <div id="<?php echo 'editpostdesc' . $row['art_post_id']; ?>" contenteditable="true" class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['art_description']; ?></div>
                         </div>
                          <!-- khyati changes end 24-6 -->
                         <button id="<?php echo "editpostsubmit" . $row['art_post_id']; ?>" style="display:none" onClick="edit_postinsert(<?php echo $row['art_post_id']; ?>)" class="fr" style="margin-right: 176px; border-radius: 3px;" >Save</button>
@@ -1127,13 +1122,28 @@
                               </div>
                               </a>
                               <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                                 <?php
-                                    echo $this->common->make_links($rowdata['comments']);
-                                    ?>
-                              </div>
+
+                                 <div id="<?php echo "lessmore" . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
+                                <?php
+                     $small = substr($rowdata['comments'], 0, 180);
+                     echo $this->common->make_links($small);
+
+                     if (strlen($rowdata['comments']) > 180) {
+                          echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['artistic_post_comment_id'] . ')">See More</span>';
+                        }?>
+                        </div>
+                   
+                    <div id="<?php echo "seemore" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
+                      <?php
+                      echo $this->common->make_links($rowdata['comments']);
+                   ?>
+
+               </div>
+                </div>
+
                               <div class="edit-comment-box">
                                  <div class="inputtype-edit-comment">
-                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)"><?php echo $rowdata['comments']; ?>
+                                    <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?>
 									
 									</div>
                                     <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
@@ -1235,7 +1245,7 @@
                      </div>
                      <div class="">
                         <div id="content" class="col-md-12 inputtype-comment cmy_2" >
-                           <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)"></div>
+                           <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
 						   <div class="mob-comment">
 							<button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)"><img src="../img/send.png"></button> 
 							
@@ -1879,6 +1889,10 @@
        var txt = sel.html();
        txt = txt.replace(/&nbsp;/gi, " ");
        txt = txt.replace(/<br>$/, '');
+
+       txt = txt.replace(/div>/gi, 'p>');
+
+
        if (txt == '' || txt == '<br>') {
            return false;
        }
@@ -2008,6 +2022,10 @@
    
                txt = txt.replace(/&nbsp;/gi, " ");
                txt = txt.replace(/<br>$/, '');
+
+              txt = txt.replace(/div>/gi, 'p>');
+
+
                if (txt == '' || txt == '<br>') {
                    return false;
                }
@@ -2212,6 +2230,8 @@
    
        txt = txt.replace(/&nbsp;/gi, " ");
        txt = txt.replace(/<br>$/, '');
+        txt = txt.replace(/div>/gi, 'p>');
+
        if (txt == '' || txt == '<br>') {
            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
            $('#bidmodal').modal('show');
@@ -2285,6 +2305,10 @@
    
                txt = txt.replace(/&nbsp;/gi, " ");
                txt = txt.replace(/<br>$/, '');
+
+               txt = txt.replace(/div>/gi, 'p>');
+
+
                if (txt == '' || txt == '<br>') {
                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                    $('#bidmodal').modal('show');
@@ -2359,6 +2383,9 @@
    
        txt = txt.replace(/&nbsp;/gi, " ");
        txt = txt.replace(/<br>$/, '');
+       txt = txt.replace(/div>/gi, 'p>');
+
+
        if (txt == '' || txt == '<br>') {
            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
            $('#bidmodal').modal('show');
@@ -2434,6 +2461,9 @@
    
                txt = txt.replace(/&nbsp;/gi, " ");
                txt = txt.replace(/<br>$/, '');
+               txt = txt.replace(/div>/gi, 'p>');
+
+
                if (txt == '' || txt == '<br>') {
                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                    $('#bidmodal').modal('show');
@@ -3412,41 +3442,6 @@
 </script>
 
 
-
-<script type="text/javascript">
-
-   
-
-   var $plainText = $("#plainText");
-
-   $plainText.on('paste', function (e) {
-    window.setTimeout(function () {
-        $plainText.html(removeAllTags(replaceStyleAttr($plainText.html())));
-    }, 0);
-});
-
-
-function replaceStyleAttr (str) { 
-    return str.replace(/(<[\w\W]*?)(style)([\w\W]*?>)/g, function (a, b, c, d) {
-        return b + 'style_replace' + d;
-    });
-}
-
-
-
-function removeAllTags (str) {
-
-
-    var str = str.replace(/<\/?(\w+)\s*[\w\W]*?>/g, '');
-    return str.replace(/&nbsp;/g, '<br/>');
-  
-
-}
-
-</script>
-
-
-
 <script type="text/javascript">
    function edit_postinsert(abc)
    {
@@ -3454,9 +3449,13 @@ function removeAllTags (str) {
        var editpostname = document.getElementById("editpostname" + abc);
        // var editpostdetails = document.getElementById("editpostdesc" + abc);
        // start khyati code
-       var $field = $('.editpostdesc' + abc);
+       var $field = $('#editpostdesc' + abc);
        //var data = $field.val();
-       var editpostdetails = $('.editpostdesc' + abc).html();
+       var editpostdetails = $('#editpostdesc' + abc).html();
+
+        editpostdetails = editpostdetails.replace(/&gt;/gi,">");
+       
+       editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
        // end khyati code
    //alert(editpostdetails);
        if ((editpostname.value == '') && (editpostdetails == '' || editpostdetails == '<br>')) {
@@ -3511,4 +3510,52 @@ function removeAllTags (str) {
 </script>
 
 
+<script type="text/javascript">
+
+            var _onPaste_StripFormatting_IEPaste = false;
+
+            function OnPaste_StripFormatting(elem, e) {
+
+                if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                   // alert(1);
+                    e.preventDefault();
+                    var text = e.originalEvent.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (e.clipboardData && e.clipboardData.getData) { 
+                    //alert(2);
+                   
+                    e.preventDefault();
+                    var text = e.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (window.clipboardData && window.clipboardData.getData) {
+
+                    //alert(3);
+
+                    // Stop stack overflow
+                    if (!_onPaste_StripFormatting_IEPaste) {
+                        _onPaste_StripFormatting_IEPaste = true;
+                        e.preventDefault();
+                        window.document.execCommand('ms-pasteTextOnly', false);
+                    }
+                    _onPaste_StripFormatting_IEPaste = false;
+                }
+
+            }
+
+        </script>
+
+
+<!-- 180 words more than script start -->
+
+<script type="text/javascript">
+    
+     function seemorediv(abc) { //alert("hii");
+         
+                   document.getElementById('seemore' + abc).style.display = 'block';
+                   document.getElementById('lessmore' + abc).style.display = 'none';
+                
+   }
+   
+   </script>
+ <!-- 180 words more than script end-->
 

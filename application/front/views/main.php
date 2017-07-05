@@ -10,13 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-.md-2{width: 33%!important;
-margin: 0 auto;     
-    -webkit-transition: height .25s ease, width .25s ease;
-    transition: height .25s ease, width .25s ease;
-    -webkit-transform: translate(50%,50%);
-    transform: translate(0%, 50%);}
-    .modal{   background-color: rgba(0, 0, 0, 0.5);}
+
 </style>
 <body>
 <div class="main-login">
@@ -76,7 +70,7 @@ margin: 0 auto;
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
         <div class="submit_btn">              
-        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 
@@ -92,7 +86,7 @@ margin: 0 auto;
       <div class="row">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect"><p>We Provide Platform & Opportunities To </p><p>Every Person In The World To Make Their Career.</p></h3>
+            <h3 class="text-effect"><p>We provide platform & opportunities to </p><p>Every person in the world to make their career.</p></h3>
            
           </div>
           <div class="bottom-middle">
@@ -242,7 +236,7 @@ margin: 0 auto;
     </div>
   </section>
 
-  <footer>
+  <footer class="footer">
     <div class="container pt20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
@@ -608,6 +602,9 @@ return e.which !== 32;
 });
 }); 
 
+jQuery('.carousel').carousel({
+		interval: 4000
+	});
 
 
 // disable spacebar js end
