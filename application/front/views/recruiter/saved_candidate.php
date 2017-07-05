@@ -258,7 +258,7 @@
         <!-- text head end -->
     </div>
 <!-- <?php //echo "<pre>"; print_r($recdata);die(); ?> -->
-    <div class="col-md-8 col-sm-12 mob-clear">
+    <div class="col-md-7 col-sm-12 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Candidate</h3>

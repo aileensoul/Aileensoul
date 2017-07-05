@@ -605,7 +605,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = dd+'/'+mm+'/'+yyyy;
+   var todaydate = day+'/'+month+'/'+year;
 
    var lastDate = $("input[name=last_date]").val();
     //alert(lastDate); alert(todaydate);
