@@ -115,7 +115,7 @@
                 <button class="btn1">Create an account</button>
               </p>
               
-              <div class="sign_in">
+              <div class="sign_in pt15">
                 <p>
                     Already have an account ? <a href="http://localhost/aileensoul/login" > Log In </a>
                 </p>

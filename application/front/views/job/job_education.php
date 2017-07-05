@@ -1630,7 +1630,7 @@
                });
            
 </script>
-<!-- stream change depend on degeree End-->
+<!-- stream change depend on degree End-->
 
 <script type="text/javascript">
    $(".alert").delay(3200).fadeOut(300);
@@ -1685,15 +1685,40 @@
       if(degree == 54)
       {
 
-            $.fancybox.open('<div class="message"><h2>Add Degree</h2><input type="text" name="other_degree" id="other_degree"><h2>Add Stream</h2><select name="other_degree" id="other_degree" class="other_degree">  <option value="" Selected option disabled="">Select your Stream</option><?php foreach ($stream_alldata as $stream){?><option value="<?php echo $stream['stream_id']; ?>"><?php echo $stream['stream_name']; ?></option><?php } ?>  <option value="<?php echo $stream_otherdata[0]['stream_id']; ?> "><?php echo $stream_otherdata[0]['stream_name']; ?></option> </select><a id="univer" class="btn">OK</a></div>');
+            $.fancybox.open('<div class="message"><h2>Add Degree</h2><input type="text" name="other_degree" id="other_degree"><h2>Add Stream</h2><select name="other_stream" id="other_stream" class="other_stream">  <option value="" Selected option disabled="">Select your Stream</option><?php foreach ($stream_alldata as $stream){?><option value="<?php echo $stream['stream_id']; ?>"><?php echo $stream['stream_name']; ?></option><?php } ?>  <option value="<?php echo $stream_otherdata[0]['stream_id']; ?> "><?php echo $stream_otherdata[0]['stream_name']; ?></option> </select><a id="univer" class="btn">OK</a></div>');
 
              $('.message #univer').on('click', function () {
-      var $textbox = $('.message').find('input[type="text"]'),
-      textVal  = $textbox.val();
-      $.ajax({
+                 var degree = document.querySelector(".message #other_degree").value;
+                 var stream = document.querySelector(".message #other_stream").value;
+               
+           if (stream == '' || degree == '')
+           {
+               if(degree == '' && stream != '')
+               {
+                    $.fancybox.open('<div class="message"><h2>Empty Degree is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+               }
+               if(stream == '' && degree != '')
+               {
+                  $.fancybox.open('<div class="message"><h2>Empty Stream is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+               }
+               if (stream == '' && degree == '')
+               {
+                  $.fancybox.open('<div class="message"><h2>Empty Degree and Empty Stream are not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+               }
+                return false;
+           }
+           else
+            {
+                    
+                 
+                var $textbox = $('.message').find('input[type="text"]'),
+                textVal  = $textbox.val();
+                var selectbox_stream = $('.message').find(":selected").text()
+               
+                $.ajax({
                           type: 'POST',
                           url: '<?php echo base_url() . "job/job_other_degree" ?>',
-                          data: 'other_degree=' + textVal,
+                          data: 'other_degree=' + textVal+ '&other_stream=' + selectbox_stream,
                           success: function (response) {
                        
                                if(response == 0)
@@ -1711,7 +1736,7 @@
                               }
                           }
                       });
-      
+                  }
                   });
 
 
@@ -1721,12 +1746,12 @@
 
    });
 
- $(document).on('change', '.message #other_degree', function (event) {
+ $(document).on('change', '.message #other_stream', function (event) {
 
 var item1=$(this);
-var other_degree=(item1.val());
+var other_stream=(item1.val());
  
- if(other_degree == 61)
+ if(other_stream == 61)
 {
     $.fancybox.open('<div class="message1"><h2>Add Stream</h2><input type="text" name="other_degree1" id="other_degree1"><a id="univer1" class="btn">OK</a></div>');
 
@@ -1751,7 +1776,7 @@ var other_degree=(item1.val());
                               else
                               {
                                    $.fancybox.close();
-                                    $('.message #other_degree').html(response);
+                                    $('.message #other_stream').html(response);
                               }
                           }
                       });
