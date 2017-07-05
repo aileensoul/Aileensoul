@@ -181,17 +181,17 @@ if ($returnpage == 'job') {
 <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
   
             
-           <?php 
+       
+               <?php 
                $userid = $this->session->userdata('aileenuser');
                if($recdata[0]['user_id'] == $userid){
                
                ?>     
-                 <ul class="current-user pro-fw">
+                <ul class="current-user pro-fw4">
                    
                    <?php }else{?>
-                 <ul class="pro-fw4">
+                 <ul class="pro-fw">
                    <?php } ?>  
-
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>
                         <?php if ($returnpage == 'job') { ?>

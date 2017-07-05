@@ -117,7 +117,6 @@
                   <a id="designation" class="designation" title="Designation">Current Work</a>
                   <?php } else {
                      ?> 
-                
                   <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
                   <?php } ?>
                </div>
@@ -241,8 +240,8 @@
                                              }
                                              
                                              ?>
-											 </span>
-											 </li>
+                                          </span>
+                                       </li>
                                        <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
                                        </li>
                                        <li> <b>Nationality </b><span>
@@ -342,7 +341,8 @@
                                                 if ($returnpage == 'recruiter') {
                                                     
                                                     if ($job[0]['pincode']) {
-                                                    ?>
+                                                    ?></span>
+                                          </li>
                                           <li> <b>Pincode </b><span><?php echo $job[0]['pincode']; ?></span>
                                           </li>
                                           <?php
@@ -369,6 +369,8 @@
                                                 }
                                                 
                                                 ?>
+                                             </span>
+                                          </li>
                                           <li> <b>Address </b><span> <?php echo $job[0]['address']; ?></span>
                                           </li>
                                        </ul>
@@ -427,6 +429,8 @@
                                                     
                                                      if ($job[0]['pincode_permenant']) {
                                                     ?>
+                                             </span>
+                                          </li>
                                           <li> <b>Pincode </b><span><?php echo $job[0]['pincode_permenant']; ?></span>
                                           </li>
                                           <?php
@@ -453,6 +457,8 @@
                                                 }
                                                 
                                                 ?>
+                                             </span>
+                                          </li>
                                           <li> <b>Address </b><span> <?php echo $job[0]['address_permenant']; ?></span>
                                           </li>
                                        </ul>
@@ -576,8 +582,8 @@
                                              <?php                                
                                                 $i = 1;
                                                                foreach ($job_graduation as $graduation) {
-                                                                                                if ($graduation['degree']) {  ?>
-                                             <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
+                                                                                    ['degree']) {  ?>
+                <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
                                                 <li> <b> Degree</b> <span>
                                                    <?php
                                                       $cache_time = $this->db->get_where('degree', array('degree_id' => $graduation['degree']))->row()->degree_name;
@@ -633,6 +639,8 @@
                                                       }
                                                       
                                                       ?>
+                                                   </span>
+                                                </li>
                                                 <li> <b>Percentage </b><span><?php echo $graduation['percentage'];?>%</span>
                                                 </li>
                                                 <li> <b>Year Of Passing </b><span><?php echo $graduation['pass_year']; ?></span>
@@ -846,6 +854,8 @@
                                                       <?php
                                                          if ($job[0]['project_duration']) {
                                                                     ?>
+                                                      </span>
+                                                   </li>
                                                    <li> <b>Duration</b><span><?php echo $job[0]['project_duration']; ?> month</span>
                                                    </li>
                                                    <?php
@@ -862,6 +872,8 @@
                                                       <?php
                                                          if ($job[0]['project_description']) {
                                                                     ?>
+                                                      </span>
+                                                   </li>
                                                    <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
                                                    <?php
                                                       }
@@ -878,6 +890,8 @@
                                                       <?php
                                                          if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
                                                              ?>
+                                                      </span>
+                                                   </li>
                                                    <li>
                                                       <div class="text-center">
                                                          <h5 class="head_title">Internship</h5>
@@ -904,7 +918,8 @@
                                                          ?>
                                                       <?php
                                                          if ($job[0]['training_duration']) {
-                                                                       ?>
+                                                         ?></span>
+                                                   </li>
                                                    <li> <b>Duration</b><span> <?php echo $job[0]['training_duration']; ?> month</span>
                                                    </li>
                                                    <?php
@@ -921,6 +936,8 @@
                                                       <?php
                                                          if ($job[0]['training_organization']) {
                                                                    ?>
+                                                      </span>
+                                                   </li>
                                                    <li> <b>Name of Organization</b><span> <?php echo $this->common->make_links($job[0]['training_organization']); ?></span>
                                                    </li>
                                                    <?php
@@ -934,6 +951,8 @@
                                                          
                                                          
                                                          ?>
+                                                      </span>
+                                                   </li>
                                                 </ul>
                                              </div>
                                              <?php
@@ -1068,57 +1087,49 @@
                                                       </ul>
                                                    </div>
                                                 </div>
-												
-												 <?php
-                                                               if ($job_work[0]['experience'] == "Fresher") {?>
-                                                               
-                                                                           
-                                          <div class="profile-job-profile-menu">
-                                             <ul class="clearfix">
-                                                <li> <b> Work Experience</b><span>Fresher</span>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                      
-                                                                        
-                                                               
-                                                                      <?php   }else{?>
+                                                <?php
+                                                   if ($job_work[0]['experience'] == "Fresher") {?>
+                                                <div class="profile-job-profile-menu">
+                                                   <ul class="clearfix">
+                                                      <li> <b> Work Experience</b><span>Fresher</span>
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                                <?php   }else{?>
                                                 <div class="profile-job-profile-menu" id="job_workexp">
                                                    <ul>
                                                       <li>
                                                          <b> Total Experience </b>
                                                          <span>
-                                                           
-                                                            <?php 
-                                                               $total_work_year=0;
-                                                               $total_work_month=0;
-                                                               foreach ($job_work as $work1) {
-                                                               
-                                                               $total_work_year+=$work1['experience_year'];
-                                                               $total_work_month+=$work1['experience_month'];
-                                                               }
-                                                               if($total_work_month == '12 month' && $total_work_year =='0 year'){
-                                                                   echo "1 year";
-                                                               }
-                                                               elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
-                                                                    $month = explode(' ', $total_work_year);
-                                                                                                   $year=$month[0];
-                                                                                                   $years=$year + 1;
-                                                                                                   echo $years." Years";
-                                                               }
-                                                               else if($work1['experience'] == "Fresher")
-                                                               {
-                                                                   echo "Fresher";
-                                                               }
-                                                               else{
-                                                                   echo $total_work_year; echo "&nbsp"; echo "Year";
-                                                               echo "&nbsp";
-                                                               echo $total_work_month; echo "&nbsp"; echo "Month";
-                                                               }
-                                                               }
-                                                             
-                                                               ?> 
-                                                           
+                                                         <?php 
+                                                            $total_work_year=0;
+                                                            $total_work_month=0;
+                                                            foreach ($job_work as $work1) {
+                                                            
+                                                            $total_work_year+=$work1['experience_year'];
+                                                            $total_work_month+=$work1['experience_month'];
+                                                            }
+                                                            if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                                                                echo "1 year";
+                                                            }
+                                                            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+                                                                 $month = explode(' ', $total_work_year);
+                                                                                                $year=$month[0];
+                                                                                                $years=$year + 1;
+                                                                                                echo $years." Years";
+                                                            }
+                                                            else if($work1['experience'] == "Fresher")
+                                                            {
+                                                                echo "Fresher";
+                                                            }
+                                                            else{
+                                                                echo $total_work_year; echo "&nbsp"; echo "Year";
+                                                            echo "&nbsp";
+                                                            echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                            }
+                                                            }
+                                                            
+                                                            ?> 
                                                          </span>
                                                       </li>
                                                    </ul>
@@ -1166,10 +1177,10 @@
                                                          <li><b> Company Email Address </b> <span><?php echo $work['companyemail']; ?></span> </li>
                                                          <?php
                                                             }
-															else if($job_work[0]['experience'] == "Fresher")
-															{
-																  echo "";
-															}
+                                                            else if($job_work[0]['experience'] == "Fresher")
+                                                            {
+                                                            echo "";
+                                                            }
                                                             else
                                                             {
                                                                ?>
@@ -1177,14 +1188,14 @@
                                                             <?php echo PROFILENA;
                                                                }
                                                                }
-												   
+                                                               
                                                                  
                                                                
-                                                    if ($returnpage == 'recruiter') {
+                                                               if ($returnpage == 'recruiter') {
                                                                    
-                                                          if ($work['experience'] == "Experience" && $work['companyphn']) {
+                                                               if ($work['experience'] == "Experience" && $work['companyphn']) {
                                                                                    ?>
-                                                         <li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
+                                                         </span></li><li> <b>Company Phone Number </b><span> <?php echo $work['companyphn']; ?></span>
                                                          </li>
                                                          <?php
                                                             }
@@ -1201,10 +1212,10 @@
                                                          </li>
                                                          <?php
                                                             }
-															else if($job_work[0]['experience'] == "Fresher")
-															{
-																  echo "";
-															}
+                                                            else if($job_work[0]['experience'] == "Fresher")
+                                                            {
+                                                            echo "";
+                                                            }
                                                             else
                                                             {
                                                             ?>
@@ -1215,34 +1226,32 @@
                                                                
                                                                
                                                                ?>
-														<?php if($job_work[0]['experience'] != "Fresher")
-														{?>
+                                                            <?php if($job_work[0]['experience'] != "Fresher")
+                                                               {?>
+                                                         </span></li>
                                                          <li> <b>Experience </b><span>
-														 
-														 <?php
-                                                            
-															
-                                                                          if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") {
-                                                                                              echo "1 Year";
-                                                                                             } elseif($work['experience_year'] != "0 year" && $work['experience_month'] == "12 month") {
-                                                            
-                                                                                                $month1 = explode(' ', $work['experience_year']);
-                                                                                                $year1=$month1[0];
-                                                                                                $years1=$year1 + 1;
-                                                                                                echo $years1." Years";
-                                                                                                  }
-                                                                                                  else{
-                                                                                                    echo $work['experience_year'];
-                                                                                                   echo "&nbsp";
-                                                                                         echo $work['experience_month'];
-                                                                                                  }
-                                                                                             }
-                                                                                                                    ?></span>
+                                                            <?php
+                                                               if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") {
+                                                                                   echo "1 Year";
+                                                                                  } elseif($work['experience_year'] != "0 year" && $work['experience_month'] == "12 month") {
+                                                               
+                                                                                     $month1 = explode(' ', $work['experience_year']);
+                                                                                     $year1=$month1[0];
+                                                                                     $years1=$year1 + 1;
+                                                                                     echo $years1." Years";
+                                                                                       }
+                                                                                       else{
+                                                                                         echo $work['experience_year'];
+                                                                                        echo "&nbsp";
+                                                                              echo $work['experience_month'];
+                                                                                       }
+                                                                                  }
+                                                                                                         ?></span>
                                                          </li>
                                                          <?php
                                                             if ($work['work_certificate'] != "") {
                                                                 ?>
-                                                         <li><b>Experience Certificate </b> <span>
+                                                         <l i><b>Experience Certificate </b> <span>
                                                             <a class="example-image-link" href="<?php echo base_url($this->config->item('job_work_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate</a>
                                                             </span>
                                                          </li>
@@ -1261,8 +1270,8 @@
                                                    ?>
                                              </div>
                                              <!--khyati chnages 22-5 start--> 
-<?php if($job_work[0]['experience'] != "Fresher")
-														{?>											 
+                                             <?php if($job_work[0]['experience'] != "Fresher")
+                                                {?>                                  
                                              <div class="tab pagi_exp">
                                                 <?php if(count($job_work) >= 1){ ?>   
                                                 <button class="tablinks" onclick="openCity(event, 'work6')">1</button>
@@ -1276,7 +1285,7 @@
                                                 <button class="tablinks" onclick="openCity(event, 'work10')">5</button>
                                                 <?php }?>
                                              </div>
-														<?php }?>
+                                             <?php }?>
                                              </ul>
                                           </div>
                                           <!--khyati 22-5 chanegs end--> 
@@ -1430,6 +1439,7 @@
                                                       }
                                                       
                                                       ?>
+                                                   </span></li>
                                              </ul>
                                           </div>
                                           <?php
