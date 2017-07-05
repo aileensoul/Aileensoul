@@ -29,9 +29,7 @@
   <section class="middle-main">
     <div class="container">
       
-        <div class="title">
-          <h1>Contact us</h1>
-        </div>
+      
 
 
         <div id="contactsucc"></div>
@@ -39,7 +37,9 @@
 
         <div class="inner-form">
           <div class="login">
-            
+              <div class="title">
+          <h1>Contact us</h1>
+        </div>
             <form role="form" name="contact_form" id="contact_form" method="post">
                 <div class="row">
                   <div class="col-sm-6 col-md-6">

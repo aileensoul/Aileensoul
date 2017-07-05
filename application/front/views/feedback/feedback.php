@@ -29,16 +29,16 @@
   <section class="middle-main">
     <div class="container">
       
-        <div class="title">
-          <h1>Send us feedback</h1>
-        </div>
+       
 
         <div id="feedbacksucc"></div>
 
         
         <div class="inner-form">
           <div class="login">
-            
+             <div class="title">
+          <h1>Send us feedback</h1>
+        </div>
             <form role="form" name="feedback_form" id="feedback_form" method="post">
                 <div class="row">
                   <div class="col-sm-6 col-md-6">

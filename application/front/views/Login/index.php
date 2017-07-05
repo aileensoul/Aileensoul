@@ -29,10 +29,7 @@
   <section class="middle-main mid-trns">
     <div class="container">
       
-        <div class="title">
-          <h1 class="ttc">Welcome To Aileensoul</h1>
-        </div>
-
+      
 
          <div id="error"></div>
 
@@ -40,7 +37,10 @@
          
         <div class="inner-form">
           <div class="login">
-            
+              <div class="title">
+          <h1 class="ttc">Welcome To Aileensoul</h1>
+        </div>
+
             <form role="form" name="login_form" id="login_form" method="post">
                 
 
