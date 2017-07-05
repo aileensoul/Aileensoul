@@ -5519,6 +5519,7 @@ label.cameraButton input[accept*="camera"] {
     display: block;
 }
 .post-design-desc {
+    position: relative;
     clear: both;
     padding: 5px 20px 0px 20px;
     text-align: left;
@@ -14302,7 +14303,7 @@ header.animated {
         line-height: 1;
     }
     .popup-text span {
-        font-size: 16px;
+        font-size: 15px;
     }
     .cmy_2 {
         width: 68%;
@@ -14510,6 +14511,13 @@ header.animated {
     }
 }
 @media screen and (max-width: 540px) {
+    .post-design-desc{padding: 5px 0px 0px 9px;}
+    .post-design-box .post-design-desc .fr{position: absolute;
+right: 9px;
+bottom: inherit;
+top: 8px;}
+    .post-design-desc span button{padding: 6px 16px 8px;}
+    .post-design-box .post-design-desc .editable_text{ float: none;}
     .midd-section{padding: 85px 0;}
     #InboxFooter a{font-size: 14px; padding: 3px 21px !important;}
     .comment-details {
