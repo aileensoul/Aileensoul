@@ -13388,9 +13388,6 @@ header.animated{z-index:9;}
     .profile-job-details .job_companyname{width: 208px;}
      .file_name_pdf{font-size: 12px;}
 
-    .profile-job-details .post_title {
-        width: 46% !important;
-    }
 
     .alert.alert-danger {
     background-color: #f2dede;
@@ -13446,11 +13443,12 @@ header.animated{z-index:9;}
         margin-top: -41px !important;
     }
     .profile-job-details .post_title {
-        width: 50% !important;
+        width: 46% !important;
         font-size: 16px;
     }
     .date_re {
         font-size: 12px;
+        padding-left: 12px;
     }
     .profile-job-details .job_companyname {
         width: 250px;
