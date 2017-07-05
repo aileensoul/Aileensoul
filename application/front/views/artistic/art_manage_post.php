@@ -3716,8 +3716,13 @@ if (size > 10485760)
        var $field = $('#editpostdesc' + abc);
        //var data = $field.val();
        var editpostdetails = $('#editpostdesc' + abc).html();
+
+       editpostdetails = editpostdetails.replace(/&gt;/g,">");
+       
        editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
-       editpostdetails = editpostdetails.replace(/&gt;/gi, '%3e');
+
+
+
 
 
 alert(editpostdetails);
