@@ -1122,10 +1122,25 @@
                               </div>
                               </a>
                               <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
-                                 <?php
-                                    echo $this->common->make_links($rowdata['comments']);
-                                    ?>
-                              </div>
+
+                                 <div id="<?php echo "lessmore" . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
+                                <?php
+                     $small = substr($rowdata['comments'], 0, 180);
+                     echo $this->common->make_links($small);
+
+                     if (strlen($rowdata['comments']) > 180) {
+                          echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['artistic_post_comment_id'] . ')">See More</span>';
+                        }?>
+                        </div>
+                   
+                    <div id="<?php echo "seemore" . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
+                      <?php
+                      echo $this->common->make_links($rowdata['comments']);
+                   ?>
+
+               </div>
+                </div>
+
                               <div class="edit-comment-box">
                                  <div class="inputtype-edit-comment">
                                     <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 78%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?>
@@ -1875,7 +1890,7 @@
        txt = txt.replace(/&nbsp;/gi, " ");
        txt = txt.replace(/<br>$/, '');
 
-        txt = txt.replace(/div>/gi, 'p>');
+       txt = txt.replace(/div>/gi, 'p>');
 
 
        if (txt == '' || txt == '<br>') {
@@ -2290,6 +2305,10 @@
    
                txt = txt.replace(/&nbsp;/gi, " ");
                txt = txt.replace(/<br>$/, '');
+
+               txt = txt.replace(/div>/gi, 'p>');
+
+
                if (txt == '' || txt == '<br>') {
                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_delete(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                    $('#bidmodal').modal('show');
@@ -2364,6 +2383,9 @@
    
        txt = txt.replace(/&nbsp;/gi, " ");
        txt = txt.replace(/<br>$/, '');
+       txt = txt.replace(/div>/gi, 'p>');
+
+
        if (txt == '' || txt == '<br>') {
            $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
            $('#bidmodal').modal('show');
@@ -2439,6 +2461,9 @@
    
                txt = txt.replace(/&nbsp;/gi, " ");
                txt = txt.replace(/<br>$/, '');
+               txt = txt.replace(/div>/gi, 'p>');
+
+
                if (txt == '' || txt == '<br>') {
                    $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + abc + " onClick='comment_deletetwo(" + abc + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                    $('#bidmodal').modal('show');
@@ -3520,4 +3545,17 @@
         </script>
 
 
+<!-- 180 words more than script start -->
+
+<script type="text/javascript">
+    
+     function seemorediv(abc) { //alert("hii");
+         
+                   document.getElementById('seemore' + abc).style.display = 'block';
+                   document.getElementById('lessmore' + abc).style.display = 'none';
+                
+   }
+   
+   </script>
+ <!-- 180 words more than script end-->
 
