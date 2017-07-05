@@ -404,7 +404,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             type: "POST",
             data: 'user_email=' + abc,
             success: function (response) { 
-                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully..");
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully.");
                   $('#bidmodal').modal('show');
                   window.open(response);
             }

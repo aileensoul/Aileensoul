@@ -13711,12 +13711,12 @@ input[type=number]::-webkit-outer-spin-button {
     border-right: none;
 }
 .header ul li.dropdown-user a {
-    padding-top: 14px !important;
-    padding-bottom: 10px !important;
+    padding-top: 11px !important;
+    padding-bottom: 11px !important;
 }
 .header ul li a {
-    padding-bottom: 14px !important;
-    padding-top: 14px!important;
+    padding-bottom: 16px !important;
+    padding-top: 13.3px!important;
 }
 .my_S {
     padding: 3px 10px;

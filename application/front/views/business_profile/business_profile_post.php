@@ -154,7 +154,7 @@
             <div class="user-midd-section" id="paddingtop_fixed">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4  profile-box profile-box-custom">
+                        <div class="col-md-4  animated fadeInLeftBig profile-box profile-box-custom">
                             <div class="">
 
                                 <div class="full-box-module">   
@@ -675,7 +675,7 @@
                         }
                         ?>
 
-                        <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business ">
+                        <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business  animated fadeInUp">
 
                             <div class="post-editor col-md-12">
                                 <div class="main-text-area col-md-12">
