@@ -14510,6 +14510,8 @@ header.animated {
     }
 }
 @media screen and (max-width: 540px) {
+    .midd-section{padding: 85px 0;}
+    #InboxFooter a{font-size: 14px; padding: 3px 21px !important;}
     .comment-details {
         font-size: 14px;
     }
@@ -14875,7 +14877,7 @@ header.animated {
         margin-top: 12px;
     }
     .profile-pho-bui .user-pic {
-        height: 44px;
+        height: 43px;
         width: 42px;
     }
     .bui-menu-profile {

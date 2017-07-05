@@ -421,7 +421,7 @@ start head -->
                 </div>
             </div>
         </div>
-      <div class="container">
+      <div class="">
          <div class="user-midd-section"  >
             <div  class="col-sm-12 border_tag padding_low_data padding_les" >
                <div class="padding_les main_art" >

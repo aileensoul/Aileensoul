@@ -5,11 +5,12 @@ select option:not(:checked) { color: black; }
  
     
 select option:checked { color: black; }
-.header2 ul li.active a{padding: 12px 10px 10px}
-
-
+.addcontact-left{width: 100%!important;
+margin: 0 auto;
+text-align: center;}
+.addcontact-left a{padding-left: 30px !important;}
 select option[disabled]:first-child { display: none; }
-.file_name_pdf{color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;}
+.file_name_pdf{color:#8c8c8c; font-size:17px; padding-left:10px; visibility:show;}
 .banner-box .left-profile {
     position: absolute;
     width: 290px;
@@ -263,6 +264,7 @@ text-overflow: ellipsis;}
         padding-top: 0px !important;
     }
 }
-@media screen and (max-width: 540px) { .profile-job-post-location-name-rec .post_designation{font-size: 12PX;} }
+@media screen and (max-width: 540px) { .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
+.header2 ul li.active a{padding: 12px 10px 10px} }
 @media screen and (max-width: 479px) {}
 @media screen and (max-width: 360px) {}
