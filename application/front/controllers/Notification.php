@@ -2015,7 +2015,7 @@ $user_message = array_merge($return_arraysel,$userlist);
             $data = array(' notification.*');
             $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = "", $groupby = '');
        
-            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
+            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot" style="padding:0px !important;">';
             $notmsg .= '<li class="';
             if($not[0]['not_active'] == 1){
             $notmsg .= 'active2';
