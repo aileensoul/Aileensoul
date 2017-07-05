@@ -26,7 +26,7 @@
       </div>
     </div>
   </header>
-  <section class="middle-main">
+  <section class="middle-main mid-trns">
     <div class="container">
       
         <div class="title">
@@ -115,7 +115,7 @@
 
 
   <footer>
-    <div class="container">
+    <div class="container pt-20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul
