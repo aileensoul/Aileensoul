@@ -7366,7 +7366,25 @@ $datacount = count($otherdata);
                 $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
                 $fourdata .= '</a>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
-                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
+
+                $fourdata .= '<div id= "lessmore' . $rowdata['artistic_post_comment_id'] . '"  style="display:block;">';
+
+                    $small = substr($rowdata['comments'], 0, 180);
+
+                $fourdata .= '' . $this->common->make_links($small) . '';
+
+                    // echo $this->common->make_links($small);
+
+                     if (strlen($rowdata['comments']) > 180) {
+                         $fourdata .= '... <span id="kkkk" onClick="seemorediv(' . $rowdata['artistic_post_comment_id'] . ')">See More</span>';
+                        }
+
+                $fourdata .= '</div>';
+
+
+                $fourdata .= '<div id= "seemore' . $rowdata['artistic_post_comment_id'] . '"  style="display:none;">';
+
+                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div></div>';
 
 //                $fourdata .= '<textarea  name="' . $rowdata['artistic_post_comment_id'] . '" id="editcommenttwo' . $rowdata['artistic_post_comment_id'] . '" style="display:none" onClick="commentedittwo(this.name)">';
 //                $fourdata .= '' . $rowdata['comments'] . '';
