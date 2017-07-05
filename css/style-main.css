@@ -4,7 +4,7 @@ html{
 	position:relative;
 }
 body{
-	
+	/*background:#f3f3f3;*/
 	
 }
 
@@ -200,6 +200,7 @@ a:hover{
 .main-login .middle-main{
 	padding:55px 0;
 	background:url('../img/bg.png');
+	background-size:100%;
 }
 .top-middle{
 	padding:45px 0;
