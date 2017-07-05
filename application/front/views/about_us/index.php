@@ -29,7 +29,7 @@
   <section class="middle-main">
     <div class="container">
       
-        <div class="title">
+        <div class="titlea">
           <h1>About us</h1>
         </div>
         <div class="about-content">

@@ -298,12 +298,23 @@ a:hover{
 
 
 /***  login form css  ***/
-.login{
+/*.login{
 	background:#fff;
 	width:80%;
 	margin:0 auto;
 	border:1px solid #c7c7c7;
-	border-radius:5px;
+	border-radius:5px;*/
+        .login {
+    background: #fff !important;
+    width: 80%;
+    margin: 0 auto;
+    border-top: none !important;
+    border: 1px solid #c7c7c7;
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: rgb(199, 199, 199);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .login h4{
 	padding:15px; 
@@ -368,7 +379,8 @@ footer{
 	bottom:0;
 	height:60px;
 	width:100%;
-	background:#fff;
+        background-color: #f3f3f3;
+	
 }
 footer > .container {
 	border-top:1px solid #dbdada;
@@ -391,6 +403,93 @@ footer ul li a:hover{
 	text-decoration:underline;
 }
 
+/*onclick*/
+ .form-group textarea:focus {
+   border-bottom: 1px solid #1b8ab9 !important;
+    color: #1b8ab9!important;
+ }
+ /* label focus color */
+ .form-group textarea[type=text]:focus + label {
+     color: #1b8ab9!important;
+}
+/* label underline focus color */
+ .form-group textarea[type=text]:focus {
+     border-bottom: 1px solid #1b8ab9;
+      color: #1b8ab9!important;
+   
+   }
+ .form-group input:focus {
+   border-bottom: 1px solid #1b8ab9 !important;
+    color: #1b8ab9!important;
+ }
+ /* label focus color */
+ .form-group input[type=text]:focus + label {
+     color: #1b8ab9!important;
+}
+/* label underline focus color */
+ .form-group input[type=text]:focus {
+     border-bottom: 1px solid #1b8ab9;
+      color: #1b8ab9!important;
+   
+   }
+  .form-group input::-webkit-input-placeholder {
+    color: #999;
+}
+ .form-group input:focus::-webkit-input-placeholder {
+       color: #1b8ab9;
+}
+/* Firefox < 19 */
+ .form-group input:-moz-placeholder {
+    color: #999;
+}
+ .form-group input:focus:-moz-placeholder {
+      color: #1b8ab9;
+}
+/* Firefox > 19 */
+ .form-group input::-moz-placeholder {
+    color: #999;
+}
+ .form-group input:focus::-moz-placeholder {
+       color: #1b8ab9;
+}
+
+/* Internet Explorer 10 */
+ .form-group input:-ms-input-placeholder {
+    color: #999;
+}
+ .form-group input:focus:-ms-textarea-placeholder {
+    color: #1b8ab9;
+}
+
+.form-group textarea::-webkit-textarea-placeholder {
+    color: #999;
+}
+ .form-group textarea:focus::-webkit-textarea-placeholder {
+       color: #1b8ab9;
+}
+/* Firefox < 19 */
+ .form-group textarea:-moz-placeholder {
+    color: #999;
+}
+ .form-group textarea:focus:-moz-placeholder {
+      color: #1b8ab9;
+}
+/* Firefox > 19 */
+ .form-group textarea::-moz-placeholder {
+    color: #999;
+}
+ .form-group textarea:focus::-moz-placeholder {
+       color: #1b8ab9;
+}
+
+/* Internet Explorer 10 */
+ .form-group textarea:-ms-textarea-placeholder {
+    color: #999;
+}
+ .form-group textarea:focus:-ms-textarea-placeholder {
+    color: #1b8ab9;
+}
+
 
 /***  inner page  ***/
 .main-inner{
@@ -403,6 +502,18 @@ footer ul li a:hover{
 
 .main-inner .btn-right .btn3{
 	margin-left:10px;
+}
+.titlea{
+	text-align:center;
+}
+.titlea h1{
+	display:inline-block; 
+	text-align:center; 
+	font-size:40px; 
+	color:#1b8ab9;
+	position:relative;
+	margin-bottom:15px;
+	text-transform:capitalize;
 }
 .title{
 	text-align:center;
@@ -418,12 +529,12 @@ footer ul li a:hover{
 	display:inline-block; 
 	text-align:center; 
 	font-size:40px; 
-	color:#000;
+	color:#1b8ab9;
 	position:relative;
-	margin-bottom:50px;
+	margin-bottom:15px;
 	text-transform:capitalize;
 }
-.title h1:after{
+/*.title h1:after{
 	position:absolute;
 	height:1px;
 	width:140px;
@@ -433,7 +544,7 @@ footer ul li a:hover{
 	margin:0 auto;
 	left:0;
 	right:0;
-}
+}*/
 .inner-form{
 	width:400px;
 	margin:0 auto;
@@ -777,6 +888,7 @@ h3.text-effect span {
 	bottom: -25px;
 	
 }
+
 .form-group{position: relative;}
 .form-group label.error{position: absolute; left: 0;}
 input:-webkit-autofill,
@@ -893,6 +1005,7 @@ section { overflow: hidden; }
 	.carousel-fade .carousel-caption .carousel-text{float:none; text-align:center;}
 	.login{width:444px;}
 	.inner-form{width:100%;}
+        .title{width:100%;}
 	.inner-form .login{width:100%;}
 	footer{text-align:center;}
 	footer ul{float:none; display:inline-block; padding-top:15px;}
