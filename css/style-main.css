@@ -1051,6 +1051,8 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 767px) {
+        .mid-trns{transform: inherit ;top:inherit; position: inherit; left: inherit;}
+
     .main-login .middle-main{padding: 177px 0;}
 	.main-login{background-size: cover;}
 	header h2{text-align:center; padding-bottom:15px;}
