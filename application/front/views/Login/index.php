@@ -9,15 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-<style type="text/css">
-.md-2{width: 33%!important;
-margin: 0 auto;     
-    -webkit-transition: height .25s ease, width .25s ease;
-    transition: height .25s ease, width .25s ease;
-    -webkit-transform: translate(50%,50%);
-    transform: translate(0%, 50%);}
-    .modal{   background-color: rgba(0, 0, 0, 0.5);}
-</style>
+
 <body>
 <div class="main-inner">
   <header>

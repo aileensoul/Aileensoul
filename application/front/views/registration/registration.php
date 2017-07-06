@@ -19,8 +19,8 @@
         </div>
         <div class="col-md-8 col-sm-9">
             <div class="btn-right pull-right">
-<!--              <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>-->
-              <a href="<?php echo base_url('registration'); ?>" class="btn3">creat an account</a>
+              <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
+<!--              <a href="<?php echo base_url('registration'); ?>" class="btn3">creat an account</a>-->
             </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
         <div class="inner-form pt-50">
           <div class="login">
               <div class="title">
-          <h1>Join Aileensoul</h1>
+          <h1>Join Aileensoul - It's Free</h1>
         </div>
             <form role="form" name="register_form" id="register_form" method="post">
                 <div class="row">

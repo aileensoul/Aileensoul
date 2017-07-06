@@ -417,7 +417,7 @@ footer ul li a:hover{
 
 /*onclick*/
  .form-group textarea:focus {
-   border-bottom: 1px solid #1b8ab9 !important;
+   border-bottom: 5px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -426,12 +426,12 @@ footer ul li a:hover{
 }
 /* label underline focus color */
  .form-group textarea[type=text]:focus {
-     border-bottom: 1px solid #1b8ab9;
+     border-bottom: 5px solid #1b8ab9;
       color: #1b8ab9!important;
    
    }
  .form-group input:focus {
-   border-bottom: 1px solid #1b8ab9 !important;
+   border-bottom: 5px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -444,60 +444,48 @@ footer ul li a:hover{
       color: #1b8ab9!important;
    
    }
-  .form-group input::-webkit-input-placeholder {
-    color: #999;
-}
+
  .form-group input:focus::-webkit-input-placeholder {
        color: #1b8ab9;
 }
 /* Firefox < 19 */
- .form-group input:-moz-placeholder {
-    color: #999;
-}
+
  .form-group input:focus:-moz-placeholder {
       color: #1b8ab9;
 }
 /* Firefox > 19 */
- .form-group input::-moz-placeholder {
-    color: #999;
-}
+
  .form-group input:focus::-moz-placeholder {
        color: #1b8ab9;
 }
 
 /* Internet Explorer 10 */
- .form-group input:-ms-input-placeholder {
-    color: #999;
-}
+
  .form-group input:focus:-ms-textarea-placeholder {
     color: #1b8ab9;
 }
+/*second*/
 
-.form-group textarea::-webkit-textarea-placeholder {
-    color: #999;
+ .form-group textarea:focus::-webkit-placeholder {
+       color: #1b8ab9 ;
 }
+
  .form-group textarea:focus::-webkit-textarea-placeholder {
-       color: #1b8ab9;
+       color: #1b8ab9 ;
 }
 /* Firefox < 19 */
- .form-group textarea:-moz-placeholder {
-    color: #999;
-}
+
  .form-group textarea:focus:-moz-placeholder {
       color: #1b8ab9;
 }
 /* Firefox > 19 */
- .form-group textarea::-moz-placeholder {
-    color: #999;
-}
+
  .form-group textarea:focus::-moz-placeholder {
        color: #1b8ab9;
 }
 
 /* Internet Explorer 10 */
- .form-group textarea:-ms-textarea-placeholder {
-    color: #999;
-}
+
  .form-group textarea:focus:-ms-textarea-placeholder {
     color: #1b8ab9;
 }
