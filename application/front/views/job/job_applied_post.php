@@ -813,17 +813,16 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 <!-- for search validation -->
 <script type="text/javascript">
-    function checkvalue() {
-        // alert("hi");
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
-        // alert(searchkeyword);
-        // alert(searchplace);
-        if (searchkeyword == "" && searchplace == "") {
-            // alert('Please enter Keyword');
-            return false;
-        }
-    }
+   function checkvalue() {
+     
+       var searchkeyword = $.trim(document.getElementById('tags').value);
+       var searchplace = $.trim(document.getElementById('searchplace').value);
+   
+       if (searchkeyword == "" && searchplace == "") {
+           return false;
+       }
+   }
+   
 </script>
 <!-- end search validation -->
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
