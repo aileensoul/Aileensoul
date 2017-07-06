@@ -34,7 +34,7 @@
         <div id="feedbacksucc"></div>
 
         
-        <div class="inner-form">
+        <div class="inner-form pt-50">
           <div class="login">
              <div class="title">
           <h1>Send us feedback</h1>

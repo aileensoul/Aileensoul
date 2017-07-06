@@ -30,7 +30,7 @@
     <div class="container">
       
       
-        <div class="inner-form">
+        <div class="inner-form pt-50">
           <div class="login">
               <div class="title">
           <h1>Join Aileensoul</h1>

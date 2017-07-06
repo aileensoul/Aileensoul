@@ -124,6 +124,11 @@ body{
 
 /***  header  ***/
 header{
+    z-index: 1;
+        position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
 background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
@@ -141,7 +146,7 @@ header h2{
 	font-weight:bold;
 }
 .header-login .input{		
-	width:33%;		
+	width:31%;		
 	float:left;		
 	margin-right:15px;		
 }
@@ -198,12 +203,12 @@ a:hover{
 
 /***  middle part  ***/
 .main-login .middle-main{
-	padding:55px 0;
+	padding:89px 0;
 	background:url('../img/bg.png');
 	background-size:100%;
 }
 .top-middle{
-	padding:45px 0;
+	padding:45px 0 10px;
 	min-height:190px;
 }
 .top-middle h3{
@@ -567,7 +572,10 @@ footer ul li a:hover{
 .inner-form{
 	width:560px;
 	margin:0 auto;
+        
+        
 }
+.pt-50{padding-top: 50px;}
 .inner-form .login{
 	background:none;
 }
@@ -1040,6 +1048,7 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 767px) {
+    .main-login .middle-main{padding: 177px 0;}
 	.main-login{background-size: cover;}
 	header h2{text-align:center; padding-bottom:15px;}
 	.header-login{text-align:center;}
@@ -1061,7 +1070,7 @@ margin: 0 auto;
 	.mail-sent li{width:100%; padding:5px 15px; border-right:0;}
 	.title h1{font-size:35px;}
 	.about-content{font-size:14px;}
-	.main-inner .middle-main{padding:20px 0;}
+	.main-inner .middle-main{padding:170px 0;}
 	.banner{/*margin-left: -15px;
 		margin-right: -15px;*/
 		width: 100%;
@@ -1074,6 +1083,7 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 640px) {
+    .main-inner .middle-main{padding-bottom: 0px;}
 	.banner-box .left-profile{left: 0px!important;}
 	.box-profile{margin:0 10px 20px;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:200px; height:200px;}
