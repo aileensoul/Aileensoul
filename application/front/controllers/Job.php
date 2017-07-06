@@ -708,9 +708,11 @@ class Job extends MY_Controller {
          $contition_array = array('is_delete' => '0','stream_name !=' => "Other");
           $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
            $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
+
 //          $contition_array = array('status' => 1,'is_delete' => 0,'stream_name !=' => "Other");                                         
 //        $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
         
+           
           $contition_array = array('status' => 1,'is_delete' => 0,'stream_name' => "Other");                                         
         $stream_otherdata = $this->data['stream_otherdata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
        // echo "<pre>";print_r($stream_alldata);die();
@@ -5441,31 +5443,51 @@ public function job_applied_post() {
              $contition_array = array('is_delete' => '0','university_name !=' => "Other");
              $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
                $university = $this->data['university'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            
+           
                 if (count($university) > 0) {
-                echo ' <option value="" selected option disabled>Select your University</option>
-';
+                $select = '<option value="" selected option disabled>Select your University</option>';
+                
                 foreach ($university as $st) {
-                    echo '<option value="' . $st['university_id'] . '">' . $st['university_name'] . '</option>';
+                $select .= '<option value="' . $st['university_id'] . '"';
+                 if($st['university_name'] == $other_university){
+                            $select .= 'selected'; 
+                       }
+                       $select .=    '>' . $st['university_name'] . '</option>';
+                 
                     }      
                 }  
 //For Getting Other at end
 $contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
 $university_otherdata = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
      
-echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
-        }
+ $select .= '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
+        
+ //for getting university data in clone start
+$select1 = '<option value="" selected option disabled>Select your University</option>';
+ foreach ($university as $st) {
+    
+     $select1 .= '<option value="' . $st['university_id'] . '">'. $st['university_name'] .'</option>';
+     
+ }
+ $select1 .= '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
+ //for getting university data in clone End
+ 
+                 }
     }
     
   
     else{
-            echo 0;
+            $select .= 0;
             }
     }
     else
     {
-        echo 1;
+        $select .= 1;
     }
+     echo json_encode(array(
+                            "select" => $select,
+                            "select1" => $select1,
+                   ));
 }
 //add other_university into database End 
 
@@ -5553,7 +5575,7 @@ $degree_otherdata = $this->common->select_data_by_condition('degree', $contition
      
 $select .= '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
 
- //for getting degree data in clone
+ //for getting degree data in clone start
 $select1 = '<option value="" Selected option disabled="">Select your Degree</option>';
  foreach ($degree as $st) {
     
@@ -5561,8 +5583,9 @@ $select1 = '<option value="" Selected option disabled="">Select your Degree</opt
      
  }
  $select1 .= '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
+ //for getting degree data in clone End
  
- //for getting selected stream data
+ //for getting selected stream data start
   $contition_array = array('is_delete' => '0','degree_id' => $degree_id);
   $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
   $stream = $this->data['stream'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5573,7 +5596,7 @@ $select1 = '<option value="" Selected option disabled="">Select your Degree</opt
   $select2 .= 'selected'; 
                        }
   $select2 .=    '>' . $stream[0]['stream_name'] . '</option>';
-                
+      //for getting selected stream data End         
            }
     }else{
            $select .= 0;

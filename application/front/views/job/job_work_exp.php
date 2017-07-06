@@ -1230,12 +1230,12 @@ if(num==5)
    }
 </style>
 <script type="text/javascript">
-//This function work after solve issue of bootstrap start
+
    function home(work_id) {
    
     $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a class="mesg_link btn" onclick="return delete_job_work(' + work_id + ');">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
  }
-//This function work after solve issue of bootstrap End
+
 
    function delete_job_work(work_id) {
   

@@ -481,10 +481,15 @@
                                              <?php echo form_error('degree'); ?>
                                              <!--    </fieldset> -->
                                              <?php
-                                                $contition_array = array('status' => 1 , 'degree_id' => $degree1);
+                                             
+           $contition_array = array('is_delete' => '0', 'degree_id' => $degree1);
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+           $stream_data = $this->data['$stream_data'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
                                                 
-                                                $stream_data = $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                
+//           $contition_array = array('status' => 1 , 'degree_id' => $degree1);
+//                                                
+//                                                $stream_data = $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                                                
                                                 // echo "<pre>"; print_r($stream_data); die();
                                                 
                                                 ?>
@@ -613,7 +618,7 @@
                                                 ?>
                                              <div style="float: left;">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_job_exp(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="home(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
                                                 </div>
                                              </div>
                                              <?php } ?>
@@ -1637,7 +1642,7 @@
 <script type="text/javascript">
 
 //Click on University other option process Start 
-   $(document).on('change', '.university', function (event) {
+   $(document).on('change', '#input1 .university', function (event) {
       var item=$(this);
       var uni=(item.val());
       if(uni == 463)
@@ -1650,21 +1655,179 @@
       $.ajax({
                           type: 'POST',
                           url: '<?php echo base_url() . "job/job_other_university" ?>',
+                          dataType: 'json',
                           data: 'other_university=' + textVal,
                           success: function (response) {
                        
-                               if(response == 0)
+                               if(response.select == 0)
                               {
                                 $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
                               }
-                              else if(response == 1)
+                              else if(response.select == 1)
                               {
                                 $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
                               }  
                               else
                               {
                                    $.fancybox.close();
-                                    $('.university').html(response);
+                                   $('.university').html(response.select1);
+                                   $('#input1 .university').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+   
+   $(document).on('change', '#input2 .university', function (event) {
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 463)
+      {
+            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
+   
+             $('.message #univer').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_university" ?>',
+                          dataType: 'json',
+                          data: 'other_university=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('.university').html(response.select1);
+                                   $('#input2 .university').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+   
+   $(document).on('change', '#input3 .university', function (event) {
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 463)
+      {
+            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
+   
+             $('.message #univer').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_university" ?>',
+                          dataType: 'json',
+                          data: 'other_university=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('.university').html(response.select1);
+                                   $('#input3 .university').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+   
+   $(document).on('change', '#input4 .university', function (event) {
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 463)
+      {
+            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
+   
+             $('.message #univer').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_university" ?>',
+                          dataType: 'json',
+                          data: 'other_university=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('.university').html(response.select1);
+                                   $('#input4 .university').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+   
+   $(document).on('change', '#input5 .university', function (event) {
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 463)
+      {
+            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
+   
+             $('.message #univer').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "job/job_other_university" ?>',
+                          dataType: 'json',
+                          data: 'other_university=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty University is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('.university').html(response.select1);
+                                   $('#input5 .university').html(response.select);
                               }
                           }
                       });
@@ -2767,6 +2930,11 @@ var other_stream=(item1.val());
    } 
    </style>-->
 <script type="text/javascript">
+     function home(grade_id) {
+   
+    $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a class="mesg_link btn" onclick="return delete_job_exp(' + grade_id + ');">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ }
+
    function delete_job_exp(grade_id) {
        $.ajax({
            type: 'POST',
