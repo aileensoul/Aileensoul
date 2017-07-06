@@ -1107,6 +1107,7 @@ margin: 0 auto;
 	.banner-box img{height:250px;}
 }
     @media screen and (max-width: 479px) {
+         .main-login .middle-main{padding: 230px 0;}
         .main-login .middle-main{
             background-position: center; padding-bottom: 0px;}
 	.mob-none{display:none;}
