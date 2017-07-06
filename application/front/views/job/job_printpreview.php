@@ -1910,7 +1910,6 @@
        var searchplace = $.trim(document.getElementById('searchplace').value);
    
        if (searchkeyword == "" && searchplace == "") {
-           // alert('Please enter Keyword');
            return false;
        }
    }
