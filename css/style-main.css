@@ -1093,7 +1093,7 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 640px) {
-    .main-inner .middle-main{padding-bottom: 0px !important; padding: 130px 0;}
+    .main-inner .middle-main{padding-bottom: 0px !important; padding: 170px 0;}
 	.banner-box .left-profile{left: 0px!important;}
 	.box-profile{margin:0 10px 20px;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:200px; height:200px;}
