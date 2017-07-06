@@ -53,7 +53,7 @@
                             
                              <li  class="custom-none <?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
                             
-                             <li class="custom-none <?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
+                             <!-- <li class="custom-none <?php //if($recdata[0]['re_step'] < '2'){//echo "khyati";}?>"><a href="<?php //echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li> -->
                                 
                             </ul>
                         </div>
