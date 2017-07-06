@@ -314,7 +314,7 @@ var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
 
       else
       { 
-
+          alert(455);
         var fd = new FormData();
                 
         fd.append("image", $("#portfolio_attachment")[0].files[0]);
@@ -328,7 +328,7 @@ var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
 
         $.ajax({
 
-
+       
             url: "<?php echo base_url(); ?>freelancer/freelancer_post_portfolio_insert",
             type: "POST",
            // data:'file=' + fd + 'portfolio='+portfolio,

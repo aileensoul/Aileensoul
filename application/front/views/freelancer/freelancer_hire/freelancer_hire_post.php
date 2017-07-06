@@ -128,8 +128,8 @@ echo $freelancer_hire_header2_border;} ?>
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
-                <?php if ($freelancerpostdata[0]['freelancer_hire_user_image'] != '') { ?>
-                    <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$freelancerpostdata[0]['freelancer_hire_user_image']);?>" alt="" >
+                <?php if ($freehiredata[0]['freelancer_hire_user_image'] != '') { ?>
+                    <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$freehiredata[0]['freelancer_hire_user_image']);?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
@@ -150,23 +150,23 @@ echo $freelancer_hire_header2_border;} ?>
             <div class="profile-text">
                 <?php
                     if($returnpage==''){
-                if ($freelancerpostdata[0]['designation'] == '') {
+                if ($freehiredata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
                     <a id="designation" class="designation" title="Designation">Designation</a>
 
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
-                    <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                    <a id="designation" class="designation" title="<?php echo ucwords($freehiredata[0]['designation']); ?>"><?php echo ucwords($freehiredata[0]['designation']); ?></a>
                     <?php } }else {
 
-                        if($freelancerpostdata[0]['designation'] == ''){ ?>
+                        if($freehiredata[0]['designation'] == ''){ ?>
 
                          Designation
 
                   <?php   }else{ ?>
 
-                             <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
+                             <?php echo ucwords($freehiredata[0]['designation']); ?>
 
                     <?php    }
                         }?></div>

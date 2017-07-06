@@ -1369,6 +1369,7 @@ class Freelancer extends MY_Controller {
 
 
          $portfolio = trim($_POST['portfolio']);
+        
          $image_hidden_portfolio = $_POST['image_hidden_portfolio'];
          $config = array(
             'upload_path' => $this->config->item('free_portfolio_main_upload_path'),
