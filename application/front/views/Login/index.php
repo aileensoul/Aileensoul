@@ -62,12 +62,15 @@ margin: 0 auto;
               
               
               
-              <p class="pb15 text-center">
+            
+                <p class="pt-20 ">
+                <button class="btn1 ">Login</button>
+              </p>
+              
+                  <p class=" text-center">
                 <a href="javascript:void(0)" id="myBtn">Forgot Password ?</a>
               </p>
-                <p>
-                <button class="btn1">Login</button>
-              </p>
+              
               <p class="pt15 text-center">
                 Don't have an account? <a href="<?php echo base_url('registration'); ?>">Create an account</a>
               </p>
