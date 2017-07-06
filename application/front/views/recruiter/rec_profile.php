@@ -152,18 +152,18 @@
                <?php } else {
                   ?> 
                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-               <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
                <?php }
                   } else { 
                   
                   
                       if ($recdata[0]['designation'] == '') { ?>
                <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-               <a id="designation"> <?php
-                  echo "Current Work"; ?> </a> 
+                <a id="designation" class="designation" title="Designation">Designation</a>
+
                <?php  } else { ?>
-               <a id="designation"> <?php
-                  echo ucwords($recdata[0]['designation']); ?> </a> <?php } 
+               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"> <?php
+                  echo ucwords($recdata[0]['designation']); ?></a> <?php } 
                   } ?>
             </div>
       
