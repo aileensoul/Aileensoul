@@ -145,7 +145,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-sm-6">
+        <div class="col-md-5 col-sm-6 pt20">
           <div class="login">
             <h4>Join Aileensoul - It's Free</h4>
             <form role="form" name="register_form" id="register_form" method="post">

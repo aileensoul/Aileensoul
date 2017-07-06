@@ -119,7 +119,7 @@ body{
 .main-login{
 	/*background:url('../img/main-bg.jpg') no-repeat; 
 	background-size:100%;*/
-	padding-bottom:60px;
+	/*padding-bottom:60px;*/
 }
 
 /***  header  ***/
@@ -146,7 +146,7 @@ header h2{
 	font-weight:bold;
 }
 .header-login .input{		
-	width:31%;		
+	width:26%;		
 	float:left;		
 	margin-right:15px;		
 }
@@ -203,7 +203,7 @@ a:hover{
 
 /***  middle part  ***/
 .main-login .middle-main{
-	padding:89px 0;
+	padding:120px 0 70px;
 	background:url('../img/bg.png') no-repeat;
 	background-size:100%;
 }
