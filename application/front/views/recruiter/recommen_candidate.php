@@ -672,8 +672,11 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                       }else {
                                             ?>
                                             <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Let's create your job post. it will takes only few minutes.</h4>
-                                                <div  class="add-post-button">
+												<div class="no-post-title">
+                                                <h4 class="page-heading  product-listing" style="border:0px;">Let's create your job post.</h4>
+												<h4 class="page-heading  product-listing" style="border:0px;"> It will takes only few minutes.</h4>
+												</div>
+                                                <div  class="add-post-button add-post-custom">
                             <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div> 
                                             </div>

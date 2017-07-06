@@ -13733,7 +13733,10 @@ input[type=number]::-webkit-outer-spin-button {
 header.animated {
     z-index: 9;
 }
-.job-contact-frnd .add-post-button{text-align:center;}
+.job-contact-frnd .add-post-button{text-align:right;}
+.no-post-title{padding-left:10%; display:inline-block; float:left;}
+.no-post-title h4{text-align:left;}
+.add-post-custom{float:left; padding-top:15px; padding-left:20px;}
 
 /***  media query  ***/
 
@@ -13891,6 +13894,9 @@ header.animated {
     .header ul li.dropdown-user ul li a {
         padding: 8px;
     }
+	.no-post-title{
+		padding-left:2%;
+	}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed {
