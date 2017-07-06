@@ -21,7 +21,8 @@
         <div class="col-md-5 col-sm-3">
           <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-7 col-sm-9">
+		<div class="col-md-1"></div>
+        <div class="col-md-6 col-sm-9">
           <form class="header-login" name="login_form" id="login_form" method="post">
             <div class="input">
               <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address">
@@ -145,7 +146,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-sm-6">
+        <div class="col-md-5 col-sm-6 pt20">
           <div class="login">
             <h4>Join Aileensoul - It's Free</h4>
             <form role="form" name="register_form" id="register_form" method="post">
