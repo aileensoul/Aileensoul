@@ -35,13 +35,10 @@ margin: 0 auto;
       </div>
     </div>
   </header>
-  <section class="middle-main">
-    <div class="container">
+  <section class="middle-main mid-trns">
+    <div class="">
       
-        <div class="title">
-          <h1 class="ttc">Welcome To Aileensoul</h1>
-        </div>
-
+      
 
          <div id="error"></div>
 
@@ -49,7 +46,10 @@ margin: 0 auto;
          
         <div class="inner-form">
           <div class="login">
-            
+              <div class="title">
+          <h1 class="ttc">Welcome To Aileensoul</h1>
+        </div>
+
             <form role="form" name="login_form" id="login_form" method="post">
                 
 
@@ -96,22 +96,22 @@ margin: 0 auto;
     <div class="modal-header" style="width: 100%; text-align: center;">
 
       <span class="close">&times;</span>
-      <label style="color: #a0b3b0;">Forgot Password</label>
+      <label style="color: #1b8ab9;">Forgot Password</label>
     </div>
 
 
     <div class="modal-body" style="    width: 100%;
     text-align: center;">
-        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+        <label  style="margin-bottom: 15px; color: #5b5b5b;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email Address" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
 
     <div class="modal-footer ">
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
-        <div class="submit_btn">              
-        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+        <div class="submit_btn text-center">              
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 
@@ -124,7 +124,7 @@ margin: 0 auto;
 
 
   <footer>
-    <div class="container">
+    <div class="container pt-20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul
@@ -225,7 +225,7 @@ margin: 0 auto;
                                 /* validation */
                                 /* login submit */
                                 function submitForm()
-                                { 
+                                {
                                     var email_login = $("#email_login").val();
                                     var password_login = $("#password_login").val();
                                     var post_data = {

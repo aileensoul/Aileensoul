@@ -29,12 +29,12 @@
   <section class="middle-main">
     <div class="container">
       
-        <div class="title">
+      
+        <div class="inner-form pt-50">
+          <div class="login">
+              <div class="title">
           <h1>Join Aileensoul</h1>
         </div>
-        <div class="inner-form">
-          <div class="login">
-            
             <form role="form" name="register_form" id="register_form" method="post">
                 <div class="row">
                   <div class="col-sm-6 col-md-6">
@@ -107,13 +107,20 @@
                 </select>
               </div>
               
-              <p class="fs12 pt15 pb15">
+              <p class="clr-c fs12 pt15 pb15">
                 By Clicking on create an account button you agree our 
                 <a href="#">Terms and Condition</a>.
               </p>
                 <p>
                 <button class="btn1">Create an account</button>
               </p>
+              
+              <div class="sign_in pt15">
+                <p>
+                    Already have an account ? <a href="http://localhost/aileensoul/login" > Log In </a>
+                </p>
+                    </div>
+            
               </form>
             
           </div>
@@ -124,7 +131,7 @@
   </section>
 
   <footer>
-    <div class="container">
+    <div class="container pt-20">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul

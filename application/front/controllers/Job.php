@@ -520,12 +520,16 @@ class Job extends MY_Controller {
 
     public function ajax_data() {
 
+         $userid = $this->session->userdata('aileenuser');
         // ajax for degree start
 
         if (isset($_POST["degree_id"]) && !empty($_POST["degree_id"])) {
-            //Get all state data
-            $contition_array = array('degree_id' => $_POST["degree_id"], 'status' => 1);
-            $stream = $this->data['stream'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //Get all stream data
+             $contition_array = array('is_delete' => '0','degree_id' => $_POST["degree_id"]);
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+            $stream = $this->data['stream'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//            $contition_array = array('degree_id' => $_POST["degree_id"], 'status' => 1);
+//            $stream = $this->data['stream'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             //Count total number of rows
             //Display states list
@@ -682,26 +686,31 @@ class Job extends MY_Controller {
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
 
         //for getting degree data Strat
-        $contition_array = array('status' => 1 , 'is_delete' => '0' ,'degree_name !=' => "Other");
-        $this->data['degree_data'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+         $contition_array = array('is_delete' => '0','degree_name !=' => "Other");
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+           $degree_data = $this->data['degree_data'] = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
          $contition_array = array('status' => 1 , 'is_delete' => '0' ,'degree_name' => "Other");
         $this->data['degree_otherdata'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         //for getting degree data End
 
         //for getting univesity data Start
-        
-        $contition_array = array('is_delete' => '0','status' => 1,'university_name !=' => "Other");
-        $this->data['university_data'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          $contition_array = array('is_delete' => '0','university_name !=' => "Other");
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+           $university_data = $this->data['university_data'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
          $contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
         $this->data['university_otherdata'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-         //for getting univesity data End
+         
+        //for getting univesity data End
 
         //For getting all Stream Strat
-         $contition_array = array('status' => 1,'is_delete' => 0,'stream_name !=' => "Other");                                         
-        $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
-
+         $contition_array = array('is_delete' => '0','stream_name !=' => "Other");
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+           $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
+//          $contition_array = array('status' => 1,'is_delete' => 0,'stream_name !=' => "Other");                                         
+//        $stream_alldata = $this->data['stream_alldata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
+        
           $contition_array = array('status' => 1,'is_delete' => 0,'stream_name' => "Other");                                         
         $stream_otherdata = $this->data['stream_otherdata'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
        // echo "<pre>";print_r($stream_alldata);die();
@@ -5407,30 +5416,33 @@ public function job_applied_post() {
  public function job_other_university(){
         $other_university = $_POST['other_university'];
          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-        $contition_array = array('university_name' => $other_university, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $count=count($userdata);
-
-    if($other_university != NULL)
+ 
+          $contition_array = array('is_delete' => '0','university_name' => $other_university);
+         $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+              $userdata = $this->data['userdata'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              $count=count($userdata);
+           
+     if($other_university != NULL)
      {
         if($count==0)
         {
                   $data = array(
                     'university_name' => $other_university,
                      'created_date' => date('Y-m-d h:i:s', time()),
-                     'status' => 1,
+                     'status' => 2,
                     'is_delete' => 0,
                     'is_other' => '1',
                     'user_id' => $userid
                     );
         $insert_id = $this->common->insert_data_getid($data, 'university');
-                if ($insert_id) 
+                if($insert_id) 
                 {
-                     $contition_array = array('is_delete' => '0', 'status' => '1','university_name !=' => "Other");
-            $university = $this->data['university'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-          
-            if (count($university) > 0) {
+        
+             $contition_array = array('is_delete' => '0','university_name !=' => "Other");
+             $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+               $university = $this->data['university'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+                if (count($university) > 0) {
                 echo ' <option value="" selected option disabled>Select your University</option>
 ';
                 foreach ($university as $st) {
@@ -5443,7 +5455,10 @@ $university_otherdata = $this->common->select_data_by_condition('university', $c
      
 echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
         }
-    }else{
+    }
+    
+  
+    else{
             echo 0;
             }
     }
@@ -5457,12 +5472,16 @@ echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $uni
 //add other_degree into database start 
  public function job_other_degree(){
         $other_degree = $_POST['other_degree'];
+        $other_stream = $_POST['other_stream'];
+        
          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        $contition_array = array('degree_name' => $other_degree, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $count=count($userdata);
-
+           $contition_array = array('is_delete' => '0','degree_name' => $other_degree);
+         $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+         $userdata = $this->data['userdata'] = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          $count=count($userdata);
+              
+         
     if($other_degree != NULL)
      {
         if($count==0)
@@ -5470,18 +5489,32 @@ echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $uni
                   $data = array(
                     'degree_name' => $other_degree,
                      'created_date' => date('Y-m-d h:i:s', time()),
-                     'status' => 1,
+                     'status' => 2,
                     'is_delete' => 0,
                     'is_other' => '1',
                     'user_id' => $userid
                     );
         $insert_id = $this->common->insert_data_getid($data, 'degree');
+       
+         $data = array(
+                    'stream_name' => $other_stream,
+                    'degree_id'  => $insert_id,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 2,
+                    'is_delete' => 0,
+                     'is_other' => '1',
+                     'user_id' => $userid
+                    );
+        $insert_id = $this->common->insert_data_getid($data, 'stream');
+        
                 if ($insert_id) 
                 {
-                     $contition_array = array('is_delete' => '0', 'status' => '1','degree_name !=' => "Other");
-            $degree = $this->data['degree'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
           
-            if (count($degree) > 0) {
+              $contition_array = array('is_delete' => '0','degree_name !=' => "Other");
+             $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+               $degree = $this->data['degree'] = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+               if (count($degree) > 0) {
                 echo ' <option value="" Selected option disabled="">Select your Degree</option>
 ';
                 foreach ($degree as $st) {
@@ -5502,6 +5535,7 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
     {
         echo 1;
     }
+   
 }
 //add other_degree into database End  
 
@@ -5509,11 +5543,12 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
  public function job_other_stream(){
         $other_stream = $_POST['other_stream'];
          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-        $contition_array = array('stream_name' => $other_stream, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $count=count($userdata);
-
+      
+         $contition_array = array('is_delete' => '0','stream_name' => $other_stream);
+         $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+         $userdata = $this->data['userdata'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+          $count=count($userdata);
+                   
     if($other_stream != NULL)
      {
         if($count==0)
@@ -5521,38 +5556,49 @@ echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_othe
                   $data = array(
                     'stream_name' => $other_stream,
                      'created_date' => date('Y-m-d h:i:s', time()),
-                     'status' => 1,
-                    'is_delete' => 0
-                    // 'is_other' => '1',
-                    // 'user_id' => $userid
+                     'status' => 2,
+                    'is_delete' => 0,
+                     'is_other' => '1',
+                     'user_id' => $userid
                     );
         $insert_id = $this->common->insert_data_getid($data, 'stream');
+        
+        
                 if ($insert_id) 
                 {
-                     $contition_array = array('is_delete' => '0', 'status' => '1','stream_name !=' => "Other");
-            $stream = $this->data['stream'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-          
+   
+               $contition_array = array('is_delete' => '0','stream_name !=' => "Other");
+             $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+               $stream = $this->data['stream'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+               
             if (count($stream) > 0) {
-                echo ' <option value="" Selected option disabled="">Select your Stream</option>
-';
-                foreach ($stream as $st) {
-                    echo '<option value="' . $st['stream_id'] . '">' . $st['stream_name'] . '</option>';
-                    }      
+               $select = '<option value="" selected option disabled="">Select your Stream</option>';
+                
+                    foreach ($stream as $st) {
+                        
+                 $select .= '<option value="' . $st['stream_id'] . '"';
+                     if($st['stream_name'] == $other_stream){
+                   $select .= 'selected'; 
+                       }
+                       $select .=    '>' . $st['stream_name'] . '</option>';
+                            }      
                 }  
 //For Getting Other at end
 $contition_array = array('is_delete' => '0' , 'status' => 1,'stream_name' => "Other");
 $stream_otherdata = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
      
-echo '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $stream_otherdata[0]['stream_name'] . '</option>';   
+$select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $stream_otherdata[0]['stream_name'] . '</option>';   
         }
     }else{
-            echo 0;
+            $select .= 0;
             }
     }
     else
     {
-        echo 1;
+        $select .= 1;
     }
+    
+    echo $select;
 }
 //add other_degree into database End  
     

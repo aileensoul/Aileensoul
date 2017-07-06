@@ -181,17 +181,17 @@ if ($returnpage == 'job') {
 <div class=" right-side-menu art-side-menu padding_less_right right-menu-jr">  
   
             
-           <?php 
+       
+               <?php 
                $userid = $this->session->userdata('aileenuser');
                if($recdata[0]['user_id'] == $userid){
                
                ?>     
-                 <ul class="current-user pro-fw">
+                <ul class="current-user pro-fw4">
                    
                    <?php }else{?>
-                 <ul class="pro-fw4">
+                 <ul class="pro-fw">
                    <?php } ?>  
-
 
                     <li <?php if ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_profile') { ?> class="active" <?php } ?>>
                         <?php if ($returnpage == 'job') { ?>
@@ -281,7 +281,7 @@ if ($returnpage == 'job') {
         
         <!-- text head end -->
     </div>
-    <div class="col-md-8 col-sm-12 mob-clear ">
+    <div class="col-md-7 col-sm-12 mob-clear ">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Post</h3>
@@ -405,25 +405,61 @@ if ($returnpage == 'job') {
            <b>Required Experience</b>
                        <span>
      <p title="Min - Max">
-     <?php 
+      <?php 
 
-
-  if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+      if(($post['min_year'] != '' && $post['max_year'] !='') && ($post['fresher'] == 1))
      { 
- echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+        if ($post['min_month'] == '' && $post['max_month'] == '') {
+            echo $post['min_year'].' Year - '.$post['max_year'] . ' Year'." , ". "Fresher can also apply.";
+          
+        }  
+         elseif ($post['min_month'] != '' && $post['max_month'] != '') {
+      echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+            
+          
+        } 
+        elseif ($post['min_month'] != '' && $post['max_month'] == '') {
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }
+        elseif ($post['min_month'] == '' && $post['max_month'] != '') {
+        echo $post['min_year']. ' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }    
      } 
-     else if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0'))
-     {
+     elseif($post['min_year'] != '' && $post['max_year'] !='')
+     { 
+        if ($post['min_month'] == '' && $post['max_month'] == '') {
+            echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+          
+        }  
+         elseif ($post['min_month'] != '' && $post['max_month'] != '') {
       echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
-     }
+            
+          
+        } 
+        elseif ($post['min_month'] != '' && $post['max_month'] == '') {
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .' Year';
+            
+          
+        }
+        elseif ($post['min_month'] == '' && $post['max_month'] != '') {
+        echo $post['min_year']. ' Year - '.$post['max_year'] .' Year';
+            
+          
+        }    
+     } 
     else
     {
       echo "Fresher";
-  //echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+ // echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
          
     }
 
  ?> 
+    
     
     </p>  
                                                 </span>
@@ -619,19 +655,56 @@ if ($returnpage == 'job') {
                                             <li>
                          <b>Required Experience</b>
                                 <span title="Min - Max">
-                                                    <p><?php 
+                                                    <p>
 
+        <?php 
 
-
-
-      if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+      if(($post['min_year'] != '' && $post['max_year'] !='') && ($post['fresher'] == 1))
      { 
-        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+        if ($post['min_month'] == '' && $post['max_month'] == '') {
+            echo $post['min_year'].' Year - '.$post['max_year'] . ' Year'." , ". "Fresher can also apply.";
+          
+        }  
+         elseif ($post['min_month'] != '' && $post['max_month'] != '') {
+      echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+            
+          
+        } 
+        elseif ($post['min_month'] != '' && $post['max_month'] == '') {
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }
+        elseif ($post['min_month'] == '' && $post['max_month'] != '') {
+        echo $post['min_year']. ' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }    
      } 
-     else if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0'))
-     {
+    
+    
+    elseif($post['min_year'] != '' && $post['max_year'] !='')
+     { 
+        if ($post['min_month'] == '' && $post['max_month'] == '') {
+            echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+          
+        }  
+         elseif ($post['min_month'] != '' && $post['max_month'] != '') {
       echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
-     }
+            
+          
+        } 
+        elseif ($post['min_month'] != '' && $post['max_month'] == '') {
+        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .' Year';
+            
+          
+        }
+        elseif ($post['min_month'] == '' && $post['max_month'] != '') {
+        echo $post['min_year']. ' Year - '.$post['max_year'] .' Year';
+            
+          
+        }    
+     } 
     else
     {
       echo "Fresher";
@@ -640,6 +713,7 @@ if ($returnpage == 'job') {
     }
 
  ?> 
+
     </p>  
                                                 </span>
                                             </li>
@@ -703,6 +777,7 @@ if ($returnpage == 'job') {
 </div>
 </div>
 </div>
+
 
             <!DOCTYPE html>
           

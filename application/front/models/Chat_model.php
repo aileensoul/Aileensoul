@@ -5,6 +5,7 @@ class Chat_model extends CI_Model {
   
 	function add_message($message, $nickname, $guid,$userid,$id)
 	{
+                date_default_timezone_set('Asia/Calcutta');
 		$data1 = array(
 			'message'	=> (string) $message,
 			'nickname'	=> (string) $nickname,
@@ -25,7 +26,7 @@ class Chat_model extends CI_Model {
                         'not_img' => 0,                       
                         'not_active' => 1,
                         'not_product_id' => $msg_insert_id,
-                        'not_created_date' => date('y-m-d h:i:s'),
+                        'not_created_date' => date('Y-m-d H:i:s'),
 			
 		);
 		  

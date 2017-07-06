@@ -30,10 +30,12 @@
 
                 <div class="alert alert-danger txt_cen">
 
-
+					<h1>Thank You</h1>
+					<p><i class="fa fa-check" aria-hidden="true"></i></p>
                     <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">
                         Verify Your E-mail Account
                     </a>
+					
 
                 </div>
 
@@ -402,7 +404,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             type: "POST",
             data: 'user_email=' + abc,
             success: function (response) { 
-                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully..");
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully.");
                   $('#bidmodal').modal('show');
                   window.open(response);
             }

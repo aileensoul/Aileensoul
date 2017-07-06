@@ -182,7 +182,7 @@ class Registration extends CI_Controller {
 public function check_email() { //echo "hello"; die();
         // if ($this->input->is_ajax_request() && $this->input->post('email')) {
 
-        $email = $this->input->post('email');
+        $email_reg = $this->input->post('email_reg');
 
         // $userid = $this->session->userdata('aileenuser');
 
@@ -208,7 +208,7 @@ public function check_email() { //echo "hello"; die();
        
           $condition_array = array('is_delete' => '0' , 'status' => '1');
         
-        $check_result = $this->common->check_unique_avalibility('user', 'user_email', $email, '', '', $condition_array);
+        $check_result = $this->common->check_unique_avalibility('user', 'user_email', $email_reg, '', '', $condition_array);
      
        // }
 
@@ -544,7 +544,44 @@ if($fbdata){
         }
 
         echo "yes";
-    }  
+    } 
+
+
+    // login check and email validation start
+public function check_login() {
+        $email_login = $this->input->post('email_login');
+        $password_login =  $this->input->post('password_login');
+
+
+
+        $contition_array = array('user_email' => $email_login);
+        $result = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+
+
+        $userinfo = $this->common->check_login($email_login, $password_login);
+
+        if (count($userinfo) > 0) {
+            if ($userinfo[0]['status'] == "2") {
+                echo 'Sorry, user is Inactive.';
+            } else {
+               // $userinfo[0]['user_id'] = $this->input->post('user_id');
+                $this->session->set_userdata('aileenuser', $userinfo[0]['user_id']);
+                echo 'ok';
+                
+            }
+        } else if($email_login == $result[0]['user_email']) {
+            echo 'password';
+        }else{
+
+            echo 'Please enter valid email address';
+
+
+        }
+
+    }
+//login validation end
+ 
 
 
 

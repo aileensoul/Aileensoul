@@ -5,11 +5,12 @@ select option:not(:checked) { color: black; }
  
     
 select option:checked { color: black; }
-
-
-
+.addcontact-left{width: 100%!important;
+margin: 0 auto;
+text-align: center;}
+.addcontact-left a{padding-left: 30px !important;}
 select option[disabled]:first-child { display: none; }
-.file_name_pdf{color: #8c8c8c; font-size: 17px; padding-left: 10px;visibility:show;}
+.file_name_pdf{color:#8c8c8c; font-size:17px; padding-left:10px; visibility:show;}
 .banner-box .left-profile {
     position: absolute;
     width: 290px;
@@ -68,14 +69,15 @@ text-overflow: ellipsis;}
    
 }
 @media screen and (max-width: 767px) {
-  
+  .post-design-desc{padding-left: 17px;}
+  .post-design-mid{padding-left: 21px;}
     .buisness-profile-pic-candidate
     {
         margin-left: 6px;
     }
     .apply-btn a
     {
-    padding: 2px 8px 2px;
+    padding:3px 10px 3px;
     font-size: 12px;
     }
     #paddingtop_fixed
@@ -263,6 +265,16 @@ text-overflow: ellipsis;}
         padding-top: 0px !important;
     }
 }
-@media screen and (max-width: 540px) { .profile-job-post-location-name-rec .post_designation{font-size: 12PX;} }
-@media screen and (max-width: 479px) {}
+@media screen and (max-width: 540px) {
+    .main-text-area{margin:4px 3px 4px 5px;} 
+    .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
+    .fifty_val{right: 22px;}
+.custom-right-business .popup-img img{height: 43px; width: 43px;}
+.text_num{width: 23px;}.post-editor .camer_h{padding-top: 2px;}.popup-img{padding-right: 8px;}
+.post-editor{padding-left: 7px; padding-right: 7px;}
+                                       .header2 ul li.active a{padding: 12px 10px 10px}
+.camer_h i{font-size: 19px;}
+}
+
+@media screen and (max-width: 479px) {.main-text-area{margin: 4px 3px 4px 0px;}}
 @media screen and (max-width: 360px) {}
