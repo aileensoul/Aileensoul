@@ -550,7 +550,18 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
     return regexpr.test(value);
 }, "Number, space and special character are not allowed");
 
-
+$.validator.addMethod("regx2", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+},"character & letters are not allow & space are not allow in the begining");
 // for date validtaion start
 
 jQuery.validator.addMethod("isValid", function (value, element) {
@@ -586,7 +597,7 @@ if(mm<10) {
                 fname: {
 
                     required: true,
-                    regx:/^[a-zA-Z]+$/,
+                   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                     //noSpace: true
 
                 },
@@ -594,7 +605,7 @@ if(mm<10) {
                 lname: {
 
                     required: true,
-                    regx:/^[a-zA-Z]+$/,
+                    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                     //noSpace: true
 
                 },
