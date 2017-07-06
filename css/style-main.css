@@ -1053,6 +1053,7 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 767px) {
+    .d_o_b{display: none;}
     .header-login input{padding-bottom: 0px;}
         .logo{font-size: 24px;}
         .mid-trns{transform: inherit ;top:inherit; position: inherit; left: inherit;}
