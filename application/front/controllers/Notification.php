@@ -2017,7 +2017,7 @@ $user_message = array_merge($return_arraysel,$userlist);
 //     echo '<pre>';
 //     print_r($not);
 //     exit;
-            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot">';
+            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot" style="padding:0px!important;">';
             $notmsg .= '<li class="';
             if($not[0]['not_active'] == 1){
             $notmsg .= 'active2';
