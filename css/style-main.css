@@ -704,6 +704,14 @@ h3.text-effect span {
 	margin:0 auto;
 	border-radius:100%;
 }
+.d_o_b{display: block;
+font-weight: normal;
+color: #848484;
+padding-left:9px ;
+font-size: 15px;
+margin-bottom: 0px;
+line-height: 1;}
+.login .form-group select{padding-left: 6px;}
 .upload-profile{
 	position:absolute;
 	background-color: rgba(0,0,0,0.4);
