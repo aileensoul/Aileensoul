@@ -469,6 +469,18 @@
  <!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>  -->
 
 <script type="text/javascript">
+   function checkvalue() {
+     
+       var searchkeyword = $.trim(document.getElementById('tags').value);
+       var searchplace = $.trim(document.getElementById('searchplace').value);
+   
+       if (searchkeyword == "" && searchplace == "") {
+           return false;
+       }
+   }
+   
+</script>
+<script type="text/javascript">
 
 // $('#input1 .experience_year').on('change', function(){
 //     if($(this).val()){
