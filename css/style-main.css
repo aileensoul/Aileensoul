@@ -417,7 +417,7 @@ footer ul li a:hover{
 
 /*onclick*/
  .form-group textarea:focus {
-   border-bottom: 5px solid #1b8ab9 !important;
+   border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -426,12 +426,12 @@ footer ul li a:hover{
 }
 /* label underline focus color */
  .form-group textarea[type=text]:focus {
-     border-bottom: 5px solid #1b8ab9;
+     border-bottom: 1px solid #1b8ab9;
       color: #1b8ab9!important;
    
    }
  .form-group input:focus {
-   border-bottom: 5px solid #1b8ab9 !important;
+   border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -444,6 +444,13 @@ footer ul li a:hover{
       color: #1b8ab9!important;
    
    }
+  .form-group input::-webkit-input-placeholder {
+    color: #999;
+}
+textarea:focus::-webkit-input-placeholder
+{
+  color:    #1b8ab9;
+}
 
  .form-group input:focus::-webkit-input-placeholder {
        color: #1b8ab9;
