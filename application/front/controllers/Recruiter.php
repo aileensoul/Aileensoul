@@ -40,10 +40,12 @@ class Recruiter extends MY_Controller {
             if ($recrdata[0]['re_step'] == 1) {
                 redirect('recruiter/company_info_form', refresh);
             } else if ($recrdata[0]['re_step'] == 2) {
-                redirect('recruiter/rec_comp_address', refresh);
-            } else if ($recrdata[0]['re_step'] == 3) {
                 redirect('recruiter/recommen_candidate', refresh);
-            } else if ($recrdata[0]['re_step'] == 0) {
+            } 
+            // else if ($recrdata[0]['re_step'] == 3) {
+            //     redirect('recruiter/recommen_candidate', refresh);
+            // } 
+            else if ($recrdata[0]['re_step'] == 0) {
                 redirect('recruiter/rec_basic_information', refresh);
             } else {
                 redirect('recruiter/rec_basic_information', refresh);
@@ -371,6 +373,32 @@ class Recruiter extends MY_Controller {
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
+        $contition_array = array('status' => 1);
+        $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+        //for getting state data
+
+
+ $contition_array = array('user_id' => $userid, 're_status' => '1','is_delete'=> '0');
+      $state_citydata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_state,re_comp_country', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+
+        $contition_array = array('status' => 1,'country_id' => $state_citydata[0]['re_comp_country']);
+        $this->data['states'] = $this->common->select_data_by_condition('states', $contition_array, $data = '*', $sortby = 'state_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //for getting city data
+        $contition_array = array('status' => '1','state_id'=> $state_citydata[0]['re_comp_state']);
+        $this->data['cities'] = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = 'city_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo "<pre>";print_r($this->data['city']);echo "</pre>";die();
+
+
+
+
+
 
         $contition_array = array('user_id' => $userid, 're_status' => '1');
         $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -385,8 +413,11 @@ class Recruiter extends MY_Controller {
                 $this->data['compemail'] = $userdata[0]['re_comp_email'];
                 $this->data['compnum'] = $userdata[0]['re_comp_phone'];
                 $this->data['compweb'] = $userdata[0]['re_comp_site'];
-                $this->data['compservices'] = $userdata[0]['re_comp_interview'];
-                $this->data['comp_project1'] = $userdata[0]['re_comp_project'];
+                $this->data['country1'] = $userdata[0]['re_comp_country'];
+                $this->data['state1'] = $userdata[0]['re_comp_state'];
+                $this->data['city1'] = $userdata[0]['re_comp_city'];
+                $this->data['compsector'] = $userdata[0]['re_comp_sector'];
+                $this->data['comp_profile1'] = $userdata[0]['re_comp_profile'];
                 // $this->data['interview_process1'] = $userdata[0]['re_comp_interview'];
                 $this->data['other_activities1'] = $userdata[0]['re_comp_activities'];
             }
@@ -474,6 +505,10 @@ class Recruiter extends MY_Controller {
         //     }
         //if($this->input->post('next')){  //echo "hii"; die();
 
+         if ($this->input->post('next')) {
+            $this->form_validation->set_rules('country', 'Country', 'required');
+            $this->form_validation->set_rules('state', 'State', 'required');
+
 
         $this->form_validation->set_rules('comp_name', 'company Name', 'required');
         $this->form_validation->set_rules('comp_email', 'company email', 'required|valid_email');
@@ -498,8 +533,11 @@ class Recruiter extends MY_Controller {
                     $this->data['compemail'] = $userdata[0]['re_comp_email'];
                     $this->data['compnum'] = $userdata[0]['re_comp_phone'];
                     $this->data['compweb'] = $userdata[0]['re_comp_site'];
-                    $this->data['compservices'] = $userdata[0]['re_comp_interview'];
-                    $this->data['comp_project1'] = $userdata[0]['re_comp_project'];
+                    $this->data['compsector'] = $userdata[0]['re_comp_sector'];
+                    $this->data['comp_profile1'] = $userdata[0]['re_comp_profile'];
+                    $this->data['country1'] = $userdata[0]['re_comp_country'];
+                        $this->data['state1'] = $userdata[0]['re_comp_state'];
+                        $this->data['city1'] = $userdata[0]['re_comp_city'];
                     // $this->data['interview_process1'] = $userdata[0]['re_comp_interview'];
                     $this->data['other_activities1'] = $userdata[0]['re_comp_activities'];
                 }
@@ -514,34 +552,18 @@ class Recruiter extends MY_Controller {
 
             if ($userdata) {
 
-                if ($userdata[0]['re_step'] == 3) {
-                    $data = array(
-                        're_step' => 3
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                } else if ($userdata[0]['re_step'] > 2) {
-                    $data = array(
-                        're_step' => $userdata[0]['re_step']
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                } else {
-                    $data = array(
-                        're_step' => 2
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                }
-
+               
                 $data = array(
                     're_comp_name' => $this->input->post('comp_name'),
                     're_comp_email' => $this->input->post('comp_email'),
                     're_comp_site' => $this->input->post('comp_site'),
                     're_comp_phone' => $this->input->post('comp_num'),
-                    're_comp_interview' => $this->input->post('interview'),
-                    're_comp_project' => $this->input->post('comp_project'),
-                    're_comp_activities' => $this->input->post('other_activities')
+                    're_comp_sector' => $this->input->post('comp_sector'),
+                    're_comp_profile' => $this->input->post('comp_profile'),
+                    're_comp_activities' => $this->input->post('other_activities'),
+                     're_comp_country' => $this->input->post('country'),
+                    're_comp_state' => $this->input->post('state'),
+                    're_comp_city' => $this->input->post('city'),
                 );
                 // echo $userdata[0]['rec_id'];
                 // echo "<pre>"; print_r($data); die(); 
@@ -550,50 +572,39 @@ class Recruiter extends MY_Controller {
                 if ($insert_id) {
 
                     $this->session->set_flashdata('success', 'company information updated successfully');
-                    redirect('recruiter/rec_comp_address', refresh);
+                    redirect('recruiter/rec_profile', refresh);
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                     redirect('recruiter', refresh);
                 }
             } else {
 
-                if ($userdata[0]['re_step'] == 3) {
-                    $data = array(
-                        're_step' => 3
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                } else if ($userdata[0]['re_step'] > 2) {
-                    $data = array(
-                        're_step' => $userdata[0]['re_step']
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                } else {
-                    $data = array(
-                        're_step' => 2
-                    );
-
-                    $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
-                }
+              
 
                 $data = array(
                     're_comp_name' => $this->input->post('comp_name'),
                     're_comp_email' => $this->input->post('comp_email'),
                     're_comp_site' => $this->input->post('comp_site'),
                     're_comp_phone' => $this->input->post('comp_num'),
-                    're_comp_interview' => $this->input->post('interview'),
-                    're_comp_project' => $this->input->post('comp_project'),
+                    're_comp_sector' => $this->input->post('comp_sector'),
+                    're_comp_profile' => $this->input->post('comp_profile'),
                     're_comp_activities' => $this->input->post('other_activities'),
                     'is_delete' => 0,
                     're_status' => 1,
-                    'created_date' => date('y-m-d h:i:s')
+                    'created_date' => date('y-m-d h:i:s'),
+                    're_step' => 2
                 );
 
+
+               // echo "<pre>"; print_r($data); die();
                 $insert_id = $this->common->update_data($data, 'recruiter', 'user_id', $userid);
                 if ($insert_id) {
                     $this->session->set_flashdata('success', 'company information inserted successfully');
-                    redirect('recruiter/rec_comp_address', refresh);
+                     if($userdata[0]['re_step'] == 2){
+                    redirect('recruiter/rec_profile', refresh);
+                  }else{
+                    redirect('recruiter/recommen_candidate', refresh);
+                  }
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                     redirect('recruiter', refresh);
@@ -601,6 +612,7 @@ class Recruiter extends MY_Controller {
             }
             // }
         }
+    }
     }
 
     public function rec_comp_address() {

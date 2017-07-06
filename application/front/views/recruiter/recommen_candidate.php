@@ -673,12 +673,13 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                             ?>
                                             <div class="text-center rio">
                                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Create your job post it will takes only few minutes</h4>
+                                                <div  class="add-post-button">
+                            <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
+                        </div> 
                                             </div>
                                             <?php    } ?>
                                            
-                        <div  class="add-post-button">
-                            <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
-                        </div> 
+                     
                    
                                         <!-- khyati end -->
                                         <div class="col-md-1">
