@@ -140,42 +140,31 @@
                             <!-- text head start -->
                     <div class="profile-text" >
                    
-                     <?php 
-                if($returnpage == ''){   
-                  if ($recdata[0]['designation'] == "") {
-               ?>
-                            <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                        
-                <a id="designation" class="designation" title="Designation">Designation</a>
-            <?php }
-             else {
-               
-                ?> 
-                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-                <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
-             <?php }
-             
-             } else {  echo ucwords($recdata[0]['designation']);  }  ?>
-
-                    <!-- The Modal -->
-            <!--         <div id="myModal" class="modal">
-                      <!-- Modal content --><!-- <div class="col-md-2"></div> -->
-                      <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                         <?php //echo form_open(base_url('recruiter/recruiter_designation/'), array('id' => 'recdesignation','name' => 'recdesignation', 'class' => 'clearfix')); ?>
-
-  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php //echo $recdata[0]['designation']; ?>"></fieldset> -->
-        <!--  <input type="hidden" name="hitext" id="hitext" value="2">
-  <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php// echo form_close();?>
-  
                     
-                     
-                    </div>
-                    <div class="col-md-2"></div>
-              </div>
-             --> 
+
+                   
+              <?php if($returnpage == ''){
+                  if ($recdata[0]['designation'] == '') {
+                      ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                <a id="designation" class="designation" title="Designation">Designation</a>
+              
+               <?php } else {
+                  ?> 
+               <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+               <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+               <?php }
+                  } else { 
+                  
+                  
+                      if ($recdata[0]['designation'] == '') { ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+               <a id="designation"> <?php
+                  echo "Current Work"; ?> </a> 
+               <?php  } else { ?>
+               <a id="designation"> <?php
+                  echo ucwords($recdata[0]['designation']); ?> </a> <?php } 
+                  } ?>
             </div>
       
   </div>
