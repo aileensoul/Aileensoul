@@ -951,9 +951,9 @@
                                                                     echo $row['product_description'];
                                                                     ?>
                                                                 </div>
-                                                                <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+                                                                <!-- <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                                     <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['product_description']; ?></div>
-                                                                </div>
+                                                                </div> -->
                                                                 <!-- khyati changes end 24-6 -->
                                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
@@ -1338,14 +1338,27 @@
                                                                                         ?>
                                                                                     </b>
                                                                                 </div>
-                                                                                <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
-                                                                                    <?php
-                                                                                    //   echo $this->common->make_links($rowdata['comments']);
-                                                                                    //echo '</br>';
-                                                                                    $new_product_comment = $this->common->make_links($rowdata['comments']);
-                                                                                    echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
-                                                                                    ?>
-                                                                                </div>
+      <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
+           <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
+                                <?php
+                     $small = substr($rowdata['comments'], 0, 180);
+                     echo $this->common->make_links($small);
+
+                     if (strlen($rowdata['comments']) > 180) {
+                          echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">See More</span>';
+                        }?>
+                        </div>
+                   
+                    <div id="<?php echo "seemore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
+                      <?php
+                        $new_product_comment = $this->common->make_links($rowdata['comments']);
+
+                                                                       
+                            echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
+                            ?>
+
+               </div>
+    </div>
                                                                                 <!--                                                                <div class="col-md-12">
                                                                                                                                                     <div class="col-md-10">
                                                                                 
@@ -1769,6 +1782,10 @@
         var txt = sel.html();
         txt = txt.replace(/&nbsp;/gi, " ");
         txt = txt.replace(/<br>$/, '');
+
+        txt = txt.replace(/&gt;/gi,">");
+        txt = txt.replace(/div/gi, "p");
+
         if (txt == '' || txt == '<br>') {
             return false;
         }
@@ -1889,6 +1906,10 @@
                 //txt = txt.replace(/^(&nbsp;|<br>)+/, '');
                 txt = txt.replace(/&nbsp;/gi, " ");
                 txt = txt.replace(/<br>$/, '');
+
+                txt = txt.replace(/&gt;/gi,">");
+                txt = txt.replace(/div/gi, "p");
+
                 if (txt == '' || txt == '<br>') {
                     return false;
                 }
@@ -2215,6 +2236,9 @@
         var txt = sel.html();
         txt = txt.replace(/&nbsp;/gi, " ");
         txt = txt.replace(/<br>$/, '');
+        txt = txt.replace(/&gt;/gi,">");
+        txt = txt.replace(/div/gi, "p");
+
         if (txt == '' || txt == '<br>') {
             return false;
         }
@@ -2300,6 +2324,10 @@
                 var txt = sel.html();
                 txt = txt.replace(/&nbsp;/gi, " ");
                 txt = txt.replace(/<br>$/, '');
+
+                txt = txt.replace(/&gt;/gi,">");
+                txt = txt.replace(/div/gi, "p");
+
                 if (txt == '' || txt == '<br>') {
                     return false;
                 }
@@ -2373,6 +2401,9 @@
         var txt = sel.html();
         txt = txt.replace(/&nbsp;/gi, " ");
         txt = txt.replace(/<br>$/, '');
+        txt = txt.replace(/&gt;/gi,">");
+        txt = txt.replace(/div/gi, "p");
+
         if (txt == '' || txt == '<br>') {
             return false;
         }
@@ -2466,6 +2497,9 @@
 
                 txt = txt.replace(/&nbsp;/gi, " ");
                 txt = txt.replace(/<br>$/, '');
+                txt = txt.replace(/&gt;/gi,">");
+                txt = txt.replace(/div/gi, "p");
+
                 if (txt == '' || txt == '<br>') {
                     return false;
                 }
@@ -3649,6 +3683,10 @@
         var editpostdetails = $('#editpostdesc' + abc).html();
 //        editpostdetails = editpostdetails.replaceAll('&', '%26');
         editpostdetails = editpostdetails.replace(/&/g, "%26");
+       editpostdetails = editpostdetails.replace(/&gt;/gi,">");
+       
+        editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
+        editpostdetails = editpostdetails.replace(/div/gi, "p");
 
 // end khyati code
 
@@ -3735,3 +3773,19 @@
 #targetLayer{width:100% !important; text-align:center !important;}
 
 </style>-->
+
+
+<!-- 180 words more than script start -->
+
+<script type="text/javascript">
+    
+     function seemorediv(abc) { //alert("hii");
+         
+                   document.getElementById('seemore' + abc).style.display = 'block';
+                   document.getElementById('lessmore' + abc).style.display = 'none';
+                
+   }
+   
+   </script>
+ <!-- 180 words more than script end-->
+

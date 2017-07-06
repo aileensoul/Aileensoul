@@ -5495,10 +5495,17 @@ echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $uni
                     'user_id' => $userid
                     );
         $insert_id = $this->common->insert_data_getid($data, 'degree');
-       
-         $data = array(
+        $degree_id=$insert_id;
+        
+        $contition_array = array('is_delete' => '0' , 'status' => 2,'stream_name' => $other_stream,'user_id' => $userid);
+        $stream_data = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
+        $count1=count($stream_data);
+        
+        if($count1 == 0)
+        {
+            $data = array(
                     'stream_name' => $other_stream,
-                    'degree_id'  => $insert_id,
+                    'degree_id'  => $degree_id,
                      'created_date' => date('Y-m-d h:i:s', time()),
                      'status' => 2,
                     'is_delete' => 0,
@@ -5506,36 +5513,84 @@ echo '<option value="' . $university_otherdata[0]['university_id'] . '">' . $uni
                      'user_id' => $userid
                     );
         $insert_id = $this->common->insert_data_getid($data, 'stream');
-        
-                if ($insert_id) 
-                {
+        }
+        else
+        {
+             $data = array(
+                    'stream_name' => $other_stream,
+                    'degree_id'  => $degree_id,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 2,
+                    'is_delete' => 0,
+                     'is_other' => '1',
+                     'user_id' => $userid
+                    );
+          $updatedata = $this->common->update_data($data, 'stream', 'stream_id', $stream_data[0]['stream_id']);
+        }
+         if ($insert_id || $updatedata) 
+          {
           
               $contition_array = array('is_delete' => '0','degree_name !=' => "Other");
              $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
                $degree = $this->data['degree'] = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             
                if (count($degree) > 0) {
-                echo ' <option value="" Selected option disabled="">Select your Degree</option>
-';
-                foreach ($degree as $st) {
-                    echo '<option value="' . $st['degree_id'] . '">' . $st['degree_name'] . '</option>';
-                    }      
+                   
+                   $select = '<option value="" Selected option disabled="">Select your Degree</option>';
+                
+                    foreach ($degree as $st) {
+                        
+                 $select .= '<option value="' . $st['degree_id'] . '"';
+                     if($st['degree_name'] == $other_degree){
+                   $select .= 'selected'; 
+                       }
+                       $select .=    '>' . $st['degree_name'] . '</option>';
+                            } 
                 }  
 //For Getting Other at end
 $contition_array = array('is_delete' => '0' , 'status' => 1,'degree_name' => "Other");
 $degree_otherdata = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
      
-echo '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
-        }
+$select .= '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
+
+ //for getting degree data in clone
+$select1 = '<option value="" Selected option disabled="">Select your Degree</option>';
+ foreach ($degree as $st) {
+    
+     $select1 .= '<option value="' . $st['degree_id'] . '">'. $st['degree_name'] .'</option>';
+     
+ }
+ $select1 .= '<option value="' . $degree_otherdata[0]['degree_id'] . '">' . $degree_otherdata[0]['degree_name'] . '</option>';   
+ 
+ //for getting selected stream data
+  $contition_array = array('is_delete' => '0','degree_id' => $degree_id);
+  $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+  $stream = $this->data['stream'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+ $select2 = '<option value="" Selected option disabled="">Select your Stream</option>';
+ $select2 .= '<option value="' . $stream[0]['stream_id'] . '"';
+                     if($stream[0]['stream_name'] == $other_stream){
+  $select2 .= 'selected'; 
+                       }
+  $select2 .=    '>' . $stream[0]['stream_name'] . '</option>';
+                
+           }
     }else{
-            echo 0;
+           $select .= 0;
+          
             }
     }
     else
     {
-        echo 1;
+        $select .= 1;
+       
     }
    
+      echo json_encode(array(
+                            "select" => $select,
+                            "select1" => $select1,
+                            "select2" => $select2,
+                   ));
 }
 //add other_degree into database End  
 

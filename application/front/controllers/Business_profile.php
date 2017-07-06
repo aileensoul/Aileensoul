@@ -8278,8 +8278,27 @@ class Business_profile extends MY_Controller {
                 }
                 $fourdata .= '</div><div class="comment-name"><b>';
                 $fourdata .= '' . ucwords($companyname) . '</br></b></div>';
+
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
-                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
+                $fourdata .= '<div id= "lessmore' . $rowdata['business_profile_post_comment_id'] . '"  style="display:block;">';
+
+                    $small = substr($rowdata['comments'], 0, 180);
+
+                $fourdata .= '' . $this->common->make_links($small) . '';
+
+                    // echo $this->common->make_links($small);
+
+                     if (strlen($rowdata['comments']) > 180) {
+                         $fourdata .= '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">See More</span>';
+                        }
+
+                $fourdata .= '</div>';
+
+
+                $fourdata .= '<div id= "seemore' . $rowdata['business_profile_post_comment_id'] . '"  style="display:none;">';
+
+                $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div></div>';
+                
                 $fourdata .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
                 //$fourdata .= '<textarea type="text" class="textarea" name="' . $rowdata['business_profile_post_comment_id'] . '" id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" style="display:none; resize:none;" onClick="commentedittwo(this.name)">' . $rowdata['comments'] . '</textarea>';
                 $fourdata .= '<div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="' . $rowdata['business_profile_post_comment_id'] . '"  id="editcommenttwo' . $rowdata['business_profile_post_comment_id'] . '" placeholder="Type Message ..."  onkeyup="commentedittwo(' . $rowdata['business_profile_post_comment_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);">' . $rowdata['comments'] . '</div>';
