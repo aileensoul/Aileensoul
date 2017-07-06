@@ -56,7 +56,7 @@
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
-                   <label class="d_o_b"> Date Of Birth :</label>
+<!--                   <label class="d_o_b"> Date Of Birth :</label>-->
                 <select class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
@@ -98,6 +98,7 @@
                   }
                   ?>
                 </select>
+<span class="d_o_b">[D.O.B] </span>
               </div>
               
               <div class="form-group gender-custom">
