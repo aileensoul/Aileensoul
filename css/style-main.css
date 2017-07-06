@@ -119,12 +119,12 @@ body{
 .main-login{
 	/*background:url('../img/main-bg.jpg') no-repeat; 
 	background-size:100%;*/
-	padding-bottom:60px;
+	/*padding-bottom:60px;*/
 }
 
 /***  header  ***/
 header{
-    z-index: 1;
+    z-index: 10;
         position: fixed;
     top: 0;
     right: 0;
@@ -146,7 +146,7 @@ header h2{
 	font-weight:bold;
 }
 .header-login .input{		
-	width:31%;		
+	width:26%;		
 	float:left;		
 	margin-right:15px;		
 }
@@ -203,7 +203,7 @@ a:hover{
 
 /***  middle part  ***/
 .main-login .middle-main{
-	padding:89px 0;
+	padding:120px 0 70px;
 	background:url('../img/bg.png') no-repeat;
 	background-size:100%;
 }
@@ -349,6 +349,7 @@ box-shadow: 0px 0px 10px -1px rgba(217,217,217,1);
 	font-size:15px;
 	color:#848484;
 	height:35px;
+        padding-left: 6px;
 }
 .login .form-group select{
 	width:65px;
@@ -417,7 +418,7 @@ footer ul li a:hover{
 
 /*onclick*/
  .form-group textarea:focus {
-   border-bottom: 5px solid #1b8ab9 !important;
+   border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -426,12 +427,12 @@ footer ul li a:hover{
 }
 /* label underline focus color */
  .form-group textarea[type=text]:focus {
-     border-bottom: 5px solid #1b8ab9;
+     border-bottom: 1px solid #1b8ab9;
       color: #1b8ab9!important;
    
    }
  .form-group input:focus {
-   border-bottom: 5px solid #1b8ab9 !important;
+   border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
  /* label focus color */
@@ -444,6 +445,13 @@ footer ul li a:hover{
       color: #1b8ab9!important;
    
    }
+  .form-group input::-webkit-input-placeholder {
+    color: #999;
+}
+textarea:focus::-webkit-input-placeholder
+{
+  color:    #1b8ab9;
+}
 
  .form-group input:focus::-webkit-input-placeholder {
        color: #1b8ab9;
@@ -697,6 +705,14 @@ h3.text-effect span {
 	margin:0 auto;
 	border-radius:100%;
 }
+.d_o_b{
+font-weight: normal;
+color: #848484;
+
+font-size: 15px;
+
+line-height: 1;}
+.login .form-group select{padding-left: 6px;}
 .upload-profile{
 	position:absolute;
 	background-color: rgba(0,0,0,0.4);
@@ -938,6 +954,7 @@ transition: background-color 600s ease-in-out 0s;
  transition: opacity 3s ease-in-out;
  opacity:1;
 }
+.text-effect p{margin-bottom: 0px;}
 
 .carousel.carousel-fade .active.left,
 .carousel.carousel-fade .active.right {
@@ -1011,7 +1028,7 @@ margin: 0 auto;
 
 
 	.header-login .input{width:25%;}
-	.top-middle h3{font-size:18px;}
+	.top-middle h3{font-size:16px;}
 	.bottom-middle{padding:0;}
 	.carousel-fade .carousel-caption .carousel-text{padding:0;}
 	.mail-sent{width:100%;}
@@ -1036,16 +1053,21 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 767px) {
+    .d_o_b{display: none;}
+    .header-login input{padding-bottom: 0px;}
+        .logo{font-size: 24px;}
+        .mid-trns{transform: inherit ;top:inherit; position: inherit; left: inherit;}
+        .f-pass{float: left;}
     .main-login .middle-main{padding: 177px 0;}
 	.main-login{background-size: cover;}
-	header h2{text-align:center; padding-bottom:15px;}
+	header h2{text-align:center; padding-bottom:5px;}
 	.header-login{text-align:center;}
 	.top-middle{min-height:auto; padding:0 0 15px; text-align:center;}
 	.bottom-middle{text-align:center;}
 	.carousel-fade .carousel-caption img{float:none;}
 	.carousel-fade .carousel-caption .carousel-text{float:none; text-align:center;}
 	.login{width:444px;}
-	.inner-form{width:100%;}
+	.inner-form{width:100%; padding: 0 14px;}
     .title{width:100%;}
 	.inner-form .login{width:99%;}
 	footer{text-align:center;}
@@ -1071,7 +1093,7 @@ margin: 0 auto;
 	
 }
 @media screen and (max-width: 640px) {
-    .main-inner .middle-main{padding-bottom: 0px;}
+    .main-inner .middle-main{padding-bottom: 0px !important; padding: 170px 0;}
 	.banner-box .left-profile{left: 0px!important;}
 	.box-profile{margin:0 10px 20px;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:200px; height:200px;}
@@ -1090,6 +1112,7 @@ margin: 0 auto;
 	.banner-box img{height:250px;}
 }
     @media screen and (max-width: 479px) {
+         .main-login .middle-main{padding: 200px 0;}
         .main-login .middle-main{
             background-position: center; padding-bottom: 0px;}
 	.mob-none{display:none;}
@@ -1113,3 +1136,10 @@ margin: 0 auto;
 }
 
 
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}

@@ -6,6 +6,8 @@
     <!-- SEO CHANGES END -->
     <!-- NEED TO ADD FOLLOWING TAG IN HEADER -->
     <link rel="canonical" href="http://www.aileensoul.com" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="description" content=" " />
     <meta name="keywords" content=" " />

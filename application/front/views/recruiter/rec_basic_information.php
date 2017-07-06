@@ -53,7 +53,7 @@
                             
                              <li  class="custom-none <?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
                             
-                             <li class="custom-none <?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
+                             <!-- <li class="custom-none <?php //if($recdata[0]['re_step'] < '2'){//echo "khyati";}?>"><a href="<?php //echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li> -->
                                 
                             </ul>
                         </div>
@@ -81,14 +81,14 @@
 
                                 
                     <fieldset>
-                        <label>First Name:<span class="red">*</span></label>
+                        <label>First Name<span class="red">*</span>:</label>
                         <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error "></span>
                         <?php echo form_error('first_name'); ?>
                     </fieldset>
                     
 
                     <fieldset>
-                        <label>Last Name:<span class="red">*</span></label>
+                        <label>Last Name<span class="red">*</span> :</label>
                       <input name="last_name" type="text" tabindex="2" placeholder="Enter Last Name"
                       value="<?php if($lastname){ echo $lastname; } else{echo $userdata[0]['last_name'];} ?>" id="last_name" /><span id="fullname-error" ></span>
                       <?php echo form_error('last_name'); ?>
@@ -96,7 +96,7 @@
                     
 
                     <fieldset>
-                        <label>E-mail address:<span class="red">*</span></label>
+                        <label>E-mail address<span class="red">*</span>:</label>
                         <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter Email"  value="<?php if($email){ echo $email; } else{echo $userdata[0]['user_email'];}?>" /><span id="email-error" ></span>
                         <?php echo form_error('email'); ?>
                     </fieldset>

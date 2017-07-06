@@ -3,7 +3,8 @@
 <head>
   <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free|Aileensoul</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+ 
   <link rel="stylesheet" href="css/common-style.css">
   <link rel="stylesheet" href="css/style-main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -144,7 +145,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-sm-6">
+        <div class="col-md-5 col-sm-6 pt20">
           <div class="login">
             <h4>Join Aileensoul - It's Free</h4>
             <form role="form" name="register_form" id="register_form" method="post">
@@ -168,6 +169,7 @@
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
+<!--                  <label class="d_o_b"> Date Of Birth :</label>-->
                 <select class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
@@ -210,6 +212,8 @@
                   ?>
 
                 </select>
+<span class="d_o_b">[D.O.B] </span>
+
               </div>
               
               <div class="form-group gender-custom">

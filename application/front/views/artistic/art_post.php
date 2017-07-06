@@ -3077,18 +3077,7 @@
    }
    
 </script>
-<script type="text/javascript">
-   //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
-                $(document).ready(function () {
-                    $('#post').on('click', function () {
 
-                        $('.modal-post').show();
-                       //  location.reload(false);
-                    });
-                });
-  //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open end  
-   
-</script>
 <!-- insert validation end -->
 <!-- 
    textarea js -->
@@ -3254,43 +3243,7 @@
 <script type="text/javascript">
    // all popup close close using esc start
       
-    $( document ).on( 'keydown', function ( e ) {
-       if ( e.keyCode === 27 ) {
-           //$( "#bidmodal" ).hide();
-           $('#likeusermodal').modal('hide');
-       }
-   });  
-      
-   $(document).on('keydown', function (e) { 
-       if (e.keyCode === 27) {
-           if($('.modal-post').show()){
-   
-             $( document ).on( 'keydown', function ( e ) {
-             if ( e.keyCode === 27 ) {
-           //$( "#bidmodal" ).hide();
-          $('.modal-post').hide();
-
-           }
-          });  
-        
-   
-           }
-            document.getElementById('myModal').style.display = "none";
-            }
-    });
-
-
-
-
-
-   $( document ).on( 'keydown', function ( e ) {
-       if ( e.keyCode === 27 ) {
-           //$( "#bidmodal" ).hide();
-           $('#post').modal('hide');
-            $('.modal-post').show();
-
-       }
-   });  
+    
     
    
    //all popup close close using esc end
@@ -3506,6 +3459,47 @@
     $('#post').on('click', function(){
         $('#myModal').modal('show');
     });
+
+
+    $( document ).on( 'keydown', function ( e ) {
+       if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+           $('#likeusermodal').modal('hide');
+       }
+   });  
+      
+   $(document).on('keydown', function (e) { 
+       if (e.keyCode === 27) {
+           if($('.modal-post').show()){
+   
+             $( document ).on( 'keydown', function ( e ) {
+             if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+          $('.modal-post').hide();
+
+           }
+          });  
+        
+   
+           }
+            document.getElementById('myModal').style.display = "none";
+            }
+    });
+
+
+
+
+
+   $( document ).on( 'keydown', function ( e ) {
+       if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+           $('#post').modal('hide');
+            //$('.modal-post').show();
+
+       }
+   });  
+
+  
     
 </script>
 

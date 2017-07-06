@@ -1501,10 +1501,10 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         //echo $insert_id; die(); 
         $config = array(
             
-            'image_library' => 'gd2',
+            //'image_library' => 'gd2',
             'upload_path' => $this->config->item('art_post_main_upload_path'),
             'max_size' => 2500000000000,
-            'quality' => "60%",
+            //'quality' => "60%",
             'allowed_types' => $this->config->item('art_post_main_allowed_types')
                 //'overwrite' => true,
                 //'remove_spaces' => true
@@ -1924,7 +1924,7 @@ $datacount = count($otherdata);
 
                     $notfound = '<div class="contact-frnd-post bor_none">';
                     $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
                     $notfound .= '</div></div>';
                 
             } }else{ 
@@ -1933,7 +1933,7 @@ $datacount = count($otherdata);
 
                     $notfound = '<div class="contact-frnd-post bor_none">';
                     $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
                     $notfound .= '</div></div>';
                 
             }
@@ -5385,7 +5385,7 @@ $datacount = count($otherdata);
 
                     $notfound = '<div class="contact-frnd-post bor_none">';
                     $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
                     $notfound .= '</div></div>';
                 
             } }else{ 
@@ -5394,7 +5394,7 @@ $datacount = count($otherdata);
 
                     $notfound = '<div class="contact-frnd-post bor_none">';
                     $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
                     $notfound .= '</div></div>';
                 
             }
