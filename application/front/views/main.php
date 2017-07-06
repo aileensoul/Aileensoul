@@ -3,7 +3,8 @@
 <head>
   <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free|Aileensoul</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+ 
   <link rel="stylesheet" href="css/common-style.css">
   <link rel="stylesheet" href="css/style-main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -17,10 +18,10 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-3">
+        <div class="col-md-5 col-sm-3">
           <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-8 col-sm-9">
+        <div class="col-md-7 col-sm-9">
           <form class="header-login" name="login_form" id="login_form" method="post">
             <div class="input">
               <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address">
@@ -70,7 +71,7 @@
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
         <div class="submit_btn">              
-        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 
@@ -168,6 +169,7 @@
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
+                  <label class="d_o_b"> Date Of Birth :</label>
                 <select class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
@@ -603,7 +605,7 @@ return e.which !== 32;
 }); 
 
 jQuery('.carousel').carousel({
-		interval: 3000
+		interval: 4000
 	});
 
 

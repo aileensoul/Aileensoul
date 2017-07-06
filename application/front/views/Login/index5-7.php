@@ -9,7 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-
 <body>
 <div class="main-inner">
   <header>
@@ -27,10 +26,13 @@
       </div>
     </div>
   </header>
-  <section class="middle-main mid-trns">
-    <div class="">
+  <section class="middle-main">
+    <div class="container">
       
-      
+        <div class="title">
+          <h1 class="ttc">Welcome To Aileensoul</h1>
+        </div>
+
 
          <div id="error"></div>
 
@@ -38,10 +40,7 @@
          
         <div class="inner-form">
           <div class="login">
-              <div class="title">
-          <h1 class="ttc">Welcome To Aileensoul</h1>
-        </div>
-
+            
             <form role="form" name="login_form" id="login_form" method="post">
                 
 
@@ -54,15 +53,12 @@
               
               
               
-            
-                <p class="pt-20 ">
-                <button class="btn1 ">Login</button>
-              </p>
-              
-                  <p class=" text-center">
+              <p class="pb15 text-center">
                 <a href="javascript:void(0)" id="myBtn">Forgot Password ?</a>
               </p>
-              
+                <p>
+                <button class="btn1">Login</button>
+              </p>
               <p class="pt15 text-center">
                 Don't have an account? <a href="<?php echo base_url('registration'); ?>">Create an account</a>
               </p>
@@ -80,7 +76,7 @@
 
 
 <div id="myModal" class="modal">
-  <div class="modal-content md-2">
+  <div class="modal-content">
 
 
   <?php
@@ -91,22 +87,22 @@
     <div class="modal-header" style="width: 100%; text-align: center;">
 
       <span class="close">&times;</span>
-      <label style="color: #1b8ab9;">Forgot Password</label>
+      <label style="color: #a0b3b0;">Forgot Password</label>
     </div>
 
 
     <div class="modal-body" style="    width: 100%;
     text-align: center;">
-        <label  style="margin-bottom: 15px; color: #5b5b5b;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email Address" autocomplete="off" class="form-control placeholder-no-fix">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
 
     <div class="modal-footer ">
       <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
        -->  
-        <div class="submit_btn text-center">              
-        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
+        <div class="submit_btn">              
+        <input class="btn btn-theme" type="submit" name="submit" value="Submit" /> 
        </div>
     </div>
 
@@ -119,7 +115,7 @@
 
 
   <footer>
-    <div class="container pt-20">
+    <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-4">
           © 2017 | by Aileensoul
@@ -220,7 +216,7 @@
                                 /* validation */
                                 /* login submit */
                                 function submitForm()
-                                {
+                                { 
                                     var email_login = $("#email_login").val();
                                     var password_login = $("#password_login").val();
                                     var post_data = {
@@ -249,14 +245,14 @@
                                             }else if(response == "password"){
 
                                              $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
+                                                    $("#error").html('<div class="alert alert-danger login"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 }); 
 
                                             }
                                             else { 
                                                 $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
+                                                    $("#error").html('<div class="alert alert-danger login"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 });
                                             }
