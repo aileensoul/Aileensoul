@@ -615,7 +615,7 @@ if($userid){?>
     <?php } else
     { ?>
  <header class="">
-        <div class="header animated fadeInDownBig">
+        <div class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">

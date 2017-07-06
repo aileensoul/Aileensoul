@@ -16,7 +16,7 @@
 <body   class="page-container-bg-solid page-boxed">
 
     <section>
-	<div class="profile-text1 animated fadeInRightBig" >
+	<div class="profile-text1 animated fadeInDownBig" >
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -28,17 +28,17 @@
             if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
                 ?>
 
-                <div class="alert alert-danger txt_cen">
-
-					<h1>Thank You</h1>
-					<p><i class="fa fa-check" aria-hidden="true"></i></p>
-                    <a onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">
-                        Verify Your E-mail Account
-                    </a>
-					
-
+                <div class="alert alert-warning  vs-o">
+                <div class="email-verify">
+					<span class="email-img"><img src="images/email.png"></span>
+                    <span class="as-p">
+                       We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
+                    </span>
+                    <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
+					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a></span>
+                  <!--  <span class="fr"><i class="fa fa-times" aria-hidden="true"></i> </span> -->
                 </div>
-
+                </div>
             <?php }
             ?>
 
