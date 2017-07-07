@@ -130,7 +130,7 @@ if ($this->session->flashdata('success')) {
 
 
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?> >
-                                    <label>keyskills<span class="red">*</span></label>
+                                    <label>keyskills:<span class="red">*</span></label>
 
  <?php
                                         if ($skill_other) {
