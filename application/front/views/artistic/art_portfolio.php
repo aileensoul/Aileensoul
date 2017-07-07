@@ -337,6 +337,8 @@ $userid = $this->session->userdata('aileenuser');
   var $field = $('#artportfolio123');
   
   var artportfolio = $('#artportfolio123').html();
+  artportfolio = artportfolio.replace(/ /gi, " ");
+  artportfolio = artportfolio.trim();
  
      
 

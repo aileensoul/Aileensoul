@@ -1031,9 +1031,7 @@ class Business_profile extends MY_Controller {
         foreach ($unique as $key => $value) {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
-
-
-                    $result[] = $val;
+                     $result[] = $val;
                 }
             }
         }

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free|Aileensoul</title>
+   <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
  
@@ -213,9 +214,9 @@
                   ?>
 
                 </select>
-<span class="d_o_b">[D.O.B] </span>
-
-              </div>
+                <span class="d_o_b">[D.O.B] </span>
+               </div>
+                 <div class="dateerror" style="color:#f00; display: block;"></div>
               
               <div class="form-group gender-custom">
                 <select class="gender" name="selgen" id="selgen">
@@ -486,6 +487,50 @@ setTimeout(function() {
                                         'selgen': selgen,
                                         '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
                                     }
+                                    
+                                    
+                                      if( (0 == selyear % 4) && (0 != selyear % 100) || (0 == selyear % 400) )
+                                {
+
+
+                                        if(selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11){
+
+                                      if(selday == 31){
+
+                                      $(".dateerror").html("This month has only 30 days.");
+                                      return false;
+                                      }
+                                    }else if(selmonth == 2){ 
+                                      if(selday == 31 || selday == 30){
+                                        $(".dateerror").html("This month has only 29 days.");
+                                        return false;
+
+                                      }
+
+                                    }
+                                           
+                                  }else{
+
+
+                                    if(selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11){
+
+                                      if(selday == 31){
+
+                                      $(".dateerror").html("This month has only 30 days.");
+                                      return false;
+                                      }
+                                    }else if(selmonth == 2){ 
+                                      if(selday == 31 || selday == 30 || selday == 29){
+                                        $(".dateerror").html("This month has only 28 days.");
+                                        return false;
+
+                                      }
+
+                                    }
+                                          
+                                     }
+                                     
+                                     
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() ?>registration/reg_insert',
