@@ -748,8 +748,10 @@ if ($returnpage == 'job') {
 <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['post_id'] ?>)">Remove</a>
 <a href="<?php echo base_url('recruiter/edit_post/' . $post['post_id']); ?>" class="button">Edit</a>
 <!-- <a href="#popup1" class="button">Remove </a> -->
- 
-                                                        <a href="<?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo count($this->common->select_data_by_id('job_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
+ <?php   $contition_array = array('post_id' => $post['post_id'] , 'job_delete' => '0');
+        $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);?>
+                                                       
+            <a href="                           <?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo count($userdata); ?></a>
                                                 </li>
                                         </div>
                                     </div>
