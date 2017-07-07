@@ -13188,7 +13188,7 @@ body {
     position: absolute;
     bottom: 59px;
     background: #ddd;
-    height: 1;
+    height: 1px;
     content: "";
     left: 0;
 }
