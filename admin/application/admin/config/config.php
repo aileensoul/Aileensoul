@@ -16,7 +16,12 @@
 | environments.
 |
 */
-$config['base_url'] = 'https://www.aileensoul.com/admin/';
+if ($_SERVER['HTTP_HOST'] == "localhost") {
+    $config['base_url'] = 'http://localhost/aileensoul/admin/';
+} else {
+   $config['base_url'] = 'https://www.aileensoul.com/admin/';
+}
+
 
 
 
