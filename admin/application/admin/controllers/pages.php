@@ -3,262 +3,244 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
+class Pages extends MY_Controller {
 
     public $data;
 
     public function __construct() {
+
         parent::__construct();
 
-       
-        // Get Site Information
-        $site_settings = $this->common->select_data_by_id('ailee_site_settings', 'site_id', 1, $data = '*', $join_str = array());
-
-
-        $main_site_name = $this->data['main_site_name'] = $site_settings[0]['site_name'];
-        $main_site_url = $this->data['main_site_url'] = $site_settings[0]['site_url'];
-
-        $this->data['title'] = "pages | $main_site_name ";
-        $this->data['module_name'] = "pages";
         include('include.php');
-
-        //Loadin Pagination Custome Config File
-        $this->config->load('paging', TRUE);
-        $this->paging = $this->config->item('paging');
-//        print_r($this->paging);
-//        die();
-        //remove catch so after logout cannot view last visited page if that page is this
-        $this->output->set_header('Last-Modified:' . gmdate('D, d M Y H:i:s') . 'GMT');
-        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
-        $this->output->set_header('Cache-Control: post-check=0, pre-check=0', false);
-        $this->output->set_header('Pragma: no-cache');
     }
 
+    //Display Pages List
     public function index() {
-        $this->data['section_title'] = "Pages List";
 
+        $this->data['module_name'] = 'Pages';
+        $this->data['section_title'] = 'Pages';
 
-        $limit = $this->paging['per_page'];
-        
-        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
-            $short_by = $this->uri->segment(3);
-            $order_by = $this->uri->segment(4);
-        } else {
-            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
-            $short_by = 'page_id';
-            $order_by = 'asc';
-        }
+        $contition_array = array();
+        $this->data['pages_list'] = $this->common->select_data_by_condition('pages', $contition_array, '*', $short_by = '', $order_by = '', $limit = '', $offset = '');
 
-        $this->data['offset'] = $offset;
-        
-        $condition_array = array('page_status !=' => '3');
-        $this->data['pages_list'] = $get_pages = $this->common->select_data_by_condition('pages', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-            $this->paging['base_url'] = site_url("admin/pages/index/" . $short_by . "/" . $order_by);
-        } else {
-            $this->paging['base_url'] = site_url("admin/pages/index/");
-        }
-        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-            $this->paging['uri_segment'] = 5;
-        } else {
-            $this->paging['uri_segment'] = 3;
-        }
-
-        $contition_array1=array();
-
-        $this->paging['total_rows'] = count($this->common->select_data_by_condition('pages', $contition_array1, 'page_id'));
-        $this->data['total_rows'] = $this->paging['total_rows'];
-        $this->data['limit'] = $limit;
-     
-        //$this->paging['per_page'] = 2;
-
-        $this->pagination->initialize($this->paging);
-        $this->data['search_keyword'] = '';
-        $this->load->view('pages/index', $this->data);
-    }
-    
-      //search the user
-    public function search() {
-        $this->data['section_title'] = "Pages List";
-        //query for difficulty 
-
-        if ($this->input->post('search_keyword')) {
-
-            $this->data['search_keyword'] = $search_keyword = $this->input->post('search_keyword');
-
-            $this->session->set_userdata('page_search_keyword', $search_keyword);
-            $limit = $this->paging['per_page'];
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
-                $short_by = $this->uri->segment(3);
-                $order_by = $this->uri->segment(4);
-            } else {
-                $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
-                $short_by = 'page_id';
-                $order_by = 'asc';
-            }
-            $this->data['offset'] = $offset;
-            //prepare search condition
-            $search_condition = "(page_name LIKE '%$search_keyword%' OR page_title LIKE '%$search_keyword%' )";
-
-            $contition_array = array();
-            $this->data['pages_list'] = $this->common->select_data_by_search('pages', $search_condition, $contition_array, '*', $short_by, $order_by, $limit, $offset);
-
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $this->paging['base_url'] = site_url("admin/pages/search/" . $short_by . "/" . $order_by);
-            } else {
-                $this->paging['base_url'] = site_url("admin/pages/search/");
-            }
-
-
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $this->paging['uri_segment'] = 5;
-            } else {
-                $this->paging['uri_segment'] = 3;
-            }
-            $this->paging['total_rows'] = count($this->common->select_data_by_search('pages', $search_condition, $contition_array, 'page_id'));
-
-            //for record display
-            $this->data['total_rows'] = $this->paging['total_rows'];
-            $this->data['limit'] = $limit;
-
-
-            $this->pagination->initialize($this->paging);
-        } else if ($this->session->userdata('page_search_keyword')) {
-            $this->data['search_keyword'] = $search_keyword = $this->session->userdata('page_search_keyword');
-
-            $limit = $this->paging['per_page'];
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
-                $short_by = $this->uri->segment(3);
-                $order_by = $this->uri->segment(4);
-            } else {
-                $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
-                $short_by = 'page_id';
-                $order_by = 'asc';
-            }
-            $this->data['offset'] = $offset;
-            //prepare search condition
-            $search_condition = "(page_name LIKE '%$search_keyword%' OR page_title LIKE '%$search_keyword%')";
-
-            $contition_array = array();
-            $this->data['pages_list'] = $this->common->select_data_by_search('pages', $search_condition, $contition_array, '*', $short_by, $order_by, $limit, $offset);
-
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $this->paging['base_url'] = site_url("admin/pages/search/" . $short_by . "/" . $order_by);
-            } else {
-                $this->paging['base_url'] = site_url("admin/pages/search/");
-            }
-
-
-            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-                $this->paging['uri_segment'] = 5;
-            } else {
-                $this->paging['uri_segment'] = 3;
-            }
-            $this->paging['total_rows'] = count($this->common->select_data_by_search('pages', $search_condition, $contition_array, 'page_id'));
-
-            $this->data['total_rows'] = $this->paging['total_rows'];
-            $this->data['limit'] = $limit;
-
-            $this->pagination->initialize($this->paging);
-        }
         $this->load->view('pages/index', $this->data);
     }
 
-    
-    public function edit($id = "") {
+    //Update Pages Data
+    public function edit($id = '') {
 
+        if ($this->input->post('page_id')) {
 
-        $this->data['section_title'] = "Edit Page";
-        $id = base64_decode($id);
-        $page_detail = $this->common->select_data_by_id('pages', 'page_id', $id, '*', $join_str = array());
-
-        $this->data['page_id'] = $page_detail[0]['page_id'];
-        $this->data['page_name'] = $page_detail[0]['page_name'];
-        $this->data['page_title'] = $page_detail[0]['page_title'];
-        $this->data['short_description'] = $page_detail[0]['short_description'];
-        $this->data['page_description'] = $page_detail[0]['page_description'];
-        $this->data['image'] = $page_detail[0]['image'];
-        $this->data['seo_title'] = $page_detail[0]['seo_title'];
-        $this->data['seo_keywords'] = $page_detail[0]['seo_keywords'];
-        $this->data['seo_description'] = $page_detail[0]['seo_description'];
-
-        $this->load->view('pages/edit', $this->data);
-
+            $page_id = $this->input->post('page_id');
+            if ($this->input->post('name') == '') {
+                $this->session->set_flashdata('error', 'Page name is required');
+                redirect('pages/edit/' . $page_id, 'refresh');
+            }
+        /*    if ($this->input->post('description') == '') {
+                $this->session->set_flashdata('error', 'Page description is required');
+                redirect('pages/edit/' . $page_id, 'refresh');
+            }
             
+         */   
+            if ($_FILES['image']['name'] != '' && $_FILES['image']['error'] == 0) {
+                $page_image = '';
+
+                $page['upload_path'] = $this->config->item('page_main_upload_path');
+                $page['allowed_types'] = $this->config->item('page_allowed_types');
+                $page['max_size'] = $this->config->item('page_main_max_size');
+                $page['max_width'] = $this->config->item('page_main_max_width');
+                $page['max_height'] = $this->config->item('page_main_max_height');
+
+
+                $this->load->library('upload');
+                $this->upload->initialize($page);
+                //Uploading Image
+                $this->upload->do_upload('image');
+                //Getting Uploaded Image File Data
+                $imgdata = $this->upload->data();
+                $imgerror = $this->upload->display_errors();
+                if ($imgerror == '') {
+                    //Configuring Thumbnail 
+                    $page_thumb['image_library'] = 'gd2';
+                    $page_thumb['source_image'] = $page['upload_path'] . $imgdata['file_name'];
+                    $page_thumb['new_image'] = $this->config->item('page_thumb_upload_path') . $imgdata['file_name'];
+                    $page_thumb['create_thumb'] = TRUE;
+                    $page_thumb['maintain_ratio'] = TRUE;
+                    $page_thumb['thumb_marker'] = '';
+                    $page_thumb['width'] = $this->config->item('page_thumb_width');
+                    //$page_thumb['height'] = $this->config->item('page_thumb_height');
+                    $page_thumb['height'] = 2;
+                    $page_thumb['master_dim'] = 'width';
+                    $page_thumb['quality'] = "100%";
+                    $page_thumb['x_axis'] = '0';
+                    $page_thumb['y_axis'] = '0';
+                    //Loading Image Library
+                    $this->load->library('image_lib', $page_thumb);
+                    $dataimage = $imgdata['file_name'];
+                    //Creating Thumbnail
+                    $this->image_lib->resize();
+                    $thumberror = $this->image_lib->display_errors();
+                } else {
+                    $thumberror = '';
+                }
+
+                if ($imgerror != '' || $thumberror != '') {
+                    $error[0] = $imgerror;
+                    $error[1] = $thumberror;
+                } else {
+                    $error = array();
+                }
+                if ($error) {
+                    $this->session->set_flashdata('error', $error[0]);
+                    $redirect_url = site_url('pages');
+                    redirect($redirect_url, 'refresh');
+                } else {
+                    $page = $imgdata['file_name'];
+                    
+                    $old_main_image = $this->config->item('page_main_upload_path') . $this->input->post('old_image');
+                    $old_thumb_image = $this->config->item('page_thumb_upload_path') . $this->input->post('old_image');
+                    if (isset($old_main_image)) {
+                        unlink($old_main_image);
+                    }
+                    if (isset($old_thumb_image)) {
+                        unlink($old_thumb_image);
+                    }
+                }
+            } else {
+                $page = $this->input->post('old_image');
+            }
+            
+            if ($_FILES['app_image']['name'] != '' && $_FILES['app_image']['error'] == 0) {
+                $page_image1 = '';
+
+                $page1['upload_path'] = $this->config->item('page_app_main_upload_path');
+                $page1['allowed_types'] = $this->config->item('page_app_allowed_types');
+                $page1['max_size'] = $this->config->item('page_app_main_max_size');
+                $page1['max_width'] = $this->config->item('page_app_main_max_width');
+                $page1['max_height'] = $this->config->item('page_app_main_max_height');
+
+
+                $this->load->library('upload');
+                $this->upload->initialize($page1);
+                //Uploading Image
+                $this->upload->do_upload('app_image');
+                //Getting Uploaded Image File Data
+                $imgdata1 = $this->upload->data();
+                $imgerror = $this->upload->display_errors();
+                if ($imgerror == '') {
+                    //Configuring Thumbnail 
+                    $page_thumb1['image_library'] = 'gd2';
+                    $page_thumb1['source_image'] = $page1['upload_path'] . $imgdata1['file_name'];
+                    $page_thumb1['new_image'] = $this->config->item('page_app_thumb_upload_path') . $imgdata1['file_name'];
+                    $page_thumb1['create_thumb'] = TRUE;
+                    $page_thumb1['maintain_ratio'] = TRUE;
+                    $page_thumb1['thumb_marker'] = '';
+                    $page_thumb1['width'] = $this->config->item('page_app_thumb_width');
+                    //$page_thumb['height'] = $this->config->item('page_thumb_height');
+                    $page_thumb1['height'] = 2;
+                    $page_thumb1['master_dim'] = 'width';
+                    $page_thumb1['quality'] = "100%";
+                    $page_thumb1['x_axis'] = '0';
+                    $page_thumb1['y_axis'] = '0';
+                    //Loading Image Library
+                    $this->load->library('image_lib', $page_thumb1);
+                    $dataimage = $imgdata1['file_name'];
+                    //Creating Thumbnail
+                    $this->image_lib->resize();
+                    $thumberror = $this->image_lib->display_errors();
+                } else {
+                    $thumberror = '';
+                }
+
+                if ($imgerror != '' || $thumberror != '') {
+                    $error[0] = $imgerror;
+                    $error[1] = $thumberror;
+                } else {
+                    $error = array();
+                }
+                if ($error) {
+                    $this->session->set_flashdata('error', $error[0]);
+                    $redirect_url = site_url('pages');
+                    redirect($redirect_url, 'refresh');
+                } else {
+                    $page1 = $imgdata1['file_name'];
+
+                    $old_main_image = $this->config->item('page_app_main_upload_path') . $this->input->post('old_app_image');
+                    $old_thumb_image = $this->config->item('page_app_thumb_upload_path') . $this->input->post('old_app_image');
+                    if (isset($old_main_image)) {
+                        unlink($old_main_image);
+                    }
+                    if (isset($old_thumb_image)) {
+                        unlink($old_thumb_image);
+                    }
+                }
+            } else {
+                $page1 = $this->input->post('old_app_image');
+            }
+            
+            
+            $update_array = array(
+                'name' => trim($this->input->post('name')),
+                'title' => trim($this->input->post('title')),
+                'description' => trim($this->input->post('description')),
+                'description1' => trim($this->input->post('description1')),
+                'image' => $page,
+                'app_image' => $page1,
+                'modify_date' => date('Y-m-d h:i:s')
+            );
+            
+            $update_result = $this->common->update_data($update_array, 'pages', 'id', $this->input->post('page_id'));
+
+            $redirect_url = site_url('pages');
+
+            if ($update_result) {
+
+                $this->session->set_flashdata('success', 'Pages successfully updated.');
+                redirect($redirect_url, 'refresh');
+            } else {
+                $this->session->set_flashdata('error', 'Error in Occurred. Try Again!');
+                redirect($redirect_url, 'refresh');
+            }
         }
 
-    public function edit_pages(){
-            // echo  "hello"; die();
+        $pages_detail = $this->common->select_data_by_id('pages', 'id', $id, 'id,name,title as page_title,description,description1,image,app_image');
+        if (!empty($pages_detail)) {
+            $this->data['module_name'] = 'Pages';
+            $this->data['section_title'] = 'Edit Page';
 
-        if (empty($_FILES['page_image']['name']))
-             {
-                 // $this->form_validation->set_rules('page_image', 'Upload Image', 'required');
-                 $page_image = $this->input->post('old_image');
-             }
-
-              else {
-
-                    // echo "hello"; die();
-                 $config['upload_path'] = '../uploads/pages';
-                 $config['allowed_types'] = 'jpg|jpeg|png|gif';
-                 $config['file_name'] = $_FILES['page_image']['name'];
-                //echo  $config['upload_path']; $die();
-                
-                //Load upload library and initialize configuration
-                $this->load->library('upload',$config);
-                $this->upload->initialize($config);
-                
-                if($this->upload->do_upload('page_image'))
-                {
-                    // echo "hello"; die();
-                    $uploadData = $this->upload->data();
-                    //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-                    $page_image = $uploadData['file_name'];
-                }
-                else
-                
-                {
-                     // echo "welcome"; die();
-                    $page_image = '';
-                }
-
-                } 
-
-            $update_array = array(
-                'page_name' => trim($this->input->post('page_name')),
-                'page_title' => trim($this->input->post('page_title')),
-                'short_description' => trim($this->input->post('short_description')),
-                'page_description' => trim($this->input->post('page_description')),
-                'image' => $page_image,
-                'seo_title' => trim($this->input->post('seo_title')),
-                'seo_keywords' => trim($this->input->post('seo_keywords')),
-                'seo_description' => trim($this->input->post('seo_description')),
-                'timestamp' => date('Y-m-d H:i:s'),
-                'page_status' => 1
-            );
-
-          //   echo $this->input->post('page_id');
-          // echo '<pre>';
-          //    print_r($update_array);
-          //   die();
-
-            $update_result = $this->common->update_data($update_array, 'pages', 'page_id', $this->input->post('page_id'));
-
-
-            // $redirect_url = site_url('admin/pages');
-             redirect('pages', 'refresh');
-        
+            $this->data['pages_detail'] = $pages_detail;
+            $this->load->view('pages/edit', $this->data);
+        } else {
+            $this->session->set_flashdata('error', 'Errorout Occurred. Try Again.');
+            redirect('pages', 'refresh');
+        }
     }
-    public function clear_search() {
-        $this->session->unset_userdata('page_search_keyword');
-        redirect('pages', 'refresh');
+
+    public function changestatus($id = '', $status = '') {
+        if ($status == "blocked") {
+            $status = 'unblocked';
+        } else {
+            $status = 'blocked';
+        }
+
+        $update_array = array('status' => $status);
+        $delete_result = $this->common->update_data($update_array, 'pages', 'page_id', $id);
+
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $redirect_url = $_SERVER['HTTP_REFERER'];
+        } else {
+            $redirect_url = site_url('pages');
+        }
+        if ($delete_result) {
+
+            //$this->session->set_flashdata('success', 'Pages successfully deleted.');
+            redirect($redirect_url, 'refresh');
+        } else {
+            //$this->session->set_flashdata('error', 'Error Occurred. Try Again!');
+            redirect($redirect_url, 'refresh');
+        }
     }
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>
