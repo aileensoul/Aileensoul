@@ -590,7 +590,7 @@ function text2link($text){
                                                if($recdata[0]['re_comp_sector'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <p> 
+                                                      <li> <b>Skill/Sector I  Hire For </b><span> <p> 
                                                      <?php 
                                                        echo $this->common->make_links($recdata[0]['re_comp_sector']); ?>
 
@@ -608,7 +608,7 @@ function text2link($text){
                                                if($recdata[0]['re_comp_sector'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <p> 
+                                                      <li> <b>Skill/Sector I Hire For</b><span> <p> 
                                                      <?php 
                                                        echo $this->common->make_links($recdata[0]['re_comp_sector']); ?>
 
@@ -619,7 +619,7 @@ function text2link($text){
                                                    else
                                                    {
                                                      ?>
-                                                     <li><b>Company Interview Process</b> <span>
+                                                     <li><b>Skill/Sector I  Hire For</b> <span>
                                                <?php echo PROFILENA; ?></span>
                                                         </li>
                                                    <?php 
@@ -632,7 +632,7 @@ function text2link($text){
                                                 if($recdata[0]['re_comp_profile'])
                                                {
                                                  ?>
-                                               <li><b> Company Best Project</b> <span><p>
+                                               <li><b>Company Profile</b> <span><p>
                                                <?php 
              
                                                   echo $this->common->make_links($recdata[0]['re_comp_profile']);
@@ -650,7 +650,7 @@ function text2link($text){
                                                if($recdata[0]['re_comp_profile'])
                                                 {
                                                     ?>
-                                                  <li><b> Company Best Project</b> <span><p>
+                                                  <li><b>Company Profile</b> <span><p>
                                                 <?php 
              
                                                  echo $this->common->make_links($recdata[0]['re_comp_profile']);
@@ -659,7 +659,7 @@ function text2link($text){
                                                    else
                                                    {
                                                      ?>
-                                                     <li><b>Company Best Project</b> <span>
+                                                     <li><b>Company Profile</b> <span>
                                                           <?php echo PROFILENA; ?></span>
                                                         </li>
                                                    <?php 
