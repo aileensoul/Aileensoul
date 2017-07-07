@@ -129,7 +129,7 @@ class Job extends MY_Controller {
 
 
 // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -444,7 +444,7 @@ class Job extends MY_Controller {
         }
 
         // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         $contition_array = array('status' => '1');
@@ -2227,7 +2227,7 @@ class Job extends MY_Controller {
        // echo "<pre>"; print_r( $this->data['selectdata']); die();
 
         // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3456,7 +3456,7 @@ $files[] = $_FILES;
             }
         }
         // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3623,7 +3623,7 @@ $files[] = $_FILES;
         }
         
         // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -3790,7 +3790,7 @@ $files[] = $_FILES;
         }
        
         // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
 
@@ -4162,7 +4162,7 @@ $files[] = $_FILES;
         }
 
 // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
@@ -4412,7 +4412,7 @@ $files[] = $_FILES;
                
         $this->data['falguni'] = 1;
 // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         $contition_array = array('status' => '1');
@@ -4625,7 +4625,7 @@ public function job_applied_post() {
 
        
 // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
         $contition_array = array('status' => '1');
@@ -4811,7 +4811,7 @@ public function job_applied_post() {
         $postdetail = $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = 'job_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
+        $contition_array = array('re_status' => '1','re_step' => 2);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
         // echo "<pre>"; print_r($results_recruiter);die();
