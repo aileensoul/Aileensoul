@@ -155,7 +155,7 @@
                                 ?>
                                 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label>Country<span class="red">*</span> :</label>
+                                    <label>Country:<span class="red">*</span> </label>
                                     <select name="country" tabindex="1" autofocus id="country">
                                         <option value="">Select Country</option>
                                         <?php
@@ -183,7 +183,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
-                                    <label>State<span class="red">*</span> : </label>
+                                    <label>State:<span class="red">*</span></label>
                                     <select name="state" id="state" tabindex="2">
                                         <?php
                                         if ($state1) {
@@ -259,7 +259,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Postal Address <span class="red">*</span> :</label>
+                                    <label>Postal Address: <span class="red">*</span> </label>
 
                                     <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1) {
@@ -278,7 +278,7 @@
                                   </div>
 
                                 <fieldset <?php if ($country_permenant) { ?> class="error-msg" <?php } ?>>
-                                    <label>Country<span class="red">*</span> :</label>
+                                    <label>Country:<span class="red">*</span> </label>
                                     <select name="country_permenant"  id="country_permenant">
                                         <option value="">Select Country</option>
                                         <?php
@@ -306,7 +306,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($state_permenant) { ?> class="error-msg" <?php } ?>>
-                                    <label>State<span class="red">*</span> :</label>
+                                    <label>State:<span class="red">*</span> </label>
                                     <select name="state_permenant" id="state_permenant">
                                         <?php
                                         if ($state1_permenant) {
@@ -382,7 +382,7 @@
                                 </fieldset>
 
                                 <fieldset class="full-width">
-                                    <label>Postal Address<span class="red">*</span> :</label>
+                                    <label>Postal Address:<span class="red">*</span> </label>
 
                                     <textarea name ="address_permenant" id="address_permenant" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
                                         if ($address1_permenant) {

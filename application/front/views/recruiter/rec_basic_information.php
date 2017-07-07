@@ -96,7 +96,7 @@
                     
 
                     <fieldset>
-                        <label>E-mail address<span class="red">*</span>:</label>
+                        <label>Email address:<span class="red">*</span></label>
                         <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter Email"  value="<?php if($email){ echo $email; } else{echo $userdata[0]['user_email'];}?>" /><span id="email-error" ></span>
                         <?php echo form_error('email'); ?>
                     </fieldset>

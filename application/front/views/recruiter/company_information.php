@@ -89,13 +89,13 @@
                          ?>
                                 
           <fieldset <?php if($comp_name) {  ?> class="error-msg" <?php } ?>>
-            <label>Company Name<span class="red">*</span> :</label>
+            <label>Company Name :<span class="red">*</span> </label>
             <input name="comp_name" tabindex="1" autofocus type="text" id="comp_name" placeholder="Enter Company Name"  value="<?php if($compname){ echo $compname; } ?>"/><span id="fullname-error"></span>
           </fieldset>
                     <?php echo form_error('comp_name'); ?>
 
                     <fieldset <?php if($comp_email) {  ?> class="error-msg" <?php } ?>>
-            <label>Company Email<span class="red">* </span>:</label>
+            <label>Company Email:<span class="red">* </span></label>
               <input name="comp_email" type="text" tabindex="2" id="comp_email" placeholder="Enter Company Email" value="<?php if($compemail){ echo $compemail; } ?>" /><span id="fullname-error"></span>
           </fieldset>
                 <?php echo form_error('comp_email'); ?>
@@ -111,7 +111,7 @@
             <input name="comp_site"  type="text" id="comp_url" tabindex="4" placeholder="Enter Comapny Website" value="<?php if($compweb){ echo $compweb; } ?>" /><span ></span>
           </fieldset>
            <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
-                        <label>Country<span class="red">*</span> : </label>
+                        <label>Country:<span class="red">*</span></label>
                                 
                                         <select tabindex="1" autofocus name="country" id="country">
                                         <option value="">Select Country</option>
@@ -141,7 +141,7 @@
                     </fieldset>
 
                    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
-                        <label>State<span class="red">*</span> :</label>
+                        <label>State:<span class="red">*</span> </label>
                         <select name="state" id="state" tabindex="2">
                          <?php
                                            if($state1){
