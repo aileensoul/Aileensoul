@@ -59,9 +59,8 @@
 
                 $form_attribute = array('name' => 'login', 'method' => 'post', 'class' => 'form-login', 'id' => 'login_form');
 
-                echo form_open('login/authenticate', $form_attribute);
-
-                ?>
+                echo form_open(base_url('login/authenticate'), $form_attribute);?>
+              
 
 
 
