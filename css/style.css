@@ -13732,6 +13732,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 16px !important;
     padding-top: 13.3px!important;
 }
+.header ul li #notificationsmsgBody a {
+    padding-bottom: 16px !important;
+    padding-top: 13.3px!important;
+}
 .my_S {
     padding: 3px 10px;
     font-size: 13px;
