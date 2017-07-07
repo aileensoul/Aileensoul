@@ -149,7 +149,12 @@ class Recruiter extends MY_Controller {
         $this->load->view('recruiter/rec_basic_information', $this->data);
     }
 
-    public function basic_information() {  //echo '<pre>'; print_r($_POST); die();
+    public function basic_information() {  
+
+
+        //echo "hi"; die();
+
+        //echo '<pre>'; print_r($_POST); die();
         $userid = $this->session->userdata('aileenuser');
 
         //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -160,8 +165,12 @@ class Recruiter extends MY_Controller {
         if( $recruiter_deactive)
         {
              redirect('recruiter/');
+
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
+
+
+        
 
 
         $this->form_validation->set_rules('first_name', 'first Name', 'required');
@@ -175,7 +184,10 @@ class Recruiter extends MY_Controller {
             }
         }
 
+
+
         if ($this->form_validation->run() == FALSE) {
+
 
             $contition_array = array('user_id' => $userid, 're_status' => '1');
             $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -195,18 +207,21 @@ class Recruiter extends MY_Controller {
             $this->load->view('recruiter/rec_basic_information', $this->data);
         } else {
 
+
+
             $contition_array = array('user_id' => $userid, 're_status' => '1');
             $userdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
             if ($userdata) {
+
                 $data = array(
                     'rec_firstname' => $this->input->post('first_name'),
                     'rec_lastname' => $this->input->post('last_name'),
                     'rec_email' => $this->input->post('email'),
                     'rec_phone' => $this->input->post('phoneno')
                 );
-                // echo "<pre>"; print_r($data); die(); 
+           // echo "<pre>"; print_r($data); die(); 
                 $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
                 // echo $insert_id; die();
                 if ($insert_id) {
@@ -229,8 +244,11 @@ class Recruiter extends MY_Controller {
                     'user_id' => $userid,
                     're_step' => 1
                 );
-                // echo "<pre>"; print_r($data); die(); 
+             // echo "hi";  echo "<pre>"; print_r($data); die(); 
                 $insert_id = $this->common->insert_data_getid($data, 'recruiter');
+
+               // echo "<pre>"; print_r($insert_id); die(); 
+
 
                 if ($insert_id) {
 
@@ -420,6 +438,8 @@ class Recruiter extends MY_Controller {
                 $this->data['comp_profile1'] = $userdata[0]['re_comp_profile'];
                 // $this->data['interview_process1'] = $userdata[0]['re_comp_interview'];
                 $this->data['other_activities1'] = $userdata[0]['re_comp_activities'];
+                $this->data['complogo1'] = $userdata[0]['comp_logo'];
+
             }
         }
         $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
@@ -485,6 +505,9 @@ class Recruiter extends MY_Controller {
 
     public function company_info_store() {
 
+
+// echo "<pre>"; print_r($_FILES);
+// die();
  
 
         $userid = $this->session->userdata('aileenuser');
@@ -547,13 +570,135 @@ class Recruiter extends MY_Controller {
                         $this->data['city1'] = $userdata[0]['re_comp_city'];
                     // $this->data['interview_process1'] = $userdata[0]['re_comp_interview'];
                     $this->data['other_activities1'] = $userdata[0]['re_comp_activities'];
+                    $this->data['complogo1'] = $userdata[0]['comp_logo'];
+
                 }
             }
             $this->load->view('recruiter/company_information', $this->data);
         } 
 
+
+
         else {
 
+//echo "<pre>"; print_r($_POST);
+
+
+             $error = '';
+        if($_FILES['comp_logo']['name'] != '' ){
+
+           // echo "hiiiii"; die();
+
+          
+
+        $logo = '';
+            $job['upload_path'] = $this->config->item('rec_profile_main_upload_path');
+            $job['allowed_types'] = $this->config->item('rec_profile_main_allowed_types');
+            $job['max_size'] = $this->config->item('rec_profile_main_max_size');
+            $job['max_width'] = $this->config->item('rec_profile_main_max_width');
+            $job['max_height'] = $this->config->item('rec_profile_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('comp_logo');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            //print_r($imgerror);die();
+
+            if ($imgerror == '') {
+               // echo "hii"; die();
+                
+
+                //Configuring Thumbnail 
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('rec_profile_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('rec_profile_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+            } else {
+               
+               
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+
+               
+ 
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+               
+              // echo "string"; die();
+                  
+                $error = array();
+            }
+        }
+            if ($error) {
+              
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('job');
+                redirect($redirect_url, 'refresh');
+            } else {
+             
+
+        $contition_array = array('user_id' => $userid);
+        $job_reg_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'comp_logo', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $job_reg_prev_image = $job_reg_data[0]['comp_logo'];
+        $logoimage = $_FILES['comp_logo']['name'];
+       
+
+        $image_hidden_primary= $this->input->post('image_hidden_logo');
+
+            if ($job_reg_prev_image != '') {
+            $job_image_main_path = $this->config->item('rec_profile_main_upload_path');
+            $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
+            if (isset($job_bg_full_image)) {
+                //delete image from folder when user change image start
+                if($image_hidden_primary==$job_reg_prev_image && $logoimage != "")
+                {
+                   
+                    unlink($job_bg_full_image);
+                }
+                //delete image from folder when user change image End
+            }
+            
+            $job_image_thumb_path = $this->config->item('rec_profile_thumb_upload_path');
+            $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
+            if (isset($job_bg_thumb_image)) {
+                  //delete image from folder when user change image Start
+                if($image_hidden_primary==$job_reg_prev_image && $logoimage!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
+            }
+
+
+        }
+       
+             
+
+                $logo = $imgdata['file_name'];
+            }
+
+
+           
            
 
             $contition_array = array('user_id' => $userid, 're_status' => '1');
@@ -562,6 +707,20 @@ class Recruiter extends MY_Controller {
 // $userdata = $this->common-> select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
 
             if ($userdata) {
+
+
+                 $logoimage = $_FILES['comp_logo']['name'];
+
+            if ($logoimage == "") {
+                $data = array(
+                    'comp_logo' => $this->input->post('image_hidden_logo')
+                );
+            } else {
+                $data = array(
+                    'comp_logo' => $logo
+                );
+            }
+            $insert_id = $this->common->update_data($data, 'recruiter', 'user_id', $userid);
 
                
                 $data = array(
@@ -575,6 +734,7 @@ class Recruiter extends MY_Controller {
                      're_comp_country' => $this->input->post('country'),
                     're_comp_state' => $this->input->post('state'),
                     're_comp_city' => $this->input->post('city'),
+                   
                      're_step' => 3
                 );
                 // echo $userdata[0]['rec_id'];
@@ -594,7 +754,7 @@ class Recruiter extends MY_Controller {
               
 
                 $data = array(
-                    're_comp_name' => $this->input->post('comp_name'),
+                    're_comp_name' => $this->input->post('comp_name'),  
                     're_comp_email' => $this->input->post('comp_email'),
                     're_comp_site' => $this->input->post('comp_site'),
                     're_comp_phone' => $this->input->post('comp_num'),
@@ -604,6 +764,8 @@ class Recruiter extends MY_Controller {
                     're_comp_country' => $this->input->post('country'),
                     're_comp_state' => $this->input->post('state'),
                     're_comp_city' => $this->input->post('city'),
+                    'edu_certificate_primary' => $logo,
+
                     'is_delete' => 0,
                     're_status' => 1,
                     'created_date' => date('y-m-d h:i:s'),

@@ -1,4 +1,4 @@
-<!-- start head -->
+  <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -70,7 +70,7 @@
                      <!--- middle section start -->
           <div class="common-form common-form_border">
                 <h3>Company Information</h3>
-         <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
+         <?php echo form_open_multipart(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
                                 
 
           <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
@@ -237,8 +237,29 @@
                         <textarea name ="other_activities" tabindex="6" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
                        
                     </fieldset>
+                     <fieldset>
+                                             <label>Company Logo:</label>
+                                             <input  type="file" name="comp_logo" tabindex="5" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" />
+                                             <div class="bestofmine_image_primary" style="color:#f00; display: block;"></div>
+                                             <?php
+                                                if ($complogo1) {
+                                                    ?>
+                                             <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path')  . $complogo1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
+                                             <?php
+                                                }
+                                                 ?>
+                                          </fieldset>
 
-          <fieldset class="hs-submit full-width">
+           <fieldset>
+
+           <input type="hidden" name="image_hidden_logo" value="<?php
+                                                if ($complogo1) {
+                                                 echo $complogo1;
+                                                     }
+                                                     ?>">
+                                                      </fieldset>
+
+                                                     <fieldset class="hs-submit full-width">
                                    
                                   
                                     <input type="submit"  id="next" name="next" tabindex="7" value="Next">

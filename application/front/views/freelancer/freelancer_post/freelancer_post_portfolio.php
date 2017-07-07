@@ -288,8 +288,9 @@ var free_post_step = "<?php echo $free_reg_data[0]['free_post_step']; ?>";
   // var $field = $('#portfolio123');
   
    var portfolio = $('#portfolio123').html();
- 
- //portfolio = portfolio.trim();
+   portfolio = portfolio.replace(/&nbsp;/gi, " ");
+ portfolio = portfolio.trim();
+
  //alert(portfolio);
     
     if(portfolio_attachment != ''){
