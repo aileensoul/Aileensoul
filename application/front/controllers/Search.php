@@ -2010,7 +2010,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
         if ($search_job == "") {
 
-            $contition_array = array('city' => $cache_time, 're_status' => '1', 'recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3);
+            $contition_array = array('city' => $cache_time, 're_status' => '1', 'recruiter.user_id !=' => $userid , 'recruiter.re_step' => 2);
 
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
@@ -2063,7 +2063,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             $join_str[0]['from_table_id'] = 'rec_post.user_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3);
+            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 2);
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
@@ -2156,7 +2156,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             $join_str[0]['from_table_id'] = 'rec_post.user_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3);
+            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 2);
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
@@ -2203,7 +2203,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
    // echo "<pre>"; print_r($this->data['postdetail']); die();
 // code for search
-        $contition_array = array('re_status' => '1' ,'re_step' => 3);
+        $contition_array = array('re_status' => '1' ,'re_step' => 2);
 
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
