@@ -39,7 +39,7 @@ class Recruiter extends MY_Controller {
 
             if ($recrdata[0]['re_step'] == 1) {
                 redirect('recruiter/company_info_form', refresh);
-            } else if ($recrdata[0]['re_step'] == 2) {
+            } else if ($recrdata[0]['re_step'] == 3) {
                 redirect('recruiter/recommen_candidate', refresh);
             } 
             // else if ($recrdata[0]['re_step'] == 3) {
@@ -408,7 +408,7 @@ class Recruiter extends MY_Controller {
         if ($userdata) {
             $step = $userdata[0]['re_step'];
 
-            if ($step == 2 || $step > 2 || ($step >= 1 && $step <= 2)) {
+            if ($step == 3 || $step > 3 || ($step >= 1 && $step <= 3)) {
                 $this->data['compname'] = $userdata[0]['re_comp_name'];
                 $this->data['compemail'] = $userdata[0]['re_comp_email'];
                 $this->data['compnum'] = $userdata[0]['re_comp_phone'];
@@ -535,7 +535,7 @@ class Recruiter extends MY_Controller {
             if ($userdata) {
                 $step = $userdata[0]['re_step'];
 
-                if ($step == 2 || $step > 2 || ($step >= 1 && $step <= 2)) {
+                if ($step == 3 || $step > 3 || ($step >= 1 && $step <= 3)) {
                     $this->data['compname'] = $userdata[0]['re_comp_name'];
                     $this->data['compemail'] = $userdata[0]['re_comp_email'];
                     $this->data['compnum'] = $userdata[0]['re_comp_phone'];
@@ -575,6 +575,7 @@ class Recruiter extends MY_Controller {
                      're_comp_country' => $this->input->post('country'),
                     're_comp_state' => $this->input->post('state'),
                     're_comp_city' => $this->input->post('city'),
+                     're_step' => 3
                 );
                 // echo $userdata[0]['rec_id'];
                 // echo "<pre>"; print_r($data); die(); 
@@ -583,7 +584,7 @@ class Recruiter extends MY_Controller {
                 if ($insert_id) {
 
                     $this->session->set_flashdata('success', 'company information updated successfully');
-                    redirect('recruiter/rec_profile', refresh);
+                    redirect('recruiter/recommen_candidate', refresh);
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                     redirect('recruiter', refresh);
@@ -606,7 +607,7 @@ class Recruiter extends MY_Controller {
                     'is_delete' => 0,
                     're_status' => 1,
                     'created_date' => date('y-m-d h:i:s'),
-                    're_step' => 2
+                    're_step' => 3
                 );
 
 
@@ -614,7 +615,7 @@ class Recruiter extends MY_Controller {
                 $insert_id = $this->common->update_data($data, 'recruiter', 'user_id', $userid);
                 if ($insert_id) {
                     $this->session->set_flashdata('success', 'company information inserted successfully');
-                     if($userdata[0]['re_step'] == 2){
+                     if($userdata[0]['re_step'] == 3){
                     redirect('recruiter/recommen_candidate', refresh);
                   }else{
                     redirect('recruiter/company_info_form', refresh);
