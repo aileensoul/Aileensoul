@@ -523,8 +523,8 @@ img.aligncenter {
     margin-top: -81px!important;
 }
 .left_iner_img_profile {
-    height: 65px;
-    width: 71px;
+    height: 67px;
+    width: 67px;
     z-index: 3;
     position: relative;
 }
@@ -14660,9 +14660,7 @@ top: 8px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
     .profile-text1{top: 30px; padding-top: 0px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
-     .profile-text1 .as-p{font-size: 12px;}
-    }
-    }
+    .profile-text1 .as-p{font-size: 12px;}
     .post-design-desc {
         font-style: 12px;
     }
