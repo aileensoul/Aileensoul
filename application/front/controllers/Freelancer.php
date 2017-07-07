@@ -1358,6 +1358,15 @@ class Freelancer extends MY_Controller {
         //echo '<pre>'; print_r($_FILES); die();
        // echo "hii";die();
 
+         $portfolio = $_POST['portfolio']; 
+         //echo $portfolio;
+         
+         //die();
+
+       
+         
+        
+
         $userid = $this->session->userdata('aileenuser');
 
 
