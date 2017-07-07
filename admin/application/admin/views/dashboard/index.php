@@ -1,269 +1,242 @@
-<!DOCTYPE html>
-<html lang="en">
-    <?php
-    echo $head;
-    ?>
-    <body>
-        <?php
-//echo date('F');
-//for ($i = 1; $i < 7; $i++) {
-//  echo date('F ', strtotime("-$i month"));
-//} die(); 
-        ?>
-        <section id="container" >
-            <!-- **********************************************************************************************************************************************************
-            TOP BAR CONTENT & NOTIFICATIONS
-            *********************************************************************************************************************************************************** -->
-            <?php echo $header; ?>
-
-            <!-- **********************************************************************************************************************************************************
-            MAIN SIDEBAR MENU
-            *********************************************************************************************************************************************************** -->
-            <?php
-            echo $leftbar;
-            ?>
-
-            <!-- **********************************************************************************************************************************************************
-            MAIN CONTENT
-            *********************************************************************************************************************************************************** -->
-            <!--main content start-->
-            <section id="main-content">
-                <section class="wrapper">
-
-                    <div class="row">
-                        <div class="col-lg-9 main-chart">
-
-                            <div class="row mtbox">
-                                
-                                <a href="<?php echo site_url('artistic'); ?>"title="email format">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-university"></span>
-                                            <h3><?php echo count($art_list); ?></h3>
-                                        </div>
-                                        <p>Artistic Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('faq'); ?>"title="faq management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-male"></span>
-                                            <h3><?php echo count($faq_list); ?></h3>
-                                        </div>
-                                        <p>FAQ Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('job'); ?>"title="job management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-user"></span>
-                                            <h3><?php echo count($job_list); ?></h3>
-                                        </div>
-                                        <p>JOB Management</p>
-                                    </div>
-                                </a>
-                              
-                                <a href="<?php echo site_url('freelancer_hire'); ?>"title="work order">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-money"></span>
-                                            <h3><?php echo count($freelancer_list); ?></h3>
-                                        </div>
-                                        <p>Frelancer Hire Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('stream'); ?>"title="user management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-users"></span>
-                                            <h3><?php echo count($stream_list); ?></h3>
-                                        </div>
-                                        <p>Stream Management</p>
-                                    </div>
-                                </a> 
-
-                                  <a href="<?php echo site_url('user_management'); ?>"title="email format">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-university"></span>
-                                            <h3><?php echo count($user_list); ?></h3>
-                                        </div>
-                                        <p>USER Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('Recruiter_management'); ?>"title="client management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-male"></span>
-                                            <h3><?php echo count($rec_list); ?></h3>
-                                        </div>
-                                        <p>Recruiter Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('Business_management'); ?>"title="driver management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-user"></span>
-                                            <h3><?php echo count($business_list); ?></h3>
-                                        </div>
-                                        <p>Business Management</p>
-                                    </div>
-                                </a>
-                               
-                                <a href="<?php echo site_url('freelancer_post_registration'); ?>"title="work order">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-money"></span>
-                                            <h3><?php echo count($freelance_post); ?></h3>
-                                        </div>
-                                        <p>Freelancer Post Management</p>
-                                    </div>
-                                </a>
-                                <a href="<?php echo site_url('degree'); ?>"title="user management">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-users"></span>
-                                            <h3><?php echo count($degree); ?></h3>
-                                        </div>
-                                        <p>Degree</p>
-                                    </div>
-                                </a>                  
-
-                                 <a href="<?php echo site_url('business_type'); ?>"title="business type">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-users"></span>
-                                            <h3><?php echo count($businesstype); ?></h3>
-                                        </div>
-                                        <p>Business Type</p>
-                                    </div>
-                                </a>                 
-                                 <a href="<?php echo site_url('industry_type'); ?>"title="industry type">
-                                    <div class="col-md-4 col-sm-4 col-xs-6 box0">
-                                        <div class="box1">
-                                            <span class="fa fa-users"></span>
-                                            <h3><?php echo count($industrytype); ?></h3>
-                                        </div>
-                                        <p>Industry Type</p>
-                                    </div>
-                                </a>                                                              
-                            </div><!-- /row mt -->	
-
-                        </div><!-- /col-lg-9 END SECTION MIDDLE -->
+<?php
+echo $header;
+echo $leftmenu;
+?>
 
 
-                        <!-- **********************************************************************************************************************************************************
-                        RIGHT SIDEBAR CONTENT
-                        *********************************************************************************************************************************************************** -->                  
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            <?php echo $section_title; ?>
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?php echo base_url('dashboard'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+    
+    <!--//for flash message-->
+        <div class="row" >
+            <div class="col-xs-12" >
+                <?php if ($this->session->flashdata('success')) { ?>
+                    <div class="alert fade in alert-success myalert">
+                        <i class="icon-remove close" data-dismiss="alert"></i>
+                        <?php echo $this->session->flashdata('success'); ?>
+                    </div>
+                <?php } ?>
+                <?php if ($this->session->flashdata('error')) { ?>  
+                    <div class="alert fade in alert-danger myalert" >
+                        <i class="icon-remove close" data-dismiss="alert"></i>
+                        <?php echo $this->session->flashdata('error'); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
 
-                       <!--  <div class="col-lg-3 ds"> -->
-                            <!--COMPLETED ACTIONS DONUTS CHART-->
-                            <!-- CALENDAR-->
-                           <!--  <div id="calendar" class="mb">
-                                <div class="panel green-panel no-margin">
-                                    <div class="panel-body">
-                                        <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
-                                            <div class="arrow"></div>
-                                            <h3 class="popover-title" style="disadding: none;"></h3>
-                                            <div id="date-popover-content" class="popover-content"></div>
-                                        </div>
-                                        <div id="my-calendar"></div>
-                                    </div>
-                                </div>
-                            </div> --><!-- / calendar -->
-
-                        <!-- </div> --><!-- /col-lg-3 -->
-                    </div><! --/row -->
-                </section>
-            </section>
-
-            <!--main content end-->
-
-            <?php
-            echo $footer;
-            ?>
-
-        </section>
-
-        <!-- js placed at the end of the document so the pages load faster -->
-
-        <script src="<?php echo base_url('admin/assets/js/jquery-1.8.3.min.js') ?>"></script>
-        <script src="<?php echo base_url('admin/assets/js/bootstrap.min.js') ?>"></script>
-        <script class="include" type="text/javascript" src="<?php echo base_url('admin/assets/js/jquery.dcjqaccordion.2.7.js') ?>"></script>
-        <script src="<?php echo base_url('admin/assets/js/jquery.scrollTo.min.js') ?>"></script>
-        <script src="<?php echo base_url('admin/assets/js/jquery.nicescroll.js') ?>" type="text/javascript"></script>
-        <script src="<?php echo base_url('admin/assets/js/jquery.sparkline.js') ?>"></script>
-
-
-        <!--common script for all pages-->
-        <script src="<?php echo base_url('admin/assets/js/common-scripts.js') ?>"></script>
-
-        <script type="text/javascript" src="<?php echo base_url('admin/admin/assets/js/gritter/js/jquery.gritter.js') ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('admin/assets/js/gritter-conf.js') ?>"></script>
-
-        <!--script for this page-->
-         <script src="<?php echo base_url('admin/assets/js/zabuto_calendar.js'); ?>"></script> 
-        
-        <script type="application/javascript">
-            $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-            $(this).hide();
-            });
-
-            $("#my-calendar").zabuto_calendar({
-            action: function () {
-            return myDateFunction(this.id, false);
-            },
-            action_nav: function () {
-            return myNavFunction(this.id);
-            },
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <!-- start pages box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo $page_count?></h3>
+                        <p>Pages</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-file-text-o"></i>
+                    </div>
+                    <a href="<?php echo base_url('pages')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end pages box -->
+            <!-- start category box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3><?php echo $category_count?></h3>
+                        <p>Category</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-crosshairs"></i>
+                    </div>
+                    <a href="<?php echo base_url('category')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end category box -->
+            <!-- start manufacturer box -->    
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3><?php echo $manufacturers_count?></h3>
+                        <p>Manufacturer</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-puzzle-piece"></i>
+                    </div>
+                    <a href="<?php echo base_url('manufacturer')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+           <!-- end manufacturer box -->
+            <!-- start products box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $product_count?></h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <a href="<?php echo base_url('product')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end products box -->
             
-            });
-            });
+            <!-- start Bid Package box -->    
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $package_count?></h3>
+                        <p>Bid Package</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <a href="<?php echo base_url('bid_package')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+           <!-- end Bid Package box -->
+             <!-- start Deals Promotions box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3><?php echo $deal_count?></h3>
+                        <p>Deals Promotions</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-delicious"></i>
+                    </div>
+                    <a href="<?php echo base_url('deals_promotions')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Deals Promotions box -->
+            
+           <!-- start Local Community box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3><?php echo $local_count?></h3>
+                        <p>Local Community</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-terminal"></i>
+                    </div>
+                    <a href="<?php echo base_url('local_community')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Local Community box -->
+            <!-- start Testimonials box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo $testimonials_count?></h3>
+                        <p>Testimonials</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-commenting"></i>
+                    </div>
+                    <a href="<?php echo base_url('testimonials')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Testimonials box -->
+            <!-- start Videos box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo $videos_count?></h3>
+                        <p>Videos</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-youtube"></i>
+                    </div>
+                    <a href="<?php echo base_url('videos')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Videos box -->
+            <!-- start Users box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3><?php echo $users_count?></h3>
+                        <p>Users</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php echo base_url('users')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Users box -->
+            <?php
+            /*
+            ?>
+            <!-- start Setting box -->    
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3><?php echo $product_count?></h3>
+                        <p>Setting</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <a href="<?php echo base_url('setting')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+           <!-- end Setting box -->
+            <!-- start Change Password box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $product_count?></h3>
+                        <p>Change Password</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <a href="<?php echo base_url('change_password')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- end Change Password box -->
+            <?php
+            */
+            ?>
+        </div><!-- /.row -->
+        <!-- Main row -->
+       
+
+    </section><!-- /.content -->
+</div><!-- /.content-wrapper -->
+<?php echo $footer; ?>
 
 
-            function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-            }
-        </script>        
-<!--        <script type="application/javascript">
-            $(document).ready(function () {
-            $("#date-popover").popover({html: true, trigger: "manual"});
-            $("#date-popover").hide();
-            $("#date-popover").click(function (e) {
-            $(this).hide();
-            });
 
-            $("#my-calendar").zabuto_calendar({
-            action: function () {
-            return myDateFunction(this.id, false);
-            },
-            action_nav: function () {
-            return myNavFunction(this.id);
-            },
-            ajax: {
-            url: "show_data.php?action=1",
-            modal: true
-            },
-            legend: [
-            {type: "text", label: "Special event", badge: "00"},
-            {type: "block", label: "Regular event", }
-            ]
-            });
-            });
-
-
-            function myNavFunction(id) {
-            $("#date-popover").hide();
-            var nav = $("#" + id).data("navigation");
-            var to = $("#" + id).data("to");
-            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-            }
-        </script> -->
-    </body>
+</body>
 </html>

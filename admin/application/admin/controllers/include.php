@@ -1,5 +1,7 @@
 <?php
-$adminid =  $this->session->userdata('admin_id');
+//$adminid =  $this->session->userdata('admin_id');
+
+$adminid =  $this->session->userdata('aileen_admin');
 
 $user_data = $this->common->select_data_by_id('admin', 'admin_id', $this->data['user_id'], $data = '*', $join_str = array());
 
@@ -91,8 +93,11 @@ $this->data['admin_image'] = $user_data[0]['admin_image'];
 // for message notification
 
 
-$this->data['head'] = $this->load->view('head', $this->data, true);
-$this->data['header'] = $this->load->view('header', $this->data, true);
-$this->data['leftbar'] = $this->load->view('leftbar', $this->data, true);
-$this->data['footer'] = $this->load->view('footer', $this->data, true);
+  $this->data['header'] = $this->load->view('header', $this->data);
+        $this->data['leftmenu'] = $this->load->view('leftmenu', $this->data);
+        $this->data['footer'] = $this->load->view('footer', $this->data,true);
+
+
+        $this->load->model('common');
+
 ?>

@@ -1,17 +1,10 @@
-<!--footer start-->
 
-      <footer class="site-footer">
-
-          <div class="text-center">
-
-              <!--&copy;  <?php // echo date('Y'); ?> - <a style="color:#fff;" href="<?php // echo $main_site_url; ?>" target="_blank"><?php // echo $main_site_name; ?></a> - <a style="color:#fff;" href="http://www.winspirewebsolution.com" target="_blank">Developed by Winspire Web Solution</a>-->
-
-              &copy;  <?php echo date('Y'); ?> - <?php echo $main_site_name; ?> - Developed by <a  href="http://www.winspirewebsolution.com" target="_blank" class="wins"> Aileensoft Solution</a>
-
-              
-
-          </div>
-
-      </footer>
-
-      <!--footer end-->
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+     <strong> Developed By : <a href="javascript:void(0)" target="_blank" >Kreatosoft</a>  </strong>  <b>Version</b> 1.1.0
+    </div>
+    <strong>Copyright &copy; <?php echo gmdate('Y'); ?> <a href="javascript:void(0)">Dollarbid</a>.</strong> All rights reserved.
+</footer>
+</div>
+</body>
+</html>

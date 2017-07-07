@@ -20,10 +20,11 @@ class Login extends CI_Controller {
     }
 
     public function authenticate() {  
-       
         $admin_email = $this->input->post('admin_email');
          $admin_password = $this->input->post('admin_password');
 
+        // echo  $admin_email;
+        // echo  $admin_password;
         if ($admin_email != '' && $admin_password != '') 
         {
             $admin_check = $this->logins->check_authentication($admin_email, $admin_password);
@@ -81,19 +82,7 @@ class Login extends CI_Controller {
 
 
 
-     public function logout() {
-
-        
-        // $this->session->set_userdata('aileen_admin', $admin_check[0]['admin_id']);
-
-        if ($this->session->userdata('aileen_admin')) {
-            
-
-            $this->session->unset_userdata('aileen_admin');
-
-            redirect('login', 'refresh');
-        }
-    }
+     
     public function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '') {
 
 

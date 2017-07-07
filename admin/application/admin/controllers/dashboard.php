@@ -11,16 +11,15 @@ class Dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
         
-
-        
-
         include('include.php');
        
     }
 
     public function index()
      {
-
+        $adminid =  $this->session->userdata('admin_id');
+        //echo  $adminid;die();
+      //  echo "hi";die();
         // $contition_array = array('status' => 1, 'is_delete' => 0);
 
         //     $this->data['art_list'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, '*', $short_by, $order_by, $limit, $offset);
@@ -101,7 +100,19 @@ class Dashboard extends CI_Controller {
         // print_r($this->data['art_list']);die();
     }
 
-   
+   public function logout() {
+
+        
+        // $this->session->set_userdata('aileen_admin', $admin_check[0]['admin_id']);
+
+        if ($this->session->userdata('aileen_admin')) {
+            
+
+            $this->session->unset_userdata('aileen_admin');
+
+            redirect('login', 'refresh');
+        }
+    }
 
 }
 /* End of file welcome.php */
