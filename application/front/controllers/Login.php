@@ -22,19 +22,19 @@ class Login extends CI_Controller {
 
     public function index() {
 
-    $error_msg = $_GET['error_msg']; 
+   $error_msg = $_GET['error_msg']; 
 
-      if ($error_msg != 'email') {
+      if ($error_msg == 1) { 
 
 
-                $this->session->set_flashdata('error_email', 'Enter valid password');
-               
-            } else {
                 $this->session->set_flashdata('error_pass', 'Enter valid email address');
+               
+            } else if($error_msg == 2){ 
+                $this->session->set_flashdata('error_email', 'Enter valid password');
                 
             }
 
-
+            //die();
 
         $this->load->view('Login/index', $this->data);
     }
