@@ -12,14 +12,14 @@ text-align: center;}
 select option[disabled]:first-child { display: none; }
 .file_name_pdf{color:#8c8c8c; font-size:17px; padding-left:10px; visibility:show;}
 .banner-box .left-profile {
-    position: absolute;
+    /*position: absolute;
     width: 290px;
     height: 100%;
     background: rgba(255, 255, 255, 0.8);
     top: 0;
     left: 0!important;
     padding: 30px 25px;
-    text-align: center;
+    text-align: center;*/
 }
 .profile-job-post-location-name-rec ul li{width: 100%;}
 .profile-job-post-location-name-rec .post_name{width: 93%;
