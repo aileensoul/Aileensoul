@@ -26,14 +26,14 @@
         <div class="col-md-6 col-sm-9">
           <form class="header-login" name="login_form" id="login_form" method="post">
             <div class="input">
-              <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address">
+              <input type="email" tabindex="1" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address">
               </div>
               <div class="input">
-              <input type="password" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password">
+              <input type="password" tabindex="2" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password">
             </div>
             <div class="btn-right">
-              <button class="btn1">Login</button>
-              <a tabindex="19" id="myBtn" class="f-pass" href="javascript:void(0)">Forgot Password?</a>
+              <button tabindex="2" class="btn1">Login</button>
+              <a tabindex="4" id="myBtn" class="f-pass" href="javascript:void(0)">Forgot Password?</a>
             </div>
           </form>
         </div>
@@ -154,25 +154,25 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-6">
                     <div class="form-group">
-                      <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+                      <input tabindex="5" type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-6">
                     <div class="form-group">
-                      <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                      <input tabindex="6" type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <input type="text" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address" autocomplete="off">
+                  <input tabindex="7" type="text" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address" autocomplete="off">
                 </div>
               <div class="form-group">
-                  <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
+                  <input tabindex="8" type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
 <!--                  <label class="d_o_b"> Date Of Birth :</label>-->
-                <select class="day" name="selday" id="selday">
+                <select tabindex="9" class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
                   for($i = 1; $i <= 31; $i++){
@@ -182,7 +182,7 @@
                   }
                   ?>
                 </select>
-                <select class="month" name="selmonth" id="selmonth">
+                <select tabindex="10" class="month" name="selmonth" id="selmonth">
                   <option value="" disabled selected value>Month</option>
                   //<?php
 //                  for($i = 1; $i <= 12; $i++){
@@ -203,7 +203,7 @@
 //                  }
 //                  ?>
                 </select>
-                <select class="year" name="selyear" id="selyear">
+                <select tabindex="11" class="year" name="selyear" id="selyear">
                   <option value="" disabled selected value>Year</option>
                   <?php
                   for($i = date('Y'); $i >= 1900; $i--){
@@ -219,7 +219,7 @@
                  <div class="dateerror" style="color:#f00; display: block;"></div>
               
               <div class="form-group gender-custom">
-                <select class="gender" name="selgen" id="selgen">
+                <select tabindex="12" class="gender" name="selgen" id="selgen">
                   <option value="" disabled selected value>Gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -228,10 +228,10 @@
               
               <p class="form-text">
                 By Clicking on create an account button you agree our<br class="mob-none">
-                <a href="#">Terms and Condition</a>.
+                <a tabindex="14" href="#">Terms and Condition</a>.
               </p>
                 <p>
-                <button class="btn1">Create an account</button>
+                <button tabindex="13" class="btn1">Create an account</button>
               </p>
               </form>
             
