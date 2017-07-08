@@ -83,7 +83,7 @@
 </div>
   <!-- model for forgot password end -->
 
-  <div id="error"></div>
+<!--   <div id="error"></div> -->
   <section class="middle-main">
     <div class="container">
       <div class="row">
@@ -345,7 +345,7 @@ setTimeout(function() {
                                         beforeSend: function ()
                                         {
                                             $("#error").fadeOut();
-                                            $("#btn-login").html('Login ...');
+                                            $("#btn-login").html('Login');
                                         },
                                         success: function (response)
                                         { 
@@ -358,17 +358,26 @@ setTimeout(function() {
                                                // setTimeout(' window.location.href = ""; ', 4000);
                                             }else if(response == "password"){
 
-                                             $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
-                                                    $("#btn-login").html('Login');
-                                                }); 
+
+                                               window.location= "<?php echo base_url() ?>login?error_msg= password"; 
+
+
+                                             // $("#error").fadeIn(1000, function () {
+                                             //        $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
+                                             //        $("#btn-login").html('Login');
+                                             //    }); 
 
                                             }
                                             else { 
-                                                $("#error").fadeIn(1000, function () {
-                                                    $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
-                                                    $("#btn-login").html('Login');
-                                                });
+
+
+
+                                               window.location= "<?php echo base_url() ?>login?error_msg= email"; 
+
+                                                // $("#error").fadeIn(1000, function () {
+                                                //     $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
+                                                //     $("#btn-login").html('Login');
+                                                // });
                                             }
                                         }
                                     });

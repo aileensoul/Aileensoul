@@ -31,7 +31,21 @@
   <section class="middle-main mid-trns">
     <div class="">
       
-      
+      <?php 
+      if($error_msg != 'password'){ ?>
+
+       <div>
+         
+         Please enter valid password
+       </div>
+      <?php }else if($error_msg != 'email'){ 
+      ?>
+      <div>
+         
+         Please enter valid email address
+       </div>
+
+      <?php }?>
 
          <div id="error"></div>
 

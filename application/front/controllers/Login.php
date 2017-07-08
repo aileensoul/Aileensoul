@@ -21,6 +21,11 @@ class Login extends CI_Controller {
     }
 
     public function index() {
+
+     $this->data['error_msg'] = $_GET['error_msg'];
+
+
+
         $this->load->view('Login/index', $this->data);
     }
 
