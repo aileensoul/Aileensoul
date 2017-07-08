@@ -136,7 +136,7 @@
 			</ul>
 		</div>
 			<section class="all-profile-custom">
-				<div id="job-scroll" class="custom-box odd tabindex">
+				<div id="job-scroll" class="custom-box odd">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -165,7 +165,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="rec-scroll" class="custom-box even tabindex">
+				<div id="rec-scroll" class="custom-box even">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 pull-right col-sm-4 col-xs-12">
@@ -196,7 +196,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="free-scroll" class="custom-box odd tabindex">
+				<div id="free-scroll" class="custom-box odd">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -226,7 +226,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="bus-scroll" class="custom-box even tabindex">
+				<div id="bus-scroll" class="custom-box even">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4 pull-right col-xs-12">
@@ -254,7 +254,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="art-scroll" class="custom-box odd tabindex">
+				<div id="art-scroll" class="custom-box odd">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -848,10 +848,62 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 	function tabindexjob(){
 
 
-		 $("#free-scroll").removeClass("tabindex");
+		 $("#job-scroll").addClass("tabindex");
+
+
 		 $("#rec-scroll").removeClass("tabindex");
+		 $("#free-scroll").removeClass("tabindex");
 		 $("#bus-scroll").removeClass("tabindex");
 		 $("#art-scroll").removeClass("tabindex");
+		
+	}
+	function tabindexrec(){
+
+
+		 $("#rec-scroll").addClass("tabindex");
+
+
+		 $("#job-scroll").removeClass("tabindex");
+		 $("#free-scroll").removeClass("tabindex");
+		 $("#bus-scroll").removeClass("tabindex");
+		 $("#art-scroll").removeClass("tabindex");
+		
+	}
+	function tabindexfree(){
+
+
+		 $("#free-scroll").addClass("tabindex");
+
+
+		 $("#rec-scroll").removeClass("tabindex");
+		 $("#job-scroll").removeClass("tabindex");
+		 $("#bus-scroll").removeClass("tabindex");
+		 $("#art-scroll").removeClass("tabindex");
+		 
+	}
+	function tabindexbus(){
+
+
+		 $("#bus-scroll").addClass("tabindex");
+
+
+		 $("#rec-scroll").removeClass("tabindex");
+		 $("#free-scroll").removeClass("tabindex");
+		 $("#job-scroll").removeClass("tabindex");
+		 $("#art-scroll").removeClass("tabindex");
+		 
+	}
+	function tabindexart(){
+
+
+		 $("#art-scroll").addClass("tabindex");
+
+
+		 $("#rec-scroll").removeClass("tabindex");
+		 $("#free-scroll").removeClass("tabindex");
+		 $("#bus-scroll").removeClass("tabindex");
+		 $("#job-scroll").removeClass("tabindex");
+		 
 	}
 </script>
 
