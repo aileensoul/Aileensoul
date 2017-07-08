@@ -328,7 +328,7 @@
 
         <ul class="nav pull-right top-menu">
 
-            <li><a class="logout" href="<?php echo base_url('login/logout') ?>">Logout</a></li>
+            <li><a class="logout" href="<?php echo base_url('dashboard/logout') ?>">Logout</a></li>
 
         </ul>
 

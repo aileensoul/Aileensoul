@@ -1,5 +1,5 @@
 <?php
-$adminid =  $this->session->userdata('admin_id');
+$aileen_admin =  $this->session->userdata('aileen_admin');
 
 $user_data = $this->common->select_data_by_id('admin', 'admin_id', $this->data['user_id'], $data = '*', $join_str = array());
 

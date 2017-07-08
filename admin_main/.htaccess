@@ -13,7 +13,7 @@ RewriteRule ^(.*)$ index.php/$1 [L]
    RewriteRule ^(.*)$ /index.php?/$1 [L]
    
    RewriteCond %{HTTP_HOST} ^textileguru.com [NC]
-   RewriteRule ^(.*)$ http://www.aileensoul.com/admin/$1 [L,R=301,NC]
+   RewriteRule ^(.*)$ http://www.aileensoul.com/admin_main/$1 [L,R=301,NC]
 
 
 

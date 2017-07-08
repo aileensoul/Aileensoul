@@ -102,7 +102,19 @@ class Dashboard extends CI_Controller {
     }
 
    
+  public function logout() {
 
+        
+        // $this->session->set_userdata('aileen_admin', $admin_check[0]['admin_id']);
+
+        if ($this->session->userdata('aileen_admin')) {
+            
+
+            $this->session->unset_userdata('aileen_admin');
+
+            redirect('login', 'refresh');
+        }
+    }
 }
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

@@ -147,7 +147,7 @@
                                         <p>Industry Type</p>
                                     </div>
                                 </a>                                                              
-                            </div><!-- /row mt -->	
+                            </div><!-- /row mt -->  
 
                         </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
