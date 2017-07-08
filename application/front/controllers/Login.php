@@ -22,7 +22,14 @@ class Login extends CI_Controller {
 
     public function index() {
 
-   $error_msg = $_GET['error_msg']; 
+    // if($_SERVER['HTTP_REFERER'] == base_url()){
+          $this->data['error_msg'] = $error_msg = $_GET['error_msg']; 
+    // }
+    // else{
+    //   $this->data['error_msg'] = 0;  
+    // }
+
+
 
       if ($error_msg == 1) { 
 
