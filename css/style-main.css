@@ -762,6 +762,11 @@ line-height: 1;}
 	background:rgba(0,0,0, 0.3);
 	border-radius:4px;
 }
+.banner-box .upload-camera a {
+    display: inline-block;
+    padding: 5px;
+}
+.banner{padding-top:28px;}
 
 .all-profile{
 	width:90%;

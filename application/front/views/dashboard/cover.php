@@ -61,14 +61,14 @@
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">
-						<img src="img/banner1.jpg">
+						<img class="main-cover" src="img/banner1.jpg">
 					</div>
 					<div class="upload-camera">
 						<a href="#"><img src="img/cam.png"></a>
 					</div>
 					<div class="left-profile">
 						<div class="profile-photo">
-							<img src="img/pic.jpg">
+							<img class="main-pic" src="img/pic.jpg">
 						</div>
 						<div class="profile-detail">
 							<h2>John Smith Carton</h2>
