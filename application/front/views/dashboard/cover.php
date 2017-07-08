@@ -150,7 +150,7 @@
 									<p>Find best job options and connect with recruiters.</p>
 									<div class="btns">
 
-										<?php if($job[0]['job_step'] != 9){?>
+										<?php if($job[0]['job_step'] != 10){?>
 										<a class="btn-1" href="<?php echo base_url('job'); ?>">Register</a>
 										<?php }else{?> 
 
@@ -180,7 +180,7 @@
 									<div class="btns">
 										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it work?</a> 
 
-										 <?php if($recrdata[0]['re_step'] != 2){?>
+										 <?php if($recrdata[0]['re_step'] != 3){?>
 
 										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Register</a>
 										<?php }else{?>
