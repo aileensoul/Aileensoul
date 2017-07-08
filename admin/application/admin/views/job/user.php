@@ -52,7 +52,9 @@ echo $leftmenu;
                     <div class="box-header">
                         <h3 class="box-title">Job User</h3>
                         <div class=" pull-right">
-                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a>
+
+                        <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-plus" aria-hidden="true"></i> Add User</button>
+                           <!--  <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a> -->
                         </div>
                     </div>
 
