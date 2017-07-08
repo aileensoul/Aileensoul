@@ -142,7 +142,7 @@
 					<a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"> <span>Business Profile</span></a>
 				</li>
 				<li>
-					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistics Profile</span></a>
+					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistic Profile</span></a>
 				</li>
 			</ul>
 		</div>
@@ -498,7 +498,7 @@
 				<div class="modal-body">
 					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
-							<h3>Artistics Profile</h3>
+							<h3>Artistic Profile</h3>
 							<img src="img/how-it.png">
 						</div>
 						<div class="col-md-6 col-sm-6 por_content">
