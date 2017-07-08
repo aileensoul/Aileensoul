@@ -129,7 +129,7 @@
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-            <li><a href="javascript:void(0);">Blogs</a>|</li>
+            
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>

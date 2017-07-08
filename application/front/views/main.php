@@ -171,7 +171,7 @@
                   <input tabindex="8" type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
-<!--                  <label class="d_o_b"> Date Of Birth :</label>-->
+				<label class="d_o_b"> Date Of Birth :</label>
                 <select tabindex="9" class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
@@ -214,7 +214,7 @@
                   ?>
 
                 </select>
-                <span class="d_o_b">[D.O.B] </span>
+               
                </div>
                  <div class="dateerror" style="color:#f00; display: block;"></div>
               
@@ -252,7 +252,7 @@
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-            <li><a href="javascript:void(0);">Blogs</a>|</li>
+           
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>

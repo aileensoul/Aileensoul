@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>aileensoul main</title>
+  <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free|Aileensoul</title>
+  <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link rel="stylesheet" href="css/common-style.css">
@@ -19,7 +20,7 @@
         </div>
         <div class="col-md-8 col-sm-9">
             <div class="btn-right pull-right">
-              <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
+              <a href="<?php echo base_url('login'); ?>" class="btn3">Login</a>
 <!--              <a href="<?php echo base_url('registration'); ?>" class="btn3">creat an account</a>-->
             </div>
         </div>
@@ -56,7 +57,8 @@
                   <input type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
                 </div>
               <div class="form-group dob">
-<!--                   <label class="d_o_b"> Date Of Birth :</label>-->
+				<label class="d_o_b"> Date Of Birth :</label>
+				<!--span class="d_o_b">DOB </span-->
                 <select class="day" name="selday" id="selday">
                   <option value="" disabled selected value>Day</option>
                   <?php
@@ -98,7 +100,7 @@
                   }
                   ?>
                 </select>
-<span class="d_o_b">[D.O.B] </span>
+
               </div>
               
               <div class="form-group gender-custom">
@@ -142,7 +144,7 @@
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-            <li><a href="javascript:void(0);">Blogs</a>|</li>
+            
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>
