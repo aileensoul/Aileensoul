@@ -149,7 +149,9 @@ echo $leftmenu;
                                         </button>
                                         </td>
 
-                                        <td><?php echo $user['fname']; ?></td>
+                                        <td>
+                                            <button class="btn btn-block btn-info btn-sm">View</button>
+                                        </td>
                                        
                                     </tr>
                                     <?php
