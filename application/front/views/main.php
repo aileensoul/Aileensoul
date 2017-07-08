@@ -613,6 +613,7 @@ $(document).ready(function () { //aletr("hii");
               rules: {
                   forgot_email: {
                       required: true,
+                      email:true,
                         }
                   
                         },
@@ -667,4 +668,16 @@ jQuery('.carousel').carousel({
 
 
 // disable spacebar js end
+</script>
+
+
+<script type="text/javascript">
+
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            $( "#myModal" ).hide();
+            //$('#myModal').modal('hide');
+        }
+    });
+
 </script>
