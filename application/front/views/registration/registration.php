@@ -121,7 +121,7 @@
               
               <div class="sign_in pt15">
                 <p>
-                    Already have an account ? <a href="http://localhost/aileensoul/login" > Log In </a>
+                    Already have an account ? <a href="<?php echo base_url('login'); ?>" > Log In </a>
                 </p>
                     </div>
             
