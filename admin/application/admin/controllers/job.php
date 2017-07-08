@@ -29,21 +29,14 @@ class Job extends CI_Controller {
 
      public function user() {
 
-       $contition_array = array('status' => '1', 'is_delete' => '0');
-        $this->userdata['users'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = 'job_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $data='job_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
+       $contition_array = array('is_delete' => '0');
+        $this->data['users'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby = 'job_id', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>";print_r($this->userdata['users'] );die();
+       // echo "<pre>";print_r($this->userdata['users'] );die();
         $this->load->view('job/user', $this->data);
 
     }
-
-    public function post() {
-
-       
-        $this->load->view('job/post', $this->data);
-
-    }
-
 
 
     public function add($id = '') 
