@@ -186,7 +186,7 @@
 
                             <div class="common-form common-form_border">
                                 <h3>Basic Information</h3>
-<?php echo form_open(base_url('job/job_basicinfo_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix', 'onsubmit' => "return datepic()")); ?>
+<?php echo form_open(base_url('job/job_basicinfo_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                             <!-- <div>
                                 <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
@@ -319,6 +319,7 @@ if (count($nation) > 0) {
 
 
 <?php echo form_error('dob'); ?>
+
                                 </fieldset>
 
                                 <fieldset <?php if ($gender) { ?> class="error-msg" <?php } ?>>
@@ -841,24 +842,7 @@ else if(date_picker=="1970-01-01"){
 </script>
 
 
-<script type="text/javascript">
-    
-    function datepic(){
 
-         var product_name = document.getElementsByName("dob")[0].value;
-         //alert(product_name);
-
-         var arr = product_name.split("-");
-         var year = arr[0];
-         var month = arr[1];
-         var day = arr[2];
-
-         
-
-
-         return false;
-    }
-</script>
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}
 </style>
