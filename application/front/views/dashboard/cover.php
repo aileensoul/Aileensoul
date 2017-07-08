@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>aileensoul main</title>
+  <title>aileensoul</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common-style.css">
@@ -12,50 +12,8 @@
 </head>
 <body>
 
-	<header class="main-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 col-sm-3">
-					<h2 class="logo"><a href="#">Aileensoul</a></h2>
-				</div>
-				<!--div class="col-md-8 col-sm-9">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#"><img src="img/all.png"></a></li>
-							<li class="dropdown">
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/noty.png"></a>
-							  <ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							  </ul>
-							</li>
-							<li class="dropdown">
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="img/msg.png"></a>
-							  <ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							  </ul>
-							</li>
-							<li class="dropdown">
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="user-icone" src="img/user.jpg"> User Name <b class="caret"></b></a>
-							  <ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							  </ul>
-							</li>
-						</ul>
-				</div-->
-			</div>
-		</div>
-	</header>
+	<?php echo $head; ?>
+<?php echo $header; ?>
 	<div class="middle-section">
 		<div class="container">
 			<section class="banner">
@@ -68,11 +26,25 @@
 					</div>
 					<div class="left-profile">
 						<div class="profile-photo">
-							<img class="main-pic" src="img/pic.jpg">
+
+					<?php
+                $image_ori = $userdata[0]['user_image'];
+                if ($image_ori) {
+                    ?>
+                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" class="main-pic">
+
+              <?php } else { ?>
+
+                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
+               <?php } ?>
+
+						<a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+	
+
 						</div>
 						<div class="profile-detail">
-							<h2>John Smith Carton</h2>
-							<p>Ahmedabad, Gujarat</p>
+							<h2> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h2>
+							<!-- <p>Ahmedabad, Gujarat</p> -->
 						</div>
 					</div>
 				</div>
@@ -93,15 +65,23 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
 								<div class="left-box">
-									<img src="img/i1.jpg">
+									<a href="<?php echo base_url('job'); ?>"><img src="img/i1.jpg"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<h1>Job Profile</h1>
+									<h1><a href="<?php echo base_url('job'); ?>">Job Profile</a></h1>
 									<p>Find best job options and connect with recruiters.</p>
 									<div class="btns">
-										<a class="btn-1" href="#">Register</a> 
+
+										<?php if($job[0]['job_step'] != 9){?>
+										<a class="btn-1" href="<?php echo base_url('job'); ?>">Register</a>
+										<?php }else{?> 
+
+										<a class="btn-1" href="<?php echo base_url('job'); ?>">Takre me in</a> 
+
+										<?php }?>
+
 										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20" href="#">How it work?</a> 
 									</div>
 								</div>
@@ -114,16 +94,25 @@
 						<div class="row">
 							<div class="col-md-4 pull-right col-sm-4 col-xs-12">
 								<div class="left-box">
-									<img src="img/i2.jpg">
+									<a href="<?php echo base_url('recruiter'); ?>"><img src="img/i2.jpg"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8 col-xs-12">
 								<div class="right-box">
-									<h1>Recruiter Profile</h1>
+									<h1><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></h1>
 									<p>Hire quality employees here.</p>
 									<div class="btns">
 										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it work?</a> 
-										<a class="btn-1" href="#">Register</a>
+
+										 <?php if($recrdata[0]['re_step'] != 2){?>
+
+										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Register</a>
+										<?php }else{?>
+
+										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
+
+										<?php }?>
+
 									</div>
 								</div>
 							</div>
@@ -136,15 +125,19 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
 								<div class="left-box">
-									<img src="img/i3.jpg">
+									<a href="<?php echo base_url('freelancer'); ?>"><img src="img/i3.jpg"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<h1>Freelance Profile</h1>
+									<h1><a href="<?php echo base_url('freelancer'); ?>">Freelance Profile</a></h1>
 									<p>Hire freelancers and also find freelance work.</p>
 									<div class="btns">
-										<a class="btn-1" href="#">Register</a> 
+
+
+										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Register</a>
+
+
 										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20" href="#">How it work?</a> 
 									</div>
 								</div>
@@ -157,16 +150,22 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-4 pull-right col-xs-12">
 								<div class="left-box">
-									<img src="img/i4.jpg">
+									<a href="<?php echo base_url('business_profile'); ?>"><img src="img/i4.jpg"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8 col-xs-12">
 								<div class="right-box">
-									<h1>Business Profile</h1>
+									<h1><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></h1>
 									<p>Grow your business network.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it work?</a> 
-										<a class="btn-1" href="#">Register</a> 
+										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it work?</a>
+
+										<?php if($busdata[0]['business_step'] != 4){ ?>
+										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
+										<?php }else{?>
+										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Take me in</a> 
+
+										<?php }?>
 									</div>
 								</div>
 							</div>
@@ -179,15 +178,21 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
 								<div class="left-box">
-									<img src="img/i5.jpg">
+									<a href="<?php echo base_url('artistic'); ?>"><img src="img/i5.jpg"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<h1>Artistics Profile</h1>
+									<h1><a href="<?php echo base_url('artistic'); ?>">Artistics Profile</a></h1>
 									<p>Show your art & talent to the world.</p>
 									<div class="btns">
-										<a class="btn-1" href="#">Register</a> 
+
+										<?php if($artdata[0]['art_step'] != 4){?>
+										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Register</a> 
+										<?php }else{?>
+										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Take me in</a>
+										<?php }?>
+
 										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20" href="#">How it work?</a> 
 									</div>
 								</div>
@@ -199,7 +204,7 @@
 		
 	</div>
 
-	<footer>
+	<!-- <footer>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-4">
@@ -215,7 +220,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 	
 	<!--  how it work popup  -->
 	<div class="modal fade how-it-popup" id="jop-popup">
@@ -388,7 +393,48 @@
 			</div>
 		</div>
 	</div>
-	
+
+
+<!-- Bid-modal-2  -->
+<div class="modal fade message-box" id="bidmodal-2" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>     	
+            <div class="modal-body">
+                <span class="mes">
+                    <div id="popup-form">
+<?php echo form_open_multipart(base_url('dashboard/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+ <div class="popup_previred">
+                        <img id="preview" src="#" alt="your image"/>
+</div>
+                        <!--<input type="hidden" name="hitext" id="hitext" value="3">-->
+                        <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
+<?php echo form_close(); ?>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bid-modal-2  -->
+
+<!-- model for popup start -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+                        <div class="modal-dialog modal-lm">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal">&times;</button>         
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model for popup -->
+
+
 <script>
 	$( document ).ready(function() {
     
@@ -438,6 +484,114 @@
 	  });
 	});
 	
+</script>
+
+
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+    
+
+     function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+            
+            document.getElementById('preview').style.display = 'block';
+                $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#profilepic").change(function(){
+        // pallavi code for not supported file type 15/06/2017
+      profile = this.files;
+      //alert(profile);
+      if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+       //alert('not an image');
+        $('#profilepic').val('');
+         picpopup();
+         return false;
+          }else{
+          readURL(this);}
+
+          // end supported code 
+    });
+</script>
+
+<!-- script for profile pic end -->
+
+<!-- popup for file type -->
+  <script>
+         function picpopup() {           
+            $('.biderror .mes').html("<div class='pop_content'>Only Image Type Supported");
+            $('#bidmodal').modal('show');
+                        }
+                    </script>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () { 
+
+                $("#userimage").validate({
+
+                    rules: {
+
+                        profilepic: {
+
+                            required: true,
+                         
+                        },
+  
+
+                    },
+
+                    messages: {
+
+                        profilepic: {
+
+                            required: "Photo Required",
+                            
+                        },
+
+                },
+
+                });
+                   });
+  </script>
+
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script>
+                    function updateprofilepopup(id) {
+                        $('#bidmodal-2').modal('show');
+                    }
+</script>
+
+
+
+  <script type="text/javascript">
+// all popup close close using esc start
+    $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal-2').modal('hide');
+    }
+});  
+
+     $( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#bidmodal').modal('hide');
+    }
+});  
+    //all popup close close using esc end
 </script>
 
 </body>
