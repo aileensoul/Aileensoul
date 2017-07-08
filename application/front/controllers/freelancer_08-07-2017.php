@@ -2440,30 +2440,31 @@ foreach($citiess as $key){
 
             //echo "<pre>"; print_r($freelancerdata);
             $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
-   
+            $postuserarray = explode(',', $freelancer_post_area);
 
- $post_reg_skill = explode(',', $freelancer_post_area);
-
- foreach ($post_reg_skill as $key => $value) {
-   
-    
-     $contition_array = array('status'=>'1','user_id !=' =>$userid,'FIND_IN_SET("'.$value.'",post_skill)!='=>'0'); 
-    
- // echo "<pre>"; print_r($contition_array1); 
+            $freelancerdata1 = $this->data['freelancerdata1'] = $this->common->select_data_by_condition('freelancer_post', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           // echo "<pre>"; print_r($freelancerdata1);
 
 
-        $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
-       
-        if($freelancer_post_data){
-            
-        $freedata[] = $freelancer_post_data;
-  
-    }
- 
- }
+            foreach ($freelancerdata1 as $frov) {
 
-  // echo "<pre>"; print_r($freedata);
+                $postskill = explode(',', $frov['post_skill']);
+
+                $result = array_intersect($postuserarray, $postskill);
+               // echo "<pre>"; print_r($result);
+                if (count($result) > 0) {
+                    //echo "hiiiii";
+                    $contition_array = array('post_id' => $frov['post_id'], 'is_delete' => '0', 'status' => '1');
+                    //echo "<pre>"; print_r($contition_array);
+                    $frepostdata = $this->data['frepostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                   // echo "<pre>";print_r($frepostdata);die();
+                   // $freedata[] = $frepostdata;
+                    if($frepostdata[0]['user_id'] != $userid) {
+                    $freedata[] = $frepostdata;
+                    }
+                }
+            }
+            echo "<pre>"; print_r($freedata);die();
         } 
         else {
           //  echo "heloo"; die();
@@ -2471,23 +2472,23 @@ foreach($citiess as $key){
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
+            $postuserarray = explode(',', $freelancer_post_area);
 
-            $post_reg_skill = explode(',', $freelancer_post_area);
+            $freelancerdata1 = $this->data['freelancerdata1'] = $this->common->select_data_by_condition('freelancer_post', $contition_array = array(), $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
- foreach ($post_reg_skill as $key => $value) {
-   
-    
-     $contition_array = array('status'=>'1','user_id !=' =>$userid,'FIND_IN_SET("'.$value.'",post_skill)!='=>'0'); 
-    
+            foreach ($freelancerdata1 as $frov) {
 
-        $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        
+                $postskill = explode(',', $frov['post_skill']);
 
-        if($freelancer_post_data){
-        $freedata[] = $freelancer_post_data;
-    }
- 
- }
+                $result = array_intersect($postuserarray, $postskill);
+                if (count($result) > 0) {
+                    $contition_array = array('post_id' => $frov['post_id'], 'is_delete' => 0, 'status' => 1);
+
+                    $frepostdata = $this->data['frepostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    $freedata[] = $frepostdata;
+                }
+            }
         }
 
         $this->data['postdetail'] = $freedata;

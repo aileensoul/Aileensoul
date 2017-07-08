@@ -191,7 +191,7 @@ if ($freepostdata[0]['designation']) {
                                         <!-- start -->
                                         
                                         <?php
-                                   
+                                 
                                         if($postdetail){
                                         foreach ($postdetail as $post_key => $post_value) {
                                             foreach ($post_value as $post) {
@@ -404,8 +404,8 @@ $userid = $this->session->userdata('aileenuser');
                                             </div>
                                         <?php
                                         } ?> 
-                                    <div class="col-md-1">
-                                    </div>
+                                    <!-- <div class="col-md-1">
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
