@@ -42,13 +42,22 @@
                                         
                                 ?>
                     </div>
-
+        
+                      <div>
+                        <?php  
+                                        if ($this->session->flashdata('error')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                        }
+                                        if ($this->session->flashdata('success')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('success') . '</div>';
+                                        }
+                                        
+                                ?>
+                      </div>
 
 
          <div id="error"></div>
 
-
-         
         <div class="inner-form">
           <div class="login">
               <div class="title">
@@ -57,7 +66,6 @@
 
             <form role="form" name="login_form" id="login_form" method="post">
                 
-
                 <div class="form-group">
                   <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address*">
                 </div>
@@ -65,9 +73,6 @@
                   <input type="password" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password*">
                 </div>
               
-              
-              
-            
                 <p class="pt-20 ">
                 <button class="btn1 ">Login</button>
               </p>
