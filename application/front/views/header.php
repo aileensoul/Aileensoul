@@ -461,7 +461,7 @@ if($userid){?>
 
                                  <?php }else{?>
 
-                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><i class="fa fa-th" aria-hidden="true"></i>
+                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><img src="../img/header_icon_menu.png">
 </a></li>
                                  <?php } ?>
 
@@ -472,7 +472,7 @@ if($userid){?>
   </a></li> -->
                                 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="fa fa-bell" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <img src="../img/header_icon_notification.png">
 
                                         <span id="notification_count"></span>
 
@@ -494,7 +494,7 @@ if($userid){?>
                                     <?php if  ($message_count) { ?>
                                                    <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
-                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><i class="fa fa-commenting" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><img src="../img/header_icon_message.png">
                                         <span id="message_count"></span>
                                     </a>
 
@@ -639,7 +639,7 @@ if($userid){?>
 
                                  <?php }else{?>
 
-                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><i class="fa fa-th" aria-hidden="true"></i>
+                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><img src="img/header_icon_menu.png">
 </a></li>
                                  <?php } ?>
 
@@ -650,7 +650,7 @@ if($userid){?>
   </a></li> -->
                                 <!-- general notification start -->
                                 <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="fa fa-bell" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <img src="img/header_icon_notification.png">
 
                                         <span id="notification_count"></span>
 
@@ -672,7 +672,7 @@ if($userid){?>
                                     <?php if  ($message_count) { ?>
                                                    <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
-                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><i class="fa fa-commenting" aria-hidden="true"></i>
+                                    <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><img src="img/header_icon_message.png">
                                         <span id="message_count"></span>
                                     </a>
 
