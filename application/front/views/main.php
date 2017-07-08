@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-5 col-sm-3">
-          <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
+          <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
 		<div class="col-md-1"></div>
         <div class="col-md-6 col-sm-9">

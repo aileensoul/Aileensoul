@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-3">
-          <h2 class="logo"><a href="<?php echo base_url('main'); ?>">Aileensoul</a></h2>
+          <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
         <div class="col-md-8 col-sm-9">
             <div class="btn-right pull-right">
@@ -30,22 +30,18 @@
   </header>
   <section class="middle-main mid-trns">
     <div class="">
-      
-      <?php 
-      if($error_msg != 'password'){ ?>
+   
+                 <div>
+                        <?php
+                                        if ($this->session->flashdata('error_pass')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error_pass') . '</div>';
+                                        }
+                                        if ($this->session->flashdata('error_email')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error_email') . '</div>';
+                                        }?>
+                    </div>
 
-       <div>
-         
-         Please enter valid password
-       </div>
-      <?php }else if($error_msg != 'email'){ 
-      ?>
-      <div>
-         
-         Please enter valid email address
-       </div>
 
-      <?php }?>
 
          <div id="error"></div>
 
@@ -346,6 +342,8 @@ $(document).ready(function () { //aletr("hii");
           });
 </script>
 
-
+ <script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
 </body>
 </html>
