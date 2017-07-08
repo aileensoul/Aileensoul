@@ -128,15 +128,15 @@
 		</div>
 		<div class="right-profile">
 			<ul>
-				<li><a href="#job-scroll" class="right-menu-box job-r"></a></li>
-				<li><a href="#rec-scroll" class="right-menu-box rec-r"></a></li>
-				<li><a href="#free-scroll" class="right-menu-box free-r"></a></li>
-				<li><a href="#bus-scroll" class="right-menu-box bus-r"></a></li>
-				<li><a href="#art-scroll" class="right-menu-box art-r"></a></li>
+				<li><a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"></a></li>
+				<li><a href="#rec-scroll" class="right-menu-box rec-r" onclick="return tabindexrec();"></a></li>
+				<li><a href="#free-scroll" class="right-menu-box free-r" onclick="return tabindexfree();"></a></li>
+				<li><a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"></a></li>
+				<li><a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"></a></li>
 			</ul>
 		</div>
 			<section class="all-profile-custom">
-				<div id="job-scroll" class="custom-box odd">
+				<div id="job-scroll" class="custom-box odd tabindex">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -165,7 +165,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="rec-scroll" class="custom-box even">
+				<div id="rec-scroll" class="custom-box even tabindex">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 pull-right col-sm-4 col-xs-12">
@@ -196,7 +196,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="free-scroll" class="custom-box odd">
+				<div id="free-scroll" class="custom-box odd tabindex">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -210,8 +210,13 @@
 									<p>Hire freelancers and also find freelance work.</p>
 									<div class="btns">
 
-
+									<?php if($hiredata[0]['free_hire_step'] != 3 && $workdata[0]['free_post_step'] != 7){ ?>
 										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Register</a>
+										<?php }else{?>
+
+										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
+
+										<?php }?>
 
 
 										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20" href="#">How it work?</a> 
@@ -221,7 +226,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="bus-scroll" class="custom-box even">
+				<div id="bus-scroll" class="custom-box even tabindex">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4 pull-right col-xs-12">
@@ -249,7 +254,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="art-scroll" class="custom-box odd">
+				<div id="art-scroll" class="custom-box odd tabindex">
 					<div class="custom-width">
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
@@ -405,8 +410,14 @@
 				</div>
 				<div class="modal-footer">
 
-					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>"">Register Now</a>
+					<?php if($hiredata[0]['free_hire_step'] != 3 && $workdata[0]['free_post_step'] != 7){ ?>
+					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>">Register Now</a>
 
+					<?php }else{?>
+					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
+
+
+					<?php }?>
 				</div>
 			</div>
 		</div>
@@ -831,6 +842,18 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 //aarati code end
 </script>
 <!-- cover image end -->
+
+<script type="text/javascript">
+	
+	function tabindexjob(){
+
+
+		 $("#free-scroll").removeClass("tabindex");
+		 $("#rec-scroll").removeClass("tabindex");
+		 $("#bus-scroll").removeClass("tabindex");
+		 $("#art-scroll").removeClass("tabindex");
+	}
+</script>
 
 </body>
 </html>
