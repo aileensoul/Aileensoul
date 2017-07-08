@@ -6,9 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common-style.css">
   <link rel="stylesheet" href="css/style-main.css">
+
+  <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
+<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
 </head>
 <body>
 
@@ -19,11 +25,81 @@
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">
-						<img class="main-cover" src="img/banner1.jpg">
+
+
+					<div class="row" id="row1" style="display:none;">
+                <div class="col-md-12 text-center">
+                    <div id="upload-demo"></div>
+                </div>
+                <div class="col-md-12 cover-pic" >
+                    <button class="btn btn-success  cancel-result" onclick="myFunction()">Cancel</button>
+
+                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
+
+                    <div id="message1" style="display:none;">
+                        <div class="loader"><div id="floatBarsG">
+                                <div id="floatBarsG_1" class="floatBarsG"></div>
+                                <div id="floatBarsG_2" class="floatBarsG"></div>
+                                <div id="floatBarsG_3" class="floatBarsG"></div>
+                                <div id="floatBarsG_4" class="floatBarsG"></div>
+                                <div id="floatBarsG_5" class="floatBarsG"></div>
+                                <div id="floatBarsG_6" class="floatBarsG"></div>
+                                <div id="floatBarsG_7" class="floatBarsG"></div>
+                                <div id="floatBarsG_8" class="floatBarsG"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12"  style="visibility: hidden; ">
+                    <div id="upload-demo-i"></div>
+                </div>
+            </div>
+
+
+            <div class="row" id="row2">
+                    <?php
+                    $userid = $this->session->userdata('aileenuser');
+                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+                    $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    //echo "<pre>";print_r($image);
+                    $image_ori = $image[0]['profile_background'];
+                    if ($image_ori) {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="bg-images">
+                            <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
+                    <?php }
+                    ?>
+
+                </div>
+
+						<?php if($userdata[0]['profile_background']){?>
+						<img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" class="main-cover"/ >
+
+						<?php }else{?>
+						 <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" class="main-cover" />
+
+						<?php }?>
+
 					</div>
+
+
+
 					<div class="upload-camera">
-						<a href="#"><img src="img/cam.png"></a>
+
+						<!-- <a href="#"><img src="img/cam.png"></a> -->
+						  <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
+						<input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+
+
 					</div>
+
+
+
 					<div class="left-profile">
 						<div class="profile-photo">
 
@@ -250,7 +326,13 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a class="btn-2" href="#">Register Now</a>
+
+					<?php if($job[0]['job_step'] != 9){?>
+					<a class="btn-2" href="<?php echo base_url('job'); ?>">Register Now</a>
+					<?php }else{?>
+					<a class="btn-2" href="<?php echo base_url('job'); ?>">Take me in</a>
+					<?php }?>
+
 				</div>
 			</div>
 		</div>
@@ -282,7 +364,14 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a class="btn-2" href="#">Register Now</a>
+
+					 <?php if($recrdata[0]['re_step'] != 2){?>
+					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Register Now</a>
+					<?php }else{?>
+					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
+
+					<?php }?>
+
 				</div>
 			</div>
 		</div>
@@ -315,7 +404,9 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a class="btn-2" href="#">Register Now</a>
+
+					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>"">Register Now</a>
+
 				</div>
 			</div>
 		</div>
@@ -352,7 +443,13 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a class="btn-2" href="#">Register Now</a>
+
+					<?php if($busdata[0]['business_step'] != 4){ ?>
+					<a class="btn-2" href="<?php echo base_url('business_profile'); ?>">Register Now</a>
+					<?php }else{?>
+                    <a class="btn-2" href="<?php echo base_url('business_profile'); ?>">Take me in</a>
+					<?php }?>
+
 				</div>
 			</div>
 		</div>
@@ -388,7 +485,13 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a class="btn-2" href="#">Register Now</a>
+					<?php if($artdata[0]['art_step'] != 4){?>
+					<a class="btn-2" href="<?php echo base_url('artistic'); ?>">Register Now</a>
+					<?php }else{?>
+					<a class="btn-2" href="<?php echo base_url('artistic'); ?>">Take me in</a>
+
+					<?php }?>
+
 				</div>
 			</div>
 		</div>
@@ -567,7 +670,7 @@
                    });
   </script>
 
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
 <script>
                     function updateprofilepopup(id) {
                         $('#bidmodal-2').modal('show');
@@ -593,6 +696,141 @@
 });  
     //all popup close close using esc end
 </script>
+
+
+<!-- cover image start -->
+<script>
+    function myFunction() {
+        document.getElementById("upload-demo").style.visibility = "hidden";
+        document.getElementById("upload-demo-i").style.visibility = "hidden";
+        document.getElementById('message1').style.display = "block";
+
+        // setTimeout(function () { location.reload(1); }, 9000);
+
+    }
+
+
+    function showDiv() {
+        document.getElementById('row1').style.display = "block";
+        document.getElementById('row2').style.display = "none";
+    }
+</script>
+
+
+<script type="text/javascript">
+    $uploadCrop = $('#upload-demo').croppie({
+        enableExif: true,
+        viewport: {
+            width: 1250,
+            height: 350,
+            type: 'square'
+        },
+        boundary: {
+            width: 1250,
+            height: 350
+        }
+    });
+
+
+
+    $('.upload-result').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (resp) {
+
+
+            $.ajax({
+                //url: "https://www.aileensoul.com/dashboard/ajaxpro",
+                url: "<?php echo base_url() ?>dashboard/ajaxpro",
+                type: "POST",
+                data: {"image": resp},
+                success: function (data) {
+                    html = '<img src="' + resp + '" />';
+                    if (html) {
+                        window.location.reload();
+                    }
+                    //  $("#kkk").html(html);
+                }
+            });
+
+        });
+    });
+
+    $('.cancel-result').on('click', function (ev) {
+        document.getElementById('row2').style.display = "block";
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('message1').style.display = "none";
+    });
+    //aarati code start
+    $('#upload').on('change', function () {
+        var reader = new FileReader();
+        //alert(reader);
+        reader.onload = function (e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function () {
+                console.log('jQuery bind complete');
+            });
+
+        }
+        reader.readAsDataURL(this.files[0]);
+
+
+
+    });
+
+    $('#upload').on('change', function () {
+
+        var fd = new FormData();
+        fd.append("image", $("#upload")[0].files[0]);
+
+        files = this.files;
+        size = files[0].size;
+
+        //alert(size);
+
+        // pallavi code start for file type support
+if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+    //alert('not an image');
+    picpopup();
+
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('row2').style.display = "block";
+    return false;
+  }
+  // file type code end
+
+        if (size > 10485760)
+        {
+            //show an alert to the user
+            alert("Allowed file size exceeded. (Max. 10 MB)")
+
+            document.getElementById('row1').style.display = "none";
+            document.getElementById('row2').style.display = "block";
+
+            // window.location.href = "https://www.aileensoul.com/dashboard"
+            //reset file upload control
+            return false;
+        }
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>dashboard/image",
+            type: "POST",
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                //alert(response);
+
+            }
+        });
+    });
+
+//aarati code end
+</script>
+<!-- cover image end -->
 
 </body>
 </html>
