@@ -591,7 +591,7 @@
                                 </span>
                                 <div class="post-editor col-md-12 post-edit-popup" id="close">
                                     <?php // echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
-                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form')); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
                                     <div class="main-text-area col-md-12" >
                                         <div class="popup-img-in"> 
                                             <?php
@@ -3093,10 +3093,8 @@
         var product_description = document.getElementById("test-upload-des").value;
         var product_fileInput = document.getElementById("file-1").value;
 
-
         if (product_fileInput == '' && product_name == '' && product_description == '')
         {
-
             $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
             $('#post').modal('show');
             // window.location='';
