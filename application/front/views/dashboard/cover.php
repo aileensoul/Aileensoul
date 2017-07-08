@@ -127,15 +127,34 @@
 				</div>
 			</section>
 		</div>
-		<div class="right-profile">
+		<div class="sticky-container right-profile">
+			<ul class="sticky-right">
+				<li>
+					<a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"><span>Job Profile</span></a>
+				</li>
+				<li>
+					<a href="#rec-scroll" class="right-menu-box rec-r" onclick="return tabindexrec();"> <span>Recruiter Profile</span></a>
+				</li>
+				<li>
+					<a href="#free-scroll" class="right-menu-box free-r" onclick="return tabindexfree();"> <span>Freelance Profile</span></a>
+				</li>
+				<li>
+					<a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"> <span>Business Profile</span></a>
+				</li>
+				<li>
+					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistics Profile</span></a>
+				</li>
+			</ul>
+		</div>
+		<!--div class="right-profile">
 			<ul>
-				<li><a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"></a></li>
+				<li><a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"><span>Job Profile</span></a></li>
 				<li><a href="#rec-scroll" class="right-menu-box rec-r" onclick="return tabindexrec();"></a></li>
 				<li><a href="#free-scroll" class="right-menu-box free-r" onclick="return tabindexfree();"></a></li>
 				<li><a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"></a></li>
 				<li><a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"></a></li>
 			</ul>
-		</div>
+		</div-->
 			<section class="all-profile-custom">
 				<div id="job-scroll" class="custom-box odd">
 					<div class="custom-width">
