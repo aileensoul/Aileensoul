@@ -1099,8 +1099,16 @@ class Freelancer extends MY_Controller {
         $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        $contition_array = array('status' => 1);
-        $this->data['university_data'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         //for getting univesity data Start
+          $contition_array = array('is_delete' => '0','university_name !=' => "Other");
+          $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+           $university_data = $this->data['university_data'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         $contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
+        $this->data['university_otherdata'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         
+        //for getting univesity data End
+
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1184,6 +1192,86 @@ class Freelancer extends MY_Controller {
         $this->load->view('freelancer/freelancer_post/freelancer_post_education', $this->data);
     }
 
+    //add other_university into database start 
+    public function freelancer_other_university(){
+         $other_university = $_POST['other_university'];
+         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+         $contition_array = array('is_delete' => '0','university_name' => $other_university);
+         $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+              $userdata = $this->data['userdata'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+              $count=count($userdata);
+
+
+
+     if($other_university != NULL)
+     {
+        if($count==0)
+        {
+                  $data = array(
+                    'university_name' => $other_university,
+                     'created_date' => date('Y-m-d h:i:s', time()),
+                     'status' => 2,
+                    'is_delete' => 0,
+                    'is_other' => '1',
+                    'user_id' => $userid
+                    );
+        $insert_id = $this->common->insert_data_getid($data, 'university');
+                if($insert_id) 
+                {
+        
+             $contition_array = array('is_delete' => '0','university_name !=' => "Other");
+             $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
+               $university = $this->data['university'] = $this->common->select_data_by_search('university', $search_condition, $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           
+                if (count($university) > 0) {
+                $select = '<option value="" selected option disabled>Select your University</option>';
+                
+                foreach ($university as $st) {
+                $select .= '<option value="' . $st['university_id'] . '"';
+                 if($st['university_name'] == $other_university){
+                            $select .= 'selected'; 
+                       }
+                       $select .=    '>' . $st['university_name'] . '</option>';
+                 
+                    }      
+                }  
+//For Getting Other at end
+$contition_array = array('is_delete' => '0' , 'status' => 1,'university_name' => "Other");
+$university_otherdata = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');  
+     
+ $select .= '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
+        
+//  //for getting university data in clone start
+// $select1 = '<option value="" selected option disabled>Select your University</option>';
+//  foreach ($university as $st) {
+    
+//      $select1 .= '<option value="' . $st['university_id'] . '">'. $st['university_name'] .'</option>';
+     
+//  }
+//  $select1 .= '<option value="' . $university_otherdata[0]['university_id'] . '">' . $university_otherdata[0]['university_name'] . '</option>';   
+//  //for getting university data in clone End
+ 
+                 }
+    }
+    
+  
+    else{
+            $select .= 0;
+            }
+    }
+     else
+    {
+        $select .= 1;
+    }
+
+
+  echo json_encode(array(
+                            "select" => $select,
+                   ));
+
+
+    }
     public function freelancer_post_education_insert() {
 
         $userid = $this->session->userdata('aileenuser');
