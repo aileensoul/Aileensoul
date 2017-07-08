@@ -42,7 +42,6 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('job/post'); ?>"><i class="fa fa-list-alt"></i>List Job Post</a></li>
                     <li><a href="<?php echo base_url('job/user'); ?>"><i class="fa fa-users"></i>List Job User</a></li>
                 </ul>
             </li>

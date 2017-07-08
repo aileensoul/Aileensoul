@@ -43,7 +43,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['SERVER_ADDR'] == '127.0.0.1
 	$db_name 	 = 'laceberry';
         
     define('SITEURL','http://localhost/aileensoul/');
-	define('SITEPATH',$_SERVER['DOCUMENT_ROOT'].'/laceberry/seller/');
+	define('SITEPATH',$_SERVER['DOCUMENT_ROOT'].'/aileensoul/');
 	define('SITEMAPPATH',$_SERVER['DOCUMENT_ROOT'].'/laceberry/');
 	define('NEWSITEURL','http://localhost/laceberry/');
 	define('NEWSITEPATH',$_SERVER['DOCUMENT_ROOT'].'/laceberry/');
@@ -58,9 +58,9 @@ else
 	
 	$sitenewpath = str_split($_SERVER['DOCUMENT_ROOT'],23);
 	
-	define('SITEURL','http://seller.laceberry.in/');
+	define('SITEURL','https://www.aileensoul.com/');
 	define('NEWSITEURL','http://laceberry.in/live/');
-	define('SITEPATH',$sitenewpath[0].'/live/');
+	define('SITEPATH',$sitenewpath[0].'/aileensoul/');
 	define('NEWSITEPATH',$_SERVER['DOCUMENT_ROOT'].'/');
 	define('SITEMAPPATH',$_SERVER['DOCUMENT_ROOT'].'/live/');
 	error_reporting(0);
@@ -76,6 +76,7 @@ define('SITETITLE','Seller Desk');
 define('SITEIMGURL',SITEURL.'storepanel/');
 
 define('RECIMAGE',SITEPATH.'uploads/recruiter');
+
 
 $current_date = date('Y-m-d H:i:s');
 $date	= $current_date;
@@ -124,20 +125,14 @@ $time	=	array(
 );				  			
 
 
-define('USERIMAGE', 'images/userimage/');
-define('NOIMAGE', 'images/userimage/avtar.jpg');
+if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['SERVER_ADDR'] == '127.0.0.1'){
 
-//define name for uploads folder =>job_work_certificate
-define('JOBEDUCERTIFICATE', 'uploads/job_edu_certificate/');
-
-//define name for uploads folder =>job_edu_certificate
-define('JOBWORKCERTIFICATE', 'uploads/job_work_certificate/');
-
-
-define('ADMINIMAGE', 'admin/assets/uploads/admin_image/');
-
-
-define('ARTISTICIMAGE', 'uploads/art_images/');
-
-define('BUSINESSIMAGE', 'images/business_image/');
+	 error_reporting(0);
+}
+else
+{
+	error_reporting(0);
+}
+  			
+define('NOIMAGE', 'uploads/avatar.png');
 

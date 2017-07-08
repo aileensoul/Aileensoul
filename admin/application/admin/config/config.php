@@ -19,10 +19,11 @@
 
 
 if ($_SERVER['HTTP_HOST'] == "localhost") {
-    $config['base_url'] = 'http://localhost/aileensoul/admin';
+    $config['base_url'] = 'http://localhost/aileensoul/admin/';
 } else {
   $config['base_url'] = 'https://www.aileensoul.com/admin/';
 }
+
 
 
 /*
@@ -36,6 +37,17 @@ if ($_SERVER['HTTP_HOST'] == "localhost") {
 |
 */
 $config['index_page'] = '';
+
+
+// if($_SERVER['HTTP_HOST']=="localhost")
+// {
+//     $config['main_url'] = 'http://localhost/aileensoul/';
+// }
+// else
+// {
+//     $config['main_url'] = 'https://www.aileensoul.com/';
+// }
+
 
 /*
 |--------------------------------------------------------------------------
@@ -367,34 +379,304 @@ $config['rewrite_short_tags'] = FALSE;
 
 $config['proxy_ips'] = '';
 
-$config['doctor_main_image'] = 'uploads/doctors/main/';
-$config['doctor_thumb_image'] = 'uploads/doctors/thumb/';
+//USER PHOTO 
+$config['user_web_image'] = 'admin/../uploads/users/main/';
+$config['user_image'] = '../uploads/users/main/';
+$config['users_image'] = 'uploads/users/main/';
 
-$config['service_main_image'] = 'uploads/services/main/';
-$config['service_thumb_image'] = 'uploads/services/thumb/';
+//CATEGORY PHOTO 
+$config['category_image'] = 'uploads/category/main/';
+$config['category_image_thumb'] = 'uploads/category/thumb/';
+$config['category_web_image'] = 'admin/../uploads/category/main/';
+$config['category_web_image_thumb'] = 'admin/../uploads/category/thumb/';
 
-$config['banner_main_image'] = 'uploads/banner/main/';
-$config['banner_thumb_image'] = 'uploads/banner/thumb/';
 
-$config['blog_main_image'] = 'uploads/blogs/main/';
-$config['blog_thumb_image'] = 'uploads/blogs/thumb/';
+// USER BACKGROUND IMAGE
+$config['user_bg_main_upload_path'] = 'uploads/user_bg/main/';
+$config['user_bg_allowed_types'] = 'gif|jpg|jpeg|png|pdf|bmp|jpe';
+$config['user_bg_main_max_size'] = '800000'; //in KB
+$config['user_bg_main_max_width'] = '5000';
+$config['user_bg_main_max_height'] = '5000';
 
-$config['information_main_image'] = 'uploads/informations/main/';
-$config['information_thumb_image'] = 'uploads/informations/thumb/';
+// USER BACKGROUND THUMB IMAGE 
+$config['user_bg_thumb_upload_path'] = 'uploads/user_bg/thumbs/';
+$config['user_bg_thumb_width'] = '400';
+$config['user_bg_thumb_height'] = '100';
 
-$config['news_main_image'] = 'uploads/news/main/';
-$config['news_thumb_image'] = 'uploads/news/thumb/';
+// USER BACKGROUND ORIGINAL IMAGE 
+$config['user_bg_original_upload_path'] = 'uploads/user_bg/original/';
 
-$config['testimonial_main_image'] = 'uploads/testimonials/main/';
-$config['testimonial_thumb_image'] = 'uploads/testimonials/thumb/';
 
-$config['event_main_image'] = 'uploads/events/main/';
-$config['event_thumb_image'] = 'uploads/events/thumb/';
+// USER PROFILE IMAGE
+$config['user_main_upload_path'] = 'uploads/user_profile/main/';
+//$config['user_main_allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+$config['user_main_allowed_types'] = '*';
+$config['user_main_max_size'] = '1000000'; //in KB 
+$config['user_main_max_width'] = '5000';
+$config['user_main_max_height'] = '5000';
 
-$config['gallery_main_image'] = '../uploads/gallery/main/';
-$config['gallery_thumb_image'] = '../uploads/gallery/thumb/';
+// USER PROFILE THUMB IMAGE
+$config['user_thumb_upload_path'] = 'uploads/user_profile/thumbs/';
+$config['user_thumb_width'] = '160';
+$config['user_thumb_height'] = '160';
 
-$config['brochure_main'] = '../uploads/brochure/';
 
-/* End of file config.php */
-/* Location: ./application/config/config.php */
+// JOB PROFILE IMAGE 
+$config['job_profile_main_upload_path'] = 'uploads/job_profile/main/';
+//$config['job_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+$config['job_profile_main_allowed_types'] = '*';
+$config['job_profile_main_max_size'] = '800000'; //in KB
+$config['job_profile_main_max_width'] = '5000';
+$config['job_profile_main_max_height'] = '5000';
+
+// JOB PROFILE THUMB IMAGE
+$config['job_profile_thumb_upload_path'] = 'uploads/job_profile/thumbs/';
+$config['job_profile_thumb_width'] = '160';
+$config['job_profile_thumb_height'] = '160';
+
+
+// JOB BACKGROUND IMAGE 
+$config['job_bg_main_upload_path'] = 'uploads/job_bg/main/';
+//$config['job_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['job_bg_main_allowed_types'] = '*';
+$config['job_bg_main_max_size'] = '800000'; //in KB
+$config['job_bg_main_max_width'] = '5000';
+$config['job_bg_main_max_height'] = '5000';
+
+// JOB BACKGROUND THUMB IMAGE
+$config['job_bg_thumb_upload_path'] = 'uploads/job_bg/thumbs/';
+$config['job_bg_thumb_width'] = '400';
+$config['job_bg_thumb_height'] = '150';
+
+// JOB BACKGROUND ORIGINAL IMAGE
+$config['job_bg_original_upload_path'] = 'uploads/job_bg/original/';
+
+
+// JOB EDUCATION CERTIFICATE
+$config['job_edu_main_upload_path'] = 'uploads/job_education/main/';
+//$config['job_edu_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['job_edu_main_allowed_types'] = '*';
+$config['job_edu_main_max_size'] = '800000'; //in KB
+$config['job_edu_main_max_width'] = '5000';
+$config['job_edu_main_max_height'] = '5000';
+
+// JOB EDUCATION THUMB CERTIFICATE
+$config['job_edu_thumb_upload_path'] = 'uploads/job_education/thumbs/';
+$config['job_edu_thumb_width'] = '150';
+$config['job_edu_thumb_height'] = '150';
+
+
+// JOB WORK EXPERIENCE CERTIFICATE
+$config['job_work_main_upload_path'] = 'uploads/job_work/main/';
+//$config['job_work_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['job_work_main_allowed_types'] = '*';
+$config['job_work_main_max_size'] = '800000'; //in KB
+$config['job_work_main_max_width'] = '5000';
+$config['job_work_main_max_height'] = '5000';
+
+//  JOB WORK EXPERIENCE THUMB CERTIFICATE
+$config['job_work_thumb_upload_path'] = 'uploads/job_work/thumbs/';
+$config['job_work_thumb_width'] = '150';
+$config['job_work_thumb_height'] = '150';
+
+
+// RECRUITER PROFILE IMAGE 
+$config['rec_profile_main_upload_path'] = 'uploads/recruiter_profile/main/';
+//$config['rec_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
+$config['rec_profile_main_allowed_types'] = '*';
+$config['rec_profile_main_max_size'] = '800000'; //in KB
+$config['rec_profile_main_max_width'] = '5000';
+$config['rec_profile_main_max_height'] = '5000';
+
+// RECRUITER PROFILE THUMB IMAGE
+$config['rec_profile_thumb_upload_path'] = 'uploads/recruiter_profile/thumbs/';
+$config['rec_profile_thumb_width'] = '160';
+$config['rec_profile_thumb_height'] = '160';
+
+
+// RECRUITER BACKGROUND IMAGE 
+$config['rec_bg_main_upload_path'] = 'uploads/recruiter_bg/main/';
+$config['rec_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['rec_bg_main_max_size'] = '800000'; //in KB
+$config['rec_bg_main_max_width'] = '5000';
+$config['rec_bg_main_max_height'] = '5000';
+
+// RECRUITER BACKGROUND THUMB IMAGE
+$config['rec_bg_thumb_upload_path'] = 'uploads/recruiter_bg/thumbs/';
+$config['rec_bg_thumb_width'] = '400';
+$config['rec_bg_thumb_height'] = '150';
+
+// RECRUITER BACKGROUND ORIGINAL IMAGE
+$config['rec_bg_original_upload_path'] = 'uploads/recruiter_bg/original/';
+
+
+// FREELANCER PORTFOLIO ATTACHMENT 
+$config['free_portfolio_main_upload_path'] = 'uploads/freelancer_post_portfolio/main/';
+$config['free_portfolio_main_allowed_types'] = 'pdf';
+$config['free_portfolio_main_max_size'] = '800000'; //in KB
+$config['free_portfolio_main_max_width'] = '5000';
+$config['free_portfolio_main_max_height'] = '5000';
+
+// FREELANCER PORTFOLIO ATTACHMENT THUMBS
+$config['free_portfolio_thumb_upload_path'] = 'uploads/freelancer_post_portfolio/thumbs/';
+$config['free_portfolio_thumb_width'] = '400';
+$config['free_portfolio_thumb_height'] = '150';
+
+
+// FREELANCER HIRE PROFILE 
+$config['free_hire_profile_main_upload_path'] = 'uploads/freelancer_hire_profile/main/';
+$config['free_hire_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_hire_profile_main_max_size'] = '800000'; //in KB
+$config['free_hire_profile_main_max_width'] = '5000';
+$config['free_hire_profile_main_max_height'] = '5000';
+
+// FREELANCER HIRE PROFILE THUMBS
+$config['free_hire_profile_thumb_upload_path'] = 'uploads/freelancer_hire_profile/thumbs/';
+$config['free_hire_profile_thumb_width'] = '160';
+$config['free_hire_profile_thumb_height'] = '160';
+
+// FREELANCER HIRE BACKGROUND
+$config['free_hire_bg_main_upload_path'] = 'uploads/freelancer_hire_bg/main/';
+$config['free_hire_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_hire_bg_main_max_size'] = '800000'; //in KB
+$config['free_hire_bg_main_max_width'] = '5000';
+$config['free_hire_bg_main_max_height'] = '5000';
+
+// FREELANCER HIRE BACKGROUND THUMB
+$config['free_hire_bg_thumb_upload_path'] = 'uploads/freelancer_hire_bg/thumbs/';
+$config['free_hire_bg_thumb_width'] = '400';
+$config['free_hire_bg_thumb_height'] = '150';
+
+// FREELANCER HIRE BACKGROUND ORIGINAL
+$config['free_hire_bg_original_upload_path'] = 'uploads/freelancer_hire_bg/original/';
+
+
+// FREELANCER POST PROFILE
+$config['free_post_profile_main_upload_path'] = 'uploads/freelancer_post_profile/main/';
+$config['free_post_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_post_profile_main_max_size'] = '800000'; //in KB
+$config['free_post_profile_main_max_width'] = '5000';
+$config['free_post_profile_main_max_height'] = '5000';
+
+// FREELANCER POST PROFILE THUMBS
+$config['free_post_profile_thumb_upload_path'] = 'uploads/freelancer_post_profile/thumbs/';
+$config['free_post_profile_thumb_width'] = '160';
+$config['free_post_profile_thumb_height'] = '160';
+
+
+// FREELANCER POST PROFILE BACKGROUND
+$config['free_post_bg_main_upload_path'] = 'uploads/freelancer_post_bg/main/';
+$config['free_post_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['free_post_bg_main_max_size'] = '800000'; //in KB
+$config['free_post_bg_main_max_width'] = '5000';
+$config['free_post_bg_main_max_height'] = '5000';
+
+// FREELANCER POST PROFILE BACKGROUND THUMBS
+$config['free_post_bg_thumb_upload_path'] = 'uploads/freelancer_post_bg/thumbs/';
+$config['free_post_bg_thumb_width'] = '400';
+$config['free_post_bg_thumb_height'] = '150';
+
+// FREELANCER POST PROFILE BACKGROUND ORIGINAL
+$config['free_post_bg_original_upload_path'] = 'uploads/freelancer_post_bg/original/';
+
+
+// BUSINESS PROFILE IMAGE
+$config['bus_profile_main_upload_path'] = 'uploads/business_profile/main/';
+$config['bus_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['bus_profile_main_max_size'] = '800000'; //in KB
+$config['bus_profile_main_max_width'] = '4500';
+$config['bus_profile_main_max_height'] = '3000';
+
+// BUSINESS PROFILE IMAGE THUMBS
+$config['bus_profile_thumb_upload_path'] = 'uploads/business_profile/thumbs/';
+$config['bus_profile_thumb_width'] = '160';
+$config['bus_profile_thumb_height'] = '160';
+
+
+// BUSINESS PROFILE BACKGROUND
+$config['bus_bg_main_upload_path'] = 'uploads/business_bg/main/';
+//$config['bus_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['bus_bg_main_allowed_types'] = '*';
+$config['bus_bg_main_max_size'] = '800000'; //in KB
+$config['bus_bg_main_max_width'] = '4500';
+$config['bus_bg_main_max_height'] = '3000';
+
+// BUSINESS PROFILE BACKGROUND THUMBS
+$config['bus_bg_thumb_upload_path'] = 'uploads/business_bg/thumbs/';
+$config['bus_bg_thumb_width'] = '400';
+$config['bus_bg_thumb_height'] = '150';
+
+// BUSINESS PROFILE BACKGROUND ORIGINAL
+$config['bus_bg_original_upload_path'] = 'uploads/business_bg/original/';
+
+
+// BUSINESS POST 
+$config['bus_post_main_upload_path'] = 'uploads/business_post/main/';
+//$config['bus_post_main_allowed_types'] = 'gif|jpeg|jpg|PNG|pdf|mp4|mp3|avi|ogg|3gp|webm';
+$config['bus_post_main_allowed_types'] = '*';
+$config['bus_post_main_max_size'] = '800000'; //in KB
+$config['bus_post_main_max_width'] = '4500';
+$config['bus_post_main_max_height'] = '3000';
+
+// BUSINESS POST THUMBS
+$config['bus_post_thumb_upload_path'] = 'uploads/business_post/thumbs/';
+$config['bus_post_thumb_width'] = '350';
+$config['bus_post_thumb_height'] = '200';
+
+
+// ARTISTIC PROFILE IMAGE
+$config['art_profile_main_upload_path'] = 'uploads/artistic_profile/main/';
+//$config['art_profile_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['art_profile_main_allowed_types'] = '*';
+$config['art_profile_main_max_size'] = '800000'; //in KB
+$config['art_profile_main_max_width'] = '4500';
+$config['art_profile_main_max_height'] = '3000';
+
+// ARTISTIC PROFILE IMAGE THUMBS
+$config['art_profile_thumb_upload_path'] = 'uploads/artistic_profile/thumbs/';
+$config['art_profile_thumb_width'] = '160';
+$config['art_profile_thumb_height'] = '160';
+
+
+// ARTISTIC PROFILE BACKGROUND
+$config['art_bg_main_upload_path'] = 'uploads/artistic_bg/main/';
+//$config['art_bg_main_allowed_types'] = 'jpg|jpeg|png|gif|pdf';
+$config['art_bg_main_allowed_types'] = '*';
+$config['art_bg_main_max_size'] = '800000'; //in KB
+$config['art_bg_main_max_width'] = '4500';
+$config['art_bg_main_max_height'] = '3000';
+
+// ARTISTIC PROFILE BACKGROUND THUMBS
+$config['art_bg_thumb_upload_path'] = 'uploads/artistic_bg/thumbs/';
+$config['art_bg_thumb_width'] = '400';
+$config['art_bg_thumb_height'] = '150';
+
+// ARTISTIC PROFILE BACKGROUND ORIGINAL
+$config['art_bg_original_upload_path'] = 'uploads/artistic_bg/original/';
+
+
+// ARTISTIC PORTFOLIO
+$config['art_portfolio_main_upload_path'] = 'uploads/artistic_portfolio/main/';
+$config['art_portfolio_main_allowed_types'] = 'pdf';
+$config['art_portfolio_main_max_size'] = '800000'; //in KB
+$config['art_portfolio_main_max_width'] = '4500';
+$config['art_portfolio_main_max_height'] = '3000';
+
+// ARTISTIC PORTFOLIO THUMBS
+$config['art_portfolio_thumb_upload_path'] = 'uploads/artistic_portfolio/thumbs/';
+$config['art_portfolio_thumb_width'] = '160';
+$config['art_portfolio_thumb_height'] = '160';
+
+
+// ARTISTIC POST 
+$config['art_post_main_upload_path'] = 'uploads/artistic_post/main/';
+//$config['art_post_main_allowed_types'] = 'gif|jpeg|jpg|png|pdf|mp4|mp3|avi|ogg|3gp|webm';
+$config['art_post_main_allowed_types'] = '*';
+$config['art_post_main_max_size'] = '800000'; //in KB
+$config['art_post_main_max_width'] = '4500';
+$config['art_post_main_max_height'] = '3000';
+
+// ARTISTIC POST THUMBS
+$config['art_post_thumb_upload_path'] = 'uploads/artistic_post/thumbs/';
+$config['art_post_thumb_width'] = '350';
+$config['art_post_thumb_height'] = '200';
