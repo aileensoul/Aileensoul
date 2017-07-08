@@ -338,19 +338,19 @@
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset class=" " <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="col-md-4 pad_left" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Min salary:(Per Year) </label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" tabindex="16" /><span id="fullname-error"></span>
 <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
-                                <fieldset class="" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
+                                <fieldset class="col-md-4" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
                                     <label class="control-label">Max salary:(Per Year)</label>
                                     <input name="maxsal" type="text" id="maxsal" tabindex="17" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
 <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
-                                 <fieldset class="" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                                 <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
                      <label>Currency:</label>
                             <select name="currency" id="currency" tabindex="18">
 
@@ -605,7 +605,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = day+'/'+month+'/'+year;
+   var todaydate = dd+'/'+mm+'/'+yyyy;
 
    var lastDate = $("input[name=last_date]").val();
     //alert(lastDate); alert(todaydate);

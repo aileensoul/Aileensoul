@@ -834,7 +834,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = year+'-'+month+'-'+day;
+   var todaydate = yyyy+'-'+mm+'-'+dd;
  
     var one = new Date(value).getTime();
     var second = new Date(todaydate).getTime();
