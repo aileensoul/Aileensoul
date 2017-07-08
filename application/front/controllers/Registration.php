@@ -116,7 +116,16 @@ class Registration extends CI_Controller {
 
          else
          { 
-            $data = array(
+           
+            
+           
+        $contition_array = array('user_email' => $email_reg);
+        $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($userdata){}else{ 
+
+
+             $data = array(
                //  'user_name' => $this->input->post('uname'),
                  'first_name' => $this->input->post('first_name'),
                  'last_name' => $this->input->post('last_name'),
@@ -132,9 +141,9 @@ class Registration extends CI_Controller {
                  'user_last_login'=> date('Y-m-d h:i:s',time()),
                  'user_verify'=> '0'
         ); 
-            
+             
             $insert_id = $this->common->insert_data_getid($data,'user'); 
-         
+         }
         //for getting last insrert id
             $user_id = $this->db->insert_id();
            
