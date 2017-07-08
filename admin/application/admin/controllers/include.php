@@ -91,7 +91,8 @@ $this->data['admin_image'] = $user_data[0]['admin_image'];
 //exit;
 
 // for message notification
-
+   
+  
 
   $this->data['header'] = $this->load->view('header', $this->data);
         $this->data['leftmenu'] = $this->load->view('leftmenu', $this->data);

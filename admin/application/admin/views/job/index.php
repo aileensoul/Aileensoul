@@ -50,9 +50,9 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Banner</h3>
+                        <h3 class="box-title">Products</h3>
                         <div class=" pull-right">
-                            <a href="<?php echo site_url('banner/add'); ?>" class="btn btn-primary pull-right">Add Banner</a>
+                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add Product</a>
                         </div>
                     </div>
 
@@ -64,9 +64,11 @@ echo $leftmenu;
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Banner Title</th>
-                                    <th>Banner Image</th>
-                                    <th>Link</th>
+                                    <th>Product Name</th>
+                                    <th>Product Image</th>
+                                    <th>Main Price</th>
+                                    <th>Selling Price</th>
+                                    <th>Available For</th>
                                     <th>Status</th>
                                     <th>Created Date</th>
                                     <th>Modify Date</th>
@@ -75,31 +77,42 @@ echo $leftmenu;
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($banner_list as $banner) {
+                                foreach ($product_list as $product) {
 
-                                    if ($banner['status'] == 1) {
-                                        $banner_status = 'Publish';
-                                    } elseif ($banner['status'] == 2) {
-                                        $banner_status = 'Draft';
+                                    if ($product['status'] == 1) {
+                                        $product_status = 'Publish';
+                                    } elseif ($product['status'] == 2) {
+                                        $product_status = 'Draft';
                                     }
                                     ?>
                                     <tr>
-                                        <td><?php echo $banner['id'] ?></td>
-                                        <td><?php echo $banner['name'] ?></td>
-                                        <td><img src="<?php echo base_url('../uploads/banner/thumbs/' . $banner['image']) ?>" width='70' height="70"></td>
-                                        <td><?php echo $banner['link'] ?></td>
-                                        <td><a href="<?php echo base_url() . 'banner/change_status/' . $banner['id'] . '/' . $banner['status']; ?>" id="edit_btn">
-                                                <?php echo $banner_status ?> </a></td>
-                                        <td><?php echo $banner['create_date'] ?></td>
-                                        <td><?php echo $banner['modify_date'] ?></td>
+                                        <td><?php echo $product['id'] ?></td>
+                                        <td><?php echo $product['name'] ?></td>
+                                        <td><img src="<?php echo base_url('../uploads/product/thumbs/' . $product['image']) ?>" width='70' height="70"></td>
+                                        <td><?php echo $product['cost_price'] ?></td>
+                                        <td><?php echo $product['sell_price'] ?></td>
+                                        <td><?php echo $product['available_for'] == 'buy' ? 'Buy' : 'Bid' ?></td>
+                                        <td><a href="<?php echo base_url() . 'product/change_status/' . $product['id'] . '/' . $product['status']; ?>" id="edit_btn">
+                                                <?php echo $product_status ?> </a></td>
+                                        <td><?php echo $product['create_date'] ?></td>
+                                        <td><?php echo $product['modify_date'] ?></td>
                                         <td>
-                                            <a href="<?php echo base_url() . 'banner/edit/' . $banner['id']; ?>" id="edit_btn" title="Edit Banner">
+                                            <a href="<?php echo base_url() . 'product/edit/' . $product['id']; ?>" id="edit_btn" title="Edit Product">
                                                 <button type="button" class="btn btn-primary"><i class="icon-pencil"></i> <i class="fa fa-pencil-square-o"></i> </button>
                                             </a>
-                                            <a data-href="<?php echo base_url() . 'banner/delete/' . $banner['id']; ?>" id="delete_btn" data-toggle="modal" data-target="#confirm-delete" title="Delete Banner" href="#">
+                                            <a data-href="<?php echo base_url() . 'product/delete/' . $product['id']; ?>" id="delete_btn" data-toggle="modal" data-target="#confirm-delete" title="Delete Product" href="#">
                                                 <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-trash-o"></i></button>
                                             </a>
-                                            
+                                            <?php
+                                            if($product['available_for'] == 'bid')
+                                            {
+                                            ?>
+                                            <a href="<?php echo base_url().'product/product_bid/'.$product['id']; ?>" id="bid_btn" title="Products Bid">
+                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-history"></i></button>
+                                            </a>
+                                            <?php
+                                            }   
+                                            ?>
                                             </td>
                                     </tr>
                                     <?php
@@ -133,7 +146,7 @@ echo $leftmenu;
                 <h4 class="modal-title" id="frm_title">Delete Conformation</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this banner?
+                Are you sure want to delete this product?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

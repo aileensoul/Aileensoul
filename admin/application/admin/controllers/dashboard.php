@@ -10,8 +10,12 @@ class Dashboard extends MY_Controller {
     public function __construct() {
 
       parent::__construct();
-        
+
+        $this->data['title'] = 'Dashboard | Aileensoul';
+
         include('include.php');
+
+
     }
  public function index()
      {

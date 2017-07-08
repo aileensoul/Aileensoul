@@ -335,7 +335,7 @@ a:focus {
   background: transparent;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 12px;
+  font-size: 18px;
   padding: 7px 5px;
   position: absolute;
   top: 15px;
@@ -1454,7 +1454,7 @@ a:focus {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .small-box > .inner {
-  padding: 10px;
+  padding: 30px;
 }
 .small-box > .small-box-footer {
   position: relative;
@@ -3203,7 +3203,7 @@ table.text-center th {
 .register-page {
   background: #d2d6de;
   background-image: url('../img/bg.jpg');
-  background-size:34%; 
+  background-size:100%; 
 }
 .login-box,
 .register-box {

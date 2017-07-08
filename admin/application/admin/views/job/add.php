@@ -44,18 +44,22 @@ echo $leftmenu;
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php
-                    $form_attr = array('id' => 'edit_product_frm', 'enctype' => 'multipart/form-data');
-                    echo form_open_multipart('product/edit', $form_attr);
+                    $form_attr = array('id' => 'add_product_frm', 'enctype' => 'multipart/form-data');
+                    echo form_open_multipart('product/add', $form_attr);
                     ?>
-                    <input type="hidden" name="product_id" value="<?php echo $product_detail[0]['id'] ?>">
-                    <input type="hidden" name="create_date" value="<?php echo $product_detail[0]['create_date'] ?>">
                     <div class="box-body">
                         <!-- product name start -->
                         <div class="form-group col-sm-10">
                             <label for="productname" name="product_name" id="page_title">Product Name*</label>
-                            <input type="text" class="form-control" name="name" id="name" value="<?php echo $product_detail[0]['name'] ?>">
+                            <input type="text" class="form-control" name="name" id="name" value="">
                         </div>
                         <!-- product name end -->
+                        <!-- product short desc start -->
+                        <div class="form-group col-sm-10">
+                            <label for="productshortdesc" name="productshortdesc" id="page_title">Product Short Description*</label>
+                            <input type="text" class="form-control" name="short_description" id="short_description" value="">
+                        </div>
+                        <!-- product short desc end -->
                         <!-- product category start -->
                         <div class="form-group col-sm-5">
                             <div class="form-group">
@@ -64,13 +68,8 @@ echo $leftmenu;
                                     <option value="">Select Category</option>
                                     <?php
                                     foreach ($category_list as $category) {
-                                        if ($product_detail[0]['category_id'] == $category['id']) {
-                                            $seleced = 'selected="selected"';
-                                        } else {
-                                            $seleced = '';
-                                        }
                                         ?>
-                                        <option value="<?php echo $category['id']; ?>" <?php echo $seleced; ?>><?php echo $category['name']; ?></option>
+                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -87,13 +86,8 @@ echo $leftmenu;
                                     <option value="">Select Manufacture</option>
                                     <?php
                                     foreach ($manufacturer_list as $manufacturer) {
-                                        if ($product_detail[0]['manufacture_id'] == $manufacturer['id']) {
-                                            $seleced = 'selected="selected"';
-                                        } else {
-                                            $seleced = '';
-                                        }
                                         ?>
-                                        <option value="<?php echo $manufacturer['id']; ?>" <?php echo $seleced; ?>><?php echo $manufacturer['name']; ?></option>
+                                        <option value="<?php echo $manufacturer['id']; ?>"><?php echo $manufacturer['name']; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -104,95 +98,89 @@ echo $leftmenu;
                         <!-- product price start -->
                         <div class="form-group col-sm-5">
                             <label for="productprice" name="product_price" id="product_price">Product Price*</label>
-                            <input type="text" class="form-control" name="cost_price" id="cost_price" value="<?php echo $product_detail[0]['cost_price'] ?>">
+                            <input type="text" class="form-control" name="cost_price" id="cost_price" value="">
                         </div>
                         <!-- product price end -->
                         <!-- product selling price start -->
                         <div class="form-group col-sm-5">
                             <label for="productsellingprice" name="product_selling_price" id="product_selling_price">Product Selling Price*</label>
-                            <input type="text" class="form-control" name="sell_price" id="sell_price" value="<?php echo $product_detail[0]['sell_price'] ?>">
+                            <input type="text" class="form-control" name="sell_price" id="sell_price" value="">
                         </div>
                         <!-- product selling price end -->
-                        <!-- product stock start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productstock" name="product_stock" id="product_stock">Product Stock*</label>
-                            <input type="number" class="form-control" name="stock" id="stock" value="<?php echo $product_detail[0]['stock'] ?>" min="1">
-                        </div>
-                        <!-- product stock end -->
+
                         <!-- product selling price start -->
                         <div class="form-group col-sm-5">
                             <label for="productavailablefor" name="product_availablefor" id="product_availablefor">Product Available For*</label>
                             <!--<input type="text" class="form-control" name="name" id="name" value="">-->
                             <div class="form-group">
                                 <label>
-                                    <input type="radio" name="available_for" value="buy" id="buy" class="available_for minimal" <?php
-                                    if ($product_detail[0]['available_for'] == 'buy') {
-                                        echo 'checked';
-                                    }
-                                    ?> >
+                                    <input type="radio" name="available_for" value="buy" id="buy" class="available_for minimal" checked>
                                     Buy
                                 </label>
                                 <label>
-                                    <input type="radio" name="available_for" value="bid" id="bid" class="available_for minimal" <?php
-                                    if ($product_detail[0]['available_for'] == 'bid') {
-                                        echo 'checked';
-                                    }
-                                    ?>>
+                                    <input type="radio" name="available_for" value="bid" id="bid" class="available_for minimal">
                                     Bid
                                 </label>
                             </div>
                         </div>
                         <!-- product selling price end -->
-                        <!-- product bid time start -->
-                        <div class="form-group col-sm-3 pull-center bidding clockpicker" data-placement="right" data-align="top" data-autoclose="true">
-                            <label for="productbiddingtime" name="product_bidding_time" id="product_bidding_time">Product Bidding Time*</label>
-                            <input type="text" class="form-control input-small" name="bid_time" id="bid_time timepicker2" value="<?php echo $product_detail[0]['bid_time']; ?>">
+                        <!-- product stock start -->
+                        <div class="form-group col-sm-5 stock">
+                            <label for="productstock" name="product_stock" id="product_stock">Product Stock*</label>
+                            <input type="number" class="form-control" name="stock" id="stock" value="" min="1">
                         </div>
+                        <!-- product stock end -->
+                        <!-- product bid time start -->
+
+
+                        <!--<div class="form-group col-sm-3 pull-center bidding clockpicker" data-placement="right" data-align="top" data-autoclose="true">
+                            <label for="productbiddingtime" name="product_bidding_time" id="product_bidding_time">Product Bidding Time*</label>
+                            <input type="text" class="form-control input-small" name="bid_time" id="bid_time timepicker2" value="12:00">
+                        </div>
+
                         <script type="text/javascript">
                             $('.clockpicker').clockpicker();
-                        </script>
+                        </script> -->
                         <!-- product bid time end -->
+
                         <!-- product description start -->
                         <div class="form-group col-sm-10">
                             <label for="productdescription" name="product_description" id="product_description">Description *</label>
-                            <?php
-                            echo form_textarea(array('name' => 'description', 'id' => 'description editor1', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;',
-                                'value' => $product_detail[0]['description']));
-                            ?><br>
+                            <?php echo form_textarea(array('name' => 'description', 'id' => 'description editor1', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
                         </div>
                         <!-- product description end -->
+                        <!-- product price start -->
+                        <div class="form-group col-sm-5">
+                            <label for="productprice" name="product_price" id="product_price">Estimated delivery day*</label>
+                            <input type="number" class="form-control" name="delivery_day" id="delivery_day" value="" min="1">
+                        </div>
+                        <!-- product price end -->
+                        <!-- product selling price start -->
+                        <div class="form-group col-sm-5">
+                            <label for="productcondition" name="product_condition" id="product_condition">Product Condition*</label>
+                            <select name="condition" id="condition" class="form-control">
+                                <option value="New">New</option>
+                                <option value="Old">Old</option>
+                            </select>
+                        </div>
+                        <!-- product selling price end -->
+                        <!-- product available date -->
+                        <div class="form-group col-sm-5 date form_datetime" style="float:left">
+                            <label for="productavailabledate" name="product_available_date" id="product_available_date">Availble Date*</label>
+                            <input type="text" class="form-control" name="available_date" id="available_date" value="">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <!-- product available date -->
                         <!-- product image start -->
                         <div class="form-group col-sm-10">
                             <label for="productimage" name="productimage" id="productimage">Image *</label>
                             <input type="file" class="form-control" name="image" id="image" value="" style="border: none;">
-                        </div>
-                        <div class="form-group col-sm-10">
-                            <label for="productimage" name="productimage" id="productimage"></label>
-                            <img src="<?php echo base_url() . '../uploads/product/thumbs/' . $product_detail[0]['image'] ?>" alt="<?php echo $product_detail[0]['name'] ?>" width="180">
-                            <input type="hidden" name="old_image" value="<?php echo $product_detail[0]['image']; ?>" />
                         </div>
                         <!-- product image end -->
                         <!-- product sub image start -->
                         <div class="form-group col-sm-10">
                             <label for="productsubimage" name="productsubimage" id="productsubimage">Sub Image</label>
                             <input type="file" class="form-control" name="sub_image[]" multiple="5" id="sub_image" value="" style="border: none;">
-                        </div>
-                        <div class="form-group col-sm-10">
-                            <label for="productsubimage" name="productsubimage" id="productsubimage"></label>
-                            <?php
-                            if ($image_list != '') {
-                                foreach ($image_list as $image) {
-                                    ?>
-                                    <div class="image-box" style="border:1px solid #eee; padding:10px; width: 120px; float: left; margin: 5px;">
-                                        <img src="<?php echo base_url() . '../uploads/product/thumbs/' . $image['image'] ?>" width="100" height="100">
-                                        <input type="hidden" name="old_sub_image[]" value="<?php echo $image['image'] ?>" />
-                                        <a href="<?php echo base_url('product/delete_image/' . $product_detail[0]['id'] . '/' . $image['id']) ?>" title="Delete" style="margin: 0 auto; width: 120px;" >Delete</a>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
-                            ?>
                         </div>
                         <!-- product sub image end -->
                     </div><!-- /.box-body -->
@@ -219,7 +207,7 @@ echo $leftmenu;
     $(document).ready(function () {
 
 
-        $("#edit_product_frm").validate({
+        $("#add_product_frm").validate({
             rules: {
                 name: {
                     required: true,
@@ -245,6 +233,12 @@ echo $leftmenu;
                     required: true,
                 },
                 bid_time: {
+                    required: true,
+                },
+                available_date: {
+                    required: true,
+                },
+                short_description: {
                     required: true,
                 },
                 description: {
@@ -279,33 +273,29 @@ echo $leftmenu;
                         bid_time: {
                             required: "Please enter product bidding time",
                         },
+                        available_date: {
+                            required: "Please enter available date",
+                        },
+                        short_description: {
+                            required: "Please enter product short description",
+                        },
                         description: {
                             required: "Please enter product description",
                         }
                     },
         });
-
-
-        //var available_for = document.getElementsByName("available_for");
-        //alert(available_for);
-        var available = $('input[name=available_for]:checked').val();
-        if (available== 'buy')
-        {
-            $(".bidding").hide();
-        }
-        if (available == 'bid')
-        {
-            $(".bidding").show();
-        }
+        $(".bidding").hide();
         $(".available_for").click(function () {
             var available_for = this.value;
             if (available_for == 'buy')
             {
                 $(".bidding").hide();
+                $(".stock").show();
             }
             if (available_for == 'bid')
             {
                 $(".bidding").show();
+                $(".stock").hide();
             }
         });
 
@@ -328,3 +318,11 @@ echo $leftmenu;
         $('.callout-success').delay(3000).hide('700');
     });
 </script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "yyyy-mm-dd hh:ii:ss",
+        autoclose: true,
+        todayBtn: true,
+        pickerPosition: "bottom-left"
+    });
+</script> 

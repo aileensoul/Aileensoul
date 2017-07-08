@@ -50,13 +50,8 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Local Communitys</h3>
-                        <div class=" pull-right">
-                            <a href="<?php echo site_url('local_community/add'); ?>" class="btn btn-primary pull-right">Add Local Community</a>
-                        </div>
+                        <h3 class="box-title">Products</h3>
                     </div>
-
-
 
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -64,44 +59,35 @@ echo $leftmenu;
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Name</th>
-                                    <th>Designation</th>
-                                    <th>Local Community Image</th>
-                                    <th>Status</th>
-                                    <th>Created Date</th>
-                                    <th>Modify Date</th>
-                                    <th>Action</th>
+                                    <th>User Name</th>
+                                    <th>Bid Coins</th>
+                                    <th>Bid Date</th>
+                                    <th>Bid Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($local_community_list as $local_community) {
-                                    if ($local_community['status'] == 1) {
-                                        $local_community_status = 'Publish';
-                                    } elseif ($local_community['status'] == 2) {
-                                        $local_community_status = 'Draft';
-                                    }
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $local_community['id'] ?></td>
-                                        <td><?php echo $local_community['name'] ?></td>
-                                        <td><?php echo $local_community['designation'] ?></td>
-                                        <td><img src="<?php echo base_url('../uploads/local/thumbs/' . $local_community['image']) ?>" width='70' height="70"></td>
-                                        <td><a href="<?php echo base_url() . 'local_community/change_status/' . $local_community['id'] . '/' . $local_community['status']; ?>" id="edit_btn">
-                                                <?php echo $local_community_status ?> </a></td>
-                                        <td><?php echo $local_community['create_date'] ?></td>
-                                        <td><?php echo $local_community['modify_date'] ?></td>
-                                        <td><a href="<?php echo base_url() . 'local_community/edit/' . $local_community['id']; ?>" id="edit_btn" title="Edit Local Community">
-                                                <button type="button" class="btn btn-primary"><i class="icon-pencil"></i> <i class="fa fa-pencil-square-o"></i></button>
-                                            </a>
-                                            <a data-href="<?php echo base_url() . 'local_community/delete/' . $local_community['id']; ?>" id="delete_btn" data-toggle="modal" data-target="#confirm-delete" href="#" title="Delete Local Community">
-                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-trash-o"></i></button>
-                                            </a>
-                                        </td>
+                                $i = 1;
+                                foreach ($product_bid_detail as $product) {
+                                    if ($product['bid_status'] == 'won') {
+                                        ?>
+                                        <tr style="background-color:#E9D171;">
+                                            <?php
+                                        } else {
+                                            ?>
+                                        <tr>
+                                        <?php }
+                                        ?>
+                                        <td><?php echo $i ?></td>
+                                        <td><?php echo $product['full_name'] ?></td>
+                                        <td><?php echo $product['bid_coins'] ?></td>
+                                        <td><?php echo $product['bid_datetime'] ?></td>
+                                        <td><?php echo $product['bid_status'] == 'won' ? 'Won' : '-' ?></td>
                                     </tr>
-                                    <?php
-                                }
-                                ?>
+    <?php
+    $i = $i + 1;
+}
+?>
                             </tbody>
                         </table>
                     </div>
@@ -130,7 +116,7 @@ echo $leftmenu;
                 <h4 class="modal-title" id="frm_title">Delete Conformation</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this local community?
+                Are you sure want to delete this product?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -210,3 +196,8 @@ echo $leftmenu;
         $('.callout-success').delay(3000).hide('700');
     });
 </script>
+<style type="text/css">
+    .btn-primary{
+        margin-top: 2px;
+    }
+</style>
