@@ -17,7 +17,7 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active"><?php echo $module_name; ?></li>
+            <li class="active">Job User</li>
         </ol>
     </section>
 
@@ -51,7 +51,12 @@ echo $leftmenu;
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Products</h3>
+                        <div class=" pull-right">
+                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add Product</a>
+                        </div>
                     </div>
+
+
 
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -59,35 +64,60 @@ echo $leftmenu;
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>User Name</th>
-                                    <th>Bid Coins</th>
-                                    <th>Bid Date</th>
-                                    <th>Bid Status</th>
+                                    <th>Product Name</th>
+                                    <th>Product Image</th>
+                                    <th>Main Price</th>
+                                    <th>Selling Price</th>
+                                    <th>Available For</th>
+                                    <th>Status</th>
+                                    <th>Created Date</th>
+                                    <th>Modify Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                $i = 1;
-                                foreach ($product_bid_detail as $product) {
-                                    if ($product['bid_status'] == 'won') {
-                                        ?>
-                                        <tr style="background-color:#E9D171;">
+                                foreach ($product_list as $product) {
+
+                                    if ($product['status'] == 1) {
+                                        $product_status = 'Publish';
+                                    } elseif ($product['status'] == 2) {
+                                        $product_status = 'Draft';
+                                    }
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $product['id'] ?></td>
+                                        <td><?php echo $product['name'] ?></td>
+                                        <td><img src="<?php echo base_url('../uploads/product/thumbs/' . $product['image']) ?>" width='70' height="70"></td>
+                                        <td><?php echo $product['cost_price'] ?></td>
+                                        <td><?php echo $product['sell_price'] ?></td>
+                                        <td><?php echo $product['available_for'] == 'buy' ? 'Buy' : 'Bid' ?></td>
+                                        <td><a href="<?php echo base_url() . 'product/change_status/' . $product['id'] . '/' . $product['status']; ?>" id="edit_btn">
+                                                <?php echo $product_status ?> </a></td>
+                                        <td><?php echo $product['create_date'] ?></td>
+                                        <td><?php echo $product['modify_date'] ?></td>
+                                        <td>
+                                            <a href="<?php echo base_url() . 'product/edit/' . $product['id']; ?>" id="edit_btn" title="Edit Product">
+                                                <button type="button" class="btn btn-primary"><i class="icon-pencil"></i> <i class="fa fa-pencil-square-o"></i> </button>
+                                            </a>
+                                            <a data-href="<?php echo base_url() . 'product/delete/' . $product['id']; ?>" id="delete_btn" data-toggle="modal" data-target="#confirm-delete" title="Delete Product" href="#">
+                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-trash-o"></i></button>
+                                            </a>
                                             <?php
-                                        } else {
+                                            if($product['available_for'] == 'bid')
+                                            {
                                             ?>
-                                        <tr>
-                                        <?php }
-                                        ?>
-                                        <td><?php echo $i ?></td>
-                                        <td><?php echo $product['full_name'] ?></td>
-                                        <td><?php echo $product['bid_coins'] ?></td>
-                                        <td><?php echo $product['bid_datetime'] ?></td>
-                                        <td><?php echo $product['bid_status'] == 'won' ? 'Won' : '-' ?></td>
+                                            <a href="<?php echo base_url().'product/product_bid/'.$product['id']; ?>" id="bid_btn" title="Products Bid">
+                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-history"></i></button>
+                                            </a>
+                                            <?php
+                                            }   
+                                            ?>
+                                            </td>
                                     </tr>
-    <?php
-    $i = $i + 1;
-}
-?>
+                                    <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

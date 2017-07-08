@@ -19,7 +19,8 @@ class Job extends CI_Controller {
 
         // Get Site Information
 
-        $this->data['title'] = 'Dashboard | Job Management';
+        $this->data['title'] = 'Job Management | Aileensoul';
+        $this->data['module_name'] = 'Job Management';
 
         include('include.php');
 
@@ -31,6 +32,20 @@ class Job extends CI_Controller {
 
        
         $this->load->view('job/index', $this->data);
+
+    }
+
+     public function user() {
+
+     
+        $this->load->view('job/user', $this->data);
+
+    }
+
+    public function post() {
+
+       
+        $this->load->view('job/post', $this->data);
 
     }
 

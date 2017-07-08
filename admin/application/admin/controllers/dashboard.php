@@ -12,6 +12,7 @@ class Dashboard extends MY_Controller {
       parent::__construct();
 
         $this->data['title'] = 'Dashboard | Aileensoul';
+        $this->data['section_title'] = 'Dashboard';
 
         include('include.php');
 
@@ -20,14 +21,7 @@ class Dashboard extends MY_Controller {
  public function index()
      {
         $adminid =  $this->session->userdata('aileen_admin');
-        //echo  $adminid;die();
-      //  echo "hi";die();
-        // $contition_array = array('status' => 1, 'is_delete' => 0);
-
-        //     $this->data['art_list'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, '*', $short_by, $order_by, $limit, $offset);
-
-
-
+     
 
         $condition_array = array('is_delete =' => '0');
 

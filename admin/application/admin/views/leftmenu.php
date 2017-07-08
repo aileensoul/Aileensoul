@@ -38,12 +38,12 @@
              <!--Start Job Management-->
             <li <?php if ($this->uri->segment(1) == 'job' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
-                    <i class="fa fa-bars"></i> <span>Job Management</span>
+                    <i class="fa fa-briefcase"></i> <span>Job Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('job/add'); ?>"><i class="fa fa-circle-o"></i>List Job Post</a></li>
-                    <li><a href="<?php echo base_url('job'); ?>"><i class="fa fa-circle-o"></i>List Job User</a></li>
+                    <li><a href="<?php echo base_url('job/post'); ?>"><i class="fa fa-list-alt"></i>List Job Post</a></li>
+                    <li><a href="<?php echo base_url('job/user'); ?>"><i class="fa fa-users"></i>List Job User</a></li>
                 </ul>
             </li>
             <!--End Job Management-->

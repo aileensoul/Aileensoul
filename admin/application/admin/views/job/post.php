@@ -17,7 +17,7 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active"><?php echo $module_name; ?></li>
+            <li class="active">Job Post</li>
         </ol>
     </section>
 
