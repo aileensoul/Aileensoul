@@ -32,13 +32,15 @@
     <div class="">
    
                  <div>
-                        <?php
+                        <?php  
                                         if ($this->session->flashdata('error_pass')) {
                                             echo '<div class="alert alert-danger">' . $this->session->flashdata('error_pass') . '</div>';
                                         }
                                         if ($this->session->flashdata('error_email')) {
                                             echo '<div class="alert alert-danger">' . $this->session->flashdata('error_email') . '</div>';
-                                        }?>
+                                        }
+                                        
+                                ?>
                     </div>
 
 
@@ -326,6 +328,7 @@ $(document).ready(function () { //aletr("hii");
               rules: {
                   forgot_email: {
                       required: true,
+                      email: true,
                         }
                   
                         },
@@ -344,6 +347,14 @@ $(document).ready(function () { //aletr("hii");
 
  <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
+</script>
+
+<script type="text/javascript">
+    $(document).on('keydown', function (e) {   
+        if (e.keyCode === 27) {     
+            $( "#myModal" ).hide();
+        }
+    });   
 </script>
 </body>
 </html>
