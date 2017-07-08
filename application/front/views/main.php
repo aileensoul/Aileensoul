@@ -360,7 +360,7 @@ setTimeout(function() {
                                             }else if(response == "password"){
 
 
-                                               window.location= "<?php echo base_url() ?>login?error_msg= 2"; 
+                                               window.location= "<?php echo base_url() ?>login?error_msg=2"; 
 
 
                                              // $("#error").fadeIn(1000, function () {
@@ -373,7 +373,7 @@ setTimeout(function() {
 
 
 
-                                               window.location= "<?php echo base_url() ?>login?error_msg= 1"; 
+                                               window.location= "<?php echo base_url() ?>login?error_msg=1"; 
 
                                                 // $("#error").fadeIn(1000, function () {
                                                 //     $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');

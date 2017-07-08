@@ -43,6 +43,18 @@
                                 ?>
                     </div>
 
+<div>
+                        <?php  
+                                        if ($this->session->flashdata('error')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                        }
+                                        if ($this->session->flashdata('success')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('success') . '</div>';
+                                        }
+                                        
+                                ?>
+                    </div>
+
 
 
          <div id="error"></div>
@@ -322,15 +334,15 @@ window.onclick = function(event) {
 
 <script type="text/javascript">
 //alert(789);
-$(document).ready(function() {
-  //alert(123);
-    var currentURL = document.location.href;
-   // alert(currentURL);
-   // var index = currentURL.indexOf("?error_msg=%202");
-    var index = currentURL.indexOf("?error");
-    if(index > -1) 
-        document.location.href = currentURL.substring(0, index); 
-});
+// $(document).ready(function() {
+//   //alert(123);
+//     var currentURL = document.location.href;
+//    // alert(currentURL);
+//    // var index = currentURL.indexOf("?error_msg=%202");
+//     var index = currentURL.indexOf("?error");
+//     if(index > -1) 
+//         document.location.href = currentURL.substring(0, index); 
+// });
 </script>
 
 <!-- forgot password script end -->
@@ -359,7 +371,7 @@ $(document).ready(function () { //aletr("hii");
 </script>
 
  <script type="text/javascript"> 
- $(".alert").delay(3200).fadeOut(300);
+ //$(".alert").delay(3200).fadeOut(300);
 </script>
 
 <script type="text/javascript">
