@@ -146,7 +146,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<a href="<?php echo base_url('job'); ?>"><h1>Job Profile</h1></a>
+									<h1><a href="<?php echo base_url('job'); ?>">Job Profile</a></h1>
 									<p>Find best job options and connect with recruiters.</p>
 									<div class="btns">
 
@@ -154,7 +154,7 @@
 										<a class="btn-1" href="<?php echo base_url('job'); ?>">Register</a>
 										<?php }else{?> 
 
-										<a class="btn-1" href="<?php echo base_url('job'); ?>">Takre me in</a> 
+										<a class="btn-1" href="<?php echo base_url('job'); ?>">Take me in</a> 
 
 										<?php }?>
 
@@ -175,7 +175,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8 col-xs-12">
 								<div class="right-box">
-									<a href="<?php echo base_url('recruiter'); ?>"><h1>Recruiter Profile</h1></a>
+									<h1><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></h1>
 									<p>Hire quality employees here.</p>
 									<div class="btns">
 										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it work?</a> 
@@ -206,7 +206,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<a href="<?php echo base_url('freelancer'); ?>"><h1>Freelance Profile</h1></a>
+									<h1><a href="<?php echo base_url('freelancer'); ?>">Freelance Profile</a></h1>
 									<p>Hire freelancers and also find freelance work.</p>
 									<div class="btns">
 
@@ -236,7 +236,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8 col-xs-12">
 								<div class="right-box">
-									<a href="<?php echo base_url('business_profile'); ?>"><h1>Business Profile</h1></a>
+									<h1><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></h1>
 									<p>Grow your business network.</p>
 									<div class="btns">
 										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it work?</a>
@@ -264,7 +264,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<a href="<?php echo base_url('artistic'); ?>"><h1>Artistics Profile</h1></a>
+									<h1><a href="<?php echo base_url('artistic'); ?>">Artistics Profile</a></h1>
 									<p>Show your art & talent to the world.</p>
 									<div class="btns">
 
