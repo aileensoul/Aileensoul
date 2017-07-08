@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/style-main.css">
 
   <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
-<link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+<!--link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" /-->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -16,12 +16,12 @@
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
 </head>
-<body>
+<body class="cover">
 
 	<?php echo $head; ?>
 <?php echo $header; ?>
 	<div class="middle-section">
-		<div class="container">
+		<div class="container xs-p0">
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">
@@ -56,7 +56,7 @@
             </div>
 
 
-            <div class="row" id="row2">
+            <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
@@ -114,7 +114,8 @@
                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
                <?php } ?>
 
-						<a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
+						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
+								<img src="img/cam.png">Update Profile Picture</a>
 	
 
 						</div>
@@ -126,15 +127,34 @@
 				</div>
 			</section>
 		</div>
-		<div class="right-profile">
+		<div class="sticky-container right-profile">
+			<ul class="sticky-right">
+				<li>
+					<a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"><span>Job Profile</span></a>
+				</li>
+				<li>
+					<a href="#rec-scroll" class="right-menu-box rec-r" onclick="return tabindexrec();"> <span>Recruiter Profile</span></a>
+				</li>
+				<li>
+					<a href="#free-scroll" class="right-menu-box free-r" onclick="return tabindexfree();"> <span>Freelance Profile</span></a>
+				</li>
+				<li>
+					<a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"> <span>Business Profile</span></a>
+				</li>
+				<li>
+					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistics Profile</span></a>
+				</li>
+			</ul>
+		</div>
+		<!--div class="right-profile">
 			<ul>
-				<li><a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"></a></li>
+				<li><a href="#job-scroll" class="right-menu-box job-r" onclick="return tabindexjob();"><span>Job Profile</span></a></li>
 				<li><a href="#rec-scroll" class="right-menu-box rec-r" onclick="return tabindexrec();"></a></li>
 				<li><a href="#free-scroll" class="right-menu-box free-r" onclick="return tabindexfree();"></a></li>
 				<li><a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"></a></li>
 				<li><a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"></a></li>
 			</ul>
-		</div>
+		</div-->
 			<section class="all-profile-custom">
 				<div id="job-scroll" class="custom-box odd">
 					<div class="custom-width">
@@ -154,7 +174,7 @@
 										<a class="btn-1" href="<?php echo base_url('job'); ?>">Register</a>
 										<?php }else{?> 
 
-										<a class="btn-1" href="<?php echo base_url('job'); ?>">Take me in</a> 
+										<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a> 
 
 										<?php }?>
 
@@ -185,7 +205,7 @@
 										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Register</a>
 										<?php }else{?>
 
-										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
+										<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
 
 										<?php }?>
 
@@ -214,7 +234,7 @@
 										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Register</a>
 										<?php }else{?>
 
-										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
+										<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
 
 										<?php }?>
 
@@ -244,7 +264,7 @@
 										<?php if($busdata[0]['business_step'] != 4){ ?>
 										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
 										<?php }else{?>
-										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Take me in</a> 
+										<a class="btn-4" href="<?php echo base_url('business_profile'); ?>">Take me in</a> 
 
 										<?php }?>
 									</div>
@@ -271,7 +291,7 @@
 										<?php if($artdata[0]['art_step'] != 4){?>
 										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Register</a> 
 										<?php }else{?>
-										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Take me in</a>
+										<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 										<?php }?>
 
 										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20" href="#">How it work?</a> 
@@ -314,7 +334,7 @@
 					<h1 class="modal-title">How It Work ?</h1>
 				</div>
 				<div class="modal-body">
-					<div class="row"> 
+					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Job Profile</h3>
 							<img src="img/how-it.png">
@@ -335,7 +355,7 @@
 					<?php if($job[0]['job_step'] != 9){?>
 					<a class="btn-2" href="<?php echo base_url('job'); ?>">Register Now</a>
 					<?php }else{?>
-					<a class="btn-2" href="<?php echo base_url('job'); ?>">Take me in</a>
+					<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a>
 					<?php }?>
 
 				</div>
@@ -352,7 +372,7 @@
 					<h1 class="modal-title">How It Work ?</h1>
 				</div>
 				<div class="modal-body">
-					<div class="row"> 
+					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Recruiter Profile</h3>
 							<img src="img/how-it.png">
@@ -373,7 +393,7 @@
 					 <?php if($recrdata[0]['re_step'] != 2){?>
 					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Register Now</a>
 					<?php }else{?>
-					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
+					<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
 
 					<?php }?>
 
@@ -392,7 +412,7 @@
 					<h1 class="modal-title">How It Work ?</h1>
 				</div>
 				<div class="modal-body">
-					<div class="row"> 
+					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Freelance Profile</h3>
 							<img src="img/how-it.png">
@@ -414,7 +434,7 @@
 					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>">Register Now</a>
 
 					<?php }else{?>
-					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
+					<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
 
 
 					<?php }?>
@@ -433,7 +453,7 @@
 					<h1 class="modal-title">How It Work ?</h1>
 				</div>
 				<div class="modal-body">
-					<div class="row"> 
+					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Business Profile</h3>
 							<img src="img/how-it.png">
@@ -458,7 +478,7 @@
 					<?php if($busdata[0]['business_step'] != 4){ ?>
 					<a class="btn-2" href="<?php echo base_url('business_profile'); ?>">Register Now</a>
 					<?php }else{?>
-                    <a class="btn-2" href="<?php echo base_url('business_profile'); ?>">Take me in</a>
+                    <a class="btn-4" href="<?php echo base_url('business_profile'); ?>">Take me in</a>
 					<?php }?>
 
 				</div>
@@ -476,7 +496,7 @@
 					<h1 class="modal-title">How It Work ?</h1>
 				</div>
 				<div class="modal-body">
-					<div class="row"> 
+					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Artistics Profile</h3>
 							<img src="img/how-it.png">
@@ -499,7 +519,7 @@
 					<?php if($artdata[0]['art_step'] != 4){?>
 					<a class="btn-2" href="<?php echo base_url('artistic'); ?>">Register Now</a>
 					<?php }else{?>
-					<a class="btn-2" href="<?php echo base_url('artistic'); ?>">Take me in</a>
+					<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 
 					<?php }?>
 

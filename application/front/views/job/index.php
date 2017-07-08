@@ -319,6 +319,7 @@ if (count($nation) > 0) {
 
 
 <?php echo form_error('dob'); ?>
+
                                 </fieldset>
 
                                 <fieldset <?php if ($gender) { ?> class="error-msg" <?php } ?>>
@@ -839,6 +840,8 @@ else if(date_picker=="1970-01-01"){
                 
             });
 </script>
+
+
 
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}

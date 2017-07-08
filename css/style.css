@@ -3588,7 +3588,7 @@ a:focus {
 }
 #notificationTitle {
     z-index: 1000;
-    font-weight: bold;
+    /*font-weight: bold;*/
     padding: 8px;
     font-size: 18px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
@@ -7117,11 +7117,11 @@ footer .footer-menu li a:hover {
 /*checkout modalpopup */
 
 body.modal-open {
-    padding: 0 !important;
+    /*padding: 0 !important;
     overflow: visible;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%;*/
 }
 .modal-close,
 .modal-close1 {
@@ -13732,10 +13732,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 16px !important;
     padding-top: 13.3px!important;
 }
-.header ul li #notificationsmsgBody a {
+/*.header ul li #notificationsmsgBody a {
     padding-bottom: 0px !important;
     padding-top: 0px!important;
-}
+}*/
 .my_S {
     padding: 3px 10px;
     font-size: 13px;
@@ -13829,9 +13829,9 @@ header.animated {
     .middle-section {
         padding-top: 24PX;
     }
-    .banner-box .left-profile {
+    /*.banner-box .left-profile {
         left: 15px!important;
-    }
+    }*/
     #notificationLink span {
         top: 3px;
         right: 5px;
@@ -14154,9 +14154,10 @@ margin: 0 auto;
     }
 }
 @media screen and (max-width: 767px) {
+	.xs-p0{padding:0;}
     .profile-text1{width: 60%;top:30px;}
 
-      .email-verify{padding-left: 2px; padding-right: 2px;}
+    .email-verify{padding-left: 2px; padding-right: 2px;}
     .vs-o{padding-left: 10px!important;}
     .profile-text1 .as-p{font-size: 12px; padding-bottom: 0px;}
     .post-design-name ul li .post_dot1 {
@@ -14250,7 +14251,7 @@ margin: 0 auto;
     }
     #row2 img {
         min-height: 180px;
-        height: auto;
+        /*height: auto;*/
     }
     .profile-main-pho {
         width: 110px;
@@ -14546,9 +14547,9 @@ margin: 0 auto;
 }
 @media screen and (max-width: 539px) {
     #row2 img {
-        min-height: 180px;
+        /*min-height: 180px;
         height: auto;
-        max-height: 180px;
+        max-height: 180px;*/
     }
     .post-edit-popup .editor-content {
         width: 86%;

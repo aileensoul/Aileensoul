@@ -320,6 +320,19 @@ window.onclick = function(event) {
 }
 </script>
 
+<script type="text/javascript">
+//alert(789);
+$(document).ready(function() {
+  //alert(123);
+    var currentURL = document.location.href;
+   // alert(currentURL);
+   // var index = currentURL.indexOf("?error_msg=%202");
+    var index = currentURL.indexOf("?error");
+    if(index > -1) 
+        document.location.href = currentURL.substring(0, index); 
+});
+</script>
+
 <!-- forgot password script end -->
 <script type="text/javascript">
 $(document).ready(function () { //aletr("hii");
