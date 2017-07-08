@@ -50,9 +50,9 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Products</h3>
+                        <h3 class="box-title">Job User</h3>
                         <div class=" pull-right">
-                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add Product</a>
+                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a>
                         </div>
                     </div>
 
