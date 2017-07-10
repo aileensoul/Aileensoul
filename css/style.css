@@ -14196,6 +14196,7 @@ header.animated {
     }
 }
 @media screen and (max-width: 767px) {
+    .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
         padding-left: 0px !important;
@@ -14908,6 +14909,12 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+      .custom-box .custom-width .right-box a{
+        font-size: 13px;
+    }
+    .btn-1{padding: 7px 30px}
+    .btns .btn-4{padding: 7px 30px;}
+    .middle-section{padding-bottom: 10px;}
     .main-text-area{margin: 4px 3px 4px 0px;}
     .profile-text1{width: 85%;}
     .profile-text1 .chng_email{font-size: 12px;}
@@ -15406,14 +15413,5 @@ top: 8px;}
     .job-menu-profile.mob-block {
         width: 66%;
     }
-}
-@media screen and (max-width: 320px) {
-    .custom-box .custom-width .right-box a{
-        font-size: 13px;
-    }
-    .btn-1{padding: 7px 30px}
-    .btns .btn-4{padding: 7px 30px;}
-    .middle-section{padding-bottom: 10px;}
-
 }
 /*** test for form ***/

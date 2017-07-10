@@ -16,7 +16,7 @@
 
 
 </head>
-<body class="cover">
+<body class="cover ">
 
 	<?php echo $head; ?>
 <?php echo $header; ?>
