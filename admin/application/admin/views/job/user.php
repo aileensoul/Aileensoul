@@ -52,7 +52,9 @@ echo $leftmenu;
                     <div class="box-header">
                         <h3 class="box-title">Job User</h3>
                         <div class=" pull-right">
-                            <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a>
+
+                        <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-plus" aria-hidden="true"></i> Add User</button>
+                           <!--  <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a> -->
                         </div>
                     </div>
 
@@ -63,57 +65,96 @@ echo $leftmenu;
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Product Name</th>
-                                    <th>Product Image</th>
-                                    <th>Main Price</th>
-                                    <th>Selling Price</th>
-                                    <th>Available For</th>
+                                    <th>ID.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No.</th>
+                                    <th>Gender</th>
+                                    <th>Location</th>
+                                    <th>Profile Image</th>
                                     <th>Status</th>
                                     <th>Created Date</th>
                                     <th>Modify Date</th>
                                     <th>Action</th>
+                                    <th>View</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($product_list as $product) {
-
-                                    if ($product['status'] == 1) {
-                                        $product_status = 'Publish';
-                                    } elseif ($product['status'] == 2) {
-                                        $product_status = 'Draft';
-                                    }
+                                foreach ($users as $user) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $product['id'] ?></td>
-                                        <td><?php echo $product['name'] ?></td>
-                                        <td><img src="<?php echo base_url('../uploads/product/thumbs/' . $product['image']) ?>" width='70' height="70"></td>
-                                        <td><?php echo $product['cost_price'] ?></td>
-                                        <td><?php echo $product['sell_price'] ?></td>
-                                        <td><?php echo $product['available_for'] == 'buy' ? 'Buy' : 'Bid' ?></td>
-                                        <td><a href="<?php echo base_url() . 'product/change_status/' . $product['id'] . '/' . $product['status']; ?>" id="edit_btn">
-                                                <?php echo $product_status ?> </a></td>
-                                        <td><?php echo $product['create_date'] ?></td>
-                                        <td><?php echo $product['modify_date'] ?></td>
+                                        <td><?php echo $user['job_id']; ?></td>
+
+                                        <td><?php echo $user['fname']; echo ' ';echo $user['lname'];  ?></td>
+
+                                        <td><?php echo $user['email']; ?></td>
+
+                                        <td><?php echo $user['phnno']; ?></td>
+
+                                        <td><?php echo $user['gender']; ?></td>
+
+
+                                        <td> 
+                                        <?php 
+
+                                        $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
+
+                                        echo $cityname; if( $cityname){echo ",<br>";}
+
+                                        $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
+
+                                        echo $statename;if( $statename){echo ",<br>";}
+
+                                        $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
+                                            
+                                        echo $countryname;
+                                        ?>
+                                        </td>
+
+                                         <td> 
+                                        <?php  if($user['job_user_image']) 
+                                                {
+                                        ?>
+                                     <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt="" >
+                                     <?php }else{
+                                     ?>
+                                          <img alt="" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
+                                    <?php } ?>
+                                         </td>
+
                                         <td>
-                                            <a href="<?php echo base_url() . 'product/edit/' . $product['id']; ?>" id="edit_btn" title="Edit Product">
-                                                <button type="button" class="btn btn-primary"><i class="icon-pencil"></i> <i class="fa fa-pencil-square-o"></i> </button>
-                                            </a>
-                                            <a data-href="<?php echo base_url() . 'product/delete/' . $product['id']; ?>" id="delete_btn" data-toggle="modal" data-target="#confirm-delete" title="Delete Product" href="#">
-                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-trash-o"></i></button>
-                                            </a>
-                                            <?php
-                                            if($product['available_for'] == 'bid')
-                                            {
-                                            ?>
-                                            <a href="<?php echo base_url().'product/product_bid/'.$product['id']; ?>" id="bid_btn" title="Products Bid">
-                                                <button type="button" class="btn btn-primary" ><i class="icon-trash"></i> <i class="fa fa-history"></i></button>
-                                            </a>
-                                            <?php
-                                            }   
-                                            ?>
-                                            </td>
+                                        <?php if ($user['status'] == 1) 
+                                        {
+                                        ?>
+                                           <button class="btn btn-block btn-primary btn-sm">Active</button>
+                                        <?php 
+                                        }else{ ?>
+
+                                        <button class="btn btn-block btn-success btn-sm">Deactive</button>
+
+                                        <?php }?></button>
+                                        </td>
+
+                                         <td><?php echo $user['created_date']; ?></td>
+
+                                        <td><?php echo $user['modified_date']; ?></td>
+
+                                         <td>
+
+                                       <button class="btn btn-primary btn-xs">
+                                        <i class="fa fa-pencil"></i>
+                                        </button>
+
+                                        <button class="btn btn-danger btn-xs">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                        </td>
+
+                                        <td>
+                                            <button class="btn btn-block btn-info btn-sm">View</button>
+                                        </td>
+                                       
                                     </tr>
                                     <?php
                                 }
