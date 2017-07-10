@@ -237,10 +237,10 @@ a:focus {
     font-size: 15px;
     padding-left: 0px;
 }
-.header2 ul li a:hover {
+/*.header2 ul li a:hover {
     background: #156f95;
     color: #fff;
-}
+}*/
 .header2 ul li a.active {
     position: relative;
     /*background:#000033; */
