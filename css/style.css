@@ -15300,7 +15300,17 @@ padding-bottom: 6px !important;}
     }
 }
 @media screen and (max-width: 360px) {
+    .email-verify{    float: left;
+    width: 100%;
+    }
+    .alert{float: left;}
+
       .banner{padding-top: 19px;}
+    .email-img{float: left;
+            width: 35px;}
+    .main-txt{float: left;
+                width: 88%;
+                text-align: justify;}
     .h-img{height: 25px; width: 25px;}
     .padd_img {
         padding-left: 3px !important;
