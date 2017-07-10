@@ -13743,19 +13743,19 @@ text-align: center;}
 .header ul li:last-child {
     border-right: none;
 }
-.header ul li.dropdown-user a {
+/*.header ul li.dropdown-user a {
     padding-top: 11px !important;
     padding-bottom: 11px !important;
-}
+}*/
 .header ul li a {
     padding-bottom: 10px !important;
     padding-top: 6.3px!important;
 }
 
-/*.header ul li #notificationsmsgBody a {
+.header ul li #notificationsmsgBody a {
     padding-bottom: 0px !important;
     padding-top: 0px!important;
-}*/
+}
 .my_S {
     padding: 3px 10px;
     font-size: 13px;
