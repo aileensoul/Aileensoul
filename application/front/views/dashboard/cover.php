@@ -24,7 +24,7 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
+                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none;">
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -211,7 +211,7 @@
 
 										<?php }?>
 
-										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20" href="#">How it works?</a> 
+										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20 hew" href="#">How item works?</a> 
 									</div>
 								</div>
 							</div>
@@ -231,7 +231,7 @@
 									<h1><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></h1>
 									<p>Hire quality employees here.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it works?</a> 
+										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20 hew" href="#">How it works?</a> 
 
 										 <?php if($recrdata[0]['re_step'] != 3){?>
 
@@ -272,7 +272,7 @@
 										<?php }?>
 
 
-										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20" href="#">How it works?</a> 
+										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -292,7 +292,7 @@
 									<h1><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></h1>
 									<p>Grow your business network.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it works?</a>
+										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20 hew" href="#">How it works?</a>
 
 										<?php if($busdata[0]['business_step'] != 4){ ?>
 										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
@@ -327,7 +327,7 @@
 										<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 										<?php }?>
 
-										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20" href="#">How it works?</a> 
+										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -990,6 +990,26 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 </script>
+
+<script>
+  
+   $("document").ready(function (){ 
+
+     // load the overlay
+
+  if (document.cookie.indexOf('visited=true') == -1) {
+  var fifteenDays = 1000*60*60*24*1;
+  var expires = new Date((new Date()).valueOf() + fifteenDays);
+  document.cookie = "visited=true;expires=" + expires.toUTCString();
+
+   document.getElementById("verifydiv").style.display = "block";
+  }
+
+
+
+});
+  
+  </script>
 
 
 <script type="text/javascript">

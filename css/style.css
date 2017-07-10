@@ -674,7 +674,7 @@ img.aligncenter {
 }
 /*.header ul li a:hover { background: #fff; color: #000033; }
 */
-
+.hew:hover{  transition-duration: 2s;}
 .header ul li a i {
     /*padding-left: 10px;*/
     
