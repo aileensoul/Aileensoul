@@ -16,14 +16,14 @@
 </script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('dragdrop/fileinput.css'); ?>">
 <link href="<?php echo base_url('dragdrop/themes/explorer/theme.css'); ?>" media="all" rel="stylesheet" type="text/css"/>
-
+ <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 <script src="<?php echo base_url('dragdrop/js/plugins/sortable.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/fileinput.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/locales/fr.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/js/locales/es.js'); ?>"></script>
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
-
+ <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/video.css'); ?>">
@@ -2132,6 +2132,7 @@
 
             <script>
                 function updateprofilepopup(id) {
+                    // $.fancybox.open('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not send successfully' + ' !</div>');
                     $('#bidmodal-2').modal('show');
                 }
             </script>
