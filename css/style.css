@@ -2513,7 +2513,7 @@ ul.business_pf_ct_person_detail li b {
     cursor: pointer;
     padding-top: 10px;
 	position:absolute;
-	width:100%;
+	/*width:100%;*/
 	top:37px;
 	z-index:9;
 }
