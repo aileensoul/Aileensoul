@@ -990,7 +990,7 @@ h3.text-effect span {
 }
 
 /***  validation  ***/
-.error{font-size: 11px; color: #ff0000 !important;}
+.error{font-size: 9px; color: #ff0000 !important;}
 #forgot_password .modal-body label.error{color: #ff0000 !important;}
 .login .form-group select{top: 0;}
 .dob{position: relative;}
