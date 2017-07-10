@@ -286,6 +286,7 @@ a:focus {
 input,
 textarea,
 select {
+    text-transform: capitalize;
     resize: none;
     background: white;
     border: 1px solid #cacaca;
@@ -297,6 +298,7 @@ select {
     border-radius: 4px;
     width: 100%;
 }
+
 label {
     font-size: 16px;
     font-weight: 400;
@@ -2385,7 +2387,7 @@ ul.business_pf_ct_person_detail li b {
     font-size: 0;
 }
 .profile-job-post-location-name-rec ul li {
-    width: auto;
+    width: 100%;
     /* max-width: 88%;*/
     
     white-space: nowrap;
@@ -7972,6 +7974,10 @@ input:-moz-placeholder {
     font-size: 19px;
     font-weight: 600;
     margin-left: 0px;
+    width: 93%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 .profile-job-post-location-name-rec .post_designation {
     font-size: 16px;
@@ -13503,7 +13509,7 @@ images css start*/
 }
 /*
 zalak change*/
-
+.file_name_pdf{color:#8c8c8c; font-size:17px; padding-left:10px; visibility:show;}
 .popup-text textarea {
     overflow-y: hidden;
 }
@@ -13680,6 +13686,10 @@ input[type=number]::-webkit-outer-spin-button {
 .contct-no li .addcontact-left {
     width: 100%;
 }
+.addcontact-left{width: 100%!important;
+margin: 0 auto;
+text-align: center;}
+.addcontact-left a{padding-left: 30px !important;}
 .mesg_link {
     background-color: #1b8ab9;
     color: #fff;
@@ -13936,9 +13946,7 @@ left: 0;
 right: 0;
 margin: 0 auto;
 }
-    .dropdown-menu::before {
-        right: 3.5%;
-    }
+    .dropdown-menu::before{right: 3.5%;}
     .header ul li a {
         padding-top: 15px !important;
         padding-bottom: 15px !important;
@@ -14134,6 +14142,9 @@ margin: 0 auto;
     }
     .art-custom {
         margin-top: 25px;
+    }
+     .chat .chat-history .message-data.align-right .message-data-time {
+        font-size: 12px;
     }
     ul.current-user {
         float: none;
