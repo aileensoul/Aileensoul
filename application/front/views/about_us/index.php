@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-<body>
+<body class="about-us">
 <div class="main-inner">
   <header>
     <div class="container">
@@ -30,7 +30,7 @@
   </header>
   <section class="middle-main">
     <div class="container">
-      <div class="mid-trns">
+      <div class="pt5">
         <div class="titlea">
           <h1 class="pb20">About us</h1>
         </div>
