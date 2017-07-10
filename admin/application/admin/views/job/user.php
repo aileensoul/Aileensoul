@@ -19,6 +19,9 @@ echo $leftmenu;
             </li>
             <li class="active">Job User</li>
         </ol>
+        <div class="fr">
+                         <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
+        </div>
     </section>
 
 
@@ -50,225 +53,342 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Job User</h3>
-                        <div class=" pull-right">
+                        <h3 class="box-title">Job User</h3>      
+                    
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
 
-                        <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-plus" aria-hidden="true"></i> Add User</button>
-                           <!--  <a href="<?php echo site_url('product/add'); ?>" class="btn btn-primary pull-right">Add User</a> -->
-                        </div>
-                    </div>
+                 <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline')); ?>
+
+                     <!--    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search"> -->
+
+                        <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword" required>
+
+                        <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button> 
+
+                          <!-- <input type="submit" name="submit"  class="btn btn-default" /><i class="fa fa-search"></i> -->
+                        </div><!--input-group-btn-->
+
+                <?php echo form_close(); ?>
+                    
+                    </div><!--input-group-btn-->
+                </div><!--box-tools-->
+                </div><!-- box-header -->
+
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover table-bordered">
+                <tbody>
+                <tr>
+                 <?php
+
+                        if ($this->uri->segment(2) == '' || $this->uri->segment(2) == 'user') 
+                        {
+
+                                $segment2 = 'user';
+
+                        } 
+                        else 
+                        {
+
+                                $segment2 = 'search';
+
+                        }
+
+                ?>
+
+                    <th><i class="fa fa-bullhorn"></i> 
+                    <a href="javascript:void(0);">ID.</a></th>
+
+                    <th><i class="fa fa-user"></i>
+                    <a href="<?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/ASC/' . $offset); ?>"> 
+                     Name
+                     </a>
+
+                     <?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
+
+                    </th>
+
+                    <th><i class="fa fa-envelope"></i> 
+                     <a href="javascript:void(0);">Email</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-phone-square"></i> 
+                     <a href="javascript:void(0);">Phone No.</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-venus"></i> 
+                     <a href="javascript:void(0);">Gender</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-home"></i> 
+                     <a href="javascript:void(0);">Location</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-image"></i> 
+                     <a href="javascript:void(0);">Profile Image</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-pencil-square"></i> 
+                     <a href="javascript:void(0);">Status</a>
+                     </th>
+
+                    <th><i class="fa fa-fw fa-pencil"></i> 
+                    <a href="javascript:void(0);">Created Date</a>
+                    </th>
+
+                    <th><i class="fa fa-fw fa-pencil"></i> 
+                    <a href="javascript:void(0);">Modify Date</a>
+                    </th>
+
+                    <th><i class=" fa fa-edit"></i> 
+                     <a href="javascript:void(0);">Action</a>
+                     </th>
+                </tr>
+
+                 <?php
+                if ($total_rows != 0) 
+                {
+
+                        $i = $offset + 1; 
+                        foreach ($users as $user) {
+                ?>
+                <tr>
+                    <td><?php echo $i++; ?></td>
+
+                    <td><?php echo $user['fname']; echo ' ';echo $user['lname'];  ?></td>
+
+                    <td><?php echo $user['email']; ?></td>
+
+                    <td><?php echo $user['phnno']; ?></td>
+
+                    <td><?php echo $user['gender']; ?>
+                        <?php if($user['gender']=="female")
+                        {
+                        ?>
+                        <i class="fa fa-fw fa-female"></i>
+                        <?php
+                        }
+                        if($user['gender']=="male")
+                        {
+                        ?>
+                        <i class="fa fa-fw fa-male"></i>
+                        <?php
+                        }
+                        ?>
+                    </td>
 
 
+                    <td> 
+                        <?php 
 
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID.</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone No.</th>
-                                    <th>Gender</th>
-                                    <th>Location</th>
-                                    <th>Profile Image</th>
-                                    <th>Status</th>
-                                    <th>Created Date</th>
-                                    <th>Modify Date</th>
-                                    <th>Action</th>
-                                    <th>View</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                foreach ($users as $user) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $user['job_id']; ?></td>
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
 
-                                        <td><?php echo $user['fname']; echo ' ';echo $user['lname'];  ?></td>
+                            echo $cityname; if( $cityname){echo ",<br>";}
 
-                                        <td><?php echo $user['email']; ?></td>
+                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
 
-                                        <td><?php echo $user['phnno']; ?></td>
+                            echo $statename;if( $statename){echo ",<br>";}
 
-                                        <td><?php echo $user['gender']; ?></td>
-
-
-                                        <td> 
-                                        <?php 
-
-                                        $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
-
-                                        echo $cityname; if( $cityname){echo ",<br>";}
-
-                                        $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
-
-                                        echo $statename;if( $statename){echo ",<br>";}
-
-                                        $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
                                             
-                                        echo $countryname;
-                                        ?>
-                                        </td>
+                            echo $countryname;
+                        ?>
+                    </td>
 
-                                         <td> 
-                                        <?php  if($user['job_user_image']) 
-                                                {
-                                        ?>
-                                     <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt="" >
-                                     <?php }else{
-                                     ?>
-                                          <img alt="" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
-                                    <?php } ?>
-                                         </td>
+                    <td> 
+                        <?php  if($user['job_user_image']) 
+                                {
+                        ?>
+                                <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
+                        <?php }else{
+                        ?>
+                                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
+                        <?php } ?>
+                    </td>
 
-                                        <td>
-                                        <?php if ($user['status'] == 1) 
-                                        {
-                                        ?>
-                                           <button class="btn btn-block btn-primary btn-sm">Active</button>
-                                        <?php 
-                                        }else{ ?>
+                    <td>
+                        <?php if ($user['status'] == 1) 
+                              {
+                        ?>
+                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['job_id']; ?>);">Active</button>
+                        <?php 
+                            }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm">Deactive</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['job_id']; ?>);">Deactive</button>
 
-                                        <?php }?></button>
-                                        </td>
+                         <?php }?></button>
+                    </td>
 
-                                         <td><?php echo $user['created_date']; ?></td>
+                    <td><?php echo $user['created_date']; ?></td>
 
-                                        <td><?php echo $user['modified_date']; ?></td>
+                    <td><?php echo $user['modified_date']; ?></td>
 
-                                         <td>
+                    <td>
 
-                                       <button class="btn btn-primary btn-xs">
-                                        <i class="fa fa-pencil"></i>
-                                        </button>
+                        <button class="btn btn-primary btn-xs">
+                         <i class="fa fa-pencil"></i>
+                        </button>
 
-                                        <button class="btn btn-danger btn-xs">
-                                            <i class="fa fa-trash-o"></i>
-                                        </button>
-                                        </td>
+                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['job_id']; ?>);">
+                        <i class="fa fa-trash-o"></i>
+                        </button>
 
-                                        <td>
-                                            <button class="btn btn-block btn-info btn-sm">View</button>
-                                        </td>
-                                       
-                                    </tr>
-                                    <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
+                        <button class="btn btn-success btn-xs">
+                        <i class="fa fa-fw fa-eye"></i>
+                        </button>
+                    </td>
 
+                </tr>
+                 <?php
+                      }//for loop close
+                        }//if close
+                ?>
+              </tbody></table>
 
-                </tbody>
-                <tfoot>
+            </div><!--box-body table-responsive no-padding -->
 
-                </tfoot>
-                </table>
             </div><!-- /.box -->
-
-
         </div><!-- /.col -->
+
+<div class="dta_left col-md-6">
+
+                        <?php
+                            if ($total_rows > 0) 
+                            {
+
+                                if ($this->pagination->create_links())
+                                {
+
+                                            $rec1 = $offset + 1;
+                                            $rec2 = $offset + $limit;
+                                            if ($rec2 > $total_rows) 
+                                            {
+                                                $rec2 = $total_rows;
+                                            }
+
+                            ?>
+
+                <div style="margin-left: 20px;">
+
+                    <?php  echo "Records $rec1 - $rec2 of $total_rows"; ?>
+
+                </div><?php     
+                            }
+                            else 
+                            {
+
+                    ?>
+
+                <div style="margin-left: 20px;">
+
+                        <?php echo "Records 1 - $total_rows of $total_rows"; ?>
+
+                </div>
+
+                        <?php
+
+                            }   }      
+
+                        ?>
+</div><!-- dta_left col-md-6--> 
+
+<!-- /pagination Start-->
+
+<?php
+                        if ($this->pagination->create_links()) 
+                        {
+
+                            $tot_client = ceil($total_rows / $limit);
+                            $cur_client = ceil($offset / $limit) + 1;
+                        ?>
+
+                            <div class="text-right data_right col-md-6">
+                                <div id="example2_paginate" class="dataTables_paginate paging_simple_numbers">
+                                    <?php echo $this->pagination->create_links(); ?> 
+                                </div>
+                            </div>
+                        <?php } ?>
+<!-- /pagination End-->
+
 </div><!-- /.row -->
+
+
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="frm_title">Delete Conformation</h4>
-            </div>
-            <div class="modal-body">
-                Are you sure want to delete this product?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a href="#" class="btn btn-danger danger">Delete</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <?php echo $footer; ?>
 
-<script type="text/javascript">
-
-    $(document).ready(function () {
-        $('#confirm-delete').on('show.bs.modal', function (e) {
-            $(this).find('.danger').attr('href', $(e.relatedTarget).data('href'));
-        });
-
-        $('#search_frm').submit(function () {
-            var value = $('#search_keyword').val();
-            if (value == '')
-                return false;
-        });
 
 
-        $('#checkedall').click(function (service) {
-            if (this.checked) {
-                // Iterate each checkbox
-                $('.deletes').each(function () {
-                    this.checked = true;
-                });
-            }
-            else {
-                $('.deletes').each(function () {
-                    this.checked = false;
-                });
-            }
-        });
-
-        $('.deletes').click(function (service) {
-            var flag = 0;
-            $('.deletes').each(function () {
-                if (this.checked == false) {
-                    flag++;
-                }
-            });
-            if (flag) {
-                $('.checkedall').prop('checked', false);
-            }
-            else {
-                $('.checkedall').prop('checked', true);
-            }
-
-
-        });
-
-
-
-    });
-</script>
-<!-- page script -->
-<script>
-    $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false
-        });
-    });
-</script>
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
         $('.callout-danger').delay(3000).hide('700');
         $('.callout-success').delay(3000).hide('700');
     });
 </script>
-<style type="text/css">
-    .btn-primary{
-        margin-top: 2px;
+
+<script>
+//deactive user Start
+   function deactive_user(job_id) 
+   {
+   
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><a id="activate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+
+        $('.message #activate').on('click', function () 
+        {
+            $.ajax({
+                         type: 'POST',
+                          url: '<?php echo base_url() . "job/deactive_user" ?>',
+                          data: 'job_id=' + job_id,
+                          success: function (response) 
+                          {    
+                                    window.location.reload();
+                          }
+            });   
+        });
     }
-</style>
+//deactive user End
+
+//active user Start
+   function active_user(job_id) 
+   {
+   
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><a id="deactivate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+
+        $('.message #deactivate').on('click', function () 
+        {
+            $.ajax({
+                         type: 'POST',
+                          url: '<?php echo base_url() . "job/active_user" ?>',
+                          data: 'job_id=' + job_id,
+                          success: function (response) 
+                          {          
+                                 window.location.reload();
+                          }
+            });   
+        });
+    }
+//active user End\
+
+//Delete user Start
+   function delete_user(job_id) 
+   {
+   
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><a id="delete" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+
+        $('.message #delete').on('click', function () 
+        {
+            $.ajax({
+                         type: 'POST',
+                          url: '<?php echo base_url() . "job/delete_user" ?>',
+                          data: 'job_id=' + job_id,
+                          success: function (response) 
+                          {          
+                                 window.location.reload();
+                          }
+            });   
+        });
+    }
+//Delete user End
+</script>

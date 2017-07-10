@@ -36,11 +36,11 @@ class Job extends CI_Controller {
 
 
 
-//         //Loadin Pagination Custome Config File
+         //Loadin Pagination Custome Config File
 
-//         $this->config->load('paging', TRUE);
+         $this->config->load('paging', TRUE);
 
-//         $this->paging = $this->config->item('paging');
+         $this->paging = $this->config->item('paging');
 
 // //        print_r($this->paging);
 
@@ -61,19 +61,16 @@ class Job extends CI_Controller {
 
 
   public function index() {
-
+//echo "hi";die();
         $this->data['section_title'] = "job Management List";
 
-
-
-
-
         $limit = $this->paging['per_page'];
+       
 
 
 
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-
+//echo "hi";die();
             $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
 
             $short_by = $this->uri->segment(3);
@@ -141,10 +138,8 @@ class Job extends CI_Controller {
 
         //$this->paging['per_page'] = 2;
 
-
+         $this->data['search_keyword'] = '';
         $this->pagination->initialize($this->paging);
-
-        $this->data['search_keyword'] = '';
 
         $this->load->view('job/index', $this->data);
 
