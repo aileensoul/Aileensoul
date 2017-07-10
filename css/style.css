@@ -13752,10 +13752,10 @@ text-align: center;}
     padding-top: 6.3px!important;
 }
 
-/*.header ul li #notificationsmsgBody a {
+.header ul li #notificationsmsgBody a {
     padding-bottom: 0px !important;
     padding-top: 0px!important;
-}*/
+}
 .my_S {
     padding: 3px 10px;
     font-size: 13px;
@@ -14931,6 +14931,8 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+    .how-it-popup .modal-body h3{display: block;}
+    .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
     .banner{padding-top: 25px;}
     .header ul li a{padding: 7px 5px !important;}
     .header ul li.dropdown-user a{padding-top: 6px !important;
