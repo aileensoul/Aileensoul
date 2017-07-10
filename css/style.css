@@ -1713,6 +1713,7 @@ label.error {
     top: 0;
     z-index: 99;
 }
+
 .cover-pic .btn {
     display: block;
 }
@@ -1724,7 +1725,7 @@ label.error {
     margin-top: -90px !important;
 }
 .cover-pic {
-    padding-top: 50px;
+    padding-top: 50 px;
     text-align: center;
 }
 .profile-photo {
@@ -14927,7 +14928,7 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
-
+.profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
         font-size: 15px;
     }
