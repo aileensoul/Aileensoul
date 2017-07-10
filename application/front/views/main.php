@@ -90,7 +90,7 @@
       <div class="row">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect"><p>We provide platform & opportunities to </p><p>Every person in the world to make their career.</p></h3>
+            <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>Every person in the world to make their career.</p></h3>
            
           </div>
           <div class="bottom-middle">
@@ -347,6 +347,7 @@ setTimeout(function() {
                                         type: 'POST',
                                         url: '<?php echo base_url() ?>registration/check_login',
                                         data: post_data,
+                                        dataType: "json",
                                         beforeSend: function ()
                                         {
                                             $("#error").fadeOut();
@@ -354,17 +355,17 @@ setTimeout(function() {
                                         },
                                         success: function (response)
                                         { 
-                                            if (response == "ok") {
+                                            if (response.data == "ok") {
                                                 $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
 
                                                window.location= "<?php echo base_url() ?>dashboard"; 
 
                                                
                                              }
-                                            else if(response == "password"){
+                                            else if(response.data == "password"){
 
-
-                                               window.location= "<?php echo base_url() ?>login?error_msg=2"; 
+                                               var id = response.id;
+                                               window.location= "<?php echo base_url() ?>login?error_msg=2&lwc=" + id; 
 
                                             }
                                             else { 
