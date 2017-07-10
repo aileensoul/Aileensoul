@@ -23,8 +23,7 @@
     
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
-		<div class="container xs-p0">
-                    <!--verify link start-->
+	   <!--verify link start-->
                     <div class="profile-text1 animated fadeInDownBig" >
             <?php
             $userid = $this->session->userdata('aileenuser');
@@ -43,9 +42,11 @@
                     <span class="as-p">
                        We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
                     </span>
+                    <span class="ves_c">
                     <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
-					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a></span>
-                  <!--  <span class="fr"><i class="fa fa-times" aria-hidden="true"></i> </span> -->
+					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a> </span>
+					 </span>
+                   <span class="fr cls-ve"><i class="fa fa-times" aria-hidden="true"></i> </span>
                 </div>
                 </div>
             <?php }
@@ -53,6 +54,8 @@
 
         </div> 
                          <!--verify link end-->
+		<div class="container xs-p0">
+                 
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">

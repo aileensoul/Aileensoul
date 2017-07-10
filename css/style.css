@@ -2496,7 +2496,8 @@ ul.business_pf_ct_person_detail li b {
     list-style: none;
 }
 /* job */
-
+.cls-ve:hover{color: black;}
+.cls-ve{color: #ccc;}
 .job-contact-frnd .profile-job-post-detail {
     background-color: #ffffff;
     border: 1px solid #d9d9d9;
@@ -2513,7 +2514,7 @@ ul.business_pf_ct_person_detail li b {
     cursor: pointer;
     padding-top: 10px;
 	position:absolute;
-	/*width:100%;*/
+	width:100%;
 	top:37px;
 	z-index:9;
 }
@@ -2745,7 +2746,7 @@ ul.buttons li {
     margin-top: 25px;
     margin-left: 20px;
 }
-.profile-text1 .as-p{font-size: 17px;
+.profile-text1 .as-p{font-size: 13px;
 padding-left: 0px;
 letter-spacing: 0.3px;
 }
@@ -2780,7 +2781,7 @@ margin: 10px;}
     width: 130px;
     margin-top: 10px;
 }
-.email-verify{width: 100%;}
+.email-verify{width: 100%; padding-left: 3%;}
 .vs-o{ padding: 10px;}
 .left-resume-input {
     width: 50%;
@@ -13827,7 +13828,7 @@ header.animated {
     }
 }
 @media screen and (max-width: 1024px) {
-    .email-verify{ padding-left: 2%;}
+    .email-verify{ padding-left: 3%;}
     .profile-text1 .as-p{font-size: 12px; letter-spacing: 0px;}
     .profile-text1 .chng_email{font-size: 12px;}
     .profile-text1 .vert_email{font-size: 12px; margin:5px;}
@@ -13936,13 +13937,12 @@ header.animated {
     }
 }
 @media screen and (max-width: 991px) {
-        .profile-text1 .as-p{font-size: 14px; line-height: 1.5;
-                                padding-bottom: 10px;
-                                margin-bottom: 15px;
-                                display: inline-block;
-                            }
+    .email-verify{padding-left: 0px;}
+    .profile-text1 .vert_email{font-size: 12px;}
+    .profile-text1 .chng_email{font-size: 11px;}
+        .profile-text1 .as-p{font-size: 12px; line-height: 1.5;}
        .profile-text1{
-                           width: 41%;
+                           top:51px;
                         left: 0;
                         right: 0;
                         margin: 0 auto;
@@ -14196,6 +14196,13 @@ header.animated {
     }
 }
 @media screen and (max-width: 767px) {
+    .ves_c{width: 100%;
+display: block;
+text-align: center;}
+.cls-ve{position: absolute;
+bottom: 60px;
+z-index: 10;
+right: 0;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
@@ -14378,11 +14385,11 @@ header.animated {
     .post-design-desc{padding-left: 17px;}
     .post-design-mid{padding-left: 21px;}
 	.xs-p0{padding:0;}
-    .profile-text1{width: 60%;top:30px;}
+    .profile-text1{top:40px;}
     .sticky-container{display: none;}
     .sticky-container{display: none;}
     .email-verify{padding-left: 2px; padding-right: 2px;}
-    .vs-o{padding-left: 10px!important;}
+    .vs-o{padding-left: 1px!important;}
     .profile-text1 .as-p{font-size: 12px; padding-bottom: 0px;}
     .post-design-name ul li .post_dot1 {
         font-size: 14px;
@@ -14732,8 +14739,9 @@ header.animated {
         padding: 12px;
     }
 }
-@media screen and (max-width: 640px) {.profile-text1{width: 80%; top:30px;}
-.profile-text1 .as-p{margin-bottom: 0px;    }} 
+@media screen and (max-width: 640px) {
+.profile-text1{width: 100%; top:40px;}
+.profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }} 
 @media screen and (max-width: 639px) {
 
     .right-side-menu {
@@ -14916,10 +14924,10 @@ top: 8px;}
     .btns .btn-4{padding: 7px 30px;}
     .middle-section{padding-bottom: 10px;}
     .main-text-area{margin: 4px 3px 4px 0px;}
-    .profile-text1{width: 85%;}
+    .profile-text1{width: 100%;}
     .profile-text1 .chng_email{font-size: 12px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
-    .profile-text1{top: 30px; padding-top: 0px;}
+    .profile-text1{top: 30px; padding-top: 25px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
     .profile-text1 .as-p{font-size: 12px;}
     .post-design-desc {
