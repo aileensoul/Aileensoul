@@ -24,7 +24,7 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" >
+                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -977,5 +977,35 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
         });
     }
 </script>
+
+
+
+
+<script type="text/javascript">
+
+
+ $('.fr').on('click', function(){ //alert("hii");
+        $('#verifydiv').hide();
+    });
+
+
+</script>
+
+
+<script type="text/javascript">
+    
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+        $('#jop-popup').modal('hide');
+         $('#rec-popup').modal('hide');
+         $('#fre-popup').modal('hide');
+         $('#bus-popup').modal('hide');
+         $('#art-popup').modal('hide');
+    }
+}); 
+
+</script>
+
 </body>
 </html>
