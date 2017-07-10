@@ -8495,7 +8495,7 @@ fieldset .add_post_btns {
     color: #fff;
     opacity: 0.6;
     text-align: center;
-    padding: 13px 0px;
+    padding: 10px 0px;
     position: absolute;
     z-index: 1;
     font-weight: 800;
@@ -14818,7 +14818,7 @@ text-align: center;}
 }
 @media screen and (max-width: 540px) {
 
-    .cls-ve{top: 23px;}
+    .cls-ve{top: 18px; right: 3px;}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
     .fifty_val{right: 22px;}
@@ -14944,7 +14944,7 @@ padding-bottom: 6px !important;}
     .middle-section{padding-bottom: 10px;}
     .main-text-area{margin: 4px 3px 4px 0px;}
     .profile-text1{width: 100%;}
-    .profile-text1 .chng_email{font-size: 12px;}
+    .profile-text1 .chng_email{font-size: 12px; padding-left: 10px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
     .profile-text1{top:18px; padding-top: 25px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
