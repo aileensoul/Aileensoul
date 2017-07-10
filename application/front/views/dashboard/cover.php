@@ -24,7 +24,7 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
+                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none">
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -990,6 +990,31 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 </script>
+
+
+
+<script>
+   
+   $("document").ready(function (){ 
+
+       // load the overlay
+
+   if (document.cookie.indexOf('visited=true') == -1) {
+   var fifteenDays = 1000*60*60*24*1;
+   var expires = new Date((new Date()).valueOf() + fifteenDays);
+   document.cookie = "visited=true;expires=" + expires.toUTCString();
+
+   document.getElementById("verifydiv").style.display = "block";
+
+  }
+
+  
+ 
+
+ });
+   
+   
+  </script>
 
 
 <script type="text/javascript">
