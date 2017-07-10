@@ -43,12 +43,30 @@
                                 ?>
                     </div>
 
+        
+                      <div>
+
+
+<div>
+
+                        <?php  
+                                        if ($this->session->flashdata('error')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                        }
+                                        if ($this->session->flashdata('success')) {
+                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('success') . '</div>';
+                                        }
+                                        
+                                ?>
+
+                      </div>
+
+                    </div>
+
 
 
          <div id="error"></div>
 
-
-         
         <div class="inner-form">
           <div class="login">
               <div class="title">
@@ -57,7 +75,6 @@
 
             <form role="form" name="login_form" id="login_form" method="post">
                 
-
                 <div class="form-group">
                   <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address*">
                 </div>
@@ -65,9 +82,6 @@
                   <input type="password" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password*">
                 </div>
               
-              
-              
-            
                 <p class="pt-20 ">
                 <button class="btn1 ">Login</button>
               </p>
@@ -322,15 +336,15 @@ window.onclick = function(event) {
 
 <script type="text/javascript">
 //alert(789);
-$(document).ready(function() {
-  //alert(123);
-    var currentURL = document.location.href;
-   // alert(currentURL);
-   // var index = currentURL.indexOf("?error_msg=%202");
-    var index = currentURL.indexOf("?error");
-    if(index > -1) 
-        document.location.href = currentURL.substring(0, index); 
-});
+// $(document).ready(function() {
+//   //alert(123);
+//     var currentURL = document.location.href;
+//    // alert(currentURL);
+//    // var index = currentURL.indexOf("?error_msg=%202");
+//     var index = currentURL.indexOf("?error");
+//     if(index > -1) 
+//         document.location.href = currentURL.substring(0, index); 
+// });
 </script>
 
 <!-- forgot password script end -->
@@ -359,7 +373,7 @@ $(document).ready(function () { //aletr("hii");
 </script>
 
  <script type="text/javascript"> 
- $(".alert").delay(3200).fadeOut(300);
+ //$(".alert").delay(3200).fadeOut(300);
 </script>
 
 <script type="text/javascript">

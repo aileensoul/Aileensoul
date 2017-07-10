@@ -60,22 +60,6 @@ echo $leftmenu;
           
             <!-- start Job Management box -->
 
-            <!-- start Job Post List box -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3><?php echo $page_count?></h3>
-                        <p>Job Post</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-list-alt"></i>
-                    </div>
-                    <a href="<?php echo base_url('job/post')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-             <!-- end Job Post List box -->
-
                 <!-- start Job User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->

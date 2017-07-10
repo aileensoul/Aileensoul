@@ -13,15 +13,46 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
 
 </head>
 <body class="cover">
 
 	<?php echo $head; ?>
 <?php echo $header; ?>
+    
+    <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 		<div class="container xs-p0">
+                    <!--verify link start-->
+                    <div class="profile-text1 animated fadeInDownBig" >
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            $this->db->select('*');
+            $this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
+            $this->db->where('user_id', $userid);
+            $result = $this->db->get('user')->result_array();
+
+
+            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
+                ?>
+
+                <div class="alert alert-warning  vs-o">
+                <div class="email-verify">
+					<span class="email-img"><img src="images/email.png"></span>
+                    <span class="as-p">
+                       We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
+                    </span>
+                    <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
+					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a></span>
+                  <!--  <span class="fr"><i class="fa fa-times" aria-hidden="true"></i> </span> -->
+                </div>
+                </div>
+            <?php }
+            ?>
+
+        </div> 
+                         <!--verify link end-->
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">
@@ -61,7 +92,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
                     $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    //echo "<pre>";print_r($image);
+                    
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
@@ -91,15 +122,14 @@
 
 					<div class="upload-camera">
 
-						<!-- <a href="#"><img src="img/cam.png"></a> -->
+						 <!--<a href="#"><img src="img/cam.png"></a>--> 
 						  <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
 						<input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
 
 
 					</div>
 
-
-
+                                         
 					<div class="left-profile">
 						<div class="profile-photo">
 
@@ -142,7 +172,7 @@
 					<a href="#bus-scroll" class="right-menu-box bus-r" onclick="return tabindexbus();"> <span>Business Profile</span></a>
 				</li>
 				<li>
-					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistics Profile</span></a>
+					<a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"> <span>Artistic Profile</span></a>
 				</li>
 			</ul>
 		</div>
@@ -498,7 +528,7 @@
 				<div class="modal-body">
 					<div class=""> 
 						<div class="col-md-6 col-sm-6 pro_img">
-							<h3>Artistics Profile</h3>
+							<h3>Artistic Profile</h3>
 							<img src="img/how-it.png">
 						</div>
 						<div class="col-md-6 col-sm-6 por_content">
@@ -926,6 +956,23 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 		 
 	}
 </script>
+<script>
+    function sendmail(abc) {
 
+//alert(abc);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>registration/res_mail",
+            type: "POST",
+            data: 'user_email=' + abc,
+            success: function (response) { 
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully.");
+                  $('#bidmodal').modal('show');
+                  window.open(response);
+            }
+        });
+    }
+</script>
 </body>
 </html>
