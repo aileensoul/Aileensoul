@@ -208,7 +208,7 @@
 
 										<?php }?>
 
-										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20" href="#">How it work?</a> 
+										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -228,7 +228,7 @@
 									<h1><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></h1>
 									<p>Hire quality employees here.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it work?</a> 
+										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20" href="#">How it works?</a> 
 
 										 <?php if($recrdata[0]['re_step'] != 3){?>
 
@@ -269,7 +269,7 @@
 										<?php }?>
 
 
-										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20" href="#">How it work?</a> 
+										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -289,7 +289,7 @@
 									<h1><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></h1>
 									<p>Grow your business network.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it work?</a>
+										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20" href="#">How it works?</a>
 
 										<?php if($busdata[0]['business_step'] != 4){ ?>
 										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
@@ -314,7 +314,7 @@
 							</div>
 							<div class="col-md-8 col-sm-8">
 								<div class="right-box">
-									<h1><a href="<?php echo base_url('artistic'); ?>">Artistics Profile</a></h1>
+									<h1><a href="<?php echo base_url('artistic'); ?>">Artistic Profile</a></h1>
 									<p>Show your art & talent to the world.</p>
 									<div class="btns">
 
@@ -324,7 +324,7 @@
 										<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 										<?php }?>
 
-										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20" href="#">How it work?</a> 
+										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -361,7 +361,7 @@
 					<a href="#" data-dismiss="modal" class="class pull-right">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</a>
-					<h1 class="modal-title">How It Work ?</h1>
+					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
 					<div class=""> 
@@ -399,7 +399,7 @@
 					<a href="#" data-dismiss="modal" class="class pull-right">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</a>
-					<h1 class="modal-title">How It Work ?</h1>
+					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
 					<div class=""> 
@@ -439,7 +439,7 @@
 					<a href="#" data-dismiss="modal" class="class pull-right">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</a>
-					<h1 class="modal-title">How It Work ?</h1>
+					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
 					<div class=""> 
@@ -480,7 +480,7 @@
 					<a href="#" data-dismiss="modal" class="class pull-right">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</a>
-					<h1 class="modal-title">How It Work ?</h1>
+					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
 					<div class=""> 
@@ -523,7 +523,7 @@
 					<a href="#" data-dismiss="modal" class="class pull-right">
 						<i class="fa fa-times" aria-hidden="true"></i>
 					</a>
-					<h1 class="modal-title">How It Work ?</h1>
+					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
 					<div class=""> 
