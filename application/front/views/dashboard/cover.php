@@ -24,6 +24,35 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 		<div class="container xs-p0">
+                    <!--verify link start-->
+                    <div class="profile-text1 animated fadeInDownBig" >
+            <?php
+            $userid = $this->session->userdata('aileenuser');
+            $this->db->select('*');
+            $this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
+            $this->db->where('user_id', $userid);
+            $result = $this->db->get('user')->result_array();
+
+
+            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
+                ?>
+
+                <div class="alert alert-warning  vs-o">
+                <div class="email-verify">
+					<span class="email-img"><img src="images/email.png"></span>
+                    <span class="as-p">
+                       We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
+                    </span>
+                    <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
+					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a></span>
+                  <!--  <span class="fr"><i class="fa fa-times" aria-hidden="true"></i> </span> -->
+                </div>
+                </div>
+            <?php }
+            ?>
+
+        </div> 
+                         <!--verify link end-->
 			<section class="banner">
 				<div class="banner-box">
 					<div class="banner-img">
@@ -927,6 +956,23 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 		 
 	}
 </script>
+<script>
+    function sendmail(abc) {
 
+//alert(abc);
+
+        $.ajax({
+
+            url: "<?php echo base_url(); ?>registration/res_mail",
+            type: "POST",
+            data: 'user_email=' + abc,
+            success: function (response) { 
+                 $('.biderror .mes').html("<div class='pop_content'>Email send Successfully.");
+                  $('#bidmodal').modal('show');
+                  window.open(response);
+            }
+        });
+    }
+</script>
 </body>
 </html>
