@@ -6,7 +6,8 @@ html{
 body{
 	background:#f7f6f6 !important;
 	padding-bottom:60px;
-	
+	width:100%;
+	float:left;
 }
 
 @font-face {
