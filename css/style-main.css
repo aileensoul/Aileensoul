@@ -1105,6 +1105,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 .custom-box .custom-width .right-box p{font-size:20px; padding-top:20px;}
 .custom-box .custom-width .right-box .btns{padding-top:70px;}
 .custom-box .custom-width .right-box .btns a:hover{color:#1b83b9; text-decoration: underline;}
+.custom-box .custom-width .right-box .btns a.btn-4:hover{color:#1b83b9; text-decoration: none;}
 .custom-box .custom-width .right-box a{font-size:18px; color:#000;}
 .custom-box.tabindex{padding-top:60px;}
 
