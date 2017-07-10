@@ -220,7 +220,7 @@
                  <div class="dateerror" style="color:#f00; display: block;"></div>
               
               <div class="form-group gender-custom">
-                <select tabindex="12" class="gender" name="selgen" id="selgen">
+                <select tabindex="12" class="gender"  onchange="changeMe(this)" name="selgen" id="selgen">
                   <option value="" disabled selected value>Gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -262,6 +262,9 @@
     </div>
   </footer>
 </div>
+<style type="text/css">
+
+</style>
 
 </body>
 </html>
@@ -682,4 +685,10 @@ jQuery('.carousel').carousel({
         }
     });
 
+</script>
+<script type="text/javascript">
+    function changeMe(sel)
+    {
+      sel.style.color = "#000";              
+    }
 </script>
