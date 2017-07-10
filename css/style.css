@@ -13980,12 +13980,12 @@ right: 0;}
     }
     
     .header ul li a {
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .header ul li.dropdown-user a {
-        padding-top: 13px !important;
-        padding-bottom: 10px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .tab-block {
         display: block;
@@ -14210,7 +14210,7 @@ text-align: center;}
 }
 @media screen and (max-width: 767px) {
   
-
+.banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
@@ -14403,8 +14403,8 @@ text-align: center;}
         font-size: 14px;
     }
     .header ul li.dropdown-user a {
-        padding-top: 9px !important;
-        padding-bottom: 7px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .mob-block {
         display: block;
@@ -14433,7 +14433,7 @@ text-align: center;}
         right: 5px !important;
     }
     .header ul li a {
-        padding: 11px 10px !important;
+        padding: 5px 10px !important;
     }
     .header-left-menu {
         position: relative;
@@ -14928,6 +14928,10 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+    .banner{padding-top: 25px;}
+    .header ul li a{padding: 7px 5px !important;}
+    .header ul li.dropdown-user a{padding-top: 6px !important;
+padding-bottom: 6px !important;}
 .profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
         font-size: 15px;
@@ -15293,6 +15297,8 @@ top: 8px;}
     }
 }
 @media screen and (max-width: 360px) {
+      .banner{padding-top: 19px;}
+    .h-img{height: 25px; width: 25px;}
     .padd_img {
         padding-left: 3px !important;
         padding-top: 4px !important;
