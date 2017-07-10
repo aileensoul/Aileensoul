@@ -28,9 +28,9 @@
       </div>
     </div>
   </header>
-  <section class="middle-main mid-trns">
-    <div class="">
-      <div>
+  <section class="middle-main">
+    <div class="container">
+      <div class="mid-trns">
 
 
 <div id="error1" style="display:block;">
@@ -47,7 +47,7 @@
 
                       </div>
 
-                    </div>
+                 
 
 
 
@@ -83,7 +83,7 @@
             
           </div>
         </div>
-        
+           </div>
       
     </div>
   </section>

@@ -39,6 +39,7 @@
                 <div class="alert alert-warning  vs-o">
                 <div class="email-verify">
 					<span class="email-img"><img src="images/email.png"></span>
+                    <span class="main-txt">
                     <span class="as-p">
                        We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
                     </span>
@@ -47,6 +48,7 @@
 					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a> </span>
 					 </span>
                    <span class="fr cls-ve"><i class="fa fa-times" aria-hidden="true"></i> </span>
+                   </span>
                 </div>
                 </div>
             <?php }

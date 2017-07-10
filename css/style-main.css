@@ -140,7 +140,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 header .logo a{
 	color:#fff;
 }
-header .logo a:focus{
+header .logo a:focus, header .logo a:hover {
 	text-decoration:none;
 }
 header h2{
@@ -550,10 +550,11 @@ textarea:focus::-webkit-input-placeholder
 .main-inner{
 	background:#f3f3f3;
 	padding-bottom:60px;
-
+	width:100%;
+	float:left;
 }
 .main-inner .middle-main{
-	padding:55px 0;
+	/*padding:65px 0 0;*/
 	width:100%;
 	float:left;
 }
@@ -682,6 +683,9 @@ textarea:focus::-webkit-input-placeholder
 .mail-sent li a{
 	font-size:20px;
 	color:#000;
+}
+.mail-sent li a:hover{
+	color:#1b8ab9;
 }
 .inner-form .login{
 	width:100%;
@@ -821,20 +825,21 @@ h3.text-effect span {
 }
 .banner-box .upload-camera{
 	position:absolute;
-	width:50px;
-	height:45px;
+	/*width:50px;
+	height:45px;*/
 	right:25px;
 	bottom:25px;
 	background:rgba(0,0,0, 0.6);
 	border-radius:4px;
 	
-	padding:5px;
+	/*padding:5px;*/
 }
 .banner-box .upload-camera .cameraButton{
 	background:none;
-	padding:0px;
+	padding:5px 5px 0;
 	border:none;
 }
+
 .banner-box .upload-camera a {
     display: inline-block;
     padding: 5px;
@@ -985,7 +990,7 @@ h3.text-effect span {
 }
 
 /***  validation  ***/
-.error{font-size: 11px; color: #ff0000 !important;}
+.error{font-size: 9px; color: #ff0000 !important;}
 #forgot_password .modal-body label.error{color: #ff0000 !important;}
 .login .form-group select{top: 0;}
 .dob{position: relative;}
@@ -1137,7 +1142,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 .custom-box .custom-width .right-box .btns a:hover{color:#1b83b9; text-decoration: underline;}
 .custom-box .custom-width .right-box .btns a.btn-4:hover{color:#1b83b9; text-decoration: none;}
 .custom-box .custom-width .right-box .btns a.btn-1:hover{color:#1b83b9; text-decoration: none;}
-.custom-box .custom-width .right-box a{font-size:18px; color:#000;}
+.custom-box .custom-width .right-box a{font-size:18px; color:#000; transition:none;}
 .custom-box.tabindex{padding-top:60px;}
 
 .how-it-popup .modal-header h1{text-align:center; font-size:40px; font-weight:bold;}
@@ -1236,8 +1241,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 		-moz-transform: translate(-50%,-50%);
 		-o-transform: translate(-50%,-50%);
 		transform: translate(-50%,-50%);
+		width:100%;
 	}
 	.main-inner{height: 100vh;}
+	.about-us .main-inner{height: auto;}
 }
 @media (min-width: 1280px) { 
   .container {width: 1280px;}   
@@ -1335,6 +1342,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 	.mail-sent li{width:100%; padding:5px 15px; border-right:0;}
 	.title h1{font-size:35px;}
 	.about-content{font-size:14px;}
+	.about-us .main-inner .middle-main{padding:95px 0 20px;}
 	.main-inner .middle-main{padding:170px 0;}
 	.banner{/*margin-left: -15px;
 		margin-right: -15px;*/

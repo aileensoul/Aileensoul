@@ -1710,7 +1710,7 @@ label.error {
 .cover-pic {
     position: absolute !important;
     left: 25px;
-    top: 0;
+    top: 26px;
     z-index: 99;
 }
 
@@ -8495,7 +8495,7 @@ fieldset .add_post_btns {
     color: #fff;
     opacity: 0.6;
     text-align: center;
-    padding: 13px 0px;
+    padding: 10px 0px;
     position: absolute;
     z-index: 1;
     font-weight: 800;
@@ -13462,7 +13462,10 @@ images css start*/
     margin: 0 !important;
 }
 /***  end search dropdown  ***/
-
+.profile-boxProfile-name{max-width: 100%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;}
 .mySlides .post-design-commnet-box .cmy_2 {
     width: 89%;
 }
@@ -13740,19 +13743,19 @@ text-align: center;}
 .header ul li:last-child {
     border-right: none;
 }
-.header ul li.dropdown-user a {
+/*.header ul li.dropdown-user a {
     padding-top: 11px !important;
     padding-bottom: 11px !important;
-}
+}*/
 .header ul li a {
     padding-bottom: 10px !important;
     padding-top: 6.3px!important;
 }
 
-/*.header ul li #notificationsmsgBody a {
+.header ul li #notificationsmsgBody a {
     padding-bottom: 0px !important;
     padding-top: 0px!important;
-}*/
+}
 .my_S {
     padding: 3px 10px;
     font-size: 13px;
@@ -13942,7 +13945,13 @@ header.animated {
     }
 }
 @media screen and (max-width: 991px) {
-
+     .cover-pic {
+    position: absolute !important;
+top: inherit;
+right: -4%;
+bottom: 48%;
+z-index: 99;
+    }
     .cls-ve{position: absolute;
 top: 23px;
 z-index: 10;
@@ -13950,7 +13959,7 @@ right: 0;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
-        .profile-text1 .as-p{font-size: 12px; line-height: 1.5;}
+        .profile-text1 .as-p{font-size: 12px; line-height: 0;}
        .profile-text1{
                            top:51px;
                         left: 0;
@@ -13980,12 +13989,12 @@ right: 0;}
     }
     
     .header ul li a {
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .header ul li.dropdown-user a {
-        padding-top: 13px !important;
-        padding-bottom: 10px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .tab-block {
         display: block;
@@ -14210,7 +14219,7 @@ text-align: center;}
 }
 @media screen and (max-width: 767px) {
   
-
+.banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
@@ -14403,8 +14412,8 @@ text-align: center;}
         font-size: 14px;
     }
     .header ul li.dropdown-user a {
-        padding-top: 9px !important;
-        padding-bottom: 7px !important;
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
     }
     .mob-block {
         display: block;
@@ -14433,7 +14442,7 @@ text-align: center;}
         right: 5px !important;
     }
     .header ul li a {
-        padding: 11px 10px !important;
+        padding: 5px 10px !important;
     }
     .header-left-menu {
         position: relative;
@@ -14732,13 +14741,7 @@ text-align: center;}
     .art-side-menu .flw_msg_btn button {
         margin-top: 0;
     }
-    .cover-pic {
-       position: absolute !important;
-    top: inherit;
-    right: 8%;
-    bottom: 36%;
-    z-index: 99;
-    }
+   
     .upload-img {
         margin-top: -72px !important;
     }
@@ -14751,7 +14754,7 @@ text-align: center;}
 .profile-text1{width: 100%; top:40px;}
 .profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }} 
 @media screen and (max-width: 639px) {
-        .cover-pic{bottom: 52%;}
+        .cover-pic{bottom: 62%; right: -10%;}
     .cls-ve{top: 18px;}
     .right-side-menu {
         padding-left: 18%;
@@ -14815,7 +14818,7 @@ text-align: center;}
 }
 @media screen and (max-width: 540px) {
 
-    .cls-ve{top: 23px;}
+    .cls-ve{top: 23px; right: 3px;}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
     .fifty_val{right: 22px;}
@@ -14928,9 +14931,15 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+    .how-it-popup .modal-body h3{display: block;}
+    .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
+    .banner{padding-top: 25px;}
+    .header ul li a{padding: 7px 5px !important;}
+    .header ul li.dropdown-user a{padding-top: 6px !important;
+padding-bottom: 6px !important;}
 .profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
-        font-size: 15px;
+        font-size: 12px;
     }
     .btn-1{padding: 7px 30px}
     .btns .btn-4{padding: 7px 30px;}
@@ -14939,7 +14948,7 @@ top: 8px;}
     .profile-text1{width: 100%;}
     .profile-text1 .chng_email{font-size: 12px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
-    .profile-text1{top: 30px; padding-top: 25px;}
+    .profile-text1{top:18px; padding-top: 25px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
 
     .post-design-desc {
@@ -15188,7 +15197,10 @@ top: 8px;}
     }
     .alert {
         font-size: 16px;
-        padding: 7px;
+      font-size: 16px;
+   
+    padding-left: 5px !important;
+    padding-right: 20px;
     }
     .post-editor .popup-social-icon ul li i {
         font-size: 12px;
@@ -15293,6 +15305,18 @@ top: 8px;}
     }
 }
 @media screen and (max-width: 360px) {
+    .email-verify{    float: left;
+    width: 100%;
+    }
+    .alert{float: left;}
+
+      .banner{padding-top: 19px;}
+    .email-img{float: left;
+            width: 35px;}
+    .main-txt{float: left;
+                width: 87%;
+                text-align: justify;}
+    .h-img{height: 25px; width: 25px;}
     .padd_img {
         padding-left: 3px !important;
         padding-top: 4px !important;
