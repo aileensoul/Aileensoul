@@ -2781,7 +2781,7 @@ margin: 10px;}
     margin-top: 10px;
 }
 .email-verify{width: 100%;}
-.vs-o{padding-left: 4%!important; padding: 10px;}
+.vs-o{ padding: 10px;}
 .left-resume-input {
     width: 50%;
     float: left;
@@ -14717,11 +14717,11 @@ header.animated {
         margin-top: 0;
     }
     .cover-pic {
-        position: absolute !important;
-        top: inherit;
-        right: -30px;
-        bottom: 20%;
-        z-index: 99;
+       position: absolute !important;
+    top: inherit;
+    right: 8%;
+    bottom: 36%;
+    z-index: 99;
     }
     .upload-img {
         margin-top: -72px !important;
@@ -15406,5 +15406,14 @@ top: 8px;}
     .job-menu-profile.mob-block {
         width: 66%;
     }
+}
+@media screen and (max-width: 320px) {
+    .custom-box .custom-width .right-box a{
+        font-size: 13px;
+    }
+    .btn-1{padding: 7px 30px}
+    .btns .btn-4{padding: 7px 30px;}
+    .middle-section{padding-bottom: 10px;}
+
 }
 /*** test for form ***/
