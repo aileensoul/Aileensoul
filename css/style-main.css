@@ -4,7 +4,7 @@ html{
 	position:relative;
 }
 body{
-	/*background:#f3f3f3;*/
+	background:#f7f6f6 !important;
 	padding-bottom:60px;
 	
 }
@@ -509,6 +509,8 @@ textarea:focus::-webkit-input-placeholder
 }
 .main-inner .middle-main{
 	padding:55px 0;
+	width:100%;
+	float:left;
 }
 
 .main-inner .btn-right .btn3{
@@ -593,6 +595,18 @@ textarea:focus::-webkit-input-placeholder
 	line-height:1.5;
 	margin-bottom:80px;
 	position:relative;
+	padding-top:30px;
+}
+.about-content:before{
+	position:absolute;
+	height:1px;
+	width:140px;
+	top:0px;
+	content:"";
+	background:#787878;
+	margin:0 auto;
+	left:0;
+	right:0;
 }
 .about-content:after{
 	position:absolute;
@@ -926,7 +940,8 @@ h3.text-effect span {
 }
 
 /***  validation  ***/
-.error{font-size: 11px; color: #ff0000;}
+.error{font-size: 11px; color: #ff0000 !important;}
+#forgot_password .modal-body label.error{color: #ff0000 !important;}
 .login .form-group select{top: 0;}
 .dob{position: relative;}
 .form-control.error{ border-bottom: 1px solid red !important;}
@@ -1166,7 +1181,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 
 /***  media query  ***/
 @media (min-height: 500px){
-    .mid-trns{transform: translate(-50%,-50%);top: 50%; position: absolute; left: 50%;}
+    .mid-trns{top: 50%; position: absolute; left: 50%;
+		-ms-transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		-o-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+	}
 	.main-inner{height: 100vh;}
 }
 @media (min-width: 1280px) { 
@@ -1290,6 +1311,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 	/*.right-profile{width:40px;}
 	.right-profile .right-menu-box{width:40px; height:40px; background-size:100%;}
 	.right-profile .right-menu-box:hover{background-size:100%;}*/
+	footer .container{padding:0 15px 15px;}
+	footer ul{padding-top:0;}
 }
 @media screen and (max-width: 640px) {
     .main-inner .middle-main{padding-bottom: 0px !important; padding: 170px 0;}

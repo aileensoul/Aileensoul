@@ -20,11 +20,11 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-5 col-sm-3">
+        <div class="col-md-4 col-sm-3 col-lg-5">
           <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
-		<div class="col-md-1"></div>
-        <div class="col-md-6 col-sm-9">
+		<div class="col-lg-1"></div>
+        <div class="col-md-8 col-sm-9 col-lg-6">
           <form class="header-login" name="login_form" id="login_form" method="post">
             <div class="input">
               <input type="email" tabindex="1" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address">
@@ -246,16 +246,17 @@
   <footer class="footer">
     <div class="container pt20">
       <div class="row">
-        <div class="col-md-6 col-sm-4">
-          © 2017 | by Aileensoul
-        </div>
-        <div class="col-md-6 col-sm-8">
+        
+        <div class="col-md-6 col-sm-8 pull-right col-xs-12">
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
            
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
+        </div>
+		<div class="col-md-6 col-sm-4">
+          © 2017 | by Aileensoul
         </div>
       </div>
     </div>
