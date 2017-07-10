@@ -26,7 +26,7 @@
 		<div class="container xs-p0">
 			<section class="banner">
 				<div class="banner-box">
-<!--					<div class="banner-img">
+					<div class="banner-img">
 
 
 					<div class="row" id="row1" style="display:none;">
@@ -60,119 +60,47 @@
 
             <div class="" id="row2">
                     <?php
-                   // $userid = $this->session->userdata('aileenuser');
-                   // $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-                  //  $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    //echo "<pre>";print_r($image);
-                  //  $image_ori = $image[0]['profile_background'];
-                  //  if ($image_ori) {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php// echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
-                        <?php
-                   // } else {
-                        ?>
-                        <div class="bg-images">
-                            <img src="<?php// echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
-                    <?php// }
-                    ?>
-
-                </div>
-
-						<?php //if($userdata[0]['profile_background']){?>
-						<img src="<?php// echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" class="main-cover"/ >
-
-						<?php //}else{?>
-						 <img src="<?php// echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" class="main-cover" />
-
-						<?php //}?>
-
-					</div>-->
-
-
-
-<!--					<div class="upload-camera">
-
-						 <a href="#"><img src="img/cam.png"></a> 
-						  <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
-						<input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-
-
-					</div>-->
-
-                                           <!-- cover image start-->
-        <div class="" id="">
-
-            <div class="row" id="row1" style="display:none;">
-                <div class="col-md-12 text-center">
-                    <div id="upload-demo"></div>
-                </div>
-                <div class="col-md-12 cover-pic" >
-                    <button class="btn btn-success  cancel-result" onclick="myFunction()">Cancel</button>
-
-                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
-
-                    <div id="message1" style="display:none;">
-                        <div class="loader"><div id="floatBarsG">
-                                <div id="floatBarsG_1" class="floatBarsG"></div>
-                                <div id="floatBarsG_2" class="floatBarsG"></div>
-                                <div id="floatBarsG_3" class="floatBarsG"></div>
-                                <div id="floatBarsG_4" class="floatBarsG"></div>
-                                <div id="floatBarsG_5" class="floatBarsG"></div>
-                                <div id="floatBarsG_6" class="floatBarsG"></div>
-                                <div id="floatBarsG_7" class="floatBarsG"></div>
-                                <div id="floatBarsG_8" class="floatBarsG"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12"  style="visibility: hidden; ">
-                    <div id="upload-demo-i"></div>
-                </div>
-            </div>
-
-
-
-
-            <div class="container">
-                <div class="row" id="row2">
-                    <?php
                     $userid = $this->session->userdata('aileenuser');
                     $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
                     $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    //echo "<pre>";print_r($image);
+                    
                     $image_ori = $image[0]['profile_background'];
                     if ($image_ori) {
                         ?>
                         <div class="bg-images">
-                            <img class="main-cover" src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
+                            <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
-                        <div class="main-cover" class="bg-images">
+                        <div class="bg-images">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
 
                 </div>
-            </div>
-        </div>
-       
 
-<div class="container">   
-<div class="row"> 
-    <div class="upload-img">
+						<?php if($userdata[0]['profile_background']){?>
+						<img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" class="main-cover"/ >
+
+						<?php }else{?>
+						 <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" class="main-cover" />
+
+						<?php }?>
+
+					</div>
 
 
-        <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
-            <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
-        </label>
-    </div>
-     </div>
-</div>
-       
-        <!-- cover image end-->
 
+					<div class="upload-camera">
+
+						 <!--<a href="#"><img src="img/cam.png"></a>--> 
+						  <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span> <i class="fa fa-camera" aria-hidden="true"></i>
+						<input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
+
+
+					</div>
+
+                                         
 					<div class="left-profile">
 						<div class="profile-photo">
 
