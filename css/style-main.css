@@ -49,7 +49,7 @@ body{
 .pr0{padding-right: 0;} .pr5{padding-right: 5px;} .pr10{padding-right: 10px;} .pr15{padding-right: 15px;} .pr20{padding-right: 20px;}
 .pl0{padding-left: 0;} .pl5{padding-left: 5px;} .pl10{padding-left: 10px;} .pl15{padding-left: 15px;} .pl20{padding-left: 20px;}
 .pt0{padding-top: 0;} .pt5{padding-top: 5px;} .pt10{padding-top: 10px;} .pt15{padding-top: 15px;} .pt20{padding-top: 20px;}
-.pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 10px;}
+.pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 20px;}
 
 
 .fs12{font-size:12px;}
@@ -520,7 +520,6 @@ textarea:focus::-webkit-input-placeholder
 	text-align:center;
 }
 .titlea h1{
-	border-bottom: 3px solid #1b8ab9;
     font-family: 'robotoregular';
 	display:inline-block; 
 	text-align:center; 
@@ -530,7 +529,7 @@ textarea:focus::-webkit-input-placeholder
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 	position:relative;
-	margin-bottom:25px;
+	margin-bottom:15px;
 	text-transform:capitalize;
 }
 
@@ -798,7 +797,7 @@ h3.text-effect span {
 .upload-camera label{margin:0 !important;}
 .upload-camera .cameraButton .tooltiptext{margin-top:10px;}
 .banner{padding-top:16px;}
-
+.all-profile-custom{padding-top:50px;}
 .all-profile{
 	width:90%;
 	margin:0 auto;
