@@ -13462,7 +13462,10 @@ images css start*/
     margin: 0 !important;
 }
 /***  end search dropdown  ***/
-
+.profile-boxProfile-name{max-width: 100%;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;}
 .mySlides .post-design-commnet-box .cmy_2 {
     width: 89%;
 }
