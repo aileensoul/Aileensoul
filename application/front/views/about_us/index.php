@@ -29,8 +29,8 @@
     </div>
   </header>
   <section class="middle-main">
-    <div class="container mid-trns">
-      
+    <div class="container">
+      <div class="mid-trns">
         <div class="titlea">
           <h1 class="pb20">About us</h1>
         </div>
@@ -45,7 +45,7 @@
             <li><a href="mailto:inquiry@aileensoul.com">inquiry@aileensoul.com</a></li>
           </ul>
         </div>
-      
+      </div>
     </div>
   </section>
 
