@@ -24,7 +24,7 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none">
+                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -65,10 +65,10 @@
                 <div class="col-md-12 text-center">
                     <div id="upload-demo"></div>
                 </div>
-                <div class="col-md-12 cover-pic" >
+                <div class="col-md-12 cover-pic " >
                     <button class="btn btn-success  cancel-result" onclick="myFunction()">Cancel</button>
 
-                    <button class="btn btn-success upload-result fr" onclick="myFunction()">Save</button>
+                    <button class="btn btn-success  upload-result fr" onclick="myFunction()">Save</button>
 
                     <div id="message1" style="display:none;">
                         <div class="loader"><div id="floatBarsG">
@@ -990,31 +990,6 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 </script>
-
-
-
-<script>
-   
-   $("document").ready(function (){ 
-
-       // load the overlay
-
-   if (document.cookie.indexOf('visited=true') == -1) {
-   var fifteenDays = 1000*60*60*24*1;
-   var expires = new Date((new Date()).valueOf() + fifteenDays);
-   document.cookie = "visited=true;expires=" + expires.toUTCString();
-
-   document.getElementById("verifydiv").style.display = "block";
-
-  }
-
-  
- 
-
- });
-   
-   
-  </script>
 
 
 <script type="text/javascript">

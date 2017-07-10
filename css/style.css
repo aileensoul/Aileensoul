@@ -1713,6 +1713,7 @@ label.error {
     top: 0;
     z-index: 99;
 }
+
 .cover-pic .btn {
     display: block;
 }
@@ -1724,7 +1725,7 @@ label.error {
     margin-top: -90px !important;
 }
 .cover-pic {
-    padding-top: 25px;
+    padding-top: 50 px;
     text-align: center;
 }
 .profile-photo {
@@ -2749,14 +2750,18 @@ ul.buttons li {
 .profile-text1 .as-p{font-size: 13px;
 padding-left: 0px;
 letter-spacing: 0.3px;
+cursor: default;
 }
-.profile-text1 .chng_email{text-decoration: underline;}
+.alert{cursor: default;}
+.profile-text1 .chng_email{text-decoration: underline; }
 .profile-text1 .vert_email{color: white;
+    cursor: pointer;
 background: #1b8ab9;
 padding: 5px;
 border-radius: 3px;
 font-size: 14px;
 margin: 10px;}
+.cls-ve{cursor: pointer;}
 .resume-top-con {
     float: right;
     height: auto;
@@ -13937,6 +13942,11 @@ header.animated {
     }
 }
 @media screen and (max-width: 991px) {
+
+    .cls-ve{position: absolute;
+top: 23px;
+z-index: 10;
+right: 0;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
@@ -14184,6 +14194,9 @@ header.animated {
     .custom-right {
         margin-left: 4%;
     }
+      .ves_c{width: 100%;
+display: block;
+text-align: center;}
 }
 @media screen and (max-width: 800px) {
     .custom-right {
@@ -14196,13 +14209,8 @@ header.animated {
     }
 }
 @media screen and (max-width: 767px) {
-    .ves_c{width: 100%;
-display: block;
-text-align: center;}
-.cls-ve{position: absolute;
-bottom: 60px;
-z-index: 10;
-right: 0;}
+  
+
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
@@ -14736,14 +14744,15 @@ right: 0;}
     }
     .alert {
         font-size: 16px;
-        padding: 12px;
+        padding: 7px;
     }
 }
 @media screen and (max-width: 640px) {
 .profile-text1{width: 100%; top:40px;}
 .profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }} 
 @media screen and (max-width: 639px) {
-
+        .cover-pic{bottom: 52%;}
+    .cls-ve{top: 18px;}
     .right-side-menu {
         padding-left: 18%;
     }
@@ -14805,6 +14814,8 @@ right: 0;}
     }
 }
 @media screen and (max-width: 540px) {
+
+    .cls-ve{top: 23px;}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
     .fifty_val{right: 22px;}
@@ -14917,8 +14928,9 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+.profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
-        font-size: 13px;
+        font-size: 15px;
     }
     .btn-1{padding: 7px 30px}
     .btns .btn-4{padding: 7px 30px;}
@@ -14929,7 +14941,7 @@ top: 8px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
     .profile-text1{top: 30px; padding-top: 25px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
-    .profile-text1 .as-p{font-size: 12px;}
+
     .post-design-desc {
         font-style: 12px;
     }
