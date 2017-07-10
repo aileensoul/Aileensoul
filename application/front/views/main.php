@@ -356,23 +356,15 @@ setTimeout(function() {
 
                                                window.location= "<?php echo base_url() ?>dashboard"; 
 
-                                                //setTimeout(' window.location.href = "<?php //echo base_url() ?>home"; ', 4000);
-                                               // setTimeout(' window.location.href = ""; ', 4000);
-                                            }else if(response == "password"){
+                                               
+                                             }
+                                            else if(response == "password"){
 
 
                                                window.location= "<?php echo base_url() ?>login?error_msg=2"; 
 
-
-                                             // $("#error").fadeIn(1000, function () {
-                                             //        $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
-                                             //        $("#btn-login").html('Login');
-                                             //    }); 
-
                                             }
                                             else { 
-
-
 
                                                window.location= "<?php echo base_url() ?>login?error_msg=1"; 
 
