@@ -24,7 +24,7 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none;">
+                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" >
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
@@ -992,7 +992,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 
 </script>
-
+<!-- 
 <script>
   
    $("document").ready(function (){ 
@@ -1012,7 +1012,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 });
   
   </script>
-
+ -->
 
 <script type="text/javascript">
     

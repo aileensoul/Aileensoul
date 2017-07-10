@@ -13953,7 +13953,7 @@ right: 0;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
-        .profile-text1 .as-p{font-size: 12px; line-height: 1.5;}
+        .profile-text1 .as-p{font-size: 12px; line-height: 0;}
        .profile-text1{
                            top:51px;
                         left: 0;
@@ -14818,7 +14818,7 @@ text-align: center;}
 }
 @media screen and (max-width: 540px) {
 
-    .cls-ve{top: 18px; right: 3px;}
+    .cls-ve{top: 23px; right: 3px;}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
     .fifty_val{right: 22px;}
@@ -15195,7 +15195,10 @@ padding-bottom: 6px !important;}
     }
     .alert {
         font-size: 16px;
-        padding: 7px;
+      font-size: 16px;
+   
+    padding-left: 5px !important;
+    padding-right: 20px;
     }
     .post-editor .popup-social-icon ul li i {
         font-size: 12px;
@@ -15309,7 +15312,7 @@ padding-bottom: 6px !important;}
     .email-img{float: left;
             width: 35px;}
     .main-txt{float: left;
-                width: 88%;
+                width: 87%;
                 text-align: justify;}
     .h-img{height: 25px; width: 25px;}
     .padd_img {
