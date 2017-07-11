@@ -18,6 +18,7 @@
 <!-- END HEADER -->
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
    <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
+   
 <?php echo $art_header2_border; ?>
 <!DOCTYPE html>
 <html>
@@ -3552,4 +3553,18 @@
    
    </script>
  <!-- 180 words more than script end-->
+
+
+ <script type="text/javascript">
+   
+  $(document).ready(function(){ 
+
+  var nb = $('div.post-design-box').length;
+   if(nb == 0){
+ $("#dropdownclass").addClass("no-post-h2");
+
+   }
+
+});
+ </script>
 

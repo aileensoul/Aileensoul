@@ -177,15 +177,7 @@
                         </div>
                       
                     </div>
-                    <?php
-
-                    function text2link($text) {
-                        $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                        $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                        $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                        return $text;
-                    }
-                    ?>
+                   
                     <!-- middle div stat -->
            
 
@@ -632,3 +624,18 @@
 
  </script>
  <!-- all popup close close using esc end -->
+
+ <script type="text/javascript">
+   
+  $(document).ready(function(){ 
+
+  var nb = $('div.profile-job-post-detail').length;
+
+  //alert(nb);
+   if(nb == 0){
+ $("#dropdownclass").addClass("no-post-h2");
+
+   }
+
+});
+ </script>
