@@ -456,7 +456,7 @@ footer ul li a:hover{
    border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
- 
+ /*
  .form-group input[type="text"]:focus::-webkit-input-placeholder { 
   color: pink !important;
 }
@@ -469,7 +469,7 @@ footer ul li a:hover{
 .form-group input[type="text"]:focus:-moz-placeholder { 
   color: pink !important;
 }
- 
+ */
    select
 {
     color: #ccc;
