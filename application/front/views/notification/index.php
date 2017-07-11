@@ -66,7 +66,7 @@
                         <!--         <div id="notificationsBody" class="notifications">
         <div class="notification-data">
           <ul> -->
-
+                        <?php if(count($totalnotification) == 0){?>
                         <div class="notification-box bg">
 
                             <ul>
@@ -90,6 +90,8 @@
                               </div>
                               </ul>
                               </div>
+
+                              <?php }?>
                               <!-- silder start -->
                               <div id="myModal1" class="modal2">
                                  <div class="modal-content2">
