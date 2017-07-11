@@ -72,13 +72,13 @@
                             <ul>
                             <div class="common-form">
                            <div class="">
-                              <div class="all-box">
+                              <div class="all-box all_box1">
                                  <ul>
                                     <div class="main_pdf_box">
                                        <div class=" ">
                                           <img src="img/icon_notification_big.png">
                                           <div>
-                                             <div class="not_text">There is no Notification are avalible</div>
+                                             <div class="not_txt">There is no Notification are avalible</div>
                                           </div>
                                        </div>
                                     </div>
