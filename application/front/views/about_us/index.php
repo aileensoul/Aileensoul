@@ -30,7 +30,7 @@
   </header>
   <section class="middle-main">
     <div class="container">
-      <div class="pt5">
+      <div class="pt-a">
         <div class="titlea">
           <h1 class="pb20">About us</h1>
         </div>
