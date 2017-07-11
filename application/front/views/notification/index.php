@@ -70,6 +70,42 @@
                         <div class="notification-box">
 
                             <ul>
+                            <div class="common-form">
+                           <div class="">
+                              <div class="all-box">
+                                 <ul>
+                                    <div class="main_pdf_box">
+                                       <div class=" ">
+                                          <img src="img/icon_notification_big.png">
+                                          <div>
+                                             <div class="not_text">There is no Notification are avalible</div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                                                     </ul>
+                              </div>
+                              <!-- silder start -->
+                              <div id="myModal1" class="modal2">
+                                 <div class="modal-content2">
+                                    <span class="close2 cursor" onclick="closeModal()">×</span>
+                                    <!--  multiple image start -->
+                                                                        <!-- slider image rotation end  -->
+                                    <a class="prev" style="left: 0px" onclick="plusSlides(-1)">❮</a>
+                                    <a class="next" style="right: 0px" onclick="plusSlides(1)">❯</a>
+                                    <div class="caption-container">
+                                       <p id="caption"></p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- slider end -->
+                           </div>
+                        </div>
+
+
+
+
+
+
                                 <?php
                                 foreach ($totalnotification as $total) { 
                                     if ($total['not_from'] == 1) {

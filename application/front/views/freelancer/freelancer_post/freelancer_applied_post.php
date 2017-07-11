@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <!-- END CSS -->
-<?php echo  $freelancer_post_header2; ?>
+<?php echo  $freelancer_post_header2_border; ?>
 <body   class="page-container-bg-solid page-boxed">
    <section class="custom-row">
       <div class="container" id="paddingtop_fixed">
