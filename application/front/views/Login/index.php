@@ -22,7 +22,7 @@
         <div class="col-md-8 col-sm-9">
             <div class="btn-right pull-right">
               
-              <a href="<?php echo base_url('registration'); ?>" class="btn3">Creat an account</a>
+              <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
             </div>
         </div>
       </div>
@@ -131,7 +131,7 @@
     <div class="modal-body" style="    width: 100%;
     text-align: center;">
         <label  style="margin-bottom: 15px; color: #5b5b5b;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email Address" autocomplete="off" class="form-control placeholder-no-fix">
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email Address*" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
 
