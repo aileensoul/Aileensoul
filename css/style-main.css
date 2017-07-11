@@ -322,10 +322,10 @@ box-shadow: 0px 0px 10px -1px rgba(217,217,217,1);
     margin: 0 auto;
    
     border: 1px solid #c7c7c7;
-        border-top-width: 1px;
+       /* border-top-width: 1px;
         border-radius:5px;
         border-top-style: solid;
-        border-top-color: rgb(199, 199, 199);
+        border-top-color: rgb(199, 199, 199);*/
     
 }
 .login h4{
@@ -342,7 +342,7 @@ box-shadow: 0px 0px 10px -1px rgba(217,217,217,1);
 	font-family: 'robotoregular';
 }
 .login form{
-	padding:15px 30px;
+	padding:16px 30px 15px;
 }
 .login .form-group input, .login .form-group select, .login .form-group textarea {
 	border:none;
@@ -366,14 +366,14 @@ box-shadow: 0px 0px 10px -1px rgba(217,217,217,1);
   
 }
 .login .form-group select:focus{
-	  width:65px;
+	width:65px;
 	margin-right:15px;
 	-webkit-appearance: none;
-   -moz-appearance:    none;
-   appearance:         none;
-   position:relative;
-   background:url('../img/down-arrow-hover.png') no-repeat;
-   background-position:right;  
+    -moz-appearance:    none;
+    appearance:         none;
+    position:relative;
+    background:url('../img/down-arrow-hover.png') no-repeat;
+    background-position:right;  
 }
 
 .login .form-group select.year{
@@ -691,6 +691,7 @@ textarea:focus::-webkit-input-placeholder
 .inner-form .login{
 	width:100%;
 }
+.inner-form .login p{margin-bottom:9px;}
 h3.text-effect span {
   display: inline-block;
   opacity: 0;
@@ -1236,13 +1237,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 
 /***  media query  ***/
 @media (min-height: 500px){
-    .mid-trns{top: 50%; position: absolute;
-              -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-		width:100%;
+    .mid-trns{top: 50%; position: absolute; left: 50%;
+		-ms-transform: translate(-50%,-50%);
+		-webkit-transform: translate(-50%,-50%);
+		-moz-transform: translate(-50%,-50%);
+		-o-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
 	}
-	.main-inner{height: 100vh;}
+	.main-inner{/*height: 100vh;*/}
 	.about-us .main-inner{height: auto;}
 }
 @media (min-width: 1280px) { 
@@ -1343,7 +1345,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 	.title h1{font-size:35px;}
 	.about-content{font-size:14px;}
 	.about-us .main-inner .middle-main{padding:95px 0 20px;}
-	.main-inner .middle-main{padding:170px 0;}
+	.main-inner .middle-main{padding:100px 0 0;}
 	.banner{/*margin-left: -15px;
 		margin-right: -15px;*/
 		width: 100%;
