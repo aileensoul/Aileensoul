@@ -24,17 +24,31 @@
     <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 	<div class="middle-section">
 	   <!--verify link start-->
-                    <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none;">
+                    
             <?php
             $userid = $this->session->userdata('aileenuser');
             $this->db->select('*');
             $this->db->where('created_date BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND NOW()');
             $this->db->where('user_id', $userid);
-            $result = $this->db->get('user')->result_array();
+            
+           $result = $this->db->get('user')->result_array();
+         
+            //echo "<pre>"; print_r($result);
 
-
-            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) {
+            if ($userdata[0]['user_verify'] == 0 && count($result) > 0) { //echo "hii"; die();
                 ?>
+
+                <?php 
+                $cok = $_COOKIE['cookie_userid'];
+
+                if($userid == $cok){?>
+                
+                <div class="profile-text1 animated fadeInDownBig">
+
+                <?php }else{?>
+                 <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none">
+
+                <?php }?>
 
                 <div class="alert alert-warning  vs-o">
                 <div class="email-verify">
@@ -51,10 +65,12 @@
                    </span>
                 </div>
                 </div>
+
+                </div> 
             <?php }
             ?>
 
-        </div> 
+        
                          <!--verify link end-->
 		<div class="container xs-p0">
                  
@@ -1087,7 +1103,13 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
   
   </script>
 
+<script type="text/javascript">
+$("document").ready(function (){ 
+deleteAllCookies();
 
+});	
+
+</script>
 
 </body>
 </html>
