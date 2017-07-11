@@ -1233,8 +1233,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 
 	}
 	
-#fre-popup .card ul li{width:50%; padding-left:0;}
-
+#fre-popup .card ul.nav-tabs li{width:50%; padding:0; border-right:1px solid #ddd;}
+#fre-popup .card ul.nav-tabs li a{font-size:18px; border:none; text-align:center; width:100%; padding:5px 15px; color:#777;}
+#fre-popup .card ul.nav-tabs li a:hover{background:none;; color:#1b8ab9;}
+#fre-popup .card ul.nav-tabs li.active a{color:#1b8ab9;}
+#fre-popup.how-it-popup .pro_img{padding-bottom:50px;}
 
 
 /***  media query  ***/
@@ -1329,7 +1332,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
     .f-pass{float: left;}
     .main-login .middle-main{padding: 177px 0;}
 	.main-login{background-size: cover;}
-	header h2{text-align:center; padding-bottom:5px;}
+	header h2{text-align:center; padding-bottom:15px;}
 	.header-login{text-align:center;}
 	.top-middle{min-height:auto; padding:0 0 15px; text-align:center;}
 	.bottom-middle{text-align:center;}
