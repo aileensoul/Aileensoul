@@ -327,8 +327,17 @@ $( "#searchplace" ).autocomplete({
       return value == '' || value.trim().length != 0;  
     }, "No space please and don't leave it empty");
 
- $.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
+ $.validator.addMethod("regx", function(value, element, regexpr) { 
+
+  if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }         
+   // return regexpr.test(value);
 }, "Number, space and special character are not allowed");
 
  
@@ -343,7 +352,7 @@ $( "#searchplace" ).autocomplete({
                 fname: {
 
                     required: true,
-                    regx:/^[a-zA-Z]+$/,
+                    regx:/^[^-\s][a-zA-Z_\s-]+$/,
 
                    //oSpace: true
 
@@ -352,7 +361,7 @@ $( "#searchplace" ).autocomplete({
                 lname: {
 
                     required: true,
-                    regx:/^[a-zA-Z]+$/,
+                    regx:/^[^-\s][a-zA-Z_\s-]+$/,
 
                 },
 
