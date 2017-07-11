@@ -4320,7 +4320,7 @@ $files[] = $_FILES;
     }
 
     //job seeker SAVE PDF Download controller end
-    //job seeker Job All Post Start
+     //job seeker Job All Post Start
     public function job_all_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -4407,8 +4407,9 @@ $files[] = $_FILES;
               //$unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
+                 $qbc  = array_filter($qbc);
                  $this->data['postdetail'] = $qbc;
-//echo "<pre>";print_r($recommendata1);die();
+                 
                
         $this->data['falguni'] = 1;
 // code for search
