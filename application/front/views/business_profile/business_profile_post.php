@@ -3384,6 +3384,8 @@
                 $('#' + 'removepost' + abc).remove();
                 if (data.notcount == 'count') {
                     $('.' + 'nofoundpost').html(data.notfound);
+                    $("#dropdownclass").addClass("no-post-h2");
+
                 }
 
             }
@@ -3407,6 +3409,8 @@
                 $('#' + 'removepost' + abc).remove();
                 if (data.notcount == 'count') {
                     $('.' + 'nofoundpost').html(data.notfound);
+                    $("#dropdownclass").addClass("no-post-h2");
+
                 }
 
 
@@ -3787,3 +3791,17 @@
    </script>
  <!-- 180 words more than script end-->
 
+ <script type="text/javascript">
+   
+  $(document).ready(function(){ 
+
+  var nb = $('div.post-design-box').length;
+
+  //alert(nb);
+   if(nb == 0){
+ $("#dropdownclass").addClass("no-post-h2");
+
+   }
+
+});
+ </script>
