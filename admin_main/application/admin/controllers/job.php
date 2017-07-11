@@ -157,7 +157,7 @@ public function search() {
 
 
 
-            $this->data['search_keyword'] = $search_keyword = $this->input->post('search_keyword');
+            $this->data['search_keyword'] = $search_keyword = trim($this->input->post('search_keyword'));
 
 
 
@@ -196,7 +196,7 @@ public function search() {
             $this->data['job_list'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, '*', $short_by, $order_by, $limit, $offset);
 
 
-
+           // echo "<pre>";print_r( $this->data['job_list'] );die();
             if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
                 $this->paging['base_url'] = site_url("job/search/" . $short_by . "/" . $order_by);

@@ -16,8 +16,7 @@ public function __construct()
 {
 
         parent::__construct();
-
-
+        
         // Get Site Information
 
         $this->data['title'] = 'Job Management | Aileensoul';
@@ -26,7 +25,7 @@ public function __construct()
          //Loadin Pagination Custome Config File
          $this->config->load('paging', TRUE);
          $this->paging = $this->config->item('paging');
-
+     
         include('include.php');
 
 }
@@ -34,7 +33,7 @@ public function __construct()
 
 public function user() 
 {
-
+   //echo '<pre>'; print_r($this->session->all_userdata()); die();
 // This is userd for pagination offset and limoi start
           $limit = $this->paging['per_page'];
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
@@ -62,7 +61,7 @@ public function user()
         $this->data['users'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby = '');
 // This is userd for pagination offset and limoi End
 
-       // echo "<pre>";print_r($this->userdata['users'] );die();
+      //echo "<pre>";print_r($this->data['users'] );die();
 
         //This if and else use for asc and desc while click on any field start
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
@@ -111,6 +110,14 @@ public function deactive_user()
         );
 
         $update = $this->common->update_data($data, 'job_reg', 'job_id', $job_id);
+
+         $select = '<td id= "active(' . $job_id . ')">';
+         $select .= '<button class="btn btn-block btn-success btn-sm"    onClick="active_user(' .  $job_id . ')">
+                              Deactive
+                      </button>';
+        $select .= '</td>';
+
+        echo $select;
          die();
 }
 //deactivate user with ajax End
@@ -124,6 +131,15 @@ public function active_user()
         );
 
         $update = $this->common->update_data($data, 'job_reg', 'job_id', $job_id);
+
+        $select = '<td id= "active(' . $job_id . ')">';
+        $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="deactive_user(' .  $job_id . ')">
+                              Active
+                      </button>';
+        $select .= '</td>';
+
+        echo $select;
+
         die();
 }
 //activate user with ajax End
@@ -142,10 +158,17 @@ public function delete_user()
 //Delete user with ajax End
 
 public function search() 
-{ //print_r($_POST);
-      if ($this->input->post('search_keyword')) {
-//echo "hi";
-          $this->data['search_keyword'] = $search_keyword = $this->input->post('search_keyword');
+{ 
+
+      if ($this->input->post('search_keyword')) {//echo "222"; die();
+
+          $this->data['search_keyword'] = $search_keyword = trim($this->input->post('search_keyword'));
+
+         $this->session->set_userdata('user_search_keyword', $search_keyword);
+    
+        $this->data['user_search_keyword'] = $this->session->userdata('user_search_keyword');
+      
+         // echo "<pre>";print_r($this->data['user_search_keyword']);die();
 
              // This is userd for pagination offset and limoi start
           $limit = $this->paging['per_page'];
@@ -168,17 +191,12 @@ public function search()
         }
   
         $this->data['offset'] = $offset;
-
-       // $data='job_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
-       // $contition_array = array('is_delete' => '0');
-       //  $this->data['users'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby = '');
-
         
           $data='job_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
            $search_condition = "(fname LIKE '%$search_keyword%' OR email LIKE '%$search_keyword%')";
             $contition_array = array('is_delete' => '0');
             $this->data['users'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
-           // echo "<pre>";print_r( $this->data['users']);die();
+ //echo "<pre>";print_r( $this->data['users']);die();
 // This is userd for pagination offset and limoi End
 
        // echo "<pre>";print_r($this->userdata['users'] );die();
@@ -186,40 +204,123 @@ public function search()
         //This if and else use for asc and desc while click on any field start
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
-            $this->paging['base_url'] = site_url("job/user/" . $short_by . "/" . $order_by);
+                $this->paging['base_url'] = site_url("job/search/" . $sortby . "/" . $orderby);
 
-        } else {
+            } else {
 
-            $this->paging['base_url'] = site_url("job/user/");
+                $this->paging['base_url'] = site_url("job/search/");
 
-        }
+            }
 
+
+
+            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['uri_segment'] = 5;
+
+            } else {
+
+                $this->paging['uri_segment'] = 3;
+
+            }
+
+            $this->paging['total_rows'] = count($this->common->select_data_by_search('job_reg', $search_condition, $contition_array, 'job_id'));
+
+            //for record display
+
+            $this->data['total_rows'] = $this->paging['total_rows'];
+
+            $this->data['limit'] = $limit;
+
+            $this->pagination->initialize($this->paging);
+
+    }
+    else if ($this->session->userdata('user_search_keyword')) {//echo "jii"; die();
+            $this->data['search_keyword'] = $search_keyword = trim($this->session->userdata('user_search_keyword'));
+
+// echo "<pre>";print_r($search_keyword);die();
+              // This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
-            $this->paging['uri_segment'] = 5;
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
+
+            $sortby = $this->uri->segment(3);
+
+            $orderby = $this->uri->segment(4);
 
         } else {
 
-            $this->paging['uri_segment'] = 3;
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
+
+            $sortby = 'job_id';
+
+            $orderby = 'asc';
 
         }
-        //This if and else use for asc and desc while click on any field End
+  
+        $this->data['offset'] = $offset;
+        
+          $data='job_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
+           $search_condition = "(fname LIKE '%$search_keyword%' OR email LIKE '%$search_keyword%')";
+            $contition_array = array('is_delete' => '0');
+            $this->data['users'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
+ //echo "<pre>";print_r( $this->data['users']);die();
+// This is userd for pagination offset and limoi End
+
+       // echo "<pre>";print_r($this->userdata['users'] );die();
+
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['base_url'] = site_url("job/search/" . $sortby . "/" . $orderby);
+
+            } else {
+
+                $this->paging['base_url'] = site_url("job/search/");
+
+            }
 
 
-        $contition_array = array( 'is_delete =' => '0');
-        $this->paging['total_rows'] = count($this->common->select_data_by_condition('job_reg', $contition_array, 'job_id'));
 
-        $this->data['total_rows'] = $this->paging['total_rows'];
+            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
-        $this->data['limit'] = $limit;
+                $this->paging['uri_segment'] = 5;
 
-        $this->pagination->initialize($this->paging);
+            } else {
 
+                $this->paging['uri_segment'] = 3;
 
+            }
+
+            $this->paging['total_rows'] = count($this->common->select_data_by_search('job_reg', $search_condition, $contition_array, 'job_id'));
+
+            //for record display
+
+            $this->data['total_rows'] = $this->paging['total_rows'];
+
+            $this->data['limit'] = $limit;
+
+            $this->pagination->initialize($this->paging);
     }
 
         $this->load->view('job/user', $this->data);
 }
+
+//clear search is used for unset session start
+public function clear_search() 
+{ 
+  
+    if ($this->session->userdata('user_search_keyword')) 
+    {
+          
+            $this->session->unset_userdata('user_search_keyword');
+              
+             redirect('job/user','refresh');          
+    } 
+}
+//clear search is used for unset session End
+
 
 }
 
