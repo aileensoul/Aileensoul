@@ -9,12 +9,13 @@
     position: absolute;
     color: #3b5283;
     background-color: #fff;
-    min-width: 139px;
+    min-width: 220px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     margin-top: 3px;
     z-index: 1;
     left: 25px;
-    border-radius: 4px;
+    border-radius: 9px;
+    padding-bottom: 7px;
 } .dropdown-content_hover::before {
     /* top: -1px; */
     content: '';
@@ -74,13 +75,17 @@
 <div class="dropdown_hover">
   <span id="art_profile">Freelancer Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
   <div class="dropdown-content_hover" id="dropdown-content_hover">
-    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><i class="fa fa-user" aria-hidden="true"></i> View Profile</a>
-    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
+                  <span class="my_account">
+                                        <div class="my_S">Account</div>
+                                            
+      </span>
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="h2-img h2-srrt"></span> View Profile</a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
 
     <?php
       $userid = $this->session->userdata('aileenuser');
       ?>
-    <a onClick="deactivate(<?php echo $userid; ?>)"><i class="fa fa-minus-circle" aria-hidden="true"></i> Deactive Profile</a>
+    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
   </div>
 </div>
                               </li>
