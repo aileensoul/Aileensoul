@@ -7576,6 +7576,19 @@ input:-moz-placeholder {
     
     width: 100%;
 }
+.not_txt{
+    bottom: 0;
+    /*    position: absolute;*/
+    
+    columns: #1b8ab9;
+    color: #ebebeb;
+    font-size: 40px;
+    font-family: Roboto light;
+    left: 18px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
 .not_text {
     bottom: 0;
     /*    position: absolute;*/
@@ -9483,6 +9496,9 @@ fieldset .add_post_btns:hover {
 .all-box {
     text-align: center;
     padding-top: 25px;
+}
+.all_box1{
+    padding-bottom: 250px;
 }
 .all-box ul {
     display: inline-block;
