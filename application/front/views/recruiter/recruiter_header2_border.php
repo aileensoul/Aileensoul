@@ -32,7 +32,15 @@
                                 </div>
                              </div>
                        <div class="">
+
+                        <?php if(count($candidatejob) == 0){?>   
+                            <ul class="no-post-h2">
+                           <?php  }else{ ?>
+
                             <ul class="">
+                          <?php   } ?>
+ 
+
                                 <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>">Home</a>
                                    
                                 <!-- Friend Request Start-->
