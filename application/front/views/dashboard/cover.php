@@ -448,40 +448,53 @@
 				</div>
 				<div class="modal-body">
 					<div class=""> 
-							<div class="col-md-6">
+							<div class="">
                                     <!-- Nav tabs --><div class="card">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Apply</a></li>
+                                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">hire</a></li>
                                     </ul>
 
                                     <!-- Tab panes -->
                                     <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane active" id="home">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                                        <div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
-                                        <div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                                        <div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..</div>
-                                    </div>
-								</div>
-                            </div>
-					
-					
-					
-						<div class="col-md-6 col-sm-6 pro_img">
+                                        <div role="tabpanel" class="tab-pane active" id="home">
+											<div class="col-md-6 col-sm-6 pro_img">
+												<h3>Freelance Profile</h3>
+												<img src="img/how-it.png">
+											</div>
+											<div class="col-md-6 col-sm-6 por_content">
+												<ul>
+													<li><img src="img/p1.png"><span class="pro-text"><span class="count">1.</span><span class="text">Register</span></span></li>
+													<li><img src="img/p7.png"><span class="pro-text"><span class="count">2.</span><span class="text">Get freelance work as per your skills</span></span></li>
+													<li><img src="img/p3.png"><span class="pro-text"><span class="count">3.</span><span class="text">Shortlist - save - apply for freelance work </span></span></li>
+													<li><img src="img/p8.png"><span class="pro-text"><span class="count">4.</span><span class="text">Chat with the employer.</span></span></li>
+												</ul>
+												
+											</div>
+										</div>
+                                        <div role="tabpanel" class="tab-pane" id="profile">
+											<div class="col-md-6 col-sm-6 pro_img">
 							<h3>Freelance Profile</h3>
 							<img src="img/how-it.png">
 						</div>
 						<div class="col-md-6 col-sm-6 por_content">
 							<ul>
 								<li><img src="img/p1.png"><span class="pro-text"><span class="count">1.</span><span class="text">Register</span></span></li>
-								<li><img src="img/p7.png"><span class="pro-text"><span class="count">2.</span><span class="text">Get freelance work as per your skills</span></span></li>
+								<li><img src="img/p7.png"><span class="pro-text"><span class="count">2.</span><span class="text">Post a project and see recommended freelancers. </span></span></li>
 								<li><img src="img/p3.png"><span class="pro-text"><span class="count">3.</span><span class="text">Shortlist - save - apply for freelance work </span></span></li>
 								<li><img src="img/p8.png"><span class="pro-text"><span class="count">4.</span><span class="text">Chat with the employer.</span></span></li>
 							</ul>
 							
 						</div>
+										</div>
+                               
+                                    </div>
+								</div>
+                            </div>
+					
+					
+					
+						
 					</div>
 				</div>
 				<div class="modal-footer">
