@@ -13749,7 +13749,7 @@ text-align: center;}
 }*/
 .header ul li a {
     padding-bottom: 10px !important;
-    padding-top: 6.3px!important;
+    padding-top: 10px!important;
 }
 
 .header ul li #notificationsmsgBody a {
@@ -13836,6 +13836,8 @@ header.animated {
     }
 }
 @media screen and (max-width: 1024px) {
+    .header ul li a{padding-bottom: 4px !important;
+padding-top: 4px !important;}
     .email-verify{ padding-left: 3%;}
     .profile-text1 .as-p{font-size: 12px; letter-spacing: 0px;}
     .profile-text1 .chng_email{font-size: 12px;}
@@ -13988,10 +13990,10 @@ right: 0;}
         font-size: 12px;
     }
     
-    .header ul li a {
+/*    .header ul li a {
         padding-top: 6px !important;
         padding-bottom: 6px !important;
-    }
+    }*/
     .header ul li.dropdown-user a {
         padding-top: 6px !important;
         padding-bottom: 6px !important;
@@ -14395,8 +14397,8 @@ text-align: center;}
     }
     .dropdown-menu::before{right: 2.5%;}
     .header ul li a {
-        padding-top: 12px!important;
-        padding-bottom: 12px !important;
+        padding-top: 4px!important;
+        padding-bottom: 4px !important;
         padding: 16px;
     }
     .post-design-desc{padding-left: 17px;}
@@ -14441,9 +14443,7 @@ text-align: center;}
         top: 3px !important;
         right: 5px !important;
     }
-    .header ul li a {
-        padding: 5px 10px !important;
-    }
+   
     .header-left-menu {
         position: relative;
         width: 100%;
@@ -14934,7 +14934,8 @@ top: 8px;}
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
     .banner{padding-top: 25px;}
-    .header ul li a{padding: 7px 5px !important;}
+    .header ul li a{padding-top: 3px !important;
+padding-bottom: 3px !important; padding: 0px 8px;}
     .header ul li.dropdown-user a{padding-top: 6px !important;
 padding-bottom: 6px !important;}
 .profile-detail h2{font-size: 13px;}
@@ -15305,6 +15306,8 @@ padding-bottom: 6px !important;}
     }
 }
 @media screen and (max-width: 360px) {
+    .header ul li a{padding: 0px 4px;}
+    .header ul li.dropdown-user a{padding: 0px 4px;}
     .email-verify{    float: left;
     width: 100%;
     }
@@ -15337,6 +15340,7 @@ padding-bottom: 6px !important;}
         margin-bottom: 11px;
         margin-top: 10px;
     }
+    
     .folle_text {
         width: 43%;
         padding-left: 3px;
