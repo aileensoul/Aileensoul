@@ -56,23 +56,31 @@ echo $leftmenu;
                         <h3 class="box-title">Job User</h3>      
                     
                     <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
+                       <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                           <div class="input-group input-group-sm" >
 
-                 <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline')); ?>
+              
 
                      <!--    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search"> -->
 
-                        <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword" required>
+                        <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword">
 
                         <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button> 
-
-                          <!-- <input type="submit" name="submit"  class="btn btn-default" /><i class="fa fa-search"></i> -->
+                                <button type="submit" class="btn btn-default" id="search_btn" onclick="return checkvalue();"><i class="fa fa-search"></i></button>          
                         </div><!--input-group-btn-->
-
                 <?php echo form_close(); ?>
-                    
-                    </div><!--input-group-btn-->
+                     
+                     <?php if ($this->session->userdata('user_search_keyword')) 
+                            { 
+                    ?>
+
+                            <a href="<?php echo base_url('job/clear_search') ?>">Clear Search</a>
+
+                        <?php 
+                                } 
+                        ?>
+
+                    </div><!--input-group input-group-sm-->
                 </div><!--box-tools-->
                 </div><!-- box-header -->
 
@@ -153,7 +161,8 @@ echo $leftmenu;
                         $i = $offset + 1; 
                         foreach ($users as $user) {
                 ?>
-                <tr>
+
+                <tr id="delete<?php echo $user['job_id']?>">
                     <td><?php echo $i++; ?></td>
 
                     <td><?php echo $user['fname']; echo ' ';echo $user['lname'];  ?></td>
@@ -207,7 +216,7 @@ echo $leftmenu;
                         <?php } ?>
                     </td>
 
-                    <td>
+                    <td id="active<?php echo $user['job_id']?>">
                         <?php if ($user['status'] == 1) 
                               {
                         ?>
@@ -243,7 +252,23 @@ echo $leftmenu;
                  <?php
                       }//for loop close
                         }//if close
-                ?>
+                        else 
+                        {
+
+                    ?>
+
+                    <tr>
+
+                        <td align="center" colspan="11"> Oops! No Data Found</td>
+
+                    </tr>  
+
+                    <?php
+
+                        }
+
+                    ?>
+          
               </tbody></table>
 
             </div><!--box-body table-responsive no-padding -->
@@ -251,7 +276,7 @@ echo $leftmenu;
             </div><!-- /.box -->
         </div><!-- /.col -->
 
-<div class="dta_left col-md-6">
+<div class="dta_left col-md-6" id="pagination">
 
                         <?php
                             if ($total_rows > 0) 
@@ -259,7 +284,6 @@ echo $leftmenu;
 
                                 if ($this->pagination->create_links())
                                 {
-
                                             $rec1 = $offset + 1;
                                             $rec2 = $offset + $limit;
                                             if ($rec2 > $total_rows) 
@@ -343,7 +367,8 @@ echo $leftmenu;
                           data: 'job_id=' + job_id,
                           success: function (response) 
                           {    
-                                    window.location.reload();
+                                 $.fancybox.close();
+                                $('#' + 'active' + job_id).html(response);
                           }
             });   
         });
@@ -363,8 +388,9 @@ echo $leftmenu;
                           url: '<?php echo base_url() . "job/active_user" ?>',
                           data: 'job_id=' + job_id,
                           success: function (response) 
-                          {          
-                                 window.location.reload();
+                          {        
+                                  $.fancybox.close();  
+                                  $('#' + 'active' + job_id).html(response);
                           }
             });   
         });
@@ -385,10 +411,39 @@ echo $leftmenu;
                           data: 'job_id=' + job_id,
                           success: function (response) 
                           {          
-                                 window.location.reload();
+                                window.location.reload();
                           }
             });   
         });
     }
 //Delete user End
+
+//Enable search button when user write something on textbox Start
+ $(document).ready(function(){
+    $('#search_btn').attr('disabled',true);
+
+    $('#search_keyword').keyup(function()
+    {  
+        if($(this).val().length !=0)
+        {
+            $('#search_btn').attr('disabled', false);
+        }
+        else
+        {  
+            $('#search_btn').attr('disabled', true);        
+        }
+    })
+
+     $('body').on('keydown', '#search_keyword', function(e) {
+    console.log(this.value);
+    if (e.which === 32 &&  e.target.selectionStart === 0) {
+      return false;
+    }  
+  });
+});
+//Enable search button when user write something on textbox End
+
+// $(function() {
+ 
+// });
 </script>
