@@ -98,7 +98,7 @@
                            if ($falguni == 1) {
                        
                               // if (count($postdetail) > 0 && $postdetail[0][0] != '') {
-                          if (count($postdetail) > 0) {
+                          if (count($postdetail) > 0 && $postdetail[0][0] != '' && $postdetail[0] != '') {
                                    foreach ($postdetail as $postdetail1) {
                                        foreach ($postdetail1 as $post) {
                                        ?> 
@@ -316,7 +316,7 @@
                            }
                            }
                            } 
-                           elseif ($postdetail[0][0] == '')
+                           elseif ($postdetail[0][0] == '' || $postdetail[0] == '')
                            {
                             ?>
                                  <div class="text-center rio">
@@ -334,7 +334,7 @@
                            }
                            } else { 
                            // if (count($postdetail) > 0 && $postdetail[0][0] != '') {
-                            if (count($postdetail) > 0) {
+                            if (count($postdetail) > 0 && $postdetail[0][0] != '' && $postdetail[0] != '') {
                                foreach ($postdetail as $post_key => $postdetail1){
                                 foreach ($postdetail1 as $post) {
                                    ?> 
@@ -448,7 +448,7 @@
                            } 
                            }
                          }
-                         elseif ($postdetail[0][0] == '')
+                         elseif ($postdetail[0][0] == '' || $postdetail[0] == '')
                            {
                             ?>
                                  <div class="text-center rio">

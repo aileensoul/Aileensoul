@@ -4390,16 +4390,18 @@ $files[] = $_FILES;
                }
 
                  if (count($recommendata) == 0) {
-                
+                  
                 $unique = $recommendata1;
            // $unique = array_filter(array_map('trim', $unique));
                 
             } 
             elseif (count($recommendata1) == 0) {
+
                 $unique = $recommendata;
                //   $unique = array_filter(array_map('trim', $unique));
             }
             else {
+
                 $unique = array_merge($recommendata1, $recommendata);
                   //$unique = array_filter(array_map('trim', $unique));
             }
@@ -4408,7 +4410,8 @@ $files[] = $_FILES;
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $this->data['postdetail'] = $qbc;
-//echo "<pre>";print_r($recommendata1);die();
+//echo "<pre>";print_r($unique);die();
+//if($postdetail[0][0] != '')
                
         $this->data['falguni'] = 1;
 // code for search
