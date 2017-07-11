@@ -213,7 +213,7 @@
 
 										<?php }?>
 
-										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20 hew" href="#">How item works?</a> 
+										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
 									</div>
 								</div>
 							</div>
@@ -602,6 +602,57 @@
                         </div>
                     </div>
                     <!-- model for popup -->
+
+
+<script type="text/javascript">
+    
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) { 
+        //$( "#bidmodal" ).hide();
+         $("#jop-popup").fadeOut(200);
+        //$('#jop-popup').modal('hide');
+    }
+}); 
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+         $("#rec-popup").fadeOut(200);
+      	
+         //$('#rec-popup').modal('hide');
+         
+    }
+}); 
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+       
+         $("#fre-popup").fadeOut(200);
+
+        // $('#fre-popup').modal('hide');
+         
+    }
+});
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+         $('#bus-popup').fadeOut(200);
+      	
+         //$('#bus-popup').modal('hide');
+         
+    }
+}); 
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+       
+         $('#art-popup').fadeOut(200);
+
+        // $('#art-popup').modal('hide');
+    }
+});  
+
+</script>
 
 
 <script>
@@ -1014,20 +1065,6 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
   </script>
 
 
-<script type="text/javascript">
-    
-$( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#jop-popup').modal('hide');
-         $('#rec-popup').modal('hide');
-         $('#fre-popup').modal('hide');
-         $('#bus-popup').modal('hide');
-         $('#art-popup').modal('hide');
-    }
-}); 
-
-</script>
 
 </body>
 </html>

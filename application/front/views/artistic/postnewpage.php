@@ -237,7 +237,7 @@
 
                                         <?php } else { ?>
                                             <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" /> </a>
+                                                <img src="<?php echo base_url(NOIMAGE); ?>" name="image_src" id="image_src" /> </a>
 
                                         <?php } ?>
                                     </div>
@@ -681,8 +681,13 @@
                                                                                     <?php
                                                                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                                                                     ?>
-
+                                                                    <?php if($art_userimage){?>
                                                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+
+                                                                     <?php }else{?>  
+                                                                      <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+
+                                                                     <?php }?>            
                                                                                 </div>
                                                                                 <div class="comment-name">
                                                                                     <b>  <?php
@@ -2780,7 +2785,7 @@
                                                     $(this).val('');
                                                 });
                                                 
-                                                alert(clicked_id);
+                                               // alert(clicked_id);
                                              //   $('#' + 'insertcountimg' + clicked_id).html(data.count);
                                                 $('#' + 'fourcommentimg' + clicked_id).html(data.comment);
                                                 $('.like_count_ext_img' + clicked_id).html(data.commentcount);

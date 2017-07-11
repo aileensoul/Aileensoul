@@ -231,7 +231,7 @@ a:focus {
     color: #fff;
     padding: 4px 16px;
     display: block;
-    padding-top: 8px;
+ 
 }
 .header2 ul li a i {
     font-size: 15px;
@@ -1010,7 +1010,7 @@ ul.dropdown-menu li a i {
 /*.dropdown:hover .dropdown-menu { display: block; }*/
 
 .header ul li.dropdown-user a {
-    padding: 13px;
+    padding: 11px;
     text-transform: capitalize;
 }
 .header ul li.dropdown-user ul li a {
