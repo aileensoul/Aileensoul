@@ -72,6 +72,8 @@
                             <ul>
                             <div class="common-form">
                            <div class="">
+
+
                               <div class="all-box">
                                  <ul>
                                     <div class="main_pdf_box">
@@ -82,7 +84,11 @@
                                           </div>
                                        </div>
                                     </div>
-                                                                     </ul>
+                                    </ul>
+                              </div>
+                              </div>
+                              </div>
+                              </ul>
                               </div>
                               <!-- silder start -->
                               <div id="myModal1" class="modal2">
