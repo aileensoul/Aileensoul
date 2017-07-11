@@ -3938,7 +3938,14 @@ $datacount = count($otherdata);
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art['user_id'] . '') . '">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+                if($art_userimage){
                 $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+                  }else{
+                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+                  }
+
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
@@ -4076,7 +4083,14 @@ $datacount = count($otherdata);
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art['user_id'] . '') . '">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+                if($art_userimage){
                 $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+                }else{
+             $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+                }
+
                 $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
@@ -4570,7 +4584,13 @@ $datacount = count($otherdata);
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+            if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+            }else{
+            $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+            }
+
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
@@ -4755,7 +4775,14 @@ $datacount = count($otherdata);
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+            if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+            }else{
+
+               $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+            }
+
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
@@ -6273,7 +6300,14 @@ $datacount = count($otherdata);
             $cmtinsert = '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art_comment['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+            if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+             }else{
+
+               $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+             }
+
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
@@ -7038,7 +7072,14 @@ $datacount = count($otherdata);
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art_comment['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+            if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+           }else{
+
+            $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+           }
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
@@ -7199,7 +7240,15 @@ $datacount = count($otherdata);
                 $cmtinsert .= '<div class="all-comment-comment-box">';
                 $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art_comment['user_id'] . '') . '">';
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+                if($art_userimage){
+
                 $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+               }else{
+
+                $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+               }
+
                 $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
@@ -7496,7 +7545,13 @@ $datacount = count($otherdata);
 
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
 
+            if($art_userimage){
             $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
+            }else{
+
+                $fourdata .= '<img  src="' . base_url(NOIMAGE) . '"  alt=""></div>'; 
+            }
+
             $fourdata .= '<div class="comment-name">';
             $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
             $fourdata .= '</a>';  
@@ -7837,7 +7892,14 @@ $datacount = count($otherdata);
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art_comment['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
+
+            if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+            }else{
+            $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+            }
+
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
