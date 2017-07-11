@@ -8395,6 +8395,8 @@ fieldset .add_post_btns {
 /* End dhaval*/
 /*Dhaval 26/6*/
 
+.notificationsmsg #notificationTitle{display: none !important;}
+
 .user_lst li .follow-li-text a {
     color: #1b8ab9!important;
 }
