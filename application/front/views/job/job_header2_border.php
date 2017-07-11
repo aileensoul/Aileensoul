@@ -47,7 +47,7 @@
                                 </div>
                              </div>
                        <div class="">
-                            <ul class="">
+                            <ul class="" id="dropdownclass">
                                 <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
                                     </li>
                                 <!-- Friend Request Start-->

@@ -257,7 +257,11 @@
                              </div>
                         
                         <div class="">
-                            <ul class="">
+
+                       
+                            <ul class="" id="dropdownclass">
+
+                          
                                 <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_post'); ?>"><img src="../img/icon_home.png"></a>
                                 </li>
                                 <!-- Friend Request Start-->

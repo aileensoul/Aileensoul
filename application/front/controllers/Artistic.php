@@ -1240,7 +1240,9 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         // print_r($qbc);
         // exit;
         $this->data['finalsorting'] = $qbc;
-        //echo "<pre>"; print_r($this->data['finalsorting'] ); die();
+        //echo "<pre>"; print_r($this->data['finalsorting'] );
+       // echo count($this->data['finalsorting']); die();
+        // die();
         // sorting end
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);

@@ -7576,6 +7576,22 @@ input:-moz-placeholder {
     
     width: 100%;
 }
+.not_txt{
+    bottom: 0;
+    /*    position: absolute;*/
+    
+    columns: #1b8ab9;
+    color: #ebebeb;
+    font-size: 40px;
+    font-family:Roboto light;
+    left: 18px;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    width: 95%;
+line-height: 40px;
+
+}
 .not_text {
     bottom: 0;
     /*    position: absolute;*/
@@ -9484,6 +9500,13 @@ fieldset .add_post_btns:hover {
     text-align: center;
     padding-top: 25px;
 }
+
+.bg{
+    background-color: white;
+    border:1px solid #d9d9d9;
+    padding-bottom: 180px;
+}
+
 .all-box ul {
     display: inline-block;
     padding-left: 0;
@@ -9582,9 +9605,7 @@ fieldset .add_post_btns:hover {
     background: #1b8ab9 !important;
     color: #fff !important;
 }
-.common-form .job-saved-box {
-    border: none;
-}
+
 .user_btn button:hover {
     -webkit-transform: none;
     transform: none;
@@ -15287,7 +15308,7 @@ padding-bottom: 6px !important;}
     }
     .modal.in .modal-dialog {
         width: 90%;
-        margin: 0 auto;
+        margin: 20px auto;
     }
     .folle_text {
         width: 48%;

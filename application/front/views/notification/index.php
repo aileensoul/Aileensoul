@@ -36,7 +36,7 @@
             <div class="col-md-10 col-sm-10">
                 <div class="common-form">
 
-                    <div class="job-saved-box" style="border: 1px solid #d9d9d9;">
+                    <div class="job-saved-box">
                         <h3 style="    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
     box-shadow: inset 0px 1px 0px 0px #ffffff;
     border-bottom: 1px solid #d9d9d9;
@@ -49,7 +49,7 @@
     background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
     background-color: #f9f9f9;font-weight: 600;
-    color: #000033;">Notification</h3>
+    color: #000033;">View Notification</h3>
 
                         <!-- BEGIN CONTAINER -->
                         <!--  <div class="page-container">
@@ -66,24 +66,28 @@
                         <!--         <div id="notificationsBody" class="notifications">
         <div class="notification-data">
           <ul> -->
-
-                        <div class="notification-box">
+                        
+                        <div class="notification-box bg">
 
                             <ul>
                             <div class="common-form">
                            <div class="">
+
+<?php if(count($totalnotification) == 0){?>
                               <div class="all-box">
                                  <ul>
                                     <div class="main_pdf_box">
                                        <div class=" ">
                                           <img src="img/icon_notification_big.png">
                                           <div>
-                                             <div class="not_text">There is no Notification are avalible</div>
+                                             <div class="not_txt">There is no Notification are avalible</div>
                                           </div>
                                        </div>
                                     </div>
-                                                                     </ul>
+                                    </ul>
                               </div>
+                             
+                              <?php }?>
                               <!-- silder start -->
                               <div id="myModal1" class="modal2">
                                  <div class="modal-content2">

@@ -1,4 +1,3 @@
-
 <header class="">
     <div class="bg-search">
         <div class="header2 headerborder animated fadeInDownBig">
@@ -24,7 +23,10 @@
                                 </div>
                              </div>
                        <div class="">
-                            <ul class="">
+                       
+                       
+                       <ul class="" id="dropdownclass">
+                        
                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>">Home</a>
                                     </li>
                                 <!-- Friend Request Start-->
