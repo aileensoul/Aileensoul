@@ -9497,6 +9497,10 @@ fieldset .add_post_btns:hover {
     text-align: center;
     padding-top: 25px;
 }
+.common-form h3{border:none !important;}
+.bg{
+    background-color: white;
+}
 .all_box1{
     padding-bottom: 250px;
 }
@@ -15303,7 +15307,7 @@ padding-bottom: 6px !important;}
     }
     .modal.in .modal-dialog {
         width: 90%;
-        margin: 0 auto;
+        margin: 20px auto;
     }
     .folle_text {
         width: 48%;

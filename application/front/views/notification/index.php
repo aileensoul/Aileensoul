@@ -36,7 +36,7 @@
             <div class="col-md-10 col-sm-10">
                 <div class="common-form">
 
-                    <div class="job-saved-box" style="border: 1px solid #d9d9d9;">
+                    <div class="job-saved-box">
                         <h3 style="    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
     box-shadow: inset 0px 1px 0px 0px #ffffff;
     border-bottom: 1px solid #d9d9d9;
@@ -67,12 +67,12 @@
         <div class="notification-data">
           <ul> -->
 
-                        <div class="notification-box">
+                        <div class="notification-box bg">
 
                             <ul>
                             <div class="common-form">
                            <div class="">
-                              <div class="all-box all_box1">
+                              <div class="all-box">
                                  <ul>
                                     <div class="main_pdf_box">
                                        <div class=" ">
