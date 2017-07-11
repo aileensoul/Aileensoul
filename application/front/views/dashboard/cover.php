@@ -387,7 +387,7 @@
 				</div>
 				<div class="modal-footer">
 
-					<?php if($job[0]['job_step'] != 9){?>
+					<?php if($job[0]['job_step'] != 10){?>
 					<a class="btn-2" href="<?php echo base_url('job'); ?>">Register Now</a>
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a>
@@ -425,7 +425,7 @@
 				</div>
 				<div class="modal-footer">
 
-					 <?php if($recrdata[0]['re_step'] != 2){?>
+					 <?php if($recrdata[0]['re_step'] != 3){?>
 					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Register Now</a>
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
