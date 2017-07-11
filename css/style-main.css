@@ -6,7 +6,8 @@ html{
 body{
 	background:#f7f6f6 !important;
 	padding-bottom:60px;
-	
+	width:100%;
+	float:left;
 }
 
 @font-face {
@@ -455,7 +456,7 @@ footer ul li a:hover{
    border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;
  }
- 
+ /*
  .form-group input[type="text"]:focus::-webkit-input-placeholder { 
   color: pink !important;
 }
@@ -468,7 +469,7 @@ footer ul li a:hover{
 .form-group input[type="text"]:focus:-moz-placeholder { 
   color: pink !important;
 }
- 
+ */
    select
 {
     color: #ccc;
@@ -1142,7 +1143,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 .custom-box .custom-width .right-box .btns a:hover{color:#1b83b9; text-decoration: underline;}
 .custom-box .custom-width .right-box .btns a.btn-4:hover{color:#1b83b9; text-decoration: none;}
 .custom-box .custom-width .right-box .btns a.btn-1:hover{color:#1b83b9; text-decoration: none;}
-.custom-box .custom-width .right-box a{font-size:18px; color:#000;}
+.custom-box .custom-width .right-box a{font-size:18px; color:#000; transition:none;}
 .custom-box.tabindex{padding-top:60px;}
 
 .how-it-popup .modal-header h1{text-align:center; font-size:40px; font-weight:bold;}

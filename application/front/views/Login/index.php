@@ -33,7 +33,7 @@
       <div class="mid-trns">
 
 
-<div>
+<div id="error1" style="display:block;">
 
                         <?php  
                                         if ($this->session->flashdata('error')) {
@@ -62,7 +62,7 @@
             <form role="form" name="login_form" id="login_form" method="post">
                 
                 <div class="form-group">
-                  <input type="email" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address*">
+                  <input type="email" value="<?php echo $email; ?>" name="email_login" id="email_login" class="form-control input-sm" placeholder="Email Address*">
                 </div>
               <div class="form-group">
                   <input type="password" name="password_login" id="password_login" class="form-control input-sm" placeholder="Password*">
@@ -70,7 +70,7 @@
               
                 <p class="pt-20 ">
                 <button class="btn1 ">Login</button>
-              </p>
+                </p>
               
                   <p class=" text-center">
                 <a href="javascript:void(0)" id="myBtn">Forgot Password ?</a>
@@ -246,6 +246,7 @@
                                         type: 'POST',
                                         url: '<?php echo base_url() ?>registration/check_login',
                                         data: post_data,
+                                        dataType: "json",
                                         beforeSend: function ()
                                         {
                                             $("#error").fadeOut();
@@ -253,16 +254,17 @@
                                         },
                                         success: function (response)
                                         { 
-                                            if (response == "ok") {
+                                            if (response.data == "ok") {
                                                 $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
 
                                                window.location= "<?php echo base_url() ?>dashboard"; 
 
                                                 //setTimeout(' window.location.href = "<?php //echo base_url() ?>home"; ', 4000);
                                                // setTimeout(' window.location.href = ""; ', 4000);
-                                            }else if(response == "password"){
+                                            }else if(response.data == "password"){
 
                                              $("#error").fadeIn(1000, function () {
+                                                 document.getElementById('error1').style.display = 'none';
                                                     $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 }); 
@@ -270,6 +272,7 @@
                                             }
                                             else { 
                                                 $("#error").fadeIn(1000, function () {
+                                                     document.getElementById('error1').style.display = 'none';
                                                     $("#error").html('<div class="alert alert-danger"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
                                                     $("#btn-login").html('Login');
                                                 });
@@ -357,5 +360,6 @@ $(document).ready(function () { //aletr("hii");
         }
     });   
 </script>
+
 </body>
 </html>

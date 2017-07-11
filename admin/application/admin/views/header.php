@@ -22,13 +22,16 @@
         <!-- Morris chart -->
         <!--<link rel="stylesheet" href="<?php // echo base_url('admin/plugins/morris/morris.css');   ?>">-->
 
-       
+        <!-- Fancybox Css Start -->
+        <link rel="stylesheet" href="<?php echo SITEURL.('css/jquery.fancybox.css') ?>" />
+        <!-- Fancybox Css End -->
+
         <!-- Date Picker -->
-        <!--<link rel="stylesheet" href="<?php echo base_url('admin/plugins/datepicker/datepicker3.css'); ?>">-->
+        <!--<link rel="stylesheet" href="<?php //echo base_url('admin/plugins/datepicker/datepicker3.css'); ?>">-->
         <!-- Daterange picker -->
-        <!--<link rel="stylesheet" href="<?php echo base_url('admin/plugins/daterangepicker/daterangepicker-bs3.css'); ?>">-->
+        <!--<link rel="stylesheet" href="<?php //echo base_url('admin/plugins/daterangepicker/daterangepicker-bs3.css'); ?>">-->
         <!-- bootstrap wysihtml5 - text editor -->
-        <!--<link rel="stylesheet" href="<?php echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'); ?>">-->
+        <!--<link rel="stylesheet" href="<?php //echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'); ?>">-->
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,11 +57,11 @@
         <script src="<?php echo base_url('admin/plugins/knob/jquery.knob.js'); ?>"></script>
         <!-- daterangepicker -->
     <!---     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script> // Ankit  -->  
-        <!--<script src="<?php echo base_url('admin/plugins/daterangepicker/daterangepicker.js'); ?>"></script>-->
+        <!--<script src="<?php //echo base_url('admin/plugins/daterangepicker/daterangepicker.js'); ?>"></script>-->
         <!-- datepicker -->
-        <!--<script src="<?php echo base_url('admin/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>-->
+        <!--<script src="<?php //echo base_url('admin/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>-->
         <!-- Bootstrap WYSIHTML5 -->
-        <!--<script src="<?php echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>-->
+        <!--<script src="<?php //echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>-->
 
         <!-- Slimscroll -->
         <script src="<?php echo base_url('admin/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>
@@ -67,7 +70,7 @@
         <!-- AdminLTE App -->
         <script src="<?php echo base_url('admin/dist/js/app.min.js'); ?>"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <!--<script src="<?php echo base_url('admin/dist/js/pages/dashboard.js'); ?>"></script>-->
+        <!--<script src="<?php //echo base_url('admin/dist/js/pages/dashboard.js'); ?>"></script>-->
         <!-- AdminLTE for demo purposes -->
         <script src="<?php echo base_url('admin/dist/js/demo.js'); ?>"></script>
         <!-- CK Editor -->
@@ -88,12 +91,18 @@
         <link rel="stylesheet" href="<?php echo base_url('admin/bootstrap/css/bootstrap-datetimepicker.min.css'); ?>">
         <!-- Date And Times -->
         
+        <!-- Me Extra added CSS Start-->
+        <link rel="stylesheet" href="<?php echo base_url('admin/dist/css/admin.css'); ?>">
+       <!-- Me Extra added CSS End-->
 
         <!--          Resolve conflict in jQuery UI tooltip with Bootstrap tooltip 
             <script>
               $.widget.bridge('uibutton', $.ui.button);
             </script>-->
 
+        <!-- Fancybox Js Start -->
+       <script src="<?php echo SITEURL.('js/jquery.fancybox.js'); ?>"></script>
+        <!-- Fancybox Js End -->
 
         <!--for multiple delete-->
         <script type="text/javascript">
@@ -135,8 +144,8 @@
             });
         </script>
         
-<!--        <link rel="stylesheet" type="text/css" href="<?php echo base_url('admin/plugins/clockpicker/bootstrap-clockpicker.min.css'); ?>">
-        <script type="text/javascript" src="<?php echo base_url('admin/plugins/clockpicker/bootstrap-clockpicker.min.js'); ?>"></script>-->
+<!--        <link rel="stylesheet" type="text/css" href="<?php //echo base_url('admin/plugins/clockpicker/bootstrap-clockpicker.min.css'); ?>">
+        <script type="text/javascript" src="<?php //echo base_url('admin/plugins/clockpicker/bootstrap-clockpicker.min.js'); ?>"></script>-->
 
 
     </head>

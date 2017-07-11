@@ -588,17 +588,24 @@ public function check_login() {
             } else {
                // $userinfo[0]['user_id'] = $this->input->post('user_id');
                 $this->session->set_userdata('aileenuser', $userinfo[0]['user_id']);
-                echo 'ok';
+               $data =  'ok';
                 
             }
         } else if($email_login == $result[0]['user_email']) {
-            echo 'password';
+             $data = 'password';
+             $id = $result[0]['user_id'];
         }else{
 
-            echo 'Please enter valid email address';
+             $data = 'email';
 
 
         }
+         
+        echo json_encode(
+                        array(
+                            "data" => $data,
+                            "id" => $id,
+               ));
 
     }
 //login validation end

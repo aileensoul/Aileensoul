@@ -13743,10 +13743,10 @@ text-align: center;}
 .header ul li:last-child {
     border-right: none;
 }
-.header ul li.dropdown-user a {
+/*.header ul li.dropdown-user a {
     padding-top: 11px !important;
     padding-bottom: 11px !important;
-}
+}*/
 .header ul li a {
     padding-bottom: 10px !important;
     padding-top: 6.3px!important;
