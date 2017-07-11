@@ -96,9 +96,9 @@
                      <div class="contact-frnd-post">
                         <?php
                            if ($falguni == 1) {
-                       
+
                               // if (count($postdetail) > 0 && $postdetail[0][0] != '') {
-                          if (count($postdetail) > 0 && $postdetail[0][0] != '' && $postdetail[0] != '') {
+                          if (count($postdetail) > 0) { 
                                    foreach ($postdetail as $postdetail1) {
                                        foreach ($postdetail1 as $post) {
                                        ?> 
@@ -316,14 +316,7 @@
                            }
                            }
                            } 
-                           elseif ($postdetail[0][0] == '' || $postdetail[0] == '')
-                           {
-                            ?>
-                                 <div class="text-center rio">
-                              <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Job Post Not Found.</h4>
-                            </div>
-                            <?php
-                           }
+                          
                            else {
                            
                            ?>
@@ -334,7 +327,7 @@
                            }
                            } else { 
                            // if (count($postdetail) > 0 && $postdetail[0][0] != '') {
-                            if (count($postdetail) > 0 && $postdetail[0][0] != '' && $postdetail[0] != '') {
+                            if (count($postdetail) > 0) {
                                foreach ($postdetail as $post_key => $postdetail1){
                                 foreach ($postdetail1 as $post) {
                                    ?> 
@@ -448,14 +441,6 @@
                            } 
                            }
                          }
-                         elseif ($postdetail[0][0] == '' || $postdetail[0] == '')
-                           {
-                            ?>
-                                 <div class="text-center rio">
-                              <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Job Post Not Found.</h4>
-                            </div>
-                            <?php
-                          }
                             else {   
                                 ?>
 

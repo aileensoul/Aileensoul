@@ -4320,7 +4320,7 @@ $files[] = $_FILES;
     }
 
     //job seeker SAVE PDF Download controller end
-    //job seeker Job All Post Start
+     //job seeker Job All Post Start
     public function job_all_post() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -4390,18 +4390,16 @@ $files[] = $_FILES;
                }
 
                  if (count($recommendata) == 0) {
-                  
+                
                 $unique = $recommendata1;
            // $unique = array_filter(array_map('trim', $unique));
                 
             } 
             elseif (count($recommendata1) == 0) {
-
                 $unique = $recommendata;
                //   $unique = array_filter(array_map('trim', $unique));
             }
             else {
-
                 $unique = array_merge($recommendata1, $recommendata);
                   //$unique = array_filter(array_map('trim', $unique));
             }
@@ -4409,9 +4407,9 @@ $files[] = $_FILES;
               //$unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
+                 $qbc  = array_filter($qbc);
                  $this->data['postdetail'] = $qbc;
-//echo "<pre>";print_r($unique);die();
-//if($postdetail[0][0] != '')
+                 
                
         $this->data['falguni'] = 1;
 // code for search
