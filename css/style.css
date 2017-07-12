@@ -9981,20 +9981,17 @@ chat end*/
     background: white;
     padding: 25px 30px 20px;
     /* border-bottom: 1px solid white; */
-    
-    overflow-y: scroll;
+    display:block;
+   overflow-y: scroll;
     height: 438px;
-    flex-direction: column-reverse;
-	display: -moz-flex; /* Safari */
-	display: -webkit-flex; /* Safari */
-    
+   /* flex-direction: column-reverse;
+	display: -moz-flex; 
+	display: -webkit-flex; 
+     
     display: flex !important;
 	-webkit-flex-direction: column-reverse;
-	-moz-flex-direction: column-reverse;
-	
-	
-	
-	
+	-moz-flex-direction: column-reverse;*/
+
 }
 .chat .chat-history .message-data {
     margin-bottom: 15px;
