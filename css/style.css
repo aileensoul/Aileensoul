@@ -1,4 +1,4 @@
-﻿boxContainer﻿/* font-family: 'FontAwesome'; */
+﻿/* font-family: 'FontAwesome'; */
 
 body {
     position: relative;
@@ -8578,7 +8578,7 @@ fieldset .add_post_btns {
 }
 label.cameraButton:hover {
     opacity: 1.0
-}
+}/*
 #notificationsBody::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
@@ -8596,7 +8596,7 @@ label.cameraButton:hover {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .3);
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-}
+}*/
 .img_work_exp {
     height: 100px;
     width: 100px;
@@ -9825,7 +9825,7 @@ chat end*/
 }
 .people-list {
     border-right: 1px solid #ccc;
-    width: 258px;
+    width: 20%;
     float: left;
     opacity: 0.9;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
@@ -9907,7 +9907,7 @@ chat end*/
 }
 .chat {
     height: 553px;
-    width: 1005px;
+    width: 80%;
     float: left;
     background-color: #444753;
     /* margin-left: 10px; */
@@ -9985,7 +9985,16 @@ chat end*/
     overflow-y: scroll;
     height: 438px;
     flex-direction: column-reverse;
+	display: -moz-flex; /* Safari */
+	display: -webkit-flex; /* Safari */
+    
     display: flex !important;
+	-webkit-flex-direction: column-reverse;
+	-moz-flex-direction: column-reverse;
+	
+	
+	
+	
 }
 .chat .chat-history .message-data {
     margin-bottom: 15px;
