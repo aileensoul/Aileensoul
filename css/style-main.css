@@ -1449,7 +1449,12 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 }
 @media screen and (max-width: 320px) {
 .login .form-group select{width:60px; margin-right: 5px; }
-
+.por_content ul li .pro-text{font-size: 12px;}
+.por_content ul li img{margin-right: 3px;
+float: left;
+width: 40px;
+height: 40px;}
+.por_content ul li .pro-text .count{width: 14px;}
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) { 

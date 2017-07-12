@@ -158,7 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="chat-about">
                                 <div class="chat-with">
-                                    <a href="">  <?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name']; ?></a>  </div>
+                                    <span>  <?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name']; ?></span>  </div>
                                 <div class="chat-num-messages"> Current Work</div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
-                                            <div class="comment" contentEditable="true" name="comments" id="message"  style="position: relative;"></div>
+                                            <div class="comment" contentEditable="true" name="comments" id="message" placeholder="Type your message here..." style="position: relative;"></div>
                                             <div for="smily"  class="smily_b" >
                                                 <div id="notification_li1" >
                                                     <a class="smil" href="#" id="notificationLink1" ">
@@ -250,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
-                                            <div class="form-control input-sm" contentEditable="true" name="comments"  id="message  smily" style="position: relative;"></div>
+                                            <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
                                             <div for="smily"  class="smily_b">
                                                 <div id="notification_li" >
                                                     <a href="#" id="notificationLink"><i class="em em-blush"></i></a>
