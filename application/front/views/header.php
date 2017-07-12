@@ -507,9 +507,7 @@ if($userid){?>
 
                                             </div>
                                 
-                                 <?php if($message_seeall){   ?> 
-                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
-                             <?php    } ?>
+                          
                                            
                                         </div>
                                 </li>
