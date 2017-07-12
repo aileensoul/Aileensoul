@@ -53,7 +53,7 @@
 
 <!--         <div id="error"></div>-->
 
-        <div class="inner-form">
+        <div class="inner-form login-frm">
           <div class="login">
               <div class="title">
           <h1 class="ttc">Welcome To Aileensoul</h1>

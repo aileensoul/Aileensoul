@@ -63,7 +63,7 @@ body{
 .fs12{font-size:12px;}
 .red{color:#ff0000;}
 .ttc{text-transform:capitalize !important;}
-
+.login-frm{width:480px !important;}
 /***  buttons  ***/
 .btn1{
 	background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
@@ -128,7 +128,7 @@ body{
 	background-size:100%;*/
 	/*padding-bottom:60px;*/
 }
-
+.login-frm .login form{padding: 16px 60px 15px;}
 /***  header  ***/
 header{
     z-index: 10;
@@ -1350,6 +1350,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	.carousel-fade .carousel-caption .carousel-text{float:none; text-align:center;}
 	.login{width:444px;}
 	.inner-form{width:100%; padding: 0 14px;}
+	.login-frm{width: 100%!important;}
     .title{width:100%;}
 	.inner-form .login{width:99%;}
 	footer{text-align:center;}
