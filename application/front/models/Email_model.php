@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Email_model extends CI_Model {
-	
-	function __construct()
+    
+    function __construct()
     {
         parent::__construct();
     }
 
     
-	
- 	function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '', $cc = '', $bcc = '') {
+    
+    function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '', $cc = '', $bcc = '') {
 
-//echo "hi"; die();
+//echo "<pre>"; print_r($to_email); die();
          //Loading E-mail Class
          $this->load->library('email');
 
@@ -61,7 +61,7 @@ class Email_model extends CI_Model {
                 <td style="border-bottom:1px solid #ddd;">
                     <table width="100%" cellpadding="0" cellspacing="0">';
                         $mail_html .= $mail_body;
-              $mail_html .=      '</table>
+                       $mail_html .= '</table>
                 </td>
             </tr>
             <tr>
@@ -69,27 +69,27 @@ class Email_model extends CI_Model {
                     <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="m1.png">
+                                <img src="'.base_url() .'img/m1.png">
                                 <h3 style="font-size:13px;">Job Profile</h3>
                                 <p style="font-size:9px;">Find best job options and connect with recruiters.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="m2.png">
+                                <img src="'.base_url() .'img/m2.png">
                                 <h3 style="font-size:13px;">Recruiter Profile</h3>
                                 <p style="font-size:9px;">Hire quality employees here.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="m3.png">
+                                <img src="'.base_url() .'img/m3.png">
                                 <h3 style="font-size:13px; ">Freelance Profile</h3>
                                 <p style="font-size:9px;">Hire freelancers and also find freelance work.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="m4.png">
+                                <img src="'.base_url() .'img/m4.png">
                                 <h3 style="font-size:13px;">Business Profile</h3>
                                 <p style="font-size:9px;">Grow your business network.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="m5.png">
+                                <img src="'.base_url() .'img/m5.png">
                                 <h3 style="font-size:13px;">Artistic Profile</h3>
                                 <p style="font-size:9px;">Show your art & talent to the world.</p>
                             </td>
@@ -139,22 +139,22 @@ class Email_model extends CI_Model {
 
 //         $this->email->subject($subject);
 //         $this->email->message(html_entity_decode($mail_body));
-        $to = "falguni.aileensoul@gmail.com";
-        $sub = "khytiii";
+        //$to = "falguni.aileensoul@gmail.com";
+        //$sub = "khytiii";
 
         $this->email->from('aileensoul@gmail.com', 'Aileensoul');
-        $this->email->to($to);
+        $this->email->to($to_email);
         $this->email->reply_to('no-replay@aileensoul.com', 'Explendid Videos');
-        $this->email->subject($sub);
+        $this->email->subject($subject);
         $this->email->message($mail_html);
         $this->email->set_mailtype("html");
         $this->email->send();
    
 //echo '<pre>'; print_r($this->email->print_debugger()); die();
          if ($this->email->send()) {
-            echo "111"; die();
+            //echo "111"; die();
              return true;
-         } else {  echo "222"; die();
+         } else {  //echo "222"; die();
              return FALSE;
         }
     }
