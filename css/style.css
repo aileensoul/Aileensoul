@@ -1,4 +1,4 @@
-#InboxContainer﻿/* font-family: 'FontAwesome'; */
+﻿boxContainer﻿/* font-family: 'FontAwesome'; */
 
 body {
     position: relative;
@@ -13745,7 +13745,7 @@ input[type=number]::-webkit-outer-spin-button {
     float: left;
     max-height: 300px;
     overflow-y: auto;
-}
+}.custom-box.even-custom{border-bottom:1px solid transparent;}
 .contct-no li {
     border-bottom: none !important;
     padding: 30px 0px 0px 5px !important;

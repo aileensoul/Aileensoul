@@ -1131,6 +1131,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 .right-profile .art-r:hover{background:#1b8ab9 url("../img/fi5_hover.png") no-repeat scroll 0 0; border:1px solid #1b8ab9;}
 
 .custom-box{padding:50px 0; }
+.custom-box.even-custom{border-bottom:none;}
 .custom-box.even{ border-top: 1px solid #d9d9d9; border-bottom: 1px solid #d9d9d9; }
 .custom-box.even:hover{ border-top: 1px solid transparent; border-bottom: 1px solid transparent; }
 .custom-box:hover{background:#fff; box-shadow:0 15px 25px -7px rgba(0,0,0,0.09), 0 -12px 10px -10px rgba(0,0,0,0.04); border-bottom:none;}
