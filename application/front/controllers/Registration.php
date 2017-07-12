@@ -446,7 +446,7 @@ public function check_email() { //echo "hello"; die();
           // echo $msg; die();
             $subject = "Aileensoul account verification link";
           
-            $mail = $this->email_model->do_email($msg, $subject,$toemail,$from);
+            $mail = $this->email_model->sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $msg);
 
            $allowedgmail = 'gmail.com';
            $allowedyahoo = 'yahoo.com';
