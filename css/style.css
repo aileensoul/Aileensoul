@@ -11,7 +11,33 @@
     font-style: normal;
 
 }
-
+@font-face {
+ font-family: 'Gotham Book';
+ src: url('../fonts/font/Gotham-Book.eot');
+ src: url('../fonts/font/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/font/Gotham-Book.woff') format('woff'),
+  url('../fonts/font/Gotham-Book.ttf') format('truetype');
+ font-weight: normal;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'Gotham';
+ src: url('../fonts/font/Gotham-Medium.eot');
+ src: url('../fonts/font/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/font/Gotham-Medium.woff') format('woff'),
+  url('../fonts/font/Gotham-Medium.ttf') format('truetype');
+ font-weight: 500;
+ font-style: normal;
+}
+@font-face {
+ font-family: 'Helvetica LT Narrow';
+ src: url('../fonts/font/HelveticaLT-Narrow-Bold.eot');
+ src: url('../fonts/font/HelveticaLT-Narrow-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/font/HelveticaLT-Narrow-Bold.woff') format('woff'),
+  url('../fonts/font/HelveticaLT-Narrow-Bold.ttf') format('truetype');
+ font-weight: bold;
+ font-style: normal;
+}
 @font-face {
     font-family: 'robotoblack';
     src: url('../fonts/font/roboto-black-webfont.eot');
