@@ -147,7 +147,7 @@ class Registration extends CI_Controller {
         //for getting last insrert id
             $user_id = $this->db->insert_id();
 
-        setcookie('cookie_userid',$user_id, time() + (10 * 365 * 24 * 60 * 60) , '/' );
+       // setcookie('cookie_userid',$user_id, time() + (10 * 365 * 24 * 60 * 60) , '/' );
 
            
            if($user_id){ 

@@ -38,17 +38,10 @@
             if ($userdata[0]['user_verify'] == 0 && count($result) > 0) { //echo "hii"; die();
                 ?>
 
-                <?php 
-                $cok = $_COOKIE['cookie_userid'];
-
-                if($userid == $cok){?>
                 
-                <div class="profile-text1 animated fadeInDownBig">
+                 <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
 
-                <?php }else{?>
-                 <div class="profile-text1 animated fadeInDownBig" id="verifydiv" style="display: none">
-
-                <?php }?>
+                
 
                 <div class="alert alert-warning  vs-o">
                 <div class="email-verify">
@@ -61,14 +54,47 @@
                     <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
 					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a> </span>
 					 </span>
-                   <span class="fr cls-ve"><i class="fa fa-times" aria-hidden="true"></i> </span>
+                   <span class="fr cls-ve" onclick="return closever();"><i class="fa fa-times" aria-hidden="true"></i> </span>
                    </span>
                 </div>
                 </div>
 
                 </div> 
-            <?php }
+            <?php }else if($userdata[0]['user_verify'] == 2 && count($result) > 0){
+
+            	$d1 = strtotime($userdata[0]['user_last_login']);
+            	$d2 = strtotime(date("Y-m-d H:i:s"));
+                $result_var =$d2- $d1;
+                $hours = $result_var / 60 /  60;
+
+                
+
+           		if($hours > 24 && $userdata[0]['user_verify'] == 2){
             ?>
+
+
+                <div class="profile-text1 animated fadeInDownBig" id="verifydiv">
+
+                
+                <div class="alert alert-warning  vs-o">
+                <div class="email-verify">
+					<span class="email-img"><img src="images/email.png"></span>
+                    <span class="main-txt">
+                    <span class="as-p">
+                       We have send you an activation email address on your email , Click the link in the mail to verify your email address.   
+                    </span>
+                    <span class="ves_c">
+                    <span class="fw-50"> <a class="vert_email " onClick="sendmail(this.id)" id="<?php echo $userdata[0]['user_email']; ?>">Verify Email Address</a></span>
+					 <span class="fw-50"> <a class="chng_email" href="">Change Email Address</a> </span>
+					 </span>
+                   <span class="fr cls-ve" onclick="return closever();"><i class="fa fa-times" aria-hidden="true"></i> </span>
+                   </span>
+                </div>
+                </div>
+
+                </div> 
+            
+            <?php } }?>
 
         
                          <!--verify link end-->
@@ -1075,41 +1101,25 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
 <script type="text/javascript">
 
-
- $('.fr').on('click', function(){ //alert("hii");
-        $('#verifydiv').hide();
-    });
-
-
-</script>
-
-<script>
-  
-   $("document").ready(function (){ 
-
-     // load the overlay
-
-  if (document.cookie.indexOf('visited=true') == -1) {
-  var fifteenDays = 1000*60*60*24*1;
-  var expires = new Date((new Date()).valueOf() + fifteenDays);
-  document.cookie = "visited=true;expires=" + expires.toUTCString();
-
-   document.getElementById("verifydiv").style.display = "block";
-  }
+function closever(){ 
 
 
 
-});
-  
-  </script>
+     $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() ?>dashboard/closever',
+            success: function (response){
 
-<script type="text/javascript">
-$("document").ready(function (){ 
-deleteAllCookies();
+            	$('#verifydiv').hide();
+            }
+         })
 
-});	
+
+}
 
 </script>
+
+
 
 </body>
 </html>
