@@ -1714,6 +1714,20 @@ $loginuser = $userdata[0]['art_id'];
 
 
         <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal-limit" role="dialog">
+                        <div class="modal-dialog modal-lm deactive">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal" id="common-limit">&times;</button>       
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
+
+        <!-- Bid-modal  -->
         <div class="modal fade message-box biderror" id="profileimage" role="dialog">
             <div class="modal-dialog modal-lm">
                 <div class="modal-content">
@@ -4126,7 +4140,7 @@ function imgval(event) {
                else if (foundPresentvideo == false) {
    
                    $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-                   $('#bidmodal').modal('show');
+                   $('#post').modal('show');
                    setInterval('window.location.reload()', 10000);
    
                     $( document ).on( 'keydown', function ( e ) {
@@ -4260,7 +4274,7 @@ $(document).ready(function(){
                     //    alert(msg);
                    // my_form.text_num.value = maxLen - my_form.my_text.value.length;
                     $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
-                    $('#bidmodal').modal('show');
+                    $('#bidmodal-limit').modal('show');
                     // Reached the Maximum length so trim the textarea
                     my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
                 } else {
@@ -4446,19 +4460,31 @@ jQuery(document).mouseup(function (e) {
         $('#myModal3').modal('show');
     });
 
+  $('#common-limit').on('click', function(){
+        $('#myModal3').modal('show');
+    });
+
+
 
 </script>
 
 
 <script type="text/javascript">
     
+ 
+
+
 $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
-        $('#likeusermodal').modal('hide');
+
+if(document.getElementById('bidmodal-limit').style.display === "block"){ //alert("hii");
+        $('#bidmodal-limit').modal('hide');
+        $('#myModal3').model('show');
+ }
+
     }
 });  
-
 
 
 $( document ).on( 'keydown', function ( e ) {
