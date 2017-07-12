@@ -56,22 +56,12 @@ class Email_model extends CI_Model {
                     </table>
                 </td>
             </tr>
+
             <tr>
                 <td style="border-bottom:1px solid #ddd;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td style="text-align:center; padding-top:15px;">
-                                <img src="male.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center; padding:10px 0 30px; font-size:15px;">
-                                <p style="margin:0;">Hi, Niraj Mandaliya</p>
-                                <p style="padding:25px 0 ; margin:0;">Aileensoul has send you verification mail for verify your account successfully.</p>
-                                <p><a class="btn" href="#">verify account</a></p>
-                            </td>
-                        </tr>
-                    </table>
+                    <table width="100%" cellpadding="0" cellspacing="0">';
+                        $mail_html .= $mail_body;
+              $mail_html .=      '</table>
                 </td>
             </tr>
             <tr>
@@ -149,7 +139,7 @@ class Email_model extends CI_Model {
 
 //         $this->email->subject($subject);
 //         $this->email->message(html_entity_decode($mail_body));
-        $to = "khyati.aileensoul@gmail.com";
+        $to = "falguni.aileensoul@gmail.com";
         $sub = "khytiii";
 
         $this->email->from('aileensoul@gmail.com', 'Aileensoul');
