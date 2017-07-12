@@ -724,7 +724,7 @@ $( document ).on( 'keydown', function ( e ) {
 	$( document ).ready(function() {
     
 		// hover
-		$(function(){
+		/*$(function(){
 		$(".dropdown").hover(            
 				function() {
 					$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
@@ -736,7 +736,7 @@ $( document ).on( 'keydown', function ( e ) {
 					$(this).toggleClass('open');
 					//$('b', this).toggleClass("caret caret-up");                
 				});
-		});
+		});*/
 
 			
 			
