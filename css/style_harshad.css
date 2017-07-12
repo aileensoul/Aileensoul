@@ -1,22 +1,14 @@
-
-#notificationsBody::-webkit-scrollbar {
-  width: .4em; 
+.notifications{
+	overflow: auto;
+	position: relative;
+	padding: 20px;
+	background: #fff;
+	margin: 10px;
+	width: 740px;
+	max-width: 97%;
+	height: 400px;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 }
-#notificationsBody::-webkit-scrollbar,
-#notificationsBody::-webkit-scrollbar-thumb {
-  overflow:visible;
-  border-radius: 4px;
-}
-#notificationsBody::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,.2); 
-}
-
-/* MAGIC HAPPENS HERE */
-#notificationsBody:hover .cover-bar {
-   opacity: 0;
-  -webkit-transition: all .5s;
-}
-
 
 
 

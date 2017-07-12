@@ -51,6 +51,7 @@ $(window).load(function(){
     /*style for span id=message_count End*/
 
 </style>
+
 <!-- style for span id=notification_count end-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
@@ -58,7 +59,11 @@ $(window).load(function(){
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+    <link rel="stylesheet" href="<?php echo base_url('css/jquery.mCustomScrollbar.css'); ?>">
+    <script src="<?php echo base_url('js/jquery.mCustomScrollbar.concat.js') ?>"></script>
+
 <script type="text/javascript" charset="utf-8">
+
 
     function addmsg(type, msg)
     {
@@ -789,7 +794,32 @@ if($userid){?>
       <?php  }?>
 
     
+  <script>
+        (function($){
+            $(window).on("load",function(){
+                
+                $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+                $.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+                
+                
+                
+                $("#notificationsBody").mCustomScrollbar({theme:"minimal"}); 
 
+                $(".all-themes-switch a").click(function(e){
+                    e.preventDefault();
+                    var $this=$(this),
+                        rel=$this.attr("rel"),
+                        el=$(".notifications");
+                    switch(rel){
+                        case "toggle-content":
+                            el.toggleClass("expanded-content");
+                            break;
+                    }
+                });
+                
+            });
+        })(jQuery);
+    </script>
     <!-- header end -->
 
     <!-- script for update all read notification start-->
@@ -888,7 +918,7 @@ if($userid){?>
 
         }
     </script>
-    <!------  commen script harshad  ---------------->
+    <!--- commen script harshad  -->
     <script>
         jQuery(document).ready(function($) {
          if(screen.width <= 767){
@@ -955,4 +985,4 @@ window.onclick = function(event) {
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
-
+  
