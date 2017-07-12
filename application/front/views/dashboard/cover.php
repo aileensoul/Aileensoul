@@ -1120,9 +1120,8 @@ function closever(){
 </script>
 
 
-<<<<<<< HEAD
-=======
-//on hover click class add and class remove start
+<script type="text/javascript">
+	//on hover click class add and class remove start
 $(".odd").hover(function() {
     $('.even').addClass("even-custom");
 }, function() {
@@ -1131,7 +1130,9 @@ $(".odd").hover(function() {
 //on hover click class add and class remove End
 
 </script>
->>>>>>> 2c437ffeb55e0658bffb38d954167a6d78e0701c
+
+
+
 
 </body>
 </html>

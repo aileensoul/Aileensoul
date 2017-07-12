@@ -109,8 +109,10 @@
                                 </fieldset>
 
                                 <fieldset <?php if($email) {  ?> class="error-msg" <?php } ?>>
+
+                                <?php $user_email = strtolower($art[0]['user_email']); ?>
                                     <label>E-mail address:<span style="color:red">*</span></label>
-                                    <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter E-mail address" value="<?php if($email1){ echo $email1; } else { echo $art[0]['user_email']; } ?>">
+                                    <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter E-mail address" value="<?php if($email1){ echo $email1; } else { echo $user_email; } ?>">
                                      <?php echo form_error('email'); ?>
                                 </fieldset>
                                

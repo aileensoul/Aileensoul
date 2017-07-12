@@ -437,11 +437,11 @@ public function check_email() { //echo "hello"; die();
             
             $toemail= $email; 
             
-           $msg = "Hey !" . $username ."<br/>"; 
+            $msg = "Hey !" . $username ."<br/>"; 
             $msg .=  " " . $firstname . " " . $lastname . ",";
             $msg .= "Click hear to verify your account";
             $msg .= "<br>"; 
-           $msg .= "<a href='".base_url()."/registration/verify/" . $userid . "'>click here</a>"; 
+            $msg .= "<a href='".base_url()."/registration/verify/" . $userid . "'>click here</a>"; 
            
           // echo $msg; die();
             $subject = "Aileensoul account verification link";

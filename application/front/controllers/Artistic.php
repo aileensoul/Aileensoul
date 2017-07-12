@@ -105,11 +105,11 @@ class Artistic extends MY_Controller {
             if ($step == 1 || $step > 1) {
                 $this->data['firstname1'] = $userdata[0]['art_name'];
                 $this->data['lastname1'] = $userdata[0]['art_lastname'];
-                $this->data['email1'] = $userdata[0]['art_email'];
+                $this->data['email1'] = strtolower($userdata[0]['art_email']);
                 $this->data['phoneno1'] = $userdata[0]['art_phnno'];
             }
         }
-
+       // echo "<pre>"; print_r($this->data['email1']); die();
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
