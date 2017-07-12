@@ -794,32 +794,7 @@ if($userid){?>
       <?php  }?>
 
     
-  <script>
-        (function($){
-            $(window).on("load",function(){
-                
-                $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
-                $.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
-                
-                
-                
-                $("#notificationsBody").mCustomScrollbar({theme:"minimal"}); 
 
-                $(".all-themes-switch a").click(function(e){
-                    e.preventDefault();
-                    var $this=$(this),
-                        rel=$this.attr("rel"),
-                        el=$(".notifications");
-                    switch(rel){
-                        case "toggle-content":
-                            el.toggleClass("expanded-content");
-                            break;
-                    }
-                });
-                
-            });
-        })(jQuery);
-    </script>
     <!-- header end -->
 
     <!-- script for update all read notification start-->
@@ -985,4 +960,29 @@ window.onclick = function(event) {
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
-  
+  <script>
+        (function($){
+            $(window).on("load",function(){
+                
+                $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+                $.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+                
+                
+                
+                $("#notification").mCustomScrollbar({theme:"minimal"}); 
+
+                $(".all-themes-switch a").click(function(e){
+                    e.preventDefault();
+                    var $this=$(this),
+                        rel=$this.attr("rel"),
+                        el=$(".scrollbar-main");
+                    switch(rel){
+                        case "toggle-content":
+                            el.toggleClass("expanded-content");
+                            break;
+                    }
+                });
+                
+            });
+        })(jQuery);
+    </script>
