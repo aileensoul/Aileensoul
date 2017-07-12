@@ -10,7 +10,7 @@
         <title>Chat</title>
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-
+<link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
 
@@ -586,4 +586,6 @@
     {
         $("#bottom")[0].scrollTop = $("#bottom")[0].scrollHeight - $("#bottom").height();
     });
+    
+    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>

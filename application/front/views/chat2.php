@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <title>Chat | Aileensoul</title>
-
+<link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
 
@@ -606,4 +606,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         newheight = message.scrollHeight;
         message.style.height = newheight + "px";
     })
+    
+    
+    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>

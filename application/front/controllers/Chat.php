@@ -341,7 +341,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
 $selectuser = array_merge($seltousr,$selfromusr);
 $selectuser =  $this->aasort($selectuser,"id");
-
+//echo '<pre>'; print_r($selectuser); die();
 
 // replace name of message_to in user_id in select user
 
@@ -466,11 +466,11 @@ if($from_list['message_from'] != $id){
 }
     } 
 
-   
+//   echo '<pre>'; print_r($return_arrayto); 
+//   echo '<pre>'; print_r($return_arrayfrom); die();
 
  $userlist = array_merge($return_arrayto,$return_arrayfrom);
  
-
    // uniq array of fromlist  
 foreach($userlist as $k => $v) 
 {
@@ -484,11 +484,11 @@ foreach($userlist as $k => $v)
 }
 
 
+
 $userlist =  $this->aasort($userlist,"id");
 
 $this->data['userlist'] = array_merge($return_arraysel,$userlist);
 
-//echo '<pre>'; print_r($this->data['userlist']); die();
 
    // khytai changes 22-4 end
     
