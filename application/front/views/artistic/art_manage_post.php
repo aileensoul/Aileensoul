@@ -1136,7 +1136,7 @@ $loginuser = $userdata[0]['art_id'];
                                                     <?php if (count($artmultiimage) == 1) { ?>
 
                                                         <?php
-                                                        $allowed = array('gif', 'png', 'jpg','PNG');
+                                                        $allowed = array('gif', 'png', 'PNG', 'jpg','PNG');
                                                         $allowespdf = array('pdf');
                                                         $allowesvideo = array('mp4', 'webm');
                                                         $allowesaudio = array('mp3');
@@ -2647,7 +2647,7 @@ if (size > 10485760)
                 post_comment = post_comment.replace(/<br>$/, '');
                 post_comment = post_comment.replace(/div>/gi, 'p>');
 
-                alert(post_comment);
+               // alert(post_comment);
                // return false;
 
                 if (post_comment == '' || post_comment == '<br>') {
@@ -3651,10 +3651,10 @@ if (size > 10485760)
                     dataType: 'json',
                     data: 'art_post_id=' + abc,
                     //alert(data);
-                    success: function (data) {
+                    success: function (data) { //alert('#' + 'removepost' + abc);
 
                         $('#' + 'removepost' + abc).remove();
-                        if(data.notcount == 0){
+                        if(data.notcount == 0){ 
                             $('.' + 'nofoundpost').html(data.notfound);
                             $('.' + 'not_available').remove();
                             $('.' + 'image_profile').remove();
@@ -3744,6 +3744,9 @@ if (size > 10485760)
        document.getElementById('khyati' + abc).style.display = 'none';
        document.getElementById('khyatii' + abc).style.display = 'none';
 
+       $("#myDropdown" + abc).removeClass("show");
+
+
    }
 </script>
 <script type="text/javascript">
@@ -3760,7 +3763,7 @@ if (size > 10485760)
        editpostdetails = editpostdetails.replace(/&gt;/gi,">");
        
        editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
-       //editpostdetails = editpostdetails.replace(/div/gi, "p");
+       editpostdetails = editpostdetails.replace(/div/gi, "p");
        //editpostdetails = editpostdetails.replace(/"<div>"/gi, "</p>");
 
 

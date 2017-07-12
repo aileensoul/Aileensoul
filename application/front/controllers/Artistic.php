@@ -10,6 +10,8 @@ class Artistic extends MY_Controller {
 
         $this->load->library('form_validation');
         $this->load->model('email_model');
+        $this->data['title'] = "Aileensoul";
+        
         if (!$this->session->userdata('aileenuser')) {
             redirect('login', 'refresh');
         }
@@ -2672,6 +2674,10 @@ $datacount = count($otherdata);
             $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
 
+
+        $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id']);
+        $followcount = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
             if ($insert) {
 
                 $follow = '<div id= "unfollowdiv" class="user_btn">';
@@ -2679,7 +2685,17 @@ $datacount = count($otherdata);
                                Following 
                       </button>';
                 $follow .= '</div>';
-                echo $follow;
+
+                $datacount = count($followcount);
+
+
+                 echo json_encode(
+                        array(
+                            "follow" => $follow,
+                            "count" => $datacount,
+                ));
+
+
             }
         }
     }
@@ -3705,7 +3721,7 @@ $datacount = count($otherdata);
 
                 //$cmtlike1 = '<div>';
                 $cmtlike1 = '<a id="' . $artdata1[0]['artistic_post_comment_id'] . '" onClick="comment_like(this.id)">';
-                $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $cmtlike1 .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span> ';
 
@@ -3845,7 +3861,7 @@ $datacount = count($otherdata);
 
                 //$cmtlike1 = '<div>';
                 $cmtlike1 = '<a id="' . $artdata1[0]['artistic_post_comment_id'] . '" onClick="comment_like1(this.id)">';
-                $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $cmtlike1 .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span> ';
 
@@ -3980,7 +3996,7 @@ $datacount = count($otherdata);
 
                     $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
                 $cmtinsert .= '<span> ';
 
@@ -4123,7 +4139,7 @@ $datacount = count($otherdata);
 
                     $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
                 $cmtinsert .= '<span> ';
 
@@ -7460,7 +7476,7 @@ $datacount = count($otherdata);
                 if (!in_array($userid, $likeuserarray)) {
                     $fourdata .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $fourdata .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $fourdata .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
 
                 $fourdata .= '<span> ';
@@ -7683,6 +7699,9 @@ $datacount = count($otherdata);
           foreach ($commnetcount as $comment) {
              
      $art_name1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+
+     $art_lastname = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+
      $designation = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->designation;
      $art_image = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_user_image;
    
@@ -7700,7 +7719,7 @@ $datacount = count($otherdata);
        $modal .=  '</div>';
        $modal .=  '<div class="like_user_list_main_desc">';
        $modal .=  '<div class="like_user_list_main_name">';
-       $modal .=  '' . ucwords($art_name1) . '';
+       $modal .=  '' . ucwords($art_name1) .' '.ucwords($art_lastname). '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
 
@@ -7763,6 +7782,7 @@ $datacount = count($otherdata);
           foreach ($likelistarray as $key => $value) {
              
      $art_name1 = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_name;
+     $art_lastname = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_lastname;
      $designation = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->designation;
      $art_image = $this->db->get_where('art_reg', array('user_id' => $value, 'status' => 1))->row()->art_user_image;
    
@@ -7780,7 +7800,7 @@ $datacount = count($otherdata);
        $modal .=  '</div>';
        $modal .=  '<div class="like_user_list_main_desc">';
        $modal .=  '<div class="like_user_list_main_name">';
-       $modal .=  '' . ucwords($art_name1) . '';
+       $modal .=  '' . ucwords($art_name1) .' '.ucwords($art_lastname) .'';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
 
