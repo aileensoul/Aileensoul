@@ -29,12 +29,10 @@
       </div>
     </div>
   </header>
-  <section class="middle-main mid-trns">
+  <section class="middle-main pd-low">
     <div class="container">
-      
-      
-        <div id="contactsucc"></div>
-
+		<div id="contactsucc"></div>
+		<div class="mid-trns">
 
         <div class="inner-form">
           <div class="login">
@@ -58,8 +56,8 @@
                 <div class="form-group">
                   <input type="email" name="contact_email" id="contact_email" class="form-control input-sm" placeholder="Email Address*">
                 </div>
-              <div class="form-group">
-                  <input type="text" name="contact_subject" id="contact_subject" class="form-control input-sm" placeholder="Subject*">
+				<div class="form-group">
+                    <input type="text" name="contact_subject" id="contact_subject" class="form-control input-sm" placeholder="Subject*">
                 </div>
               <div class="form-group">
                 <textarea type="text" id="contact_message" name="contact_message" class="form-control" placeholder="Message*"></textarea>
@@ -78,6 +76,7 @@
           </div>
         </div>
         
+		</div>
       
     </div>
   </section>
