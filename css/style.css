@@ -1,5 +1,207 @@
 ﻿/* font-family: 'FontAwesome'; */
 
+@font-face {
+    font-family: 'robotoblack';
+    src: url('../fonts/font/roboto-black-webfont.eot');
+    src: url('../fonts/font/roboto-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-black-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-black-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-black-webfont.svg#robotoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoblack';
+    src: url('../fonts/font/roboto-black-webfont.eot');
+    src: url('../fonts/font/roboto-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-black-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-black-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-black-webfont.svg#robotoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('../fonts/font/roboto-bold-webfont.eot');
+    src: url('../fonts/font/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-bold-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-bold-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/font/roboto-light-webfont.eot');
+    src: url('../fonts/font/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-light-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-light-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../fonts/font/roboto-medium-webfont.eot');
+    src: url('../fonts/font/roboto-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-medium-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-medium-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-medium-webfont.svg#robotomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/font/roboto-regular-webfont.eot');
+    src: url('../fonts/font/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-regular-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'times_new_romanbold';
+    src: url('../fonts/font/timesbd-webfont.eot');
+    src: url('../fonts/font/timesbd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/timesbd-webfont.woff2') format('woff2'),
+         url('../fonts/font/timesbd-webfont.woff') format('woff'),
+         url('../fonts/font/timesbd-webfont.svg#times_new_romanbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'swis721_blkcn_btblack';
+    src: url('../fonts/font/tt0173m_-webfont.eot');
+    src: url('../fonts/font/tt0173m_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/tt0173m_-webfont.woff2') format('woff2'),
+         url('../fonts/font/tt0173m_-webfont.woff') format('woff'),
+         url('../fonts/font/tt0173m_-webfont.svg#swis721_blkcn_btblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}.
+
+
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('../fonts/font/roboto-bold-webfont.eot');
+    src: url('../fonts/font/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-bold-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-bold-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/font/roboto-light-webfont.eot');
+    src: url('../fonts/font/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-light-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-light-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotomedium';
+    src: url('../fonts/font/roboto-medium-webfont.eot');
+    src: url('../fonts/font/roboto-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-medium-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-medium-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-medium-webfont.svg#robotomedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../fonts/font/roboto-regular-webfont.eot');
+    src: url('../fonts/font/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/roboto-regular-webfont.woff2') format('woff2'),
+         url('../fonts/font/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/font/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'times_new_romanbold';
+    src: url('../fonts/font/timesbd-webfont.eot');
+    src: url('../fonts/font/timesbd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/timesbd-webfont.woff2') format('woff2'),
+         url('../fonts/font/timesbd-webfont.woff') format('woff'),
+         url('../fonts/font/timesbd-webfont.svg#times_new_romanbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'swis721_blkcn_btblack';
+    src: url('../fonts/font/tt0173m_-webfont.eot');
+    src: url('../fonts/font/tt0173m_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/tt0173m_-webfont.woff2') format('woff2'),
+         url('../fonts/font/tt0173m_-webfont.woff') format('woff'),
+         url('../fonts/font/tt0173m_-webfont.svg#swis721_blkcn_btblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}.
 body {
     position: relative;
     font-size: 16px;
@@ -1019,6 +1221,8 @@ footer {
     right: 0;
     left: inherit !important;
     position: absolute;
+    border: none;
+    top: 50px;
 }
 ul.dropdown-menu li {
     display: block;
@@ -1050,7 +1254,7 @@ ul.dropdown-menu li a i {
 }
 .header ul li.dropdown-user ul li a {
     padding: 6px 10px;
-    font-size: 13px;
+    font-size: 15px;
     color: #787878;
 }
 .header ul li.dropdown-user ul li a:hover {
@@ -3557,18 +3761,18 @@ a:focus {
 }
 #notificationContainer {
     background-color: #fff;
-    border: 1px solid rgba(100, 100, 100, .4);
+   /* border: 1px solid rgba(100, 100, 100, .4);*/
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 25px;
+    top: 28px;
     margin-top: 28px;
     z-index: 2;
     display: none;
     float: left;
     width: 358px;
     right: 0;
-    border-radius: 9px;
+    border-radius: 5px;
 }
 /*#notificationContainer {
     background-color: #fff;
@@ -3605,9 +3809,10 @@ a:focus {
     padding: 0px 0px 0px 0px !important;
     overflow-y: auto;
     height: 276px;
+    overflow-x: hidden;
 }
 #notificationFooter {
-   
+ 
     z-index: 1000;
     position: absolute;
     top: 0;
@@ -3617,17 +3822,15 @@ a:focus {
     font-size: 12px;
    
 }
-#notificationFooter a:hover{text-decoration: underline;}
+#notificationFooter a:hover{text-decoration: underline; color: #1b8ab9;}
 #notificationFooter a {
     text-decoration: none;
-    color: #1b8ab9;
+    color: #000;
     padding: 3px 21px;
     font-size: 14px;
+      padding-top: 8px!important;
 }
-#notificationFooter a:hover {
-    text-decoration: none;
-    color: #000;
-}
+
 #notificationFooter a:focus {
     outline: none;
     text-decoration: none;
@@ -3636,7 +3839,8 @@ a:focus {
 #notificationTitle {
     position: relative;
     z-index: 1000;
-    /*font-weight: bold;*/
+    font-weight: normal;
+  font-family: Arial;
     padding: 8px;
     font-size: 17px;
     
@@ -3658,7 +3862,7 @@ a:focus {
     font-size: 11px;
 }
 .notification-data-inside {
-    margin-left: 62px;
+    margin-left: 65px;
     margin-top: -55px;
 }
 .notification-data-inside h6 {
@@ -3679,7 +3883,7 @@ a:focus {
 }
 .notification-database {
     height: 68px;
-    width: 355px;
+    width: 358px;
     ;
     /*border-bottom: 1px solid #999999;*/
 }
@@ -3713,13 +3917,13 @@ li.active2 {
     border-bottom: 1px solid #dddddd;
 }
 #InboxContainer {
-    border-radius: 9px;
+    border-radius: 5px;
     background-color: #fff;
-    border: 1px solid rgba(100, 100, 100, .4);
+    /*border: 1px solid rgba(100, 100, 100, .4);*/
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 25px;
+    top: 28px;
     margin-top: 28px;
     z-index: 2;
     display: none;
@@ -3756,16 +3960,13 @@ li.active2 {
 }
 .header ul li #notificationsmsgBody #InboxFooter a {
     text-decoration: none;
-    color: #1b8ab9;
+    color: #000;
     padding: 9px 21px!important;
     font-size: 14px;
 }
-#notificationsmsgBody #InboxFooter a:hover{text-decoration: underline; font-size: 14px;}
+.header ul li #notificationsmsgBody #InboxFooter a:hover{text-decoration: underline; font-size: 14px; color: #1b8ab9;}
 #notificationsmsgBody li{border-right: none !important;}
-#notificationsmsgBody #InboxFooter a:hover {
-    text-decoration: none;
-    color: #000;
-}
+
 #notificationsmsgBody #InboxFooter a:focus {
     outline: none;
     text-decoration: none;
@@ -9258,7 +9459,7 @@ fieldset .add_post_btns:hover {
     padding: 0px;
 }
 .notifications li {
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid #efefef;
 }
 .notifications li .notification-data-inside div {
     font-size: 11px;
@@ -9267,7 +9468,7 @@ fieldset .add_post_btns:hover {
     line-height: 1px;
 }
 .notificationsmsg li {
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid #efefef;
 }
 .tab-content .clearfix {
     border: 1px solid #bfbfbf;
@@ -9326,7 +9527,7 @@ fieldset .add_post_btns:hover {
 }
 .data_noti_msg {
     font-size: 12px;
-    font-weight: 600;
+   
     line-height: 1;
     color: #999;
 }
@@ -13855,7 +14056,7 @@ header.animated {
 .no-post-title h4{text-align:left;}
 .add-post-custom{float:left; padding-top:15px; padding-left:20px;}
 
-.noti-msg-y{font-size: 12px; color: #646464}
+.noti-msg-y{font-size: 12px; color: #646464; line-height: 16px;}
 
 /***  media query  ***/
 
