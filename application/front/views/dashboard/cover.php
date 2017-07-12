@@ -1109,6 +1109,14 @@ deleteAllCookies();
 
 });	
 
+//on hover click class add and class remove start
+$(".odd").hover(function() {
+    $('.even').addClass("even-custom");
+}, function() {
+    $('.even').removeClass("even-custom");
+});
+//on hover click class add and class remove End
+
 </script>
 
 </body>
