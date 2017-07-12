@@ -30,7 +30,7 @@ public function __construct()
 
 }
 
-
+//for list of all user start
 public function user() 
 {
    //echo '<pre>'; print_r($this->session->all_userdata()); die();
@@ -100,6 +100,7 @@ public function user()
 
         $this->load->view('job/user', $this->data);
 }
+//for list of all user End
 
 //deactivate user with ajax Start
 public function deactive_user() 
@@ -321,9 +322,26 @@ public function clear_search()
 }
 //clear search is used for unset session End
 
+//view function is used for view profile of user Start
+public function profile($id) 
+{
+    //FOR GETTING ALL DATA OF JOB_REG
+     $contition_array = array('job_id' => $id, 'is_delete' => '0');           
+    $this->data['user'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    //FOR GETTING OTHER SKILL
+      $userid = $this->db->get_where('job_reg', array('job_id' => $id))->row()->user_id;
+      $data="skill_id,skill";
+      $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
+      $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array,$data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $this->load->view('job/profile',$this->data);
+}
+//view function is used for view profile of user End
+
 
 }
 
-/* End of file welcome.php 
+/* End of file job.php 
 
-/* Location: ./application/controllers/welcome.php */
+/* Location: ./application/controllers/job.php */
