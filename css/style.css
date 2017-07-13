@@ -887,6 +887,7 @@ img.aligncenter {
     padding: 0;
 }
 .header ul li {
+	float:left;
     list-style: none;
     display: inline-block;
     padding: 0;
@@ -14063,15 +14064,15 @@ text-align: center;}
 .header ul li:last-child {
     border-right: none;
 }
-/*.header ul li.dropdown-user a {
-    padding-top: 11px !important;
-    padding-bottom: 11px !important;
-}*/
+.header ul li.dropdown-user a {
+    padding-top: 13px !important;
+   
+}
 
 .header ul li a {
    
-    padding-bottom: 4px !important;
-padding-top: 4px !important;
+    padding-bottom: 1px !important;
+padding-top: 10px !important;
 display: inline-block;
 }
 
@@ -14134,8 +14135,8 @@ header.animated {
         width: 85%;
     }
     .logo h2 {
-        font-size: 25px;
-        line-height: 30px;
+        /*font-size: 25px;
+        line-height: 30px;*/
     }
     .header ul li a {
         padding: 5px 10px;
