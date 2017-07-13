@@ -424,9 +424,11 @@
 
                             <tr>
                                 <td class="business_data_td1 detaile_map"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
-                                <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_email']; ?></span></td>
+                                <td class="business_data_td2">
+									<a href="mailto:<?php echo $artisticdata[0]['art_email']; ?>"><?php echo $artisticdata[0]['art_email']; ?></a>
+								</td>
                             </tr>
-                            <t                                                                                                      r>
+                            <tr>
                                 <td class="business_data_td1  detaile_map" ><i class="fa fa-map-marker"></i></td>
                                 <td class="business_data_td2"><span>
                                         <?php
