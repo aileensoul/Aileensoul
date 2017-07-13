@@ -33,14 +33,13 @@ class Dashboard extends MY_Controller {
         $this->data['faq_list'] = $get_users = $this->common->select_data_by_condition('faq', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
 
                
-
-        $condition_array = array('status =' => 1);
-
-        $this->data['job_list'] = $get_users = $this->common->select_data_by_condition('job_reg', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
+        //For Count Job Register User Data
+        $condition_array = array('is_delete' => 0);
+        $data="job_id";
+        $this->data['job_list'] = $get_users = $this->common->select_data_by_condition('job_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
+        
 
          $condition_array = array('status =' => 1);
-
         $this->data['freelancer_list'] = $get_users = $this->common->select_data_by_condition('freelancer_hire_reg', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
 
          $condition_array = array('status =' => 1);

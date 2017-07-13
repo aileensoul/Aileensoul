@@ -154,6 +154,25 @@
                 }
             ?>
 
+             <hr>
+              <strong><i class="fa fa-thumbs-o-up margin-r-5"></i>Interest</strong>
+
+              <p><?php echo $user[0]['interest']; ?></p>
+                
+
+            <?php 
+            if($user[0]['reference'])
+            {
+           ?>
+             <hr>
+              <strong><i class="fa fa-newspaper-o margin-r-5"></i>Reference</strong>
+
+              <p><?php echo $user[0]['reference']; ?></p>
+                
+            <?php
+                }
+            ?>
+
             <?php 
             if($user[0]['carrier'])
             {
@@ -176,28 +195,25 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
 
-              <li class="active"><a href="#basic_information" data-toggle="tab">Basic Information</a>
+              <li class="active"><a href="#basic_information" data-toggle="tab"><i class="fa fa-fw fa-info-circle margin-r-5"></i>Basic Information</a>
               </li>
 
-              <li><a href="#address" data-toggle="tab">Address</a>
+              <li><a href="#address" data-toggle="tab"><i class="fa fa-fw fa-home margin-r-5"></i>Address</a>
               </li>
 
-              <li><a href="#education" data-toggle="tab">Education Qualification</a>
+              <li><a href="#education" data-toggle="tab"><i class="fa fa-fw fa-university margin-r-5"></i>Education Qualification</a>
               </li>
 
 <?php
     if ($user[0]['project_name'] != "" || $user[0]['project_duration'] != "" || $user[0]['project_description'] != "" || $user[0]['training_as'] != "" || $user[0]['training_duration'] != "" || $user[0]['training_organization'] != "") 
     {
 ?>
-              <li><a href="#project" data-toggle="tab">Project And Training / Internship</a>
+              <li><a href="#project" data-toggle="tab"><i class="fa fa-fw fa-tasks margin-r-5"></i>Project And Training / Internship</a>
               </li>
 <?php
     }
 ?>
-              <li><a href="#work_exp" data-toggle="tab">Work Experience</a>
-              </li>
-
-              <li><a href="#reference" data-toggle="tab">Interest & Reference</a>
+              <li><a href="#work_exp" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Work Experience</a>
               </li>
 
             </ul>
@@ -883,13 +899,184 @@
                 <div class="post">
                 
                   <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Work Experience</label>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                  <?php
+                          if ($user[0]['experience'] == "Fresher") 
+                          {
+                  ?>
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Work Experience</label>
+                    <div class="col-sm-2 control-label">
+                          Fresher
                     </div>
                   </div>
+                  <?php
+                            }
+                            else
+                            {
+                  ?>
+                  
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Total Experience</label>
+                    <div class="col-sm-2 control-label">
+
+                    <?php 
+                                $total_work_year=0;
+                                $total_work_month=0;
+                                foreach ($job_work as $work1) 
+                                {
+                                                            
+                                    $total_work_year+=$work1['experience_year'];
+                                    $total_work_month+=$work1['experience_month'];
+                                }
+
+
+                            if($total_work_month == '12 month' && $total_work_year =='0 year')
+                            {
+                                    echo "1 year";
+                            }
+                            else if($total_work_year !='0 year' && $total_work_month == '12 month')
+                            {
+                                      $month = explode(' ', $total_work_year);
+                                      $year=$month[0];
+                                      $years=$year + 1;
+                                      echo $years." Years";
+    
+                            }
+                            else if($work1['experience'] == "Fresher")
+                            {
+                                        echo "Fresher";
+                            }
+                            else
+                            {
+                                        echo $total_work_year; echo "&nbsp"; echo "Year";
+                                        echo "&nbsp";
+                                        echo $total_work_month; echo "&nbsp"; echo "Month";
+                            }                                                
+                                                            
+                      ?> 
+                    </div>
+                  </div>
+
+<?php   
+          $i = 6;
+          foreach ($job_work as $work) 
+          {
+?>
+
+<!-- this div is userd for change content on number -->
+   <div id="work<?php echo $i; ?>" class="tabcontent data_exp">
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Job Title</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $work['jobtitle']; ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Company Name</label>
+                    <div class="col-sm-2 control-label">
+                         <?php echo $work['companyname']; ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Company Email Address</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($work['companyemail'])
+                                {
+                                    echo $work['companyemail']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Company Phone Number</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($work['companyphn'])
+                                {
+                                    echo $work['companyphn']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Experience</label>
+                    <div class="col-sm-2 control-label">
+
+<?php 
+        if ($work['experience_year'] == "0 year" && $work['experience_month'] == "12 month") 
+        {
+                echo "1 Year";
+        } 
+       elseif($work['experience_year'] != "0 year" && $work['experience_month'] == "12 month") {
+                                                               
+                $month1 = explode(' ', $work['experience_year']);
+                $year1=$month1[0];
+                $years1=$year1 + 1;
+                echo $years1." Years";
+          }
+          else
+          {
+                echo $work['experience_year'];
+                echo "&nbsp";
+                echo $work['experience_month'];
+          }
+?>
+                    </div>
+                  </div>
+
+                <?php
+                        if ($work['work_certificate'] != "") 
+                        {
+                ?>
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Experience Certificate</label>
+                    <div class="col-sm-2 control-label">
+                          <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_work_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate</a>
+                    </div>
+                  </div>
+                  <?php
+                          }
+                  ?>
+         </div><!-- div complte of class tabcontent data_exp -->
+  <?php 
+        $i++;
+        }//for loop complete
+    ?>                                  
+            <div class="tab pagi_exp">
+              <?php if(count($job_work) >= 1){ ?>   
+              <button class="tablinks" onclick="openCity(event, 'work6')">1</button>
+
+              <?php } if(count($job_work) >= 2){ ?>
+              <button class="tablinks" onclick="openCity(event, 'work7')">2</button>
+                                                
+              <?php } if(count($job_work) >= 3){ ?>
+              <button class="tablinks" onclick="openCity(event, 'work8')">3</button>
+
+              <?php } if(count($job_work) >= 4){ ?>
+              <button class="tablinks" onclick="openCity(event, 'work9')">4</button>
+
+              <?php } if(count($job_work) >= 5){ ?>
+              <button class="tablinks" onclick="openCity(event, 'work10')">5</button>
+              <?php }?>
+            </div>
+                                            
+                  <?php      
+                            }//else complete
+                  ?>
+
                 </form>
 
                 </div>
@@ -897,47 +1084,6 @@
 
               </div>
               <!-- tab-pane -->
-
-              <div class="tab-pane" id="curricular">
-                <!-- Post -->
-                <div class="post">
-                
-                  <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Curricular</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                </form>
-
-                </div>
-                <!-- /.post -->
-
-              </div>
-              <!-- tab-pane -->
-
-              <div class="tab-pane" id="reference">
-                <!-- Post -->
-                <div class="post">
-                
-                  <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Interest & Reference</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                </form>
-
-                </div>
-                <!-- /.post -->
-
-              </div>
-              <!-- tab-pane -->
-
 
             </div>
             <!-- /.tab-content -->
