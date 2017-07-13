@@ -2936,7 +2936,7 @@
                var vfirstname = fileInput[0].name;
                var ext = vfirstname.split('.').pop();
                var ext1 = vname.split('.').pop();
-               var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif','png'];
+               var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png'];
                var allowesvideo = ['mp4', 'webm'];
                var allowesaudio = ['mp3'];
                var allowespdf = ['pdf'];
