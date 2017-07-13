@@ -21,3 +21,31 @@ table.table-bordered tbody th, table.table-bordered tbody td{font-size: 12px;}
 .btn1:active{background-color: #156f95;color: #fff;}
 .message #delete,#activate{padding: 6px 24px 6px 24px;}
 .table td .btn-xs{margin: 2px;}
+
+.pagi_exp .tablinks {
+	border:0;
+    padding: 2px 3px;
+    background-color: white;
+    color: black;
+}
+.data_exp {
+    /*padding: 12px 12px!important;*/
+    /* border: 1px solid #ccc; */
+    
+    border: none!important;
+}
+.pagi_exp {
+    margin: 0 auto;
+    text-align: center;
+}
+.pagi_exp .tablinks:hover {
+    background-color: #d9d9d9;
+    border-radius: 3px;
+}
+.tabcontent {
+    display: none;
+    /*padding: 6px 12px;*/
+    
+    border: 1px solid #ccc;
+    border-top: none;
+}

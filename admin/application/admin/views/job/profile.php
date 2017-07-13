@@ -611,6 +611,17 @@
                                 <h3 class="head_title">Graduation</h3>
                     </div>
 
+                    <?php                                
+                            $i = 1;
+                            foreach ($job_graduation as $graduation) 
+                            {
+                                        if ($graduation['degree']) 
+                                          {  
+                      ?>
+
+<!-- this div is userd for change content on number -->
+ <div id="gra<?php echo $i; ?>" class="tabcontent data_exp">
+
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Degree</label>
                     <div class="col-sm-2 control-label">
@@ -668,32 +679,68 @@
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Percentage</label>
                     <div class="col-sm-2 control-label">
-                          <?php echo $job_edu[0]['percentage_higher_secondary']; ?>%
+                          <?php echo $graduation['percentage'];?>%
                     </div>
                   </div>
 
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
                     <div class="col-sm-2 control-label">
-                          <?php echo $job_edu[0]['pass_year_higher_secondary']; ?>
+                          <?php echo $graduation['pass_year']; ?>
                     </div>
                   </div>
 
                    <?php
-                          if ($job_edu[0]['edu_certificate_higher_secondary'] != "") 
+                          if ($graduation['edu_certificate'] != "") 
                           {
                    ?>
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Education Certificate</label>
                     <div class="col-sm-2 control-label">
-                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_higher_secondary'])?>" data-lightbox="example-1">certificate </a>
+                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$graduation['edu_certificate'])?>" data-lightbox="example-1">certificate</a>
                     </div>
                   </div>
                   <?php
-                          }
-                        }
+                          }//if complete of edu_certificate
                   ?>
+              </div><!-- div complte of class tabcontent data_exp -->
+                  <?php
+                        }//if compalte of $graduation['degree']
+
+                         $i++;
+
+                      }//for loop complete
+
+                    ?>
+                   <div class="tab pagi_exp" style="">
+
+                        <?php if(count($job_graduation) >= 1 ){ ?>
+                        <button class="tablinks  " onclick="openCity(event, 'gra1')">1</button>
+                        <?php } ?>
+
+                        <?php if(count($job_graduation) >= 2 ){ ?>
+                        <button class="tablinks" onclick="openCity(event, 'gra2')">2</button>
+                        <?php } ?>
+
+                        <?php if(count($job_graduation) >= 3 ){ ?>
+                        <button class="tablinks" onclick="openCity(event, 'gra3')">3</button>
+                        <?php } ?>
+
+                        <?php if(count($job_graduation) >= 4 ){ ?>
+                        <button class="tablinks" onclick="openCity(event, 'gra4')">4</button>
+                        <?php } ?>
+
+                        <?php if(count($job_graduation) >= 5 ){ ?>
+                        <button class="tablinks" onclick="openCity(event, 'gra5')">5</button>
+                        <?php } ?>
+                        </div>
+                  <?php
+                    }//if compalte of $graduation['job_graduation']
+                  ?>
+  
+
                   <!-- Graduation Education Data Start -->
+
                 </form>
 
                 </div>
@@ -707,13 +754,18 @@
                 <div class="post">
                 
                   <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Project</label>
+                  
+                    <div class="text-center">
+                                <h3 class="head_title">Project And Training</h3>
+                    </div>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $graduation['pass_year']; ?>
                     </div>
                   </div>
+
                 </form>
 
                 </div>
@@ -803,3 +855,37 @@
 
 </body>
 </html>
+
+<!-- This script and css are used for tabbing at graduation and work experience Start -->
+<script type="text/javascript">
+   function openCity(evt, cityName,e) {
+   // Declare all variables
+   var i, tabcontent, tablinks;
+   
+   // Get all elements with class="tabcontent" and hide them
+   tabcontent = document.getElementsByClassName("tabcontent");
+   for (i = 0; i < tabcontent.length; i++) {
+     tabcontent[i].style.display = "none";
+   }
+   
+   // Get all elements with class="tablinks" and remove the class "active"
+   tablinks = document.getElementsByClassName("tablinks");
+   for (i = 0; i < tablinks.length ; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" active", "");
+   }
+   
+   // Show the current tab, and add an "active" class to the button that opened the tab
+   document.getElementById(cityName).style.display = "block";
+   evt.currentTarget.className += " active";
+  evt.preventDefault();
+   }
+</script>
+<style>
+   #work6 {
+   display: block;
+   }
+   #gra1 {
+   display: block;
+   }
+</style>
+<!-- This script and css are used for tabbing at graduation and work experience ENd -->
