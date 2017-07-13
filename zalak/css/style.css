@@ -1,39 +1,26 @@
-.jp-container{
-    width:500px;
-    height:400px;
-    position:relative;
-    background:#fff;
-    border:1px solid #D8DFEA;
-	float:left;
+/* stylesheet for demo and examples */
+
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:700italic,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald:300);
+
+.scrollbar-main{
+    overflow: auto;
+    position: relative;
+    padding: 20px;
+    background: #fff;
+    margin: 10px;
+    width: 740px;
+    max-width: 97%;
+    height: 400px;
+    -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 }
-.jp-container a{
-    padding:15px 20px;
-    display:block;
-    line-height:20px;
-    background-color: #fff;
-    border-bottom:1px solid #F2F4F8;
-    border-top:1px solid #D8DFEA;
+
+
+
+@media only screen and (min-width: 1229px){
+    .showcase .horizontal-images.scrollbar-main{ width: 1060px; }
 }
-.jp-container a:first-child{
-    border-top:none;
-}
-.jp-container a:last-child{
-    border-bottom:none;
-}
-.jp-container a:hover{
-   background:#ECEFF5;
-   border-bottom-color:#ECEFF5;
-}
-.jp-container a h3{ 
-    font-size:14px;
-    font-weight:bold;
-    padding:2px 0 5px 0;
-	text-transform:uppercase;
-}
-.jp-container a img{
-    float:left;
-    margin:5px 10px 0px 0px;
-    padding:3px;
-    background:#fff;
-    border:1px solid #D8DFEA;
+
+@media only screen and (min-width: 1629px){
+    .showcase .horizontal-images.scrollbar-main{ width: 700px; }
 }

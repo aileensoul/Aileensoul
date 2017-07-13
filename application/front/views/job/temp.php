@@ -56,7 +56,8 @@ $(window).load(function(){
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
 
-
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
 
    
 </head>
@@ -1014,4 +1015,32 @@ window.onclick = function(event) {
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
+ <script type="text/javascript" src="<?php echo base_url('zalak/js/jquery.js'); ?>"></script>
+    <script>
+        // (function($){
+        //     $(window).on("load",function(){
+                
+        //         $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+        //         $.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+                
+                
+                
+        //         $("#notificationContainer").mCustomScrollbar({theme:"minimal"}); 
 
+        //         $(".all-themes-switch a").click(function(e){
+        //             e.preventDefault();
+        //             var $this=$(this),
+        //                 rel=$this.attr("rel"),
+        //                 el=$("#notificationContainer");
+        //             switch(rel){
+        //                 case "toggle-content":
+        //                     el.toggleClass("expanded-content");
+        //                     break;
+        //             }
+        //         });
+                
+        //     });
+        // })(jQuery);
+$("#notificationsBody").mouseover(function(){$(this).css("overflow","scroll");});
+$("#notificationsBody").mouseout(function(){$(this).css("overflow","hidden");});
+    </script>

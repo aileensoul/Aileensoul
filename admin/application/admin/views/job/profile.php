@@ -83,12 +83,13 @@
                             echo $countryname;
                 ?>
                 </p>
-              <hr>
+              
 
           <?php 
             if($user[0]['keyskill'])
             {
            ?>
+           <hr>
               <strong><i class="fa fa-pencil margin-r-5"></i>Skills</strong>
 
               <p>
@@ -109,7 +110,7 @@
                           
               </p>
 
-              <hr>
+              
               <?php
                 }
               ?>
@@ -118,6 +119,7 @@
               if($other_skill)
               {
             ?>
+            <hr>
               <strong><i class="fa fa-pencil margin-r-5"></i>Other Skills</strong>
 
               <p>
@@ -134,16 +136,29 @@
                           
               </p>
 
-              <hr>
+             
               <?php
                 }
               ?>
 
             <?php 
+            if($user[0]['curricular'])
+            {
+           ?>
+             <hr>
+              <strong><i class="fa fa-pencil-square-o margin-r-5"></i>Extra Curricular Activities</strong>
+
+              <p><?php echo $user[0]['curricular']; ?></p>
+                
+            <?php
+                }
+            ?>
+
+            <?php 
             if($user[0]['carrier'])
             {
            ?>
-
+              <hr>
               <strong><i class="fa fa-file-text-o margin-r-5"></i>Carrier Objectives</strong>
 
               <p><?php echo $user[0]['carrier']; ?></p>
@@ -176,9 +191,6 @@
               <li><a href="#work_exp" data-toggle="tab">Work Experience</a>
               </li>
 
-              <li><a href="#curricular" data-toggle="tab">Extra Curricular Activities</a>
-              </li>
-
               <li><a href="#reference" data-toggle="tab">Interest & Reference</a>
               </li>
 
@@ -209,14 +221,26 @@
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Phone Number:</label>
                     <div class="col-sm-2 control-label">
-                    <?php echo $job[0]['phnno']; ?>
+
+                  <?php if( $user[0]['phnno'])
+                        {
+                    ?>
+                    <?php echo $user[0]['phnno']; ?>
+                     <?php 
+                        }
+                        else
+                        {
+                          echo PROFILENA;
+                        }
+                  ?>
                     </div>
                   </div>
+                 
 
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Marital Status:</label>
                     <div class="col-sm-2 control-label">
-                     <?php echo $job[0]['marital_status']; ?>
+                     <?php echo $user[0]['marital_status']; ?>
                     </div>
                   </div>
 
@@ -224,7 +248,7 @@
                      <label for="inputName" class="col-sm-2 control-label">Nationality:</label>
                     <div class="col-sm-2 control-label">
                       <?php
-                              $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
+                              $cache_time = $this->db->get_where('nation', array('nation_id' => $user[0]['nationality']))->row()->nation_name;
                               echo $cache_time;
                         ?>
                     </div>
@@ -234,7 +258,7 @@
                      <label for="inputName" class="col-sm-2 control-label">Language:</label>
                     <div class="col-sm-2 control-label">
                    <?php
-                                             $aud = $job[0]['language'];
+                                             $aud = $user[0]['language'];
                                              
                                              $aud_res = explode(',', $aud);
                                              foreach ($aud_res as $lan) {
@@ -251,14 +275,14 @@
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Date Of Birth:</label>
                     <div class="col-sm-2 control-label">
-                     AArati
+                      <?php echo date('d/m/Y',strtotime($user[0]['dob'])); ?>
                     </div>
                   </div>
 
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Gender:</label>
                     <div class="col-sm-2 control-label">
-                     AArati
+                     <?php echo $user[0]['gender']; ?>
                     </div>
                   </div>
                 </form>
@@ -274,13 +298,134 @@
                 <div class="post">
                 
                   <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Address</label>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+                        <div class="text-center">
+                                <h3 class="head_title">Present Address</h3>
+                        </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Country:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php
+                              $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['country_id']))->row()->country_name;
+                              echo $cache_time;
+                      ?>  
                     </div>
                   </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">State:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php
+                                $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['state_id']))->row()->state_name;
+                                echo $cache_time;
+                      ?> 
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">City:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php if($user[0]['city_id'])
+                          {
+                             $cache_time = $this->db->get_where('cities', array('city_id' => $user[0]['city_id']))->row()->city_name;
+                              echo $cache_time;
+                          }
+                          else
+                          {
+                            echo PROFILENA;
+                          }
+                      ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Pincode:</label>
+                    <div class="col-sm-2 control-label">
+                    <?php 
+                          if($user[0]['pincode'])
+                          {
+                            echo $user[0]['pincode']; 
+                          }
+                          else
+                          {
+                            echo PROFILENA;
+                          }
+                      ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Address:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php echo $user[0]['address']; ?>
+                    </div>
+                  </div>
+
+                    <div class="text-center">
+                                <h3 class="head_title">Permenant Address</h3>
+                    </div>
+
+                     <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Country:</label>
+                    <div class="col-sm-2 control-label">
+                    <?php
+                          $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['country_permenant']))->row()->country_name;
+                          echo $cache_time;
+                    ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">State:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php
+                            $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['state_permenant']))->row()->state_name;
+                            echo $cache_time;
+                      ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">City:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php
+                          if($user[0]['city_permenant'])
+                          {
+                            $cache_time = $this->db->get_where('cities', array('city_id' => $user[0]['city_permenant']))->row()->city_name;
+                            echo $cache_time;
+                          }
+                           else
+                          {
+                            echo PROFILENA;
+                          }
+                      ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Pincode:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php 
+                            if($user[0]['pincode_permenant'])
+                            {
+                                echo $user[0]['pincode_permenant']; 
+                            }
+                             else
+                            {
+                                echo PROFILENA;
+                            }
+                      ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Address:</label>
+                    <div class="col-sm-2 control-label">
+                     <?php echo $user[0]['address_permenant']; ?>
+                    </div>
+                  </div>
+
                 </form>
 
                 </div>

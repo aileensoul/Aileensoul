@@ -135,4 +135,4 @@ else
 }
   			
 define('NOIMAGE', 'uploads/avatar.png');
-
+define('PROFILENA', '--');
