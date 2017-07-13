@@ -164,7 +164,16 @@ echo $leftmenu;
 
                     <td><?php echo $user['email']; ?></td>
 
-                    <td><?php echo $user['phnno']; ?></td>
+                    <td><?php if($user['phnno'])
+                              {
+                                echo $user['phnno']; 
+                              }
+                              else
+                              {
+                                echo PROFILENA;
+                              }
+                            ?>
+                      </td>
 
                     <td><?php echo $user['gender']; ?>
                         <?php if($user['gender']=="female")

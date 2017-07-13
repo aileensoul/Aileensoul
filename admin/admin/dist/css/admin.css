@@ -6,3 +6,8 @@ table.table-bordered tbody th, table.table-bordered tbody td{font-size: 12px;}
 .post .form-group{margin-bottom: 5px;}
 .post .form-group label{padding-top: 0;}
 .post .form-group .control-label{padding-top: 0;}
+.head_title {
+    margin: 5px;
+    display: inline-block;
+    border-bottom: 2px solid;
+}
