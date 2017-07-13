@@ -2685,9 +2685,7 @@ $datacount = count($otherdata);
             // end notoification
 
 
-
         $contition_array = array('follow_type' => 1, 'follow_from' => $artdata[0]['art_id'], 'follow_status' => 1);
-
         $followcount = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             if ($insert) {
@@ -2699,7 +2697,6 @@ $datacount = count($otherdata);
                 $follow .= '</div>';
 
                 $datacount = '('.count($followcount).')';
-
 
 
                  echo json_encode(

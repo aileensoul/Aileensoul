@@ -862,11 +862,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
             url: '<?php echo base_url() . "artistic/follow" ?>',
             dataType: 'json',
             data: 'follow_to=' + clicked_id,
-<<<<<<< HEAD
-            success: function (data) { 
-=======
             success: function (data) { //alert(data.count);
->>>>>>> 775ea3dd6e93133f38ecfced08e64fb2721ed3fe
 
                 $('.' + 'fruser' + clicked_id).html(data.follow);
                 $('#countfollow').html(data.count);
