@@ -608,27 +608,60 @@
                         {
                   ?>
                    <div class="text-center">
-                                <h3 class="head_title">Higher secondary Education</h3>
+                                <h3 class="head_title">Graduation</h3>
                     </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Board</label>
+                     <label for="inputName" class="col-sm-2 control-label">Degree</label>
                     <div class="col-sm-2 control-label">
-                           <?php echo $job_edu[0]['board_higher_secondary']; ?>
+                          <?php
+                                $cache_time = $this->db->get_where('degree', array('degree_id' => $graduation['degree']))->row()->degree_name;
+                                echo $cache_time;
+                          ?>
                     </div>
                   </div>
 
                   <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Stream</label>
                     <div class="col-sm-2 control-label">
-                           <?php echo $job_edu[0]['stream_higher_secondary']; ?>
+                          <?php
+                                $cache_time = $this->db->get_where('stream', array('stream_id' => $graduation['stream']))->row()->stream_name;
+                                echo $cache_time;
+                          ?>
                     </div>
                   </div>
                   
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">School</label>
+                     <label for="inputName" class="col-sm-2 control-label">University</label>
                     <div class="col-sm-2 control-label">
-                           <?php echo $job_edu[0]['school_higher_secondary']; ?>
+                           <?php
+                                  $cache_time = $this->db->get_where('university', array('university_id' => $graduation['university']))->row()->university_name;
+                                  echo $cache_time;
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">College</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $graduation['college']; ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Grade</label>
+                    <div class="col-sm-2 control-label">
+                         <?php
+                                if ($graduation['grade']) 
+                                {
+                                    $cache_time = $this->db->get_where('university', array('university_id' => $graduation['university']))->row()->university_name;
+                                    echo $cache_time;
+                                }
+                                else
+                                {
+                                  echo PROFILENA;
+                                }
+                        ?>
                     </div>
                   </div>
 

@@ -341,6 +341,11 @@ public function profile($id)
       $data = '*';
       $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
 
+      //FOR GETTING DATA OF JOB GRADUATION TABLE
+       $contition_array = array('user_id' => $userid);
+       $data = '*';
+       $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+
     $this->load->view('job/profile',$this->data);
 }
 //view function is used for view profile of user End
