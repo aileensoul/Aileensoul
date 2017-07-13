@@ -205,21 +205,21 @@
                   <form class="form-horizontal">
 
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name:</label>
+                    <label for="inputName" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-2 control-label">
                      <?php echo ucfirst($user[0]['fname']); echo ' ';echo ucfirst($user[0]['lname']);  ?>
                     </div>
                   </div>
 
                   <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Email:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['email']; ?> 
                     </div>
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Phone Number:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Phone Number</label>
                     <div class="col-sm-2 control-label">
 
                   <?php if( $user[0]['phnno'])
@@ -238,14 +238,14 @@
                  
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Marital Status:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Marital Status</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['marital_status']; ?>
                     </div>
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Nationality:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Nationality</label>
                     <div class="col-sm-2 control-label">
                       <?php
                               $cache_time = $this->db->get_where('nation', array('nation_id' => $user[0]['nationality']))->row()->nation_name;
@@ -255,7 +255,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Language:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Language</label>
                     <div class="col-sm-2 control-label">
                    <?php
                                              $aud = $user[0]['language'];
@@ -273,14 +273,14 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Date Of Birth:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Date Of Birth</label>
                     <div class="col-sm-2 control-label">
                       <?php echo date('d/m/Y',strtotime($user[0]['dob'])); ?>
                     </div>
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Gender:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Gender</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['gender']; ?>
                     </div>
@@ -304,7 +304,7 @@
                         </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Country:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Country</label>
                     <div class="col-sm-2 control-label">
                      <?php
                               $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['country_id']))->row()->country_name;
@@ -314,7 +314,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">State:</label>
+                     <label for="inputName" class="col-sm-2 control-label">State</label>
                     <div class="col-sm-2 control-label">
                      <?php
                                 $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['state_id']))->row()->state_name;
@@ -324,7 +324,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">City:</label>
+                     <label for="inputName" class="col-sm-2 control-label">City</label>
                     <div class="col-sm-2 control-label">
                      <?php if($user[0]['city_id'])
                           {
@@ -340,7 +340,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Pincode:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Pincode</label>
                     <div class="col-sm-2 control-label">
                     <?php 
                           if($user[0]['pincode'])
@@ -356,7 +356,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Address:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Address</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['address']; ?>
                     </div>
@@ -367,7 +367,7 @@
                     </div>
 
                      <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Country:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Country</label>
                     <div class="col-sm-2 control-label">
                     <?php
                           $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['country_permenant']))->row()->country_name;
@@ -377,7 +377,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">State:</label>
+                     <label for="inputName" class="col-sm-2 control-label">State</label>
                     <div class="col-sm-2 control-label">
                      <?php
                             $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['state_permenant']))->row()->state_name;
@@ -387,7 +387,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">City:</label>
+                     <label for="inputName" class="col-sm-2 control-label">City</label>
                     <div class="col-sm-2 control-label">
                      <?php
                           if($user[0]['city_permenant'])
@@ -404,7 +404,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Pincode:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Pincode</label>
                     <div class="col-sm-2 control-label">
                      <?php 
                             if($user[0]['pincode_permenant'])
@@ -420,7 +420,7 @@
                   </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Address:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Address</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['address_permenant']; ?>
                     </div>
@@ -446,11 +446,46 @@
                     </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Board:</label>
+                     <label for="inputName" class="col-sm-2 control-label">Board</label>
                     <div class="col-sm-2 control-label">
                            <?php echo $job_edu[0]['board_primary']; ?>
                     </div>
                   </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">School</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['school_primary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Percentage</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['percentage_primary']; ?>%
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['pass_year_primary']; ?>
+                    </div>
+                  </div>
+
+                   <?php
+                          if ($job_edu[0]['edu_certificate_primary'] != "") 
+                          {
+                   ?>
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Education Certificate</label>
+                    <div class="col-sm-2 control-label">
+                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_primary'])?>" data-lightbox="example-1">certificate </a>
+                    </div>
+                  </div>
+                  <?php
+                        }
+                  ?>
 
                 </form>
 

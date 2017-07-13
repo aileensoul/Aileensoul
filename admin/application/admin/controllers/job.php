@@ -325,12 +325,13 @@ public function clear_search()
 //view function is used for view profile of user Start
 public function profile($id) 
 {
+    $userid = $this->db->get_where('job_reg', array('job_id' => $id))->row()->user_id;
+
     //FOR GETTING ALL DATA OF JOB_REG
      $contition_array = array('job_id' => $id, 'is_delete' => '0');           
     $this->data['user'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-    //FOR GETTING OTHER SKILL
-      $userid = $this->db->get_where('job_reg', array('job_id' => $id))->row()->user_id;
+    //FOR GETTING OTHER SKILL    
       $data="skill_id,skill";
       $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
       $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array,$data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
