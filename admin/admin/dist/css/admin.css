@@ -10,4 +10,5 @@ table.table-bordered tbody th, table.table-bordered tbody td{font-size: 12px;}
     margin: 5px;
     display: inline-block;
     border-bottom: 2px solid;
+    margin-bottom: 15px;
 }
