@@ -440,7 +440,9 @@
                 
                   <form class="form-horizontal">
 
-
+                  <?php if($job_edu[0]['board_primary'])
+                        {
+                  ?>
                    <div class="text-center">
                                 <h3 class="head_title">Primary Education</h3>
                     </div>
@@ -484,8 +486,118 @@
                     </div>
                   </div>
                   <?php
+                          }
                         }
                   ?>
+
+                  <?php if($job_edu[0]['board_secondary'])
+                        {
+                  ?>
+                   <div class="text-center">
+                                <h3 class="head_title">Secondary Education</h3>
+                    </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Board</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['board_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">School</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['school_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Percentage</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['percentage_secondary']; ?>%
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['pass_year_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <?php
+                          if ($job_edu[0]['edu_certificate_secondary'] != "") 
+                          {
+                   ?>
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Education Certificate</label>
+                    <div class="col-sm-2 control-label">
+                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_secondary'])?>" data-lightbox="example-1">certificate </a>
+                    </div>
+                  </div>
+                  <?php
+                          }
+                        }
+                  ?>
+
+                  <?php if($job_edu[0]['board_higher_secondary'])
+                        {
+                  ?>
+                   <div class="text-center">
+                                <h3 class="head_title">Higher secondary Education</h3>
+                    </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Board</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['board_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Stream</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['school_higher_secondary']; ?>
+                    </div>
+                  </div>
+                  
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">School</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['school_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Percentage</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['percentage_higher_secondary']; ?>%
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['pass_year_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <?php
+                          if ($job_edu[0]['edu_certificate_higher_secondary'] != "") 
+                          {
+                   ?>
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Education Certificate</label>
+                    <div class="col-sm-2 control-label">
+                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_higher_secondary'])?>" data-lightbox="example-1">certificate </a>
+                    </div>
+                  </div>
+                  <?php
+                          }
+                        }
+                  ?>
+
+
 
                 </form>
 
