@@ -675,7 +675,7 @@
                                             <div class="profile-job-profile-button clearfix">
                                                 <div class="profile-job-details">
                                                     <ul>
-                                                        <li><p class="details_all_tital"> Images</p> </li>
+                                                        <li><p class="details_all_tital"> Business Images</p> </li>
 
                                                     </ul>
                                                 </div>
@@ -780,7 +780,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Images</h4>
+          <h4 class="modal-title">Business Images</h4>
         </div>
         <div class="modal-body popup-img-popup">
          <div>

@@ -2856,8 +2856,8 @@ class Business_profile extends MY_Controller {
             'contact_to_id' => $id,
             'contact_type' => 2,
             'created_date' => date('Y-m-d H:i:s', time()),
-            'status' => 1,
-            'is_delete' => $userid,
+            'status' => 'query',
+            //'is_delete' => $userid,
             'contact_desc' => $this->input->post('msg')
         );
 
@@ -10067,7 +10067,8 @@ class Business_profile extends MY_Controller {
         if ($status == 1) {
             $data = array(
                 'modify_date' => date('Y-m-d', time()),
-                'status' => 'confirm'
+                'status' => 'confirm',
+                'not_read' => 2
             );
 
             $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
@@ -10551,7 +10552,7 @@ class Business_profile extends MY_Controller {
 
 
 
-        echo $contactcount;
+        echo $contactcount; 
     }
 
     public function update_contact_count() {

@@ -997,7 +997,7 @@
                                     </div>
                                     <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
                                            <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                        <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
+                                        <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyup=check_length(this.form); onKeyDown=check_length(this.form); 
                                                   name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
                                         <div class="fifty_val">                   
                                             <input size=1 value=50 name=text_num class="text_num" readonly> 
@@ -4576,6 +4576,9 @@
                         //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
                         //            },
                         complete: function (response) {
+
+                             document.getElementById('test-upload-product').value=null;
+                             document.getElementById('test-upload-des').value=null;
 
                             // Output AJAX response to the div container
                             // console.log(response.responseText);
