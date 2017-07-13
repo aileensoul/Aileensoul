@@ -185,9 +185,15 @@
               <li><a href="#education" data-toggle="tab">Education Qualification</a>
               </li>
 
+<?php
+    if ($user[0]['project_name'] != "" || $user[0]['project_duration'] != "" || $user[0]['project_description'] != "" || $user[0]['training_as'] != "" || $user[0]['training_duration'] != "" || $user[0]['training_organization'] != "") 
+    {
+?>
               <li><a href="#project" data-toggle="tab">Project And Training / Internship</a>
               </li>
-
+<?php
+    }
+?>
               <li><a href="#work_exp" data-toggle="tab">Work Experience</a>
               </li>
 
@@ -749,6 +755,11 @@
               </div>
               <!-- tab-pane -->
 
+<?php
+    if ($user[0]['project_name'] != "" || $user[0]['project_duration'] != "" || $user[0]['project_description'] != "" || $user[0]['training_as'] != "" || $user[0]['training_duration'] != "" || $user[0]['training_organization'] != "") 
+    {
+?>
+                                             
               <div class="tab-pane" id="project">
                 <!-- Post -->
                 <div class="post">
@@ -760,12 +771,102 @@
                     </div>
 
                    <div class="form-group">
-                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                     <label for="inputName" class="col-sm-2 control-label">Project Name (Title)</label>
                     <div class="col-sm-2 control-label">
-                          <?php echo $graduation['pass_year']; ?>
+
+                          <?php if($user[0]['project_name'])
+                                {
+                                    echo $user[0]['project_name']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
                     </div>
                   </div>
 
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Duration</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($user[0]['project_duration'])
+                                {
+                                    echo $user[0]['project_duration']; echo '&nbspmonth'; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Project Description</label>
+                    <div class="col-sm-2 control-label">
+                           <?php if($user[0]['project_description'])
+                                {
+                                    echo $user[0]['project_description']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+          
+                   <div class="text-center">
+                                <h3 class="head_title">Training / Internship</h3>
+                    </div>
+
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Intern / Trainee As</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($user[0]['training_as'])
+                                {
+                                    echo $user[0]['training_as']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Duration</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($user[0]['training_duration'])
+                                {
+                                    echo $user[0]['training_duration']; echo '&nbspmonth'; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Name of Organization</label>
+                    <div class="col-sm-2 control-label">
+                          <?php if($user[0]['training_organization'])
+                                {
+                                    echo $user[0]['training_organization']; 
+                                }
+                                else
+                                {
+                                    echo PROFILENA;
+                                }
+                            ?>
+                    </div>
+                  </div>
+                  
                 </form>
 
                 </div>
@@ -773,6 +874,9 @@
 
               </div>
               <!-- tab-pane -->
+<?php
+      }
+?>
 
               <div class="tab-pane" id="work_exp">
                 <!-- Post -->

@@ -561,7 +561,7 @@ if ($freelancerpostdata[0]['freelancer_post_area']) {
 
 
 
-                                  <li><b>Describe Your Skill In Brief</b> <span> <p><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?> </p> </span> </li>
+                                  <li><b>Describe Your Skill In Brief</b> <span> <pre><?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_skill_description']); ?> </pre> </span> </li>
 
                                             <li><b>Total Experience</b> <span>
                                             <?php if($freelancerpostdata[0]['freelancer_post_exp_month'] == '12 month' && $freelancerpostdata[0]['freelancer_post_exp_year'] == '0 year')
@@ -1074,8 +1074,8 @@ if ($freelancerpostdata[0]['freelancer_post_hourly']) {
                                               <?php
                                       if ($freelancerpostdata[0]['freelancer_post_portfolio']) {
                                            ?>
-                                            <li> <b>Description</b> <span><p>
-                                             <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </p></span>
+                                            <li> <b>Description</b> <span><pre>
+                                             <?php echo $this->common->make_links($freelancerpostdata[0]['freelancer_post_portfolio']); ?> </pre></span>
                                             </li>
                                            <?php
                                           }

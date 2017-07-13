@@ -61,7 +61,7 @@
                                         if ($businessdata[0]['business_step'] < '3') {
                                             echo "khyati";
                                         }
-                                    ?>"><a href="<?php echo base_url('business_profile/image'); ?>">Images</a></li>
+                                    ?>"><a href="<?php echo base_url('business_profile/image'); ?>">Business Images</a></li>
 
                                 </ul>
                             </div>

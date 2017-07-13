@@ -873,6 +873,7 @@ img.aligncenter {
     right: 0;
     left: 0;
     z-index: 1002;
+	height:auto !important;
 }
 .fixed {
     position: fixed;
@@ -982,6 +983,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h2-img {
     background: url(../img/icon_view_profile_white.png) no-repeat;
+	background-size:100%;
 }
 .dropdown_hover .dropdown-content_hover a:hover{background-color: #1b8ab9; color: white;}
 .h3-img{
@@ -992,6 +994,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h3-img {
     background: url(../img/icon_edit_profile_white.png) no-repeat;
+	background-size:100%;
 }
 .h4-img{
     background: url(../img/icon_delete.png) no-repeat;
@@ -1000,6 +1003,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h4-img {
     background: url(../img/icon_delete_white.png) no-repeat;
+	background-size:100%;
 }
 .midd-section h2 {
     font-size: 36px;
@@ -3950,7 +3954,7 @@ a:focus {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 28px;
+    top: 25px;
     margin-top: 28px;
     z-index: 2;
     display: none;
@@ -3982,7 +3986,7 @@ a:focus {
     border-color: transparent transparent #fff;
     margin-top: -20px;
     margin-left: 18px;
-    right: 19px;
+    right: 20px;
 }
 #notificationsBody {
     padding: 0px 0px 0px 0px !important;
@@ -8731,7 +8735,7 @@ fieldset .add_post_btns {
     position: relative;
     display: inline-block;
     color: white;
-    padding: 8px 16px 8px;
+    padding: 6px 16px;
     cursor: pointer;
 }
 .dropdown-content_hover {
@@ -10716,6 +10720,7 @@ style chat css end*/
     -ms-transform: translate(0px, 0px) scale(1, 1);
     transform: translate(0px, 0px) scale(1, 1);
     opacity: 1;
+	height:100vh;
 }
 #search .new-search-input {
     position: absolute;
@@ -14413,10 +14418,13 @@ padding-top: 7px !important;}
 	.no-post-title{
 		padding-left:2%;
 	}
+	.header2{top:46px;}
+	#notificationContainer{top:22px;}
+	#InboxContainer{top:22px;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed {
-        padding-top: 52px !important;
+       /* padding-top: 52px !important;*/
     }
 }
 @media screen and (max-width: 991px) {
@@ -14689,19 +14697,22 @@ text-align: center;}
         .cover-pic{right: 0%;}
 }
 @media screen and (max-width: 768px) {
-
     .middle-part.container {
         padding: 40px 0 0px;
     }
 }
 @media screen and (max-width: 767px) {
-	.logo h2{padding:3px 0;}
+	.logo{padding:0;}
+	.logo h2{padding:2px 0;}
 	.banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
-      .profile-box-art .right-side-menu {
+    .profile-box-art .right-side-menu {
         margin-left: 0px;
         padding-left: 0px !important;
         padding-right: 0px!important;
+    }
+	.middle-section {
+        padding-top: 17PX;
     }
     .profile-box-art .right-side-menu ul li {
         width: 33%;
@@ -14834,9 +14845,9 @@ text-align: center;}
     .main_form {
         padding-top: 0px;
     }
-    .custom-right {
+    /*.custom-right {
         margin-top: 30px;
-    }
+    }*/
     .cameraButton .tooltiptext {
         font-size: 12px;
         width: 121px;
@@ -14870,12 +14881,14 @@ text-align: center;}
     {
         width: 33% !important;
     }
-    .dropdown-menu::before{right: 2.5%;}
     .header ul li a {
-        padding-top: 4px!important;
-        padding-bottom: 4px !important;
+        padding-top: 10px!important;
+        padding-bottom: 0px !important;
         padding: 16px;
     }
+	.header ul li a .img-msg{width:27px; height:27px; background-size:100%;}
+	.header ul li a .img-all{width:27px; height:27px; background-size:100%;}
+	.header ul li a .img-noti{width:27px; height:27px; background-size:100%;}
     .post-design-desc{padding-left: 17px;}
     .post-design-mid{padding-left: 21px;}
 	.xs-p0{padding:0;}
@@ -14889,8 +14902,8 @@ text-align: center;}
         font-size: 14px;
     }
     .header ul li.dropdown-user a {
-        padding-top: 6px !important;
-        padding-bottom: 6px !important;
+        padding-top: 11px !important;
+        padding-bottom: 0px !important;
     }
     .mob-block {
         display: block;
@@ -14922,7 +14935,7 @@ text-align: center;}
     .header-left-menu {
         position: relative;
         width: 100%;
-        margin-top: -43px;
+        margin-top: -42px;
     }
     .main-menu-right ul li#notification_li {
         position: inherit !important;
@@ -14956,7 +14969,7 @@ text-align: center;}
     .dropdown-menu {
         left: inherit !important;
         right: 0px !important;
-        top: 35px;
+        /*top: 35px;*/
     }
     .mob-zindex {
         position: relative;
@@ -15030,7 +15043,7 @@ text-align: center;}
         padding-bottom: 20px;
     }
     #paddingtop_fixed {
-        padding-top: 22px !important;
+        /*padding-top: 22px !important;*/
     }
     #paddingtop_fixed_job {
         padding-top: 35px !important;
@@ -15409,10 +15422,10 @@ top: 8px;}
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
     .banner{padding-top: 21px;}
-    .header ul li a{padding-top: 3px !important;
-padding-bottom: 3px !important; padding: 0px 8px;}
-    .header ul li.dropdown-user a{padding-top: 6px !important;
-padding-bottom: 6px !important;}
+    .header ul li a{padding-top: 11px !important;
+padding-bottom: 0px !important; padding: 0px 8px;}
+    .header ul li.dropdown-user a{/*padding-top: 6px !important;
+padding-bottom: 6px !important;*/}
 .profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
         font-size: 12px;
@@ -15781,11 +15794,12 @@ padding-bottom: 6px !important;}
     }
 }
 @media screen and (max-width: 360px) {
-    .header ul li a{padding: 0px 4px;}
+    .header ul li a{}
     .header ul li.dropdown-user a{padding: 0px 4px;}
-    .email-verify{    float: left;
-    width: 100%;
-    }
+    .email-verify{float: left; width: 100%; }
+	.header ul li.dropdown-user a{}
+	.logo h2{padding:0; line-height:27px;}
+	
     .alert{float: left;}
     .email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}

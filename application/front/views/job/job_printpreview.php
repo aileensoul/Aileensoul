@@ -703,17 +703,13 @@
                                           </div>
                                           <div class="profile-job-profile-menu">
                                              <ul class="clearfix">
-                                                <?php
-                                                   if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
-                                                       ?>
+                                                
                                                 <li>
                                                    <div class="text-center">
                                                       <h5 class="head_title">Project</h5>
                                                    </div>
                                                 </li>
-                                                <?php
-                                                   }
-                                                   ?>
+                                               
                                                 <?php
                                                    if ($job[0]['project_name']) {
                                                                    ?>
@@ -751,17 +747,13 @@
                                                    echo "";
                                                    }
                                                    ?><br>
-                                                <?php
-                                                   if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
-                                                       ?>
+                                                
                                                 <li>
                                                    <div class="text-center">
                                                       <h5 class="head_title">Training / Internship</h5>
                                                    </div>
                                                 </li>
-                                                <?php
-                                                   }
-                                                   ?>
+                                               
                                                 <?php
                                                    if ($job[0]['training_as']) {
                                                                ?>
@@ -826,17 +818,13 @@
                                              </div>
                                              <div class="profile-job-profile-menu">
                                                 <ul class="clearfix">
-                                                   <?php
-                                                      if ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "") {
-                                                          ?>
+                                                   
                                                    <li>
                                                       <div class="text-center">
                                                          <h5 class="head_title">Project</h5>
                                                       </div>
                                                    </li>
-                                                   <?php
-                                                      }
-                                                      ?>
+                                                  
                                                    <?php
                                                       if ($job[0]['project_name']) {
                                                                               ?>
@@ -887,9 +875,7 @@
                                                          
                                                          ?>
                                                       <br>
-                                                      <?php
-                                                         if ($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") {
-                                                             ?>
+                                                     
                                                       </span>
                                                    </li>
                                                    <li>
@@ -897,9 +883,7 @@
                                                          <h5 class="head_title">Training / Internship</h5>
                                                       </div>
                                                    </li>
-                                                   <?php
-                                                      }
-                                                      ?>
+                                                  
                                                    <?php
                                                       if ($job[0]['training_as']) {
                                                                 ?>
