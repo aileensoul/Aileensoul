@@ -754,9 +754,9 @@
                 <div class="post">
                 
                   <form class="form-horizontal">
-                  
+
                     <div class="text-center">
-                                <h3 class="head_title">Project And Training</h3>
+                                <h3 class="head_title">Project</h3>
                     </div>
 
                    <div class="form-group">

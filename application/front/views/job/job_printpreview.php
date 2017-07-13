@@ -831,7 +831,7 @@
                                                           ?>
                                                    <li>
                                                       <div class="text-center">
-                                                         <h5 class="head_title">Project And Training</h5>
+                                                         <h5 class="head_title">Project</h5>
                                                       </div>
                                                    </li>
                                                    <?php
@@ -894,7 +894,7 @@
                                                    </li>
                                                    <li>
                                                       <div class="text-center">
-                                                         <h5 class="head_title">Internship</h5>
+                                                         <h5 class="head_title">Training / Internship</h5>
                                                       </div>
                                                    </li>
                                                    <?php
