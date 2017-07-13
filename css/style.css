@@ -504,7 +504,7 @@ a:focus {
     margin-top: 9px!important;
 }
 #art_profile {
-    letter-spacing: 1.2;
+    /*letter-spacing: 1.2;*/
 }
 .dropdown_hover #art_profile {
     font-size: 13px;
@@ -3968,7 +3968,7 @@ li.active2 {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 28px;
+    top: 25px;
     margin-top: 28px;
     z-index: 2;
     display: none;
@@ -14328,7 +14328,7 @@ right: 0;}
         padding-bottom: 6px !important;
     }*/
     .header ul li.dropdown-user a {
-        padding-top: 6px !important;
+        padding-top: 10px !important;
         padding-bottom: 6px !important;
     }
     .tab-block {
