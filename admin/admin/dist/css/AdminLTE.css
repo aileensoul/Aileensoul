@@ -4788,4 +4788,4 @@ label.error{
         float: left;
 
     }
-    .form-group div {text-align:left!important; }
+    .form-group div {text-align:left!important;width: 60%; }
