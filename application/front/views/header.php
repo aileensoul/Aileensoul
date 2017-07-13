@@ -507,17 +507,12 @@ if($userid){?>
 
                                             </div>
                                 
-<<<<<<< HEAD
-                                 <?php if($message_seeall){   ?> 
-                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
-                             <?php    } ?>
-                                           
-=======
+
                            <!--       <?php if($message_seeall){   ?> 
                                      <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
                              <?php    } ?>
                                             -->
->>>>>>> 775ea3dd6e93133f38ecfced08e64fb2721ed3fe
+
                                         </div>
                                 </li>
 
@@ -693,17 +688,12 @@ if($userid){?>
 
                                             </div>
                                 
-<<<<<<< HEAD
-                                 <?php if($message_seeall){   ?> 
-                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
-                             <?php    } ?>
-                                           
-=======
+
                               <!--    <?php if($message_seeall){   ?> 
                                      <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
                              <?php    } ?>
                                             -->
->>>>>>> 775ea3dd6e93133f38ecfced08e64fb2721ed3fe
+
                                         </div>
                                 </li>
 

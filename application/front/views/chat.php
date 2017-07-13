@@ -18,6 +18,7 @@
         <script src="<?php echo base_url('js/moment.js'); ?>"></script>
 
         <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <!-- http://bootsnipp.com/snippets/4jXW -->
