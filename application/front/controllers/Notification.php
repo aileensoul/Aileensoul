@@ -1560,7 +1560,7 @@ class Notification extends MY_Controller {
 
 
         // khyati 22-5 chnages start
-            if($id == " "){  
+            if($id == ""){  
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
@@ -1627,37 +1627,43 @@ class Notification extends MY_Controller {
 
 // replace name of message_to in user_id in select user
 
+   $return_arraysel = array();
+$i=0;
+    foreach($selectuser as $k => $sel_list){
+        $return = array();
+       $return = $sel_list;
 
-        $return_arraysel = array();
-        $i = 0;
-        foreach ($selectuser as $k => $sel_list) {
-            $return = array();
-            $return = $sel_list;
+if($sel_list['message_to']){
+     if($sel_list['message_to'] == $lstusr){ 
+       $return['user_id'] = $sel_list['message_to'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+      
+       unset($return['message_to']);
+       
+        $i++;
+if($i==1) break;
+     }
+     
+    
+}else{ 
+if($sel_list['message_from'] == $lstusr){ 
+       $return['user_id'] = $sel_list['message_from'];
+       $return['first_name'] = $sel_list['first_name'];
+       $return['user_image'] = $sel_list['user_image'];
+       $return['message'] = $sel_list['message'];
+       
+        $i++;
+if($i==1) break;
+}
+      
+       unset($return['message_from']);
+        
+      }
 
-            if ($sel_list['message_to']) {
 
-                $return['user_id'] = $sel_list['message_to'];
-                $return['first_name'] = $sel_list['first_name'];
-                $return['user_image'] = $sel_list['user_image'];
-                $return['message'] = $sel_list['message'];
-
-                unset($return['message_to']);
-            } else {
-
-                $return['user_id'] = $sel_list['message_from'];
-                $return['first_name'] = $sel_list['first_name'];
-                $return['user_image'] = $sel_list['user_image'];
-                $return['message'] = $sel_list['message'];
-
-
-                unset($return['message_from']);
-            }
-            array_push($return_arraysel, $return);
-            $i++;
-            if ($i == 1)
-                break;
-        }
-
+    } array_push($return_arraysel, $return); 
 
         // khyati 24-4 end 
         // message to user
@@ -1866,29 +1872,37 @@ $i=0;
         $return = array();
        $return = $sel_list;
 
-if($sel_list['message_to']){ 
-     
+if($sel_list['message_to']){
+     if($sel_list['message_to'] == $id){ 
        $return['user_id'] = $sel_list['message_to'];
        $return['first_name'] = $sel_list['first_name'];
        $return['user_image'] = $sel_list['user_image'];
        $return['message'] = $sel_list['message'];
       
        unset($return['message_to']);
-      
+       
+        $i++;
+if($i==1) break;
+     }
+     
+    
 }else{ 
-
+if($sel_list['message_from'] == $id){ 
        $return['user_id'] = $sel_list['message_from'];
        $return['first_name'] = $sel_list['first_name'];
        $return['user_image'] = $sel_list['user_image'];
        $return['message'] = $sel_list['message'];
-
+       
+        $i++;
+if($i==1) break;
+}
       
        unset($return['message_from']);
+        
       }
-array_push($return_arraysel, $return);
-$i++;
-if($i==1) break;
-    } 
+
+
+    } array_push($return_arraysel, $return); 
 
      // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);

@@ -306,14 +306,13 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
     //khyati changes starrt 20-4
     
     // slected user chat to
-
     
-     $contition_array = array('is_delete' => '0' , 'status' => '1');
+    $contition_array = array('is_delete' => '0' , 'status' => '1');
 
-     $join_str1[0]['table'] = 'messages';
-     $join_str1[0]['join_table_id'] = 'messages.message_to';
-     $join_str1[0]['from_table_id'] = 'user.user_id';
-     $join_str1[0]['join_type'] = '';
+    $join_str1[0]['table'] = 'messages';
+    $join_str1[0]['join_table_id'] = 'messages.message_to';
+    $join_str1[0]['from_table_id'] = 'user.user_id';
+    $join_str1[0]['join_type'] = '';
 
      
      
@@ -338,10 +337,10 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
      $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
 
-
+     
 $selectuser = array_merge($seltousr,$selfromusr);
 $selectuser =  $this->aasort($selectuser,"id");
-//echo '<pre>';print_r($selectuser); die();
+//echo '<pre>'; print_r($selectuser); die();
 
 // replace name of message_to in user_id in select user
 
@@ -351,37 +350,29 @@ $i=0;
         $return = array();
        $return = $sel_list;
 
-if($sel_list['message_to']){
-     if($sel_list['message_to'] == $id){ 
+if($sel_list['message_to']){ 
+     
        $return['user_id'] = $sel_list['message_to'];
        $return['first_name'] = $sel_list['first_name'];
        $return['user_image'] = $sel_list['user_image'];
        $return['message'] = $sel_list['message'];
       
        unset($return['message_to']);
-       
-        $i++;
-if($i==1) break;
-     }
-     
-    
+      
 }else{ 
-if($sel_list['message_from'] == $id){ 
+
        $return['user_id'] = $sel_list['message_from'];
        $return['first_name'] = $sel_list['first_name'];
        $return['user_image'] = $sel_list['user_image'];
        $return['message'] = $sel_list['message'];
-       
-        $i++;
-if($i==1) break;
-}
+
       
        unset($return['message_from']);
-        
       }
-
-
-    } array_push($return_arraysel, $return); 
+array_push($return_arraysel, $return);
+$i++;
+if($i==1) break;
+    } 
 
      // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
@@ -474,11 +465,11 @@ if($from_list['message_from'] != $id){
 }
     } 
 
-   
+//   echo '<pre>'; print_r($return_arrayto); 
+//   echo '<pre>'; print_r($return_arrayfrom); die();
 
  $userlist = array_merge($return_arrayto,$return_arrayfrom);
  
-
    // uniq array of fromlist  
 foreach($userlist as $k => $v) 
 {
@@ -491,16 +482,16 @@ foreach($userlist as $k => $v)
     }
 }
 
-
 $userlist =  $this->aasort($userlist,"id");
+//    echo '<pre>';print_r($return_arraysel); 
+//    echo '<pre>';print_r($userlist); 
+//    die();
 
 $this->data['userlist'] = array_merge($return_arraysel,$userlist);
 
 //echo '<pre>'; print_r($this->data['userlist']); die();
-
    // khytai changes 22-4 end
     
-  
 // smily start
 $smileys = _get_smiley_array();
 $this->data['smiley_table'] = $smileys;
