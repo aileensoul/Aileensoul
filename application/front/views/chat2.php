@@ -451,7 +451,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var $field = $('#message');
         //var data = $field.val();
         var data = $('#message').html();
+//        data = data.replace(/(<br>)*/g,"p");
 
+         data = data.replace(/\<br\>/g,'<p>');
+        
+        data = data.replace(/&nbsp;/gi, " ");
+        
+        data = data.replace(/&gt;/gi,">");
+        data = data.replace(/div/gi, "p");
+
+        data = data.replace(/&/g, "%26");
+        
         if (data == "") {
             return false;
         }
@@ -463,8 +473,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 
+//    $('#message').keyup(function (e) {
+//        if (e.which == 13 && !e.shiftKey) {
+//            e.preventDefault();
+//            $('#submit').trigger('click');
+//        }else if (e.which == 13 && e.shiftKey) {
+//            pasteIntoInput(this, "\n");
+//        }
+//    });
     $('#message').keyup(function (e) {
-        if (e.which == 13) {
+        if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             $('#submit').trigger('click');
         }

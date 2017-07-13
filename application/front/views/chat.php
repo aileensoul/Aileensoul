@@ -431,28 +431,52 @@
 
     $('#submit').click(function (e) {
         e.preventDefault();
+
         var $field = $('#message');
         //var data = $field.val();
         var data = $('#message').html();
+//        data = data.replace(/(<br>)*/g,"p");
+
+         data = data.replace(/\<br\>/g,'<p>');
+        
+        data = data.replace(/&nbsp;/gi, " ");
+        
+        data = data.replace(/&gt;/gi,">");
+        data = data.replace(/div/gi, "p");
+
+        data = data.replace(/&/g, "%26");
+        
         if (data == "") {
             return false;
         }
         $("#message").html("");
+
         $field.addClass('disabled').attr('disabled', 'disabled');
         sendChat(data, function () {
             $field.val('').removeClass('disabled').removeAttr('disabled');
         });
     });
+
+//    $('#message').keyup(function (e) {
+//        if (e.which == 13 && !e.shiftKey) {
+//            e.preventDefault();
+//            $('#submit').trigger('click');
+//        }else if (e.which == 13 && e.shiftKey) {
+//            pasteIntoInput(this, "\n");
+//        }
+//    });
     $('#message').keyup(function (e) {
-        if (e.which == 13) {
+        if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             $('#submit').trigger('click');
         }
     });
+
     setInterval(function () {
         update_chats();
-    }, 1500); 
- </script>
+    }, 1500);
+
+</script>
 
 <!-- user search list  20-4  sstart  -->
 
