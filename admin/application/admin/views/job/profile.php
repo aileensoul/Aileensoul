@@ -440,6 +440,7 @@
                 
                   <form class="form-horizontal">
 
+                  <!-- Primary Education Data Start -->
                   <?php if($job_edu[0]['board_primary'])
                         {
                   ?>
@@ -489,7 +490,9 @@
                           }
                         }
                   ?>
+                  <!-- Primary Education Data End -->
 
+                  <!-- Secondary Education Data Start -->
                   <?php if($job_edu[0]['board_secondary'])
                         {
                   ?>
@@ -539,7 +542,9 @@
                           }
                         }
                   ?>
+                  <!-- Secondary Education Data End -->
 
+                  <!-- Higher Secondary Education Data Start -->
                   <?php if($job_edu[0]['board_higher_secondary'])
                         {
                   ?>
@@ -557,7 +562,66 @@
                   <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Stream</label>
                     <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['stream_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">School</label>
+                    <div class="col-sm-2 control-label">
                            <?php echo $job_edu[0]['school_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Percentage</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['percentage_higher_secondary']; ?>%
+                    </div>
+                  </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Year of Passing</label>
+                    <div class="col-sm-2 control-label">
+                          <?php echo $job_edu[0]['pass_year_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                   <?php
+                          if ($job_edu[0]['edu_certificate_higher_secondary'] != "") 
+                          {
+                   ?>
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Education Certificate</label>
+                    <div class="col-sm-2 control-label">
+                            <a class="example-image-link" href="<?php echo SITEURL.($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_higher_secondary'])?>" data-lightbox="example-1">certificate </a>
+                    </div>
+                  </div>
+                  <?php
+                          }
+                        }
+                  ?>
+                  <!-- Higher Secondary Education Data End -->
+
+                  <!-- Graduation Education Data Start -->
+                  <?php if($job_graduation)
+                        {
+                  ?>
+                   <div class="text-center">
+                                <h3 class="head_title">Higher secondary Education</h3>
+                    </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Board</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['board_higher_secondary']; ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Stream</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['stream_higher_secondary']; ?>
                     </div>
                   </div>
                   
@@ -596,9 +660,7 @@
                           }
                         }
                   ?>
-
-
-
+                  <!-- Graduation Education Data Start -->
                 </form>
 
                 </div>
