@@ -262,14 +262,14 @@
                             <ul class="" id="dropdownclass">
 
                           
-                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_post'); ?>"><img src="../img/icon_home.png"></a>
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_post'); ?>"><span class="bu_home"></span></a>
                                 </li>
                                 <!-- Friend Request Start-->
 
                                 <li id="add_contact">
                                     <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return Notification_contact();">
                                        <!--  <span class="hidden-xs">Contact Request &nbsp;</span>  -->
-                                        <img src="../img/icon_contact_request.png">
+                                        <span class="bu_req"></span>
 
                                         <span id="addcontact_count"></span>
 

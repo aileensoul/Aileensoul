@@ -1,4 +1,16 @@
-
+.header2 ul li a{font-size: 15px;
+color: #fff;
+padding: 3px 9px;
+display: inline-block;}
+.header2 ul li{float: left;}
+.header2 ul li a .bu_home{  background-image: url(../img/icon_home_h.png); float: left;
+height: 32px;
+width: 32px; }
+.header2 ul li a:hover .bu_home{  background-image: url(../img/icon_home.png);}
+.header2 ul li a .bu_req{  background-image: url(../img/icon_contact_request_h.png); float: left;
+height: 32px;
+width: 32px; }
+.header2 ul li a:hover .bu_req{  background-image: url(../img/icon_contact_request.png);}
 
 @media screen and (max-width: 1200px) {}
 @media screen and (max-width: 1024px) {}
