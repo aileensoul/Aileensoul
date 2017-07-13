@@ -315,7 +315,12 @@ if ($freepostdata[0]['designation']) {
      <?php 
 
   if(($post['post_exp_year'] !='0') || ($post['post_exp_month'] !='0')){ 
- echo $post['post_exp_year'].'.'.$post['post_exp_month'] . ' Year ';
+      if($post['post_exp_year'] !='0'){
+      echo $post['post_exp_year']; } 
+      if($post['post_exp_month'] !='0'){
+       echo ".";
+      echo $post['post_exp_month']; }
+      echo ' Year ';
      } 
     else
     {
