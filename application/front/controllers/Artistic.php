@@ -2697,7 +2697,7 @@ $datacount = count($otherdata);
                                Following 
                       </button>';
                 $follow .= '</div>';
-/*hii*/
+
                 $datacount = '('.count($followcount).')';
 
 
