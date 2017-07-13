@@ -14530,8 +14530,8 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
-
-.banner{padding-top: 21px;}
+	.logo h2{padding:3px 0;}
+	.banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
       .profile-box-art .right-side-menu {
         margin-left: 0px;
@@ -14757,7 +14757,7 @@ text-align: center;}
     .header-left-menu {
         position: relative;
         width: 100%;
-        margin-top: -40px;
+        margin-top: -43px;
     }
     .main-menu-right ul li#notification_li {
         position: inherit !important;
@@ -15243,7 +15243,7 @@ top: 8px;}
 @media screen and (max-width: 479px) {
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
-    .banner{padding-top: 25px;}
+    .banner{padding-top: 21px;}
     .header ul li a{padding-top: 3px !important;
 padding-bottom: 3px !important; padding: 0px 8px;}
     .header ul li.dropdown-user a{padding-top: 6px !important;
@@ -15622,18 +15622,10 @@ padding-bottom: 6px !important;}
     width: 100%;
     }
     .alert{float: left;}
-
-      .banner{padding-top: 19px;}
-    .email-img{float: left;
-            width: 35px;}
-    .main-txt{float: left;
-                width: 87%;
-                text-align: justify;}
+    .email-img{float: left; width: 35px;}
+    .main-txt{float: left; width: 87%; text-align: justify;}
     .h-img{height: 25px; width: 25px;}
-    .padd_img {
-        padding-left: 3px !important;
-        padding-top: 4px !important;
-    }
+    .padd_img { padding-left: 3px !important; padding-top: 4px !important;}
     .padding_job_r ul .date_re {
         padding-left: 15px;
     }
