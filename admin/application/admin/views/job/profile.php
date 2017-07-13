@@ -439,13 +439,19 @@
                 <div class="post">
                 
                   <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Education</label>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+
+                   <div class="text-center">
+                                <h3 class="head_title">Primary Education</h3>
+                    </div>
+
+                   <div class="form-group">
+                     <label for="inputName" class="col-sm-2 control-label">Board:</label>
+                    <div class="col-sm-2 control-label">
+                           <?php echo $job_edu[0]['board_primary']; ?>
                     </div>
                   </div>
+
                 </form>
 
                 </div>

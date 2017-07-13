@@ -5685,5 +5685,9 @@ public function temp(){
 
     $this->load->view('job/temp');
     }
+    public function temp3(){
+
+    $this->load->view('job/temp3');
+    }
     
 }
