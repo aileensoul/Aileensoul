@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
 <!--link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" /-->
-
+<link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -724,7 +724,7 @@ $( document ).on( 'keydown', function ( e ) {
 	$( document ).ready(function() {
     
 		// hover
-		$(function(){
+		/*$(function(){
 		$(".dropdown").hover(            
 				function() {
 					$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
@@ -736,7 +736,7 @@ $( document ).on( 'keydown', function ( e ) {
 					$(this).toggleClass('open');
 					//$('b', this).toggleClass("caret caret-up");                
 				});
-		});
+		});*/
 
 			
 			

@@ -3,8 +3,9 @@ echo $header;
 echo $leftmenu;
 ?>
 
-
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+ <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
             <?php echo $module_name; ?>
@@ -23,12 +24,6 @@ echo $leftmenu;
                          <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
         </div>
     </section>
-
-
-
-    <!-- Content Header (Page header) -->
-
-
 
 
     <!-- Main content -->
@@ -165,7 +160,7 @@ echo $leftmenu;
                 <tr id="delete<?php echo $user['job_id']?>">
                     <td><?php echo $i++; ?></td>
 
-                    <td><?php echo $user['fname']; echo ' ';echo $user['lname'];  ?></td>
+                    <td><?php echo ucfirst($user['fname']); echo ' ';echo ucfirst($user['lname']);  ?></td>
 
                     <td><?php echo $user['email']; ?></td>
 
@@ -243,9 +238,12 @@ echo $leftmenu;
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <button class="btn btn-success btn-xs">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['job_id'] ); ?>">
+                         <i class="fa fa-fw fa-eye"></i>
+                        </a>
+                      <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
                         <i class="fa fa-fw fa-eye"></i>
-                        </button>
+                        </button> -->
                     </td>
 
                 </tr>
@@ -341,9 +339,9 @@ echo $leftmenu;
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
+<!-- Footer start -->
 <?php echo $footer; ?>
-
-
+<!-- Footer End -->
 
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {

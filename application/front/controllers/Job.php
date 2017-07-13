@@ -5680,5 +5680,10 @@ $select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $strea
     echo $select;
 }
 //add other_degree into database End  
+
+public function temp(){
+
+    $this->load->view('job/temp');
+    }
     
 }
