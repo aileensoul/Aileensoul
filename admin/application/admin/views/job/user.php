@@ -364,7 +364,7 @@ echo $leftmenu;
    function deactive_user(job_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><a id="activate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 
         $('.message #activate').on('click', function () 
         {
@@ -386,7 +386,7 @@ echo $leftmenu;
    function active_user(job_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><a id="deactivate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 
         $('.message #deactivate').on('click', function () 
         {
@@ -408,7 +408,7 @@ echo $leftmenu;
    function delete_user(job_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><a id="delete" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 
         $('.message #delete').on('click', function () 
         {
