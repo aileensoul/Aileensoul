@@ -903,16 +903,16 @@ img.aligncenter {
     letter-spacing: 0.5;
 }
 
-.header ul li a .img-all{  background-image: url(../img/all_h.png); float: left;
+.header ul li a .img-all{  background-image: url(../img/all_h.png); display:block;
 height: 32px;
 width: 32px; }
 .header ul li a:hover .img-all{  background-image: url(../img/all.png);}
-.header ul li a .img-noti{  background-image: url(../img/header_icon_notification_h.png); float: left;
+.header ul li a .img-noti{  background-image: url(../img/header_icon_notification_h.png); display:block;
 height: 32px;
 width: 32px;}
 .header ul li a:hover .img-noti{  background-image: url(../img/header_icon_notification.png);}
 
-.header ul li a .img-msg{  background-image: url(../img/header_icon_message_h.png); float: left;
+.header ul li a .img-msg{  background-image: url(../img/header_icon_message_h.png); display:block;
 height: 32px;
 width: 32px;}
 .header ul li a:hover .img-msg{  background-image: url(../img/header_icon_message.png);}
@@ -1300,6 +1300,7 @@ ul.dropdown-menu li a i {
     padding: 6px 10px;
     font-size: 15px;
     color: #787878;
+	display:block;
 }
 .header ul li.dropdown-user ul li a:hover {
     background: #1b8ab9;
@@ -14057,6 +14058,7 @@ text-align: center;}
 }
 .header ul li.dropdown-user ul li {
     border-right: none;
+	width:100%;
 }
 .header ul li {
     border-right: 0.2px solid #1985b3;
@@ -14139,8 +14141,10 @@ header.animated {
         line-height: 30px;*/
     }
     .header ul li a {
-        padding: 5px 10px;
+        padding-bottom: 2px !important;
+		padding-top: 9px !important;
     }
+	.header ul li.dropdown-user a {padding-top:11px !important;}
     .cmy_2 {
         width: 74%;
         float: left;
@@ -14165,8 +14169,8 @@ header.animated {
     }
 }
 @media screen and (max-width: 1024px) {
-    .header ul li a{padding-bottom: 4px !important;
-padding-top: 4px !important;}
+    .header ul li a{padding-bottom: 0px !important;
+padding-top: 7px !important;}
     .email-verify{ padding-left: 3%;}
     .profile-text1 .as-p{font-size: 12px; letter-spacing: 0px;}
     .profile-text1 .chng_email{font-size: 12px;}
@@ -14240,7 +14244,7 @@ padding-top: 4px !important;}
         padding-right: 0;
     }
     .header ul li a {
-        padding: 17px 12px;
+        
     }
     .chat .chat-history .other-message::after {
         left: 96%;
