@@ -1,139 +1,5 @@
 <style type="text/css">
 
-    #addcontactContainer{
-        display: none;
-        background-color: #fff;
-        border: 1px solid rgba(100, 100, 100, .4);
-        -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-        overflow: visible;
-        position: absolute;
-        top: 30px;
-        margin-top: 0px;
-        z-index: 2;
-        display: none;
-        float: left;
-        width: 450px;
-        right: 0;
-    }
-    #addcontactContainer::before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 0;
-        height: 0;
-        color: transparent;
-        border: 10px solid black;
-        border-color: transparent transparent #e9eaed;
-        margin-top: -20px;
-        margin-left: 18px;
-        right: 9px;
-    }
-    #addcontactTitle {
-        z-index: 1000;
-        font-weight: bold;
-        padding: 8px;
-        font-size: 18px;
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
-        background: -moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-        background: -webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-        background: -o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-        background: -ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
-        background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
-        background-color: #f9f9f9;
-        width: 100%;
-        border-bottom: 1px solid #dddddd;
-    }
-    #addcontactBody {
-        padding: 0px 0px 0px 0px !important;
-        overflow-y: scroll;
-        height: 350px;
-    }
-    #addcontactBody ul, #addcontactBody li {
-        width:100%;
-    }
-    #addcontactBody li{
-        border-bottom: 1px solid #ddd;
-        padding: 10px 0;
-    }
-    #addcontactBody li a{
-        padding-left: 0;
-        color: #000;
-        padding-top: 0;
-    }
-    .addcontact-pic {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        float: left;
-
-    }
-    .addcontact-text{
-        float: left;
-        width: 80%;
-        padding-left: 5px;
-    }
-    .addcontact-text span{
-        display: block;
-        line-height: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 200px;
-    }
-    .addcontact-left{
-        width:75%;
-        float: left;
-    }
-    .addcontact-left a{
-        color: #000;
-        width: 100%;
-        float: left;
-        padding-bottom: 0 !important;
-        display: -webkit-flex; /* Safari */
-        -webkit-align-items: center; /* Safari 7.0+ */
-        display: flex !important;
-        align-items: center;
-    }
-    .addcontact-left a:hover, .addcontact-left a:focus {
-        background: none !important;
-    }
-    .addcontact-right{
-        width: 25%;
-        float: left;
-    }
-    .addcontact-right a{
-        display: inline-block !important;
-        border: 1px solid #000;
-        padding: 8px !important;
-        border-radius: 100%;
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        margin: 5px 2px;
-    }
-    .addcontact-right a:hover, .addcontact-right a:focus {
-        background: none !important;
-    }
-    .addcontact-right a i{
-        color: #000;
-        font-size: 20px !important;
-    }
-    #addcontactFooter {
-        background-color: #e9eaed;
-        text-align: center;
-        font-weight: bold;
-        font-size: 12px;
-        width: 100%;
-        margin-top: -20px;
-        border-top: 1px solid #dddddd;
-    }
-    #addcontactFooter a{
-        color: #000;
-    }
-    #addcontactFooter a:hover{
-        background:#fff;
-    }
 </style>
 <script>
     
@@ -262,7 +128,7 @@
                             <ul class="" id="dropdownclass">
 
                           
-                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_post'); ?>"><span class="bu_home"></span></a>
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a class="bus-h" href="<?php echo base_url('business_profile/business_profile_post'); ?>"><span class="bu_home"></span></a>
                                 </li>
                                 <!-- Friend Request Start-->
 
@@ -275,20 +141,20 @@
 
                                     </a>
                                     <div id="addcontactContainer">
-                                         <div id="addcontactTitle">Contact Request</div>
+                                         <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
                                             
                                         <div id="addcontactBody" class="notifications">
 
 
                                         </div>
-                                        <div id="addcontactFooter"><a href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+                                      
                                     </div>
                                 </li>         
                                 <li>
 
 
                                     <div class="dropdown_hover">
-                                        <span id="art_profile" >Business Profile <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                        <span id="art_profile" >Business Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
                                         <div class="dropdown-content_hover" id="dropdown-content_hover">
                                                         <span class="my_account">
                                         <div class="my_S">Account</div>

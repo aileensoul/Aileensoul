@@ -271,6 +271,20 @@ $(window).load(function(){
         });
 
     });
+       $(document).ready(function () {
+        $("body").click(function (event) {
+            $("#acon").hide(600);
+           // event.stopPropagation();
+        });
+
+    });
+     $(document).ready(function () {
+        $("body").click(function (event) {
+            $("#acon").hide(600);
+           // event.stopPropagation();
+        });
+
+    });
 
     $(document).ready(function () {
         $("body").click(function (event) {
@@ -316,6 +330,16 @@ $( document ).on( 'keydown', function ( e ) {
         $( "#notificationContainer" ).hide();
     }
 });
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#acon" ).hide();
+    }
+});
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        $( "#acon" ).hide();
+    }
+});
 
 $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
@@ -323,7 +347,7 @@ $( document ).on( 'keydown', function ( e ) {
     }
 });
 // click on escape notification & message drop down close end
-
+  
 
     $(document).ready(function ()
     {
@@ -336,6 +360,7 @@ $( document ).on( 'keydown', function ( e ) {
             $(".dropdown-menu").hide();
             $("#dropdown-content_hover").hide();
             $("#addcontactContainer").hide();
+             $("#acon").hide();
 
 
             $("#Frnd_reqContainer").hide();
@@ -361,7 +386,7 @@ $( document ).on( 'keydown', function ( e ) {
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#dropdown-content_hover").hide();
-
+            $("#acon").hide();
             $("#InboxContainer").fadeToggle(300);
             $("#Inbox_count").fadeOut("slow");
             return false;
@@ -383,7 +408,7 @@ $( document ).on( 'keydown', function ( e ) {
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
             $("#dropdown-content_hover").hide();
-
+            $("#acon").hide();
             return true;
         });
 
@@ -397,7 +422,7 @@ $( document ).on( 'keydown', function ( e ) {
 
             $("#Frnd_reqContainer").hide();
             $("#Frnd_req_count").hide();
-
+            $("#acon").hide();
             $("#notificationContainer").hide();
             $("#notification_count").hide();
             $("#InboxContainer").hide();
@@ -461,8 +486,91 @@ if($userid){?>
 
                                  <?php }else{?>
 
-                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"> <span class="img-all"></span>
-</a></li>
+                                 <li id="a_li">
+                                 <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"> <span class="img-all"></span>
+                                    </a>
+
+                                    <div id="acon">
+                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
+                                    <div id="abody" class="as">
+                                    <ul>
+                                        <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('job'); ?>">
+                                        
+                                             <div class="all-img">
+                                                 <img src="<?php echo base_url('img/i1.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Job Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('recruiter'); ?>">
+                                        
+                                             <div class="all-img">
+                                                   <img src="<?php echo base_url('img/i2.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Recruiter Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('freelancer'); ?>">
+                                        
+                                             <div class="all-img">
+                                                  <img src="<?php echo base_url('img/i3.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Freelancer Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('business_profile'); ?>">
+                                        
+                                             <div class="all-img">
+                                                  <img src="<?php echo base_url('img/i4.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Business Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('artistic'); ?>">
+                                        
+                                             <div class="all-img">
+                                                  <img src="<?php echo base_url('img/i5.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Artistic Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                       
+                                    </ul>
+                                    </div>
+
+                                    </div>
+
+                                </li>
                                  <?php } ?>
 
                                
@@ -495,6 +603,7 @@ if($userid){?>
                                                    <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
                                     <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+                                    
                                         <span id="message_count"></span>
                                     </a>
 
@@ -641,9 +750,91 @@ if($userid){?>
 
                                  <?php }else{?>
 
-                                 <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>">
-                                          <span class="img-all"></span>
-</a></li>
+                                   <li id="a_li">
+                                 <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"> <span class="img-all"></span>
+                                    </a>
+
+                                    <div id="acon">
+                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
+                                    <div id="abody" class="as">
+                                    <ul>
+                                        <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('job'); ?>">
+                                        
+                                             <div class="all-img">
+                                                 <img src="<?php echo base_url('img/i1.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Job Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('recruiter'); ?>">
+                                        
+                                             <div class="all-img">
+                                                  <img src="<?php echo base_url('img/i2.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Recruiter Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('freelancer'); ?>">
+                                        
+                                             <div class="all-img">
+                                                 <img src="<?php echo base_url('img/i3.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Freelancer Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('business_profile'); ?>">
+                                        
+                                             <div class="all-img">
+                                                  <img src="<?php echo base_url('img/i4.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Business Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                          <li>
+                                             <div class="all-down">
+                                        <a href="<?php echo base_url('artistic'); ?>">
+                                        
+                                             <div class="all-img">
+                                                 <img src="<?php echo base_url('img/i5.jpg')?>">
+                                             </div>
+                                             <div class="text-all">
+                                                    Artistic Profile
+                                             </div>
+                                              </a>
+                                         </div>
+                                        
+                                          </li>
+                                       
+                                    </ul>
+                                    </div>
+
+                                    </div>
+
+                                </li>
                                  <?php } ?>
 
                                
@@ -965,4 +1156,54 @@ window.onclick = function(event) {
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
 
+<script type="text/javascript" >
+
+$(document).ready(function ()
+    {
+        $("#alink").click(function ()
+        {
+//$("#notificationLink").hide();
+            $("#acon").fadeToggle(300);
+            $("#acont").fadeOut("slow");
+
+            $("#InboxContainer").hide();
+            $("#Inbox_count").hide();
+            $(".dropdown-menu").hide();
+            $("#dropdown-content_hover").hide();
+            $("#addcontactContainer").hide();
+            $("#notificationContainer").hide();
+            $("#notification_count").hide();
+
+
+            $("#Frnd_reqContainer").hide();
+            $("#Frnd_req_count").hide();
+           
+
+            return false;
+        });
+
+    });
+
+// $(document).ready(function ()
+//     {
+//         $("#notificationLink").click(function ()
+//         {
+// //$("#notificationLink").hide();
+                
+//             $("#InboxContainer").hide();
+//             $("#Inbox_count").hide();
+//             $(".dropdown-menu").hide();
+//             $("#dropdown-content_hover").hide();
+//             $("#addcontactContainer").hide();
+
+
+//             $("#Frnd_reqContainer").hide();
+//             $("#Frnd_req_count").hide();
+//             $("#notificationContainer").fadeToggle(300);
+//             $("#notification_count").fadeOut("slow");
+//             return false;
+//         });
+
+//     });
+</script>
 
