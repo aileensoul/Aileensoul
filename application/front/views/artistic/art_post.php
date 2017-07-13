@@ -988,7 +988,7 @@
                             ?>
                      <?php } ?>
                      <!-- pop up box end-->
-                     <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                    
                         <?php
                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1002,6 +1002,7 @@
                            $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                            ?>
                         <div class="like_one_other">
+                         <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                            <?php
                               $userid = $this->session->userdata('aileenuser');
                               
@@ -1023,8 +1024,9 @@
                                   echo "others";
                               }
                               ?>
+                               </a>
                         </div>
-                     </a>
+                    
                   </div>
                   <?php
                      }
@@ -1044,7 +1046,7 @@
                             ?>
                      <?php } ?>
                      <!-- pop up box end-->
-                     <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
+                     
                         <?php
                            $contition_array = array('art_post_id' => $row['art_post_id'], 'status' => '1', 'is_delete' => '0');
                            $commnetcount = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1058,6 +1060,7 @@
                            $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
                            ?>
                         <div class="like_one_other">
+                        <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                            <?php
                               echo ucwords($art_fname);
                               echo "&nbsp;";
@@ -1072,8 +1075,9 @@
                                   echo "others";
                               }
                               ?>
+                               </a>
                         </div>
-                     </a>
+                    
                   </div>
                   <!-- like user list end -->
                   <!-- comment start -->
