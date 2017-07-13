@@ -2465,7 +2465,7 @@ a:focus {
 }
 .nav-tabs-custom > .nav-tabs {
   margin: 0;
-  border-bottom-color: #f4f4f4;
+  border-bottom-color: #d9d9d9;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
@@ -4781,11 +4781,12 @@ label.error{
       background-color: #1b8ab9;
     }
     .nav > li > a:hover, .nav > li > a:active, .nav > li > a:focus{color: #fff!important;}
-    .form-group label{width: 25%;float: left;text-align:left!important; }
+    .form-group label{width: 30%;float: left;text-align:left!important; }
     .form-group div:before{
         content: " :";
-        margin-left: -15px;
+        margin-left: -20px;
         float: left;
 
     }
-    .form-group div {text-align:left!important; }
+    .form-group div {text-align:left!important;width: 60%; }
+    .nav-tabs-custom > ul{text-align: center!important;padding-top: 10px;padding-bottom: 15px;}
