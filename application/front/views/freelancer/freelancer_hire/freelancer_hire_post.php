@@ -419,8 +419,8 @@ echo $freelancer_hire_header2_border;} ?>
                                                                 <?php } else { ?>
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
-                                                                <li><b>Post Description</b><span><p>
-                                                     <?php if($post['post_description']){echo $this->common->make_links($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                                                               <li><b>Post Description</b><span><pre>
+                                                     <?php if($post['post_description']){echo $this->common->make_links($post['post_description']);}else{echo PROFILENA;} ?></pre></span>
                                                                 </li>
                                                                 <li><b>Rate</b><span>
                                                                         <?php if($post['post_rate']){

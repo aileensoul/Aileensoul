@@ -607,7 +607,7 @@
                                             ?>
                                         </div>
                                         <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
-                                            <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
+                                            <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
                                             <div class="fifty_val">                       
                                                 <input size=1 value=50 name=text_num class="text_num"  readonly> 
                                             </div>
@@ -3749,6 +3749,9 @@
 //            },
             complete: function (response) {
 
+
+                 document.getElementById('test-upload-product').value=null;
+                 document.getElementById('test-upload-des').value=null;
                 // Output AJAX response to the div container
                 // console.log(response.responseText);
 //                    $(".upload-image-messages").html(response.responseText);

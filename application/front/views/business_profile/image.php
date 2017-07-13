@@ -62,7 +62,7 @@
 
                                 <li class="custom-none"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
 
-                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active init" <?php } ?>><a href="#">Images</a></li>
+                                <li <?php if($this->uri->segment(1) == 'business_profile'){?> class="active init" <?php } ?>><a href="#">Business Images</a></li>
 
                                
                             </ul>
@@ -84,13 +84,13 @@
                     </div>
                     
                         <div class="common-form common-form_border"> 
-                            <h3>Images</h3>
+                            <h3>Business Images</h3>
                         
                             <?php echo form_open_multipart(base_url('business_profile/image_insert'), array('id' => 'businessimage','name' => 'businessimage','class' => 'clearfix')); ?>
                            
 
                                 <fieldset class="full-width">
-                                    <label>Images:</label>
+                                    <label>Business Images:</label>
                                     <input type="file" tabindex="1" autofocus name="image1[]" id="image1" multiple/> 
 
                                     <?php if(count($busimage) > 0){

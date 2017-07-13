@@ -1374,7 +1374,7 @@
                      </div>
                      <div id="myBtn"  class="editor-content col-md-10 popup-text" >
                         <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
- <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur="check_length(this.form)" name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
+ <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur="check_length(this.form)" name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
                         <div class="fifty_val">                       
                            <input size=1 class="text_num" value=50 name=text_num readonly> 
                         </div>
@@ -2936,7 +2936,7 @@
                var vfirstname = fileInput[0].name;
                var ext = vfirstname.split('.').pop();
                var ext1 = vname.split('.').pop();
-               var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif'];
+               var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png'];
                var allowesvideo = ['mp4', 'webm'];
                var allowesaudio = ['mp3'];
                var allowespdf = ['pdf'];

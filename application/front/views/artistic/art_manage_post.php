@@ -424,9 +424,11 @@
 
                             <tr>
                                 <td class="business_data_td1 detaile_map"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
-                                <td class="business_data_td2"><span><?php echo $artisticdata[0]['art_email']; ?></span></td>
+                                <td class="business_data_td2">
+									<a href="mailto:<?php echo $artisticdata[0]['art_email']; ?>"><?php echo $artisticdata[0]['art_email']; ?></a>
+								</td>
                             </tr>
-                            <t                                                                                                      r>
+                            <tr>
                                 <td class="business_data_td1  detaile_map" ><i class="fa fa-map-marker"></i></td>
                                 <td class="business_data_td2"><span>
                                         <?php
@@ -886,7 +888,7 @@ $loginuser = $userdata[0]['art_id'];
                             </div>
                             <div id="myBtn3"    class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
-                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onblur=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
+                                <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form);  onkeyup=check_length(this.form); onblur=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                <div class="fifty_val">  
                                     <input size=1 class="text_num" value=50 name=text_num readonly> 
                                 </div>
@@ -4271,6 +4273,8 @@ $(document).ready(function(){
             function check_length(my_form)
             {
                 maxLen = 50;
+             
+
                 // max number of characters allowed
                 if (my_form.my_text.value.length > maxLen) {
                     // Alert message if maximum limit is reached. 

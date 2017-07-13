@@ -1929,6 +1929,7 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 // khyati changes end 7-4
 
     public function freelancer_add_post_insert() {
+  
         $userid = $this->session->userdata('aileenuser');
         $skills = $this->input->post('skills');
 
@@ -1992,7 +1993,7 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
                 'is_delete' => 0
             );
 
-              //echo "<pre>"; print_r($data); die();  
+        //      echo "<pre>"; print_r($data['post_description']); die();  
 
             $insert_id = $this->common->insert_data_getid($data, 'freelancer_post');
             if ($insert_id) {

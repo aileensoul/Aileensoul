@@ -1298,8 +1298,8 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	.banner-box .left-profile .profile-photo{width: 114px; height: 114px;}
 	.banner-box .left-profile .profile-photo img.main-pic{width: 120px; height: 120px;}
 	.profile-detail h2{font-size: 20px;}
-
-
+	.upload-profile img{width:25px; margin-bottom:2px;}
+	.upload-profile{font-size:13px; padding-top:30px;}
 	.header-login .input{width:25%;}
 	.top-middle h3{font-size:20px;}
 	.bottom-middle{padding:0;}
@@ -1420,6 +1420,8 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	.banner-box img{height:200px;}
 	.banner-box .left-profile .profile-photo{width: 80px; height: 80px;}
 	.banner-box .left-profile .profile-photo img.main-pic{height:80px; width:80px;}
+	.upload-profile{width: 80px; height: 80px; bottom:-1px; padding:8px; font-size:10px; line-height:1.5;}
+	.upload-profile img{width:25px !important; height:25px !important;}
 }
 @media screen and (max-width: 479px) {
     .pt-a{padding-top: 35px;}

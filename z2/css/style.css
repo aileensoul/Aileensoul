@@ -1,0 +1,60 @@
+#aDiv {
+  width: 300px;
+  height: 300px;
+  background-color: gray;
+}
+
+.noti {
+  position: relative;
+  overflow: hidden;
+  
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.noti .scroll {
+  position: absolute;
+  top: 0;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+  width: 10px;
+  height: 100%;
+  border-radius: 20px;
+  
+  transition: width 300ms, opacity 300ms, background-color 300ms;
+  
+  transform: translate(-50%, %0);
+  -webkit-transform: translate(-50%, 0%);
+}
+
+.noti:hover .scroll, .scrolling .scroll {
+  opacity: 1;
+}
+
+.noti .scroll:hover  {
+  width: 12px;
+  
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.noti .scroll span, .scrolling .scroll span {
+  width: 100%;
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  transition: top 10ms;
+}
+
+.noti:hover .scroll span, .scrolling .scroll span {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.scrolling {
+   -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}

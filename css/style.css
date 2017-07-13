@@ -227,7 +227,7 @@
     font-weight: normal;
     font-style: normal;
 
-}.
+}
 body {
     position: relative;
     font-size: 16px;
@@ -504,7 +504,7 @@ a:focus {
     margin-top: 9px!important;
 }
 #art_profile {
-    letter-spacing: 1.2;
+    /*letter-spacing: 1.2;*/
 }
 .dropdown_hover #art_profile {
     font-size: 13px;
@@ -873,6 +873,7 @@ img.aligncenter {
     right: 0;
     left: 0;
     z-index: 1002;
+	height:auto !important;
 }
 .fixed {
     position: fixed;
@@ -887,6 +888,7 @@ img.aligncenter {
     padding: 0;
 }
 .header ul li {
+	float:left;
     list-style: none;
     display: inline-block;
     padding: 0;
@@ -901,8 +903,25 @@ img.aligncenter {
     display: block;
     letter-spacing: 0.5;
 }
-/*.header ul li a:hover { background: #fff; color: #000033; }
-*/
+
+.header ul li a .img-all{  background-image: url(../img/all_h.png); display:block;
+height: 32px;
+width: 32px; }
+.header ul li a:hover .img-all{  background-image: url(../img/all.png);}
+.header ul li a .img-noti{  background-image: url(../img/header_icon_notification_h.png); display:block;
+height: 32px;
+width: 32px;}
+.header ul li a:hover .img-noti{  background-image: url(../img/header_icon_notification.png);}
+
+.header ul li a .img-msg{  background-image: url(../img/header_icon_message_h.png); display:block;
+height: 32px;
+width: 32px;}
+.header ul li a:hover .img-msg{  background-image: url(../img/header_icon_message.png);}
+
+
+/*
+.header ul li a:hover { background: #156f95; color: #fff; }*/
+
 .hew:hover{  transition-duration: 2s;}
 .header ul li a i {
     /*padding-left: 10px;*/
@@ -964,6 +983,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h2-img {
     background: url(../img/icon_view_profile_white.png) no-repeat;
+	background-size:100%;
 }
 .dropdown_hover .dropdown-content_hover a:hover{background-color: #1b8ab9; color: white;}
 .h3-img{
@@ -974,6 +994,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h3-img {
     background: url(../img/icon_edit_profile_white.png) no-repeat;
+	background-size:100%;
 }
 .h4-img{
     background: url(../img/icon_delete.png) no-repeat;
@@ -982,6 +1003,7 @@ ul.sub-menu li a i {
 }
 .dropdown_hover .dropdown-content_hover a:hover .h4-img {
     background: url(../img/icon_delete_white.png) no-repeat;
+	background-size:100%;
 }
 .midd-section h2 {
     font-size: 36px;
@@ -1282,6 +1304,7 @@ ul.dropdown-menu li a i {
     padding: 6px 10px;
     font-size: 15px;
     color: #787878;
+	display:block;
 }
 .header ul li.dropdown-user ul li a:hover {
     background: #1b8ab9;
@@ -3780,6 +3803,146 @@ a:focus {
 .message-icon {
     padding-top: 10px;
 }
+
+/*contact req*/
+
+    #addcontactContainer{
+         background-color: #fff;
+   /* border: 1px solid rgba(100, 100, 100, .4);*/
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    overflow: visible;
+    position: absolute;
+    top: 28px;
+    margin-top: 3px;
+    z-index: 2;
+    display: none;
+    float: left;
+    width: 358px;
+    right: 2;
+    border-radius: 5px;
+    }
+    #addcontactContainer::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        color: transparent;
+        border: 10px solid black;
+        border-color: transparent transparent #fff;
+        margin-top: -20px;
+        margin-left: 18px;
+        right: 9px;
+    }
+    #addcontactTitle {
+       
+    position: relative;
+    z-index: 1000;
+    font-weight: normal;
+    font-family: Arial;
+    padding: 8px;
+    font-size: 17px;
+    background-color: #fff;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+    color: black;
+}
+#addcontactTitle a{color: black; padding: 1px 10px;}
+.business_data_table td a{color:#000;}
+#addcontactTitle a:hover{color: #1b8ab9; text-decoration: underline;}
+    #addcontactBody {
+        padding: 0px 0px 0px 0px !important;
+        overflow-y: scroll;
+        height: 350px;
+    }
+    #addcontactBody ul, #addcontactBody li {
+        padding-right: 0px;
+        width:100%;
+    }
+    #addcontactBody li{
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+    #addcontactBody li a{
+        padding-left: 0;
+        color: #000;
+        padding-top: 0;
+    }
+    .addcontact-pic {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        float: left;
+
+    }
+    .addcontact-text{
+        float: left;
+        width: 80%;
+        padding-left: 5px;
+    }
+    .addcontact-text span{
+        display: block;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+    .addcontact-left{
+        width:75%;
+        float: left;
+    }
+    .addcontact-left a{
+        color: #000;
+        width: 100%;
+        float: left;
+        padding-bottom: 0 !important;
+        display: -webkit-flex; /* Safari */
+        -webkit-align-items: center; /* Safari 7.0+ */
+        display: flex !important;
+        align-items: center;
+    }
+    .addcontact-left a:hover, .addcontact-left a:focus {
+        background: none !important;
+    }
+    .addcontact-right{
+        width: 25%;
+        float: left;
+    }
+    .addcontact-right a{
+        display: inline-block !important;
+        border: 1px solid #000;
+        padding: 8px !important;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        margin: 5px 2px;
+    }
+    .addcontact-right a:hover, .addcontact-right a:focus {
+        background: none !important;
+    }
+    .addcontact-right a i{
+        color: #000;
+        font-size: 20px !important;
+    }
+    #addcontactFooter {
+        background-color: #e9eaed;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        width: 100%;
+        margin-top: -20px;
+        border-top: 1px solid #dddddd;
+    }
+    #addcontactFooter a{
+        color: #000;
+    }
+    #addcontactFooter a:hover{
+        background:#fff;
+    }
 /* notification*/
 
 #notification_li {
@@ -3791,7 +3954,7 @@ a:focus {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 28px;
+    top: 25px;
     margin-top: 28px;
     z-index: 2;
     display: none;
@@ -3823,7 +3986,7 @@ a:focus {
     border-color: transparent transparent #fff;
     margin-top: -20px;
     margin-left: 18px;
-    right: 19px;
+    right: 20px;
 }
 #notificationsBody {
     padding: 0px 0px 0px 0px !important;
@@ -3949,7 +4112,7 @@ li.active2 {
     -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
     overflow: visible;
     position: absolute;
-    top: 28px;
+    top: 25px;
     margin-top: 28px;
     z-index: 2;
     display: none;
@@ -8572,7 +8735,7 @@ fieldset .add_post_btns {
     position: relative;
     display: inline-block;
     color: white;
-    padding: 8px 16px 8px;
+    padding: 6px 16px;
     cursor: pointer;
 }
 .dropdown-content_hover {
@@ -10557,6 +10720,7 @@ style chat css end*/
     -ms-transform: translate(0px, 0px) scale(1, 1);
     transform: translate(0px, 0px) scale(1, 1);
     opacity: 1;
+	height:100vh;
 }
 #search .new-search-input {
     position: absolute;
@@ -14039,6 +14203,7 @@ text-align: center;}
 }
 .header ul li.dropdown-user ul li {
     border-right: none;
+	width:100%;
 }
 .header ul li {
     border-right: 0.2px solid #1985b3;
@@ -14046,13 +14211,16 @@ text-align: center;}
 .header ul li:last-child {
     border-right: none;
 }
-/*.header ul li.dropdown-user a {
-    padding-top: 11px !important;
-    padding-bottom: 11px !important;
-}*/
+.header ul li.dropdown-user a {
+    padding-top: 13px !important;
+   
+}
+
 .header ul li a {
-    padding-bottom: 10px !important;
-    padding-top: 10px!important;
+   
+    padding-bottom: 1px !important;
+padding-top: 10px !important;
+display: inline-block;
 }
 
 .header ul li #notificationsmsgBody a {
@@ -14114,12 +14282,14 @@ header.animated {
         width: 85%;
     }
     .logo h2 {
-        font-size: 25px;
-        line-height: 30px;
+        /*font-size: 25px;
+        line-height: 30px;*/
     }
     .header ul li a {
-        padding: 5px 10px;
+        padding-bottom: 2px !important;
+		padding-top: 9px !important;
     }
+	.header ul li.dropdown-user a {padding-top:11px !important;}
     .cmy_2 {
         width: 74%;
         float: left;
@@ -14144,8 +14314,8 @@ header.animated {
     }
 }
 @media screen and (max-width: 1024px) {
-    .header ul li a{padding-bottom: 4px !important;
-padding-top: 4px !important;}
+    .header ul li a{padding-bottom: 0px !important;
+padding-top: 7px !important;}
     .email-verify{ padding-left: 3%;}
     .profile-text1 .as-p{font-size: 12px; letter-spacing: 0px;}
     .profile-text1 .chng_email{font-size: 12px;}
@@ -14219,7 +14389,7 @@ padding-top: 4px !important;}
         padding-right: 0;
     }
     .header ul li a {
-        padding: 17px 12px;
+        
     }
     .chat .chat-history .other-message::after {
         left: 96%;
@@ -14248,10 +14418,13 @@ padding-top: 4px !important;}
 	.no-post-title{
 		padding-left:2%;
 	}
+	.header2{top:46px;}
+	#notificationContainer{top:22px;}
+	#InboxContainer{top:22px;}
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed {
-        padding-top: 52px !important;
+       /* padding-top: 52px !important;*/
     }
 }
 @media screen and (max-width: 991px) {
@@ -14303,7 +14476,7 @@ right: 0;}
         padding-bottom: 6px !important;
     }*/
     .header ul li.dropdown-user a {
-        padding-top: 6px !important;
+        padding-top: 10px !important;
         padding-bottom: 6px !important;
     }
     .tab-block {
@@ -14524,19 +14697,22 @@ text-align: center;}
         .cover-pic{right: 0%;}
 }
 @media screen and (max-width: 768px) {
-
     .middle-part.container {
         padding: 40px 0 0px;
     }
 }
 @media screen and (max-width: 767px) {
-
-.banner{padding-top: 21px;}
+	.logo{padding:0;}
+	.logo h2{padding:2px 0;}
+	.banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
-      .profile-box-art .right-side-menu {
+    .profile-box-art .right-side-menu {
         margin-left: 0px;
         padding-left: 0px !important;
         padding-right: 0px!important;
+    }
+	.middle-section {
+        padding-top: 17PX;
     }
     .profile-box-art .right-side-menu ul li {
         width: 33%;
@@ -14669,9 +14845,9 @@ text-align: center;}
     .main_form {
         padding-top: 0px;
     }
-    .custom-right {
+    /*.custom-right {
         margin-top: 30px;
-    }
+    }*/
     .cameraButton .tooltiptext {
         font-size: 12px;
         width: 121px;
@@ -14705,12 +14881,14 @@ text-align: center;}
     {
         width: 33% !important;
     }
-    .dropdown-menu::before{right: 2.5%;}
     .header ul li a {
-        padding-top: 4px!important;
-        padding-bottom: 4px !important;
+        padding-top: 10px!important;
+        padding-bottom: 0px !important;
         padding: 16px;
     }
+	.header ul li a .img-msg{width:27px; height:27px; background-size:100%;}
+	.header ul li a .img-all{width:27px; height:27px; background-size:100%;}
+	.header ul li a .img-noti{width:27px; height:27px; background-size:100%;}
     .post-design-desc{padding-left: 17px;}
     .post-design-mid{padding-left: 21px;}
 	.xs-p0{padding:0;}
@@ -14724,8 +14902,8 @@ text-align: center;}
         font-size: 14px;
     }
     .header ul li.dropdown-user a {
-        padding-top: 6px !important;
-        padding-bottom: 6px !important;
+        padding-top: 11px !important;
+        padding-bottom: 0px !important;
     }
     .mob-block {
         display: block;
@@ -14757,7 +14935,7 @@ text-align: center;}
     .header-left-menu {
         position: relative;
         width: 100%;
-        margin-top: -40px;
+        margin-top: -42px;
     }
     .main-menu-right ul li#notification_li {
         position: inherit !important;
@@ -14791,7 +14969,7 @@ text-align: center;}
     .dropdown-menu {
         left: inherit !important;
         right: 0px !important;
-        top: 35px;
+        /*top: 35px;*/
     }
     .mob-zindex {
         position: relative;
@@ -14865,7 +15043,7 @@ text-align: center;}
         padding-bottom: 20px;
     }
     #paddingtop_fixed {
-        padding-top: 22px !important;
+        /*padding-top: 22px !important;*/
     }
     #paddingtop_fixed_job {
         padding-top: 35px !important;
@@ -15243,11 +15421,11 @@ top: 8px;}
 @media screen and (max-width: 479px) {
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
-    .banner{padding-top: 25px;}
-    .header ul li a{padding-top: 3px !important;
-padding-bottom: 3px !important; padding: 0px 8px;}
-    .header ul li.dropdown-user a{padding-top: 6px !important;
-padding-bottom: 6px !important;}
+    .banner{padding-top: 21px;}
+    .header ul li a{padding-top: 11px !important;
+padding-bottom: 0px !important; padding: 0px 8px;}
+    .header ul li.dropdown-user a{/*padding-top: 6px !important;
+padding-bottom: 6px !important;*/}
 .profile-detail h2{font-size: 13px;}
       .custom-box .custom-width .right-box a{
         font-size: 12px;
@@ -15616,24 +15794,17 @@ padding-bottom: 6px !important;}
     }
 }
 @media screen and (max-width: 360px) {
-    .header ul li a{padding: 0px 4px;}
+    .header ul li a{}
     .header ul li.dropdown-user a{padding: 0px 4px;}
-    .email-verify{    float: left;
-    width: 100%;
-    }
+    .email-verify{float: left; width: 100%; }
+	.header ul li.dropdown-user a{}
+	.logo h2{padding:0; line-height:27px;}
+	
     .alert{float: left;}
-
-      .banner{padding-top: 19px;}
-    .email-img{float: left;
-            width: 35px;}
-    .main-txt{float: left;
-                width: 87%;
-                text-align: justify;}
+    .email-img{float: left; width: 35px;}
+    .main-txt{float: left; width: 87%; text-align: justify;}
     .h-img{height: 25px; width: 25px;}
-    .padd_img {
-        padding-left: 3px !important;
-        padding-top: 4px !important;
-    }
+    .padd_img { padding-left: 3px !important; padding-top: 4px !important;}
     .padding_job_r ul .date_re {
         padding-left: 15px;
     }
