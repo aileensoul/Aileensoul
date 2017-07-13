@@ -1395,7 +1395,7 @@ $(document).ready(function(){
 <script type="text/javascript">
    $( document ).on( 'keydown', function ( e ) {
    if ( e.keyCode === 27 ) {
-       closeModal();
+       $('#myModal').modal('hide');
    }
    });  
 

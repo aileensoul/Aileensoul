@@ -2226,7 +2226,7 @@ class Business_profile extends MY_Controller {
 
                 if (count($businessmultiimage) == 1) {
 
-                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg');
+                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg','png');
                     $allowespdf = array('pdf');
                     $allowesvideo = array('mp4', 'webm');
                     $allowesaudio = array('mp3');
@@ -8363,6 +8363,9 @@ class Business_profile extends MY_Controller {
 
                 $fourdata .= '</p></div></div></div>';
             }
+        }else{
+            $fourdata = 'No comments Available!!!';
+
         }
         $fourdata .= '</div>';
 
