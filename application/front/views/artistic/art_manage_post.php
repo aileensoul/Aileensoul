@@ -4271,6 +4271,8 @@ $(document).ready(function(){
             function check_length(my_form)
             {
                 maxLen = 50;
+             
+
                 // max number of characters allowed
                 if (my_form.my_text.value.length > maxLen) {
                     // Alert message if maximum limit is reached. 
@@ -4284,7 +4286,7 @@ $(document).ready(function(){
                     my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
                 } else {
                     // Maximum length not reached so update the value of my_text counter
-                    my_form.text_num.value = maxLen - my_form.my_text.value.length;
+                    my_form.text_num.value = maxLen - my_form.my_text.value.length - 1;
                 }
             }
             //-->
