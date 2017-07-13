@@ -335,6 +335,11 @@ public function profile($id)
       $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
       $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array,$data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+      //for getting data job_add_edu table
+      $contition_array = array('user_id' => $userid, 'status' => '1');
+      $data = '*';
+      $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+
     $this->load->view('job/profile',$this->data);
 }
 //view function is used for view profile of user End
