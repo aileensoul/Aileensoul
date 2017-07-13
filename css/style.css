@@ -9158,6 +9158,7 @@ label.cameraButton input[accept*="camera"] {
 /*Zalak 25-5*/
 #kkkk{color: #838384;
 font-size: 12px;
+cursor: pointer;
 font-weight: 600;}
 .margin_less {
     margin: 0px!important;
