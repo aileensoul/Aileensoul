@@ -227,7 +227,7 @@
     font-weight: normal;
     font-style: normal;
 
-}.
+}
 body {
     position: relative;
     font-size: 16px;
@@ -901,8 +901,25 @@ img.aligncenter {
     display: block;
     letter-spacing: 0.5;
 }
-/*.header ul li a:hover { background: #fff; color: #000033; }
-*/
+
+.header ul li a .img-all{  background-image: url(../img/all_h.png); float: left;
+height: 32px;
+width: 32px; }
+.header ul li a:hover .img-all{  background-image: url(../img/all.png);}
+.header ul li a .img-noti{  background-image: url(../img/header_icon_notification_h.png); float: left;
+height: 32px;
+width: 32px;}
+.header ul li a:hover .img-noti{  background-image: url(../img/header_icon_notification.png);}
+
+.header ul li a .img-msg{  background-image: url(../img/header_icon_message_h.png); float: left;
+height: 32px;
+width: 32px;}
+.header ul li a:hover .img-msg{  background-image: url(../img/header_icon_message.png);}
+
+
+/*
+.header ul li a:hover { background: #156f95; color: #fff; }*/
+
 .hew:hover{  transition-duration: 2s;}
 .header ul li a i {
     /*padding-left: 10px;*/
@@ -14050,9 +14067,12 @@ text-align: center;}
     padding-top: 11px !important;
     padding-bottom: 11px !important;
 }*/
+
 .header ul li a {
-    padding-bottom: 10px !important;
-    padding-top: 10px!important;
+   
+    padding-bottom: 4px !important;
+padding-top: 4px !important;
+display: inline-block;
 }
 
 .header ul li #notificationsmsgBody a {
