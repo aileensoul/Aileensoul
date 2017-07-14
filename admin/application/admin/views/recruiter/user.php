@@ -104,11 +104,11 @@ echo $leftmenu;
                     <a href="javascript:void(0);">ID.</a></th>
 
                     <th><i class="fa fa-user"></i>
-                    <a href="<?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/ASC/' . $offset); ?>"> 
+                    <a href="<?php echo ( $this->uri->segment(3) == 'rec_firstname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/rec_firstname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/rec_firstname/ASC/' . $offset); ?>"> 
                      Name
                      </a>
 
-                     <?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
+                     <?php echo ( $this->uri->segment(3) == 'rec_firstname' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'rec_firstname' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
 
                     </th>
 
@@ -156,13 +156,13 @@ echo $leftmenu;
                 <tr id="delete<?php echo $user['rec_id']?>">
                     <td><?php echo $i++; ?></td>
 
-                    <td><?php echo ucfirst($user['fname']); echo ' ';echo ucfirst($user['lname']);  ?></td>
+                    <td><?php echo ucfirst($user['rec_firstname']); echo ' ';echo ucfirst($user['rec_lastname']);  ?></td>
 
-                    <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['rec_email']; ?></td>
 
-                    <td><?php if($user['phnno'])
+                    <td><?php if($user['rec_phone'])
                               {
-                                echo $user['phnno']; 
+                                echo $user['rec_phone']; 
                               }
                               else
                               {
@@ -175,47 +175,47 @@ echo $leftmenu;
                     <td> 
                         <?php 
 
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user['re_comp_city']))->row()->city_name;
 
                             echo $cityname; if( $cityname){echo ",<br>";}
 
-                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
+                            $statename = $this->db->get_where('states', array('state_id' => $user['re_comp_state']))->row()->state_name;
 
                             echo $statename;if( $statename){echo ",<br>";}
 
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user['re_comp_country']))->row()->country_name; 
                                             
                             echo $countryname;
                         ?>
                     </td>
 
                     <td> 
-                        <?php  if($user['job_user_image']) 
+                        <?php  if($user['recruiter_user_image']) 
                                 {
                         ?>
-                                <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
+                                <img src="<?php echo SITEURL . $this->config->item('rec_profile_thumb_upload_path') . $user['recruiter_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
                         <?php }else{
                         ?>
                                 <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
                     </td>
 
-                    <td id="active<?php echo $user['job_id']?>">
-                        <?php if ($user['status'] == 1) 
+                    <td id="active<?php echo $user['rec_id']?>">
+                        <?php if ($user['re_status'] == 1) 
                               {
                         ?>
-                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['job_id']; ?>);">Active</button>
+                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['rec_id']; ?>);">Active</button>
                         <?php 
                             }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['job_id']; ?>);">Deactive</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['rec_id']; ?>);">Deactive</button>
 
                          <?php }?></button>
                     </td>
 
                     <td><?php echo $user['created_date']; ?></td>
 
-                    <td><?php echo $user['modified_date']; ?></td>
+                    <td><?php echo $user['modify_date']; ?></td>
 
                     <td>
 
@@ -223,11 +223,11 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['job_id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['rec_id']; ?>);">
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('recruiter/profile/'.$user['job_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('recruiter/profile/'.$user['rec_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -341,7 +341,7 @@ echo $leftmenu;
 
 <script>
 //deactive user Start
-   function deactive_user(job_id) 
+   function deactive_user(rec_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -351,11 +351,11 @@ echo $leftmenu;
             $.ajax({
                          type: 'POST',
                           url: '<?php echo base_url() . "recruiter/deactive_user" ?>',
-                          data: 'job_id=' + job_id,
+                          data: 'rec_id=' + rec_id,
                           success: function (response) 
                           {    
                                  $.fancybox.close();
-                                $('#' + 'active' + job_id).html(response);
+                                $('#' + 'active' + rec_id).html(response);
                           }
             });   
         });
@@ -363,7 +363,7 @@ echo $leftmenu;
 //deactive user End
 
 //active user Start
-   function active_user(job_id) 
+   function active_user(rec_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -373,11 +373,11 @@ echo $leftmenu;
             $.ajax({
                          type: 'POST',
                           url: '<?php echo base_url() . "recruiter/active_user" ?>',
-                          data: 'job_id=' + job_id,
+                          data: 'rec_id=' + rec_id,
                           success: function (response) 
                           {        
                                   $.fancybox.close();  
-                                  $('#' + 'active' + job_id).html(response);
+                                  $('#' + 'active' + rec_id).html(response);
                           }
             });   
         });
@@ -385,7 +385,7 @@ echo $leftmenu;
 //active user End\
 
 //Delete user Start
-   function delete_user(job_id) 
+   function delete_user(rec_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -395,7 +395,7 @@ echo $leftmenu;
             $.ajax({
                          type: 'POST',
                           url: '<?php echo base_url() . "recruiter/delete_user" ?>',
-                          data: 'job_id=' + job_id,
+                          data: 'rec_id=' + rec_id,
                           success: function (response) 
                           {          
                                 window.location.reload();
