@@ -35,11 +35,12 @@ class Api extends CI_Controller {
             if (preg_match('/<img/', $mes['message'])) {
                 $messages[$i]['message'] = $mes['message'];
             } else {
-                $messages[$i]['message'] = $this->common->make_links($mes['message']);
+                $messages_new = $this->common->make_links($mes['message']);
+                $messages[$i]['message'] =nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
             }
             $i++;
         }
-
+        
         $this->_setOutput($messages);
     }
 
