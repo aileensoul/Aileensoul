@@ -4035,7 +4035,7 @@ function imgval(event) {
    
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
                        // window.location='';
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4061,7 +4061,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4086,7 +4086,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4112,7 +4112,7 @@ function imgval(event) {
                        if (product_name == '') {
                            $('#post .mes').html("<div class='pop_content'>You have to add pdf title.");
                            $('#post').modal('show');
-                           setInterval('window.location.reload()', 10000);
+                           //setInterval('window.location.reload()', 10000);
                             $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
                    //$( "#bidmodal" ).hide();
@@ -4128,7 +4128,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4148,7 +4148,7 @@ function imgval(event) {
    
                    $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                    $('#post').modal('show');
-                   setInterval('window.location.reload()', 10000);
+                  // setInterval('window.location.reload()', 10000);
    
                     $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
