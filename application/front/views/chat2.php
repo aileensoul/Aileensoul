@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <title>Chat | Aileensoul</title>
-<link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
+        <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
 
@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
-     
+
     <body>
         <?php echo $header; ?>
 
@@ -41,25 +41,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach ($userlist as $user) {
                                     ?>
                                     <li class="clearfix <?php
-                                        if ($user['user_id'] == $toid) {
-                                            echo "active";
-                                        }
-                                        ?>">
-                                        <?php if ($user['user_image']) { ?>
+                                    if ($user['user_id'] == $toid) {
+                                        echo "active";
+                                    }
+                                    ?>">
+                                            <?php if ($user['user_image']) { ?>
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
-        <?php } else { ?>
+                                        <?php } else { ?>
 
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
                                             </div>
-        <?php } ?>
-            <div class="about">
-                   <div class="name"> 
-           <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
-     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-                                    <?php echo $user['message']; ?>
+                                        <?php } ?>
+                                        <div class="about">
+                                            <div class="name"> 
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
+                                            <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
+                                                <?php echo $user['message']; ?>
                                             </div>
                                         </div>
                                     </li>
@@ -74,19 +74,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ?>
 
                                     <li class="clearfix <?php
-                            if ($lstusrdata[0]['user_id'] == $toid) {
-                                echo "active";
-                            }
-                            ?>">
-        <?php if ($lstusrdata[0]['user_image']) { ?>
+                                    if ($lstusrdata[0]['user_id'] == $toid) {
+                                        echo "active";
+                                    }
+                                    ?>">
+                                            <?php if ($lstusrdata[0]['user_image']) { ?>
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
-        <?php } else { ?>
+                                        <?php } else { ?>
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
                                             </div>
-        <?php } ?>
+                                        <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
@@ -96,39 +96,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
                                     </li>
 
-        <?php
-    }
-    foreach ($userlist as $user) {  
-        if ($user['user_id'] != $toid) {
-            ?>
+                                    <?php
+                                }
+                                foreach ($userlist as $user) {
+                                    if ($user['user_id'] != $toid) {
+                                        ?>
                                         <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
                                             <li class="clearfix <?php
-                                        if ($user['user_id'] == $toid) {
-                                            echo "active";
-                                        }
-                                        ?>">
-                                                <?php if ($user['user_image']) { ?>
+                                            if ($user['user_id'] == $toid) {
+                                                echo "active";
+                                            }
+                                            ?>">
+                                                    <?php if ($user['user_image']) { ?>
                                                     <div class="chat_heae_img">
                                                         <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                                     </div>
-                                                        <?php } else { ?>
+                                                <?php } else { ?>
                                                     <div class="chat_heae_img">
                                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
                                                     </div>
-            <?php } ?>
+                                                <?php } ?>
                                                 <div class="about">
                                                     <div class="name"> 
-                                                             <?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></div>
+                                                        <?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-                                        <?php echo $user['message']; ?>
+                                                        <?php echo $user['message']; ?>
                                                     </div>
                                                 </div>
                                             </li></a> 
-        <?php
-        }
-    }
-}
-?>
+                                        <?php
+                                    }
+                                }
+                            }
+                            ?>
                         </div>
                         <!-- loop end -->
                     </ul>
@@ -137,12 +137,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <!-- chat start -->
 
-                        <?php
-                        $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
+                <?php
+                $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
 
-                        if ($lstusrdata) {
-                            ?>
+                if ($lstusrdata) {
+                    ?>
                     <div class="chat">
                         <div class="chat-header clearfix border_btm">
 
@@ -150,11 +150,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="chat_heae_img">
                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                 </div>
-    <?php } else { ?>
+                            <?php } else { ?>
                                 <div class="chat_heae_img">
                                     <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
                                 </div>
-    <?php } ?>
+                            <?php } ?>
 
                             <div class="chat-about">
                                 <div class="chat-with">
@@ -182,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -192,18 +192,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer1" style="display: none;
-                                                       ">
+                                                         ">
 
                                                         <div id="notificationsBody1" class="notifications1">
-    <?php $i = 0;
-    foreach ($smiley_table as $key => $value) {
-        ?>
+                                                            <?php
+                                                            $i = 0;
+                                                            foreach ($smiley_table as $key => $value) {
+                                                                ?>
 
-                  <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                                                <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
 
-        <?php $i++;
-    }
-    ?>
+                                                                <?php
+                                                                $i++;
+                                                            }
+                                                            ?>
                                                         </div>
 
                                                     </div>
@@ -221,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } else { ?>
+                <?php } else { ?>
 
                     <div class="chat">
                         <div class="chat-header clearfix ">
@@ -247,7 +249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -256,7 +258,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <a href="#" id="notificationLink"><i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer" style="display: none;
-                                                        ">
+                                                         ">
 
                                                         <div id="notificationsBody" class="notifications"></div>
 
@@ -275,7 +277,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } ?>
+                <?php } ?>
                 <!-- chat start -->
             </div>
 
@@ -342,38 +344,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var fname = '<?php echo $logfname; ?>';
         var lname = '<?php echo $loglname; ?>';
         var message = message;
-//        var str = message.replace(/&nbsp;/g, "");
+        var str = message.replace(/<div><br><\/div>/gi, "");
+       alert(str);
 //        var str = str.replace(/ /g, "");
-        str = message.replace(/<div>/gi, "");
-        str = str.replace(/<\/div>/gi, "");
-        str = str.replace(/&nbsp;/gi, " ");
-        str = str.replace(/<br>/gi, "");
+
+//        str = message.replace(/<div>/gi, "");
+//        str = str.replace(/<\/div>/gi, "");
+//        str = str.replace(/&nbsp;/gi, " ");
+//        str = str.replace(/<p><\/div>/gi, "");
+
+        //str = str.replace(/<br>/gi, "");
         //if (str == '<div><br></div><div><br></div>' || str == '<div><br></div>') {
+
         if (str == '') {
             return false;
-        }else if (/^\s+$/gi.test(str))
+        } else if (/^\s+$/gi.test(str))
         {
             return false;
         } else {
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + str + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+      
+           
+            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
         /*$('#message').keypress(function (e) {
-
-            if (e.keyCode == 13 && !e.shiftKey) {
-                e.preventDefault();
-                var sel = $("#message");
-                var txt = sel.html();
-                if (txt == '') {
-                    return false;
-                } else {
-                    $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-                        callback();
-                    });
-                }
-            }
-        }); */
+         
+         if (e.keyCode == 13 && !e.shiftKey) {
+         e.preventDefault();
+         var sel = $("#message");
+         var txt = sel.html();
+         if (txt == '') {
+         return false;
+         } else {
+         $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+         callback();
+         });
+         }
+         }
+         }); */
 
 
     }
@@ -384,30 +393,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var userid = '<?php echo $userid; ?>';
             var curuser = data.message_from;
             var touser = data.message_to;
-         
+
             if (curuser == userid) {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 console.log(formattedDate);
-
+             var print_message = data.message;
+            var print_message = print_message.replace(/"/gi, " ");
+            var print_message = print_message.replace(/%26amp;/gi, "&");
+          // alert(print_message);
                 var html = ' <li class="clearfix">';
                 html += '   <div class="message-data align-right">';
                 html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
                 html += ' </div>';
                 //html += ' <div class="chat-body clearfix">';
-                html += '     <div class="message other-message float-right">' + data.message + '</div>';
+                html += '     <div class="message other-message float-right">' + print_message + '</div>';
                 html += '</li>';
-                
-                $('.' + 'status' + touser).html(data.message);
+
+                $('.' + 'status' + touser).html(print_message);
             } else {
 
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 console.log(formattedDate);
-
+              
+                 var print_message = data.message;
+            var print_message = print_message.replace(/"/gi, " ");
+             var print_message = print_message.replace(/%26amp;/gi, "&"); 
 
                 var html = '<li> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
@@ -417,12 +432,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '</li>';
 
 
-                $('.' + 'status' + curuser).html(data.message);
+                $('.' + 'status' + curuser).html(print_message);
             }
-            
-             var $cont = $('.chat-history');
+
+            var $cont = $('.chat-history');
             $cont[0].scrollTop = $cont[0].scrollHeight;
-            
+
             $("#received").html($("#received").html() + html);
         });
 
@@ -451,22 +466,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var $field = $('#message');
         //var data = $field.val();
         var data = $('#message').html();
-//        data = data.replace(/(<br>)*/g,"p");
 
-         data = data.replace(/\<br\>/g,'');
-        
         data = data.replace(/&nbsp;/gi, " ");
-        
-        data = data.replace(/&gt;/gi,">");
-        data = data.replace(/div/gi, "p");
-
+        data = data.replace(/<br>$/, '');
+        if (data == '' || data == '<br>') {
+            return false;
+        }
+        if (/^\s+$/gi.test(data))
+        {
+            return false;
+        }
         data = data.replace(/&/g, "%26");
-        data = data.replace(/\<p\><\/p\>/g,'');
-        
+
+//        data = data.replace(/&nbsp;/gi, " ");
+//        data = data.replace(/&gt;/gi, ">");
+//        data = data.replace(/div/gi, "p");
+//        data = data.replace(/&/g, "%26");
+//       alert(data);
         if (data == "") {
             return false;
         }
-  
+
         $("#message").html("");
 
         $field.addClass('disabled').attr('disabled', 'disabled');
@@ -626,8 +646,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         newheight = message.scrollHeight;
         message.style.height = newheight + "px";
     })
-    
-    
+
+
     $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>
 

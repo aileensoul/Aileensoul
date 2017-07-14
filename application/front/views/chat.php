@@ -314,7 +314,7 @@
         str = str.replace(/<div>/gi, "");
         str = str.replace(/<\/div>/gi, "");
         str = str.replace(/&nbsp;/gi, " ");
-        str = str.replace(/<br>/gi, "");
+//        str = str.replace(/<br>/gi, "");
         // var str = message.replace(/&nbsp;/g, "");
         //var str = str.replace(/<div><br><\/div>/g, "");
         // var str = str.replace(/ /g, "");
@@ -326,7 +326,7 @@
         {
             return false;
         } else {
-            $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + str + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             }); 
         }
@@ -369,35 +369,40 @@
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 //console.log(formattedDate);
 //alert(formattedDate);
-                var html = '';
+
+            var print_message = data.message;
+            var print_message = print_message.replace(/"/gi, " ");
+            var print_message = print_message.replace(/%26amp;/gi, "&");
                 
-                if (data.message != '') {
+                
                     var html = ' <li class="clearfix">';
                     html += '   <div class="message-data align-right">';
                     html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
                     html += '    <span  class="message-data-name fr"  >' + fname +
                             ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
                     html += ' </div>';
-                    html += '<div class="message other-message float-right">' + data.message + '</div>';
+                    html += '<div class="message other-message float-right">' + print_message + '</div>';
                     html += '</li>';
-                    $('.' + 'status' + touser).html(data.message);
-                }
+                    $('.' + 'status' + touser).html(print_message);
+               
             } else {
 
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 //console.log(formattedDate);
-                var html = '';
-                if (data.message != '') {
+            var print_message = data.message;
+            var print_message = print_message.replace(/"/gi, " ");
+            var print_message = print_message.replace(/%26amp;/gi, "&")
+                
                     var html = '<li> <div class="message-data">';
                     html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                     html += '<span class="message-data-time">' + formattedDate + ' </span>';
                     html += ' </div>';
-                    html += ' <div class="message my-message">' + data.message + '</div>';
+                    html += ' <div class="message my-message">' + print_message + '</div>';
                     html += '</li>';
-                    $('.' + 'status' + curuser).html(data.message);
-                }
+                    $('.' + 'status' + curuser).html(print_message);
+                
             }
 //            $('.chat-history').animate({scrollTop: $('.chat-history').height()}, 2000);
 //            var dchativ = $(".chat-history");
@@ -437,8 +442,7 @@
         var data = $('#message').html();
 //        data = data.replace(/(<br>)*/g,"p");
 
-         data = data.replace(/\<br\>/g,'');
-        
+//         data = data.replace(/\<br\>/g,'');
         data = data.replace(/&nbsp;/gi, " ");
         
         data = data.replace(/&gt;/gi,">");
@@ -446,10 +450,7 @@
 
         data = data.replace(/&/g, "%26");
      
-         if(data == "<p><p></p><p><p></p>"){
-             alert(1);
-             return false;
-         }
+     alert(data);   
         if (data == "") {
             return false;
         }
