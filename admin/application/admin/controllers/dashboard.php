@@ -11,6 +11,12 @@ class Dashboard extends MY_Controller {
 
       parent::__construct();
 
+        if (!$this->session->userdata('aileen_admin')) 
+        {
+            redirect('login', 'refresh');
+        }
+        
+        // Get Site Information
         $this->data['title'] = 'Dashboard | Aileensoul';
         $this->data['section_title'] = 'Dashboard';
 
@@ -22,78 +28,18 @@ class Dashboard extends MY_Controller {
      {
         $adminid =  $this->session->userdata('aileen_admin');
      
-
-        $condition_array = array('is_delete =' => '0');
-
-        $this->data['art_list'] = $get_users = $this->common->select_data_by_condition('art_reg', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-
-        $condition_array = array('faq_status =' => 1);
-
-        $this->data['faq_list'] = $get_users = $this->common->select_data_by_condition('faq', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-               
         //For Count Job Register User Data
         $condition_array = array('is_delete' => 0);
         $data="job_id";
         $this->data['job_list'] = $get_users = $this->common->select_data_by_condition('job_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
-        
-
-         $condition_array = array('status =' => 1);
-        $this->data['freelancer_list'] = $get_users = $this->common->select_data_by_condition('freelancer_hire_reg', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-         $condition_array = array('status =' => 1);
-
-        $this->data['stream_list'] = $get_users = $this->common->select_data_by_condition('stream', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-
-         $condition_array1 = array('status =' => '1', 'is_delete =' => '0');
-
-
-        $this->data['user_list'] = $get_users = $this->common->select_data_by_condition('user', $condition_array1, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-        $condition_array = array('is_deleted =' => '0');
-
-
-
-        $this->data['business_list'] = $get_users = $this->common->select_data_by_condition('business_profile', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-        $condition_array = array('is_delete =' => '0');
-
-
-
-        $this->data['freelance_post'] = $get_users = $this->common->select_data_by_condition('freelancer_post_reg', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-        $condition_array = array('is_delete =' => '0');
-
-
-        $this->data['rec_list'] = $get_users = $this->common->select_data_by_condition('recruiter', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-
-        $condition_array = array('is_delete =' => '0');
-
-        $this->data['degree'] = $get_users = $this->common->select_data_by_condition('degree', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-         $condition_array = array('is_delete =' => '0');
-
-        $this->data['business_type'] = $get_users = $this->common->select_data_by_condition('business_type', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-
-        $condition_array = array('is_delete =' => '0');
-
-        $this->data['industry_type'] = $get_users = $this->common->select_data_by_condition('industry_type', $condition_array, $data = '*', $short_by, $order_by, $limit, $offset, $join_str = array());
-
-
 
 
         $this->load->view('dashboard/index',$this->data);
 
 
-
-
-
         // print_r($this->data['art_list']);die();
     }
+
     //logout user
     public function logout() {
 
@@ -108,35 +54,8 @@ class Dashboard extends MY_Controller {
             redirect('login', 'refresh');
         }
     }
-    public function edit_profile() {
-        
-        if($this->data['loged_in_user'][0]['level']!='1'){
-            $this->session->set_flashdata('error','You are not authorized.');
-            redirect('dashboard','refresh');
-        }
-        
-        if($this->input->post('email')){
-            $email=$this->input->post('email');
-            $user_name=$this->input->post('user_name');
-            $name=$this->input->post('name');
-            $user_id=$this->session->userdata('dollarbid_admin');
-            
-            $update_result=  $this->common->update_data($this->input->post(),'user','user_id',$user_id);
-            if($update_result){
-                $this->session->set_flashdata('success','Profile detail successfully updated.');
-                redirect('dashboard','refresh');
-            }
-            else{
-                $this->session->set_flashdata('error','Error Occurred. Try Again!');
-                redirect('dashboard','refresh');
-            }
-        }
-        
-        $this->data['module_name'] = 'Dashboard';
-        $this->data['section_title'] = 'Edit Profile';
-        $this->load->view('dashboard/edit_profile', $this->data);
-    }
 
+    
     
 
     public function change_password() {
@@ -192,38 +111,6 @@ class Dashboard extends MY_Controller {
         }
     }
     
-    public function check_email() {
-        if ($this->input->is_ajax_request() && $this->input->post('email')) {
-            $user_id = ($this->session->userdata('dollarbid_admin'));
-
-            $email = $this->input->post('email');
-            $check_result = $this->common->check_unique_avalibility('user','email',$email,'user_id',$user_id);
-            if ($check_result) {
-                echo 'true';
-                die();
-            } else {
-                echo 'false';
-                die();
-            }
-        }
-    }
-    
-    public function check_username() {
-        if ($this->input->is_ajax_request() && $this->input->post('user_name')) {
-            $user_id = ($this->session->userdata('dollarbid_admin'));
-
-            $user_name = $this->input->post('user_name');
-            $check_result = $this->common->check_unique_avalibility('user','user_name',$user_name,'user_id',$user_id);
-            if ($check_result) {
-                echo 'true';
-                die();
-            } else {
-                echo 'false';
-                die();
-            }
-        }
-    }
-
 }
 
 ?>

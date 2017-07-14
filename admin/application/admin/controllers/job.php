@@ -16,9 +16,13 @@ public function __construct()
 {
 
         parent::__construct();
-        
-        // Get Site Information
 
+        if (!$this->session->userdata('aileen_admin')) 
+        {
+            redirect('login', 'refresh');
+        }
+   
+        // Get Site Information
         $this->data['title'] = 'Job Management | Aileensoul';
         $this->data['module_name'] = 'Job Management';
 
@@ -33,7 +37,7 @@ public function __construct()
 //for list of all user start
 public function user() 
 {
-   //echo '<pre>'; print_r($this->session->all_userdata()); die();
+   
 // This is userd for pagination offset and limoi start
           $limit = $this->paging['per_page'];
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
