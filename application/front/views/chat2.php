@@ -461,10 +461,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         data = data.replace(/div/gi, "p");
 
         data = data.replace(/&/g, "%26");
-        
         if (data == "") {
             return false;
         }
+  
         $("#message").html("");
 
         $field.addClass('disabled').attr('disabled', 'disabled');

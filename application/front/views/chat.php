@@ -445,7 +445,7 @@
         data = data.replace(/div/gi, "p");
 
         data = data.replace(/&/g, "%26");
-        
+       
         if (data == "") {
             return false;
         }
