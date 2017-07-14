@@ -816,11 +816,12 @@ h3.text-effect span {
     padding-top: 10px;
 }
 .cameraButton .fa.fa-camera{
-	width:40px;
-	height:34px;
-	background:url('../img/cam.png');
+	width:30px;
+	height:26px;
+	background:url('../img/cam.png') no-repeat;
 	border:none;
 	padding:5px;
+	background-size:100%;
 }
 .cameraButton .fa-camera::before{
 	display:none;
@@ -847,7 +848,7 @@ h3.text-effect span {
 }
 .banner-box .upload-camera .cameraButton{
 	background:none;
-	padding:5px 5px 0;
+	padding:8px 10px 3px;
 	border:none;
 }
 
@@ -1078,7 +1079,7 @@ margin: 0 auto;
     transition: height .25s ease, width .25s ease;
     -webkit-transform: translate(0%,50%);
     transform: translate(0%, 50%);}
-    .modal{   background-color: rgba(0, 0, 0, 0.5);}
+    .modal{background-color: rgba(0, 0, 0, 0.5);}
 .sign_in{width:100%; text-align:center;}
 .sign_in p a:hover{text-decoration:underline;}
 .login p a:hover{text-decoration:underline; color:#337ab7;}
@@ -1254,7 +1255,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
-	footer > .container {padding-left:15px; padding-right:15px;}
+	footer > .container {padding-left:15px; padding-right:15px; width:1250px;}
 }
 @media (min-height: 500px){
     .mid-trns{top: 50%; position: absolute; left: 50%;
@@ -1407,7 +1408,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	footer ul{padding-top:0;}
 	.banner{padding-top:33px;}
 	.cameraButton .fa.fa-camera{height:20px; width:24px; background-size:100%;}
-	.banner-box .upload-camera{height:30px; width:34px;}
+	.banner-box .upload-camera{height:34px; width:44px;}
 	.cameraButton .tooltiptext{padding:3px 0 !important; top:-9px !important;}
 	body{padding-bottom:90px;}
 }
