@@ -1677,7 +1677,7 @@ if($i==1) break;
 
         $search_condition = "((message_from = '$userid') && (message_to != '$lstusr'))";
 
-        $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str3, $groupby = '');
+        $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
 
 
@@ -1720,8 +1720,10 @@ if($i==1) break;
         $search_condition = "((message_to = '$userid') && (message_from != '$lstusr'))";
 
 
-        $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
+        $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
 
+        
+        
 
         // uniq array of fromlist  
         foreach ($fromlist as $k => $v) {
@@ -1759,13 +1761,16 @@ if($i==1) break;
         foreach ($userlist as $k => $v) {
             foreach ($userlist as $key => $value) {
                 if ($k != $key && $v['user_id'] == $value['user_id']) {
-                    unset($userlist[$k]);
+                    if ($v['id'] < $value['id']) {
+                        unset($userlist[$k]);
+                    }
                 }
             }
         }
 
         $userlist = $this->aasort($userlist, "id");
-
+//echo '<pre>';print_r($return_arraysel);
+//echo '<pre>';print_r($userlist); die();
         $user_message = array_merge($return_arraysel, $userlist);
 
 }else{
@@ -1863,7 +1868,7 @@ $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 $selectuser = array_merge($seltousr,$selfromusr);
 $selectuser =  $this->aasort($selectuser,"id");
 
-
+//echo '<pre>'; print_r($selectuser); die();
 // replace name of message_to in user_id in select user
 
    $return_arraysel = array();
@@ -1903,7 +1908,7 @@ if($i==1) break;
 
 
     } array_push($return_arraysel, $return); 
-
+//echo '<pre>'; print_r($return_arraysel); die();
      // message to user
      $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
 
@@ -1914,7 +1919,7 @@ if($i==1) break;
      
 $search_condition = "((message_from = '$userid') && (message_to != '$id'))";
 
-     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str3, $groupby = '');
+     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
      // uniq array of tolist  
       foreach($tolist as $k => $v) 
@@ -1959,7 +1964,7 @@ if($to_list['message_to'] != $id){
      
    $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
 
-    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
+    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
     
 
   // uniq array of fromlist  
@@ -2007,7 +2012,9 @@ foreach($userlist as $k => $v)
     {
         if($k != $key && $v['user_id'] == $value['user_id'])
         {
-             unset($userlist[$k]);
+             if ($v['id'] < $value['id']) {
+                        unset($userlist[$k]);
+                    }
         }
     }
 }

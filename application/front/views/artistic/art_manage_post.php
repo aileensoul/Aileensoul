@@ -517,7 +517,7 @@
 
 
                         <?php } else { ?>
-                            <div class="not_available">  <p>    Photos Not Available</p></div>
+                            <div class="not_available">  <p>Photos Not Available</p></div>
 
                         <?php } ?>
                         <div class="dataconphoto"></div>
