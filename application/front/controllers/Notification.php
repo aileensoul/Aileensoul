@@ -1548,7 +1548,9 @@ class Notification extends MY_Controller {
            break;
             }
         }
-        $notification .= '</div>';
+        $notification .= '<div class="scroll">
+    <span></span>
+  </div> </div>';
 
         $notification .= '<div id="notificationFooter">';
         $notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
@@ -2063,10 +2065,10 @@ $user_message = array_merge($return_arraysel,$userlist);
             //$notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             //echo $not[0]['not_created_date'];
             
-            $notmsg .= '</div><div class="data_noti_msg"><i class="clockimg" ></i><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</div>';
-            $notmsg .= '</span></div></div></li></a>';
+            $notmsg .= '</div><div class="data_noti_msg"><i class="clockimg" ></i><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
+            $notmsg .= '</div></div></a></li>';
         }
-        $notmsg .= '</ul></div>';
+        $notmsg .= '</div>';
         if($user_message){
         $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
         }else{
