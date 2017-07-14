@@ -2,21 +2,6 @@
 <html lang="en">
 <head>
   <title>Grow Business Network|Hiring|Search Jobs|Freelance Work|It's Free|Aileensoul</title>
-   
-  <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-91486853-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -27,7 +12,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style type="text/css">
 
+</style>
 <body>
 <div class="main-login">
   <header>
@@ -79,7 +66,7 @@
     <div class="modal-body" style=" 
     text-align: center;">
         <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email*" autocomplete="off" class="form-control placeholder-no-fix">
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
     </div>
 
@@ -103,7 +90,7 @@
       <div class="row">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>Every person in the world to make their career.</p></h3>
+            <h3 class="text-effect"><p>We provide platform & opportunities to </p><p>Every person in the world to make their career.</p></h3>
            
           </div>
           <div class="bottom-middle">
@@ -233,7 +220,7 @@
                  <div class="dateerror" style="color:#f00; display: block;"></div>
               
               <div class="form-group gender-custom">
-                <select tabindex="12" class="gender"  onchange="changeMe(this)" name="selgen" id="selgen">
+                <select tabindex="12" class="gender" name="selgen" id="selgen">
                   <option value="" disabled selected value>Gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
@@ -275,9 +262,6 @@
     </div>
   </footer>
 </div>
-<style type="text/css">
-
-</style>
 
 </body>
 </html>
@@ -360,7 +344,6 @@ setTimeout(function() {
                                         type: 'POST',
                                         url: '<?php echo base_url() ?>registration/check_login',
                                         data: post_data,
-                                        dataType: "json",
                                         beforeSend: function ()
                                         {
                                             $("#error").fadeOut();
@@ -368,25 +351,28 @@ setTimeout(function() {
                                         },
                                         success: function (response)
                                         { 
-//                                            var essssmail = $('#email_login').val();
-//                                            alert(essssmail);
-//                                            <?php// $this->session->set_userdata('email',essssmail); ?>
-//                                            var sessionValue = "<?php// echo $this->session->userdata('email');?>";
-//                                           
-                                            if (response.data == "ok") {
+                                            if (response == "ok") {
                                                 $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
 
                                                window.location= "<?php echo base_url() ?>dashboard"; 
 
-                                               
-                                             }
-                                            else if(response.data == "password"){
+                                                //setTimeout(' window.location.href = "<?php //echo base_url() ?>home"; ', 4000);
+                                               // setTimeout(' window.location.href = ""; ', 4000);
+                                            }else if(response == "password"){
 
-                                               var id = response.id;
-                                               window.location= "<?php echo base_url() ?>login?error_msg=2&lwc=" + id; 
+
+                                               window.location= "<?php echo base_url() ?>login?error_msg=2"; 
+
+
+                                             // $("#error").fadeIn(1000, function () {
+                                             //        $("#error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Please enter valid password' + ' !</div>');
+                                             //        $("#btn-login").html('Login');
+                                             //    }); 
 
                                             }
                                             else { 
+
+
 
                                                window.location= "<?php echo base_url() ?>login?error_msg=1"; 
 
@@ -696,10 +682,4 @@ jQuery('.carousel').carousel({
         }
     });
 
-</script>
-<script type="text/javascript">
-    function changeMe(sel)
-    {
-      sel.style.color = "#000";              
-    }
 </script>

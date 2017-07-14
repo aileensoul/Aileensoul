@@ -20,20 +20,6 @@
             </li>
             <!-- End Dashboard -->
          
-          
-          
-            <!--Start Products-->
-            <li <?php if ($this->uri->segment(1) == 'product' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
-                <a href="#">
-                    <i class="fa fa-bars"></i> <span>Products</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('product/add'); ?>"><i class="fa fa-circle-o"></i> Add products</a></li>
-                    <li><a href="<?php echo base_url('product'); ?>"><i class="fa fa-circle-o"></i> List Products</a></li>
-                </ul>
-            </li>
-            <!--End Products-->
 
              <!--Start Job Management-->
             <li <?php if ($this->uri->segment(1) == 'job' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
@@ -46,6 +32,18 @@
                 </ul>
             </li>
             <!--End Job Management-->
+
+             <!--Start Recruiter Management-->
+            <li <?php if ($this->uri->segment(1) == 'recruiter' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-handshake-o"></i> <span>Recruiter Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('Recruiter/user'); ?>"><i class="fa fa-users"></i>List Recruiter User</a></li>
+                </ul>
+            </li>
+            <!--End Recruiter Management-->
            
            <!--Start Change Password-->
             <li <?php if ($this->uri->segment(1) == 'change_password' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?> >

@@ -1,3 +1,18 @@
+<!-- Don't remove it's SEO-->
+<meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91486853-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
 <!-- header -->
 
 <!-- <script type="text/javascript">
@@ -6,61 +21,7 @@ $(window).load(function(){
         return false;
     });
 </script> -->
-<head> 
-    <meta charset="utf-8" />
-    <!-- SEO CHANGES START -->
-    <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <!-- SEO CHANGES END -->
-    <!-- NEED TO ADD FOLLOWING TAG IN HEADER -->
-    <link rel="canonical" href="http://www.aileensoul.com" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-    <meta name="description" content=" " />
-    <meta name="keywords" content=" " />
-    <!-- Add following GoogleAnalytics tracking code in Header.-->
-    <!-- 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-91486853-1', 'auto');
-      ga('send', 'pageview');
-    
-    </script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-6060111582812113",
-        enable_page_level_ads: true
-      });
-    </script>
-    -->
-    <title><?php echo $title; ?></title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
-    <!-- CSS START -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('z2/css/style.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_yatin.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
-
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
-     <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
-
-   
-</head>
 
 <!-- style for span id=notification_count start-->
 <style>
@@ -533,7 +494,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications noti">
+                                        <div id="notificationsBody" class="notifications">
 
 
                                         </div>
@@ -712,7 +673,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications noti">
+                                        <div id="notificationsBody" class="notifications">
 
 
                                         </div>
@@ -848,108 +809,8 @@ if($userid){?>
 
       <?php  }?>
 
-    <div id="aDiv" class="noti1" style="margin-top: 150px;">
-  The oldest classical Greek and Latin writing had little or no spaces between words or other ones, and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[3] The Greek paragraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences. The hedera leaf (e.g. ☙) has also been used in the same way.
-
-In ancient manuscripts, another means to divide sentences in into paragraphs was a line break (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversize capital letter, sometimes outdented beyond the margin of text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Outdenting is still used in English typography, though not commonly.[4] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten) United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph whitespace, or put in the indentation space.
-
-A second common modern English style is to use no indenting, but add vertical whitespace to create "block paragraphs". On a typewriter, a double carriage return produces a blank line for this purpose; professional typesetters may put in an arbitrary vertical space by adjusting leading. This style is very common in electronic formats, such as on the World Wide Web and email.
-  <div class="scroll">
-    <span></span>
-  </div>
-</div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script>
-
-<script type="text/javascript">
-  var dragging = false;
-var clientY = 0;
-
-$(document).ready(function(event) {
-  $(".noti").each(function() { 
-    var viewportHeight = $(".noti").outerHeight();
-    var totalHeight = $(".noti").prop("scrollHeight");
-  
-    var scrollUnitHeight = (viewportHeight / totalHeight) * viewportHeight;
-  
-    $(".noti .scroll span").height(scrollUnitHeight);
-  });
-  
-  $(document).on('mousewheel', '.noti', function(event) {
-    var scrollLocation = $(this).find(".scroll span").position().top;
-    moveScrollTo($(this), scrollLocation - (event.deltaY * 10));
     
-    event.preventDefault();
-    return false;
-  });
-  
-  $(window).on("mouseup", function(event) {
-    if (dragging) {
-      dragging = false;
-      $(".scrolling").removeClass("scrolling");
-      
-      event.preventDefault();
-      return false;
-    }
-  });
-  
-  $(".noti .scroll span").on("mousedown", function(event) {
-    clientY = event.clientY - $(this).position().top;
-    dragging = true;
-    $(this).parents(".noti").addClass("scrolling");
-    
-    event.preventDefault();
-    return false;
-  });
-  
-  $(document).on("click", ".scroll", function(event) {
-    if ($(event.target).is("span")) {
-      return;
-    }
-    
-    var scrollPosition = event.clientY - 15;
-    moveScrollTo($(this).parents(".noti"), scrollPosition);
-  });
-  
-  $(window).on("mousemove", function(event) {
-    if (dragging) {
-      var scrollPosition = event.clientY - clientY;
-      moveScrollTo($(".scrolling"), scrollPosition);
-      
-      event.preventDefault();
-    }
-  });
-});
 
-function moveScrollTo(parent, scrollPosition) {    
-  if (parent.length > 0) {
-    var viewportHeight = parent.outerHeight();
-    var limitedViewportHeight = viewportHeight - parent.find(".scroll span").height();
-    
-    var totalHeight = parent.prop("scrollHeight");
-
-    if (scrollPosition < 0) {
-      scrollPosition = 0;
-    }
-    
-    var scrollSpanPosition = scrollPosition;
-    
-    if (scrollSpanPosition > viewportHeight - parent.find(".scroll span").height()) {
-      scrollSpanPosition = viewportHeight - parent.find(".scroll span").height();
-    }
-    
-    if (scrollPosition > viewportHeight) {
-      scrollPosition = viewportHeight;
-    }
-    
-    parent.find(".scroll span").css("top", scrollSpanPosition);
-
-    parent.find(".scroll").css("top", (scrollSpanPosition / viewportHeight) * totalHeight);
-
-    parent.scrollTop((scrollSpanPosition / viewportHeight) * totalHeight);
-  }
-}
-</script>
     <!-- header end -->
 
     <!-- script for update all read notification start-->
@@ -1114,3 +975,5 @@ window.onclick = function(event) {
     <!-- Extra js if not work then add Start-->
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
+
+

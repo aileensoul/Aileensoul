@@ -3138,7 +3138,7 @@
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                        //setInterval('window.location.reload()', 10000);
                         // window.location='';
 
                         $(document).on('keydown', function (e) {
@@ -3159,7 +3159,7 @@
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                       // setInterval('window.location.reload()', 10000);
 
                         $(document).on('keydown', function (e) {
                             if (e.keyCode === 27) {
@@ -3179,7 +3179,7 @@
                     } else {
                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                        //setInterval('window.location.reload()', 10000);
 
                         $(document).on('keydown', function (e) {
                             if (e.keyCode === 27) {
@@ -3200,7 +3200,7 @@
                         if (product_name == '') {
                             $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
                             $('#bidmodal').modal('show');
-                            setInterval('window.location.reload()', 10000);
+                            //setInterval('window.location.reload()', 10000);
 
                             $(document).on('keydown', function (e) {
                                 if (e.keyCode === 27) {
@@ -3220,7 +3220,7 @@
                             $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                         }
                         $('#bidmodal').modal('show');
-                        setInterval('window.location.reload()', 10000);
+                       // setInterval('window.location.reload()', 10000);
 
                         $(document).on('keydown', function (e) {
                             if (e.keyCode === 27) {
@@ -3233,11 +3233,34 @@
                         event.preventDefault();
                         return false;
                     }
-                } else if (foundPresentvideo == false) {
+                } 
+
+                else if (foundPresentvideo == false && foundPresentpdf == false && foundPresentaudio == false && foundPresent == false) {
+   
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload images , video , pdf or audio..");
+                   $('#post').modal('show');
+                  // setInterval('window.location.reload()', 10000);
+   
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                   event.preventDefault();
+                   return false;
+   
+               }
+
+
+                else if (foundPresentvideo == false) {
 
                     $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                     $('#bidmodal').modal('show');
-                    setInterval('window.location.reload()', 10000);
+                   // setInterval('window.location.reload()', 10000);
 
                     $(document).on('keydown', function (e) {
                         if (e.keyCode === 27) {

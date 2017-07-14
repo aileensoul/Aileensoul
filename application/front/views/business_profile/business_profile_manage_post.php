@@ -1149,7 +1149,7 @@
                                                                         <a style="max-width: 40%;" class="post_dot" title="<?php echo ucwords($companynameposted); ?>" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a>
                                                                         <p class="posted_with" > Posted With</p>
                                                                         <a class="other_name post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a>
-                                                                        <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                        <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"><?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?> </span> 
                                                                     </div></div></li>
 
 
@@ -1157,7 +1157,7 @@
                                                             <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
                                                                     <span role="presentation" aria-hidden="true"> · </span>
                                                                     <div class="datespan"> 
-                                                                        <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                        <span class="ctre_date"><?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?></span> 
                                                                     </div>
 
                                                                 </div></li>
@@ -3820,7 +3820,7 @@
                                         $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     }
                                     $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
+                                    // setInterval('window.location.reload()', 10000);
                                     $(document).on('keydown', function (e) {
                                         if (e.keyCode === 27) {
                                             //$( "#bidmodal" ).hide();
@@ -3843,7 +3843,7 @@
                                 } else {
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
+                                    // setInterval('window.location.reload()', 10000);
 
                                     $(document).on('keydown', function (e) {
                                         if (e.keyCode === 27) {
@@ -3865,7 +3865,7 @@
                                 } else {
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
+                                    // setInterval('window.location.reload()', 10000);
 
                                     $(document).on('keydown', function (e) {
                                         if (e.keyCode === 27) {
@@ -3888,7 +3888,7 @@
                                     if (product_name == '') {
                                         $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
                                         $('#bidmodal').modal('show');
-                                        setInterval('window.location.reload()', 10000);
+                                        // setInterval('window.location.reload()', 10000);
 
                                         $(document).on('keydown', function (e) {
                                             if (e.keyCode === 27) {
@@ -3904,7 +3904,7 @@
                                 } else {
                                     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                                     $('#bidmodal').modal('show');
-                                    setInterval('window.location.reload()', 10000);
+                                    // setInterval('window.location.reload()', 10000);
 
                                     $(document).on('keydown', function (e) {
                                         if (e.keyCode === 27) {
@@ -3917,11 +3917,34 @@
                                     event.preventDefault();
                                     return false;
                                 }
-                            } else if (foundPresentvideo == false) {
+                            } 
+
+                            else if (foundPresentvideo == false && foundPresentpdf == false && foundPresentaudio == false && foundPresent == false) {
+   
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload images , video , pdf or audio..");
+                   $('#post').modal('show');
+                  // setInterval('window.location.reload()', 10000);
+   
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                   event.preventDefault();
+                   return false;
+   
+               }
+
+
+                            else if (foundPresentvideo == false) {
 
                                 $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
                                 $('#bidmodal').modal('show');
-                                setInterval('window.location.reload()', 10000);
+                                // setInterval('window.location.reload()', 10000);
 
                                 $(document).on('keydown', function (e) {
                                     if (e.keyCode === 27) {

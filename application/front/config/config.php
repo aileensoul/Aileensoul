@@ -373,7 +373,7 @@ $config['encryption_key'] = 'CIPAMA';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'aileensoul_front_session';
 //$config['sess_expiration'] = 7200;
 //$config['sess_expiration'] = (60*60*24*365*10);
 $config['sess_expiration'] = 315360000;
@@ -446,8 +446,8 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['csrf_token_name'] = 'csrf_aileensoul_front';
+$config['csrf_cookie_name'] = 'csrf_aileensoul_front';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();

@@ -137,7 +137,7 @@
 
                                             <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
 
-                                            <div class="comment" contentEditable="true" name="comments" id="message" placeholder="Type your message here..." style="position: relative;"></div>
+                                            <div class="comment" contentEditable="true" name="comments" onpaste="OnPaste_StripFormatting(this, event);" id="message" placeholder="Type your message here..." style="position: relative;"></div>
                                             <div for="smily" class="smily_b">
                                                 <div id="notification_li1" >
                                                     <a class="smil"  href="#" id="notificationLink1" >   <i class="em em-blush"></i></a>
@@ -196,7 +196,7 @@
                                     <div class="input-group" id="set_input">
                                                     <!--  <input style="    min-height: 41px;
                                          height: auto; position: relative;" id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
-                                        <div class="comment" contentEditable="true" name="comments" id="message" placeholder="Type your message here..." style="position: relative;"></div>
+                                        <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
 
                                         <div for="smily" class="smily_b" >
                                             <div id="notification_li1" >
@@ -431,28 +431,56 @@
 
     $('#submit').click(function (e) {
         e.preventDefault();
+
         var $field = $('#message');
         //var data = $field.val();
         var data = $('#message').html();
+//        data = data.replace(/(<br>)*/g,"p");
+
+         data = data.replace(/\<br\>/g,'');
+        
+        data = data.replace(/&nbsp;/gi, " ");
+        
+        data = data.replace(/&gt;/gi,">");
+        data = data.replace(/div/gi, "p");
+
+        data = data.replace(/&/g, "%26");
+     
+         if(data == "<p><p></p><p><p></p>"){
+             alert(1);
+             return false;
+         }
         if (data == "") {
             return false;
         }
         $("#message").html("");
+
         $field.addClass('disabled').attr('disabled', 'disabled');
         sendChat(data, function () {
             $field.val('').removeClass('disabled').removeAttr('disabled');
         });
     });
+
+//    $('#message').keyup(function (e) {
+//        if (e.which == 13 && !e.shiftKey) {
+//            e.preventDefault();
+//            $('#submit').trigger('click');
+//        }else if (e.which == 13 && e.shiftKey) {
+//            pasteIntoInput(this, "\n");
+//        }
+//    });
     $('#message').keyup(function (e) {
-        if (e.which == 13) {
+        if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
             $('#submit').trigger('click');
         }
     });
+
     setInterval(function () {
         update_chats();
-    }, 1500); 
- </script>
+    }, 1500);
+
+</script>
 
 <!-- user search list  20-4  sstart  -->
 
@@ -588,4 +616,32 @@
     });
     
     $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
+</script>
+
+<script type="text/javascript">
+
+    var _onPaste_StripFormatting_IEPaste = false;
+
+    function OnPaste_StripFormatting(elem, e) {
+
+        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.originalEvent.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (e.clipboardData && e.clipboardData.getData) {
+            e.preventDefault();
+            var text = e.clipboardData.getData('text/plain');
+            window.document.execCommand('insertText', false, text);
+        } else if (window.clipboardData && window.clipboardData.getData) {
+            // Stop stack overflow
+            if (!_onPaste_StripFormatting_IEPaste) {
+                _onPaste_StripFormatting_IEPaste = true;
+                e.preventDefault();
+                window.document.execCommand('ms-pasteTextOnly', false);
+            }
+            _onPaste_StripFormatting_IEPaste = false;
+        }
+
+    }
+
 </script>

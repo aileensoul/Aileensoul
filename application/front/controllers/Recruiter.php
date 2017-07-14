@@ -973,7 +973,7 @@ foreach ($citiesss as $key1) {
         $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('status' => '1');
+        $contition_array = array('status' => '1','type'=> '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
       //  echo "<pre>"; print_r($this->data['skill']);die();
 
@@ -2061,12 +2061,12 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 //keyskill automatic retrieve cobtroller start
     public function keyskill() {
         $json = [];
-        $where = "status='1'";
-
+        $where = "status='1' and type='1'";
+ 
         //$this->load->database('aileensoul');
 
         if (!empty($this->input->get("q"))) {
-            $this->db->like('skill', $this->input->get("q"));
+            $this->db->like('skill1', $this->input->get("q"));
             $query = $this->db->select('skill_id as id,skill as text')
                     ->where($where)
                     ->limit(10)
@@ -2074,7 +2074,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             $json = $query->result();
         }
 
-
+//echo "<pre>";print_r($query);die();
         echo json_encode($json);
     }
 

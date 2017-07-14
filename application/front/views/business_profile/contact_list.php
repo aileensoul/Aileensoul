@@ -128,8 +128,8 @@
                                         <p><?php echo $inddata[0]['industry_name']; ?></p>
                                         </a>
                                         <p class="connect-link">
-                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,1);"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,0);"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,1);"><span class="cr-accept">Accept </span></a>
+                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,0);"><span class="cr-decline">Cancel </span></a>
                                         </p>
                                     </div>
                                 </div>

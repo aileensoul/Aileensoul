@@ -517,7 +517,7 @@
 
 
                         <?php } else { ?>
-                            <div class="not_available">  <p>    Photos Not Available</p></div>
+                            <div class="not_available">  <p>Photos Not Available</p></div>
 
                         <?php } ?>
                         <div class="dataconphoto"></div>
@@ -4035,7 +4035,7 @@ function imgval(event) {
    
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
                        // window.location='';
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4061,7 +4061,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4086,7 +4086,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4112,7 +4112,7 @@ function imgval(event) {
                        if (product_name == '') {
                            $('#post .mes').html("<div class='pop_content'>You have to add pdf title.");
                            $('#post').modal('show');
-                           setInterval('window.location.reload()', 10000);
+                           //setInterval('window.location.reload()', 10000);
                             $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
                    //$( "#bidmodal" ).hide();
@@ -4128,7 +4128,7 @@ function imgval(event) {
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
-                       setInterval('window.location.reload()', 10000);
+                       //setInterval('window.location.reload()', 10000);
    
                         $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4144,11 +4144,12 @@ function imgval(event) {
                    }
                } 
 
-               else if (foundPresentvideo == false) {
+
+               else if (foundPresentvideo == false && foundPresentpdf == false && foundPresentaudio == false && foundPresent == false) {
    
-                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload images , video , pdf or audio..");
                    $('#post').modal('show');
-                   setInterval('window.location.reload()', 10000);
+                  // setInterval('window.location.reload()', 10000);
    
                     $( document ).on( 'keydown', function ( e ) {
                      if ( e.keyCode === 27 ) {
@@ -4163,6 +4164,30 @@ function imgval(event) {
                    return false;
    
                }
+
+
+
+               else if (foundPresentvideo == false) {
+   
+                   $('#post .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
+                   $('#post').modal('show');
+                  // setInterval('window.location.reload()', 10000);
+   
+                    $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                   event.preventDefault();
+                   return false;
+   
+               }
+
+               
            }
 
        } 
@@ -4490,19 +4515,22 @@ $( document ).on( 'keydown', function ( e ) {
 if(document.getElementById('bidmodal-limit').style.display === "block"){ //alert("hii");
         $('#bidmodal-limit').modal('hide');
         $('#myModal3').model('show');
+ }else if(document.getElementById('myModal3').style.display === "block"){ 
+        $('#myModal3').hide();
+
  }
 
     }
 });  
 
 
-$( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#myModal3').hide();
+// $( document ).on( 'keydown', function ( e ) {
+//     if ( e.keyCode === 27 ) {
+//         //$( "#bidmodal" ).hide();
+//         $('#myModal3').hide();
          
-    }
-}); 
+//     }
+// }); 
 
  $( document ).on( 'keydown', function (e) {
     if ( e.keyCode === 27 ) {

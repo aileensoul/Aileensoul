@@ -547,6 +547,10 @@ $( "#searchplace" ).autocomplete({
  //    }, "No space please and don't leave it empty");
 
 
+$.validator.addMethod("lowercase", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Email Should be in Small Character");
+
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Number, space and special character are not allowed");
@@ -615,6 +619,7 @@ if(mm<10) {
 
                     required: true,
                     email: true,
+                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                     remote: {
                         url: "<?php echo site_url() . 'job/check_email' ?>",
                         type: "post",
