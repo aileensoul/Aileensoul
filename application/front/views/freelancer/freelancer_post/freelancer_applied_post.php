@@ -764,145 +764,146 @@ if ($postdata) {
         });
     }
 </script>
-            <script>
-                function removepopup(id) {
-                    //alert(id); return false;
-                    $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                    $('#bidmodal').modal('s        how');
-                }
-        </script>
+    <script>
+   function removepopup(id) {
+       //alert(id); return false;
+       $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id="+ id +" onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+       $('#bidmodal').modal('show');
+   }
+</script>
 <!--             save post start -->
-        <script>
-                                    function divClicked() {
-                    var divHtml = $(this).html();
-                    var editableText = $("<textarea/>");                     editableText.val(divHtml);
-                    $(this).replaceWith(editableText);
-                    editableText.focus();
-                    // setup the blur event for this new textarea
-                    editableText.blur(editableTextBlurred);
-                }
-
-                                                    function editableTextBlurred() {
-                    var html = $(this).val();
-                            var viewableText = $("<a>");
-                            if (html.match(/^\s*$/) || html == '') {
-                    html = "Current Work";
-                    }
-                                                   viewableText.html(html);
-                                                       $(this).replaceWith(viewableText);
-                                                   // setup the click event for this new div
-                                                       viewableText.click(divClicked);
-
-                                                          $.ajax({
-                            url: "<?php echo base_url(); ?>freelancer/designation",
-                            type: "POST",
-                            data: {"designation": html},
-                                                       success: function (response) {
-
-                      }
-                    });
-                }
-
-                $(document).ready(function () {
-                    $("a.designation").click(divClicked);
-                    });
-                                </scr            ipt>
-<!-- script for profile pic strat            -->
-        <script type="te               xt/javascript">
-   function r                  eadURL(input) {
-      if (input.files && in                      put.files[0]) {
-          var reader = new FileReade                      r();
+<script>
+   function divClicked() {
+       var divHtml = $(this).html();
+       var editableText = $("<textarea/>");
+       editableText.val(divHtml);
+       $(this).replaceWith(editableText);
+       editableText.focus();
+       // setup the blur event for this new textarea
+       editableText.blur(editableTextBlurred);
+   }
+   
+   function editableTextBlurred() {
+       var html = $(this).val();
+       var viewableText = $("<a>");
+       if (html.match(/^\s*$/) || html == '') { 
+       html = "Current Work";
+       }
+       viewableText.html(html);
+       $(this).replaceWith(viewableText);
+       // setup the click event for this new div
+       viewableText.click(divClicked);
+   
+       $.ajax({
+           url: "<?php echo base_url(); ?>freelancer/designation",
+           type: "POST",
+           data: {"designation": html},
+           success: function (response) {
+   
+           }
+       });
+   }
+   
+   $(document).ready(function () {
+       $("a.designation").click(divClicked);
+   });
+</script>
+<!-- script for profile pic strat -->
+<script type="text/javascript">
+   function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
           
-          reader.onload = function (                      e) {
+          reader.onload = function (e) {
           
-          document.getElementById('preview').style.dis                          play = 'block';
-              $('#preview').attr('src', e.                      target.result);
-                             }
-
-          reader.readAsDataURL(input.files                  [0]);
-                 }
-                  }
-
-   $("#profilepic").change(function(                 ){
-     profile = this.file                s;
-    //alert(profile                );
-    if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)                 ){
-     //alert('not an image'                  );
-      $('#profilepic').val(''                   );
-       picpopup(                   );
-       return fals                    e;
-        }els                    e{
-        readURL(this)               ;}
-   }                );
-                       </script>
-<!-- script for profi                le pic end -->
-            <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-            <script type="te               xt/javascript">
-   //validation for edit email f               ormate form
-
-   $(document).ready(functi                   on () { 
+          document.getElementById('preview').style.display = 'block';
+              $('#preview').attr('src', e.target.result);
+          }
+          
+          reader.readAsDataURL(input.files[0]);
+      }
+   }
    
-       $("#userimage").va                       lidate({
+   $("#profilepic").change(function(){
+     profile = this.files;
+    //alert(profile);
+    if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
+     //alert('not an image');
+      $('#profilepic').val('');
+       picpopup();
+       return false;
+        }else{
+        readURL(this);}
+   });
+</script>
+<!-- script for profile pic end -->
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript">
+   //validation for edit email formate form
    
-                                      rules: {
+   $(document).ready(function () { 
    
-               profi                               lepic: {
+       $("#userimage").validate({
+   
+           rules: {
+   
+               profilepic: {
    
                    required: true,
-                               
-                                    },
-
-
-                                  },
-
-           messages: {
-                           
-               profilepic: {
-                               
-                   required: "Photo Required",
-                                           
+                
                },
+   
+   
+           },
+   
+           messages: {
+   
+               profilepic: {
+   
+                   required: "Photo Required",
                    
+               },
+   
        },
-
-                     });
-                        });
-                  </script>
-            <script>
-                                    function picpopup() {
-
-
-                                    $('.biderror .mes').html("<div class='pop_content'>Please select only Image type File.(jpeg,jpg,png,gif)");
-                                            $('#bidmodal').modal('show');
-                                                }
-                                                            
+   
+       });
+          });
 </script>
-<!-- all popup close close using esc s                        tart -->
-                                             <script type="text/javascript">
-                                             $( document ).                           on( 'keydown', function ( e )                               {
-                                            if (e.keyCode === 27) {
-                                    //$( "#bidmodal" ).hide();
-                                    $('                           #bidmodal').modal                           ('hide');
-                                                            }
-                                                                });  
-                                                                
-                                                                
-                                                                $( document ).on( 'k                           eydown', function ( e ) {
-                                            if (e.keyCode === 27) {
-                                    /                               /$("#bidmodal").hide();
-                                            $('#bi                           dmoda                           l-2').mod                                al('hide');
-                                                }
-                                                });  
-                                                </script>
-                                                <script type="text/javascript">
-                                                                //For Scroll p                                   age at perticular position js Start
-                                                                    $(document).ready(function(){
-
-                                            //  $(documen                                       t).load().scrollTop(1000);
-
-                                            $('html,body').animat                                   e({scrollTop:265}, 100);
-                                                            
-                                                            });
-                                                        //For Scroll                                    page at perticular position js End
+<script>
+   function picpopup() {
+                       
+                 
+       $('.biderror .mes').html("<div class='pop_content'>Please select only Image type File.(jpeg,jpg,png,gif)");
+       $('#bidmodal').modal('show');
+                   }
+               
+</script>
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+   $( document ).on( 'keydown', function ( e ) {
+   if ( e.keyCode === 27 ) {
+       //$( "#bidmodal" ).hide();
+       $('#bidmodal').modal('hide');
+   }
+   });  
+   
+   
+   $( document ).on( 'keydown', function ( e ) {
+   if ( e.keyCode === 27 ) {
+       //$( "#bidmodal" ).hide();
+       $('#bidmodal-2').modal('hide');
+   }
+   });  
+</script>
+<script type="text/javascript">
+   //For Scroll page at perticular position js Start
+   $(document).ready(function(){
+    
+   //  $(document).load().scrollTop(1000);
+        
+       $('html,body').animate({scrollTop:265}, 100);
+   
+   });
+   //For Scroll page at perticular position js End
 </script>
 <!-- all popup close close using esc end -->
