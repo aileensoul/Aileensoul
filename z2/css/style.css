@@ -4,7 +4,7 @@
   background-color: gray;
 }
 
-.noti {
+.notifications {
   position: relative;
   overflow: hidden;
   
@@ -13,7 +13,7 @@
   -moz-box-sizing: border-box;
 }
 
-.noti .scroll {
+.notifications .scroll {
   position: absolute;
   top: 0;
   right: 4px;
@@ -29,17 +29,17 @@
   -webkit-transform: translate(-50%, 0%);
 }
 
-.noti:hover .scroll, .scrolling .scroll {
+.notifications:hover .scroll, .scrolling .scroll {
   opacity: 1;
 }
 
-.noti .scroll:hover  {
+.notifications .scroll:hover  {
   width: 12px;
   
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.noti .scroll span, .scrolling .scroll span {
+.notifications .scroll span, .scrolling .scroll span {
   width: 100%;
   position: absolute;
   border-radius: 10px;
@@ -47,7 +47,7 @@
   transition: top 10ms;
 }
 
-.noti:hover .scroll span, .scrolling .scroll span {
+.notifications:hover .scroll span, .scrolling .scroll span {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
