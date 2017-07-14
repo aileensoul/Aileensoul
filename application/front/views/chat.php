@@ -437,7 +437,7 @@
         var data = $('#message').html();
 //        data = data.replace(/(<br>)*/g,"p");
 
-         data = data.replace(/\<br\>/g,'<p>');
+         data = data.replace(/\<br\>/g,'');
         
         data = data.replace(/&nbsp;/gi, " ");
         
