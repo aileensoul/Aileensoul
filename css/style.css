@@ -306,11 +306,11 @@ img {
 a {
     text-decoration: none;
     color: #1b8ab9;
-<<<<<<< HEAD
+
   /*  -moz-transition: all 0.4s ease-in;
-=======
+
     /*-moz-transition: all 0.4s ease-in;
->>>>>>> 8d36083bdde90cec4c46fde11cd94246c3d04382
+
     -webkit-transition: all 0.4s ease-in;
     -o-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;*/
@@ -516,7 +516,7 @@ a:focus {
 input,
 textarea,
 select {
-    text-transform: capitalize;
+
     resize: none;
     background: white;
     border: 1px solid #cacaca;
@@ -3874,6 +3874,19 @@ a:focus {
         color: #000;
         padding-top: 0;
     }
+	#addcontactBody  li .addcontact-right a.add-right-true{background-color:#fff; border:1px solid #1b8ab9;}
+		#addcontactBody  li .addcontact-right a.add-left-true i{color:#fff;}
+	#addcontactBody  li .addcontact-right a.add-left-true{
+									border:1px solid transparent;
+								background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
+								background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
+								background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
+								background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* opera 11.10+ */
+								background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
+								background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
+								filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 ); }
+	#addcontactBody  li .addcontact-right a.add-right-true i {color:#1b8ab9;}
+		#addcontactBody  li .addcontact-right a.add-left-true i {color:#fff;}
     .addcontact-pic {
         height: 50px;
         width: 50px;
@@ -3885,8 +3898,13 @@ a:focus {
     .addcontact-text{
         float: left;
         width: 80%;
-        padding-left: 5px;
+		color:#ccc;
+        padding-left: 8px;
+		text-align:left;
     }
+	.addcontact-text span{color:#404040;}
+	#addcontactBody li:hover{background-color:e9f4f8; }
+		#addcontactBody li:hover .addcontact-text{}
     .addcontact-text span{
         display: block;
         line-height: 1;
@@ -3913,7 +3931,7 @@ a:focus {
         background: none !important;
     }
     .addcontact-right{
-        width: 29%;
+        width: 25%;
         float: left;
     }
     .addcontact-right a{
@@ -3921,13 +3939,13 @@ a:focus {
         border: 1px solid #000;
         padding: 8px !important;
         border-radius: 100%;
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         text-align: center;
         margin: 5px 2px;
     }
     .addcontact-right a:hover, .addcontact-right a:focus {
-        background: none !important;
+        /*background: none !important;*/
     }
     .addcontact-right a i{
         color: #000;
@@ -14172,17 +14190,17 @@ input[type=number]::-webkit-outer-spin-button {
 .contct-no li .addcontact-left {
     width: 100%;
 }
-<<<<<<< HEAD
+
 /*.addcontact-left{width: 100%!important;
 margin: 0 auto;
 text-align: center;}
 .addcontact-left a{padding-left: 30px !important;}*/
-=======
+
 .addcontact-left{width: 71%!important;
 margin: 0 auto;
 text-align: center;}
-.addcontact-left a{padding-left: 10px !important;}
->>>>>>> 758b98e2b70690e3f3c221014099afb03530392a
+.addcontact-left a{padding-left: 0px !important;}
+
 .mesg_link {
     background-color: #1b8ab9;
     color: #fff;
