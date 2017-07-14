@@ -8924,6 +8924,7 @@ fieldset .add_post_btns {
 .profile-job-post-detail .buisness-profile-pic {
     padding: 14px 4px;
 }
+.pdf{padding: 0px !important;}
 #jobseeker_regform_higher_secondary .job_education_submitbox {
     margin-top: 20px;
 }
@@ -8992,6 +8993,7 @@ label.cameraButton:hover {
     margin-bottom: 10px;
     margin-top: -26px;
 }
+.common-form fieldset #email{text-transform: lowercase;}
 .delete_btn {
     padding: 6px 12px 6px!important;
     font-size: 13px!important;
