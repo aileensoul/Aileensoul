@@ -10385,7 +10385,7 @@ chat end*/
     display:block;
    overflow-y: scroll;
     height: 438px;
-	display:flex !important;
+
    /* flex-direction: column-reverse;
 	display: -moz-flex; 
 	display: -webkit-flex; 
