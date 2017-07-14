@@ -1062,9 +1062,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' <span class="noti-msg-y"> Invited You For An Interview. </span></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div></div></a></li>';
+                $notification .= '</span></div></div></div></a></li>';
             }
       //  }
 
@@ -1084,9 +1084,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Started Following You In Artistic.</span></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div></div></a></li>';
+                $notification .= '</span></div></div></div></a></li>';
             }
      //   }
 
@@ -1109,9 +1109,9 @@ class Notification extends MY_Controller {
                 //$notification .= '';
                 $notification .= '<h6>';
                 $notification .= '<b>' . ' ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b><span class="noti-msg-y"> Commneted On Your Post In Artistic.</span>';
-                $notification .= '</h6><div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '</h6><div><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div></div></a></li>';
+                $notification .= '</span></div></div></div></a></li>';
             }
      //   }
        // foreach ($artlike as $art) {
@@ -1131,9 +1131,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes Your Post In Artistic.</sapn></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div></a> </li>';
+                $notification .= '</span></div></div> </div></a> </li>';
             } 
 //            elseif ($art_not_from == '3' && $art_not_img == '5') {
 //                $notification .= '<li>' . $art_not_img . '<div class="notification-database">';
@@ -1166,9 +1166,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes Your Post`s Comment In Artistic.</h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div>';
+                    $notification .= '</span></div>';
                     $notification .= '</div></div></a>';
                     $notification .= '</li>';
                 }
@@ -1193,9 +1193,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes Your Photo In Artistic. </sapn></h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div></div>';
+                    $notification .= '</span></div></div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1221,9 +1221,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Commented On Your Photo In Artistic.</sapn></h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div> </div>';
+                    $notification .= '</span></div> </div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1249,9 +1249,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes Your Photo`s Comment In Artistic.</h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div></div>';
+                    $notification .= '</span></div></div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1279,9 +1279,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b><span class="noti-msg-y"> Commented On Your Post In Business Profile. </span></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div></a> </li>';
+                $notification .= '</span></div></div> </div></a> </li>';
             } 
 
      //   }
@@ -1303,9 +1303,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y">Started Following You In Business Profile.</span></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div></a> </li>';
+                $notification .= '</span></div></div> </div></a> </li>';
             }
       //  }
 
@@ -1329,9 +1329,9 @@ class Notification extends MY_Controller {
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes Your Post In Business Profile. </span> </h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div> </a></li>';
+                $notification .= '</span></div></div> </div> </a></li>';
             }
 //             elseif ($bus_not_from == '6' && $bus_not_img == '5') {
 //                $notification .= '<li><div class="notification-database">';
@@ -1365,9 +1365,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes Your Post`s Comment In Business Profile.</h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div> </div>';
+                    $notification .= '</span></div> </div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1393,9 +1393,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes Your Photo In Business Profile. </span></h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div></div';
+                    $notification .= '</span></div></div';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1421,9 +1421,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Commented On Your Photo In Business Profile. </span></h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div></div';
+                    $notification .= '</span></div></div';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1450,9 +1450,9 @@ class Notification extends MY_Controller {
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes Your Photos Comment In Business Profile.</h6>';
-                    $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                    $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                    $notification .= '</div> </div>';
+                    $notification .= '</span></div> </div>';
                     $notification .= '</div></a>';
                     $notification .= '</li>';
                 }
@@ -1476,10 +1476,10 @@ class Notification extends MY_Controller {
                 
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><font color="black"><b><i> Job seeker</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your jobpost. </sapn></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<h6><font color="black"><b><span class="noti-msg-y"> Job seeker</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your jobpost. </sapn></h6>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div></a> </li>';
+                $notification .= '</sapn></div></div> </div></a> </li>';
             }
      //   }
 
@@ -1498,10 +1498,10 @@ class Notification extends MY_Controller {
                 
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><font color="black"><b><i>Freelancer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your post. </span></h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Freelancer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your post. </span></h6>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div></a> </li>';
+                $notification .= '</span></div></div> </div></a> </li>';
             }
      //   }
 
@@ -1521,10 +1521,10 @@ class Notification extends MY_Controller {
                
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><font color="black"><b><i>Employer</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Selected You For Project. </span> </h6>';
-                $notification .= '<div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>';
+                $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Employer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Selected You For Project. </span> </h6>';
+                $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
-                $notification .= '</div></div> </div> </a></li>';
+                $notification .= '</span></div></div> </div> </a></li>';
             }
      //   }
 
@@ -2063,8 +2063,8 @@ $user_message = array_merge($return_arraysel,$userlist);
             //$notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             //echo $not[0]['not_created_date'];
             
-            $notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</div>';
-            $notmsg .= '</div></div></li></a>';
+            $notmsg .= '</div><div class="data_noti_msg"><i class="clockimg" ></i><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</div>';
+            $notmsg .= '</span></div></div></li></a>';
         }
         $notmsg .= '</ul></div>';
         if($user_message){

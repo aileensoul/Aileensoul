@@ -306,7 +306,11 @@ img {
 a {
     text-decoration: none;
     color: #1b8ab9;
+<<<<<<< HEAD
+  /*  -moz-transition: all 0.4s ease-in;
+=======
     /*-moz-transition: all 0.4s ease-in;
+>>>>>>> 8d36083bdde90cec4c46fde11cd94246c3d04382
     -webkit-transition: all 0.4s ease-in;
     -o-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;*/
@@ -2259,6 +2263,7 @@ ul.business_pf_ct_person_detail li b {
     position: relative;
     z-index: 1;
 }
+.notification-data-inside h6 b i{color: #000;}
 #notificationLink span {
     padding: 3px;
     background: #1b8ab9;
@@ -9318,6 +9323,12 @@ label.cameraButton input[accept*="camera"] {
 }
 /*.add_audio{padding: 10px;}*/
 /*Zalak 25-5*/
+.day-text{padding-top:6px;
+float: left;
+padding-left: 3px;}
+.day-text2{float: left; padding-left: 3px;}
+.clockimg{height: 13px; width: 13px; float: left; background-size: 100% !important; background: url("../img/clock.png") no-repeat;}
+
 #kkkk{color: #838384;
 font-size: 12px;
 cursor: pointer;
@@ -13278,7 +13289,7 @@ end zalak 9-6 css*/
     min-height: 37px !important
 }
 .notifications li .notification-data-inside div {
-    padding-top: 3px!important
+    padding-top: 4px!important
 }
 .profile-box-job-menu ul li a {
     margin-right: 15px !important;
@@ -14255,7 +14266,7 @@ header.animated {
 .no-post-title h4{text-align:left;}
 .add-post-custom{float:left; padding-top:15px; padding-left:20px;}
 
-.noti-msg-y{font-size: 12px; color: #646464; line-height: 16px;}
+.noti-msg-y{font-size: 13px; color: #646464; line-height: 16px;}
 
 /***  media query  ***/
 
@@ -14952,16 +14963,18 @@ text-align: center;}
     #notificationContainer {
         width: 100%;
         margin-top: 20px;
+        top:27px;
     }
     #InboxContainer {
         width: 100%;
         margin-top: 20px;
+        top: 26px;
     }
     #notificationContainer::before {
-        display: none;
+       right: 162px;
     }
     #InboxContainer::before {
-        display: none;
+        right: 101px;
     }
     .notifications li {
         width: 100%;
@@ -15186,7 +15199,7 @@ text-align: center;}
         top: 35px;
     }
     #add_contact #addcontactContainer::before {
-        display: none;
+        right: 155px;
     }
     #paddingtop_fixed_art {
         padding-top: 22px !important;
@@ -15425,6 +15438,10 @@ top: 8px;}
     .camer_h i{font-size: 19px;}
 }
 @media screen and (max-width: 479px) {
+     #InboxContainer::before {
+        right:92px;
+    }
+    #notificationContainer::before{right: 139px;   border: 9px solid black; margin-top: -18px; border-color: transparent transparent #fff;}
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
     .banner{padding-top: 21px;}
@@ -15800,6 +15817,8 @@ padding-bottom: 6px !important;*/}
     }
 }
 @media screen and (max-width: 360px) {
+    #InboxContainer::before{right: 80px;}
+    #notificationContainer::before{right: 125px;}
     .header ul li a{}
     .header ul li.dropdown-user a{padding: 0px 4px;}
     .email-verify{float: left; width: 100%; }
