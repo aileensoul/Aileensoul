@@ -445,8 +445,7 @@
         data = data.replace(/div/gi, "p");
 
         data = data.replace(/&/g, "%26");
-       alert(data);
-       
+     
          if(data == "<p><p></p><p><p></p>"){
              alert(1);
              return false;
