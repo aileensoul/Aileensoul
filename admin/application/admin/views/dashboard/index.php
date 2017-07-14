@@ -41,26 +41,7 @@ echo $leftmenu;
         <!-- Small boxes (Stat box) -->
         <div class="row">
 
-
-            <!-- start products box -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3><?php echo $product_count?></h3>
-                        <p>Products</p>
-                    </div>
-                    <div class="icon">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                    <a href="<?php echo base_url('product')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- end products box -->
-          
-            <!-- start Job Management box -->
-
-                <!-- start Job User List box -->
+            <!-- start Job User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-aqua">
@@ -75,9 +56,22 @@ echo $leftmenu;
                 </div>
             </div>
              <!-- end Job User List box -->
-
-            <!-- end Job Management box -->
             
+            <!-- start Job User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo count($job_list)?></h3>
+                        <p>Recruiter User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php echo base_url('recruiter/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end Job User List box -->
            
         </div><!-- /.row -->
         <!-- Main row -->

@@ -18,7 +18,7 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active">Job User</li>
+            <li class="active">Recruiter User</li>
         </ol>
         <!-- <div class="fr">
                          <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
@@ -48,10 +48,10 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Job User</h3>      
+                        <h3 class="box-title">Recruiter User</h3>      
                     
                     <div class="box-tools">
-                       <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       <?php echo form_open('recruiter/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
               
@@ -69,7 +69,7 @@ echo $leftmenu;
                             { 
                     ?>
 
-                            <a href="<?php echo base_url('job/clear_search') ?>">Clear Search</a>
+                            <a href="<?php echo base_url('recruiter/clear_search') ?>">Clear Search</a>
 
                         <?php 
                                 } 
@@ -120,10 +120,6 @@ echo $leftmenu;
                      <a href="javascript:void(0);">Phone No.</a>
                      </th>
 
-                    <th><i class="fa fa-fw fa-venus"></i> 
-                     <a href="javascript:void(0);">Gender</a>
-                     </th>
-
                     <th><i class="fa fa-fw fa-home"></i> 
                      <a href="javascript:void(0);">Location</a>
                      </th>
@@ -157,7 +153,7 @@ echo $leftmenu;
                         foreach ($users as $user) {
                 ?>
 
-                <tr id="delete<?php echo $user['job_id']?>">
+                <tr id="delete<?php echo $user['rec_id']?>">
                     <td><?php echo $i++; ?></td>
 
                     <td><?php echo ucfirst($user['fname']); echo ' ';echo ucfirst($user['lname']);  ?></td>
@@ -174,22 +170,6 @@ echo $leftmenu;
                               }
                             ?>
                       </td>
-
-                    <td><?php echo $user['gender']; ?>
-                        <?php if($user['gender']=="female")
-                        {
-                        ?>
-                        <i class="fa fa-fw fa-female"></i>
-                        <?php
-                        }
-                        if($user['gender']=="male")
-                        {
-                        ?>
-                        <i class="fa fa-fw fa-male"></i>
-                        <?php
-                        }
-                        ?>
-                    </td>
 
 
                     <td> 
@@ -247,7 +227,7 @@ echo $leftmenu;
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['job_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('recruiter/profile/'.$user['job_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -370,7 +350,7 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/deactive_user" ?>',
+                          url: '<?php echo base_url() . "recruiter/deactive_user" ?>',
                           data: 'job_id=' + job_id,
                           success: function (response) 
                           {    
@@ -392,7 +372,7 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/active_user" ?>',
+                          url: '<?php echo base_url() . "recruiter/active_user" ?>',
                           data: 'job_id=' + job_id,
                           success: function (response) 
                           {        
@@ -414,7 +394,7 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/delete_user" ?>',
+                          url: '<?php echo base_url() . "recruiter/delete_user" ?>',
                           data: 'job_id=' + job_id,
                           success: function (response) 
                           {          
