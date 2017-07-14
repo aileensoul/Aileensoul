@@ -32,6 +32,7 @@
 </style>
 
 <!--post save success pop up style end -->
+<?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_apply_post')){?>
 
 
 <header>
@@ -102,6 +103,79 @@
         </div>
        </div> 
     </header>
+    <?php }
+    else
+      { ?>
+        <header>
+    <div class="bg-search">
+        <div class="header2">
+            <div class="container">
+                <div class="row">
+                      
+                    <?php echo $freelancer_post_search; ?>
+                  <div class="col-sm-5 col-md-5 col-xs-6 fw-479">
+                      <div class="search-mob-block">
+                                 <div class="">
+                                     <a href="#search">
+                                     <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                     </a>
+                                 </div>
+                                 <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form>
+                                        <div class="new-search-input">
+                                            <input type="search" value="" placeholder="Find Your Job" />
+                                            <input type="search" value="" placeholder="Find Your Location" />
+                                            <button type="submit" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                             </div>
+                       <div class=" ">
+                            <ul class="" id="dropdownclass">
+                               
+                                  
+      <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>">Home</a>
+                                    </li>
+
+                                <!-- Friend Request Start-->
+
+                              <li>
+  
+
+
+<div class="dropdown_hover">
+  <span id="art_profile">Freelancer Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+  <div class="dropdown-content_hover" id="dropdown-content_hover">
+                  <span class="my_account">
+                                        <div class="my_S">Account</div>
+                                            
+      </span>
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="h2-img h2-srrt"></span> View Profile</a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
+
+    <?php
+      $userid = $this->session->userdata('aileenuser');
+      ?>
+    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
+  </div>
+</div>
+                              </li>
+                                <!-- Friend Request End-->
+
+                                <!-- END USER LOGIN DROPDOWN -->
+                            </ul>
+                        </div> 
+                    </div>
+                  
+                   
+                </div>
+            </div>
+        </div>
+       </div> 
+    </header>
+
+      <?php  }?>
 
 
 

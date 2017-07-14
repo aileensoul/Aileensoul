@@ -16,6 +16,8 @@
     border-radius: 4px;
  padding-bottom: 7px;}
 </style>
+
+ <?php if(($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post')){?>
    
 <header>
 
@@ -88,6 +90,84 @@
         </div>
        </div> 
     </header>
+    <?php }
+    else
+    {?>
+
+      <header>
+
+    <div class="bg-search">
+        <div class="header2">
+            <div class="container">
+                <div class="row">
+                 
+                    <div class="col-sm-7 col-md-7 col-xs-7 hidden-mob ">
+                        <div class="job-search-box1 clearfix">
+                        <?php echo $job_search; ?>
+                        </div>
+                    </div>
+                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
+                       <div class="search-mob-block">
+                                 <div class="">
+                                     <a href="#search">
+                                     <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                     </a>
+                                 </div>
+                                 <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form>
+                                        <div class="new-search-input">
+                                            <input type="search" id="tags" name="skills" value="" placeholder="Find Your Job" />
+                                            <input type="search" id="searchplace" name="searchplace" value="" placeholder="Find Your Location" />
+                                            <button type="submit" onclick="return checkvalue();"  id="search_btn" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                             </div>
+                       <div class="">
+                            <ul class="" id="dropdownclass">
+                                <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home">Home</a>
+                                    </li>
+                                <!-- Friend Request Start-->
+<!-- <h3>hello</h3> -->
+                                     <li>
+                                <!-- Friend Request End-->
+
+<div class="dropdown_hover">
+  <span id="art_profile" class="profiletitle" >Job Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+  <div class="dropdown-content_hover" id="dropdown-content_hover">
+      <span class="my_account">
+                                        <div class="my_S">Account</div>
+                                            
+      </span>
+      <a href="<?php echo base_url('job/job_printpreview'); ?>" title="View Profile"><span class="h2-img h2-srrt"></span> View Profile</a>
+      <a href="<?php echo base_url('job/job_basicinfo_update'); ?>" title="Edit Profile"><span class="h3-img h2-srrt"></span>  Edit Profile</a>
+
+      <?php
+      $userid = $this->session->userdata('aileenuser');
+      ?>
+      <a onClick="deactivate(<?php echo $userid; ?>)" title="Deactive Profile"><span class="h4-img h2-srrt"></span>  Deactive Profile</a>
+  </div>
+</div>
+</li>
+                
+
+                                     <!-- Friend Request End-->
+
+                                <!-- END USER LOGIN DROPDOWN -->
+                            </ul>
+                        </div> 
+                    </div>
+                  
+                    
+                </div>
+            </div>
+        </div>
+       </div> 
+    </header>
+    <?php }
+
+    ?>
 
     
 
