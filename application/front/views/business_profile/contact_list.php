@@ -15,76 +15,30 @@
 </div>
 <!-- END HEADER -->
 <style type="text/css">
-    #noti_pc{ margin-bottom: 5px;
-    border-radius: 50%;
-    margin-left: 10px;
-    display: inline-block;
-    
-    margin-top: 5px;   }
-    .job-saved-box .notification-box ul li{display: flex!important;}
-    #notification_inside{ margin-left: 0px; margin-top: 0px;   padding: 5px 10px 9px 10px;
-    margin-left: 11px;
-    display: inline-block;}
-    #noti_pc img{border-radius: none;}
-    #notification_inside h6{font-size: 17px;}
-    .contact-list .list-title{
-        background: #fff; 
-        color: #000; 
-        border:1px solid #ddd;
-        border-radius: 4px;
-    }
-    .all-list{
-        width:100%;
-        text-align: center;
-        padding-top: 40px;
-    }
-     .all-list ul{
-        display: inline-block;
-     }
-     .all-list ul li{
-        padding:10px;
-        display: inline-block;
-        list-style-type: none;
-        margin: 0;
-     }
-     .all-list ul li .list-box{
-        width: 250px;
-        height: 250px;
-        background: #fff;
-        border:1px solid #ddd;
-        border-radius: 4px;
-        padding: 15px;
-     }
-     .all-list ul li .list-box:hover{
-        background: rgba(221, 221, 221, 0.3);
-     }
-    .profile-img{
-        width:110px; 
-        height: 110px;
-        border-radius: 100%;
-        margin: 0px auto;
+   .ani
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
 
-    }
-    .profile-img img{
-        width:110px; 
-        height: 110px;
-        border-radius: 100%;
-    }
-    .connect-link{
-        padding: 10px 0;
-    }
-
-    .profile-content a{
-        color: #000;
-    }
-    
-    .connect-link a{
-        font-size: 20px;
-        color: #1b8ab9;
-    }
-    .connect-link a:hover{
-        color: #000;
-    }
+.acbutton
+{
+	position: relative;
+	padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+	border-radius: 10px;
+	font-family: 'Pacifico', cursive;
+	font-size: 25px;
+	color: #FFF;
+	text-decoration: none;	
+}
+.acbutton:active
+{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
 </style>
 <div class="user-midd-section" id="paddingtop_fixed">
     <div class="container">
@@ -128,8 +82,8 @@
                                         <p><?php echo $inddata[0]['industry_name']; ?></p>
                                         </a>
                                         <p class="connect-link">
-                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,1);"><span class="cr-accept">Accept </span></a>
-                                           <a href="#" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,0);"><span class="cr-decline">Cancel </span></a>
+                                           <a href="#" class="cr-accept acbutton  ani" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,1);"><span class="cr-accept1">Accept </span></a>
+                                           <a href="#" class="cr-decline" onclick = "return contactapprove(<?php echo  $friend['contact_from_id']; ?>,0);"><span class="cr-decline1">Cancel </span></a>
                                         </p>
                                     </div>
                                 </div>

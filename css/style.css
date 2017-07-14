@@ -930,10 +930,12 @@ width: 32px;}
     
     line-height: 18px!important;
 }
-/*.header ul li a:hover {
-    background-color: #fff;
-    color: #1b8ab9;
-}*/
+.header ul li a:hover i{color:white;}
+.header ul li a:hover .dropdown .img-circle{    border: 2px solid #d7ecf5;}
+.header ul li a:hover {
+   
+    color: #fff;
+}
 ul.sub-menu {
     display: none;
     position: absolute;
@@ -3809,7 +3811,113 @@ a:focus {
 }
 
 /*contact req*/
+ #noti_pc{ margin-bottom: 5px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: inline-block;
+    
+    margin-top: 5px;   }
+    .job-saved-box .notification-box ul li{display: flex!important;}
+    #notification_inside{ margin-left: 0px; margin-top: 0px;   padding: 5px 10px 9px 10px;
+    margin-left: 11px;
+    display: inline-block;}
+    #noti_pc img{border-radius: none;}
+    #notification_inside h6{font-size: 17px;}
+    .contact-list .list-title{
+        background: #fff; 
+        color: #000; 
+        border:1px solid #ddd;
+        border-radius: 4px;
+    }
+    .all-list{
+        width:100%;
+        text-align: center;
+        padding-top: 40px;
+    }
+     .all-list ul{
+        display: inline-block;
+     }
+     .all-list ul li{
+        padding:10px;
+        display: inline-block;
+        list-style-type: none;
+        margin: 0;
+     }
+     .all-list ul li .list-box{
+        width: 235px;
+        height: 255px;
+        background: #fff;
+        border:1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+     }
+     .all-list ul li .list-box:hover{
+        background: rgba(221, 221, 221, 0.3);
+     }
+    .profile-img{
+        width:110px; 
+        height: 110px;
+        border-radius: 100%;
+        margin: 0px auto;
+		padding-top:4px;
 
+    }
+    .profile-img img{
+        width:110px; 
+        height: 110px;
+        border-radius: 100%;
+    }
+    .connect-link{
+        padding: 13px 0;
+    }
+
+    .profile-content a{
+    font-family: robotoregular;
+    
+    padding-top: 15px;
+    color: #000;
+    display: inline-block;
+    }
+    .profile-content a h5{    color: #404040;
+    line-height: 20px;}
+	.profile-content a p{color: #8c8c8c;
+    font-family: robotoregular;}
+    .connect-link a{
+            font-weight: 500;
+    font-size: 16px;
+    font-family: robotoregular;
+    color: #1b8ab9;
+    padding: 6px 14px;
+    }
+	 .connect-link a.cr-accept{
+    border: 1px solid #1b8ab9;
+    background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+    background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+    color: white;
+    border-radius: 2px;}
+	
+	 .connect-link a.cr-accept:hover{   
+
+ background: -moz-linear-gradient(96deg, # 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+    background: -webkit-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -o-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -ms-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+	 background: linear-gradient(354deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+	   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+	 }
+	.connect-link a.cr-decline{    border: 1px solid #1b8ab9;
+    border-radius: 2px;
+    margin-left: 33px;}
+    .connect-link a:hover{
+  
+    color: #fff;
+    }
     #addcontactContainer{
          background-color: #fff;
    /* border: 1px solid rgba(100, 100, 100, .4);*/
@@ -8954,6 +9062,7 @@ fieldset .add_post_btns {
 .profile-job-post-detail .buisness-profile-pic {
     padding: 3px 4px;
 }
+.pdf{padding: 0px !important;}
 #jobseeker_regform_higher_secondary .job_education_submitbox {
     margin-top: 20px;
 }
@@ -9022,6 +9131,7 @@ label.cameraButton:hover {
     margin-bottom: 10px;
     margin-top: -26px;
 }
+.common-form fieldset #email{text-transform: lowercase;}
 .delete_btn {
     padding: 6px 12px 6px!important;
     font-size: 13px!important;
