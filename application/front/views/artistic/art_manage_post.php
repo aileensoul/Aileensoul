@@ -4165,7 +4165,7 @@ function imgval(event) {
    
                }
 
-               
+
 
                else if (foundPresentvideo == false) {
    
@@ -4515,19 +4515,22 @@ $( document ).on( 'keydown', function ( e ) {
 if(document.getElementById('bidmodal-limit').style.display === "block"){ //alert("hii");
         $('#bidmodal-limit').modal('hide');
         $('#myModal3').model('show');
+ }else if(document.getElementById('myModal3').style.display === "block"){ 
+        $('#myModal3').hide();
+
  }
 
     }
 });  
 
 
-$( document ).on( 'keydown', function ( e ) {
-    if ( e.keyCode === 27 ) {
-        //$( "#bidmodal" ).hide();
-        $('#myModal3').hide();
+// $( document ).on( 'keydown', function ( e ) {
+//     if ( e.keyCode === 27 ) {
+//         //$( "#bidmodal" ).hide();
+//         $('#myModal3').hide();
          
-    }
-}); 
+//     }
+// }); 
 
  $( document ).on( 'keydown', function (e) {
     if ( e.keyCode === 27 ) {
