@@ -8,6 +8,7 @@ echo $leftmenu;
  <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
+            <img src="<?php echo SITEURL .'/img/i2.jpg' ?>" alt=""  style="height: 50px; width: 50px;">
             <?php echo $module_name; ?>
             <small>Control panel</small>
         </h1>

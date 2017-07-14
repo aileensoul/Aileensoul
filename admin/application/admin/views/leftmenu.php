@@ -15,7 +15,7 @@
             <!-- Start Dashboard -->
             <li <?php if ($this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?> >
                 <a href="<?php echo base_url('dashboard'); ?>">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
+                    <i class="fa fa-dashboard margin-r-5"></i> <span>Dashboard</span> 
                 </a>
             </li>
             <!-- End Dashboard -->
@@ -24,7 +24,7 @@
              <!--Start Job Management-->
             <li <?php if ($this->uri->segment(1) == 'job' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
-                    <i class="fa fa-briefcase"></i> <span>Job Management</span>
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>Job Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -36,7 +36,7 @@
              <!--Start Recruiter Management-->
             <li <?php if ($this->uri->segment(1) == 'recruiter' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
-                    <i class="fa fa-handshake-o"></i> <span>Recruiter Management</span>
+                    <i class="fa fa-handshake-o margin-r-5"></i> <span>Recruiter Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">

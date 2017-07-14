@@ -333,28 +333,7 @@ public function profile($id)
      $contition_array = array('rec_id' => $id, 'is_delete' => '0');           
     $this->data['user'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-    //FOR GETTING OTHER SKILL    
-      $data="skill_id,skill";
-      $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
-      $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array,$data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-      //for getting data job_add_edu table
-      $contition_array = array('user_id' => $userid, 'status' => '1');
-      $data = '*';
-      $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-
-      //FOR GETTING DATA OF JOB GRADUATION TABLE
-       $contition_array = array('user_id' => $userid);
-       $data = '*';
-       $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-
-        //for getting data of job_add_workexp table
-        $contition_array = array('user_id' => $userid, 'status' => '1');
-        $data = '*';
-        $this->data['job_work'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-        
-
-    $this->load->view('job/profile',$this->data);
+    $this->load->view('recruiter/profile',$this->data);
 }
 //view function is used for view profile of user End
 

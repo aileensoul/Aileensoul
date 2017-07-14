@@ -33,6 +33,10 @@ class Dashboard extends MY_Controller {
         $data="job_id";
         $this->data['job_list'] = $get_users = $this->common->select_data_by_condition('job_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
 
+        //For Count Recruiter Register User Data
+        $condition_array = array('is_delete' => 0);
+        $data="rec_id";
+        $this->data['recruiter_list'] = $get_users = $this->common->select_data_by_condition('recruiter', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
 
         $this->load->view('dashboard/index',$this->data);
 
