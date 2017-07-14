@@ -3875,6 +3875,7 @@ a:focus {
         float: left;
 
     }
+    .addcontact-pic img{height: 100%; width: 100%;}
     .addcontact-text{
         float: left;
         width: 80%;
@@ -3906,7 +3907,7 @@ a:focus {
         background: none !important;
     }
     .addcontact-right{
-        width: 25%;
+        width: 29%;
         float: left;
     }
     .addcontact-right a{
@@ -14160,10 +14161,17 @@ input[type=number]::-webkit-outer-spin-button {
 .contct-no li .addcontact-left {
     width: 100%;
 }
+<<<<<<< HEAD
 /*.addcontact-left{width: 100%!important;
 margin: 0 auto;
 text-align: center;}
 .addcontact-left a{padding-left: 30px !important;}*/
+=======
+.addcontact-left{width: 71%!important;
+margin: 0 auto;
+text-align: center;}
+.addcontact-left a{padding-left: 10px !important;}
+>>>>>>> 758b98e2b70690e3f3c221014099afb03530392a
 .mesg_link {
     background-color: #1b8ab9;
     color: #fff;
