@@ -28,11 +28,9 @@ class Chat extends MY_Controller {
         // last message user fetch
 
         $contition_array = array('id !=' => '');
-
         $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
 
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-
         if ($lastuser[0]['message_from'] == $userid) {
 
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
@@ -475,8 +473,9 @@ class Chat extends MY_Controller {
 
         $userlist = $this->aasort($userlist, "id");
 
-
-
+        if($return_arraysel[0] == ''){
+            $return_arraysel = array();
+        }
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);
 
 //echo '<pre>'; print_r($this->data['userlist']); die();
