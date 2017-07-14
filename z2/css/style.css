@@ -17,7 +17,7 @@
   position: absolute;
   top: 0;
   right: 4px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   width: 10px;
   height: 100%;
@@ -36,7 +36,7 @@
 .noti .scroll:hover  {
   width: 12px;
   
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0);
 }
 
 .noti .scroll span, .scrolling .scroll span {
@@ -48,7 +48,7 @@
 }
 
 .noti:hover .scroll span, .scrolling .scroll span {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: red;
 }
 
 

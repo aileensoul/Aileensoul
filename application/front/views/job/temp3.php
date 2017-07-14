@@ -1,13 +1,53 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Clean Custom Scroll</title>
-  
-  
+<!-- header -->
 
-         <link rel="stylesheet" type="text/css" href="<?php echo base_url('z2/css/style.css'); ?>">
-           <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+<!-- <script type="text/javascript">
+$(window).load(function(){
+        $('#message_count').hide();
+        return false;
+    });
+</script> -->
+<head> 
+    <meta charset="utf-8" />
+    <!-- SEO CHANGES START -->
+    <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- SEO CHANGES END -->
+    <!-- NEED TO ADD FOLLOWING TAG IN HEADER -->
+    <link rel="canonical" href="http://www.aileensoul.com" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="description" content=" " />
+    <meta name="keywords" content=" " />
+    <!-- Add following GoogleAnalytics tracking code in Header.-->
+    <!-- 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-91486853-1', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-6060111582812113",
+        enable_page_level_ads: true
+      });
+    </script>
+    -->
+    <title><?php echo $title; ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
+    <!-- CSS START -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('z2/css/style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
@@ -15,7 +55,58 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
+
+   
+</head>
+
+<!-- style for span id=notification_count start-->
+<style>
+
+    /*style for span id=notification_count start*/
+    .msg_dot{padding: 0!important;}
+    #notification_count
+    {   padding: 3px;
+        background: #1b8ab9;
+        color: #ffffff;
+        font-weight: bold;
+        margin-left: 7px;
+        /* border-radius: 80%; */
+        -moz-border-radius: 9px;
+        -webkit-border-radius: 2px;
+        position: absolute;
+        margin-top: -1px;
+      
+    }
+    /*style for span id=notification_count End*/
+
+    /*style for span id=message_count start*/
+
+
+    #message_count
+    {
+        padding: 3px;
+        background: #1b8ab9;
+        color: #ffffff;
+        font-weight: bold;
+        margin-left: 7px;
+        /* border-radius: 80%; */
+        -moz-border-radius: 9px;
+        -webkit-border-radius: 2px;
+        position: absolute;
+
+        margin-top: -2px;font-size: 10px;
+        top: 9px;
+        line-height: normal;
+        right: 11px;
+    }
+    /*style for span id=message_count End*/
+
+</style>
+<!-- style for span id=notification_count end-->
+<link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
@@ -390,8 +481,6 @@ $( document ).on( 'keydown', function ( e ) {
     });
 </script>
 
-</head>
-
 <!-- -->
 <body class="pushmenu-push">
 <!-- 
@@ -444,7 +533,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications">
+                                        <div id="notificationsBody" class="notifications noti">
 
 
                                         </div>
@@ -623,7 +712,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications">
+                                        <div id="notificationsBody" class="notifications noti">
 
 
                                         </div>
@@ -759,8 +848,7 @@ if($userid){?>
 
       <?php  }?>
 
-
-  <div id="aDiv" class="noti" style="margin-top: 150px;">
+    <div id="aDiv" class="noti1" style="margin-top: 150px;">
   The oldest classical Greek and Latin writing had little or no spaces between words or other ones, and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[3] The Greek paragraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences. The hedera leaf (e.g. ☙) has also been used in the same way.
 
 In ancient manuscripts, another means to divide sentences in into paragraphs was a line break (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversize capital letter, sometimes outdented beyond the margin of text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Outdenting is still used in English typography, though not commonly.[4] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten) United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph whitespace, or put in the indentation space.
@@ -772,8 +860,7 @@ A second common modern English style is to use no indenting, but add vertical wh
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script>
-</body>
-</html>
+
 <script type="text/javascript">
   var dragging = false;
 var clientY = 0;
@@ -863,3 +950,167 @@ function moveScrollTo(parent, scrollPosition) {
   }
 }
 </script>
+    <!-- header end -->
+
+    <!-- script for update all read notification start-->
+    <script type="text/javascript">
+
+        function Notificationheader() {
+            getNotification();
+            notheader();
+
+        }
+        function getNotification() {
+            // first click alert('here'); 
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>notification/update_notification",
+                type: "POST",
+                //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+                success: function (data) {
+                    data = JSON.parse(data);
+                    //alert(data);
+                    //update some fields with the updated data
+                    //you can access the data like 'data["driver"]'
+                }
+            });
+
+        }
+
+        function notheader()
+        {
+
+            // $("#fad" + clicked_id).fadeOut(6000);
+
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "notification/not_header" ?>',
+                data: '',
+                success: function (data) {
+                    //    alert(data);
+                    $('#' + 'notificationsBody').html(data);
+
+                }
+
+
+            });
+
+        }
+
+    </script>
+    <!-- script for update all read notification end -->
+
+    <!-- script for update all read notification start-->
+    <script type="text/javascript">
+
+        function getmsgNotification() {
+            msgNotification();
+            msgheader();
+
+        }
+
+        function msgNotification() {
+            // first click alert('here'); 
+
+            $.ajax({
+                url: "<?php echo base_url(); ?>notification/update_msg_noti",
+                type: "POST",
+                //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+                success: function (data) {
+                    data = JSON.parse(data);
+                    //alert(data);
+                    //update some fields with the updated data
+                    //you can access the data like 'data["driver"]'
+                }
+            });
+
+        }
+
+        function msgheader()
+        {
+
+            // $("#fad" + clicked_id).fadeOut(6000);
+
+
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
+                data: '',
+                success: function (data) {
+                    //    alert(data);
+                    $('#' + 'notificationsmsgBody').html(data);
+
+                }
+
+
+            });
+
+        }
+    </script>
+    <!------  commen script harshad  ---------------->
+    <script>
+        jQuery(document).ready(function($) {
+         if(screen.width <= 767){
+             
+             $("ul.left-form-each").on("click", ".init", function() {
+                $(this).closest("ul").children('li:not(.init)').toggle();
+            });
+
+            var allOptions = $("ul").children('li:not(.init)');
+            $("ul.left-form-each").on("click", "li:not(.init)", function() {
+                allOptions.removeClass('selected');
+                $(this).addClass('selected');
+                $("ul.left-form-each").children('.init').html($(this).html());
+                allOptions.toggle();
+            });
+             
+             
+          
+            }
+            
+            
+           $(function () {
+                $('a[href="#search"]').on('click', function(event) {
+                    event.preventDefault();
+                    $('#search').addClass('open');
+                    $('#search > form > input[type="search"]').focus();
+                });
+
+                $('#search, #search button.close').on('click keyup', function(event) {
+                    if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+                        $(this).removeClass('open');
+                    }
+                });
+
+            });
+        });
+    </script>
+    <!-- script for update all read notification end -->
+<!-- <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+    -->
+
+    <!-- Extra js if not work then add Start-->
+    <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
+    <!-- Extra js if not work then add End-->
