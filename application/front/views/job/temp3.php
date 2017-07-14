@@ -55,6 +55,7 @@ $(window).load(function(){
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('css/jquery.mCustomScrollbar.css'); ?>">
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
@@ -533,7 +534,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications noti">
+                                        <div id="notificationsBody" class="notifications">
 
 
                                         </div>
@@ -712,7 +713,7 @@ if($userid){?>
                                     </a><div id="notificationContainer">
                                         <div id="notificationTitle">Notifications</div>
 
-                                        <div id="notificationsBody" class="notifications noti">
+                                        <div id="notificationsBody" class="notifications content demo-y">
 
 
                                         </div>
@@ -848,7 +849,7 @@ if($userid){?>
 
       <?php  }?>
 
-    <div id="aDiv" class="noti1" style="margin-top: 150px;">
+    <!--div id="aDiv" class="noti1" style="margin-top: 150px;">
   The oldest classical Greek and Latin writing had little or no spaces between words or other ones, and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphos, similar to an underscore at the beginning of the new group.[3] The Greek paragraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences. The hedera leaf (e.g. ☙) has also been used in the same way.
 
 In ancient manuscripts, another means to divide sentences in into paragraphs was a line break (newline) followed by an initial at the beginning of the next paragraph. An initial is an oversize capital letter, sometimes outdented beyond the margin of text. This style can be seen, for example, in the original Old English manuscript of Beowulf. Outdenting is still used in English typography, though not commonly.[4] Modern English typography usually indicates a new paragraph by indenting the first line. This style can be seen in the (handwritten) United States Constitution from 1787. For additional ornamentation, a hedera leaf or other symbol can be added to the inter-paragraph whitespace, or put in the indentation space.
@@ -857,99 +858,36 @@ A second common modern English style is to use no indenting, but add vertical wh
   <div class="scroll">
     <span></span>
   </div>
-</div>
+</div-->
+
+<div class="content demo-y">
+                <h2>Content y</h2>
+                <hr />
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> 
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p> 
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p> 
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> 
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> 
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p> 
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                <hr />
+                <p>End of content.</p>
+            </div>
+
+
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script>
+<!--script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script-->
+<script>$(window).load(function() {
+    <script src="<?php echo base_url('js/jquery.mCustomScrollbar.js'); ?>"></script>
+});</script>
 
-<script type="text/javascript">
-  var dragging = false;
-var clientY = 0;
-
-$(document).ready(function(event) {
-  $(".noti").each(function() { 
-    var viewportHeight = $(".noti").outerHeight();
-    var totalHeight = $(".noti").prop("scrollHeight");
-  
-    var scrollUnitHeight = (viewportHeight / totalHeight) * viewportHeight;
-  
-    $(".noti .scroll span").height(scrollUnitHeight);
-  });
-  
-  $(document).on('mousewheel', '.noti', function(event) {
-    var scrollLocation = $(this).find(".scroll span").position().top;
-    moveScrollTo($(this), scrollLocation - (event.deltaY * 10));
-    
-    event.preventDefault();
-    return false;
-  });
-  
-  $(window).on("mouseup", function(event) {
-    if (dragging) {
-      dragging = false;
-      $(".scrolling").removeClass("scrolling");
-      
-      event.preventDefault();
-      return false;
-    }
-  });
-  
-  $(".noti .scroll span").on("mousedown", function(event) {
-    clientY = event.clientY - $(this).position().top;
-    dragging = true;
-    $(this).parents(".noti").addClass("scrolling");
-    
-    event.preventDefault();
-    return false;
-  });
-  
-  $(document).on("click", ".scroll", function(event) {
-    if ($(event.target).is("span")) {
-      return;
-    }
-    
-    var scrollPosition = event.clientY - 15;
-    moveScrollTo($(this).parents(".noti"), scrollPosition);
-  });
-  
-  $(window).on("mousemove", function(event) {
-    if (dragging) {
-      var scrollPosition = event.clientY - clientY;
-      moveScrollTo($(".scrolling"), scrollPosition);
-      
-      event.preventDefault();
-    }
-  });
-});
-
-function moveScrollTo(parent, scrollPosition) {    
-  if (parent.length > 0) {
-    var viewportHeight = parent.outerHeight();
-    var limitedViewportHeight = viewportHeight - parent.find(".scroll span").height();
-    
-    var totalHeight = parent.prop("scrollHeight");
-
-    if (scrollPosition < 0) {
-      scrollPosition = 0;
-    }
-    
-    var scrollSpanPosition = scrollPosition;
-    
-    if (scrollSpanPosition > viewportHeight - parent.find(".scroll span").height()) {
-      scrollSpanPosition = viewportHeight - parent.find(".scroll span").height();
-    }
-    
-    if (scrollPosition > viewportHeight) {
-      scrollPosition = viewportHeight;
-    }
-    
-    parent.find(".scroll span").css("top", scrollSpanPosition);
-
-    parent.find(".scroll").css("top", (scrollSpanPosition / viewportHeight) * totalHeight);
-
-    parent.scrollTop((scrollSpanPosition / viewportHeight) * totalHeight);
-  }
-}
-</script>
     <!-- header end -->
 
     <!-- script for update all read notification start-->
@@ -1087,6 +1025,13 @@ function moveScrollTo(parent, scrollPosition) {
         });
     </script>
     <!-- script for update all read notification end -->
+
+
+
+
+
+
+
 <!-- <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -1114,3 +1059,130 @@ window.onclick = function(event) {
     <!-- Extra js if not work then add Start-->
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
+
+
+<!--script type="text/javascript">
+  var dragging = false;
+var clientY = 0;
+
+$(document).ready(function(event) {
+  $(".noti").each(function() { 
+    var viewportHeight = $(".noti").outerHeight();
+    var totalHeight = $(".noti").prop("scrollHeight");
+  
+    var scrollUnitHeight = (viewportHeight / totalHeight) * viewportHeight;
+  
+    $(".noti .scroll .custom-scroll").height(scrollUnitHeight);
+  });
+  
+  $(document).on('mousewheel', '.noti', function(event) {
+    var scrollLocation = $(this).find(".scroll .custom-scroll").position().top;
+    moveScrollTo($(this), scrollLocation - (event.deltaY * 10));
+    
+    event.preventDefault();
+    return false;
+  });
+  
+  $(window).on("mouseup", function(event) {
+    if (dragging) {
+      dragging = false;
+      $(".scrolling").removeClass("scrolling");
+      
+      event.preventDefault();
+      return false;
+    }
+  });
+  
+  $(".noti .scroll .custom-scroll").on("mousedown", function(event) {
+    clientY = event.clientY - $(this).position().top;
+    dragging = true;
+    $(this).parents(".noti").addClass("scrolling");
+    
+    event.preventDefault();
+    return false;
+  });
+  
+  $(document).on("click", ".scroll", function(event) {
+    if ($(event.target).is(".custom-scroll")) {
+      return;
+    }
+    
+    var scrollPosition = event.clientY - 15;
+    moveScrollTo($(this).parents(".noti"), scrollPosition);
+  });
+  
+  $(window).on("mousemove", function(event) {
+    if (dragging) {
+      var scrollPosition = event.clientY - clientY;
+      moveScrollTo($(".scrolling"), scrollPosition);
+      
+      event.preventDefault();
+    }
+  });
+});
+
+function moveScrollTo(parent, scrollPosition) {    
+  if (parent.length > 0) {
+    var viewportHeight = parent.outerHeight();
+    var limitedViewportHeight = viewportHeight - parent.find(".scroll .custom-scroll").height();
+    
+    var totalHeight = parent.prop("scrollHeight");
+
+    if (scrollPosition < 0) {
+      scrollPosition = 0;
+    }
+    
+    var scrollSpanPosition = scrollPosition;
+    
+    if (scrollSpanPosition > viewportHeight - parent.find(".scroll .custom-scroll").height()) {
+      scrollSpanPosition = viewportHeight - parent.find(".scroll .custom-scroll").height();
+    }
+    
+    if (scrollPosition > viewportHeight) {
+      scrollPosition = viewportHeight;
+    }
+    
+    parent.find(".scroll .custom-scroll").css("top", scrollSpanPosition);
+
+    parent.find(".scroll").css("top", (scrollSpanPosition / viewportHeight) * totalHeight);
+
+    parent.scrollTop((scrollSpanPosition / viewportHeight) * totalHeight);
+  }
+}
+</script-->
+<script>
+        (function($){
+            $(window).on("load",function(){
+                
+                $.mCustomScrollbar.defaults.theme="light-2"; //set "light-2" as the default theme
+                
+                $(".demo-y").mCustomScrollbar();
+                
+                $(".demo-x").mCustomScrollbar({
+                    axis:"x",
+                    advanced:{autoExpandHorizontalScroll:true}
+                });
+                
+                $(".demo-yx").mCustomScrollbar({
+                    axis:"yx"
+                });
+                
+                $(".scrollTo a").click(function(e){
+                    e.preventDefault();
+                    var $this=$(this),
+                        rel=$this.attr("rel"),
+                        el=rel==="content-y" ? ".demo-y" : rel==="content-x" ? ".demo-x" : ".demo-yx",
+                        data=$this.data("scroll-to"),
+                        href=$this.attr("href").split(/#(.+)/)[1],
+                        to=data ? $(el).find(".mCSB_container").find(data) : el===".demo-yx" ? eval("("+href+")") : href,
+                        output=$("#info > p code"),
+                        outputTXTdata=el===".demo-yx" ? data : "'"+data+"'",
+                        outputTXThref=el===".demo-yx" ? href : "'"+href+"'",
+                        outputTXT=data ? "$('"+el+"').find('.mCSB_container').find("+outputTXTdata+")" : outputTXThref;
+                    $(el).mCustomScrollbar("scrollTo",to);
+                    output.text("$('"+el+"').mCustomScrollbar('scrollTo',"+outputTXT+");");
+                });
+                
+            });
+        })(jQuery);
+    </script>

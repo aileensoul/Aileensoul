@@ -1045,10 +1045,17 @@ class Notification extends MY_Controller {
         // $notification .= '</div>';
         //   $notification .= '</div></div></li>';
        //echo count($totalnotification); die();
+
+       $notification = '<ul class="">';
        $i = 0;
         foreach ($totalnotification as $total) {  
+
             if ($total['not_from'] == 1) {
  $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name; 
+
+             
+
+
                 $notification .= '<li><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
@@ -1548,9 +1555,7 @@ class Notification extends MY_Controller {
            break;
             }
         }
-        $notification .= '<div class="scroll">
-    <span></span>
-  </div> </div>';
+        $notification .= '</div> </ul>';
 
         $notification .= '<div id="notificationFooter">';
         $notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
