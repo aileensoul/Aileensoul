@@ -1235,7 +1235,7 @@
                                                          <?php
                                                             if ($work['work_certificate'] != "") {
                                                                 ?>
-                                                         <l i><b>Experience Certificate </b> <span>
+                                                         <li><b>Experience Certificate </b> <span>
                                                             <a class="example-image-link" href="<?php echo base_url($this->config->item('job_work_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate</a>
                                                             </span>
                                                          </li>

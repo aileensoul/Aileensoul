@@ -65,7 +65,7 @@ echo $leftmenu;
                 <!-- small box -->
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3><?php echo $page_count?></h3>
+                        <h3><?php echo count($job_list)?></h3>
                         <p>Job User</p>
                     </div>
                     <div class="icon">
