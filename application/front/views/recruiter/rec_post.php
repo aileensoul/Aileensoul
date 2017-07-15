@@ -405,33 +405,34 @@ if ($returnpage == 'job') {
                                             </span>
                                             </li>
                                             <!-- vishang 14-4 start -->
-                                            <li>
-           <b>Required Experience</b>
+  <li>
+     <b>Required Experience</b>
                        <span>
      <p title="Min - Max">
      <?php 
 
 
-  if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
      { 
- echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+ 
+
+      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
      } 
-     else if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0'))
+     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
      {
-      echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
      }
     else
     {
       echo "Fresher";
-  //echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
          
     }
 
  ?> 
     
     </p>  
-                                                </span>
-                                            </li>
+ </span>
+  </li>
                 <li><b>Salary</b><span title="Min - Max"><?php 
 
 
@@ -629,51 +630,34 @@ if ($returnpage == 'job') {
                                             </li>
 
                                             <!-- vishang 14-4 start -->
-                                            <li>
-                         <b>Required Experience</b>
-                                <span title="Min - Max">
-                                                    <p><?php 
+                                          <li>
+     <b>Required Experience</b>
+                       <span>
+     <p title="Min - Max">
+     <?php 
 
 
-
-
-      if(($post['min_year'] != '' && $post['max_year'] !='') && ($post['fresher'] == 1))
+  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
      { 
-        echo $post['min_year']; if ($post['min_month'] == '') {
-        echo  ' Year - ';
-          
-        } echo $post['max_year']; if ($post['max_month'] == '') {
-        echo  ' Year - ';
-          
-        } echo "Fresher can also apply.";
+ 
+
+      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
      } 
-      elseif(($post['min_year'] !='' || $post['max_year'] !='') && ($post['fresher'] == 1))
-     { 
-        echo $post['min_year']; if ($post['min_month'] != '') {
-        echo  $post['min_month'].' Year - ';
-          
-        } echo $post['max_year']; if ($post['max_month'] != '') {
-        echo  $post['max_month'].' Year - ';
-          
-        } echo "Fresher can also apply.";
-     } 
-    
-      
-     else if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0'))
+     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
      {
-      echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
      }
     else
     {
       echo "Fresher";
- // echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
          
     }
 
  ?> 
+    
     </p>  
-                                                </span>
-                                            </li>
+ </span>
+  </li>
          <li><b>Salary</b><span title="Min - Max" >
          <?php
 
