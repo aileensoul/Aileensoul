@@ -1286,17 +1286,29 @@
      if(count($finalsorting) > 0){ 
           if(count($count) == count($finalsorting)){  ?>
        <div class="art_no_post_avl">
-         
+         <h3>Artistic Post</h3>
+         <div class="art_no_post_img">
+           <img src="<?php echo base_url('img/art-no.png')?>">
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
        </div>
          <?php } } else{ ?>
+         
+         <div class="art_no_post_avl">
+         <h3>Artistic Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
 
-
-          
-         <div class="contact-frnd-post bor_none">
-         <div class="text-center rio">
-            <h4 class="page-heading  product-listing" >No Post Found.</h4>
+           <img src="<?php echo base_url('img/art-no.png')?>">
+        
          </div>
+         <div class="art_no_post_text">
+           No Post Available.
          </div>
+          </div>
+       </div>
          <?php }  ?>
 
          <div class="nofoundpost">
