@@ -62,7 +62,7 @@ echo $leftmenu;
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?php echo count($job_list)?></h3>
+                        <h3><?php echo count($recruiter_list)?></h3>
                         <p>Recruiter User</p>
                     </div>
                     <div class="icon">

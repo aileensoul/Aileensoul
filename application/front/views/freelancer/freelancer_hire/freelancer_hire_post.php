@@ -229,7 +229,7 @@ echo $freelancer_hire_header2_border;} ?>
 </div>
     <div  class="add-post-button mob-block">
                 <?php if($returnpage==''){ ?>
-                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                 <?php }?>
             </div> 
 
@@ -260,7 +260,7 @@ echo $freelancer_hire_header2_border;} ?>
 
             <div  class="add-post-button">
                 <?php if($returnpage==''){ ?>
-                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                 <?php }?>
             </div> 
         </div>
@@ -438,9 +438,18 @@ echo $freelancer_hire_header2_border;} ?>
                                             <b>Required Experience</b>
                                                      <span>
                                              <?php if($post['post_exp_month'] ||  $post['post_exp_year']){
-                                                
+                                                if($post['post_exp_year']){
+                                                  echo $post['post_exp_year'];  
+                                                }
+                                                if($post['post_exp_month']){
+                                                    echo ".";
+                                                    echo $post['post_exp_month'];
+                                                } 
+                                                echo " Year";
+                                                // echo $post['post_exp_year'].".".$post['post_exp_month'];
+         
 
-            echo $post['post_exp_year'].".";?><?php  echo $post['post_exp_month']." Year";}
+        }
                 else{echo PROFILENA;} ?> 
                                                                     </span>
                                                                 </li>

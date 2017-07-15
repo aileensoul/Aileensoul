@@ -606,7 +606,7 @@ echo $listFinal . ',' . $artisticdata[0]['other_skill'];
                                          <?php
 if ($artisticdata[0]['art_bestofmine']) {
     ?>
-                                                <div class="buisness-profile-pic">
+                                                <div class="buisness-profile-pic pdf">
 
 
 

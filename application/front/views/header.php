@@ -1,3 +1,14 @@
+<!-- <Don't Remove this Script SEO> -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91486853-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 <!-- header -->
 
 <!-- <script type="text/javascript">
@@ -598,9 +609,9 @@ if($userid){?>
                                 ?>
 
                             <!-- <li><a href="<?php //echo base_url('message/message_chat/')      ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
-                                <li id="Inbox_link">
+<!--                                <li id="Inbox_link">
                                     <?php if  ($message_count) { ?>
-                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
+                                                     <span class="badge bg-theme"><?php //echo $message_count; ?></span> 
                                     <?php } ?>
                                     <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
                                     
@@ -615,15 +626,8 @@ if($userid){?>
 
 
                                             </div>
-                                
-
-                           <!--       <?php if($message_seeall){   ?> 
-                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
-                             <?php    } ?>
-                                            -->
-
                                         </div>
-                                </li>
+                                </li>-->
 
                            <!--  <li><a href="<?php //echo base_url('friendrequest')      ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 

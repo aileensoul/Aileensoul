@@ -139,24 +139,28 @@
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h3><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h3></a>
                             <!-- text head start -->
                     <div class="profile-text" >
-                   
-                     <?php 
-                if($returnpage == ''){   
-                  if ($recdata[0]['designation'] == "") {
-               ?>
-                            <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                        
+                      <?php if($returnpage == ''){
+                  if ($recdata[0]['designation'] == '') {
+                      ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
                 <a id="designation" class="designation" title="Designation">Designation</a>
-            <?php }
-             else {
-               
-                ?> 
-                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-                <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
-             <?php }
-             
-             } else {  echo ucwords($recdata[0]['designation']);  }  ?>
+              
+               <?php } else {
+                  ?> 
+               <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+               <?php }
+                  } else { 
+                  
+                  
+                      if ($recdata[0]['designation'] == '') { ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                <a id="designation" class="designation" title="Designation">Designation</a>
 
+               <?php  } else { ?>
+               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"> <?php
+                  echo ucwords($recdata[0]['designation']); ?></a> <?php } 
+                  } ?>
                     <!-- The Modal -->
             <!--         <div id="myModal" class="modal">
                       <!-- Modal content --><!-- <div class="col-md-2"></div> -->

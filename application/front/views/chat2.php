@@ -345,7 +345,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var lname = '<?php echo $loglname; ?>';
         var message = message;
         var str = message.replace(/<div><br><\/div>/gi, "");
+<<<<<<< HEAD
        
+=======
+       alert(str);
+>>>>>>> 6bb2244a484616f2a2c557d6a5b8136f8c3ef150
 //        var str = str.replace(/ /g, "");
 
 //        str = message.replace(/<div>/gi, "");

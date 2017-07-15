@@ -198,7 +198,7 @@
             </div>
         </div>
          <div  class="add-post-button mob-block">
-                        <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                        <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                     </div>
         <div class="middle-part container">
                 <div class="job-menu-profile mob-none pt20">
@@ -214,7 +214,7 @@
                     </div>
 
                     <div  class="add-post-button">
-                        <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                        <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                     </div>
                 </div>
                 <!-- The Modal -->

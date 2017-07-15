@@ -306,11 +306,11 @@ img {
 a {
     text-decoration: none;
     color: #1b8ab9;
-<<<<<<< HEAD
+
   /*  -moz-transition: all 0.4s ease-in;
-=======
+
     /*-moz-transition: all 0.4s ease-in;
->>>>>>> 8d36083bdde90cec4c46fde11cd94246c3d04382
+
     -webkit-transition: all 0.4s ease-in;
     -o-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;*/
@@ -516,7 +516,7 @@ a:focus {
 input,
 textarea,
 select {
-    text-transform: capitalize;
+
     resize: none;
     background: white;
     border: 1px solid #cacaca;
@@ -930,10 +930,12 @@ width: 32px;}
     
     line-height: 18px!important;
 }
-/*.header ul li a:hover {
-    background-color: #fff;
-    color: #1b8ab9;
-}*/
+.header ul li a:hover i{color:white;}
+.header ul li a:hover .dropdown .img-circle{    border: 2px solid #d7ecf5;}
+.header ul li a:hover {
+   
+    color: #fff;
+}
 ul.sub-menu {
     display: none;
     position: absolute;
@@ -2898,7 +2900,7 @@ ul.business_pf_ct_person_detail li b {
 }
 .bui-menu-profile {
     float: left;
-    padding-left: 33px;
+    padding-left: 0px;
     padding-right: 10px;
 }
 .job-menu-profile h5 {
@@ -3809,7 +3811,113 @@ a:focus {
 }
 
 /*contact req*/
+ #noti_pc{ margin-bottom: 5px;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: inline-block;
+    
+    margin-top: 5px;   }
+    .job-saved-box .notification-box ul li{display: flex!important;}
+    #notification_inside{ margin-left: 0px; margin-top: 0px;   padding: 5px 10px 9px 10px;
+    margin-left: 11px;
+    display: inline-block;}
+    #noti_pc img{border-radius: none;}
+    #notification_inside h6{font-size: 17px;}
+    .contact-list .list-title{
+        background: #fff; 
+        color: #000; 
+        border:1px solid #ddd;
+        border-radius: 4px;
+    }
+    .all-list{
+        width:100%;
+        text-align: center;
+        padding-top: 40px;
+    }
+     .all-list ul{
+        display: inline-block;
+     }
+     .all-list ul li{
+        padding:10px;
+        display: inline-block;
+        list-style-type: none;
+        margin: 0;
+     }
+     .all-list ul li .list-box{
+        width: 235px;
+        height: 255px;
+        background: #fff;
+        border:1px solid #ddd;
+        border-radius: 4px;
+        padding: 15px;
+     }
+     .all-list ul li .list-box:hover{
+        background: rgba(221, 221, 221, 0.3);
+     }
+    .profile-img{
+        width:110px; 
+        height: 110px;
+        border-radius: 100%;
+        margin: 0px auto;
+		padding-top:4px;
 
+    }
+    .profile-img img{
+        width:110px; 
+        height: 110px;
+        border-radius: 100%;
+    }
+    .connect-link{
+        padding: 13px 0;
+    }
+
+    .profile-content a{
+    font-family: robotoregular;
+    
+    padding-top: 15px;
+    color: #000;
+    display: inline-block;
+    }
+    .profile-content a h5{    color: #404040;
+    line-height: 20px;}
+	.profile-content a p{color: #8c8c8c;
+    font-family: robotoregular;}
+    .connect-link a{
+            font-weight: 500;
+    font-size: 16px;
+    font-family: robotoregular;
+    color: #1b8ab9;
+    padding: 6px 14px;
+    }
+	 .connect-link a.cr-accept{
+    border: 1px solid #1b8ab9;
+    background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+    background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+    color: white;
+    border-radius: 2px;}
+	
+	 .connect-link a.cr-accept:hover{   
+
+ background: -moz-linear-gradient(96deg, # 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+    background: -webkit-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -o-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+    background: -ms-linear-gradient(96deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+	 background: linear-gradient(354deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%);
+	   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+	 }
+	.connect-link a.cr-decline{    border: 1px solid #1b8ab9;
+    border-radius: 2px;
+    margin-left: 33px;}
+    .connect-link a:hover{
+  
+    color: #fff;
+    }
     #addcontactContainer{
          background-color: #fff;
    /* border: 1px solid rgba(100, 100, 100, .4);*/
@@ -3854,12 +3962,16 @@ a:focus {
     color: black;
 }
 #addcontactTitle a{color: black; padding: 1px 10px;}
+
+.business_data_table{table-layout: fixed;
+    width: 100%;}
+.business_data_table td:first-child{width:50px;}
 .business_data_table td a{color:#000;}
 #addcontactTitle a:hover{color: #1b8ab9; text-decoration: underline;}
     #addcontactBody {
         padding: 0px 0px 0px 0px !important;
         overflow-y: scroll;
-        height: 350px;
+        height: 284px;
     }
     #addcontactBody ul, #addcontactBody li {
         padding-right: 0px;
@@ -3874,6 +3986,24 @@ a:focus {
         color: #000;
         padding-top: 0;
     }
+	#addcontactBody  li .addcontact-right a.add-right-true{background-color:#fff; border:1px solid #1b8ab9;}
+		#addcontactBody  li .addcontact-right a.add-left-true i{color:#fff;}
+	#addcontactBody  li .addcontact-right a.add-left-true{
+									border:1px solid transparent;
+								background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
+								background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
+								background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
+								background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* opera 11.10+ */
+								background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
+								background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
+								filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 ); }
+				#addcontactBody  li .addcontact-right a.add-left-true:hover{background:white; border:1px solid #1b8ab9;}
+				#addcontactBody  li .addcontact-right a.add-left-true:hover i{	color:#1b8ab9;
+	background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;}
+	#addcontactBody  li .addcontact-right a.add-right-true i {color:#1b8ab9;}
+		#addcontactBody  li .addcontact-right a.add-left-true i {color:#fff;}
     .addcontact-pic {
         height: 50px;
         width: 50px;
@@ -3885,8 +4015,15 @@ a:focus {
     .addcontact-text{
         float: left;
         width: 80%;
-        padding-left: 5px;
+		color:#8c8c8c;
+        padding-left: 8px;
+		text-align:left;
+		font-size:13px;
+		font-family:arial;
     }
+	.addcontact-text span{color:#404040; font-size:15px;}
+	#addcontactBody li:hover{background-color:e9f4f8; }
+		#addcontactBody li:hover .addcontact-text{}
     .addcontact-text span{
         display: block;
         line-height: 1;
@@ -3913,7 +4050,7 @@ a:focus {
         background: none !important;
     }
     .addcontact-right{
-        width: 29%;
+        width: 25%;
         float: left;
     }
     .addcontact-right a{
@@ -3921,17 +4058,17 @@ a:focus {
         border: 1px solid #000;
         padding: 8px !important;
         border-radius: 100%;
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
         text-align: center;
         margin: 5px 2px;
     }
     .addcontact-right a:hover, .addcontact-right a:focus {
-        background: none !important;
+        /*background: none !important;*/
     }
     .addcontact-right a i{
         color: #000;
-        font-size: 20px !important;
+        font-size: 17px !important;
     }
     #addcontactFooter {
         background-color: #e9eaed;
@@ -7051,9 +7188,12 @@ follow box*/
     padding: 1px;
 }
 .profile-head-text_dg {
+    max-width: 96%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
     font-size: 28px;
-    text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
-}
+ }
 #two_save_images_bui {
     float: left;
     height: 250px;
@@ -8929,6 +9069,7 @@ fieldset .add_post_btns {
 .profile-job-post-detail .buisness-profile-pic {
     padding: 3px 4px;
 }
+.pdf{padding: 0px !important;}
 #jobseeker_regform_higher_secondary .job_education_submitbox {
     margin-top: 20px;
 }
@@ -8997,6 +9138,7 @@ label.cameraButton:hover {
     margin-bottom: 10px;
     margin-top: -26px;
 }
+.common-form fieldset #email{text-transform: lowercase;}
 .delete_btn {
     padding: 6px 12px 6px!important;
     font-size: 13px!important;
@@ -14167,22 +14309,22 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .contct-no li .addcontact-left a .addcontact-text {
     width: 100%;
-    font-size: 16px;
+    font-size: 15px;
 }
 .contct-no li .addcontact-left {
     width: 100%;
 }
-<<<<<<< HEAD
+
 /*.addcontact-left{width: 100%!important;
 margin: 0 auto;
 text-align: center;}
 .addcontact-left a{padding-left: 30px !important;}*/
-=======
+
 .addcontact-left{width: 71%!important;
 margin: 0 auto;
 text-align: center;}
-.addcontact-left a{padding-left: 10px !important;}
->>>>>>> 758b98e2b70690e3f3c221014099afb03530392a
+.addcontact-left a{padding-left: 0px !important;}
+
 .mesg_link {
     background-color: #1b8ab9;
     color: #fff;

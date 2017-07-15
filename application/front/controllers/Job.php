@@ -819,7 +819,82 @@ class Job extends MY_Controller {
     }
 
 //Insert Primary Education Data start
-    public function job_education_primary_insert() {
+    public function job_education_primary_insertfalguni() {
+
+        $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+       
+
+            $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
+            $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
+            $job['max_size'] = $this->config->item('job_edu_main_max_size');
+            $job['max_width'] = $this->config->item('job_edu_main_max_width');
+            $job['max_height'] = $this->config->item('job_edu_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($job);
+            //Uploading Image
+            $this->upload->do_upload('edu_certificate_primary');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            //print_r($imgerror);die();
+
+         
+                $job_thumb['image_library'] = 'gd2';
+                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
+                $job_thumb['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $imgdata['file_name'];
+                $job_thumb['create_thumb'] = TRUE;
+                $job_thumb['maintain_ratio'] = TRUE;
+                $job_thumb['thumb_marker'] = '';
+                $job_thumb['width'] = $this->config->item('job_edu_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $job_thumb['height'] = 2;
+                $job_thumb['master_dim'] = 'width';
+                $job_thumb['quality'] = "100%";
+                $job_thumb['x_axis'] = '0';
+                $job_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $job_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+            
+                $job_certificate = $imgdata['file_name'];
+          
+
+        
+
+            $data = array(
+                'user_id' => $userid,
+                'board_primary' => $this->input->post('board_primary'),
+                'school_primary' => $this->input->post('school_primary'),
+                'percentage_primary' => $this->input->post('percentage_primary'),
+                'pass_year_primary' => $this->input->post('pass_year_primary'),
+                'edu_certificate_primary' => $job_certificate,
+                'status' => 1
+            );
+           // echo '<pre>'; print_r($data);die();
+            $insert_id = $this->common->insert_data_getid($data, 'job_add_edu');
+
+            
+                $data = array(
+                    'modified_date' => date('Y-m-d h:i:s', time()),
+                    'job_step' => 3
+                );
+           
+
+
+            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+            //Update only one field into database End 
+
+      
+    }
+
+//Insert Primary Education Data End
+
+
+     public function job_education_primary_insert() {
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1081,7 +1156,7 @@ class Job extends MY_Controller {
         }
     }
 
-//Insert Primary Education Data End
+
 //Insert Secondary Education Data start
     public function job_education_secondary_insert() {
         $userid = $this->session->userdata('aileenuser');
