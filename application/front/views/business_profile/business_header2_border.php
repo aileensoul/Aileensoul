@@ -245,27 +245,17 @@
                                         </a>
                                         <div id="addcontactContainer">
                                             <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
-
                                             <div id="addcontactBody" class="notifications">
-
-
                                             </div>
-
                                         </div>
                                     </li>  
                                     <li id="Inbox_link">
-                                        <?php if ($message_count) { ?>
-                                                           <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
-                                        <?php } ?>
                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
-
                                             <span id="message_count"></span>
                                         </a>
-
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
                                                 <div id="notificationTitle">Messages</div>
-
                                                 <div id="notificationsmsgBody" class="notificationsmsg">
                                                 </div>
                                             </div>

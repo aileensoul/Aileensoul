@@ -11,7 +11,7 @@ class Chat_model extends CI_Model {
 			'nickname'	=> (string) $nickname,
 			'message_from'	=> (string) $userid,
 			'message_to'	=> (string) $id,
-			'guid'		=> (string)	$guid,
+			'guid'		=> (string) $guid,
 			'timestamp'	=> time(),
 		);
 		  
