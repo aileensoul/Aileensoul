@@ -1,3 +1,4 @@
+
 <!-- start head -->
 <?php  echo $head; ?>
 
@@ -434,26 +435,19 @@ if ($status == 0 || $status == " ") {
         <div class="pdf_name"><a title="Zalak infotech .in pdf" href="">Zalak infotech .in pdf</a> </div></a> -->
 
         <?php } } else{?>
-                                            </ul>
-                                        </div>
-                               <div class="add_audio">
-                                 <div class="pictures1">
-
-
- 
- 
-      <div class="main_pdf_box"  >
-                 <div class="not_avali" >
-                                <img src="<?php echo base_url('images/020.png'); ?>" >
-                               <div>
-                               <div class="not_text" >Pdf not avalible</div>
-                               </div>
-                               </div>
-                               </div>
+                                         
+                               <div class="art_no_pva_avl">
+         <div class="art_no_post_img">
+          <img src="<?php echo base_url('images/020.png'); ?>"  >
+         </div>
+         <div class="art_no_post_text1">
+           No Pdf Available.
+         </div>
+       </div>
         <?php }?>
       
-    </div>
-</div>
+     </ul>
+                                        </div>
 </div>
 </div></div>
         

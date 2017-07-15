@@ -402,16 +402,16 @@ if ($status == 0 || $status == " ") {
                             </li>
 
                <?php } } else{?>
-             <li class="no-audio">
-    
-                <div class="not_avali" >
-                                <img src="<?php echo base_url('images/color_008.png'); ?>"  >
-                               <div>
-                                <div class="not_text" >Audio Not Avalible</div>
-                               </div>
-                               </div>
-                            
-                               </li>
+             <div class="art_no_pva_avl">
+         <div class="art_no_post_img">
+              <img src="<?php echo base_url('images/color_008.png'); ?>"  >
+                              
+         </div>
+         <div class="art_no_post_text1">
+           No video Available.
+         </div>
+       </div>
+                         
               
                <?php }?>             
                                             </ul>

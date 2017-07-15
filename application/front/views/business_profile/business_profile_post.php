@@ -1478,7 +1478,7 @@
                                                                 </button>
                                                             </div>
 
-                                                        </div>
+</div>
                                                         <!-- comment end -->
                                                     </div>
                                                 </div></div>
@@ -1494,20 +1494,26 @@
                             if (count($businessprofiledatapost) > 0) {
                                 if (count($count) == count($businessprofiledatapost)) {
                                     ?>
-                                    <div class="contact-frnd-post bor_none">
-                                        <div class="text-center rio">
-                                            <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                                        </div>
-                                    </div>
+                                   <div class="art_no_post_avl">
+         <div class="art_no_post_img">
+          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+       </div>
                                     <?php
                                 }
                             } else {
                                 ?>
-                                <div class="contact-frnd-post bor_none">
-                                    <div class="text-center rio">
-                                        <h4 class="page-heading  product-listing" >No Post Found.</h4>
-                                    </div>
-                                </div>
+                                <div class="art_no_pva_avl">
+         <div class="art_no_post_img">                                                        
+          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+       </div>
                             <?php } ?>
                             <!-- body content end-->
 

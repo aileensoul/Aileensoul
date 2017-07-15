@@ -769,7 +769,18 @@
                                                             }
                                                             else{
                                                                 ?>
-                                                            <span style="padding: 8px;"><h7>No Image Available</h7> <a href="<?php echo base_url('business_profile/image') ?>">Add Images</a> </span>
+                                                            <span style="padding: 8px;"><h7>No Image Available</h7> 
+
+                                                            <?php
+
+                                      $userid = $this->session->userdata('aileenuser');
+
+                                                             if($businessdata1[0]['user_id'] == $userid){ ?>
+                                                            <a href="<?php echo base_url('business_profile/image') ?>">Add Images</a>
+
+                                                            <?php }?>
+
+                                                             </span>
                                                             <?php
                                                             }
                                                             ?>

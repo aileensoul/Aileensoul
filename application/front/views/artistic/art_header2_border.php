@@ -112,10 +112,26 @@
                        
                        <ul class="" id="dropdownclass">
                         
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>">Home</a>
+                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>"><span class="bu_home"></a>
                                     </li>
                                 <!-- Friend Request Start-->
+                                  <li id="Inbox_link">
+                                        <?php if ($message_count) { ?>
+                                                           <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
+                                        <?php } ?>
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
 
+                                            <span id="message_count"></span>
+                                        </a>
+
+                                        <div id="InboxContainer">
+                                            <div id="InboxBody" class="Inbox">
+                                                <div id="notificationTitle">Messages</div>
+
+                                                <div id="notificationsmsgBody" class="notificationsmsg">
+                                                </div>
+                                            </div>
+                                    </li> 
                  <!-- Friend Request End-->
 <li>
   <div class="dropdown_hover">
