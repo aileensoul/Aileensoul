@@ -297,7 +297,7 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($userid != $artisticdata[0]['user_id']) {
                                     ?>
-                                <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                                <li> <a href="<?php echo base_url('artistic/art_chat_user/' . $artisticdata[0]['art_id']); ?>">Message</a> </li>
                             <?php } ?>
                         </ul>
                     </div>

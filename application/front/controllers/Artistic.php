@@ -8384,10 +8384,12 @@ $datacount = count($otherdata);
     }
 
     public function art_chat_user($id) {
-       echo $id; die();
         // khyati 25-4 changes start
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
+       
+        // artistic id fetch
+       $userid = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = 'art_id');
+       echo '<pre>'; print_r($userid); die();
         // last user if $id is null
 
         $contition_array = array('id !=' => '');
