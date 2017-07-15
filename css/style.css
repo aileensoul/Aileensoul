@@ -474,6 +474,7 @@ a:focus {
     font-size: 15px;
     padding-left: 0px;
 }
+.header2 ul li li{height:auto;}
 /*.header2 ul li a:hover {
     background: #156f95;
     color: #fff;
@@ -8929,6 +8930,7 @@ fieldset .add_post_btns {
 .dropdown_hover .dropdown-content_hover a {
     font-family: arial;
     color: #787878  ;
+	width:100%;
 }
 /*.pdf_name a: {
     text-decoration-line: underline;
