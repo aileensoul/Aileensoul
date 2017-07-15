@@ -979,9 +979,11 @@ ul.sub-menu li a i {
     background-size: cover;
     padding: 100px 0;
 }
-.h2-srrt{  margin-right: 12px;height: 22px;
-    width: 22px;
+.h2-srrt{  margin-right: 12px;height: 19px;
+    width:19px;
     float: left;
+        background-size: 100%;
+    
    }
 .h2-img{
     background: url(../img/icon_view_profile.png) no-repeat;
@@ -1006,6 +1008,7 @@ ul.sub-menu li a i {
 }
 .h4-img{
     background: url(../img/icon_delete.png) no-repeat;
+    background-size: 100%;
     
    
 }
@@ -1309,6 +1312,7 @@ ul.dropdown-menu li a i {
     text-transform: capitalize;
 }
 .header ul li.dropdown-user ul li a {
+    font-family: arial;
     padding: 6px 10px;
     font-size: 15px;
     color: #787878;
@@ -8918,7 +8922,8 @@ fieldset .add_post_btns {
     right: 9px;
 }
 .dropdown_hover .dropdown-content_hover a {
-    color: #000;
+    font-family: arial;
+    color: #787878  ;
 }
 /*.pdf_name a: {
     text-decoration-line: underline;
