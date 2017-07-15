@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/common-style.css">
   <link rel="stylesheet" href="css/style-main.css">
+  <link rel="stylesheet" href="css/style_harshad.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.css">
 
   <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>" />
 <!--link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" /-->
@@ -381,6 +383,22 @@
 			</section>
 		
 	</div>
+	
+	<div class="grid">
+
+  <p>
+    #2 - Custom open/close animation using CSS:
+  </p>
+  <p>
+    <a data-fancybox data-src="#hidden-content-b" href="javascript:;" class="btn">Open demo</a>
+  </p>
+
+  <div style="display: none;" id="hidden-content-b">
+    <h2>Hello!</h2>
+    <p>This is animated content! Cool, right?</p>
+  </div>
+
+</div>
 
 	<!-- <footer>
 		<div class="container">
@@ -835,6 +853,7 @@ $( document ).on( 'keydown', function ( e ) {
                     </script>
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 
 <script type="text/javascript">
