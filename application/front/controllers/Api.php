@@ -11,7 +11,7 @@ class Api extends CI_Controller {
         $this->load->model('common');
     }
 
-    public function send_message($id = '') {
+    public function send_message($id = '', $message_from_profile = '', $message_from_profile_id = '', $message_to_profile = '', $message_to_profile_id = '') {
 
         $userid = $this->session->userdata('aileenuser');
         
@@ -21,7 +21,7 @@ class Api extends CI_Controller {
         $nickname = $this->input->get('nickname', '');
         $guid = $this->input->get('guid', '');
 
-        $this->Chat_model->add_message($message, $nickname, $guid, $userid, $id, 5, $message_profile_from_id );
+        $this->Chat_model->add_message($message, $nickname, $guid, $userid, $id, $message_from_profile, $message_from_profile_id, $message_to_profile, $message_to_profile_id);
         $this->_setOutput($message);
     }
 
