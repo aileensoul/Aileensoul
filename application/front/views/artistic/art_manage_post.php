@@ -1662,11 +1662,7 @@ $loginuser = $userdata[0]['art_id'];
 
                             else {
                             ?>
-                            <div class="contact-frnd-post bor_none">
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
-                            </div>
-                            </div>  <div class="art_no_post_avl">
+                            <div class="art_no_post_avl">
          <h3>Artistic Post</h3>
           <div class="art-img-nn">
          <div class="art_no_post_img">
