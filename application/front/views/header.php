@@ -77,15 +77,13 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#notification_count").html('');
-
-
+            $('#notificationLink').removeClass('notification_available');
         } else
         {
             $('#notification_count').html(msg);
             $('#notification_count').css({"background-color": "#FF4500", "padding": "3px"});
-
+            $('#notificationLink').addClass('notification_available');
         }
-
     }
 
     function waitForMsg()
@@ -143,11 +141,12 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#message_count").html('');
-
+            $('#InboxLink').removeClass('msg_notification_available');
         } else
         {
             $('#message_count').html(msg);
             $('#message_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#InboxLink').addClass('msg_notification_available');
             //alert("welcome");
         }
 
@@ -203,7 +202,6 @@ $(window).load(function(){
 
 <!-- script for fetch all conatct notification start -->
 <script type="text/javascript">
-
 
     function addmsg_contact(type, msg)
     {
@@ -866,9 +864,8 @@ if($userid){?>
                                 ?>
 
                             <!-- <li><a href="<?php //echo base_url('message/message_chat/')      ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
-                                <li id="Inbox_link">
+<!--                                <li id="Inbox_link">
                                     <?php if  ($message_count) { ?>
-                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count; ?></span> -->
                                     <?php } ?>
                                     <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
                                         <span id="message_count"></span>
@@ -882,15 +879,8 @@ if($userid){?>
 
 
                                             </div>
-                                
-
-                              <!--    <?php if($message_seeall){   ?> 
-                                     <div id="InboxFooter"><a href="<?php echo base_url('chat') ?>">See All</a></div>
-                             <?php    } ?>
-                                            -->
-
                                         </div>
-                                </li>
+                                </li>-->
 
                            <!--  <li><a href="<?php //echo base_url('friendrequest')      ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 
