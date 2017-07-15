@@ -417,7 +417,7 @@ if($status == 0 || $status == " "){?>
 
                              <?php }else{ ?>
 
-                             <li class="fr">
+                             <li class="fr" id ="<?php echo "frfollow" . $user['follow_to']; ?>">
 
                               <?php
 
@@ -1008,16 +1008,13 @@ function followuser_two(clicked_id)
   
    $.ajax({
                 type:'POST',
-                url:'<?php echo base_url() . "artistic/follow_two" ?>',
+                url:'<?php echo base_url() . "artistic/followtwo" ?>',
                  data:'follow_to='+clicked_id,
                 success:function(data){ 
                   //alert(data);
                   // return false;
                //$('.' + 'fruser_list' + clicked_id).html(data);
-               $('.' + 'follow_btn_' + clicked_id).html(data);
-               $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
-               $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
-               $('#' + 'unfollow' + clicked_id).html('');
+               $('#' + 'frfollow' + clicked_id).html(data);  
                     
                 }
             }); 
@@ -1035,14 +1032,11 @@ function followuser_two(clicked_id)
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "artistic/unfollow_two" ?>',
+            url: '<?php echo base_url() . "artistic/unfollowtwo" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) { 
 
-                $('.' + 'follow_btn_' + clicked_id).html(data);
-                $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
-                $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
-                $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
+                $('#' + 'frfollow' + clicked_id).html(data);  
               // $('#unfollowdiv').html('');
             }
         });
