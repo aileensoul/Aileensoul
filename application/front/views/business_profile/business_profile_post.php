@@ -1494,27 +1494,35 @@
                             if (count($businessprofiledatapost) > 0) {
                                 if (count($count) == count($businessprofiledatapost)) {
                                     ?>
-                                   <div class="art_no_post_avl">
+                                <div class="art_no_post_avl">
+         <h3>Business Post</h3>
+          <div class="art-img-nn">
          <div class="art_no_post_img">
-          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+
+           <img src="<?php echo base_url('img/bui-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
-       </div>
-                                    <?php
+          </div>
+       </div>          <?php
                                 }
                             } else {
                                 ?>
-                                <div class="art_no_pva_avl">
-         <div class="art_no_post_img">                                                        
-          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+                              <div class="art_no_post_avl">
+         <h3>Business Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/bui-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
-       </div>
-                            <?php } ?>
+          </div>
+       </div><?php } ?>
                             <!-- body content end-->
 
                             <!-- no post found div start -->
@@ -3096,10 +3104,17 @@
 
         var fileInput = document.getElementById("file-1").files;
         var product_name = document.getElementById("test-upload-product").value;
+         var product_trim = product_name.trim();
+
+      
         var product_description = document.getElementById("test-upload-des").value;
+
+         var des_trim = product_description.trim();
+
+
         var product_fileInput = document.getElementById("file-1").value;
 
-        if (product_fileInput == '' && product_name == '' && product_description == '')
+        if (product_fileInput == '' && product_trim == '' && des_trim == '')
         {
             $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
             $('#post').modal('show');

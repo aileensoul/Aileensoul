@@ -1285,14 +1285,18 @@
 
      if(count($finalsorting) > 0){ 
           if(count($count) == count($finalsorting)){  ?>
-       <div class="art_no_post_avl">
+     <div class="art_no_post_avl">
          <h3>Artistic Post</h3>
+          <div class="art-img-nn">
          <div class="art_no_post_img">
+
            <img src="<?php echo base_url('img/art-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
+          </div>
        </div>
          <?php } } else{ ?>
          

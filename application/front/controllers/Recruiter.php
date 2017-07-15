@@ -2066,7 +2066,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         //$this->load->database('aileensoul');
 
         if (!empty($this->input->get("q"))) {
-            $this->db->like('skill1', $this->input->get("q"));
+            $this->db->like('skill', $this->input->get("q"));
             $query = $this->db->select('skill_id as id,skill as text')
                     ->where($where)
                     ->limit(10)
@@ -2074,7 +2074,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             $json = $query->result();
         }
 
-//echo "<pre>";print_r($query);die();
         echo json_encode($json);
     }
 
