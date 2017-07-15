@@ -7,20 +7,13 @@
         $("#addcontactBody").click(function (event) {
             $("#addcontactContainer").show();
             event.stopPropagation();
-
-
         });
 
         $("body").click(function (event) {
             $("#addcontactContainer").hide(600);
             event.stopPropagation();
-
-
         });
-
     });
-
-
 </script>
 <script type="text/javascript" >
 
