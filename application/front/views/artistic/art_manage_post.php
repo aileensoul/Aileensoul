@@ -3936,7 +3936,7 @@ if (size > 10485760)
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "artistic/follow" ?>',
+                    url: '<?php echo base_url() . "artistic/follow_two" ?>',
                     data: 'follow_to=' + clicked_id,
                     success: function (data) {
 
@@ -3957,7 +3957,7 @@ if (size > 10485760)
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "artistic/unfollow" ?>',
+                    url: '<?php echo base_url() . "artistic/unfollow_two" ?>',
                     data: 'follow_to=' + clicked_id,
                     success: function (data) {
 
