@@ -232,7 +232,7 @@ start head -->
                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a>
                         </li>
                      </ul>
-                  </  div>
+                  </div>
               
                <?php
                   }

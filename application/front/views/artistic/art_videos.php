@@ -258,7 +258,7 @@ $followingotherdata = $this->data['followingotherdata'] =  $this->common->select
                     if($artisticdata[0]['user_id'] != $userid){
                       ?>
            
-                <div class="flw_msg_btn">
+                <div class="flw_msg_btn fr">
                     <ul>
 
                         <li class="<?php echo "fruser" . $artisticdata[0]['art_id']; ?>">
