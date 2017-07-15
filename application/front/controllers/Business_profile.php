@@ -10817,11 +10817,13 @@ class Business_profile extends MY_Controller {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
         
         $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
-        $this->data['message_from_profile_id'] = $message_profile_from_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
         $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
 
         $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
-        $this->data['message_to_profile_id'] = $message_profile_to_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
 
         // last user if $id is null
         $contition_array = array('id !=' => '');
