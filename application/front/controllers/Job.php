@@ -947,9 +947,7 @@ class Job extends MY_Controller {
             $imgerror = $this->upload->display_errors();
             //print_r($imgerror);die();
 
-            if ($imgerror == '') {
-               // echo "hii"; die();
-                
+            
 
                 //Configuring Thumbnail 
                 $job_thumb['image_library'] = 'gd2';
@@ -971,30 +969,10 @@ class Job extends MY_Controller {
                 //Creating Thumbnail
                 $this->image_lib->resize();
                 $thumberror = $this->image_lib->display_errors();
-            } else {
-               
-               
-                $thumberror = '';
-            }
-            if ($imgerror != '' || $thumberror != '') {
-
-               
- 
-                $error[0] = $imgerror;
-                $error[1] = $thumberror;
-            } else {
-               
-              // echo "string"; die();
-                  
-                $error = array();
-            }
+           
+            
         }
-            if ($error) {
-              
-                $this->session->set_flashdata('error', $error[0]);
-                $redirect_url = site_url('job');
-                redirect($redirect_url, 'refresh');
-            } else {
+            
              
 
         $contition_array = array('user_id' => $userid);
@@ -1032,22 +1010,13 @@ class Job extends MY_Controller {
 
 
         }
-       
-             
 
                 $job_certificate = $imgdata['file_name'];
-            }
-
-
-           
-
-                
+            
 
 
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        
 
 
         if ($userdata) {
@@ -5754,7 +5723,18 @@ $select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $strea
     
     echo $select;
 }
-//add other_degree into database End  
+//add other_degree into database End 
+
+// create pdf start
+
+public function creat_pdf($id) {
+   
+        $contition_array = array('edu_id' => $id, 'status' => '1');
+        $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+   
+        $this->load->view('job/job_pdfdisplay', $this->data);
+}
+//create pdf end 
 
 public function temp(){
 

@@ -26,7 +26,7 @@ start head -->
 </script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- END HEADER -->
-<?php echo $art_header2 ?>
+<?php echo $art_header2_border; ?>
 <body   class="page-container-bg-solid page-boxed">
    <section class="custom-row">
       <div class="container" id="paddingtop_fixed">
@@ -232,7 +232,7 @@ start head -->
                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a>
                         </li>
                      </ul>
-                  </  div>
+                  </div>
               
                <?php
                   }
@@ -2202,7 +2202,7 @@ start head -->
    
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "artistic/follow" ?>',
+           url: '<?php echo base_url() . "artistic/follow_two" ?>',
            data: 'follow_to=' + clicked_id,
            success: function (data) {
    
@@ -2220,7 +2220,7 @@ start head -->
    
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "artistic/unfollow" ?>',
+           url: '<?php echo base_url() . "artistic/unfollow_two" ?>',
            data: 'follow_to=' + clicked_id,
            success: function (data) {
    

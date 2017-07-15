@@ -111,9 +111,12 @@
                      <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right animated fadeInUp">
                         <div class="common-form ">
                             <div class="job-saved-box">
+<?php
+                             if ($candidatejob || $recruiterdata != NULL) { ?>
                                 <h3>
                                    Recommended Candidate
                                 </h3>
+                                <?php }?>
                                 <div class="contact-frnd-post">
                                     <div class="job-contact-frnd ">
                                         <!-- khyati start -->
@@ -669,18 +672,33 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                 <?php
                                             }
                                         } 
-                                      }else {
+                                      }elseif($recruiterdata == NULL) {
                                             ?>
                                             <div class="text-center rio">
-												<div class="no-post-title">
+                        <div class="no-post-title">
                                                 <h4 class="page-heading  product-listing" style="border:0px;">Let's create your job post.</h4>
-												<h4 class="page-heading  product-listing" style="border:0px;"> It will takes only few minutes.</h4>
-												</div>
+                        <h4 class="page-heading  product-listing" style="border:0px;"> It will takes only few minutes.</h4>
+                        </div>
                                                 <div  class="add-post-button add-post-custom">
                             <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div> 
                                             </div>
-                                            <?php    } ?>
+                                            <?php    }
+                                           else {
+                                            ?>
+                                              <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+          No Recommended  Candidate  Available.
+         </div>
+          </div>
+<?php }
+?>
+                                           
                                            
                      
                    

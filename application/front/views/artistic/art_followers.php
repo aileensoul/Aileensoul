@@ -24,7 +24,8 @@
 </script>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- END HEADER -->
-<?php echo $art_header2; ?>
+<?php echo $art_header2_border; ?>
+
 <body   class="page-container-bg-solid page-boxed">
    <section class="custom-row">
       <div class="container" id="paddingtop_fixed">
@@ -876,7 +877,7 @@
      
       $.ajax({
                    type:'POST',
-                   url:'<?php echo base_url() . "artistic/follow" ?>',
+                   url:'<?php echo base_url() . "artistic/follow_two" ?>',
                     data:'follow_to='+clicked_id,
                    success:function(data){ 
    
@@ -894,7 +895,7 @@
      
       $.ajax({
                    type:'POST',
-                   url:'<?php echo base_url() . "artistic/unfollow" ?>',
+                   url:'<?php echo base_url() . "artistic/unfollow_two" ?>',
                     data:'follow_to='+clicked_id,
                    success:function(data){ 
    

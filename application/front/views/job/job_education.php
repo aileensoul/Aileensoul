@@ -180,10 +180,20 @@
                                              <div class="bestofmine_image_primary" style="color:#f00; display: block;"></div>
                                              <?php
                                                 if ($edu_certificate_primary1) {
+                                                   $ext = explode('.',$edu_certificate_primary1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
                                                     ?>
                                              <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
                                              <?php
                                                 }
+                                             }
                                                  ?>
                                           </fieldset>
                                           <div class="fr job_education_submitbox">

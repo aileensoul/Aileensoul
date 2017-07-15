@@ -175,9 +175,12 @@
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear" tabindex="5">
                                         <option value="" selected option disabled>Year</option>
                                         
-                                        <option value="0">0 Year</option>
+                                       <option value="0">0 Year</option>
+                                        <option value="0.6">0.6 Year</option>
                                         <option value="1">1 Year</option>
+                                        <option value="1.6">1.6 Year</option>
                                         <option value="2">2 Year</option>
+                                        <option value="2.6"> 2.6 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -198,16 +201,6 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth" tabindex="6">
-                                        <option value="" selected option disabled>Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
-                                    </select>
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
@@ -220,9 +213,12 @@
 
                                       <select tabindex="7" name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="" selected option disabled>Year</option>
-                                        <option value="0">0 Year</option>
+                                       <option value="0">0 Year</option>
+                                        <option value="0.6">0.6 Year</option>
                                         <option value="1">1 Year</option>
+                                        <option value="1.6">1.6 Year</option>
                                         <option value="2">2 Year</option>
+                                        <option value="2.6"> 2.6 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -244,17 +240,6 @@
                                     </select>
 
                                       
-
-                                    <select name="maxmonth" tabindex="8" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
-                                        <option value="" selected option disabled>Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
-                                    </select>
 
 
 
@@ -661,14 +646,10 @@ if(mm<10) {
 
                          minyear: {
                             
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
+                         
+                          required:true 
                         }, 
-                         minmonth: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
+                        
                          post_desc: {
 
                             required: true,
@@ -687,17 +668,12 @@ if(mm<10) {
                         },
                         maxyear: {
                             
-                          require_from_group: [1, ".keyskil1"],
-                          greaterThan1: "#minyear"
-                          //required:true 
+                         
+                          greaterThan1: "#minyear",
+                          required:true 
                         }, 
 
-                        maxmonth: {
-                            
-                          require_from_group: [1, ".keyskil1"],
-                            greaterThanmonth: "#minmonth"
-                            // required:true 
-                        },
+                     
                         last_date: {
                             
                             required: true,
@@ -749,13 +725,9 @@ if(mm<10) {
                         },
                         minyear: {
 
-                             require_from_group: "You must either fill out 'month' or 'year'"
+                             required: "Minimum Experience Is Required"
                         },
-                        minmonth: {
-
-                             require_from_group: "You must either fill out 'month' or 'year'"
-                            
-                        },
+                      
                          post_desc: {
 
                             required: "Post Description Is Required"
@@ -773,16 +745,11 @@ if(mm<10) {
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'"
+                            required: "Maximum Experience Is Required"
                             // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
-                        maxmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
-                        },
                         last_date: {
 
                             required: "Last Date for apply required"
