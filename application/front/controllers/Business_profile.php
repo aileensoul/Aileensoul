@@ -2355,9 +2355,9 @@ class Business_profile extends MY_Controller {
                 $likeuserarray = explode(',', $active[0]['business_like_user']);
                 if (!in_array($userid, $likeuserarray)) {
 
-                    $return_html .= '<i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>';
+                    $return_html .= '<i class="fa fa-thumbs-up main_color" style="color: #999;" aria-hidden="true"></i>';
                 } else {
-                    $return_html .= '<i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>';
+                    $return_html .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 }
                 $return_html .= '<span class="like_As_count">';
 
@@ -2544,7 +2544,7 @@ class Business_profile extends MY_Controller {
                     $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                     if (!in_array($userid, $likeuserarray)) {
 
-                        $return_html .= '<i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>';
+                        $return_html .= '<i class="fa fa-thumbs-up fa-1x" style="color: #999;" aria-hidden="true"></i>';
                     } else {
                         $return_html .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                             </i>';
@@ -4382,7 +4382,7 @@ class Business_profile extends MY_Controller {
 
 
                 $cmtlike1 = '<a id="' . $businessprofiledata1[0]['business_profile_post_comment_id'] . '" onClick="comment_like(this.id)">';
-                $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $cmtlike1 .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span> ';
                 if ($businessprofiledata1[0]['business_comment_likes_count'] > 0) {
@@ -4523,7 +4523,7 @@ class Business_profile extends MY_Controller {
                 $cmtlike1 = '<a id="' . $businessprofiledata1[0]['business_profile_post_comment_id'] . '" onClick="comment_like1(this.id)">';
                 // $cmtlike1 .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
                 // $cmtlike1 .= '</i>';
-                $cmtlike1 .= '<i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true">';
+                $cmtlike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $cmtlike1 .= '</i>';
                 $cmtlike1 .= '<span> ';
                 if ($businessprofiledata1[0]['business_comment_likes_count'] > 0) {
@@ -4646,7 +4646,7 @@ class Business_profile extends MY_Controller {
                 if (!in_array($userid, $likeuserarray)) {
                     $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
 
 
@@ -4805,7 +4805,7 @@ class Business_profile extends MY_Controller {
 
                     $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
 
 
@@ -5300,7 +5300,7 @@ class Business_profile extends MY_Controller {
 
                 $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
-                $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
             }
 
 
@@ -5479,7 +5479,7 @@ class Business_profile extends MY_Controller {
             if (!in_array($userid, $likeuserarray)) {
                 $cmtinsert .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
-                $cmtinsert .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                $cmtinsert .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
             }
 
             $cmtinsert .= '<span>';
@@ -7549,7 +7549,7 @@ class Business_profile extends MY_Controller {
 
 
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_like(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span> ';
                 if (count($bdatacm) > 0) {
@@ -7664,7 +7664,7 @@ class Business_profile extends MY_Controller {
 
 
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_like(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
@@ -7752,7 +7752,7 @@ class Business_profile extends MY_Controller {
 
 
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_liketwo(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span> ';
                 if (count($bdatacm) > 0) {
@@ -7861,7 +7861,7 @@ class Business_profile extends MY_Controller {
 
 
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="imgcomment_liketwo(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
@@ -9569,7 +9569,7 @@ class Business_profile extends MY_Controller {
                 if (count($businesscommentlike2) == 0) {
                     $mulimgfour .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
                 } else {
-                    $mulimgfour .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                    $mulimgfour .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
                 }
                 $mulimgfour .= '<span> ';
 
