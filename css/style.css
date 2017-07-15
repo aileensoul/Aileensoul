@@ -9481,6 +9481,7 @@ label.cameraButton input[accept*="camera"] {
     margin-top: 0px;
     display: inline-block;
     width: 100%;
+    text-align: center;
 }
 .art_no_pva_avl
 {
