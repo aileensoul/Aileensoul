@@ -1494,27 +1494,35 @@
                             if (count($businessprofiledatapost) > 0) {
                                 if (count($count) == count($businessprofiledatapost)) {
                                     ?>
-                                   <div class="art_no_post_avl">
+                                <div class="art_no_post_avl">
+         <h3>Business Post</h3>
+          <div class="art-img-nn">
          <div class="art_no_post_img">
-          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+
+           <img src="<?php echo base_url('img/bui-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
-       </div>
-                                    <?php
+          </div>
+       </div>          <?php
                                 }
                             } else {
                                 ?>
-                                <div class="art_no_pva_avl">
-         <div class="art_no_post_img">                                                        
-          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+                              <div class="art_no_post_avl">
+         <h3>Business Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/bui-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
-       </div>
-                            <?php } ?>
+          </div>
+       </div><?php } ?>
                             <!-- body content end-->
 
                             <!-- no post found div start -->

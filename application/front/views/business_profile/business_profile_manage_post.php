@@ -1870,15 +1870,19 @@
                             }
                         } else {
                             ?>
-                        <div class="art_no_post_avl">
-                        <h3>Business Profile</h3>
+                      <div class="art_no_post_avl">
+         <h3>Business Post</h3>
+          <div class="art-img-nn">
          <div class="art_no_post_img">
-          <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
+
+           <img src="<?php echo base_url('img/bui-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
-       </div>
+          </div>
+       </div>        
                         <?php } ?>
                         <div class="nofoundpost">
                         </div>
