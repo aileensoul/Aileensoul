@@ -3962,6 +3962,10 @@ a:focus {
     color: black;
 }
 #addcontactTitle a{color: black; padding: 1px 10px;}
+
+.business_data_table{table-layout: fixed;
+    width: 100%;}
+.business_data_table td:first-child{width:50px;}
 .business_data_table td a{color:#000;}
 #addcontactTitle a:hover{color: #1b8ab9; text-decoration: underline;}
     #addcontactBody {
