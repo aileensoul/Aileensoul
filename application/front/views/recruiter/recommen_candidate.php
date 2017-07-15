@@ -686,9 +686,16 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                             <?php    }
                                            else {
                                             ?>
-                                            <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Recommended Candidate Found.</h4>
-                                            </div>
+                                              <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+          No Recommended  Candidate  Available.
+         </div>
+          </div>
 <?php }
 ?>
                                            
