@@ -535,9 +535,16 @@ $contition_array = array('user_id' => $userid, 'job_save' => '2', 'post_id ' => 
                                 }
                              else {
                                 ?>
-                                <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing">No Post Found.</h4>
-                                </div>
+                                <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/free-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No  Post Available.
+         </div>
+          </div>
                             <?php }
                             ?> 
 
