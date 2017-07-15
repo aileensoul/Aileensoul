@@ -159,7 +159,7 @@
 
                         <fieldset class="full-width" <?php if($post_name) {  ?> class="error-msg" <?php } ?>>
                         <label >Post Title:<span style="color:red">*</span></label>                 
-                        <input name="post_name" type="text" id="post_name" autofocus tabindex="1" placeholder="Enter Post Name"/>
+                        <input name="post_name" type="text" id="post_name" maxlength="100" autofocus tabindex="1" placeholder="Enter Post Name"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>
                         </fieldset>
