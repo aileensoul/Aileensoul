@@ -1,5 +1,5 @@
 <?php echo $head; ?>
-<
+
 <?php echo $header; ?>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <?php echo $business_header2_border ?>
@@ -356,6 +356,7 @@
                                                 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;">
                                                     <h4 class="search_head">Posts</h4>
                                                     <div class="inner_search search" style="float: left;">
+													
                                                         <?php
                                                         foreach ($description as $p) {
 

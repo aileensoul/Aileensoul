@@ -461,7 +461,7 @@ a:focus {
     font-size: 15px;
     color: #fff;
     padding: 6px 10px;
-    display: block;
+    display: inline-block;
  
 }
 .header2 ul li a#InboxLink{padding:5px 10px 4px;}
@@ -7664,12 +7664,17 @@ footer .footer-menu li a:hover {
     padding: 8px 0px;
     /* box-shadow: 2px -2px 8px #9C9999; */
     /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
-    
+    background: -moz-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -webkit-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -o-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -ms-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: linear-gradient(to top, #e9e9e9 5%, #f9f9f9 100%);
     -o-box-shadow: inset 0px 0px 50px 0px #ABABAB, 5px 5px 5px 1px #242424;
     background: rgb(44, 83, 158);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -8132,9 +8137,14 @@ input:-moz-placeholder {
     width: 29%;
 }
 .bg_following {
-    background: #1b8ab9!important;
+    /*background: #1b8ab9!important;*/
     color: #fff!important;
-    background-color: #1b8ab9!important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); 
+ background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); 
+ background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+ background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); 
+ background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); 
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
 }
 .add_tag_design {
     text-align: center;
@@ -9481,7 +9491,6 @@ label.cameraButton input[accept*="camera"] {
     margin-top: 0px;
     display: inline-block;
     width: 100%;
-    text-align: center;
 }
 .art_no_pva_avl
 {

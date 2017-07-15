@@ -389,9 +389,16 @@
                         }
                     } else {
                         ?>
-                        <div class="text-center rio">
-                            <h4 class="page-heading  product-listing" >No Applied Job.</h4>
-                        </div>
+                      <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No  Applied Post Available.
+         </div>
+          </div>
                         <?php
                     }
                     ?> 

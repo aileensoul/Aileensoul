@@ -506,7 +506,16 @@ if ($returnpage == 'job') {
                         <?php
                     } }else{ ?>
 
-                      <div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>
+                       <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No  Post Available.
+         </div>
+          </div>
                    <?php }
                 }
                 else
@@ -706,9 +715,16 @@ if ($returnpage == 'job') {
                         <?php
                     }
                   }else{ ?>
+  <div class="art-img-nn">
+         <div class="art_no_post_img">
 
-                  <div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>
-
+           <img src="<?php echo base_url('img/job-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No  Post Available.
+         </div>
+          </div>
                 <?php  }
                 }
                     ?>
