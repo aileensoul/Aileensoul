@@ -8146,9 +8146,9 @@ input:-moz-placeholder {
 }
 .not_avali {
     /*padding: 20px;*/
-    /*height: 200px;*/
+    height: 180px;
     
-    width: 200px;
+    width: 180px;
     position: relative;
     margin: 0 auto;
 }
@@ -8178,13 +8178,13 @@ line-height: 40px;
     /*    position: absolute;*/
     
     columns: #1b8ab9;
-    color: #728bc0;
+   color: rgb(27, 138, 185,0.5);
     font-size: 19px;
     font-weight: 600;
     left: 18px;
     width: 100%;
     text-align: center;
-    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .tabs-left,
 .tabs-right {
