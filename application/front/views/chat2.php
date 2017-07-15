@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 if ($lstusrdata) {
                     ?>
-                    <div class="chat">
+                    <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
                             <?php if ($lstusrdata[0]['user_image']) { ?>
@@ -225,7 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 <?php } else { ?>
 
-                    <div class="chat">
+                    <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix ">
 
 
@@ -283,6 +283,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     </body>
 </html>
+<!------  commen script khyati 15-7  ---------------->
+    <script>
+        jQuery(document).ready(function($) {
+         if(screen.width <= 767){
+     document.getElementById('chat').style.display = 'none';
+         }
+          });</script>
 <script type="text/javascript">
     var request_timestamp = 0;
 

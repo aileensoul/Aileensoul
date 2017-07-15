@@ -92,7 +92,7 @@
                 $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = '*');
                 if ($lstusrdata) {
                     ?>
-                    <div class="chat">
+                    <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
                             <?php if ($lstusrdata[0]['user_image']) { ?>
@@ -177,7 +177,7 @@
                     </div>
                 <?php } else { ?>
 
-                    <div class="chat">
+                    <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix">
                             <div class="chat-about">
                                 <div class="chat-with">
@@ -246,7 +246,13 @@
 
     </body>
 </html>
-
+<!------  commen script khyati 15-7  ---------------->
+    <script>
+        jQuery(document).ready(function($) {
+         if(screen.width <= 767){
+     document.getElementById('chat').style.display = 'none';
+         }
+          });</script>
 <script type="text/javascript">
     var dropDownMenu = new Foundation.DropdownMenu($('#smileystatic'), {
         disableHover: true,
