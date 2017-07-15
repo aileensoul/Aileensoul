@@ -5966,7 +5966,7 @@ $datacount = count($otherdata);
 
 //multiple pdf for user end    
     // khyati 9-5 multiple images like start
-    public function like_postimg() {
+    public function like_postimg() { //echo "hii"; die();
         //$id = $_POST['save_id'];
         $post_image = $_POST['post_image_id'];
         $userid = $this->session->userdata('aileenuser');
@@ -6035,7 +6035,7 @@ $datacount = count($otherdata);
 
                 $imglike = '<li>';
                 $imglike .= '<a id="' . $post_image . '" class="ripple like_h_w" onClick="post_likeimg(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span id="popup"> ';
                 if (count($bdata1) > 0) {
@@ -6045,7 +6045,61 @@ $datacount = count($otherdata);
                 $imglike .= '</a>';
                 $imglike .= '</li>';
 
-                echo $imglike;
+                 $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    foreach ($commnetcount as $comment) {
+                        $art_fname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_name;
+                        $art_lname1 = $this->db->get_where('art_reg', array('user_id' => $comment['user_id'], 'status' => 1))->row()->art_lastname;
+                    }
+                       $cmtlikeuser .= '<div class="like_one_other">';
+
+                 
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+
+                    $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
+                    $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+                    $art_fname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_name;
+                    $art_lname = $this->db->get_where('art_reg', array('user_id' => $commnetcount[0]['user_id'], 'status' => 1))->row()->art_lastname;
+
+                    if ($userid == $commnetcount[0]['user_id']) {
+
+                        $cmtlikeuser .= 'You &nbsp';
+                    } else {
+                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '&nbsp;';
+                    }
+                    if (count($commnetcount) > 1) {
+                        $cmtlikeuser .= 'and ';
+                        $cmtlikeuser .= '' . count($commnetcount) - 1 . '';
+                        $cmtlikeuser .= '&nbsp;';
+                        $cmtlikeuser .= 'others';
+                    }
+                    
+                    
+
+                   
+                    $cmtlikeuser .= '</a>';
+                     $cmtlikeuser .= '</div>';
+                     $like_user_count =  '<span class="comment_like_count">'; 
+               if (count($commnetcount) > 0) { 
+              $like_user_count .= '' . count($commnetcount) . ''; 
+              $like_user_count .=     '</span>'; 
+              $like_user_count .= '<span> Like</span>';
+               }
+              
+              
+                    //    echo "123456789"; die();           
+                //    $like_user_count = count($commnetcount);
+                    echo json_encode(
+                            array("like" => $imglike,
+                                "likeuser" => $cmtlikeuser,
+                                "like_user_count" => $like_user_count));
+                    //10-5 user list end               
             }
         } else {
 
@@ -6713,7 +6767,7 @@ $datacount = count($otherdata);
 
 
                 $imglike .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
-                $imglike .= ' <i class="fa fa-thumbs-up" aria-hidden="true">';
+                $imglike .= ' <i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                 $imglike .= '</i>';
                 $imglike .= '<span> ';
                 if (count($adatacm) > 0) {
@@ -6822,7 +6876,7 @@ $datacount = count($otherdata);
 
 
                     $imglike1 .= '<a id="' . $post_image_comment_id . '" onClick="comment_likeimg(this.id)">';
-                    $imglike1 .= '<i class="fa fa-thumbs-up" aria-hidden="true">';
+                    $imglike1 .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true">';
                     $imglike1 .= '</i>';
                     $imglike1 .= '<span> ';
                     if (count($bdata2) > 0) {
@@ -7624,7 +7678,7 @@ $datacount = count($otherdata);
             if (count($artcommentlike) == 0) {
                 $fourdata .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
             } else {
-                $fourdata .= '<i class="fa fa-thumbs-up" aria-hidden="true"></i>';
+                $fourdata .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
             }
 
 
