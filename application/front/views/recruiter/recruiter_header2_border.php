@@ -40,11 +40,28 @@
                           
  
 
-                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>">Home</a>
+                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="bu_home"></span></a>
                                    
                                 <!-- Friend Request Start-->
 
                                </li>
+                                <li id="Inbox_link">
+                                        <?php if ($message_count) { ?>
+                                                           <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
+                                        <?php } ?>
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+
+                                            <span id="message_count"></span>
+                                        </a>
+
+                                        <div id="InboxContainer">
+                                            <div id="InboxBody" class="Inbox">
+                                                <div id="notificationTitle">Messages</div>
+
+                                                <div id="notificationsmsgBody" class="notificationsmsg">
+                                                </div>
+                                            </div>
+                                    </li> 
                                   <li>
   
 <div class="dropdown_hover">
