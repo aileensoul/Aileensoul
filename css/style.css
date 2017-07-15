@@ -4252,32 +4252,32 @@ li.active2 {
     border-bottom: 1px solid #dddddd;
 }
 #InboxContainer {
-    border-radius: 5px;
-    background-color: #fff;
-    /*border: 1px solid rgba(100, 100, 100, .4);*/
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-    overflow: visible;
-    position: absolute;
-    top: 25px;
-    margin-top: 28px;
-    z-index: 2;
-    display: none;
-    float: left;
-    width: 358px;
-    right: 0;
+   border-radius: 5px;
+background-color: #fff;
+border: 1px solid rgba(100, 100, 100, .4);
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+overflow: visible;
+position: absolute;
+top: 25px;
+margin-top: 10px;
+z-index: 2;
+display: none;
+float: left;
+width: 358px;
+right: -6px;
 }
 #InboxContainer:before {
     content: '';
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    color: transparent;
-    border: 10px solid black;
-    border-color: transparent transparent #fff;
-    margin-top: -20px;
-    margin-left: 18px;
-    right: 17px;
+display: block;
+position: absolute;
+width: 0;
+height: 0;
+color: transparent;
+border: 9px solid black;
+border-color: transparent transparent #fff;
+margin-top: -18px;
+margin-left: 18px;
+right: 17px;
 }
 #InboxBody {
     padding: 0px 0px 0px 0px !important;
