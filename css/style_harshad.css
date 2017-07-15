@@ -112,7 +112,7 @@ body{
   scrollbar-shadow-color: #ff0000;
   scrollbar-dark-shadow-color: #ff0000;
 }
-/*mozilla scrolbalken*/
+/*mozilla scrolbalken
 @-moz-document url-prefix(http://),url-prefix(https://) {
 scrollbar {
    -moz-appearance: none !important;
@@ -145,7 +145,7 @@ scrollbar[orient="vertical"] {
 }
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.3);
-}
+}*/
 
 #hidden-content-b {
   /* Custom styling */
