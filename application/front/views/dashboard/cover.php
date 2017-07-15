@@ -675,6 +675,9 @@ $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) { 
         //$( "#bidmodal" ).hide();
          $("#jop-popup").fadeOut(200);
+         $("#jop-popup").removeClass("in");
+
+      $("#jop-popup").attr("aria-hidden","true");
         //$('#jop-popup').modal('hide');
     }
 }); 
@@ -683,6 +686,9 @@ $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
          $("#rec-popup").fadeOut(200);
+         $("#rec-popup").removeClass("in");
+      $("#rec-popup").attr("aria-hidden","true");
+
       	
          //$('#rec-popup').modal('hide');
          
@@ -693,6 +699,10 @@ $( document ).on( 'keydown', function ( e ) {
         //$( "#bidmodal" ).hide();
        
          $("#fre-popup").fadeOut(200);
+         $("#fre-popup").removeClass("in");
+
+      $("#fre-popup").attr("aria-hidden","true");
+
 
         // $('#fre-popup').modal('hide');
          
@@ -702,6 +712,10 @@ $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
          $('#bus-popup').fadeOut(200);
+         $("#bus-popup").removeClass("in");
+      $("#bus-popup").attr("aria-hidden","true");
+
+
       	
          //$('#bus-popup').modal('hide');
          
@@ -712,6 +726,10 @@ $( document ).on( 'keydown', function ( e ) {
         //$( "#bidmodal" ).hide();
        
          $('#art-popup').fadeOut(200);
+         $("#art-popup").removeClass("in");
+      $("#art-popup").attr("aria-hidden","true");
+         
+
 
         // $('#art-popup').modal('hide');
     }

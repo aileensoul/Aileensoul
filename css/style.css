@@ -2900,7 +2900,7 @@ ul.business_pf_ct_person_detail li b {
 }
 .bui-menu-profile {
     float: left;
-    padding-left: 33px;
+    padding-left: 0px;
     padding-right: 10px;
 }
 .job-menu-profile h5 {
@@ -7188,9 +7188,12 @@ follow box*/
     padding: 1px;
 }
 .profile-head-text_dg {
+    max-width: 96%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
     font-size: 28px;
-    text-shadow: 0px 10px 26px rgba(230, 230, 230, 0.4), 0px 8px 7px rgba(0, 0, 0, 0.1), 0px 11px 14px rgba(230, 230, 230, 0.9);
-}
+ }
 #two_save_images_bui {
     float: left;
     height: 250px;
