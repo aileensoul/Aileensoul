@@ -2917,11 +2917,18 @@
        //var fileInput = document.getElementById('test-upload');
        var fileInput = document.getElementById("file-1").files;
        var product_name = document.getElementById("test-upload_product").value;
+
+       var product_trim = product_name.trim();
+
+
        var product_description = document.getElementById("test-upload_des").value;
+
+        var des_trim = product_description.trim();
+
        var product_fileInput = document.getElementById("file-1").value;
    
    
-       if (product_fileInput == '' && product_name == '' && product_description == '')
+       if (product_fileInput == '' && product_trim == '' && des_trim == '')
        {
    
            $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
