@@ -1478,7 +1478,7 @@
                                                                 </button>
                                                             </div>
 
-                                                        </div>
+</div>
                                                         <!-- comment end -->
                                                     </div>
                                                 </div></div>
@@ -1494,7 +1494,7 @@
                             if (count($businessprofiledatapost) > 0) {
                                 if (count($count) == count($businessprofiledatapost)) {
                                     ?>
-                                   <div class="art_no_pva_avl">
+                                   <div class="art_no_post_avl">
          <div class="art_no_post_img">
           <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
          </div>
@@ -1507,7 +1507,7 @@
                             } else {
                                 ?>
                                 <div class="art_no_pva_avl">
-         <div class="art_no_post_img">
+         <div class="art_no_post_img">                                                        
           <img src="<?php echo base_url('images/bui-no.png'); ?>"  >
          </div>
          <div class="art_no_post_text">
