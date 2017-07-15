@@ -72,7 +72,7 @@
                             <div id="floatBarsG_4" class="floatBarsG"></div>
                             <div id="floatBarsG_5" class="floatBarsG"></div>
                             <div id="floatBarsG_6" class="floatBarsG"></div>
-                            <div id="floatBarsG_7" class="floatBarsG"></div>
+                            <div id="floatBarsnoG_7" class="floatBarsG"></div>
                             <div id="floatBarsG_8" class="floatBarsG"></div>
                         </div>
                     </div>
@@ -1666,7 +1666,19 @@ $loginuser = $userdata[0]['art_id'];
                             <div class="text-center rio">
                                 <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
                             </div>
-                            </div>
+                            </div>  <div class="art_no_post_avl">
+         <h3>Artistic Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/art-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+          </div>
+       </div>
 
 <?php } ?>
 

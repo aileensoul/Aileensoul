@@ -8384,7 +8384,7 @@ $datacount = count($otherdata);
     }
 
     public function art_chat_user($id) {
-
+       echo $id; die();
         // khyati 25-4 changes start
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
