@@ -470,9 +470,16 @@ function text2link($text) {
     }
 } else {
     ?>
-                                    <div class="text-center rio">
-                                        <h4 class="page-heading  product-listing">No Saved Posts Found.</h4>
-                                    </div>
+                                     <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/free-no.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Saved Post Available.
+         </div>
+          </div>
     <?php }
 ?>
 
@@ -829,7 +836,7 @@ function text2link($text) {
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Posts Found.</h4></div>";
+                    var nodataHtml = "   <div class="art-img-nn"><div class="art_no_post_img" <img src="<?php echo base_url('img/free-no.png')?>"> </div> <div class="art_no_post_text">No Saved Post Available.</div></div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
             }

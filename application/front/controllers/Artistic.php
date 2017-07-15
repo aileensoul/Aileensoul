@@ -2825,10 +2825,10 @@ $datacount = count($otherdata);
             if ($update) {
 
 
-                $follow = '<div class=" user_btn follow_btn_' . $art_id . '" id= "unfollowdiv">';
-                $follow .= '<button class="bg_following" id="unfollow' . $art_id . '" onClick="unfollowuser_two(' . $art_id . ')"><span>
-                               Following 
-                      </span></button>';
+                $follow = '<div id="unfollowdiv">';
+                /*  $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser('.$art_id.')"><span>Following</span></button>';
+                  $follow .= '</div>'; */
+                $follow .= '<button class="bg_following" id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">Following</button>';
                 $follow .= '</div>';
                 echo $follow;
             }
@@ -2859,10 +2859,10 @@ $datacount = count($otherdata);
 
             if ($insert) {
 
-                $follow = '<div>';
+                $follow = '<div id="unfollowdiv">';
                 /*  $follow = '<button id="unfollow' . $art_id.'" onClick="unfollowuser('.$art_id.')"><span>Following</span></button>';
                   $follow .= '</div>'; */
-                $follow .= '<button id="unfollow' . $art_id . '" onClick="unfollowuser_two(' . $art_id . ')"><span>Following</span></button>';
+                $follow .= '<button class="bg_following" id="unfollow' . $art_id . '" onClick="unfollowuser(' . $art_id . ')">Following</button>';
                 $follow .= '</div>';
                 echo $follow;
             }
@@ -2906,9 +2906,10 @@ $datacount = count($otherdata);
                 /*  $unfollow = '<div><button id="follow' . $art_id.'" onClick="followuser('.$art_id.')">
                   Follow
                   </button></div>'; */
-                $unfollow = '<button id="unfollowdiv" onClick="followuser_two(' . $art_id . ')">
+                $unfollow = '<div id="followdiv">';
+                $unfollow .= '<button id="follow'.$art_id.'" onClick="followuser(' . $art_id . ')">
                                Follow 
-                      </button>';
+                      </button></div>';
 
                 echo $unfollow;
             }
