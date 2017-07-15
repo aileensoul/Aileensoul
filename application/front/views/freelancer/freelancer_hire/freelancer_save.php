@@ -422,9 +422,13 @@
                  }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == ''){
                     echo $rec['freelancer_post_exp_year'];
 
-                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                 }elseif($rec['freelancer_post_exp_year'] != '0 year' && $rec['freelancer_post_exp_month'] == '0 month'){
                   
-                  echo $rec['freelancer_post_exp_year'];
+                  echo "Fresher";
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                    echo $rec['freelancer_post_exp_year'];
+                 }elseif($rec['freelancer_post_exp_year'] == '0 year' && $rec['freelancer_post_exp_month'] != ''){
+                    echo $rec['freelancer_post_exp_month'];
                  }
                  else{
                   
