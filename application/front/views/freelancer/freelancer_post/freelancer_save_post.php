@@ -283,7 +283,7 @@ function text2link($text) {
                                 ?>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="#" title="Post Title" class="post_title">
+                                                                            <a href="#" title="<?php echo ucwords(text2link($post['post_name'])); ?>" class="post_title">
             <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
 
