@@ -1662,7 +1662,7 @@ $loginuser = $userdata[0]['art_id'];
 
                             else {
                             ?>
-                            <div class="art_no_post_avl">
+                        <div class="art_no_post_avl">
          <h3>Artistic Post</h3>
           <div class="art-img-nn">
          <div class="art_no_post_img">
