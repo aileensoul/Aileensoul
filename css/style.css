@@ -8930,6 +8930,7 @@ fieldset .add_post_btns {
 .dropdown_hover .dropdown-content_hover a {
     font-family: arial;
     color: #787878  ;
+	width:100%;
 }
 /*.pdf_name a: {
     text-decoration-line: underline;
