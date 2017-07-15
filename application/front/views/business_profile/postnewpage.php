@@ -604,9 +604,9 @@
 
                                                                             if ($activedata) {
                                                                                 ?>
-                                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                             <?php } else { ?>
-                                                                                <i class="fa fa-thumbs-up fa-1x main_color" aria-hidden="true"></i>
+                                                                                <i class="fa fa-thumbs-up fa-1x " aria-hidden="true"></i>
                                                                             <?php } ?>
                                                                             <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
                                                                                 $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
@@ -835,7 +835,7 @@
                                                                                                 <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                                                             <?php } else {
                                                                                                 ?>
-                                                                                                <i class="fa main_colorfa-thumbs-up main_color" aria-hidden="true"></i>
+                                                                                                <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                                                             <?php } ?>
                                                                                             <span>
                                                                                                 <?php
@@ -968,10 +968,10 @@
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
                                                            <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
-                                                        <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
+                                                        <i class="fa fa-thumbs-up fa-1x" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
                                                         <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                                        <i class="fa fa-thumbs-up fa-1x main_color1" aria-hidden="true"></i>
+                                                        <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                     <?php } ?>
                                                     <span class="like_As_count">
                                                         <?php
