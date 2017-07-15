@@ -499,7 +499,7 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 }
 
    public function freelancer_hire_check() {
-      echo "hjjj";
+    //  echo "hjjj";
          $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
         $hire_step = $this->data['hire_step'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'free_hire_step', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);

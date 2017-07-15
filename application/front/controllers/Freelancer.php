@@ -79,6 +79,10 @@ class Freelancer extends MY_Controller {
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// // code for display page start
+// $this->freelancer_apply_check();
+//  // code for display page end
+
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
@@ -336,6 +340,9 @@ class Freelancer extends MY_Controller {
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -583,6 +590,10 @@ class Freelancer extends MY_Controller {
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -781,6 +792,10 @@ class Freelancer extends MY_Controller {
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
+
         $contition_array = array('status' => 1, 'is_delete' => 0);
         $this->data['currency'] = $this->common->select_data_by_condition('currency', $contition_array, $data = '*', $sortby = 'currency_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -942,6 +957,9 @@ class Freelancer extends MY_Controller {
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1090,6 +1108,10 @@ class Freelancer extends MY_Controller {
             redirect('freelancer/freelancer_post/freelancer_post_basic_information');
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
+
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
         $contition_array = array('status' => 1);
         $this->data['degree_data'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1360,6 +1382,10 @@ $university_otherdata = $this->common->select_data_by_condition('university', $c
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
+
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
 
         $userdata = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1628,6 +1654,8 @@ $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_fi
       // echo "<pre>";print_r($postdata);die();
         }
 
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+     $userdata = $this->data['userdata']  = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'profile_background,freelancer_hire_user_image,fullname,username,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
          // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
 
 
@@ -2163,7 +2191,7 @@ $contition_array = array('status'=>'1','is_delete' =>'0','user_id !=' =>$userid,
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
-        
+
 // code for display page start
 $this->freelancer_hire_check();
  // code for display page end
@@ -2363,6 +2391,9 @@ foreach($citiess as $key){
             redirect('freelancer/freelancer_post/freelancer_post_basic_information');
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
 
         if ($id == $userid || $id == "") {
@@ -2495,7 +2526,57 @@ foreach($citiess as $key){
 
         $this->load->view('freelancer/freelancer_post/post_apply', $this->data);
     }
+public function freelancer_apply_check(){
+   $userid = $this->session->userdata('aileenuser');
+    $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
+        $apply_step = $this->data['apply_step'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'free_post_step', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        if(count($apply_step) > 0){
+        if($apply_step[0]['free_post_step'] == 1){
+           // echo "1111";die();
+            if($this->uri->segment(2) == 'freelancer_post_address_information'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_address_information');
+        }
+        }elseif($apply_step[0]['free_post_step'] == 2){
+           // echo "222";die();
+            if($this->uri->segment(2) == 'freelancer_post_professional_information'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_professional_information');
+        }
+        }elseif($apply_step[0]['free_post_step'] == 3){
+            if($this->uri->segment(2) == 'freelancer_post_rate'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_rate');
+             }
+        }elseif($apply_step[0]['free_post_step'] == 4){
+            if($this->uri->segment(2) == 'freelancer_post_avability'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_avability');
+             }
+        }elseif($apply_step[0]['free_post_step'] == 5){
+            if($this->uri->segment(2) == 'freelancer_post_education'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_education');
+        }
+        }elseif($apply_step[0]['free_post_step'] == 6){
+            if($this->uri->segment(2) == 'freelancer_post_portfolio'){
+
+            }else{
+            redirect('freelancer/freelancer_post/freelancer_post_portfolio');
+        }
+        }else{
+
+        }
+    }else{
+        redirect('freelancer/freelancer_post/freelancer_post_basic_information');
+    }
+}
      public function save_user1($id, $save_id) { 
         //echo $id; echo $save_id; die();
         $id = $_POST['user_id'];
@@ -2664,6 +2745,9 @@ $updatedata = $this->common->insert_data_getid($data, 'notification');
             redirect('freelancer/freelancer_post/freelancer_post_basic_information');
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
 
 // job seeker detail
@@ -3091,6 +3175,9 @@ $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
@@ -3609,6 +3696,9 @@ $this->load->view('freelancer/freelancer_post/freelancer_pdf', $this->data);
         }
     //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
 
+// code for display page start
+$this->freelancer_apply_check();
+ // code for display page end
 
         if ($id == $userid || $id == '') {
 
