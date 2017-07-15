@@ -256,8 +256,8 @@
 										<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a> 
 
 										<?php }?>
-
-										<a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
+										<a data-fancybox data-src="#jop-popup" href="javascript:;" class="pl20 ml20 hew">How it works?</a>
+										<!--a data-toggle="modal" data-target="#jop-popup" class="pl20 ml20 hew" href="#">How it works?</a--> 
 									</div>
 								</div>
 							</div>
@@ -277,7 +277,8 @@
 									<h1><a href="<?php echo base_url('recruiter'); ?>">Recruiter Profile</a></h1>
 									<p>Hire quality employees here.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#rec-popup" class="pr20 mr20 hew" href="#">How it works?</a> 
+										<a data-fancybox data-src="#rec-popup" href="javascript:;" class="pr20 mr20 hew">How it works?</a>
+										
 
 										 <?php if($recrdata[0]['re_step'] != 3){?>
 
@@ -316,9 +317,8 @@
 										<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
 
 										<?php }?>
-
-
-										<a data-toggle="modal" data-target="#fre-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
+										<a data-fancybox data-src="#fre-popup" href="javascript:;" class="pl20 ml20 hew">How it works?</a>
+										
 									</div>
 								</div>
 							</div>
@@ -338,7 +338,8 @@
 									<h1><a href="<?php echo base_url('business_profile'); ?>">Business Profile</a></h1>
 									<p>Grow your business network.</p>
 									<div class="btns">
-										<a data-toggle="modal" data-target="#bus-popup" class="pr20 mr20 hew" href="#">How it works?</a>
+										<a data-fancybox data-src="#bus-popup" href="javascript:;" class="pr20 mr20 hew">How it works?</a>
+										
 
 										<?php if($busdata[0]['business_step'] != 4){ ?>
 										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
@@ -372,8 +373,8 @@
 										<?php }else{?>
 										<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 										<?php }?>
-
-										<a data-toggle="modal" data-target="#art-popup" class="pl20 ml20 hew" href="#">How it works?</a> 
+										<a data-fancybox data-src="#art-popup" href="javascript:;" class="pl20 ml20 hew">How it works?</a>
+										
 									</div>
 								</div>
 							</div>
@@ -383,22 +384,7 @@
 			</section>
 		
 	</div>
-	
-	<div class="grid">
 
-  <p>
-    #2 - Custom open/close animation using CSS:
-  </p>
-  <p>
-    <a data-fancybox data-src="#hidden-content-b" href="javascript:;" class="btn">Open demo</a>
-  </p>
-
-  <div style="display: none;" id="hidden-content-b">
-    <h2>Hello!</h2>
-    <p>This is animated content! Cool, right?</p>
-  </div>
-
-</div>
 
 	<!-- <footer>
 		<div class="container">
@@ -419,13 +405,10 @@
 	</footer> -->
 	
 	<!--  how it work popup  -->
-	<div class="modal fade how-it-popup" id="jop-popup">
+	<div style="display:none;" class="how-it-popup" id="jop-popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a href="#" data-dismiss="modal" class="class pull-right">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</a>
 					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
@@ -457,13 +440,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade how-it-popup" id="rec-popup">
+	<div style="display:none;" class="how-it-popup" id="rec-popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a href="#" data-dismiss="modal" class="class pull-right">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</a>
+					
 					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
@@ -497,13 +478,11 @@
 		</div>
 	</div>
 	
-	<div class="modal fade how-it-popup" id="fre-popup">
+	<div style="display:none;" class="how-it-popup" id="fre-popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a href="#" data-dismiss="modal" class="class pull-right">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</a>
+					
 					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
@@ -561,13 +540,11 @@
 		</div>
 	</div>
 
-	<div class="modal fade how-it-popup" id="bus-popup">
+	<div style="display:none;" class="how-it-popup" id="bus-popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a href="#" data-dismiss="modal" class="class pull-right">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</a>
+					
 					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
@@ -604,13 +581,11 @@
 		</div>
 	</div>
 
-	<div class="modal fade how-it-popup" id="art-popup">
+	<div style="display:none;" class="how-it-popup" id="art-popup">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a href="#" data-dismiss="modal" class="class pull-right">
-						<i class="fa fa-times" aria-hidden="true"></i>
-					</a>
+					
 					<h1 class="modal-title">How It Works ?</h1>
 				</div>
 				<div class="modal-body">
