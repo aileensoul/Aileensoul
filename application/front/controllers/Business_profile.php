@@ -10613,8 +10613,9 @@ class Business_profile extends MY_Controller {
                     "description" => $editpostdes
         ));
     }
+
 // chat 15-7 changes start
-public function business_chat() {
+    public function business_chat() {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
@@ -10815,11 +10816,17 @@ public function business_chat() {
     public function business_chat_user($id) {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        $this->data['message_profile_from_id'] = $message_profile_from_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+        $this->data['message_profile_to_id'] = $message_profile_to_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
         // last user if $id is null
         $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-        
+
         if ($id) {
             $toid = $this->data['toid'] = $id;
         } elseif ($lastchat[0]['message_from'] == $userid) {
@@ -10829,7 +10836,7 @@ public function business_chat() {
         }
 
         $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
-        
+
         $this->data['logfname'] = $loginuser[0]['first_name'];
         $this->data['loglname'] = $loginuser[0]['last_name'];
 
@@ -10837,7 +10844,7 @@ public function business_chat() {
         $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$id' OR message_to = '$id')";
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-        
+
         if ($lastuser[0]['message_from'] == $userid) {
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
         } else {
@@ -10862,7 +10869,7 @@ public function business_chat() {
 
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
         $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
-        
+
         // slected user chat from
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
@@ -10877,7 +10884,7 @@ public function business_chat() {
 
         $selectuser = array_merge($seltousr, $selfromusr);
         $selectuser = $this->aasort($selectuser, "id");
-        
+
         // replace name of message_to in user_id in select user
 
         $return_arraysel = array();
@@ -10930,7 +10937,6 @@ public function business_chat() {
         // uniq array of tolist  
         foreach ($tolist as $k => $v) {
             foreach ($tolist as $key => $value) {
-
                 if ($k != $key && $v['message_to'] == $value['message_to']) {
                     unset($tolist[$k]);
                 }
@@ -10950,7 +10956,6 @@ public function business_chat() {
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
 
-
                 unset($return['message_to']);
                 array_push($return_arrayto, $return);
             }
@@ -10965,9 +10970,7 @@ public function business_chat() {
         $join_str4[0]['join_type'] = '';
 
         $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
-
         $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
-
 
         // uniq array of fromlist  
         foreach ($fromlist as $k => $v) {
@@ -10978,10 +10981,9 @@ public function business_chat() {
             }
         }
 
-// replace name of message_to in user_id
+        // replace name of message_to in user_id
 
         $return_arrayfrom = array();
-
         foreach ($fromlist as $from_list) {
             if ($from_list['message_from'] != $id) {
                 $return = array();
@@ -10999,17 +11001,6 @@ public function business_chat() {
 
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
-//        $new_return_array = array();
-//        
-//        foreach($userlist as $key11 => $value11){
-//            $msg_user_id = $value11['user_id'];
-//            $msg_id = $value11['id'];
-//            
-//            
-//        }
-//        echo '<pre>';
-//        print_r($userlist);
-
         // uniq array of fromlist  
         foreach ($userlist as $k => $v) {
             foreach ($userlist as $key => $value) {
@@ -11021,24 +11012,17 @@ public function business_chat() {
             }
         }
 
-//        echo '<pre>';
-//        print_r($userlist);
-//        exit;
-
         $userlist = $this->aasort($userlist, "id");
 
-        if($return_arraysel[0] == ''){
+        if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);
 
-//echo '<pre>'; print_r($this->data['userlist']); die();
-        // khytai changes 22-4 end
 // smily start
         $smileys = _get_smiley_array();
         $this->data['smiley_table'] = $smileys;
 // smily end
-        // khytai changes end 22-4
 
         $this->load->view('business_profile/business_chat_user', $this->data);
     }
@@ -11895,5 +11879,4 @@ public function business_chat() {
     }
 
 //chat changes 15-7 end 
-
 }
