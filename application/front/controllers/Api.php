@@ -17,7 +17,7 @@ class Api extends CI_Controller {
         
         $message = $this->input->get('message', null);
         //$message = $this->common->make_links($message);
-        $message = $message;
+        $message = str_replace('"','',$message); 
         $nickname = $this->input->get('nickname', '');
         $guid = $this->input->get('guid', '');
 
@@ -25,12 +25,12 @@ class Api extends CI_Controller {
         $this->_setOutput($message);
     }
 
-    public function get_messages($id) {
+    public function get_messages($id ='', $message_from_profile='', $message_to_profile ='') {
         $userid = $this->session->userdata('aileenuser');
 
         $timestamp = $this->input->get('timestamp', null);
 
-        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id);
+        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile);
         $i = 0;
         foreach ($messages as $mes) {
             if (preg_match('/<img/', $mes['message'])) {

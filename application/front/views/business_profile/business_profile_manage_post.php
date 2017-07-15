@@ -241,9 +241,7 @@
                                     $busuid = $busineslug[0]['user_id'];
 
                                     $contition_array = array('contact_type' => 2);
-
                                     $search_condition = "((contact_to_id = '$busuid' AND contact_from_id = ' $userid') OR (contact_from_id = '$busuid' AND contact_to_id = '$userid'))";
-
                                     $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
                                     ?>
 

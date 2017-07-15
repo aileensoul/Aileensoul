@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 class Chat_model extends CI_Model {  
   
-	function add_message($message, $nickname, $guid,$userid,$id)
+	function add_message($message, $nickname, $guid,$userid,$id, $message_from_profile, $message_from_profile_id, $message_to_profile, $message_to_profile_id)
 	{
                 date_default_timezone_set('Asia/Calcutta');
 		$data1 = array(
@@ -11,6 +11,10 @@ class Chat_model extends CI_Model {
 			'nickname'	=> (string) $nickname,
 			'message_from'	=> (string) $userid,
 			'message_to'	=> (string) $id,
+			'message_from_profile'	=> (int) $message_from_profile,
+			'message_from_profile_id'	=> (int) $message_from_profile_id,
+			'message_to_profile'	=> (int) $message_to_profile,
+			'message_to_profile_id'	=> (int) $message_to_profile_id,
 			'guid'		=> (string) $guid,
 			'timestamp'	=> time(),
 		);
@@ -33,13 +37,13 @@ class Chat_model extends CI_Model {
 		$this->db->insert('notification', $data2);
 	}
  
-	function get_messages($timestamp,$userid,$id)
+	function get_messages($timestamp,$userid,$id,$message_from_profile,$message_to_profile)
 	{ 
 
 	// khyati start 
         
        $this->db->where('timestamp >', $timestamp);
-       $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '"))';
+       $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND message_from_profile = "'.$message_from_profile.'" AND message_to_profile ="'.$message_to_profile.'" ';
        $this->db->where($where);
 
 		// khyati end
