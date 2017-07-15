@@ -19,7 +19,7 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active">Recruiter User</li>
+            <li class="active">Recruiter Post</li>
         </ol>
         <!-- <div class="fr">
                          <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
@@ -49,17 +49,20 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Recruiter User</h3>      
+                        <h3 class="box-title">Recruiter Post</h3>      
                     
                     <div class="box-tools">
                        <?php echo form_open('recruiter/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
               
+
+                     <!--    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search"> -->
+
                         <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword">
 
                         <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default" id="search_btn" ><i class="fa fa-search"></i></button>          
+                                <button type="submit" class="btn btn-default" id="search_btn"><i class="fa fa-search"></i></button>          
                         </div><!--input-group-btn-->
                 <?php echo form_close(); ?>
                      
@@ -110,20 +113,16 @@ echo $leftmenu;
 
                     </th>
 
-                    <th><i class="fa fa-envelope"></i> 
-                     <a href="javascript:void(0);">Email</a>
+                    <th><i class="fa fa-fw fa-navicon"></i> 
+                     <a href="javascript:void(0);">Post Name</a>
                      </th>
 
-                    <th><i class="fa fa-fw fa-phone-square"></i> 
-                     <a href="javascript:void(0);">Phone No.</a>
+                    <th><i class="fa fa-fw fa-calendar-check-o"></i> 
+                     <a href="javascript:void(0);">Required Experience</a>
                      </th>
 
-                    <th><i class="fa fa-fw fa-home"></i> 
+                     <th><i class="fa fa-fw fa-home"></i> 
                      <a href="javascript:void(0);">Location</a>
-                     </th>
-
-                    <th><i class="fa fa-fw fa-image"></i> 
-                     <a href="javascript:void(0);">Profile Image</a>
                      </th>
 
                     <th><i class="fa fa-fw fa-pencil-square"></i> 
@@ -156,46 +155,25 @@ echo $leftmenu;
 
                     <td><?php echo ucfirst($user['rec_firstname']); echo ' ';echo ucfirst($user['rec_lastname']);  ?></td>
 
-                    <td><?php echo $user['rec_email']; ?></td>
+                    <td><?php echo $user['post_name']; ?></td>
 
-                    <td><?php if($user['rec_phone'])
-                              {
-                                echo $user['rec_phone']; 
-                              }
-                              else
-                              {
-                                echo PROFILENA;
-                              }
-                            ?>
-                      </td>
-
+                    <td><?php echo $user['post_name']; ?></td>
 
                     <td> 
                         <?php 
 
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user['re_comp_city']))->row()->city_name;
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city']))->row()->city_name;
 
                             echo $cityname; if( $cityname){echo ",<br>";}
 
-                            $statename = $this->db->get_where('states', array('state_id' => $user['re_comp_state']))->row()->state_name;
+                            $statename = $this->db->get_where('states', array('state_id' => $user['state']))->row()->state_name;
 
                             echo $statename;if( $statename){echo ",<br>";}
 
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user['re_comp_country']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country']))->row()->country_name; 
                                             
                             echo $countryname;
                         ?>
-                    </td>
-
-                    <td> 
-                        <?php  if($user['recruiter_user_image']) 
-                                {
-                        ?>
-                                <img src="<?php echo SITEURL . $this->config->item('rec_profile_thumb_upload_path') . $user['recruiter_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
-                        <?php }else{
-                        ?>
-                                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
-                        <?php } ?>
                     </td>
 
                     <td id="active<?php echo $user['rec_id']?>">

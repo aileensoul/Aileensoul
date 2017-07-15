@@ -979,9 +979,11 @@ ul.sub-menu li a i {
     background-size: cover;
     padding: 100px 0;
 }
-.h2-srrt{  margin-right: 12px;height: 22px;
-    width: 22px;
+.h2-srrt{  margin-right: 12px;height: 19px;
+    width:19px;
     float: left;
+        background-size: 100%;
+    
    }
 .h2-img{
     background: url(../img/icon_view_profile.png) no-repeat;
@@ -1006,6 +1008,7 @@ ul.sub-menu li a i {
 }
 .h4-img{
     background: url(../img/icon_delete.png) no-repeat;
+    background-size: 100%;
     
    
 }
@@ -1309,6 +1312,7 @@ ul.dropdown-menu li a i {
     text-transform: capitalize;
 }
 .header ul li.dropdown-user ul li a {
+    font-family: arial;
     padding: 6px 10px;
     font-size: 15px;
     color: #787878;
@@ -8142,9 +8146,9 @@ input:-moz-placeholder {
 }
 .not_avali {
     /*padding: 20px;*/
-    /*height: 200px;*/
+    height: 180px;
     
-    width: 200px;
+    width: 180px;
     position: relative;
     margin: 0 auto;
 }
@@ -8174,13 +8178,13 @@ line-height: 40px;
     /*    position: absolute;*/
     
     columns: #1b8ab9;
-    color: #728bc0;
+   color: rgb(27, 138, 185,0.5);
     font-size: 19px;
     font-weight: 600;
     left: 18px;
     width: 100%;
     text-align: center;
-    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .tabs-left,
 .tabs-right {
@@ -8815,7 +8819,7 @@ fieldset .add_post_btns {
 .profile-job-details .post_title {
     font-size: 17px;
     font-weight: 600;
-    width: 60%;
+    width: 72%;
     word-break: break-word;
     word-wrap: break-word !important;
     word-break: break-word !important;
@@ -8918,7 +8922,8 @@ fieldset .add_post_btns {
     right: 9px;
 }
 .dropdown_hover .dropdown-content_hover a {
-    color: #000;
+    font-family: arial;
+    color: #787878  ;
 }
 /*.pdf_name a: {
     text-decoration-line: underline;
