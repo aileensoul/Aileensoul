@@ -337,6 +337,83 @@ public function profile($id)
 }
 //view function is used for view profile of user End
 
+//for list of all user post start
+public function post() 
+{
+   
+// This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
+
+            $sortby = $this->uri->segment(3);
+
+            $orderby = $this->uri->segment(4);
+
+        } else {
+
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
+
+            $sortby = 'post_id';
+
+            $orderby = 'asc';
+
+        }
+  
+        $this->data['offset'] = $offset;
+
+        $join_str[0]['table'] = 'recruiter';
+        $join_str[0]['join_table_id'] = 'recruiter.user_id';
+        $join_str[0]['from_table_id'] = 'rec_post.user_id';
+        $join_str[0]['join_type'] = '';
+
+        $data='recruiter.rec_firstname,recruiter.rec_lastname,rec_post.post_name,rec_post.min_month,rec_post.min_year,rec_post.max_month,rec_post.max_year,rec_post.country,rec_post.state,rec_post.city,rec_post.status,rec_post.created_date,rec_post.modify_date';
+       
+       $contition_array = array('rec_post.is_delete' => '0');
+
+       $this->data['users'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby = '');
+// This is userd for pagination offset and limoi End
+   
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $this->paging['base_url'] = site_url("recruiter/post/" . $short_by . "/" . $order_by);
+
+        } else {
+
+            $this->paging['base_url'] = site_url("recruiter/post/");
+
+        }
+
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $this->paging['uri_segment'] = 5;
+
+        } else {
+
+            $this->paging['uri_segment'] = 3;
+
+        }
+        //This if and else use for asc and desc while click on any field End
+
+
+        $contition_array = array( 'is_delete =' => '0');
+        $this->paging['total_rows'] = count($this->common->select_data_by_condition('rec_post', $contition_array, 'post_id'));
+
+        $this->data['total_rows'] = $this->paging['total_rows'];
+
+        $this->data['limit'] = $limit;
+
+        $this->pagination->initialize($this->paging);
+
+        $this->data['search_keyword'] = '';
+
+
+        $this->load->view('recruiter/post', $this->data);
+}
+//for list of all user post End
+
 
 }
 

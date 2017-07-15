@@ -39,8 +39,11 @@
                     <i class="fa fa-handshake-o margin-r-5"></i> <span>Recruiter Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu">     
+
                     <li><a href="<?php echo base_url('Recruiter/user'); ?>"><i class="fa fa-users"></i>List Recruiter User</a></li>
+
+                    <li><a href="<?php echo base_url('Recruiter/post'); ?>"><i class="fa fa-vcard"></i>Post Recruiter User</a></li>
                 </ul>
             </li>
             <!--End Recruiter Management-->

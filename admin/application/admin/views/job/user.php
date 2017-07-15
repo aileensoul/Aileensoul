@@ -55,14 +55,11 @@ echo $leftmenu;
                        <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
-              
-
-                     <!--    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search"> -->
 
                         <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword">
 
                         <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default" id="search_btn" onclick="return checkvalue();"><i class="fa fa-search"></i></button>          
+                                <button type="submit" class="btn btn-default" id="search_btn"><i class="fa fa-search"></i></button>          
                         </div><!--input-group-btn-->
                 <?php echo form_close(); ?>
                      
