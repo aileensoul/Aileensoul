@@ -229,7 +229,7 @@ echo $freelancer_hire_header2_border;} ?>
 </div>
     <div  class="add-post-button mob-block">
                 <?php if($returnpage==''){ ?>
-                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                 <?php }?>
             </div> 
 
@@ -260,7 +260,7 @@ echo $freelancer_hire_header2_border;} ?>
 
             <div  class="add-post-button">
                 <?php if($returnpage==''){ ?>
-                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
+                <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                 <?php }?>
             </div> 
         </div>
