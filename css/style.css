@@ -236,7 +236,7 @@ body {
     background-color: #f3f9fb;
     margin: 0;
     line-height: 22px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'arial';
     /*height: 100vh;*/
 }
 p {
@@ -10644,7 +10644,7 @@ chat end*/
     width: 100%;
     border: none;
     padding: 10px 20px;
-    font: 14px/22px "Lato", Arial, sans-serif;
+    font: 14px/22px  Arial;
     margin-bottom: 10px;
     border-radius: 5px;
     resize: none;
