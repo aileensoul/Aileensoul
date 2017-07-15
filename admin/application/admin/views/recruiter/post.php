@@ -52,7 +52,7 @@ echo $leftmenu;
                         <h3 class="box-title">Recruiter Post</h3>      
                     
                     <div class="box-tools">
-                       <?php echo form_open('recruiter/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       <?php echo form_open('recruiter/search_post', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
               
@@ -70,7 +70,7 @@ echo $leftmenu;
                             { 
                     ?>
 
-                            <a href="<?php echo base_url('recruiter/clear_search') ?>">Clear Search</a>
+                            <a href="<?php echo base_url('recruiter/clear_search_post') ?>">Clear Search</a>
 
                         <?php 
                                 } 
@@ -86,16 +86,16 @@ echo $leftmenu;
                 <tr>
                  <?php
 
-                        if ($this->uri->segment(2) == '' || $this->uri->segment(2) == 'user') 
+                        if ($this->uri->segment(2) == '' || $this->uri->segment(2) == 'post') 
                         {
 
-                                $segment2 = 'user';
+                                $segment2 = 'post';
 
                         } 
                         else 
                         {
 
-                                $segment2 = 'search';
+                                $segment2 = 'search_post';
 
                         }
 
@@ -150,14 +150,69 @@ echo $leftmenu;
                         foreach ($users as $user) {
                 ?>
 
-                <tr id="delete<?php echo $user['rec_id']?>">
+                <tr id="delete<?php echo $user['post_id']?>">
                     <td><?php echo $i++; ?></td>
 
                     <td><?php echo ucfirst($user['rec_firstname']); echo ' ';echo ucfirst($user['rec_lastname']);  ?></td>
 
                     <td><?php echo $user['post_name']; ?></td>
 
-                    <td><?php echo $user['post_name']; ?></td>
+                    <td>
+
+    <?php 
+
+      if(($user['min_year'] != '' && $user['max_year'] !='') && ($user['fresher'] == 1))
+     { 
+        if ($user['min_month'] == '' && $user['max_month'] == '') {
+            echo $user['min_year'].' Year - '.$user['max_year'] . ' Year'." , ". "Fresher can also apply.";
+          
+        }  
+         elseif ($user['min_month'] != '' && $user['max_month'] != '') {
+      echo $user['min_year'].'.'.$user['min_month'] . ' Year - '.$user['max_year'] .'.'.$user['max_month'] . ' Year'." , ". "Fresher can also apply.";
+            
+          
+        } 
+        elseif ($user['min_month'] != '' && $user['max_month'] == '') {
+        echo $user['min_year'].'.'.$user['min_month'] . ' Year - '.$user['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }
+        elseif ($user['min_month'] == '' && $user['max_month'] != '') {
+        echo $user['min_year']. ' Year - '.$user['max_year'] .' Year'." , ". "Fresher can also apply.";
+            
+          
+        }    
+     } 
+     elseif($user['min_year'] != '' && $user['max_year'] !='')
+     { 
+        if ($user['min_month'] == '' && $user['max_month'] == '') {
+            echo $user['min_year'].' Year - '.$user['max_year'] . ' Year';
+          
+        }  
+         elseif ($user['min_month'] != '' && $user['max_month'] != '') {
+      echo $post['min_year'].'.'.$user['min_month'] . ' Year - '.$user['max_year'] .'.'.$user['max_month'] . ' Year';
+            
+          
+        } 
+        elseif ($user['min_month'] != '' && $user['max_month'] == '') {
+        echo $user['min_year'].'.'.$user['min_month'] . ' Year - '.$user['max_year'] .' Year';
+            
+          
+        }
+        elseif ($user['min_month'] == '' && $user['max_month'] != '') {
+        echo $user['min_year']. ' Year - '.$user['max_year'] .' Year';
+            
+          
+        }    
+     } 
+    else
+    {
+      echo "Fresher";
+         
+    }
+
+ ?>                        
+                    </td>
 
                     <td> 
                         <?php 
@@ -176,15 +231,15 @@ echo $leftmenu;
                         ?>
                     </td>
 
-                    <td id="active<?php echo $user['rec_id']?>">
-                        <?php if ($user['re_status'] == 1) 
+                    <td id="active<?php echo $user['post_id']?>">
+                        <?php if ($user['status'] == 1) 
                               {
                         ?>
-                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['rec_id']; ?>);">Active</button>
+                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_post(<?php echo $user['post_id']; ?>);">Active</button>
                         <?php 
                             }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['rec_id']; ?>);">Deactive</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="active_post(<?php echo $user['post_id']; ?>);">Deactive</button>
 
                          <?php }?></button>
                     </td>
@@ -199,11 +254,11 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['rec_id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete_post(<?php echo $user['post_id']; ?>);">
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('recruiter/profile/'.$user['rec_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('recruiter/post_profile/'.$user['post_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -317,21 +372,21 @@ echo $leftmenu;
 
 <script>
 //deactive user Start
-   function deactive_user(rec_id) 
+   function deactive_post(post_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this Post?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #activate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "recruiter/deactive_user" ?>',
-                          data: 'rec_id=' + rec_id,
+                          url: '<?php echo base_url() . "recruiter/deactive_post" ?>',
+                          data: 'post_id=' + post_id,
                           success: function (response) 
                           {    
                                  $.fancybox.close();
-                                $('#' + 'active' + rec_id).html(response);
+                                $('#' + 'active' + post_id).html(response);
                           }
             });   
         });
@@ -339,21 +394,21 @@ echo $leftmenu;
 //deactive user End
 
 //active user Start
-   function active_user(rec_id) 
+   function active_post(post_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this Post?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #deactivate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "recruiter/active_user" ?>',
-                          data: 'rec_id=' + rec_id,
+                          url: '<?php echo base_url() . "recruiter/active_post" ?>',
+                          data: 'post_id=' + post_id,
                           success: function (response) 
                           {        
                                   $.fancybox.close();  
-                                  $('#' + 'active' + rec_id).html(response);
+                                  $('#' + 'active' + post_id).html(response);
                           }
             });   
         });
@@ -361,17 +416,17 @@ echo $leftmenu;
 //active user End\
 
 //Delete user Start
-   function delete_user(rec_id) 
+   function delete_post(post_id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this Post?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #delete').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "recruiter/delete_user" ?>',
-                          data: 'rec_id=' + rec_id,
+                          url: '<?php echo base_url() . "recruiter/delete_post" ?>',
+                          data: 'post_id=' + post_id,
                           success: function (response) 
                           {          
                                 window.location.reload();
