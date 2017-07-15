@@ -1591,6 +1591,10 @@ $university_otherdata = $this->common->select_data_by_condition('university', $c
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
 
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
+
         if($id == ''){
         // code change by pallavi 14-4-2017
         $join_str[0]['table'] = 'freelancer_hire_reg';
@@ -1723,6 +1727,11 @@ $results = array_unique($result);
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+
+        // code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
+
 
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2014,7 +2023,7 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 
  //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
   
- $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+        $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
         $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
@@ -2024,6 +2033,9 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
 
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $freelancerhiredata = $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2119,13 +2131,22 @@ $contition_array = array('status'=>'1','is_delete' =>'0','user_id !=' =>$userid,
 
          $this->data['demo']= array_values($result1);
 
-
-
-
-
-
-//echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
         $this->load->view('freelancer/freelancer_hire/recommen_candidate', $this->data);
+    }
+    public function freelancer_hire_check() {
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+        $hire_step = $this->data['hire_step'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'free_hire_step', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        
+        if(count($hire_step) > 0){
+        if($hire_step[0]['free_hire_step'] == '1'){
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_address_info');
+        }elseif($hire_step[0]['free_hire_step'] == '2'){
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_professional_info');
+        }else{}
+        }else{
+    redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+            }
     }
     public function freelancer_edit_post($id) {  
        // echo $id; die();
@@ -2142,6 +2163,10 @@ $contition_array = array('status'=>'1','is_delete' =>'0','user_id !=' =>$userid,
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+        
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
 
         $contition_array = array('status' => 1);
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2810,6 +2835,21 @@ $updatedata = $this->common->update_data($data, 'freelancer_apply', 'app_id', $a
     public function freelancer_apply_list($id) {
         $userid = $this->session->userdata('aileenuser');
 
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+  
+ $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if( $freelancerhire_deactive)
+        {
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+        }
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  end
+
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
          
         $this->data['postid'] = $id;
         //echo "<pre>"; print_r($this->data['postid']);die();
@@ -2957,7 +2997,11 @@ $contition_array = array('status' => '1');
         {
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
-//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+//if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  end
+
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
 
         $join_str[0]['table'] = 'freelancer_post_reg';
         $join_str[0]['join_table_id'] = 'freelancer_post_reg.user_id';
@@ -3446,6 +3490,10 @@ $contition_array = array('user_id' => $userid);
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+
+// code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
 
         if ($id == $userid || $id == '') {
 
