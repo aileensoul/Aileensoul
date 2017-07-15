@@ -236,7 +236,7 @@ body {
     background-color: #f3f9fb;
     margin: 0;
     line-height: 22px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'arial';
     /*height: 100vh;*/
 }
 p {
@@ -10644,7 +10644,7 @@ chat end*/
     width: 100%;
     border: none;
     padding: 10px 20px;
-    font: 14px/22px "Lato", Arial, sans-serif;
+    font: 14px/22px  Arial;
     margin-bottom: 10px;
     border-radius: 5px;
     resize: none;
@@ -15295,7 +15295,7 @@ text-align: center;}
         padding-bottom: 5px;
     }
     .header2 ul li a {
-        padding: 12px 10px 8px;
+        padding: 5px 10px 8px;
         line-height: 1;
     }
     .popup-text span {
@@ -15633,7 +15633,7 @@ top: 8px;}
     .post-editor .camer_h{padding-top: 2px;}
     .popup-img{padding-right: 8px;}
     .post-editor{padding-left: 7px; padding-right: 7px;}
-    .header2 ul li.active a{padding: 12px 10px 10px}
+    .header2 ul li.active a{padding: 5px 10px 10px}
     .camer_h i{font-size: 19px;}
 	.hidden-mob {
         display: none;

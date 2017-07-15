@@ -241,27 +241,33 @@
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                 <li>
-                 <b>Required Experience</b>
-                                                <span>
-                                                    <p title="Min - Max"><?php 
+     <b>Required Experience</b>
+                       <span>
+     <p title="Min - Max">
+     <?php 
 
 
-
-
-      if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
      { 
-        echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+ 
+
+      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
      } 
+     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
+     {
+      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+     }
     else
     {
-  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+      echo "Fresher";
          
     }
 
  ?> 
+    
     </p>  
-                                                </span>
-                                            </li>
+ </span>
+  </li>
                                                                 
                 <li><b>Salary</b><span title="Min - Max">
                 <?php 
@@ -441,29 +447,34 @@ $maxval = trim($post['max_sal']);
                                                                         <?php echo $post['interview_process']; ?></span>
                                                                 </li>
                                                                
-<li>
-                                                <b>Required Experience</b>
-                                                <span>
+  <li>
+     <b>Required Experience</b>
+                       <span>
      <p title="Min - Max">
      <?php 
 
 
-  if(($post['min_year'] !='0' || $post['min_month'] !='0' || $post['max_month'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
      { 
- echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year'." , ". "Fresher can also apply.";
+ 
+
+      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
      } 
+     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
+     {
+      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+     }
     else
     {
-  echo $post['min_year'].'.'.$post['min_month'] . ' Year - '.$post['max_year'] .'.'.$post['max_month'] . ' Year';
+      echo "Fresher";
          
     }
 
  ?> 
     
     </p>  
-                                                </span>
-                                            </li>
-
+ </span>
+  </li>
                                                               
         <li><b>Salary</b><span title="Min - Max">
 
