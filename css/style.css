@@ -8178,7 +8178,7 @@ line-height: 40px;
     /*    position: absolute;*/
     
     columns: #1b8ab9;
-   color: rgb(27, 138, 185,0.5);
+   color:#ebebeb;
     font-size: 19px;
     font-weight: 600;
     left: 18px;
@@ -9482,6 +9482,13 @@ label.cameraButton input[accept*="camera"] {
     display: inline-block;
     width: 100%;
 }
+.art_no_pva_avl
+{
+    background: white;
+    display: inline-block;
+    width: 100%;
+
+}
 .art-img-nn{width: 100%;
 text-align: center;
 margin: 30px 0px;}
@@ -9499,7 +9506,8 @@ border-bottom: 1px solid #d9d9d9;}
 color: #ebebeb;
 font-size: 32px;
 padding-top: 30px;}
-
+.art_no_post_text1{color: #ebebeb;
+font-size: 32px;}
 /*no post foun end*/
 
 

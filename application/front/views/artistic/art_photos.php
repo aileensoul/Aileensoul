@@ -1,4 +1,4 @@
-<!-- start head -->
+start head -->
 <?php echo $head; ?>
 <style type="text/css">
    #popup-form img{display: none;}
@@ -336,16 +336,14 @@
                                           ?>x
                                     </div>
                                     <?php } else { ?>
-                                    <div class="main_pdf_box"  >
-                                       <div class="not_avali" >
-                                          <li>
-                                             <img src="<?php echo base_url('images/020-c.png'); ?>"  >
-                                          </li>
-                                          <div>
-                                             <div class="not_text" >Photo not avalible</div>
-                                          </div>
-                                       </div>
-                                    </div>
+                                  <div class="art_no_pva_avl">
+         <div class="art_no_post_img">
+          <img src="<?php echo base_url('images/020-c.png'); ?>"  >
+         </div>
+         <div class="art_no_post_text1">
+           No Photos Available.
+         </div>
+       </div>
                                     <?php }
                                        ?>
                                  </ul>
@@ -2316,4 +2314,4 @@
    });  
    
 </script>
-<!-- all popup close close using esc end -->
+<!-- all popup close close using esc end
