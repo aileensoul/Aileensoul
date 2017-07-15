@@ -15295,7 +15295,7 @@ text-align: center;}
         padding-bottom: 5px;
     }
     .header2 ul li a {
-        padding: 12px 10px 8px;
+        padding: 5px 10px 8px;
         line-height: 1;
     }
     .popup-text span {
@@ -15633,7 +15633,7 @@ top: 8px;}
     .post-editor .camer_h{padding-top: 2px;}
     .popup-img{padding-right: 8px;}
     .post-editor{padding-left: 7px; padding-right: 7px;}
-    .header2 ul li.active a{padding: 12px 10px 10px}
+    .header2 ul li.active a{padding: 5px 10px 10px}
     .camer_h i{font-size: 19px;}
 	.hidden-mob {
         display: none;
