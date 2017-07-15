@@ -145,18 +145,16 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
         <!-- text head start -->
         <div>
+            </div>
             <div class="profile-text" >
 
 <?php
 if ($artisticdata[0]['designation'] == '') {
     ?>
 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
+                   
                         <a id="designation" class="designation" title="Designation">Current Work</a>
-                        <?php } ?>
+                      
 
                 <?php } else { ?> 
                     <?php
@@ -337,12 +335,9 @@ if ($status == 0 || $status == " ") {
 if ($artisticdata[0]['designation'] == '') {
     ?>
 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
+                    
                         <a id="designation" class="designation" title="Designation">Current Work</a>
-                        <?php } ?>
+                        
 
                 <?php } else { ?> 
                     <?php
