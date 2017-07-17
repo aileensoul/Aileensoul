@@ -115,7 +115,7 @@
                                      <fieldset class="full-width">
                                          <label>Project Description</label>
 
-                                          <textarea name="project_description"  id="project_description" tabindex="3" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
+                                          <textarea name="project_description"  id="project_description" tabindex="3" onpaste="OnPaste_StripFormatting(this, event);" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
                                         
                                   </fieldset>
 
@@ -383,8 +383,7 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
 
                                     project_description:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
-                                       regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
-
+                                       //regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
                                     project_duration:{
                                      maxlength: 2,
@@ -438,4 +437,28 @@ return e.which !== 32;
 </script>
 <!-- disable spacebar js end-->
 
-    
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED START -->
+ <script type="text/javascript">
+            var _onPaste_StripFormatting_IEPaste = false;
+            function OnPaste_StripFormatting(elem, e) {
+               // alert(456);
+                if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.originalEvent.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (e.clipboardData && e.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (window.clipboardData && window.clipboardData.getData) {
+                    // Stop stack overflow
+                    if (!_onPaste_StripFormatting_IEPaste) {
+                        _onPaste_StripFormatting_IEPaste = true;
+                        e.preventDefault();
+                        window.document.execCommand('ms-pasteTextOnly', false);
+                    }
+                    _onPaste_StripFormatting_IEPaste = false;
+                }
+            }
+        </script>
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->

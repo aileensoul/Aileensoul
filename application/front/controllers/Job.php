@@ -254,8 +254,8 @@ class Job extends MY_Controller {
               
                 //echo "change".$bod;
                 $data = array(
-                    'fname' => $this->input->post('fname'),
-                    'lname' => $this->input->post('lname'),
+                    'fname' => ucfirst($this->input->post('fname')),
+                    'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
                     'marital_status' => $this->input->post('marital_status'),
@@ -280,8 +280,8 @@ class Job extends MY_Controller {
             } else {
 
                 $data = array(
-                    'fname' => $this->input->post('fname'),
-                    'lname' => $this->input->post('lname'),
+                    'fname' => ucfirst($this->input->post('fname')),
+                    'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
                     'marital_status' => $this->input->post('marital_status'),
