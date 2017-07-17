@@ -307,22 +307,46 @@ if ($status == 0 || $status == " ") {
     <div class="profile-text" >
 
                      <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
+        $userid = $this->session->userdata('aileenuser');
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Current work</a>
-                        <?php } ?>
+            if($artisticdata[0]['user_id'] == $userid){
 
-                    <?php } else { ?> 
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } ?>
+              if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
 
-                    <?php } ?>
+                    
+
+                <?php } else { ?> 
+
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php } 
+
+            }else{ ?>
+
+           <?php  if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a>Current Work</a>
+
+                    
+
+                <?php } else { ?> 
+
+                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php }  ?>
+                
+
+                <?php }?>
+
 </div>
               </div>
 
@@ -950,3 +974,46 @@ $(document).ready(function(){
 });
 //For Scroll page at perticular position js End
 </script>
+
+<!-- designation script start -->
+<script type="text/javascript">
+   function divClicked() {
+       var divHtml = $(this).html();
+       var editableText = $("<textarea />");
+       editableText.val(divHtml);
+       $(this).replaceWith(editableText);
+       editableText.focus();
+       // setup the blur event for this new textarea
+       editableText.blur(editableTextBlurred);
+   }
+   
+   function editableTextBlurred() {
+      
+      var html = $(this).val();
+       var viewableText = $("<a>");
+      
+       if (html.match(/^\s*$/) || html == '') { 
+       html = "Current Work";
+       } 
+       
+       viewableText.html(html);
+       $(this).replaceWith(viewableText);
+       // setup the click event for this new div
+       viewableText.click(divClicked);
+   
+       $.ajax({
+           url: "<?php echo base_url(); ?>artistic/art_designation",
+           type: "POST",
+           data: {"designation": html},
+           success: function (response) {
+   
+           }
+       });
+   }
+   
+   $(document).ready(function () {
+   // alert("hi");
+       $("a.designation").click(divClicked);
+   });
+</script>
+<!-- designation script end -->
