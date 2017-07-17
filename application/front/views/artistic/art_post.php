@@ -738,9 +738,9 @@
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" class="my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyPress=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" class="my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
 
-                           <input size=1 class="text_num" value=50 name=text_num readonly> 
+                           <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
 
                            </div>
                         </div>
@@ -1358,6 +1358,19 @@
                 <div class="modal-dialog modal-lm">
                     <div class="modal-content">
                         <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade message-box" id="postedit" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="postedit"data-dismiss="modal">&times;</button>       
                         <div class="modal-body">
                             <span class="mes">
                             </span>
@@ -3274,7 +3287,7 @@
        maxLen = 50;
    //alert(my_form.my_text.value.length);
        // max number of characters allowed
-       if (my_form.my_text.value.length >= maxLen) {
+       if (my_form.my_text.value.length > maxLen) {
            // Alert message if maximum limit is reached. 
            // If required Alert can be removed. 
            var msg = "You have reached your maximum limit of characters allowed";
@@ -3297,23 +3310,34 @@
    //alert(my_form.my_text.value.length);
        // max number of characters allowed
 
-       var val_a = document.getElementsById('editpostname' + abc).value;
-       var a = val_a.length;
-       alert(a);
-       if ( val_a.length >= maxLen) { alert("hii");
+       var product_name = document.getElementById("editpostname" +abc).value;
+       //var edit_name = document.getElementById("editpostname" +abc);
+
+      
+       //alert(product_name.length);
+       if (product_name.length > maxLen) { //alert("hii");
 
            // Alert message if maximum limit is reached. 
            // If required Alert can be removed. 
-          // var msg = "You have reached your maximum limit of characters allowed";
-           //    alert(msg);
-           //my_form.text_num.value = maxLen - my_form.my_text.value.length;
-           //$('#post .mes').html("<div class='pop_content'>" + msg + "</div>");
-          // $('#post').modal('show');
+           text_num = maxLen - product_name.length;
+           var msg = "You have reached your maximum limit of characters allowed";
+              //alert(msg);
+          // text_num = maxLen - product_name.length;
+           $('#postedit .mes').html("<div class='pop_content'>" + msg + "</div>");
+           $('#postedit').modal('show');
            // Reached the Maximum length so trim the textarea
-          // my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
-       } else { alert("1");
+           // return false;
+           //$('#editpostname' + abc).attr('readonly', true);
+           // alert(product_name.substring(0, maxLen));
+           // return false;
+           var substrval = product_name.substring(0, maxLen);
+           $('#editpostname' + abc).val(substrval);
+         // product_name.length = product_name.length.substring(0, maxLen);
+       } else { //alert("1");
            // Maximum length not reached so update the value of my_text counter
-           //my_form.text_num.value = maxLen - my_form.my_text.value.length;
+           text_num = maxLen - product_name.length;
+
+           document.getElementById("text_num").value = text_num;
        }
    }
    //-->
@@ -3539,6 +3563,10 @@
         $('#myModal').modal('show');
     });
 
+    $('#postedit').on('click', function(){
+       // $('.my_text').attr('readonly', false);
+    });
+
 
     $( document ).on( 'keydown', function ( e ) {
        if ( e.keyCode === 27 ) {
@@ -3578,6 +3606,16 @@
        }
    });  
 
+ $( document ).on( 'keydown', function ( e ) {
+       if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+           $('#postedit').modal('hide');
+         // $('.my_text').attr('readonly', false);
+
+            //$('.modal-post').show();
+
+       }
+   });  
   
     
 </script>
