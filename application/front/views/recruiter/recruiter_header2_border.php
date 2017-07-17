@@ -14,7 +14,7 @@
                            <?php echo $rec_search; ?>
                     </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-6 mob-width">
+                  <div class="col-sm-5 col-md-5 col-xs-6 fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -109,7 +109,7 @@
                            <?php echo $rec_search; ?>
                     </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-6 mob-width">
+                  <div class="col-sm-5 col-md-5 col-xs-6 fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -284,6 +284,73 @@ $(document).ready(function() {
  </script>
  <!-- all popup close close using esc end -->
 
+<script type="text/javascript" charset="utf-8">
+
+    function addmsg1(type, msg)
+    {
+        if (msg == 0)
+        {
+            $("#message_count").html('');
+            $('#InboxLink').removeClass('msg_notification_available');
+        } else
+        {
+            $('#message_count').html(msg);
+            $('#message_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#InboxLink').addClass('msg_notification_available');
+            //alert("welcome");
+        }
+
+
+    }
+
+    function waitForMsg1()
+    {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url(); ?>notification/select_msg_noti/2",
+
+            async: true,
+            cache: false,
+            timeout: 50000,
+
+            success: function (data) {
+                addmsg1("new", data);
+                setTimeout(
+                        waitForMsg1,
+                        10000
+                        );
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                addmsg1("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg1,
+//                        15000);
+            }
+        });
+    }
+    ;
+
+    $(document).ready(function () {
+
+        waitForMsg1();
+
+    });
+    $(document).ready(function () {
+        $menuLeft = $('.pushmenu-left');
+        $nav_list = $('#nav_list');
+
+        $nav_list.click(function () {
+            $(this).toggleClass('active');
+            $('.pushmenu-push').toggleClass('pushmenu-push-toright');
+            $menuLeft.toggleClass('pushmenu-open');
+        });
+    });
+
+</script>
+<!-- script for fetch all unread message notification end-->
+
+ 
+ 
 <!-- script for update all read notification start-->
 <script type="text/javascript">
 
@@ -295,7 +362,7 @@ $(document).ready(function() {
     function msgNotification() {
         // first click alert('here'); 
         $.ajax({
-            url: "<?php echo base_url(); ?>notification/update_msg_noti",
+            url: "<?php echo base_url(); ?>notification/update_msg_noti/2",
             type: "POST",
             //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
             success: function (data) {
@@ -320,3 +387,4 @@ $(document).ready(function() {
 
     }
 </script>
+ <!-- all popup close close using esc end -->

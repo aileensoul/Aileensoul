@@ -669,9 +669,9 @@ class Notification extends MY_Controller {
 
 //Notification count select & update for apply,save,like,comment,contact and follow End
 //Notification count select & update for Message start
-    public function select_msg_noti() { //echo "hello"; die();
+    public function select_msg_noti($not_from='') { //echo "hello"; die();
         $userid = $this->session->userdata('aileenuser');
-        $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
+        $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2,'not_from'=>$not_from);
         $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'not_from_id');
 
         //      echo '<pre>'; print_r($result); 
@@ -685,8 +685,8 @@ class Notification extends MY_Controller {
         //echo "<pre>"; print_r($data); die();
 
       $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
-      $search_condition = "(city_name LIKE '" . trim($this->input->get("q")) . "%')";
-      $result = $this->common->select_data_by_search('notification', $search_condition,$contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+      $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'not_from_id');
+
    
         $data = array(
             'not_read' => 1

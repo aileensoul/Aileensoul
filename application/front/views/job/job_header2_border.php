@@ -31,7 +31,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-5 mob-width">
+                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -124,7 +124,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-					<div class="col-sm-5 col-md-5 col-xs-5 mob-width">
+                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -186,7 +186,9 @@
   </div>
 </div>
 </li>
-<!-- Friend Request End-->
+                
+
+                                     <!-- Friend Request End-->
 
                                 <!-- END USER LOGIN DROPDOWN -->
                             </ul>
@@ -291,4 +293,109 @@ $(document).ready(function() {
 });  
 
  </script>
+ 
+ 
+<script type="text/javascript" charset="utf-8">
+
+    function addmsg1(type, msg)
+    {
+        if (msg == 0)
+        {
+            $("#message_count").html('');
+            $('#InboxLink').removeClass('msg_notification_available');
+        } else
+        {
+            $('#message_count').html(msg);
+            $('#message_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#InboxLink').addClass('msg_notification_available');
+            //alert("welcome");
+        }
+
+
+    }
+
+    function waitForMsg1()
+    {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url(); ?>notification/select_msg_noti/1",
+
+            async: true,
+            cache: false,
+            timeout: 50000,
+
+            success: function (data) {
+                addmsg1("new", data);
+                setTimeout(
+                        waitForMsg1,
+                        10000
+                        );
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+//                addmsg1("error", textStatus + " (" + errorThrown + ")");
+//                setTimeout(
+//                        waitForMsg1,
+//                        15000);
+            }
+        });
+    }
+    ;
+
+    $(document).ready(function () {
+
+        waitForMsg1();
+
+    });
+    $(document).ready(function () {
+        $menuLeft = $('.pushmenu-left');
+        $nav_list = $('#nav_list');
+
+        $nav_list.click(function () {
+            $(this).toggleClass('active');
+            $('.pushmenu-push').toggleClass('pushmenu-push-toright');
+            $menuLeft.toggleClass('pushmenu-open');
+        });
+    });
+
+</script>
+<!-- script for fetch all unread message notification end-->
+
+ 
+ 
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+    function getmsgNotification() {
+        msgNotification();
+        msgheader();
+    }
+
+    function msgNotification() {
+        // first click alert('here'); 
+        $.ajax({
+            url: "<?php echo base_url(); ?>notification/update_msg_noti/1",
+            type: "POST",
+            //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+            success: function (data) {
+                data = JSON.parse(data);
+                //alert(data);
+                //update some fields with the updated data
+                //you can access the data like 'data["driver"]'
+            }
+        });
+    }
+    function msgheader()
+    {
+        // $("#fad" + clicked_id).fadeOut(6000);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
+            data: 'message_from_profile=1&message_to_profile=2',
+            success: function (data) {
+                $('#' + 'notificationsmsgBody').html(data);
+            }
+        });
+
+    }
+</script>
  <!-- all popup close close using esc end -->

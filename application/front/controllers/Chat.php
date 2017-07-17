@@ -320,10 +320,6 @@ class Chat extends MY_Controller {
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['art_id'];
         }
         
-        
-        
-     
-
         // last user if $id is null
         $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile))";
