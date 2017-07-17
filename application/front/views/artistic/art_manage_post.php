@@ -1093,9 +1093,23 @@ $loginuser = $userdata[0]['art_id'];
                                                             <span class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></span>
                                                         </div>
 
-                                                        <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
-                                                            <input type="text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Title" value="<?php echo $row['art_post']; ?>">
-                                                        </div>
+            <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
+                    <input type="text" class="my_text" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname" placeholder="Title" value="<?php echo $row['art_post']; ?>"  onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
+
+                    <?php 
+                              if($row['art_post']){ 
+                                $counter = $row['art_post'];
+                                $a = strlen($counter);
+
+                                ?>
+
+                            <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
+
+                           <?php }else{?>
+                           <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+
+                            <?php }?>
+            </div>
                           
 
                       <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
@@ -1751,6 +1765,19 @@ $loginuser = $userdata[0]['art_id'];
                 </div>
             </div>
         </div>
+
+
+         <div class="modal fade message-box" id="postedit" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="postedit"data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!-- Model Popup Close -->
         <!-- Bid-modal-2  -->
         <div class="modal fade message-box" id="likeusermodal" role="dialog">
@@ -4332,7 +4359,31 @@ $(document).ready(function(){
                 }
             }
             //-->
-        </script>
+
+
+ function check_lengthedit(abc)
+   { 
+       maxLen = 50;
+
+       var product_name = document.getElementById("editpostname" +abc).value;
+     
+       if (product_name.length > maxLen) { 
+           text_num = maxLen - product_name.length;
+           var msg = "You have reached your maximum limit of characters allowed";
+           
+           $('#postedit .mes').html("<div class='pop_content'>" + msg + "</div>");
+           $('#postedit').modal('show');
+        
+           var substrval = product_name.substring(0, maxLen);
+           $('#editpostname' + abc).val(substrval);
+         
+       } else { 
+           text_num = maxLen - product_name.length;
+
+           document.getElementById("text_num").value = text_num;
+       }
+   }
+</script>
         <!-- script end -->
      
         <!-- This  script use for close dropdown in every post -->
@@ -4580,6 +4631,30 @@ $('.modal-post').hide();
    
    </script>
  <!-- 180 words more than script end-->
+
+
+ <script type="text/javascript">
+
+
+
+    $('#postedit').on('click', function(){
+       // $('.my_text').attr('readonly', false);
+    });
+
+
+    $( document ).on( 'keydown', function ( e ) {
+       if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+           $('#postedit').modal('hide');
+         // $('.my_text').attr('readonly', false);
+
+            //$('.modal-post').show();
+
+       }
+   });  
+  
+
+</script>
 
 
 

@@ -231,63 +231,58 @@ class Chat extends MY_Controller {
         $this->load->view('chat', $this->data);
     }
 
-    public function abc($id) {
-
-        // khyati 25-4 changes start
+    public function abc($id = '', $message_from_profile = '', $message_to_profile = '') {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
+        if ($message_from_profile == 5) {
+            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
+            $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
+        }
+        if ($message_to_profile == 5) {
+            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
+        }
+
         // last user if $id is null
-
         $contition_array = array('id !=' => '');
-
-        $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
-
+        $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile))";
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
         if ($id) {
-
             $toid = $this->data['toid'] = $id;
         } elseif ($lastchat[0]['message_from'] == $userid) {
-
             $toid = $this->data['toid'] = $lastchat[0]['message_to'];
         } else {
-
             $toid = $this->data['toid'] = $lastchat[0]['message_from'];
         }
 
-        // khyati 22-4 changes end
-
         $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
-
         $this->data['logfname'] = $loginuser[0]['first_name'];
         $this->data['loglname'] = $loginuser[0]['last_name'];
 
         // last message user fetch
 
         $contition_array = array('id !=' => '');
-
-        $search_condition = "(message_from = '$id' OR message_to = '$id')";
-
+        $search_condition = "(message_from = '$id' OR message_to = '$id')  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile))";
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
         if ($lastuser[0]['message_from'] == $userid) {
-
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
         } else {
-
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
         }
 
-// last user first name last name
+        // last user first name last name
         if ($lstusr) {
             $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
 
             $this->data['lstfname'] = $lastuser[0]['first_name'];
             $this->data['lstlname'] = $lastuser[0]['last_name'];
         }
-        //khyati changes starrt 20-4
         // slected user chat to
-
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -296,15 +291,10 @@ class Chat extends MY_Controller {
         $join_str1[0]['from_table_id'] = 'user.user_id';
         $join_str1[0]['join_type'] = '';
 
-
-
-        $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
-
+        $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile))";
         $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
 
-
         // slected user chat from
-
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -313,17 +303,13 @@ class Chat extends MY_Controller {
         $join_str2[0]['from_table_id'] = 'user.user_id';
         $join_str2[0]['join_type'] = '';
 
-
-
-        $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid'))";
-
+        $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile))";
         $selfromusr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
-
 
         $selectuser = array_merge($seltousr, $selfromusr);
         $selectuser = $this->aasort($selectuser, "id");
-//echo '<pre>';print_r($selectuser); die();
-// replace name of message_to in user_id in select user
+
+        // replace name of message_to in user_id in select user
 
         $return_arraysel = array();
         $i = 0;
@@ -368,7 +354,7 @@ class Chat extends MY_Controller {
         $join_str3[0]['from_table_id'] = 'user.user_id';
         $join_str3[0]['join_type'] = '';
 
-        $search_condition = "((message_from = '$userid') && (message_to != '$id'))";
+        $search_condition = "((message_from = '$userid') && (message_to != '$id')) ";
 
         $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
@@ -455,7 +441,6 @@ class Chat extends MY_Controller {
 //        }
 //        echo '<pre>';
 //        print_r($userlist);
-
         // uniq array of fromlist  
         foreach ($userlist as $k => $v) {
             foreach ($userlist as $key => $value) {
@@ -473,7 +458,7 @@ class Chat extends MY_Controller {
 
         $userlist = $this->aasort($userlist, "id");
 
-        if($return_arraysel[0] == ''){
+        if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);

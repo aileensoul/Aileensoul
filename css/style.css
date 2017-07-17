@@ -358,44 +358,7 @@ a:focus {
     font-weight: 500;
     font-size: 14px;
 }
-/* Move it (define the animation) */
 
-@-moz-keyframes marquee-main {
-    0% {
-        -moz-transform: translateX(70%);
-    }
-    100% {
-        -moz-transform: translateX(0%);
-    }
-}
-@-webkit-keyframes marquee-main {
-    0% {
-        -webkit-transform: translateX(70%);
-    }
-    100% {
-        -webkit-transform: translateX(0%);
-    }
-}
-@keyframes marquee-main {
-    0% {
-        -moz-transform: translateX(70%);
-        /* Firefox bug fix */
-        
-        -webkit-transform: translateX(70%);
-        /* Firefox bug fix */
-        
-        transform: translateX(70%);
-    }
-    100% {
-        -moz-transform: translateX(0%);
-        /* Firefox bug fix */
-        
-        -webkit-transform: translateX(0%);
-        /* Firefox bug fix */
-        
-        transform: translateX(0%);
-    }
-}
 .header3 {
     margin-left: 50px;
     margin-right: 50px;
@@ -5832,56 +5795,6 @@ label.cameraButton input[accept*="camera"] {
     -webkit-animation-delay: 1.64s;
     -moz-animation-delay: 1.64s;
 }
-@keyframes bounce_floatBarsG {
-    0% {
-        transform: scale(1);
-        background-color: #1b8ab9;
-    }
-    100% {
-        transform: scale(.3);
-        background-color: rgb(255, 255, 255);
-    }
-}
-@-o-keyframes bounce_floatBarsG {
-    0% {
-        -o-transform: scale(1);
-        background-color: #1b8ab9;
-    }
-    100% {
-        -o-transform: scale(.3);
-        background-color: rgb(255, 255, 255);
-    }
-}
-@-ms-keyframes bounce_floatBarsG {
-    0% {
-        -ms-transform: scale(1);
-        background-color: #1b8ab9;
-    }
-    100% {
-        -ms-transform: scale(.3);
-        background-color: rgb(255, 255, 255);
-    }
-}
-@-webkit-keyframes bounce_floatBarsG {
-    0% {
-        -webkit-transform: scale(1);
-        background-color: #1b8ab9;
-    }
-    100% {
-        -webkit-transform: scale(.3);
-        background-color: rgb(255, 255, 255);
-    }
-}
-@-moz-keyframes bounce_floatBarsG {
-    0% {
-        -moz-transform: scale(1);
-        background-color: #1b8ab9;
-    }
-    100% {
-        -moz-transform: scale(.3);
-        background-color: rgb(255, 255, 255);
-    }
-}
 .profile-boxProfileCard-cover {
     border: 1px solid #efefef;
     border-bottom: none;
@@ -10006,32 +9919,6 @@ fieldset .add_post_btns:hover {
     -webkit-animation: ripple 2s linear 1s infinite;
     animation: ripple 2s linear 1s infinite;
 }
-@-webkit-keyframes ripple {
-    0% {
-        -webkit-transform: scale(1);
-    }
-    75% {
-        -webkit-transform: scale(1.75);
-        opacity: 1;
-    }
-    100% {
-        -webkit-transform: scale(2);
-        opacity: 0;
-    }
-}
-@keyframes ripple {
-    0% {
-        transform: scale(1);
-    }
-    75% {
-        transform: scale(1.75);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
 /*** ripple effects  ***/
 
 .ripple .fa-thumbs-up {
@@ -11253,26 +11140,6 @@ end zalak 9-6 css*/
 .fa-pulse {
     -webkit-animation: fa-spin 1s infinite steps(8);
     animation: fa-spin 1s infinite steps(8);
-}
-@-webkit-keyframes fa-spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
-}
-@keyframes fa-spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(359deg);
-        transform: rotate(359deg);
-    }
 }
 .fa-rotate-90 {
     -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
@@ -13847,7 +13714,7 @@ body {
     margin-left: 10px;
 }
 .business-profile-right {
-    width: 83%;
+    width: 82%;
     float: left;
     padding-left: 30px;
 }
@@ -14461,8 +14328,58 @@ header.animated {
 .no-post-title{padding-left:10%; display:inline-block; float:left;}
 .no-post-title h4{text-align:left;}
 .add-post-custom{float:left; padding-top:15px; padding-left:20px;}
-
 .noti-msg-y{font-size: 13px; color: #646464; line-height: 16px;}
+
+/***  new ripple add contact  ***/
+.business-profile-right .bui-menu-profile{width:100%;}
+.profile-left{float:left; width:80%;}
+#contact_per{float:left; width:17%; position:relative; margin-top:30px;}
+.add-contact{}
+.add-contact div {
+  background-color: #1b8ab9;
+  border-radius: 50%;
+  position: absolute;
+  margin: auto auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+
+}
+
+.add-contact div:nth-child(1){
+  animation: pulse1 2s infinite;
+}
+.add-contact div:nth-child(2){
+  animation: pulse1 2s infinite .3s;
+}
+.add-contact div:nth-child(3){
+  animation: pulse1 2s infinite .6s;
+}
+
+.add-contact div:nth-child(4){
+  text-align: center;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #22475E;
+  font-size: 14px;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  
+}
+.add-contact div i{color:#fff; padding:7px 6px;}
+#contact_per .addtocont{
+	display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 45px;
+	text-align:center;
+}
+/***  add contact ripple effect  ***/
+
 
 /***  media query  ***/
 
@@ -14514,7 +14431,7 @@ header.animated {
         width: 78%;
     }
     #paddingtop_fixed {
-        padding-top: 84px !important;
+        padding-top: 81px !important;
     }
     .profile-boxProfilebuisness-avatarLink2 {
         height: 75px !important;
@@ -14525,6 +14442,7 @@ header.animated {
     .rec_check {
         font-size: 14px;
     }
+	.profile-main-box-buis-menu li a{font-size:13px; padding:17px 10px 12px;}
 }
 @media screen and (max-width: 1024px) {
     .header ul li a{padding-bottom: 0px !important;
@@ -14641,29 +14559,15 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
-     .cover-pic {
-    position: absolute !important;
-top: inherit;
-right: -4%;
-bottom: 48%;
-z-index: 99;
-    }
-    .cls-ve{position: absolute;
-top: 23px;
-z-index: 10;
-right: 0;}
+     .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
+    .cls-ve{position: absolute; top: 23px; z-index: 10; : 0;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
-        .profile-text1 .as-p{font-size: 12px; line-height: 0;}
-       .profile-text1{
-                           top:51px;
-                        left: 0;
-                        right: 0;
-                        margin: 0 auto;
-                        }
+    .profile-text1 .as-p{font-size: 12px; line-height: 0;}
+    .profile-text1{top:51px; left: 0; : 0; margin: 0 auto; }
     .dropdown-menu::before{right: 3.5%;}
-     .people-list {
+    .people-list {
         width: 32%;
     }
     .profile-pho {
@@ -14894,6 +14798,8 @@ right: 0;}
     ul.current-user {
         float: none;
     }
+	.profile-main-box-buis-menu li a{font-size:12px; padding:17px 5px 12px;}
+	.flw_msg_btn ul li a{margin-top:0;}
 }
 @media screen and (max-width: 900px) {
     .custom-right {
@@ -15455,6 +15361,8 @@ text-align: center;}
 	.profile-text1 .alert.alert-warning{width:100%; float:left;}
 	.email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}
+	.profile-left{width:70%;}
+	#contact_per{width:30%;}
 }
 @media screen and (max-width: 640px) {
 .profile-text1{width: 100%; top:40px;}
@@ -16168,3 +16076,158 @@ padding-bottom: 6px !important;*/}
     }
 }
 /*** test for form ***/
+
+
+/***  all keyframe css  ***/
+
+/***  keyfream css  ***/
+
+@keyframes pulse1 {
+  0%{transform:scale(.1);opacity: 0;}
+  50%{ opacity: .4;}
+  100%{transform: scale(1.6); opacity: 0;}
+}
+
+/* Move it (define the animation) */
+
+@-moz-keyframes marquee-main {
+    0% {
+        -moz-transform: translateX(70%);
+    }
+    100% {
+        -moz-transform: translateX(0%);
+    }
+}
+@-webkit-keyframes marquee-main {
+    0% {
+        -webkit-transform: translateX(70%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+@keyframes marquee-main {
+    0% {
+        -moz-transform: translateX(70%);
+       
+        
+        -webkit-transform: translateX(70%);
+    
+        
+        transform: translateX(70%);
+    }
+    100% {
+        -moz-transform: translateX(0%);
+      
+        
+        -webkit-transform: translateX(0%);
+    
+        
+        transform: translateX(0%);
+    }
+}
+
+
+
+@keyframes bounce_floatBarsG {
+    0% {
+        transform: scale(1);
+        background-color: #1b8ab9;
+    }
+    100% {
+        transform: scale(.3);
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-o-keyframes bounce_floatBarsG {
+    0% {
+        -o-transform: scale(1);
+        background-color: #1b8ab9;
+    }
+    100% {
+        -o-transform: scale(.3);
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-ms-keyframes bounce_floatBarsG {
+    0% {
+        -ms-transform: scale(1);
+        background-color: #1b8ab9;
+    }
+    100% {
+        -ms-transform: scale(.3);
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-webkit-keyframes bounce_floatBarsG {
+    0% {
+        -webkit-transform: scale(1);
+        background-color: #1b8ab9;
+    }
+    100% {
+        -webkit-transform: scale(.3);
+        background-color: rgb(255, 255, 255);
+    }
+}
+@-moz-keyframes bounce_floatBarsG {
+    0% {
+        -moz-transform: scale(1);
+        background-color: #1b8ab9;
+    }
+    100% {
+        -moz-transform: scale(.3);
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+/* ripple */
+
+@-webkit-keyframes ripple {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    75% {
+        -webkit-transform: scale(1.75);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(2);
+        opacity: 0;
+    }
+}
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.75);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+
+@-webkit-keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes fa-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
