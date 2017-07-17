@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
 
         $this->data['loged_in_user']=$this->common->select_data_by_id('ailee_admin','admin_id',$admin_id,'admin_name','admin_image',$condition_array);
         
-        
+        date_default_timezone_set('Asia/Calcutta');
     }
 
 

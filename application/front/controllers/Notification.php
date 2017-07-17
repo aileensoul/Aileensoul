@@ -16,13 +16,14 @@ class Notification extends MY_Controller {
         //           redirect('login', 'refresh');
         //       }
         include ('include.php');
+        date_default_timezone_set('Asia/Calcutta');
     }
 
     // public function index() {
     //     $this->load->view('Notification/index', $this->data);
     // }
     public function index() {
- $userid = $this->session->userdata('aileenuser');
+        $userid = $this->session->userdata('aileenuser');
 // 1-5 notification start
 // recruiter notfication start 
 
@@ -81,7 +82,6 @@ class Notification extends MY_Controller {
         // freelancer hire notification end
 // freelancer post notification start
         // $this->data['work_post'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-
 //echo '<pre>'; print_r($hire_not); die();
         $contition_array = array('notification.not_type' => 4, 'notification.not_from' => 5, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
@@ -100,8 +100,8 @@ class Notification extends MY_Controller {
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-     //   echo '<pre>'; print_r($this->data['hire_noth']); 
-      //  echo '<pre>'; print_r($this->data['work_post']); die();
+        //   echo '<pre>'; print_r($this->data['hire_noth']); 
+        //  echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -141,7 +141,7 @@ class Notification extends MY_Controller {
         $artcommnet = $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
-        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3,'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3, 'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post',
@@ -155,8 +155,8 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'art_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 5,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 5, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'post_image',
@@ -170,9 +170,9 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'post_image.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
 
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 3 ,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 3, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'artistic_post_comment',
@@ -187,7 +187,7 @@ class Notification extends MY_Controller {
         $data = array('notification.*', 'artistic_post_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artcmtlike = $this->data['artcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $contition_array = array('notification.not_type' => 6, 'not_img' => 4,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 6, 'not_img' => 4, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post_image_comment',
@@ -275,7 +275,7 @@ class Notification extends MY_Controller {
 //echo '<pre>'; print_r($this->data['busimgcommnet']); die(); 
 // comment notification end
 // like notification start
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 2 , 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 2, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'business_profile_post',
@@ -339,10 +339,10 @@ class Notification extends MY_Controller {
 
         $busimgcmtlike = $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post,$artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet,$artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
-       $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
-       
-     // echo '<pre>'; print_r($totalnotification); die();
+        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
+        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
+
+        // echo '<pre>'; print_r($totalnotification); die();
         $this->load->view('notification/index', $this->data);
     }
 
@@ -426,7 +426,7 @@ class Notification extends MY_Controller {
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $contition_array = array('art_post_id' => $id, 'status' => '1');
         $this->data['art_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-       //echo '<pre>'; print_r($this->data['art_data']); die();
+        //echo '<pre>'; print_r($this->data['art_data']); die();
         $this->load->view('notification/art_post', $this->data);
     }
 
@@ -449,7 +449,7 @@ class Notification extends MY_Controller {
             $i++;
         }
         $this->data['count'] = $count;
-          //code search
+        //code search
         $contition_array = array('status' => '1', 'is_delete' => '0');
 
 
@@ -536,7 +536,7 @@ class Notification extends MY_Controller {
         }
         $this->data['count'] = $count;
 
-          $contition_array = array('status' => '1', 'is_deleted' => '0');
+        $contition_array = array('status' => '1', 'is_deleted' => '0');
 
 
         $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -718,7 +718,7 @@ class Notification extends MY_Controller {
     public function not_header($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
-    $contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_from' => 2, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_from' => 2, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'job_apply',
@@ -791,8 +791,8 @@ class Notification extends MY_Controller {
 
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-       // echo '<pre>'; print_r($this->data['hire_not']);
-      //  echo '<pre>'; print_r($this->data['work_post']); die();
+        // echo '<pre>'; print_r($this->data['hire_not']);
+        //  echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -832,7 +832,7 @@ class Notification extends MY_Controller {
         $artcommnet = $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
-        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3,'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3, 'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post',
@@ -846,8 +846,8 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'art_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 5,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 5, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'post_image',
@@ -861,9 +861,9 @@ class Notification extends MY_Controller {
         );
         $data = array('notification.*', 'post_image.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
 
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 3 ,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 3, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'artistic_post_comment',
@@ -878,7 +878,7 @@ class Notification extends MY_Controller {
         $data = array('notification.*', 'artistic_post_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artcmtlike = $this->data['artcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $contition_array = array('notification.not_type' => 6, 'not_img' => 4,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 6, 'not_img' => 4, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post_image_comment',
@@ -967,7 +967,7 @@ class Notification extends MY_Controller {
 //echo '<pre>'; print_r($this->data['busimgcommnet']); die(); 
 // comment notification end
 // like notification start
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 2 , 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 2, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'business_profile_post',
@@ -1031,9 +1031,9 @@ class Notification extends MY_Controller {
 
         $busimgcmtlike = $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post,$artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet,$artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
-       $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
-       
+        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
+        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
+
         //  $notification .= '<div class="notification-data">';
         // $notification .= '<ul>';
         // $notification .= '<li>';
@@ -1044,27 +1044,27 @@ class Notification extends MY_Controller {
         //  $notification .= '<h6> Notification updates</h6>';
         // $notification .= '</div>';
         //   $notification .= '</div></div></li>';
-       //echo count($totalnotification); die();
+        //echo count($totalnotification); die();
 
-       $notification = '<ul class="">';
-       $i = 0;
-        foreach ($totalnotification as $total) {  
+        $notification = '<ul class="">';
+        $i = 0;
+        foreach ($totalnotification as $total) {
 
             if ($total['not_from'] == 1) {
- $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name; 
+                $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;
 
-             
+
 
 
                 $notification .= '<li><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
-                if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
 
 
                 $notification .= '</div><div class="notification-data-inside">';
@@ -1073,20 +1073,19 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
             }
-      //  }
-
-       // foreach ($artfollow as $art) {
+            //  }
+            // foreach ($artfollow as $art) {
             if ($total['not_from'] == 3 && $total['not_img'] == 0) {
 
                 $notification .= '<li><a href="' . base_url('artistic/artistic_profile/' . $total['user_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
-                 if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
 
 
                 $notification .= '</div><div class="notification-data-inside">';
@@ -1095,9 +1094,8 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
             }
-     //   }
-
-    //    foreach ($artcommnet as $art) {
+            //   }
+            //    foreach ($artcommnet as $art) {
             $art_not_from = $total['not_from'];
             $art_not_img = $total['not_img'];
             if ($art_not_from == '3' && $art_not_img == '1') {
@@ -1105,11 +1103,11 @@ class Notification extends MY_Controller {
                 $notification .= '<li><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
-                 if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
 
 
                 $notification .= '</div><div class="notification-data-inside">';
@@ -1120,8 +1118,8 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
             }
-     //   }
-       // foreach ($artlike as $art) {
+            //   }
+            // foreach ($artlike as $art) {
             $art_not_from = $total['not_from'];
             $art_not_img = $total['not_img'];
             if ($art_not_from == '3' && $art_not_img == '2') {
@@ -1130,18 +1128,18 @@ class Notification extends MY_Controller {
                 $notification .= '<div class="notification-pic">';
 
 
-                if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes Your Post In Artistic.</sapn></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div></a> </li>';
-            } 
+            }
 //            elseif ($art_not_from == '3' && $art_not_img == '5') {
 //                $notification .= '<li>' . $art_not_img . '<div class="notification-database">';
 //                $notification .= '<div class="notification-pic">';
@@ -1152,10 +1150,8 @@ class Notification extends MY_Controller {
 //                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
 //                $notification .= '</div></div> </div> </li>';
 //            }
-      //  }
-
-
-      //  foreach ($artcmtlike as $art) {
+            //  }
+            //  foreach ($artcmtlike as $art) {
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 3) {
 
@@ -1163,11 +1159,11 @@ class Notification extends MY_Controller {
                     $notification .= '<a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database"><div class="notification-pic" >';
 
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
 
 
                     $notification .= '</div>';
@@ -1180,21 +1176,19 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-     //   }
-
-
-      //  foreach ($artimglike as $bus) {
+            //   }
+            //  foreach ($artimglike as $bus) {
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 5) {
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic">';
 
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
 
 
                     $notification .= '</div>';
@@ -1207,23 +1201,21 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-      //  }
-
-
-    //    foreach ($artimgcommnet as $bus) {
+            //  }
+            //    foreach ($artimgcommnet as $bus) {
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 4) {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic">';
-                    
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                   
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1235,23 +1227,21 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-     //   }
-
-
-      //  foreach ($artimgcmtlike as $bus) {
+            //   }
+            //  foreach ($artimgcmtlike as $bus) {
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 6) {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
-                    
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                    
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1263,50 +1253,44 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-   //     }
-
-
-
-       // foreach ($buscommnet as $bus) {
+            //     }
+            // foreach ($buscommnet as $bus) {
             $bus_not_from = $total['not_from'];
             $bus_not_img = $total['not_img'];
-           $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
+            $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
             if ($bus_not_from == '6' && $bus_not_img == '1') {
                 $notification .= '<li>';
                 $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                
 
-                if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-               
+
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
+
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b><span class="noti-msg-y"> Commented On Your Post In Business Profile. </span></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div></a> </li>';
-            } 
+            }
 
-     //   }
-
-
-
-      //  foreach ($busifollow as $bus) {
+            //   }
+            //  foreach ($busifollow as $bus) {
             if ($total['not_from'] == 6 && $total['not_img'] == 0) {
                 $busslug = $this->db->get_where('business_profile', array('user_id' => $total['user_id']))->row()->business_slug;
-               $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
+                $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                 $notification .= '<li><a href="' . base_url('business_profile/business_resume/' . $busslug) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
-                if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y">Started Following You In Business Profile.</span></h6>';
@@ -1314,25 +1298,22 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div></a> </li>';
             }
-      //  }
-
-
-
-   //     foreach ($buslike as $bus) {
+            //  }
+            //     foreach ($buslike as $bus) {
             $bus_not_from = $total['not_from'];
             $bus_not_img = $total['not_img'];
-    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
+            $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
             if ($bus_not_from == '6' && $bus_not_img == '2') {
                 $notification .= '<li><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-               
 
-                if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-               
+
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
+
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes Your Post In Business Profile. </span> </h6>';
@@ -1350,24 +1331,22 @@ class Notification extends MY_Controller {
 //                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
 //                $notification .= '</div></div> </div> </li>';
 //            }
-     //   }
-
-
-       // foreach ($buscmtlike as $bus) {
+            //   }
+            // foreach ($buscmtlike as $bus) {
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 3) {
-              $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
+                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '">
                     <div class="notification-database"> <div class="notification-pic" >';
-                    
 
-                    if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                    
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1379,23 +1358,21 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-       // }
-
-
-       // foreach ($busimglike as $bus) {
+            // }
+            // foreach ($busimglike as $bus) {
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 5) {
-     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;                      
+                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
-                    
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                    
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1407,23 +1384,22 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-       // }
-
-     //   foreach ($busimgcommnet as $bus) {
+            // }
+            //   foreach ($busimgcommnet as $bus) {
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 4) {
-                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
+                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
-                   
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                    
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1435,24 +1411,22 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-     //   }
-
-
-    //    foreach ($busimgcmtlike as $bus) {
+            //   }
+            //    foreach ($busimgcmtlike as $bus) {
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 6) {
-                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;      
+                    $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
                     $notification .= '<li>';
                     $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
-                    
 
-                     if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                    
+
+                    if ($total['user_image']) {
+                        $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    } else {
+                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                    }
+
 
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
@@ -1464,23 +1438,20 @@ class Notification extends MY_Controller {
                     $notification .= '</li>';
                 }
             }
-      //  }
-
-
-
-       // foreach ($rec_not as $art) {
+            //  }
+            // foreach ($rec_not as $art) {
             if ($total['not_from'] == 2) {
 
-                $notification .= '<li><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'].'?page=recruiter') . '"><div class="notification-database">';
+                $notification .= '<li><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'] . '?page=recruiter') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-               
 
-                 if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                
+
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
+
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y"> Job seeker</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your jobpost. </sapn></h6>';
@@ -1488,21 +1459,20 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</sapn></div></div> </div></a> </li>';
             }
-     //   }
-
-     //   foreach ($hire_not as $art) {
+            //   }
+            //   foreach ($hire_not as $art) {
             if ($total['not_from'] == 4) {
 
-                $notification .= '<li><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire') . '"><div class="notification-database">';
+                $notification .= '<li><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'] . '?page=freelancer_hire') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                
 
-                 if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-                
+
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
+
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Freelancer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your post. </span></h6>';
@@ -1510,22 +1480,20 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div></a> </li>';
             }
-     //   }
-
-
-        //foreach ($work_not as $art) {
+            //   }
+            //foreach ($work_not as $art) {
             if ($total['not_from'] == 5) {
 
-                $notification .= '<li><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'].'?page=freelancer_post') . '"><div class="notification-database">';
+                $notification .= '<li><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'] . '?page=freelancer_post') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-               
 
-                 if($total['user_image']){
-                $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
-                 }else{
-                  $notification .= '<img src="' . base_url(NOIMAGE) . '" >';  
-                 }
-               
+
+                if ($total['user_image']) {
+                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                } else {
+                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
+                }
+
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Employer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Selected You For Project. </span> </h6>';
@@ -1533,11 +1501,8 @@ class Notification extends MY_Controller {
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div> </a></li>';
             }
-     //   }
-
-
-   //     foreach ($work_post as $work) {
-
+            //   }
+            //     foreach ($work_post as $work) {
 //            if ($total['not_from'] == 4) {
 //
 //                $notification .= '<li><div class="notification-database">';
@@ -1549,10 +1514,10 @@ class Notification extends MY_Controller {
 //                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
 //                $notification .= '</div></div> </div> </li>';
 //            }
-            
-          $i++;
-          if($i == 10){
-           break;
+
+            $i++;
+            if ($i == 10) {
+                break;
             }
         }
         $notification .= '</div> </ul>';
@@ -1564,521 +1529,452 @@ class Notification extends MY_Controller {
     }
 
     public function msg_header($id = "") {
-
-
         // khyati 22-5 chnages start
-            if($id == ""){  
-        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        if ($id == "") {
+            $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+            $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
 
-        $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
+            $this->data['logfname'] = $loginuser[0]['first_name'];
+            $this->data['loglname'] = $loginuser[0]['last_name'];
 
-        $this->data['logfname'] = $loginuser[0]['first_name'];
-        $this->data['loglname'] = $loginuser[0]['last_name'];
+            // last message user fetch
+            $contition_array = array('id !=' => '');
+            $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile')";
+            $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+            
+            if ($lastuser[0]['message_from'] == $userid) {
+                $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
+            } else {
+                $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
+            }
 
-        // last message user fetch
+            if ($lstusr) {
+                $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
 
-        $contition_array = array('id !=' => '');
+                $this->data['lstfname'] = $lastuser[0]['first_name'];
+                $this->data['lstlname'] = $lastuser[0]['last_name'];
+            }
 
-        $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
+            $contition_array = array('is_delete' => '0', 'status' => '1');
 
-        $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+            $join_str1[0]['table'] = 'messages';
+            $join_str1[0]['join_table_id'] = 'messages.message_to';
+            $join_str1[0]['from_table_id'] = 'user.user_id';
+            $join_str1[0]['join_type'] = '';
 
-        if ($lastuser[0]['message_from'] == $userid) {
+            $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_to != '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
 
-            $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
-        } else {
+            // slected user chat from
 
-            $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
-        }
+            $contition_array = array('is_delete' => '0', 'status' => '1');
 
+            $join_str2[0]['table'] = 'messages';
+            $join_str2[0]['join_table_id'] = 'messages.message_from';
+            $join_str2[0]['from_table_id'] = 'user.user_id';
+            $join_str2[0]['join_type'] = '';
 
-        if ($lstusr) {
-            $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
+            $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_from != '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $selfromusr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
 
-            $this->data['lstfname'] = $lastuser[0]['first_name'];
-            $this->data['lstlname'] = $lastuser[0]['last_name'];
-        }
-
-        $contition_array = array('is_delete' => '0', 'status' => '1');
-
-        $join_str1[0]['table'] = 'messages';
-        $join_str1[0]['join_table_id'] = 'messages.message_to';
-        $join_str1[0]['from_table_id'] = 'user.user_id';
-        $join_str1[0]['join_type'] = '';
-
-        $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_to != '$userid'))";
-
-        $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
-
-
-        // slected user chat from
-
-
-        $contition_array = array('is_delete' => '0', 'status' => '1');
-
-        $join_str2[0]['table'] = 'messages';
-        $join_str2[0]['join_table_id'] = 'messages.message_from';
-        $join_str2[0]['from_table_id'] = 'user.user_id';
-        $join_str2[0]['join_type'] = '';
-
-
-
-        $search_condition = "((message_from = '$lstusr' OR message_to = '$lstusr') && (message_from != '$userid'))";
-
-        $selfromusr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
-
-
-        $selectuser = array_merge($seltousr, $selfromusr);
-        $selectuser = $this->aasort($selectuser, "id");
-
+            $selectuser = array_merge($seltousr, $selfromusr);
+            $selectuser = $this->aasort($selectuser, "id");
 
 // replace name of message_to in user_id in select user
 
-   $return_arraysel = array();
-$i=0;
-    foreach($selectuser as $k => $sel_list){
-        $return = array();
-       $return = $sel_list;
+            $return_arraysel = array();
+            $i = 0;
+            foreach ($selectuser as $k => $sel_list) {
+                $return = array();
+                $return = $sel_list;
 
-if($sel_list['message_to']){
-     if($sel_list['message_to'] == $lstusr){ 
-       $return['user_id'] = $sel_list['message_to'];
-       $return['first_name'] = $sel_list['first_name'];
-       $return['user_image'] = $sel_list['user_image'];
-       $return['message'] = $sel_list['message'];
-      
-       unset($return['message_to']);
-       
-        $i++;
-if($i==1) break;
-     }
-     
-    
-}else{ 
-if($sel_list['message_from'] == $lstusr){ 
-       $return['user_id'] = $sel_list['message_from'];
-       $return['first_name'] = $sel_list['first_name'];
-       $return['user_image'] = $sel_list['user_image'];
-       $return['message'] = $sel_list['message'];
-       
-        $i++;
-if($i==1) break;
-}
-      
-       unset($return['message_from']);
-        
-      }
+                if ($sel_list['message_to']) {
+                    if ($sel_list['message_to'] == $lstusr) {
+                        $return['user_id'] = $sel_list['message_to'];
+                        $return['first_name'] = $sel_list['first_name'];
+                        $return['user_image'] = $sel_list['user_image'];
+                        $return['message'] = $sel_list['message'];
 
+                        unset($return['message_to']);
 
-    } array_push($return_arraysel, $return); 
+                        $i++;
+                        if ($i == 1)
+                            break;
+                    }
+                }else {
+                    if ($sel_list['message_from'] == $lstusr) {
+                        $return['user_id'] = $sel_list['message_from'];
+                        $return['first_name'] = $sel_list['first_name'];
+                        $return['user_image'] = $sel_list['user_image'];
+                        $return['message'] = $sel_list['message'];
 
-        // khyati 24-4 end 
-        // message to user
+                        $i++;
+                        if ($i == 1)
+                            break;
+                    }
 
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
+                    unset($return['message_from']);
+                }
+            } array_push($return_arraysel, $return);
 
-        $join_str3[0]['table'] = 'messages';
-        $join_str3[0]['join_table_id'] = 'messages.message_to';
-        $join_str3[0]['from_table_id'] = 'user.user_id';
-        $join_str3[0]['join_type'] = '';
+            // khyati 24-4 end 
+            // message to user
 
-        $search_condition = "((message_from = '$userid') && (message_to != '$lstusr'))";
+            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
-        $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+            $join_str3[0]['table'] = 'messages';
+            $join_str3[0]['join_table_id'] = 'messages.message_to';
+            $join_str3[0]['from_table_id'] = 'user.user_id';
+            $join_str3[0]['join_type'] = '';
 
-
+            $search_condition = "((message_from = '$userid') && (message_to != '$lstusr') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
 // uniq array of tolist  
-        foreach ($tolist as $k => $v) {
-            foreach ($tolist as $key => $value) {
-                if ($k != $key && $v['message_to'] == $value['message_to']) {
-                    unset($tolist[$k]);
-                }
-            }
-        }
-
-        // replace name of message_to in user_id
-
-        $return_arrayto = array();
-
-        foreach ($tolist as $to_list) {
-            if ($to_list['message_to'] != $lstusr) {
-                $return = array();
-                $return = $to_list;
-
-                $return['user_id'] = $to_list['message_to'];
-                $return['first_name'] = $to_list['first_name'];
-                $return['user_image'] = $to_list['user_image'];
-                $return['message'] = $to_list['message'];
-
-                unset($return['message_to']);
-                array_push($return_arrayto, $return);
-            }
-        }
-
-        // message from user
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
-
-        $join_str4[0]['table'] = 'messages';
-        $join_str4[0]['join_table_id'] = 'messages.message_from';
-        $join_str4[0]['from_table_id'] = 'user.user_id';
-        $join_str4[0]['join_type'] = '';
-
-        $search_condition = "((message_to = '$userid') && (message_from != '$lstusr'))";
-
-
-        $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
-
-        
-        
-
-        // uniq array of fromlist  
-        foreach ($fromlist as $k => $v) {
-            foreach ($fromlist as $key => $value) {
-                if ($k != $key && $v['message_from'] == $value['message_from']) {
-                    unset($fromlist[$k]);
-                }
-            }
-        }
-
-// replace name of message_to in user_id
-
-        $return_arrayfrom = array();
-
-        foreach ($fromlist as $from_list) {
-            if ($to_list['message_from'] != $lstusr) {
-                $return = array();
-                $return = $from_list;
-
-                $return['user_id'] = $from_list['message_from'];
-                $return['first_name'] = $from_list['first_name'];
-                $return['user_image'] = $from_list['user_image'];
-                $return['message'] = $from_list['message'];
-
-
-                unset($return['message_from']);
-                array_push($return_arrayfrom, $return);
-            }
-        }
-
-        $userlist = array_merge($return_arrayto, $return_arrayfrom);
-
-
-        // uniq array of fromlist  
-        foreach ($userlist as $k => $v) {
-            foreach ($userlist as $key => $value) {
-                if ($k != $key && $v['user_id'] == $value['user_id']) {
-                    if ($v['id'] < $value['id']) {
-                        unset($userlist[$k]);
+            foreach ($tolist as $k => $v) {
+                foreach ($tolist as $key => $value) {
+                    if ($k != $key && $v['message_to'] == $value['message_to']) {
+                        unset($tolist[$k]);
                     }
                 }
             }
-        }
 
-        $userlist = $this->aasort($userlist, "id");
+            // replace name of message_to in user_id
+
+            $return_arrayto = array();
+
+            foreach ($tolist as $to_list) {
+                if ($to_list['message_to'] != $lstusr) {
+                    $return = array();
+                    $return = $to_list;
+
+                    $return['user_id'] = $to_list['message_to'];
+                    $return['first_name'] = $to_list['first_name'];
+                    $return['user_image'] = $to_list['user_image'];
+                    $return['message'] = $to_list['message'];
+
+                    unset($return['message_to']);
+                    array_push($return_arrayto, $return);
+                }
+            }
+
+            // message from user
+            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
+
+            $join_str4[0]['table'] = 'messages';
+            $join_str4[0]['join_table_id'] = 'messages.message_from';
+            $join_str4[0]['from_table_id'] = 'user.user_id';
+            $join_str4[0]['join_type'] = '';
+
+            $search_condition = "((message_to = '$userid') && (message_from != '$lstusr') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+
+
+            // uniq array of fromlist  
+            foreach ($fromlist as $k => $v) {
+                foreach ($fromlist as $key => $value) {
+                    if ($k != $key && $v['message_from'] == $value['message_from']) {
+                        unset($fromlist[$k]);
+                    }
+                }
+            }
+
+// replace name of message_to in user_id
+
+            $return_arrayfrom = array();
+
+            foreach ($fromlist as $from_list) {
+                if ($to_list['message_from'] != $lstusr) {
+                    $return = array();
+                    $return = $from_list;
+
+                    $return['user_id'] = $from_list['message_from'];
+                    $return['first_name'] = $from_list['first_name'];
+                    $return['user_image'] = $from_list['user_image'];
+                    $return['message'] = $from_list['message'];
+
+
+                    unset($return['message_from']);
+                    array_push($return_arrayfrom, $return);
+                }
+            }
+
+            $userlist = array_merge($return_arrayto, $return_arrayfrom);
+
+
+            // uniq array of fromlist  
+            foreach ($userlist as $k => $v) {
+                foreach ($userlist as $key => $value) {
+                    if ($k != $key && $v['user_id'] == $value['user_id']) {
+                        if ($v['id'] < $value['id']) {
+                            unset($userlist[$k]);
+                        }
+                    }
+                }
+            }
+
+            $userlist = $this->aasort($userlist, "id");
 //echo '<pre>';print_r($return_arraysel);
 //echo '<pre>';print_r($userlist); die();
-        $user_message = array_merge($return_arraysel, $userlist);
+            $user_message = array_merge($return_arraysel, $userlist);
+        } else {
+            // 30-6 chnages start
+            // khyati 25-4 changes start
+            $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-}else{
-    // 30-6 chnages start
-      
-      // khyati 25-4 changes start
-$this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-   
-   // last user if $id is null
+            // last user if $id is null
 
-    $contition_array = array('id !=' => '');
+            $contition_array = array('id !=' => '');
+            $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile)";
+            $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
-    $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
+            if ($id) {
 
-    $lastchat = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-      
-  if($id){     
-  
-  $toid =  $this->data['toid'] = $id;
-  
-  }elseif($lastchat[0]['message_from'] == $userid){
-     
-  $toid =    $this->data['toid'] = $lastchat[0]['message_to'];
-  }else{
-    
-  $toid =  $this->data['toid'] = $lastchat[0]['message_from'];
-    }
+                $toid = $this->data['toid'] = $id;
+            } elseif ($lastchat[0]['message_from'] == $userid) {
 
-   // khyati 22-4 changes end
+                $toid = $this->data['toid'] = $lastchat[0]['message_to'];
+            } else {
 
-    $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
-    
-    $this->data['logfname'] = $loginuser[0]['first_name'];
-    $this->data['loglname'] = $loginuser[0]['last_name'];
-   
-    // last message user fetch
-    
-    $contition_array = array('id !=' => '');
+                $toid = $this->data['toid'] = $lastchat[0]['message_from'];
+            }
 
-    $search_condition = "(message_from = '$id' OR message_to = '$id')";
+            // khyati 22-4 changes end
 
-    $lastuser = $this->common->select_data_by_search('messages', $search_condition,$contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-    
-    if($lastuser[0]['message_from'] == $userid){
-     
-  $lstusr =    $this->data['lstusr'] = $lastuser[0]['message_to'];
-    }else{
-    
-  $lstusr =  $this->data['lstusr'] = $lastuser[0]['message_from'];
-    }
+            $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
+
+            $this->data['logfname'] = $loginuser[0]['first_name'];
+            $this->data['loglname'] = $loginuser[0]['last_name'];
+
+            // last message user fetch
+
+            $contition_array = array('id !=' => '');
+            $search_condition = "(message_from = '$id' OR message_to = '$id') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile)";
+            $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+
+            if ($lastuser[0]['message_from'] == $userid) {
+                $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
+            } else {
+                $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
+            }
 
 // last user first name last name
-    if($lstusr){
-    $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
-    
-    $this->data['lstfname'] = $lastuser[0]['first_name'];
-    $this->data['lstlname'] = $lastuser[0]['last_name'];
-    }
-    //khyati changes starrt 20-4
-    
-    // slected user chat to
+            if ($lstusr) {
+                $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
 
-    
-     $contition_array = array('is_delete' => '0' , 'status' => '1');
-
-     $join_str1[0]['table'] = 'messages';
-     $join_str1[0]['join_table_id'] = 'messages.message_to';
-     $join_str1[0]['from_table_id'] = 'user.user_id';
-     $join_str1[0]['join_type'] = '';
-
-     
-     
-    $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
-
-     $seltousr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+                $this->data['lstfname'] = $lastuser[0]['first_name'];
+                $this->data['lstlname'] = $lastuser[0]['last_name'];
+            }
+            //khyati changes starrt 20-4
+            // slected user chat to
 
 
-     // slected user chat from
+            $contition_array = array('is_delete' => '0', 'status' => '1');
 
-    
-     $contition_array = array('is_delete' => '0' , 'status' => '1');
+            $join_str1[0]['table'] = 'messages';
+            $join_str1[0]['join_table_id'] = 'messages.message_to';
+            $join_str1[0]['from_table_id'] = 'user.user_id';
+            $join_str1[0]['join_type'] = '';
 
-     $join_str2[0]['table'] = 'messages';
-     $join_str2[0]['join_table_id'] = 'messages.message_from';
-     $join_str2[0]['from_table_id'] = 'user.user_id';
-     $join_str2[0]['join_type'] = '';
+            $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
 
-     
-     
-    $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid'))";
+            // slected user chat from
+            $contition_array = array('is_delete' => '0', 'status' => '1');
 
-     $selfromusr = $this->common->select_data_by_search('user', $search_condition,$contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+            $join_str2[0]['table'] = 'messages';
+            $join_str2[0]['join_table_id'] = 'messages.message_from';
+            $join_str2[0]['from_table_id'] = 'user.user_id';
+            $join_str2[0]['join_type'] = '';
 
+            $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $selfromusr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
 
-$selectuser = array_merge($seltousr,$selfromusr);
-$selectuser =  $this->aasort($selectuser,"id");
+            $selectuser = array_merge($seltousr, $selfromusr);
+            $selectuser = $this->aasort($selectuser, "id");
 
 //echo '<pre>'; print_r($selectuser); die();
 // replace name of message_to in user_id in select user
 
-   $return_arraysel = array();
-$i=0;
-    foreach($selectuser as $k => $sel_list){
-        $return = array();
-       $return = $sel_list;
+            $return_arraysel = array();
+            $i = 0;
+            foreach ($selectuser as $k => $sel_list) {
+                $return = array();
+                $return = $sel_list;
 
-if($sel_list['message_to']){
-     if($sel_list['message_to'] == $id){ 
-       $return['user_id'] = $sel_list['message_to'];
-       $return['first_name'] = $sel_list['first_name'];
-       $return['user_image'] = $sel_list['user_image'];
-       $return['message'] = $sel_list['message'];
-      
-       unset($return['message_to']);
-       
-        $i++;
-if($i==1) break;
-     }
-     
-    
-}else{ 
-if($sel_list['message_from'] == $id){ 
-       $return['user_id'] = $sel_list['message_from'];
-       $return['first_name'] = $sel_list['first_name'];
-       $return['user_image'] = $sel_list['user_image'];
-       $return['message'] = $sel_list['message'];
-       
-        $i++;
-if($i==1) break;
-}
-      
-       unset($return['message_from']);
-        
-      }
+                if ($sel_list['message_to']) {
+                    if ($sel_list['message_to'] == $id) {
+                        $return['user_id'] = $sel_list['message_to'];
+                        $return['first_name'] = $sel_list['first_name'];
+                        $return['user_image'] = $sel_list['user_image'];
+                        $return['message'] = $sel_list['message'];
 
+                        unset($return['message_to']);
 
-    } array_push($return_arraysel, $return); 
+                        $i++;
+                        if ($i == 1)
+                            break;
+                    }
+                }else {
+                    if ($sel_list['message_from'] == $id) {
+                        $return['user_id'] = $sel_list['message_from'];
+                        $return['first_name'] = $sel_list['first_name'];
+                        $return['user_image'] = $sel_list['user_image'];
+                        $return['message'] = $sel_list['message'];
+
+                        $i++;
+                        if ($i == 1)
+                            break;
+                    }
+
+                    unset($return['message_from']);
+                }
+            } array_push($return_arraysel, $return);
 //echo '<pre>'; print_r($return_arraysel); die();
-     // message to user
-     $contition_array = array('is_delete' => '0' , 'status' => '1','message_to !=' => $userid);
+            // message to user
+            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
-     $join_str3[0]['table'] = 'messages';
-     $join_str3[0]['join_table_id'] = 'messages.message_to';
-     $join_str3[0]['from_table_id'] = 'user.user_id';
-     $join_str3[0]['join_type'] = '';
-     
-$search_condition = "((message_from = '$userid') && (message_to != '$id'))";
+            $join_str3[0]['table'] = 'messages';
+            $join_str3[0]['join_table_id'] = 'messages.message_to';
+            $join_str3[0]['from_table_id'] = 'user.user_id';
+            $join_str3[0]['join_type'] = '';
 
-     $tolist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+            $search_condition = "((message_from = '$userid') && (message_to != '$id') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
 
-     // uniq array of tolist  
-      foreach($tolist as $k => $v) 
-{ 
-    foreach($tolist as $key => $value) 
-    { 
-      
-        if($k != $key && $v['message_to'] == $value['message_to'])
-        {
-             unset($tolist[$k]);
-        }
-    }
-}
+            $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
- // replace name of message_to in user_id
+            // uniq array of tolist  
+            foreach ($tolist as $k => $v) {
+                foreach ($tolist as $key => $value) {
 
-   $return_arrayto = array();
+                    if ($k != $key && $v['message_to'] == $value['message_to']) {
+                        unset($tolist[$k]);
+                    }
+                }
+            }
 
-    foreach($tolist as $to_list){
-if($to_list['message_to'] != $id){
-      $return = array();
-      $return = $to_list;
+            // replace name of message_to in user_id
 
-      $return['user_id'] = $to_list['message_to'];
-      $return['first_name'] = $to_list['first_name'];
-      $return['user_image'] = $to_list['user_image'];
-       $return['message'] = $to_list['message'];
+            $return_arrayto = array();
 
-      
-      unset($return['message_to']);
-     array_push($return_arrayto, $return);
-}
-    } 
+            foreach ($tolist as $to_list) {
+                if ($to_list['message_to'] != $id) {
+                    $return = array();
+                    $return = $to_list;
 
-    // message from user
-    $contition_array = array('is_delete' => '0' , 'status' => '1','message_from !=' => $userid);
+                    $return['user_id'] = $to_list['message_to'];
+                    $return['first_name'] = $to_list['first_name'];
+                    $return['user_image'] = $to_list['user_image'];
+                    $return['message'] = $to_list['message'];
 
-    $join_str4[0]['table'] = 'messages';
-    $join_str4[0]['join_table_id'] = 'messages.message_from';
-    $join_str4[0]['from_table_id'] = 'user.user_id';
-    $join_str4[0]['join_type'] = '';
-     
-   $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
 
-    $fromlist = $this->common->select_data_by_search('user',$search_condition,$contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
-    
+                    unset($return['message_to']);
+                    array_push($return_arrayto, $return);
+                }
+            }
 
-  // uniq array of fromlist  
-      foreach($fromlist as $k => $v) 
-{  
-    foreach($fromlist as $key => $value) 
-   { 
-         if($k != $key && $v['message_from'] == $value['message_from'] )
-         { 
-              unset($fromlist[$k]);
-         }
+            // message from user
+            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
 
-       }
-}
+            $join_str4[0]['table'] = 'messages';
+            $join_str4[0]['join_table_id'] = 'messages.message_from';
+            $join_str4[0]['from_table_id'] = 'user.user_id';
+            $join_str4[0]['join_type'] = '';
+
+            $search_condition = "((message_to = '$userid') && (message_from != '$id') AND (message_from_profile = '$message_from_profile' OR message_to_profile = '$message_to_profile))";
+            $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+
+            // uniq array of fromlist  
+            foreach ($fromlist as $k => $v) {
+                foreach ($fromlist as $key => $value) {
+                    if ($k != $key && $v['message_from'] == $value['message_from']) {
+                        unset($fromlist[$k]);
+                    }
+                }
+            }
 
 // replace name of message_to in user_id
 
-   $return_arrayfrom = array();
+            $return_arrayfrom = array();
 
-    foreach($fromlist as $from_list){
-if($from_list['message_from'] != $id){
-      $return = array();
-      $return = $from_list;
+            foreach ($fromlist as $from_list) {
+                if ($from_list['message_from'] != $id) {
+                    $return = array();
+                    $return = $from_list;
 
-      $return['user_id'] = $from_list['message_from'];
-      $return['first_name'] = $from_list['first_name'];
-      $return['user_image'] = $from_list['user_image'];
-       $return['message'] = $from_list['message'];
+                    $return['user_id'] = $from_list['message_from'];
+                    $return['first_name'] = $from_list['first_name'];
+                    $return['user_image'] = $from_list['user_image'];
+                    $return['message'] = $from_list['message'];
 
-      
-      unset($return['message_from']);
-     array_push($return_arrayfrom, $return);
-}
-    } 
 
-   
+                    unset($return['message_from']);
+                    array_push($return_arrayfrom, $return);
+                }
+            }
+            $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
- $userlist = array_merge($return_arrayto,$return_arrayfrom);
- 
-
-   // uniq array of fromlist  
-foreach($userlist as $k => $v) 
-{
-    foreach($userlist as $key => $value) 
-    {
-        if($k != $key && $v['user_id'] == $value['user_id'])
-        {
-             if ($v['id'] < $value['id']) {
-                        unset($userlist[$k]);
+            // uniq array of fromlist  
+            foreach ($userlist as $k => $v) {
+                foreach ($userlist as $key => $value) {
+                    if ($k != $key && $v['user_id'] == $value['user_id']) {
+                        if ($v['id'] < $value['id']) {
+                            unset($userlist[$k]);
+                        }
                     }
+                }
+            }
+
+
+            $userlist = $this->aasort($userlist, "id");
+
+            $user_message = array_merge($return_arraysel, $userlist);
+
+            // 30-6 chnages end
         }
-    }
-}
-
-
-$userlist =  $this->aasort($userlist,"id");
-
-$user_message = array_merge($return_arraysel,$userlist);
-
-    // 30-6 chnages end
-
-}
         // khyati 22-5 chnages end
-
-         //  $notmsg = '<div id="notificationTitle">Messages</div>';
+        //  $notmsg = '<div id="notificationTitle">Messages</div>';
         foreach ($user_message as $msg) {
-     //s   echo '<pre>'; print_r($msg); die();
-      $contition_array = array('not_product_id' => $msg['id'],'not_type'=>"2");
+            //s   echo '<pre>'; print_r($msg); die();
+            $contition_array = array('not_product_id' => $msg['id'], 'not_type' => "2");
             $data = array(' notification.*');
             $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'not_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
 //     echo '<pre>';
 //     print_r($not);
 //     exit;
-           $notmsg .= '<li class="';
-            if($not[0]['not_active'] == 1){
-            $notmsg .= 'active2';
+            $notmsg .= '<li class="';
+            if ($not[0]['not_active'] == 1) {
+                $notmsg .= 'active2';
             }
-           $notmsg .= '">';
-             $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot" style="padding:0px!important;">';
-           
+            $notmsg .= '">';
+            $notmsg .= '<a href="' . base_url('chat/abc/' . $msg['user_id']) . '" class="clearfix msg_dot" style="padding:0px!important;">';
+
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
-            if($msg['user_image']){
-            $notmsg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $msg['user_image']) . '">';
-              }else{
-                $notmsg .= '<img src="' . base_url(NOIMAGE) . '" >'; 
-              }
+            if ($msg['user_image']) {
+                $notmsg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $msg['user_image']) . '">';
+            } else {
+                $notmsg .= '<img src="' . base_url(NOIMAGE) . '" >';
+            }
 
             $notmsg .= '</div><div class="notification-data-inside">';
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
             $notmsg .= '<div class="msg_desc_a">';
 
-           
+
             $notmsg .= '' . $msg['message'] . '';
 
             //$notmsg .= '</div><div class="data_noti_msg">' . $this->common->time_elapsed_string($not[0]['not_created_date'], $full = false) . '</div>';
             //echo $not[0]['not_created_date'];
-            
+
             $notmsg .= '</div><div class="data_noti_msg"><i class="clockimg" ></i><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
             $notmsg .= '</div></div></a></li>';
         }
         $notmsg .= '</div>';
-        if($user_message){
-        $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
-        }else{
-        $notmsg .= '<div id="InboxFooter"><a>No Messages</a></div>';
-            
+        if ($user_message) {
+            $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
+        } else {
+            $notmsg .= '<div id="InboxFooter"><a>No Messages</a></div>';
         }
         echo $notmsg;
     }
@@ -2223,7 +2119,7 @@ $user_message = array_merge($return_arraysel,$userlist);
         $artcommnet = $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
-        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3,'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'notification.not_from' => 3, 'not_img' => 2, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post',
@@ -2237,8 +2133,8 @@ $user_message = array_merge($return_arraysel,$userlist);
         );
         $data = array('notification.*', 'art_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 5,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 5, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'post_image',
@@ -2252,9 +2148,9 @@ $user_message = array_merge($return_arraysel,$userlist);
         );
         $data = array('notification.*', 'post_image.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
 
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 3 ,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 3, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'artistic_post_comment',
@@ -2269,7 +2165,7 @@ $user_message = array_merge($return_arraysel,$userlist);
         $data = array('notification.*', 'artistic_post_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
         $artcmtlike = $this->data['artcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $contition_array = array('notification.not_type' => 6, 'not_img' => 4,'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 6, 'not_img' => 4, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'art_post_image_comment',
@@ -2358,7 +2254,7 @@ $user_message = array_merge($return_arraysel,$userlist);
 //echo '<pre>'; print_r($this->data['busimgcommnet']); die(); 
 // comment notification end
 // like notification start
-        $contition_array = array('notification.not_type' => 5, 'not_img' => 2 , 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
+        $contition_array = array('notification.not_type' => 5, 'not_img' => 2, 'notification.not_from' => 6, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
         $join_str = array(array(
                 'join_type' => '',
                 'table' => 'business_profile_post',
@@ -2422,11 +2318,8 @@ $user_message = array_merge($return_arraysel,$userlist);
 
         $busimgcmtlike = $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post,$artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet,$artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
-       $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
-       
-     
+        $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
+        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
     }
-    
-    
+
 }
