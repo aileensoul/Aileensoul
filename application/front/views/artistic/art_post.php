@@ -738,7 +738,10 @@
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?> my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur="check_length(this.form)">
+
+                           <input size=1 class="text_num" value=50 name=text_num readonly> 
+
                            </div>
                         </div>
                          
@@ -1285,14 +1288,18 @@
 
      if(count($finalsorting) > 0){ 
           if(count($count) == count($finalsorting)){  ?>
-       <div class="art_no_post_avl">
+     <div class="art_no_post_avl">
          <h3>Artistic Post</h3>
+          <div class="art-img-nn">
          <div class="art_no_post_img">
+
            <img src="<?php echo base_url('img/art-no.png')?>">
+        
          </div>
          <div class="art_no_post_text">
            No Post Available.
          </div>
+          </div>
        </div>
          <?php } } else{ ?>
          
@@ -2885,7 +2892,7 @@
    
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "artistic/follow" ?>',
+           url: '<?php echo base_url() . "artistic/follow_two" ?>',
            data: 'follow_to=' + clicked_id,
            success: function (data) {
    
@@ -2913,11 +2920,18 @@
        //var fileInput = document.getElementById('test-upload');
        var fileInput = document.getElementById("file-1").files;
        var product_name = document.getElementById("test-upload_product").value;
+
+       var product_trim = product_name.trim();
+
+
        var product_description = document.getElementById("test-upload_des").value;
+
+        var des_trim = product_description.trim();
+
        var product_fileInput = document.getElementById("file-1").value;
    
    
-       if (product_fileInput == '' && product_name == '' && product_description == '')
+       if (product_fileInput == '' && product_trim == '' && des_trim == '')
        {
    
            $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
@@ -3256,9 +3270,9 @@
 <!-- multi image add post khyati end -->
 <script language=JavaScript>
    function check_length(my_form)
-   {
+   { //alert("hii");
        maxLen = 50;
-   
+   //alert(my_form.my_text.value.length);
        // max number of characters allowed
        if (my_form.my_text.value.length >= maxLen) {
            // Alert message if maximum limit is reached. 

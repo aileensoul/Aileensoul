@@ -133,14 +133,14 @@
                                 $postattach = form_error('postattach');
                                 ?>
                                 <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
-                                    <label class="control-label">Post Title:<span style="color:red">*</span></label>
+                                    <label class="control-label">Post Title<span style="color:red">*</span>:</label>
                                     <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>
                                 </fieldset>
 
                                 <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">Skills:<span style="color:red">*</span></label>
+                                    <label class="control-label">Skills<span style="color:red">*</span>:</label>
 
                                     <select class="skill_other" name="skills[]" tabindex="2" id="skills" multiple="multiple">
                                     </select> 
@@ -160,7 +160,7 @@
                                 </fieldset>
                                 <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">No of Position:<span style="color:red">*</span> </label>
+                                    <label class="control-label">No of Position<span style="color:red">*</span> :</label>
                                     <input name="position_no" type="text"  id="position" value="1" tabindex="4" placeholder="Enter No of Candidate"/>
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
@@ -169,15 +169,18 @@
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                 
-                                <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
+                                <label style="cursor:pointer;" class="control-label">Minimum experience<span style="color:red">*</span>:</label>
 
 
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear" tabindex="5">
                                         <option value="" selected option disabled>Year</option>
                                         
-                                        <option value="0">0 Year</option>
+                                       <option value="0">0 Year</option>
+                                        <option value="0.6">0.6 Year</option>
                                         <option value="1">1 Year</option>
+                                        <option value="1.6">1.6 Year</option>
                                         <option value="2">2 Year</option>
+                                        <option value="2.6"> 2.6 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -198,16 +201,6 @@
                                         <option value="20">20 Year</option>
                                     </select>
                                     
-                             <select name="minmonth"  style="cursor:pointer;" class="keyskil margin-month " id="minmonth" tabindex="6">
-                                        <option value="" selected option disabled>Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
-                                    </select>
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
@@ -215,14 +208,17 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
-                                    <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
+                                    <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience<span style="color:red">*</span>:</label>
 
 
                                       <select tabindex="7" name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="" selected option disabled>Year</option>
-                                        <option value="0">0 Year</option>
+                                       <option value="0">0 Year</option>
+                                        <option value="0.6">0.6 Year</option>
                                         <option value="1">1 Year</option>
+                                        <option value="1.6">1.6 Year</option>
                                         <option value="2">2 Year</option>
+                                        <option value="2.6"> 2.6 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -245,17 +241,6 @@
 
                                       
 
-                                    <select name="maxmonth" tabindex="8" style="cursor:pointer;" class="keyskil1 margin-month " id="maxmonth">
-                                        <option value="" selected option disabled>Month</option>
-                                        <option value="0">0 Month</option>
-                                        <option value="1">1 Month</option>
-                                        <option value="2">2 Month</option>
-                                        <option value="3">3 Month</option>
-                                        <option value="4">4 Month</option>
-                                        <option value="5">5 Month</option>
-                                        <option value="6">6 Month</option>
-                                    </select>
-
 
 
                                    <span id="fullname-error"></span>
@@ -268,7 +253,7 @@
 
                           
                                 <fieldset class="form-group full-width">
-                                    <label class="control-label">Job description:<span style="color:red">*</span></label>
+                                    <label class="control-label">Job description<span style="color:red">*</span>:</label>
 
 
                                     <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
@@ -297,7 +282,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label >Country:<span style="color:red">*</span></label>
+                                    <label >Country<span style="color:red">*</span>:</label>
                                     <select style="cursor:pointer;" name="country" id="country" tabindex="12">
                                        <option value="" selected option disabled>Select Country</option>
                                         <?php
@@ -313,7 +298,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
-                                    <label>State:<span style="color:red">*</span></label>
+                                    <label>State<span style="color:red">*</span>:</label>
                                     <select style="cursor:pointer;" name="state" id="state" tabindex="13">
                                         <option value="">Select country first</option>
                                     </select>
@@ -329,7 +314,7 @@
                                 </fieldset>
 
                            <fieldset class="form-group">
-                                    <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
+                                    <label class="control-label">Last date for apply<span style="color:red">*</span>:</label>
 
                                     <input type="hidden" id="example2">
 
@@ -661,14 +646,10 @@ if(mm<10) {
 
                          minyear: {
                             
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
+                         
+                          required:true 
                         }, 
-                         minmonth: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
+                        
                          post_desc: {
 
                             required: true,
@@ -687,17 +668,12 @@ if(mm<10) {
                         },
                         maxyear: {
                             
-                          require_from_group: [1, ".keyskil1"],
-                          greaterThan1: "#minyear"
-                          //required:true 
+                         
+                          greaterThan1: "#minyear",
+                          required:true 
                         }, 
 
-                        maxmonth: {
-                            
-                          require_from_group: [1, ".keyskil1"],
-                            greaterThanmonth: "#minmonth"
-                            // required:true 
-                        },
+                     
                         last_date: {
                             
                             required: true,
@@ -749,13 +725,9 @@ if(mm<10) {
                         },
                         minyear: {
 
-                             require_from_group: "You must either fill out 'month' or 'year'"
+                             required: "Minimum Experience Is Required"
                         },
-                        minmonth: {
-
-                             require_from_group: "You must either fill out 'month' or 'year'"
-                            
-                        },
+                      
                          post_desc: {
 
                             required: "Post Description Is Required"
@@ -773,16 +745,11 @@ if(mm<10) {
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'"
+                            required: "Maximum Experience Is Required"
                             // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
-                        maxmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
-                        },
                         last_date: {
 
                             required: "Last Date for apply required"

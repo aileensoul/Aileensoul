@@ -145,18 +145,16 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
         <!-- text head start -->
         <div>
+            </div>
             <div class="profile-text" >
 
 <?php
 if ($artisticdata[0]['designation'] == '') {
     ?>
 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
+                   
                         <a id="designation" class="designation" title="Designation">Current Work</a>
-                        <?php } ?>
+                      
 
                 <?php } else { ?> 
                     <?php
@@ -337,12 +335,9 @@ if ($status == 0 || $status == " ") {
 if ($artisticdata[0]['designation'] == '') {
     ?>
 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
+                    
                         <a id="designation" class="designation" title="Designation">Current Work</a>
-                        <?php } ?>
+                        
 
                 <?php } else { ?> 
                     <?php
@@ -660,7 +655,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
                                 <?php }else{
 
-                                if($artisticdata[0]['art_bestofmine'] == '' && $artisticdata[0]['art_portfolio'] == '') {}else{?>
+                                if(trim($artisticdata[0]['art_bestofmine']) == '' && trim($artisticdata[0]['art_portfolio']) == '') {}else{ ?>
 
                                 <div class="profile-job-post-title clearfix">
                                 <div class="profile-job-profile-button clearfix">
@@ -1201,7 +1196,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "artistic/follow" ?>',
+            url: '<?php echo base_url() . "artistic/follow_two" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) {
 
@@ -1222,7 +1217,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "artistic/unfollow" ?>',
+            url: '<?php echo base_url() . "artistic/unfollow_two" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) {
 

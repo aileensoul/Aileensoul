@@ -428,9 +428,16 @@
                                             }
                                          else {
                                             ?>
-                                            <div class="text-center rio">
-                                                <h4 class="page-heading  product-listing" >No Recommended Freelancer Found.</h4>
-                                            </div>
+                                          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/free-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Recommended Freelancer Available.
+         </div>
+          </div>
     <?php
 }
 ?>

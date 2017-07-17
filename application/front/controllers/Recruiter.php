@@ -1093,14 +1093,7 @@ foreach ($citiesss as $key1) {
         $this->form_validation->set_rules('state', 'State', 'required');
        
 
-        //$this->form_validation->set_rules('city', 'City', 'required');
-        // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
-        // $this->form_validation->set_rules('minyear', ' Max year', 'required');
-        //$this->form_validation->set_rules('minmonth', ' Min month', 'required');
-        // $this->form_validation->set_rules('maxyear', ' Min year', 'required');
-
+     
 
         if ($this->form_validation->run() == FALSE) {
             $contition_array = array('status' => '1');
@@ -1205,9 +1198,9 @@ foreach ($citiesss as $key1) {
                 'country' => $this->input->post('country'),
                 'state' => $this->input->post('state'),
                 'city' => $this->input->post('city'),
-                'min_month' => $this->input->post('minmonth'),
+               // 'min_month' => $this->input->post('minmonth'),
                 'min_year' => $this->input->post('minyear'),
-                'max_month' => $this->input->post('maxmonth'),
+                //'max_month' => $this->input->post('maxmonth'),
                 'max_year' => $this->input->post('maxyear'),
                 'interview_process' => $this->input->post('interview'),
                 'fresher' => $this->input->post('fresher'),
@@ -1583,17 +1576,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         $this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('currency', 'Currency', 'required');
 
-        // $this->form_validation->set_rules('minsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        // $this->form_validation->set_rules('maxsal', 'location', 'regex_match[/^[0-9,]+$/]');
-        //  $this->form_validation->set_rules('maxmonth', 'Max month', 'required');
-        // $this->form_validation->set_rules('minyear', ' Max year', 'required');
-        //$this->form_validation->set_rules('minmonth', ' Min month', 'required');
-        // $this->form_validation->set_rules('maxyear', ' Min year', 'required');
-        // if ($this->form_validation->run() == FALSE) { 
-        //        $this->data['postdata'] = $this->common->select_data_by_id('rec_post','post_id', $id, $data = '*', $join_str = array());
-        //         //$this->load->view('recruiter/edit_post' , $this->data);
-        //         } 
-        //         else{ 
+       
         $data = array(
             'post_name' => trim($this->input->post('post_name')),
             'post_description' => trim($this->input->post('post_desc')),
@@ -1603,9 +1586,9 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             'country' => $this->input->post('country'),
             'state' => $this->input->post('state'),
             'city' => $this->input->post('city'),
-            'min_month' => $this->input->post('minmonth'),
+           // 'min_month' => $this->input->post('minmonth'),
             'min_year' => $this->input->post('minyear'),
-            'max_month' => $this->input->post('maxmonth'),
+           // 'max_month' => $this->input->post('maxmonth'),
             'max_year' => $this->input->post('maxyear'),
             'interview_process' => trim($this->input->post('interview')),
             'fresher' => $this->input->post('fresher'),
@@ -2066,7 +2049,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         //$this->load->database('aileensoul');
 
         if (!empty($this->input->get("q"))) {
-            $this->db->like('skill1', $this->input->get("q"));
+            $this->db->like('skill', $this->input->get("q"));
             $query = $this->db->select('skill_id as id,skill as text')
                     ->where($where)
                     ->limit(10)
@@ -2074,7 +2057,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             $json = $query->result();
         }
 
-//echo "<pre>";print_r($query);die();
         echo json_encode($json);
     }
 

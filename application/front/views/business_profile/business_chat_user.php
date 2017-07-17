@@ -352,11 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var lname = '<?php echo $loglname; ?>';
         var message = message;
         var str = message.replace(/<div><br><\/div>/gi, "");
-<<<<<<< HEAD
-       
-=======
-       alert(str);
->>>>>>> 6bb2244a484616f2a2c557d6a5b8136f8c3ef150
+//        str = str.replace(/"/gi, "");
 //        var str = str.replace(/ /g, "");
 
 //        str = message.replace(/<div>/gi, "");
@@ -373,9 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-      
-           
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' .$message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
@@ -460,7 +454,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data) {
+        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile ?>?timestamp=' + request_timestamp, function (data) {
             append_chat_data(data);
 
             var newIndex = data.length - 1;

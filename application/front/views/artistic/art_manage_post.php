@@ -297,7 +297,7 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($userid != $artisticdata[0]['user_id']) {
                                     ?>
-                                <li> <a href="<?php echo base_url('artistic/art_chat_user/' . $artisticdata[0]['art_id']); ?>">Message</a> </li>
+                                <li> <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a> </li>
                             <?php } ?>
                         </ul>
                     </div>
@@ -1662,11 +1662,7 @@ $loginuser = $userdata[0]['art_id'];
 
                             else {
                             ?>
-                            <div class="contact-frnd-post bor_none">
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Post Found.</h4>
-                            </div>
-                            </div>  <div class="art_no_post_avl">
+                        <div class="art_no_post_avl">
          <h3>Artistic Post</h3>
           <div class="art-img-nn">
          <div class="art_no_post_img">
@@ -3940,7 +3936,7 @@ if (size > 10485760)
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "artistic/follow" ?>',
+                    url: '<?php echo base_url() . "artistic/follow_two" ?>',
                     data: 'follow_to=' + clicked_id,
                     success: function (data) {
 
@@ -3961,7 +3957,7 @@ if (size > 10485760)
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo base_url() . "artistic/unfollow" ?>',
+                    url: '<?php echo base_url() . "artistic/unfollow_two" ?>',
                     data: 'follow_to=' + clicked_id,
                     success: function (data) {
 
@@ -3996,10 +3992,17 @@ function imgval(event) {
       
       var fileInput = document.getElementById("file-1").files;
       var product_name = document.getElementById("test-upload-product").value;
+
+       var product_trim = product_name.trim();
+
+
+
       var product_description = document.getElementById("test-upload-des").value;
+      var des_trim = product_description.trim();
+
       var product_fileInput = document.getElementById("file-1").value;
    
-        if (product_fileInput == '' && product_name == '' && product_description == '')
+        if (product_fileInput == '' && product_trim == '' && des_trim == '')
          {
    
            $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");

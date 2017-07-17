@@ -171,8 +171,11 @@
                                          <option value="" selected option disabled>Year</option>
                                     
                                        <option value="0" <?php if($postdata[0]['min_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
-                                    <option value="1" <?php if($postdata[0]['min_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                       <option value="0.6" <?php if($postdata[0]['min_year']=="0.6") echo 'selected="selected"'; ?>>0.6 Year</option>
+                                    <option value="1" <?php if($postdata[0]['min_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
+                                     <option value="1.6" <?php if($postdata[0]['min_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
                                     <option value="2" <?php if($postdata[0]['min_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
+                                    <option value="2.6" <?php if($postdata[0]['min_year']=="2.6") echo 'selected="selected"'; ?>>2.6 Year</option>
                                     <option value="3" <?php if($postdata[0]['min_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
                                     <option value="4" <?php if($postdata[0]['min_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
                                     <option value="5" <?php if($postdata[0]['min_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
@@ -193,18 +196,7 @@
                                     <option value="20" <?php if($postdata[0]['min_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                     </select>
                                     
-                                    <select style="cursor:pointer;" tabindex="6" name="minmonth" id="minmonth" class="keyskil margin-month ">
-                                       
-                                        <option value="" selected option disabled>Month</option>
-
-                                  <option value="0" <?php if($postdata[0]['min_month']=="0") echo 'selected="selected"'; ?>>0 Month</option>
-                                   <option value="1" <?php if($postdata[0]['min_month']=="1") echo 'selected="selected"'; ?>>1 Month</option>
-                                  <option value="2" <?php if($postdata[0]['min_month']=="2") echo 'selected="selected"'; ?>>2 Month</option>
-                                  <option value="3" <?php if($postdata[0]['min_month']=="3") echo 'selected="selected"'; ?>>3 Month</option>
-                                  <option value="4" <?php if($postdata[0]['min_month']=="4") echo 'selected="selected"'; ?>>4 Month</option>
-                                   <option value="5" <?php if($postdata[0]['min_month']=="5") echo 'selected="selected"'; ?>>5 Month</option>
-                                  <option value="6"<?php if($postdata[0]['min_month']=="6") echo 'selected="selected"'; ?>>6 Month</option>
-                                    </select>
+                                   
                                      
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
@@ -221,8 +213,11 @@
                                         <option value="" selected option disabled>Year</option>
                                     
                                        <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
+                                        <option value="0.6" <?php if($postdata[0]['max_year']=="0.6") echo 'selected="selected"'; ?>>0.6 Year</option>
                                     <option value="1" <?php if($postdata[0]['max_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                     <option value="1.6" <?php if($postdata[0]['max_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
                                     <option value="2" <?php if($postdata[0]['max_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
+                                     <option value="2.6" <?php if($postdata[0]['max_year']=="2.6") echo 'selected="selected"'; ?>>2.6 Year</option>
                                     <option value="3" <?php if($postdata[0]['max_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
                                     <option value="4" <?php if($postdata[0]['max_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
                                     <option value="5" <?php if($postdata[0]['max_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
@@ -245,19 +240,6 @@
 
                                       
 
-                                    <select style="cursor:pointer;" name="maxmonth" id="maxmonth" tabindex="8" class="keyskil1 margin-month ">
-                                       
-
-                                         <option value="" selected option disabled>Month</option>
-
-                                  <option value="0" <?php if($postdata[0]['max_month']=="0") echo 'selected="selected"'; ?>>0 Month</option>
-                                   <option value="1" <?php if($postdata[0]['max_month']=="1") echo 'selected="selected"'; ?>>1 Month</option>
-                                  <option value="2" <?php if($postdata[0]['max_month']=="2") echo 'selected="selected"'; ?>>2 Month</option>
-                                  <option value="3" <?php if($postdata[0]['max_month']=="3") echo 'selected="selected"'; ?>>3 Month</option>
-                                  <option value="4" <?php if($postdata[0]['max_month']=="4") echo 'selected="selected"'; ?>>4 Month</option>
-                                   <option value="5" <?php if($postdata[0]['max_month']=="5") echo 'selected="selected"'; ?>>5 Month</option>
-                                  <option value="6"<?php if($postdata[0]['max_month']=="6") echo 'selected="selected"'; ?>>6 Month</option>
-                                    </select>
 
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
@@ -892,14 +874,10 @@ jQuery.noConflict();
 
                          minyear: {
                             
-                          require_from_group: [1, ".keyskil"] 
-                          //required:true 
+                         
+                          required:true 
                         }, 
-                         minmonth: {
-                            
-                           require_from_group: [1, ".keyskil"]
-                            // required:true 
-                        },
+                       
                          post_desc: {
 
                             required: true,
@@ -918,17 +896,12 @@ jQuery.noConflict();
                         },
                         maxyear: {
                             
-                          require_from_group: [1, ".keyskil1"],
-                          greaterThan1: "#minyear"
-                          //required:true 
+                          
+                          greaterThan1: "#minyear",
+                          required:true 
                         }, 
 
-                        maxmonth: {
-                            
-                          require_from_group: [1, ".keyskil1"],
-                            greaterThanmonth: "#minmonth"
-                            // required:true 
-                        },
+                     
                         last_date: {
                             
                             required: true,
@@ -980,13 +953,9 @@ jQuery.noConflict();
                         },
                         minyear: {
 
-                             require_from_group: "You must either fill out 'month' or 'year'"
+                             required: "Minimum Experience Is Required"
                         },
-                        minmonth: {
-
-                             require_from_group: "You must either fill out 'month' or 'year'"
-                            
-                        },
+                       
                          post_desc: {
 
                             required: "Post Description Is Required"
@@ -1004,16 +973,12 @@ jQuery.noConflict();
                         },
                         maxyear: {
 
-                            require_from_group: "You must either fill out 'month' or 'year'"
+                            required: "Maximum Experience Is Required"
                             // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
-                        maxmonth: {
-
-                            require_from_group: "You must either fill out 'month' or 'year'"
-                            //greaterThan:"Maximum Month Experience should be grater than Minimum Month"
-                        },
+                       
                         last_date: {
 
                             required: "Last date  Is Required."

@@ -499,14 +499,15 @@
                                        </div>
                                     </li>
                                     <?php } } else{?>
-                                    <div class="not_img">
-                                       <div class="not_avali" >
-                                          <img src="<?php echo base_url('images/020.png'); ?>"  >
-                                          <div>
-                                             <div class="not_text" >PDF Not Avalible</div>
-                                          </div>
-                                       </div>
-                                    </div>
+                                    <div class="art_no_pva_avl">
+         <div class="art_no_post_img">
+          <img src="<?php echo base_url('images/020.png'); ?>"  >
+         </div>
+         <div class="art_no_post_text1">
+           No Pdf Available.
+         </div>
+       </div>
+
                                     <?php }?>
                                  </ul>
                               </div>

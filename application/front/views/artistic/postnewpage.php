@@ -19,7 +19,7 @@
 <?php echo $header; ?>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- END HEADER -->
-<?php echo $art_header2; ?>
+<?php echo $art_header2_border; ?>
 <!DOCTYPE html>
 <html>
     <head>

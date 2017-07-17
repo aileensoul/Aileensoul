@@ -10815,12 +10815,15 @@ class Business_profile extends MY_Controller {
 
     public function business_chat_user($id) {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        
+        $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+        $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
+        $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
 
-        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-        $this->data['message_profile_from_id'] = $message_profile_from_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-        $this->data['message_profile_to_id'] = $message_profile_to_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+        $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
 
         // last user if $id is null
         $contition_array = array('id !=' => '');
@@ -10931,7 +10934,6 @@ class Business_profile extends MY_Controller {
         $join_str3[0]['join_type'] = '';
 
         $search_condition = "((message_from = '$userid') && (message_to != '$id'))";
-
         $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
         // uniq array of tolist  

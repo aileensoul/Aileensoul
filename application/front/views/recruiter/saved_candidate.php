@@ -804,9 +804,16 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                          </div>
                            <?php  }
                         } else { ?>
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" >No Saved Candidate Found.</h4>
-                            </div>
+                             <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+          No Saved Candidate  Available.
+         </div>
+          </div>
                             <?php } ?>
                         </div>
 
@@ -1182,7 +1189,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
 
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Candidate Found.</h4></div>";
+                    var nodataHtml = "  <div class="art-img-nn"><div class="art_no_post_img"> <img src="<?php echo base_url('img/job-no1.png')?>"> </div><div class="art_no_post_text">No Saved Candidate  Available.</div>  </div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
 

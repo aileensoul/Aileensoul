@@ -1019,7 +1019,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
  
 
-        //echo "<pre>"; print_r($jobskillpost); die();
+            //echo "<pre>"; print_r($jobskillpost); die();
             $this->data['rec_skill'] = $jobskillpost;
              //echo "<pre>"; print_r($jobskillpost);  die();
 
@@ -1043,7 +1043,7 @@ if ($searchkeyword == "" && $searchplace == "") {
 
             $adddata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array1, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-         //echo "<pre>"; print_r($yeardata); die();
+         // echo "<pre>"; print_r($yeardata); die();
 
              $join_str = array(array(
                      'join_type' => 'left',
@@ -1061,9 +1061,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             $jobdata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         
 
-       //echo "<pre>"; print_r($jobdata); die();
-
-           
+       
 
             $join_str = array(array(
                     'join_type' => 'left',

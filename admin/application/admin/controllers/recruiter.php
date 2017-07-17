@@ -368,7 +368,7 @@ public function post()
         $join_str[0]['from_table_id'] = 'rec_post.user_id';
         $join_str[0]['join_type'] = '';
 
-        $data='recruiter.rec_firstname,recruiter.rec_lastname,rec_post.post_name,rec_post.min_month,rec_post.min_year,rec_post.max_month,rec_post.max_year,rec_post.country,rec_post.state,rec_post.city,rec_post.status,rec_post.created_date,rec_post.modify_date';
+        $data='recruiter.rec_firstname,recruiter.rec_lastname,rec_post.post_id,rec_post.post_name,rec_post.min_month,rec_post.min_year,rec_post.max_month,rec_post.max_year,rec_post.fresher,rec_post.country,rec_post.state,rec_post.city,rec_post.status,rec_post.created_date,rec_post.modify_date';
        
        $contition_array = array('rec_post.is_delete' => '0');
 
@@ -414,6 +414,239 @@ public function post()
 }
 //for list of all user post End
 
+//deactivate Recruiter Post with ajax Start
+public function deactive_post() 
+{
+     $post_id = $_POST['post_id'];
+      $data = array(
+            'status' => 0
+        );
+
+        $update = $this->common->update_data($data, 'rec_post', 'post_id', $post_id);
+
+         $select = '<td id= "active(' . $post_id . ')">';
+         $select .= '<button class="btn btn-block btn-success btn-sm"    onClick="active_post(' .  $post_id . ')">
+                              Deactive
+                      </button>';
+        $select .= '</td>';
+
+        echo $select;
+         die();
+}
+//deactivate Recruiter Post with ajax End
+
+//activate Recruiter Post with ajax Start
+public function active_post() 
+{
+     $post_id = $_POST['post_id'];
+      $data = array(
+            'status' => 1
+        );
+
+        $update = $this->common->update_data($data, 'rec_post', 'post_id', $post_id);
+
+        $select = '<td id= "active(' . $post_id . ')">';
+        $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="deactive_post(' .  $post_id . ')">
+                              Active
+                      </button>';
+        $select .= '</td>';
+
+        echo $select;
+
+        die();
+}
+//activate Recruiter Post with ajax End
+
+//Delete Recruiter Post with ajax Start
+public function delete_post() 
+{
+     $post_id = $_POST['post_id'];
+      $data = array(
+            'is_delete' => 1
+        );
+
+        $update = $this->common->update_data($data, 'rec_post', 'post_id', $post_id);
+        die();
+}
+//Delete Recruiter Post with ajax End
+
+//Search Recruiter post Start
+public function search_post() 
+{ 
+
+      if ($this->input->post('search_keyword')) {
+//echo "jj";die();
+          $this->data['search_keyword'] = $search_keyword = trim($this->input->post('search_keyword'));
+
+         $this->session->set_userdata('user_search_keyword', $search_keyword);
+    
+        $this->data['user_search_keyword'] = $this->session->userdata('user_search_keyword');
+      
+
+             // This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
+
+            $sortby = $this->uri->segment(3);
+
+            $orderby = $this->uri->segment(4);
+
+        } else {
+
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
+
+            $sortby = 'post_id';
+
+            $orderby = 'asc';
+
+        }
+  
+        $this->data['offset'] = $offset;
+
+        $join_str[0]['table'] = 'recruiter';
+        $join_str[0]['join_table_id'] = 'recruiter.user_id';
+        $join_str[0]['from_table_id'] = 'rec_post.user_id';
+        $join_str[0]['join_type'] = '';
+
+      $data='recruiter.rec_firstname,recruiter.rec_lastname,rec_post.post_id,rec_post.post_name,rec_post.min_month,rec_post.min_year,rec_post.max_month,rec_post.max_year,rec_post.fresher,rec_post.country,rec_post.state,rec_post.city,rec_post.status,rec_post.created_date,rec_post.modify_date';
+       
+        $contition_array = array('rec_post.is_delete' => '0');
+       $search_condition = "(rec_firstname LIKE '%$search_keyword%' OR post_name LIKE '%$search_keyword%')";
+
+        $this->data['users'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array,$data, $sortby , $orderby , $limit , $offset , $join_str, $groupby);
+ //echo '<pre>'; print_r($this->data['users']); die();
+// This is userd for pagination offset and limoi End
+
+
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['base_url'] = site_url("recruiter/search_post/" . $sortby . "/" . $orderby);
+
+            } else {
+
+                $this->paging['base_url'] = site_url("recruiter/search_post/");
+
+            }
+
+
+
+            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['uri_segment'] = 5;
+
+            } else {
+
+                $this->paging['uri_segment'] = 3;
+
+            }
+
+            $this->paging['total_rows'] = count($this->data['users']);
+
+            //for record display
+
+            $this->data['total_rows'] = $this->paging['total_rows'];
+
+            $this->data['limit'] = $limit;
+
+            $this->pagination->initialize($this->paging);
+
+    }
+    else if ($this->session->userdata('user_search_keyword')) {//echo "jii"; die();
+            $this->data['search_keyword'] = $search_keyword = trim($this->session->userdata('user_search_keyword'));
+
+// echo "<pre>";print_r($search_keyword);die();
+              // This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
+
+            $sortby = $this->uri->segment(3);
+
+            $orderby = $this->uri->segment(4);
+
+        } else {
+
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
+
+            $sortby = 'post_id';
+
+            $orderby = 'asc';
+
+        }
+  
+        $this->data['offset'] = $offset;
+
+        $join_str[0]['table'] = 'recruiter';
+        $join_str[0]['join_table_id'] = 'recruiter.user_id';
+        $join_str[0]['from_table_id'] = 'rec_post.user_id';
+        $join_str[0]['join_type'] = '';
+
+      $data='recruiter.rec_firstname,recruiter.rec_lastname,rec_post.post_id,rec_post.post_name,rec_post.min_month,rec_post.min_year,rec_post.max_month,rec_post.max_year,rec_post.fresher,rec_post.country,rec_post.state,rec_post.city,rec_post.status,rec_post.created_date,rec_post.modify_date';
+       
+         $contition_array = array('rec_post.is_delete' => '0');
+       $search_condition = "(rec_firstname LIKE '%$search_keyword%' OR post_name LIKE '%$search_keyword%')";
+
+        $this->data['users'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array,$data, $sortby , $orderby , $limit , $offset , $join_str, $groupby);
+      
+// This is userd for pagination offset and limoi End
+
+       // echo "<pre>";print_r($this->userdata['users'] );die();
+
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['base_url'] = site_url("recruiter/search_post/" . $sortby . "/" . $orderby);
+
+            } else {
+
+                $this->paging['base_url'] = site_url("recruiter/search_post/");
+
+            }
+
+
+
+            if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+                $this->paging['uri_segment'] = 5;
+
+            } else {
+
+                $this->paging['uri_segment'] = 3;
+
+            }
+
+             $this->paging['total_rows'] = count($this->data['users']);
+
+            //for record display
+
+            $this->data['total_rows'] = $this->paging['total_rows'];
+
+            $this->data['limit'] = $limit;
+
+            $this->pagination->initialize($this->paging);
+    }
+      $this->load->view('recruiter/post', $this->data);
+}
+
+//Search Recruiter post End
+
+//clear search POST is used for unset session start
+public function clear_search_post() 
+{ 
+  
+    if ($this->session->userdata('user_search_keyword')) 
+    {
+          
+            $this->session->unset_userdata('user_search_keyword');
+              
+             redirect('recruiter/post','refresh');          
+    } 
+}
+//clear search POST is used for unset session End
 
 }
 

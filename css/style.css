@@ -236,7 +236,7 @@ body {
     background-color: #f3f9fb;
     margin: 0;
     line-height: 22px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'arial';
     /*height: 100vh;*/
 }
 p {
@@ -456,15 +456,16 @@ a:focus {
     padding: 0;
     margin: 0;
     position: relative;
+	height:35px;
 }
 .header2 ul li a {
     font-size: 15px;
     color: #fff;
     padding: 6px 10px;
-    display: block;
+    display: inline-block;
  
 }
-.header2 ul li a#InboxLink{padding:5px 10px 4px;}
+.header2 ul li a#InboxLink{padding:6px 5px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -473,6 +474,7 @@ a:focus {
     font-size: 15px;
     padding-left: 0px;
 }
+.header2 ul li li{height:auto;}
 /*.header2 ul li a:hover {
     background: #156f95;
     color: #fff;
@@ -7664,12 +7666,17 @@ footer .footer-menu li a:hover {
     padding: 8px 0px;
     /* box-shadow: 2px -2px 8px #9C9999; */
     /* -webkit-box-shadow: 0px 1px 7px #9c9999; */
-    
+    background: -moz-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -webkit-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -o-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -ms-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: linear-gradient(to top, #e9e9e9 5%, #f9f9f9 100%);
     -o-box-shadow: inset 0px 0px 50px 0px #ABABAB, 5px 5px 5px 1px #242424;
-    background: rgb(44, 83, 158);
+  /*  background: rgb(44, 83, 158);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    */
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
@@ -8132,10 +8139,9 @@ input:-moz-placeholder {
     width: 29%;
 }
 .bg_following {
-    background: #1b8ab9!important;
+   background: #1b8ab9!important;
     color: #fff!important;
-    background-color: #1b8ab9!important;
-}
+  }
 .add_tag_design {
     text-align: center;
     padding-bottom: 6px;
@@ -8924,6 +8930,7 @@ fieldset .add_post_btns {
 .dropdown_hover .dropdown-content_hover a {
     font-family: arial;
     color: #787878  ;
+	width:100%;
 }
 /*.pdf_name a: {
     text-decoration-line: underline;
@@ -9240,10 +9247,10 @@ paginatiom*/
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
-.two-select-box1 select {
+/*.two-select-box1 select {
     width: 47%;
     float: left;
-}
+}*/
 .margin-month {
     margin-left: 10px;
 }
@@ -9506,7 +9513,7 @@ border-bottom: 1px solid #d9d9d9;}
 color: #ebebeb;
 font-size: 32px;
 padding-top: 30px;}
-.art_no_post_text1{color: #ebebeb;
+.art_no_post_text1{color: #ccc;
 font-size: 32px;}
 /*no post foun end*/
 
@@ -10637,7 +10644,7 @@ chat end*/
     width: 100%;
     border: none;
     padding: 10px 20px;
-    font: 14px/22px "Lato", Arial, sans-serif;
+    font: 14px/22px  Arial;
     margin-bottom: 10px;
     border-radius: 5px;
     resize: none;
@@ -10972,7 +10979,7 @@ style chat css end*/
     z-index: 99;
 }
 .search-mob-block {
-    width: 50px;
+    width: 30px;
     float: left;
 }
 .search-mob-block label {
@@ -15288,7 +15295,7 @@ text-align: center;}
         padding-bottom: 5px;
     }
     .header2 ul li a {
-        padding: 12px 10px 8px;
+        padding: 5px 10px 8px;
         line-height: 1;
     }
     .popup-text span {
@@ -15626,8 +15633,14 @@ top: 8px;}
     .post-editor .camer_h{padding-top: 2px;}
     .popup-img{padding-right: 8px;}
     .post-editor{padding-left: 7px; padding-right: 7px;}
-    .header2 ul li.active a{padding: 12px 10px 10px}
+    .header2 ul li.active a{padding: 5px 10px 10px}
     .camer_h i{font-size: 19px;}
+	.hidden-mob {
+        display: none;
+    }
+    .search-mob-block {
+        display: block;
+    }
 }
 @media screen and (max-width: 479px) {
      #InboxContainer::before {
@@ -15676,12 +15689,6 @@ padding-bottom: 6px !important;*/}
     }
     .logo h2 {
         font-size: 20px;
-    }
-    .hidden-mob {
-        display: none;
-    }
-    .search-mob-block {
-        display: block;
     }
     fieldset {
         width: 100%;

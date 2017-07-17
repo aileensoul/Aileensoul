@@ -312,6 +312,9 @@ public function check_email() {
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+        // code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
 
         $contition_array = array('status' => 1);
       $this->data['countries'] =  $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
@@ -426,6 +429,7 @@ foreach ($location as $key => $value) {
       
     }
 
+ 
     public function ajax_data() { 
 //ajax data for category and subcategory start
 
@@ -494,6 +498,34 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
 
 }
 
+   public function freelancer_hire_check() {
+    //  echo "hjjj";
+         $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+        $hire_step = $this->data['hire_step'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'free_hire_step', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+       // echo $this->uri->segment(2); exit;
+        
+        if(count($hire_step) > 0){
+        if($hire_step[0]['free_hire_step'] == '1'){
+            if($this->uri->segment(2) == 'freelancer_hire_address_info'){
+
+            }else{
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_address_info');
+          }
+        }elseif($hire_step[0]['free_hire_step'] == '2'){
+            if($this->uri->segment(2) == 'freelancer_hire_professional_info'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_hire_address_info'){
+
+            }else{
+            redirect('freelancer_hire/freelancer_hire/freelancer_hire_professional_info');
+          }
+        }
+        }else{
+        redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+            }
+    }
     public function freelancer_hire_address_info_insert()
 
     {
@@ -606,6 +638,10 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
         }
 //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
+ // code for display page start
+$this->freelancer_hire_check();
+ // code for display page end
+
 
          $contition_array = array( 'user_id' => $userid, 'is_delete' => '0' , 'status' => '1');
          $userdata= $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

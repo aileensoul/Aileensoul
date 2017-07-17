@@ -422,9 +422,13 @@
                  }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == ''){
                     echo $rec['freelancer_post_exp_year'];
 
-                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                 }elseif($rec['freelancer_post_exp_year'] != '0 year' && $rec['freelancer_post_exp_month'] == '0 month'){
                   
-                  echo $rec['freelancer_post_exp_year'];
+                  echo "Fresher";
+                 }elseif($rec['freelancer_post_exp_year'] != '' && $rec['freelancer_post_exp_month'] == '0 month'){
+                    echo $rec['freelancer_post_exp_year'];
+                 }elseif($rec['freelancer_post_exp_year'] == '0 year' && $rec['freelancer_post_exp_month'] != ''){
+                    echo $rec['freelancer_post_exp_month'];
                  }
                  else{
                   
@@ -464,9 +468,16 @@
                                         }
                                     } else {
                                         ?>
-                                        <div class="text-center rio">
-                                            <h4 class="page-heading  product-listing">No Saved Freelancer Found.</h4>
-                                        </div>
+                                       <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/free-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+           No  Saved Post Available.
+         </div>
+          </div>
                                     <?php }
                                     ?> 
 
