@@ -1,6 +1,4 @@
-
-
-<?php  
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
@@ -69,20 +67,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 }
                             } else {
 
-                                $lstusrdata = $this->common->select_data_by_id('art_reg', 'art_id', $toid, $data = '*');
+                                $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
 
                                 if ($lstusrdata) {
-                                 ?>
+                                    ?>
 
                                     <li class="clearfix <?php
-                                    if ($lstusrdata[0]['art_id'] == $toid) {     
+                                    if ($lstusrdata[0]['user_id'] == $toid) {
                                         echo "active";
                                     }
                                     ?>">
-                                            <?php if ($lstusrdata[0]['art_user_image']) { ?>
+                                            <?php if ($lstusrdata[0]['user_image']) { ?>
                                             <div class="chat_heae_img">
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['art_user_image']); ?>" alt="" height="50px" weight="50px">
+                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
                                         <?php } else { ?>
                                             <div class="chat_heae_img">
@@ -91,27 +89,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'artistic/art_chat_user/' . $lstusrdata[0]['art_id']; ?>"><?php echo $lstusrdata[0]['art_name'] . ' ' . $lstusrdata[0]['art_lastname'] . "<br>"; ?></a> </div>
-                                            <div class="<?php echo 'status' . $lstusrdata[0]['art_id']; ?>" id="status_user">
-                                                  
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
+                                            <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" id="status_user">
+
                                             </div>
                                         </div>
                                     </li>
 
                                     <?php
-                                }  
+                                }
                                 foreach ($userlist as $user) {
-                                    if ($user['user_id'] != $toid) { 
+                                    if ($user['user_id'] != $toid) {
                                         ?>
-                                        <a href="<?php echo base_url() . 'artistic/art_chat_user/' . $user['art_id']; ?>">
+                                        <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
                                             <li class="clearfix <?php
                                             if ($user['user_id'] == $toid) {
                                                 echo "active";
                                             }
                                             ?>">
-                                                    <?php if ($user['art_user_image']) { ?>
+                                                    <?php if ($user['user_image']) { ?>
                                                     <div class="chat_heae_img">
-                                                        <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['art_user_image']); ?>" alt="" height="50px" weight="50px">
+                                                        <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="chat_heae_img">
@@ -120,8 +118,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php } ?>
                                                 <div class="about">
                                                     <div class="name"> 
-                                                        <?php echo $user['art_name'] . ' ' . $user['art_lastname'] . "<br>"; ?></div>
-                                                    <div class="<?php echo 'status' . $user['art_id']; ?>" id="status_user">
+                                                        <?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></div>
+                                                    <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                                         <?php echo $user['message']; ?>
                                                     </div>
                                                 </div>
@@ -140,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- chat start -->
 
                 <?php
-                $lstusrdata = $this->common->select_data_by_id('art_reg', 'art_id', $toid, $data = '*');
+                $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
 
                 if ($lstusrdata) {
@@ -148,9 +146,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
-                            <?php if ($lstusrdata[0]['art_user_image']) { ?>
+                            <?php if ($lstusrdata[0]['user_image']) { ?>
                                 <div class="chat_heae_img">
-                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['art_user_image']); ?>" alt="" height="50px" weight="50px">
+                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $lstusrdata[0]['user_image']); ?>" alt="" height="50px" weight="50px">
                                 </div>
                             <?php } else { ?>
                                 <div class="chat_heae_img">
@@ -160,7 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="chat-about">
                                 <div class="chat-with">
-                                    <span>  <?php echo $lstusrdata[0]['art_name'] . ' ' . $lstusrdata[0]['art_lastname']; ?></span>  </div>
+                                    <span>  <?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name']; ?></span>  </div>
                                 <div class="chat-num-messages"> Current Work</div>
                             </div>
                         </div>
@@ -354,8 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var lname = '<?php echo $loglname; ?>';
         var message = message;
         var str = message.replace(/<div><br><\/div>/gi, "");
-        var login = '<?php echo $userid; ?>';
-
+//        str = str.replace(/"/gi, "");
 //        var str = str.replace(/ /g, "");
 
 //        str = message.replace(/<div>/gi, "");
@@ -372,9 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-      
-           
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&type=6&login=' + login + '&guid=' + getCookie('user_guid'), function (data) {
+            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' .$message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
@@ -455,14 +450,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
     var update_chats = function () {
-    
-      var login = '<?php echo $userid; ?>';
-      
         if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp + '&type=6&login=' + login, function (data) {
+        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile ?>?timestamp=' + request_timestamp, function (data) {
             append_chat_data(data);
 
             var newIndex = data.length - 1;

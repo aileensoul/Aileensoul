@@ -8530,99 +8530,82 @@ public function followtwo() {
         $this->load->view('artistic/art_chat', $this->data);
     }
 
-    public function art_chat_user($id) {
-        // khyati 25-4 changes start
+   public function art_chat_user($id) {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-       
-        // login user artistic id fetch
-       $artid = $this->common->select_data_by_id('art_reg', 'user_id', $userid, $data = 'art_id');
-       $this->data['userid'] =  $userid = $artid[0]['art_id'];
-       $this->data['logfname'] = $artid[0]['first_name'];
-       $this->data['loglname'] = $artid[0]['last_name'];
-    
+        
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        $message_from_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_from_profile_id'] = $message_from_profile_id[0]['art_id'];
+        $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
+
+        $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+        $message_to_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['message_to_profile_id'] = $message_to_profile_id[0]['art_id'];
+
         // last user if $id is null
-
         $contition_array = array('id !=' => '');
-
         $search_condition = "(message_from = '$userid' OR message_to = '$userid')";
-
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
         if ($id) {
-
             $toid = $this->data['toid'] = $id;
         } elseif ($lastchat[0]['message_from'] == $userid) {
-
             $toid = $this->data['toid'] = $lastchat[0]['message_to'];
         } else {
-
             $toid = $this->data['toid'] = $lastchat[0]['message_from'];
         }
 
-        // khyati 22-4 changes end
+        $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
 
-      //  $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
+        $this->data['logfname'] = $loginuser[0]['first_name'];
+        $this->data['loglname'] = $loginuser[0]['last_name'];
 
         // last message user fetch
-
         $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$id' OR message_to = '$id')";
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
         if ($lastuser[0]['message_from'] == $userid) {
-
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
         } else {
-
             $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
         }
+        // last user first name last name
 
-// last user first name last name
         if ($lstusr) {
-            $lastuser = $this->common->select_data_by_id('art_reg', 'art_id', $lstusr, $data = 'art_name,art_lastname');
+            $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
 
-            $this->data['lstfname'] = $lastuser[0]['art_name'];
-            $this->data['lstlname'] = $lastuser[0]['art_lastname'];
+            $this->data['lstfname'] = $lastuser[0]['first_name'];
+            $this->data['lstlname'] = $lastuser[0]['last_name'];
         }
-        //khyati changes starrt 20-4
         // slected user chat to
-
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
 
         $join_str1[0]['table'] = 'messages';
         $join_str1[0]['join_table_id'] = 'messages.message_to';
-        $join_str1[0]['from_table_id'] = 'art_reg.art_id';
+        $join_str1[0]['from_table_id'] = 'user.user_id';
         $join_str1[0]['join_type'] = '';
 
-
-
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))";
-
-        $seltousr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name,art_user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
-
+        $seltousr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
 
         // slected user chat from
-
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
 
         $join_str2[0]['table'] = 'messages';
         $join_str2[0]['join_table_id'] = 'messages.message_from';
-        $join_str2[0]['from_table_id'] = 'art_reg.art_id';
+        $join_str2[0]['from_table_id'] = 'user.user_id';
         $join_str2[0]['join_type'] = '';
 
-
-
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid'))";
-
-        $selfromusr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name,art_user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
-
+        $selfromusr = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
 
         $selectuser = array_merge($seltousr, $selfromusr);
         $selectuser = $this->aasort($selectuser, "id");
-//echo '<pre>';print_r($selectuser); die();
-// replace name of message_to in user_id in select user
+
+        // replace name of message_to in user_id in select user
 
         $return_arraysel = array();
         $i = 0;
@@ -8646,8 +8629,8 @@ public function followtwo() {
             }else {
                 if ($sel_list['message_from'] == $id) {
                     $return['user_id'] = $sel_list['message_from'];
-                    $return['first_name'] = $sel_list['art_name'];
-                    $return['user_image'] = $sel_list['art_user_image'];
+                    $return['first_name'] = $sel_list['first_name'];
+                    $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
                     $i++;
@@ -8664,17 +8647,15 @@ public function followtwo() {
 
         $join_str3[0]['table'] = 'messages';
         $join_str3[0]['join_table_id'] = 'messages.message_to';
-        $join_str3[0]['from_table_id'] = 'art_reg.art_id';
+        $join_str3[0]['from_table_id'] = 'user.user_id';
         $join_str3[0]['join_type'] = '';
 
         $search_condition = "((message_from = '$userid') && (message_to != '$id'))";
-
-        $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name,art_user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+        $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
         // uniq array of tolist  
         foreach ($tolist as $k => $v) {
             foreach ($tolist as $key => $value) {
-
                 if ($k != $key && $v['message_to'] == $value['message_to']) {
                     unset($tolist[$k]);
                 }
@@ -8684,17 +8665,15 @@ public function followtwo() {
         // replace name of message_to in user_id
 
         $return_arrayto = array();
-
         foreach ($tolist as $to_list) {
             if ($to_list['message_to'] != $id) {
                 $return = array();
                 $return = $to_list;
 
                 $return['user_id'] = $to_list['message_to'];
-                $return['first_name'] = $to_list['art_name'];
-                $return['user_image'] = $to_list['art_user_image'];
+                $return['first_name'] = $to_list['first_name'];
+                $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
-
 
                 unset($return['message_to']);
                 array_push($return_arrayto, $return);
@@ -8706,13 +8685,11 @@ public function followtwo() {
 
         $join_str4[0]['table'] = 'messages';
         $join_str4[0]['join_table_id'] = 'messages.message_from';
-        $join_str4[0]['from_table_id'] = 'art_reg.art_id';
+        $join_str4[0]['from_table_id'] = 'user.user_id';
         $join_str4[0]['join_type'] = '';
 
         $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
-
-        $fromlist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,art_name,art_user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
-
+        $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
 
         // uniq array of fromlist  
         foreach ($fromlist as $k => $v) {
@@ -8723,18 +8700,17 @@ public function followtwo() {
             }
         }
 
-// replace name of message_to in user_id
+        // replace name of message_to in user_id
 
         $return_arrayfrom = array();
-
         foreach ($fromlist as $from_list) {
             if ($from_list['message_from'] != $id) {
                 $return = array();
                 $return = $from_list;
 
                 $return['user_id'] = $from_list['message_from'];
-                $return['first_name'] = $from_list['art_name'];
-                $return['user_image'] = $from_list['art_user_image'];
+                $return['first_name'] = $from_list['first_name'];
+                $return['user_image'] = $from_list['user_image'];
                 $return['message'] = $from_list['message'];
 
                 unset($return['message_from']);
@@ -8743,17 +8719,6 @@ public function followtwo() {
         }
 
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
-
-//        $new_return_array = array();
-//        
-//        foreach($userlist as $key11 => $value11){
-//            $msg_user_id = $value11['user_id'];
-//            $msg_id = $value11['id'];
-//            
-//            
-//        }
-//        echo '<pre>';
-//        print_r($userlist);
 
         // uniq array of fromlist  
         foreach ($userlist as $k => $v) {
@@ -8766,28 +8731,20 @@ public function followtwo() {
             }
         }
 
-//        echo '<pre>';
-//        print_r($userlist);
-//        exit;
-
         $userlist = $this->aasort($userlist, "id");
 
-        if($return_arraysel[0] == ''){
+        if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);
 
-//echo '<pre>'; print_r($this->data['userlist']); die();
-        // khytai changes 22-4 end
 // smily start
         $smileys = _get_smiley_array();
         $this->data['smiley_table'] = $smileys;
 // smily end
-        // khytai changes end 22-4
 
         $this->load->view('artistic/art_chat_user', $this->data);
     }
-
     public function user_list($id) {
         $userid = $this->session->userdata('aileenuser');
         $usrsearchdata = trim($_POST['search_user']);
