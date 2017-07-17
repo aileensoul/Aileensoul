@@ -930,7 +930,7 @@
                                                                             <?php echo $this->common->make_links($row['product_name']); ?>
                                                                         </a>
                                                                     </div>
- <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
+ <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;" class="edit-post-custom">
         <input type="text" class="my_text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>" onKeyDown=check_lengthedit(<?php echo $row['business_profile_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['business_profile_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['business_profile_post_id']; ?>);>
 
          <?php 

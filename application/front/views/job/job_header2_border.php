@@ -31,7 +31,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
+                  <div class="col-sm-5 col-md-5 col-xs-5 mob-width">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -124,7 +124,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
+					<div class="col-sm-5 col-md-5 col-xs-5 mob-width">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
@@ -186,9 +186,7 @@
   </div>
 </div>
 </li>
-                
-
-                                     <!-- Friend Request End-->
+<!-- Friend Request End-->
 
                                 <!-- END USER LOGIN DROPDOWN -->
                             </ul>

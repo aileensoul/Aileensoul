@@ -6,7 +6,7 @@
                     
                             <?php echo $freelancer_hire_search; ?>
                       
-                  <div class="col-sm-5 col-md-5 col-xs-6 fw-479">
+                  <div class="col-sm-5 col-md-5 col-xs-6 mob-width">
                       <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">

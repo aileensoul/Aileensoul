@@ -143,7 +143,7 @@
                     <div class="bui-menu-profile">
 
 
-
+						<div class="profile-left">
                         <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
 
                         <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> 
@@ -161,7 +161,7 @@
 
 
                             </a></h4>
-
+						</div>
                         <?php
                         $userid = $this->session->userdata('aileenuser');
                         if ($businessdata1[0]['user_id'] != $userid) {
@@ -230,11 +230,12 @@
             <?php }?>
                
                     <div class="">
-                        <div id="ripple" class="centered" >
-                            <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
-
-
-                        </div>
+                        <div class="add-contact">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>
+						</div>
                         <div class="addtocont">
                             <span class="ft-13"><i class="icon-user"></i>
             <?php 

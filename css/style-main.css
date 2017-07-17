@@ -449,8 +449,8 @@ footer{
 }
 footer > .container {
 	border-top:1px solid #dbdada;
-	padding-left:0;
-	padding-right:0;
+	/*padding-left:0;
+	padding-right:0;*/
 }
 footer ul{
 	float:right;

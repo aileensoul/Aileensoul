@@ -6031,7 +6031,8 @@ label.cameraButton input[accept*="camera"] {
 }
 .post-design-desc {
     position: relative;
-    clear: both;
+    width:100%;
+	float:left;
     padding: 5px 20px 0px 20px;
     text-align: left;
     word-break: break-all;
@@ -9067,7 +9068,7 @@ label.cameraButton:hover {
     margin-bottom: 10px;
     margin-top: -26px;
 }
-.common-form fieldset #email{text-transform: lowercase;}
+.common-form fieldset #email{/*text-transform: lowercase;*/}
 .delete_btn {
     padding: 6px 12px 6px!important;
     font-size: 13px!important;
@@ -13444,7 +13445,7 @@ bui_images_view_more a:hover {
 }
 .post-design-box .post-design-desc input {
     font-size: 15px!important;
-    width: 50%;
+    width: 82%;
 }
 .post-design-box .post-design-desc .textbuis {
     font-size: 13px;
@@ -13455,8 +13456,8 @@ bui_images_view_more a:hover {
 .post-design-box .post-design-desc .editable_text {
     min-height: 80px!important;
     float: left;
-    margin-bottom: 10px;
-    width: 85%;
+    margin-bottom: 5px;
+    width: 82%;
 }
 .post-design-box .post-design-desc .fr {
     position: absolute;
@@ -14378,6 +14379,8 @@ header.animated {
     top: 45px;
 	text-align:center;
 }
+.edit-post-custom{position:relative;}
+#text_num{position: absolute; right: 20%; top: 5px; width: 20px;}
 /***  add contact ripple effect  ***/
 
 
@@ -15318,13 +15321,16 @@ text-align: center;}
         margin-top: 30px;
     }
     .art-profile .profile-pho {
-        float: left;
+        float: none;
+		margin:0 auto;
     }
     .art-profile .profile-main-rec-box-menu {
         margin-top: 0;
     }
     .art-profile .job-menu-profile {
-        width: 76%;
+        width: 100%;
+		text-align:center;
+		padding-right:15px;
     }
     .art-side-menu {
         height: auto;
@@ -15363,12 +15369,15 @@ text-align: center;}
     .main-txt{float: left; width: 87%; text-align: justify;}
 	.profile-left{width:70%;}
 	#contact_per{width:30%;}
+	.art-side-menu .flw_msg_btn{padding:0;}
+	.art-side-menu .flw_msg_btn ul li{padding:10px 0;}
+	
 }
 @media screen and (max-width: 640px) {
 .profile-text1{width: 100%; top:40px;}
 .profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }} 
 @media screen and (max-width: 639px) {
-        .cover-pic{bottom: 62%; right: -10%;}
+    .cover-pic{bottom: 62%; right: -10%;}
     .cls-ve{top: 18px;}
     .right-side-menu {
         padding-left: 18%;
@@ -15380,7 +15389,6 @@ text-align: center;}
         margin-top: -63px;
     }
     .profile-photo .profile-pho {
-        margin-left: 15px;
         height: 80px;
         width: 80px;
         margin-top: -40px !important;
@@ -15558,14 +15566,10 @@ top: 8px;}
     .how-it-popup .modal-body h3{display: block;}
     .how-it-popup .pro_img img{margin-left: 0px ; text-align: center;}
     .banner{padding-top: 21px;}
-    .header ul li a{padding-top: 11px !important;
-padding-bottom: 0px !important; padding: 0px 8px;}
-    .header ul li.dropdown-user a{/*padding-top: 6px !important;
-padding-bottom: 6px !important;*/}
-.profile-detail h2{font-size: 13px;}
-      .custom-box .custom-width .right-box a{
-        font-size: 12px;
-    }
+    .header ul li a{padding-top: 11px !important; padding-bottom: 0px !important; padding: 0px 8px;}
+    .header ul li.dropdown-user a{/*padding-top: 6px !important; padding-bottom: 6px !important;*/}
+	.profile-detail h2{font-size: 13px;}
+    .custom-box .custom-width .right-box a{font-size: 12px; }
     .btn-1{padding: 7px 30px}
     .btns .btn-4{padding: 7px 30px;}
     .middle-section{padding-bottom: 10px;}
@@ -15749,13 +15753,9 @@ padding-bottom: 6px !important;*/}
     .profile-main-box-buis-menu li a {
         padding: 10px 5px 12px !important;
     }
-    .profile-photo .profile-pho {
-        float: left;
-    }
     .job-menu-profile.mob-block {
-        width: 72%;
         margin-top: 0px;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
     }
     .job-menu-profile h5 {
         font-size: 16px;
@@ -15924,6 +15924,12 @@ padding-bottom: 6px !important;*/}
     }
 	.cover-pic{bottom:60%;}
 	.cover-pic .btn{font-size:13px; padding:3px 10px;}
+	.add-contact div{width:40px; height:40px;}
+	#contact_per .addtocont{top:30px;}
+	.profile-left{width:60%;}
+	#contact_per{width:40%;}
+	.text-center.tab-block a{margin:0 10px;}
+	.details_all_tital{font-size:18px;}
 }
 @media screen and (max-width: 360px) {
     #InboxContainer::before{right: 80px;}
@@ -16071,9 +16077,7 @@ padding-bottom: 6px !important;*/}
         font-size: 14px;
         font-weight: 500;
     }
-    .job-menu-profile.mob-block {
-        width: 66%;
-    }
+
 }
 /*** test for form ***/
 
