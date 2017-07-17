@@ -282,7 +282,7 @@
                                 </fieldset>
 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label >Country:<span style="color:red">*</span>:</label>
+                                    <label >Country<span style="color:red">*</span>:</label>
                                     <select style="cursor:pointer;" name="country" id="country" tabindex="12">
                                        <option value="" selected option disabled>Select Country</option>
                                         <?php
