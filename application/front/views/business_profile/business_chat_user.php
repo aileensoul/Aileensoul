@@ -182,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -249,7 +249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -284,12 +284,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </body>
 </html>
 <!------  commen script khyati 15-7  ---------------->
-    <script>
-        jQuery(document).ready(function($) {
-         if(screen.width <= 767){
-     document.getElementById('chat').style.display = 'none';
-         }
-          });</script>
+<script>
+    jQuery(document).ready(function ($) {
+        if (screen.width <= 767) {
+            document.getElementById('chat').style.display = 'none';
+        }
+    });</script>
 <script type="text/javascript">
     var request_timestamp = 0;
 
@@ -369,7 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' .$message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
@@ -404,10 +404,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 console.log(formattedDate);
-             var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-            var print_message = print_message.replace(/%26amp;/gi, "&");
-          // alert(print_message);
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&");
+                // alert(print_message);
                 var html = ' <li class="clearfix">';
                 html += '   <div class="message-data align-right">';
                 html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
@@ -424,10 +424,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 console.log(formattedDate);
-              
-                 var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-             var print_message = print_message.replace(/%26amp;/gi, "&"); 
+
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&");
 
                 var html = '<li> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
@@ -454,7 +454,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile ?>?timestamp=' + request_timestamp, function (data) {
+        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' . $message_to_profile ?>?timestamp=' + request_timestamp, function (data) {
             append_chat_data(data);
 
             var newIndex = data.length - 1;
