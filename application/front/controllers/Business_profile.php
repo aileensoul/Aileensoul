@@ -3843,7 +3843,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
-            echo "<pre>"; print_r($this->data['userlist']); die();
+            //echo "<pre>"; print_r($this->data['userlist']); die();
         }
 
 
