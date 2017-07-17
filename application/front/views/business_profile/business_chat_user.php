@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'].'/5/5'; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
                                             <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                                 <?php echo $user['message']; ?>
                                             </div>
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id']; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'].'/5/5'; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
                                             <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" id="status_user">
 
                                             </div>
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach ($userlist as $user) {
                                     if ($user['user_id'] != $toid) {
                                         ?>
-                                        <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
+                                        <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'].'/5/5'; ?>">
                                             <li class="clearfix <?php
                                             if ($user['user_id'] == $toid) {
                                                 echo "active";

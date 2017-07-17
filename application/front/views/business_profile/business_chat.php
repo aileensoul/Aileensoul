@@ -46,7 +46,7 @@
                             if (count($userlist) > 0) {
                                 foreach ($userlist as $user) {
                                     ?>
-                                    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
+                                    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'].'/5/5'; ?>">
                                         <li class="clearfix <?php
                                         if ($user['user_id'] == $lstusr) {
                                             echo "active";
