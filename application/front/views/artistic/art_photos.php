@@ -229,7 +229,7 @@ start head -->
                            <?php } ?>
                         </li>
                         <li>
-                           <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id']); ?>">Message</a>
+                           <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id'].'/6/6'); ?>">Message</a>
                         </li>
                      </ul>
                   </div>
