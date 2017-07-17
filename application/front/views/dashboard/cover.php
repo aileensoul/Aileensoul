@@ -386,6 +386,7 @@
 	</div>
 
 
+
 	<!-- <footer>
 		<div class="container">
 			<div class="row">
@@ -513,8 +514,8 @@
 											<ul>
 												<li><img src="img/p1.png"><span class="pro-text"><span class="count">1.</span><span class="text">Register</span></span></li>
 												<li><img src="img/p10.png"><span class="pro-text"><span class="count">2.</span><span class="text">Post a project and see recommended freelancers. </span></span></li>
-												<li><img src="img/p3.png"><span class="pro-text"><span class="count">3.</span><span class="text">Shortlist - save - apply for freelance work </span></span></li>
-												<li><img src="img/p8.png"><span class="pro-text"><span class="count">4.</span><span class="text">Chat with the employer.</span></span></li>
+												<li><img src="img/p3.png"><span class="pro-text"><span class="count">3.</span><span class="text">Select from applied freelancers for your project </span></span></li>
+												<li><img src="img/p8.png"><span class="pro-text"><span class="count">4.</span><span class="text">Chat with freelancer.</span></span></li>
 											</ul>
 										</div>
                                        
