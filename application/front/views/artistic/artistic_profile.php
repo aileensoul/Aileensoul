@@ -655,7 +655,7 @@ if ($artisticdata[0]['art_bestofmine']) {
 
                                 <?php }else{
 
-                                if($artisticdata[0]['art_bestofmine'] == '' && $artisticdata[0]['art_portfolio'] == '') {}else{?>
+                                if(trim($artisticdata[0]['art_bestofmine']) == '' && trim($artisticdata[0]['art_portfolio']) == '') {}else{ ?>
 
                                 <div class="profile-job-post-title clearfix">
                                 <div class="profile-job-profile-button clearfix">
