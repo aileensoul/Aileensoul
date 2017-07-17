@@ -113,7 +113,7 @@
               <div class="carousel-inner" role="listbox">
                 <div class="item active">  
                   <div class="carousel-caption">
-                    <img src="img/job.png">
+                    <img src="img/job1.png">
                     <div class="carousel-text">
                       <h3>Job Profile</h3>
                       <p>Find best job options and connect with recruiters.</p>

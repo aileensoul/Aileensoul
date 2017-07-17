@@ -342,7 +342,7 @@ a:hover{
 .bottom-middle{
 	padding:30px 0 50px 50px;
 }
-.footer{background-color: #fff ;}
+.footer{/*background-color: #fff */}
 
 /***  login form css  ***/
 .login{
@@ -1238,9 +1238,10 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 		margin: 0px;
 		position: fixed;
 		right: -145px;
-		top:130px;
+		top:50%;
 		width: 200px;
 		z-index:9;
+		margin-top:-141px;
 	}
  .main-inner .pd-low{padding-top: 100px;}
 	.sticky-right li{
