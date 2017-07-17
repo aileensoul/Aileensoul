@@ -818,78 +818,6 @@ class Job extends MY_Controller {
         $this->load->view('job/job_education', $this->data);
     }
 
-//Insert Primary Education Data start
-    public function job_education_primary_insertfalguni() {
-
-        $userid = $this->session->userdata('aileenuser');
-
-          //if user deactive profile then redirect to job/index untill active profile start
-       
-
-            $job['upload_path'] = $this->config->item('job_edu_main_upload_path');
-            $job['allowed_types'] = $this->config->item('job_edu_main_allowed_types');
-            $job['max_size'] = $this->config->item('job_edu_main_max_size');
-            $job['max_width'] = $this->config->item('job_edu_main_max_width');
-            $job['max_height'] = $this->config->item('job_edu_main_max_height');
-            $this->load->library('upload');
-            $this->upload->initialize($job);
-            //Uploading Image
-            $this->upload->do_upload('edu_certificate_primary');
-            //Getting Uploaded Image File Data
-            $imgdata = $this->upload->data();
-            $imgerror = $this->upload->display_errors();
-            //print_r($imgerror);die();
-
-         
-                $job_thumb['image_library'] = 'gd2';
-                $job_thumb['source_image'] = $job['upload_path'] . $imgdata['file_name'];
-                $job_thumb['new_image'] = $this->config->item('job_edu_thumb_upload_path') . $imgdata['file_name'];
-                $job_thumb['create_thumb'] = TRUE;
-                $job_thumb['maintain_ratio'] = TRUE;
-                $job_thumb['thumb_marker'] = '';
-                $job_thumb['width'] = $this->config->item('job_edu_thumb_width');
-                //$user_thumb['height'] = $this->config->item('user_thumb_height');
-                $job_thumb['height'] = 2;
-                $job_thumb['master_dim'] = 'width';
-                $job_thumb['quality'] = "100%";
-                $job_thumb['x_axis'] = '0';
-                $job_thumb['y_axis'] = '0';
-                //Loading Image Library
-                $this->load->library('image_lib', $job_thumb);
-                $dataimage = $imgdata['file_name'];
-                //Creating Thumbnail
-                $this->image_lib->resize();
-            
-                $job_certificate = $imgdata['file_name'];
-          
-
-        
-
-            $data = array(
-                'user_id' => $userid,
-                'board_primary' => $this->input->post('board_primary'),
-                'school_primary' => $this->input->post('school_primary'),
-                'percentage_primary' => $this->input->post('percentage_primary'),
-                'pass_year_primary' => $this->input->post('pass_year_primary'),
-                'edu_certificate_primary' => $job_certificate,
-                'status' => 1
-            );
-           // echo '<pre>'; print_r($data);die();
-            $insert_id = $this->common->insert_data_getid($data, 'job_add_edu');
-
-            
-                $data = array(
-                    'modified_date' => date('Y-m-d h:i:s', time()),
-                    'job_step' => 3
-                );
-           
-
-
-            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-            //Update only one field into database End 
-
-      
-    }
 
 //Insert Primary Education Data End
 
@@ -1180,7 +1108,7 @@ class Job extends MY_Controller {
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
-            if ($imgerror == '') {
+           
                
                 //Configuring Thumbnail 
                 $job_thumb['image_library'] = 'gd2';
@@ -1202,32 +1130,15 @@ class Job extends MY_Controller {
                 //Creating Thumbnail
                 $this->image_lib->resize();
                 $thumberror = $this->image_lib->display_errors();
-            } else {
+           
                
 
 
                 $thumberror = '';
-            }
-            if ($imgerror != '' || $thumberror != '') {
-                 
- 
-                $error[0] = $imgerror;
-                $error[1] = $thumberror;
-            } else {
-                  
-                $error = array();
-            }
+           
 
         }
-            if ($error) {
-              
 
-               
-                $this->session->set_flashdata('error', $error[0]);
-                $redirect_url = site_url('job');
-                redirect($redirect_url, 'refresh');
-            } else {
-             
 
                 $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1269,9 +1180,8 @@ class Job extends MY_Controller {
 
         }
 
-                $job_certificate = $imgdata['file_name'];
-            }
-
+        $job_certificate = $imgdata['file_name'];
+        
         $contition_array = array('user_id' => $userid);
         $userdata = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1427,8 +1337,7 @@ class Job extends MY_Controller {
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
             $imgerror = $this->upload->display_errors();
-            if ($imgerror == '') {
-               
+         
                
                 //Configuring Thumbnail 
                 $job_thumb['image_library'] = 'gd2';
@@ -1450,34 +1359,9 @@ class Job extends MY_Controller {
                 //Creating Thumbnail
                 $this->image_lib->resize();
                 $thumberror = $this->image_lib->display_errors();
-            } else {
-               
-  
-
-                $thumberror = '';
-            }
-            if ($imgerror != '' || $thumberror != '') {
-                 
- 
-                $error[0] = $imgerror;
-                $error[1] = $thumberror;
-            } else {
-              
-                  
-                $error = array();
-            }
+          
         }
-            if ($error) {
-
-              
-              
-  
-                $this->session->set_flashdata('error', $error[0]);
-                $redirect_url = site_url('job');
-                redirect($redirect_url, 'refresh');
-            } else {
-
-               
+            
              $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = 'edu_certificate_higher_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1518,7 +1402,6 @@ class Job extends MY_Controller {
         }
  
                 $job_certificate = $imgdata['file_name'];
-            }
 
              //echo "<pre>"; print_r($job_certificate); die();
         $contition_array = array('user_id' => $userid);
@@ -1633,8 +1516,6 @@ class Job extends MY_Controller {
 //Insert Higher Secondary Education Data End
 //Insert Degree Education Data start
    public function job_education_insert() {
-      // echo "<pre>";print_r($_FILES);
-        //echo "<pre>";print_r($_POST);die();
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1704,13 +1585,7 @@ class Job extends MY_Controller {
 
             $this->upload->initialize($config);
             $this->upload->do_upload();
-            // if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
-            //     $fileData = $this->upload->data();
-            //     $uploadData[$i]['file_name'] = $fileData['file_name'];
-            // } else {
-
-            //     $uploadData[$i]['file_name'] = '';
-            // }
+        
 
              if ($this->upload->do_upload('certificate')) {//echo "hello"; die();
                 $response['result'][] = $this->upload->data();
@@ -1796,6 +1671,7 @@ class Job extends MY_Controller {
   //echo "<pre>";print_r($dataimage); die();
         // Multiple Image insert code End
           
+            
 
         $contition_array = array('user_id' => $userid);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5727,12 +5603,52 @@ $select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $strea
 
 // create pdf start
 
-public function creat_pdf($id) {
+public function creat_pdf_primary($id) {
    
         $contition_array = array('edu_id' => $id, 'status' => '1');
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-   
-        $this->load->view('job/job_pdfdisplay', $this->data);
+
+        if($pdf[0]['edu_certificate_primary'])
+        { 
+            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_primary'].'"width="100%" height="100%">';
+        }
+}
+
+public function creat_pdf_secondary($id) {
+
+        $contition_array = array('edu_id' => $id, 'status' => '1');
+        $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='edu_certificate_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($pdf[0]['edu_certificate_secondary'])
+        { 
+            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_secondary'].'"width="100%" height="100%">';
+        }
+}
+
+public function creat_pdf_higher_secondary($id) {
+    
+        $contition_array = array('edu_id' => $id, 'status' => '1');
+        $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='  edu_certificate_higher_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($pdf[0]['edu_certificate_higher_secondary'])
+        { 
+            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_higher_secondary'].'"width="100%" height="100%">';
+        }
+}
+
+public function creat_pdf_graduation($id) {
+    
+        $contition_array = array('job_graduation_id' => $id);
+        $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data='edu_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($pdf[0]['edu_certificate'])
+        { 
+            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate'].'"width="100%" height="100%">';
+        }
 }
 //create pdf end 
 

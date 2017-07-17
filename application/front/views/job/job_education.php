@@ -184,7 +184,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -287,13 +287,25 @@
                                           <h6>Education Certificate:</h6>
                                           <input type="file" tabindex="6" name="edu_certificate_secondary" id="edu_certificate_secondary" class="edu_certificate_secondary" placeholder="CERTIFICATE" multiple="" />
                                           <div class="bestofmine_image_secondary" style="color:#f00; display: block;"></div>
-                                          <?php
-                                             if ($edu_certificate_secondary1) {
-                                                 ?>
-                                          <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img ">
-                                          <?php
+
+                                           <?php
+                                                if ($edu_certificate_secondary1) {
+                                                   $ext = explode('.',$edu_certificate_secondary1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_secondary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                              <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img ">
+                                             <?php
+                                                }
                                              }
-                                             ?>
+                                          ?>
+
                                        </fieldset>
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden" name="image_hidden_secondary" value="<?php
@@ -396,12 +408,23 @@
                                           <input type="file" name="edu_certificate_higher_secondary" id="edu_certificate_higher_secondary" class="edu_certificate_higher_secondary" placeholder="CERTIFICATE" multiple="" tabindex="6" />
                                           <div class="bestofmine_image_higher_secondary" style="color:#f00; display: block;"></div>
                                           <?php
-                                             if ($edu_certificate_higher_secondary1) {
-                                                 ?>
-                                          <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
-                                          <?php
+                                                if ($edu_certificate_higher_secondary1) {
+                                                   $ext = explode('.',$edu_certificate_higher_secondary1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                               <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
+                                             <?php
+                                                }
                                              }
-                                             ?>
+                                          ?>
+
                                        </fieldset>
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden"  tabindex="8" name="image_hidden_higher_secondary" value="<?php
@@ -496,11 +519,7 @@
           $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1'))";
            $stream_data = $this->data['$stream_data'] = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = 'stream_name');
                                                 
-//           $contition_array = array('status' => 1 , 'degree_id' => $degree1);
-//                                                
-//                                                $stream_data = $this->data['stream_data'] = $this->common->select_data_by_condition('stream', $contition_array, $data = '*', $sortby = 'stream_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//                                                
-                                                // echo "<pre>"; print_r($stream_data); die();
+                                      
                                                 
                                                 ?>
                                              <!--     <fieldset class="full-width"> -->
@@ -609,15 +628,30 @@
                                              <h6>Education Certificate:</h6>
                                              <input style="" type="file" name="certificate[]" id="certificate1" tabindex="7" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
                                              <div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
-                                             <?php
+                                              <?php
                                                 if ($edu_certificate1) {
-                                                      ?>
-                                             <div class="img_work_exp" style=" margin-top: 14px;" >
-                                                <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
-                                             </div>
+                                                   ?>
+                                          <div class="img_work_exp" style=" margin-top: 14px;" >
+                                                   <?php
+                                                   $ext = explode('.',$edu_certificate1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }//if($ext[1] == 'pdf')
+                                                      else
+                                                      {
+                                                    ?>
+                                               <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
                                              <?php
-                                                }
+                                                }//else end
                                                 ?>
+                                                </div>
+                                          <?php
+                                             }//if ($edu_certificate1) rnd
+                                          ?>
+
                                              <?php echo form_error('certificate'); ?>
                                              <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
                                                 if ($edu_certificate1) {
@@ -785,13 +819,25 @@
                                           <h6>Education Certificate:</h6>
                                           <input type="file" name="certificate[]" id="certificate1" class="certificate" placeholder="CERTIFICATE" multiple="" />&nbsp;&nbsp;&nbsp; <span id="certificate-error"> </span>
                                           <div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
-                                          <?php
-                                             if ($edu_certificate1) {
-                                                 ?>
-                                          <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;">
-                                          <?php
+                                           <?php
+                                                if ($edu_certificate1) {
+
+                                                   $ext = explode('.',$edu_certificate1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                                <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;">
+                                             <?php
+                                                }
                                              }
-                                             ?>
+                                          ?>
+
                                           <?php echo form_error('certificate'); ?>
                                           <!--  </fieldset> -->
                                        </div>
