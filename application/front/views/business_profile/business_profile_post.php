@@ -897,17 +897,12 @@
                                                                     } else {
                                                                         ?>
                                                                         <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-                                                                            <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
-                                                                                <i class="fa fa-trash-o" aria-hidden="true">
-                                                                                </i> Delete Post
-                                                                            </a>
-                                                                            <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
-                                                                                <i class="fa fa-pencil-square-o" aria-hidden="true">
-                                                                                </i>Edit
-                                                                            </a>
-                                                                        <?php } else { ?>
-                                                                            <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
-                                                                                <i class="fa fa-trash-o" aria-hidden="true">
+    <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">    <i class="fa fa-trash-o" aria-hidden="true">    </i> Delete Post           </a>
+     <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+     <i class="fa fa-pencil-square-o" aria-hidden="true">    </i>Edit </a>
+                         <?php } else { ?>
+          <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
+     <i class="fa fa-trash-o" aria-hidden="true">
                                                                                 </i> Delete Post
                                                                             </a>
 
