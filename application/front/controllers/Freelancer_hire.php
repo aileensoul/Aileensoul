@@ -516,12 +516,14 @@ if(isset($_POST["state_id"]) && !empty($_POST["state_id"])){
         }elseif($hire_step[0]['free_hire_step'] == '2'){
             if($this->uri->segment(2) == 'freelancer_hire_professional_info'){
 
+            }elseif($this->uri->segment(2) == 'freelancer_hire_address_info'){
+
             }else{
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_professional_info');
           }
-        }else{}
+        }
         }else{
-    redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+        redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
             }
     }
     public function freelancer_hire_address_info_insert()

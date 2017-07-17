@@ -2168,12 +2168,22 @@ $contition_array = array('status'=>'1','is_delete' =>'0','user_id !=' =>$userid,
         
         if(count($hire_step) > 0){
         if($hire_step[0]['free_hire_step'] == '1'){
+            if($this->uri->segment(2) == 'freelancer_hire_address_info'){
+
+            }else{
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_address_info');
+          }
         }elseif($hire_step[0]['free_hire_step'] == '2'){
+            if($this->uri->segment(2) == 'freelancer_hire_professional_info'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_hire_address_info'){
+
+            }else{
             redirect('freelancer_hire/freelancer_hire/freelancer_hire_professional_info');
-        }else{}
+          }
+        }
         }else{
-    redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
+        redirect('freelancer_hire/freelancer_hire/freelancer_hire_basic_info');
             }
     }
     public function freelancer_edit_post($id) {  
@@ -2531,6 +2541,7 @@ public function freelancer_apply_check(){
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
         $apply_step = $this->data['apply_step'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'free_post_step', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+      //  echo "<pre>"; print_r($apply_step);
         if(count($apply_step) > 0){
         if($apply_step[0]['free_post_step'] == 1){
            // echo "1111";die();
@@ -2543,11 +2554,17 @@ public function freelancer_apply_check(){
            // echo "222";die();
             if($this->uri->segment(2) == 'freelancer_post_professional_information'){
 
+            }elseif($this->uri->segment(2) == 'freelancer_post_address_information'){
+
             }else{
             redirect('freelancer/freelancer_post/freelancer_post_professional_information');
         }
         }elseif($apply_step[0]['free_post_step'] == 3){
             if($this->uri->segment(2) == 'freelancer_post_rate'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_professional_information'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_address_information'){
 
             }else{
             redirect('freelancer/freelancer_post/freelancer_post_rate');
@@ -2555,11 +2572,25 @@ public function freelancer_apply_check(){
         }elseif($apply_step[0]['free_post_step'] == 4){
             if($this->uri->segment(2) == 'freelancer_post_avability'){
 
+            }elseif($this->uri->segment(2) == 'freelancer_post_rate'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_professional_information'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_address_information'){
+
             }else{
             redirect('freelancer/freelancer_post/freelancer_post_avability');
              }
         }elseif($apply_step[0]['free_post_step'] == 5){
             if($this->uri->segment(2) == 'freelancer_post_education'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_avability'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_rate'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_professional_information'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_address_information'){
 
             }else{
             redirect('freelancer/freelancer_post/freelancer_post_education');
@@ -2567,6 +2598,16 @@ public function freelancer_apply_check(){
         }elseif($apply_step[0]['free_post_step'] == 6){
             if($this->uri->segment(2) == 'freelancer_post_portfolio'){
 
+            }elseif($this->uri->segment(2) == 'freelancer_post_education'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_avability'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_rate'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_professional_information'){
+
+            }elseif($this->uri->segment(2) == 'freelancer_post_address_information'){
+                
             }else{
             redirect('freelancer/freelancer_post/freelancer_post_portfolio');
         }
