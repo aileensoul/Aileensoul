@@ -267,7 +267,7 @@ class Chat extends MY_Controller {
        
         // from freelancer hire
         if ($message_from_profile == 3) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_from_profile_id'] = $message_from_profile_id[0]['reg_id'];
             $this->data['message_from_profile'] = 3;
@@ -275,13 +275,13 @@ class Chat extends MY_Controller {
         }
         
            if ($message_to_profile == 3) {
-            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['reg_id'];
         }
         // from freelancer post
         if ($message_from_profile == 4) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_from_profile_id'] = $message_from_profile_id[0]['freelancer_post_reg_id'];
             $this->data['message_from_profile'] = 4;
@@ -289,7 +289,7 @@ class Chat extends MY_Controller {
         }
         
         if ($message_to_profile == 4) {
-            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['freelancer_post_reg_id'];
         }
@@ -308,14 +308,14 @@ class Chat extends MY_Controller {
         }
         // from artistic
         if ($message_from_profile == 6) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_from_profile_id'] = $message_from_profile_id[0]['art_id'];
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 6;
         }
         
         if ($message_to_profile == 6) {
-            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['art_id'];
         }

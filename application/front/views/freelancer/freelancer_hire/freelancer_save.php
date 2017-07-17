@@ -452,7 +452,7 @@
                        $userid = $this->session->userdata('aileenuser');
                                   if ($userid != $rec['user_id']) {
                                                  ?>
-                          <a href="<?php echo base_url('chat/abc/' . $rec['user_id']); ?>">Message</a>
+                          <a href="<?php echo base_url('chat/abc/' . $rec['user_id'].'/3/4'); ?>">Message</a>
                                <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
                                                                 <?php } ?>
                                                        <!--  <a href="<?php //echo '#popup3' . $rec['save_id'];  ?>">Remove Candidate</a> -->

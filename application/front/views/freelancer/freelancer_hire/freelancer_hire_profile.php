@@ -203,7 +203,7 @@
                              if($this->uri->segment(3) != ""){?>
                                 <div class="flw_msg_btn fr">
                     <ul>
-                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                        <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/3/4'); ?>">Message</a> </li>
                          </ul>
                 </div>
                              <?php }

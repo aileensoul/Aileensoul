@@ -334,7 +334,7 @@
                                                                             <?php } ?>
                                                                         </div>
 
-                                                                        <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id']); ?>'"> Message</button>
+                                                                        <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id'].'/5/5'); ?>'"> Message</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
