@@ -1389,7 +1389,12 @@
        jQuery.validator.addMethod("noSpace", function(value, element) { 
    return value == '' || value.trim().length != 0;  
    }, "No space please and don't leave it empty");
-   
+
+    //    jQuery.validator.addMethod('selectcheck', function (value) {
+    //      alert(value);
+       
+    //    // return (value == '463');
+    // }, "other is not valide");
    
    
    $.validator.addMethod("regx", function(value, element, regexpr) {          
@@ -1424,6 +1429,7 @@
                'university[]': {
    
                    required: true,
+                 // selectcheck:true,
    
                },
    
