@@ -98,7 +98,7 @@
     </div>
     <?php
 
-     if ($candidatejob) { ?>
+    if(($candidatejob != NULL) || ($recruiterdata != NULL))  { ?>
                         <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div> <?php } ?>
@@ -112,7 +112,8 @@
                         <div class="common-form ">
                             <div class="job-saved-box">
 <?php
-                             if ($candidatejob || $recruiterdata != NULL) { ?>
+    if(($candidatejob != NULL) || ($recruiterdata != NULL))  { ?>
+                             
                                 <h3>
                                    Recommended Candidate
                                 </h3>
@@ -647,7 +648,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
  if (!$data) {
      ?> 
                      
-    <a href="<?php echo base_url('chat/abc/' . $row['iduser']); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $row['iduser'].'/2/1'); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
@@ -658,7 +659,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 <?php
             } else {
                  ?>
-    <a href="<?php echo base_url('chat/abc/' . $row['iduser']); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $row['iduser'].'/2/1'); ?>">Message</a> 
 
     <a class="saved">Saved</a> 
                                                         <?php } }

@@ -119,7 +119,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');     ?>">
+<!-- <link rel="stylesheet" href="<?php //echo base_url('assets/css/croppie.css');       ?>">
 --><style type="text/css" media="screen">
     #row2 { overflow: hidden; width: 100%; }
     #row2 img { height: 350px;width: 100%; } 
@@ -264,7 +264,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     if ($businessdata1[0]['user_id'] == $userid) {
                         ?>
-                                            <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+                                                    <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
@@ -325,13 +325,13 @@
 
                     if ($status == 0 || $status == " ") {
                         ?>
-                                          <div class="msg_flw_btn_1" id= "followdiv">
-                                              <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                          </div>
+                                                  <div class="msg_flw_btn_1" id= "followdiv">
+                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                  </div>
                     <?php } elseif ($status == 1) { ?>
-                                          <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                              <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                          </div>
+                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                  </div>
                     <?php } ?>
                               </div> 
                               <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -364,8 +364,8 @@
                         if ($businessdata1[0]['user_id'] == $userid) {
                             ?> 
 
-                                             <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                    </li> -->
+                                                     <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                            </li> -->
 
                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/userlist'); ?>">Userlist</a>
                             </li>
@@ -1123,12 +1123,12 @@
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product"><a style=" font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucwords($companynameposted); ?></a> <span style="font-weight: 600;"> Posted With </span> <a style=" font-size: 18px;
-                                                                                            line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
+                                                                                                                                                                                                                line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?></a> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </div></div></li>
 
 
                                             <?php } else { ?>
                                                 <li><div class="post-design-product"><a style="font-size: 18px; line-height: 24px; font-weight: 600; color: #000033; margin-bottom: 4px; " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> <span  style="font-weight: 400;""><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> </a></div></li>
-                                                                                    <?php } ?>
+                                            <?php } ?>
 
                                             <li> <a style=" color: #000033; font-weight: 400;"> <div class="post-design-product"><a><?php echo ucwords($category); ?></a> </div></a></li>
 
@@ -1151,7 +1151,7 @@
                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
                                             <?php } else { ?>
-                                    <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];     ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
+                                                    <!-- <a href="<?php //echo "#popup5" . $row['business_profile_post_id'];       ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a> -->
 
 
                                                 <!-- <?php
@@ -1161,13 +1161,13 @@
 
                                                 if ($businesssave) {
                                                     ?>
-                                                            
-                                                               <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
-                                                            
+                                                                    
+                                                                       <a><i class="fa fa-bookmark" aria-hidden="true"></i>Saved Post</a>
+                                                                    
                                                 <?php } else { ?>
-                                                            
-                                                               <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
-                                                            
+                                                                    
+                                                                       <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="save_post(this.id)" href="#popup1" class="<?php echo 'savedpost' . $row['business_profile_post_id']; ?>"><i class="fa fa-bookmark" aria-hidden="true"></i>  Save Post</a> 
+                                                                    
                                                 <?php } ?> -->
 
                                                 <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
@@ -1195,8 +1195,8 @@
 
                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                </textarea> 
+                                                        <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                        </textarea> 
                                             -->
                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc"><?php echo $row['product_description']; ?></div>
 
@@ -1714,7 +1714,7 @@
 
                     <?php } ?>
 
-             
+
                 </div>
                 <!-- business_profile _manage_post end -->
 

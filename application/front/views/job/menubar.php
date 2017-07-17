@@ -81,7 +81,7 @@
                     </a>
                         </li>
                                                                 <?php } ?>
-                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a> </li>
                        <?php } }?>
                     </ul>
                 </div>

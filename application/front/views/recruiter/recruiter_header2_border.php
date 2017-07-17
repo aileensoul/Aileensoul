@@ -283,3 +283,40 @@ $(document).ready(function() {
 
  </script>
  <!-- all popup close close using esc end -->
+
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+    function getmsgNotification() {
+        msgNotification();
+        msgheader();
+    }
+
+    function msgNotification() {
+        // first click alert('here'); 
+        $.ajax({
+            url: "<?php echo base_url(); ?>notification/update_msg_noti",
+            type: "POST",
+            //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+            success: function (data) {
+                data = JSON.parse(data);
+                //alert(data);
+                //update some fields with the updated data
+                //you can access the data like 'data["driver"]'
+            }
+        });
+    }
+    function msgheader()
+    {
+        // $("#fad" + clicked_id).fadeOut(6000);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
+            data: 'message_from_profile=2&message_to_profile=1',
+            success: function (data) {
+                $('#' + 'notificationsmsgBody').html(data);
+            }
+        });
+
+    }
+</script>

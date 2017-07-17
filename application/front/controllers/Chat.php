@@ -233,18 +233,96 @@ class Chat extends MY_Controller {
 
     public function abc($id = '', $message_from_profile = '', $message_to_profile = '') {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
+        
+        // from job
+        if ($message_from_profile == 1) {
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['job_id'];
+            $this->data['message_from_profile'] = 1; 
+            $this->data['message_to_profile'] = 2;
+        }
+        
+         if ($message_to_profile == 1) {
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['job_id'];
+        }
+        
+        // from recruiter
+        if ($message_from_profile == 2) {
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 're_status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['rec_id'];
+            $this->data['message_from_profile'] = 2;
+            $this->data['message_to_profile'] = 1;
+        }
+        
+        
+        if ($message_to_profile == 2) {
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['rec_id'];
+        }
+       
+        // from freelancer hire
+        if ($message_from_profile == 3) {
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['reg_id'];
+            $this->data['message_from_profile'] = 3;
+            $this->data['message_to_profile'] = 4;
+        }
+        
+           if ($message_to_profile == 3) {
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['reg_id'];
+        }
+        // from freelancer post
+        if ($message_from_profile == 4) {
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['freelancer_post_reg_id'];
+            $this->data['message_from_profile'] = 4;
+            $this->data['message_to_profile'] = 3;
+        }
+        
+        if ($message_to_profile == 4) {
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['freelancer_post_reg_id'];
+        }
+        // from business
         if ($message_from_profile == 5) {
             $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
         }
-        if ($message_to_profile == 5) {
+        
+         if ($message_to_profile == 5) {
             $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
         }
+        // from artistic
+        if ($message_from_profile == 6) {
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $message_from_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_from_profile_id'] = $message_from_profile_id[0]['art_id'];
+            $this->data['message_from_profile'] = $this->data['message_to_profile'] = 6;
+        }
+        
+        if ($message_to_profile == 6) {
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $message_to_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['art_id'];
+        }
+        
+        
+        
+     
 
         // last user if $id is null
         $contition_array = array('id !=' => '');

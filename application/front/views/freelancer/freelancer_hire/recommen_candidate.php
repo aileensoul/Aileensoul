@@ -392,11 +392,11 @@
             $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // khayti changes start 6-4
             ?>
-              <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
+              <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id'].'/3/4'); ?>">Saved</a>-->
             <?php   
             
             if($userid != $row['user_id']){ ?>
-          <a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Message</a>
+          <a href="<?php echo base_url('chat/abc/' . $row['user_id'].'/3/4'); ?>">Message</a>
 
           <?php
             if (!$data) {

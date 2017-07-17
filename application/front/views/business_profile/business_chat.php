@@ -3,14 +3,14 @@
     <head>
 
         <!--- for dispaly div insted of input type start -->
-       
+
         <?php echo $header; ?>
         <!--- for dispaly div insted of input type end -->
         <meta charset="utf-8">
         <title>Chat</title>
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-<link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
+        <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
 
@@ -24,8 +24,8 @@
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
-    
-         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
+
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
 
 
     </head>
@@ -46,13 +46,13 @@
                             if (count($userlist) > 0) {
                                 foreach ($userlist as $user) {
                                     ?>
-                                    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id']; ?>">
-            <li class="clearfix <?php
-                if ($user['user_id'] == $lstusr) {
+                                    <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'].'/5/5'; ?>">
+                                        <li class="clearfix <?php
+                                        if ($user['user_id'] == $lstusr) {
                                             echo "active";
                                         }
                                         ?>">
-                                            <?php if ($user['user_image']) { ?>
+                                                <?php if ($user['user_image']) { ?>
                                                 <div class="chat_heae_img">
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" >
                                                 </div>
@@ -65,21 +65,22 @@
                                                 <div class="name"> 
                                                     <?php echo $user['first_name'] . "<br>"; ?> </div>
                                                 <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user" >
-                                                         <?php echo $user['message']; ?>
+                                                    <?php echo $user['message']; ?>
                                                 </div>
                                             </div>
                                         </li>
                                     </a>
                                     <?php
                                 }
-                            } else { ?>
+                            } else {
+                                ?>
 
-                            <div class="no_user_Av">
+                                <div class="no_user_Av">
 
-                               <?php  echo 'No user available...'; ?>
+                                    <?php echo 'No user available...'; ?>
 
-                        </div>
-                           <?php }
+                                </div>
+                            <?php }
                             ?>
                         </div>
                         <!-- loop end -->
@@ -132,7 +133,7 @@
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                                   <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <!--  <div class="comment" contentEditable="true" name="comments" id="message  smily" style="position: relative;"> -->
@@ -143,13 +144,12 @@
                                                     <a class="smil"  href="#" id="notificationLink1" >   <i class="em em-blush"></i></a>
 
                                                     <div id="notificationContainer1" style="display: none;
-                                                    "">
+                                                         "">
 
                                                         <div id="notificationsBody1" class="notifications1">
                                                             <?php
                                                             $i = 0;
                                                             foreach ($smiley_table as $key => $value) {
-                                                                
                                                                 ?>
 
                                                                 <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
@@ -203,7 +203,7 @@
                                                 <a class="smil"  href="#" id="notificationLink1">   <i class="em em-blush"></i></a>
 
                                                 <div id="notificationContainer1" style="display: none;
-                                                    ">
+                                                     ">
 
                                                     <div id="notificationsBody1" class="notifications1">
                                                         <?php
@@ -247,12 +247,12 @@
     </body>
 </html>
 <!------  commen script khyati 15-7  ---------------->
-    <script>
-        jQuery(document).ready(function($) {
-         if(screen.width <= 767){
-     document.getElementById('chat').style.display = 'none';
-         }
-          });</script>
+<script>
+    jQuery(document).ready(function ($) {
+        if (screen.width <= 767) {
+            document.getElementById('chat').style.display = 'none';
+        }
+    });</script>
 <script type="text/javascript">
     var dropDownMenu = new Foundation.DropdownMenu($('#smileystatic'), {
         disableHover: true,
@@ -334,26 +334,26 @@
         } else {
             $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
-            }); 
+            });
         }
     }
     /*
-    $('#message').keypress(function (event) {
-            if (event.keyCode == 13 && !event.shiftKey) {
-                event.preventDefault();
-                var sel = $("#message");
-                var txt = sel.html();
-                if (txt == '') {
-                    return false;
-                } else {
-                    alert(2);
-                    $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-                        callback();
-                    });
-                }
-            }
-        }); 
-*/
+     $('#message').keypress(function (event) {
+     if (event.keyCode == 13 && !event.shiftKey) {
+     event.preventDefault();
+     var sel = $("#message");
+     var txt = sel.html();
+     if (txt == '') {
+     return false;
+     } else {
+     alert(2);
+     $.getJSON('<?php echo base_url(); ?>api/send_message/' + lastusr + '?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+     callback();
+     });
+     }
+     }
+     }); 
+     */
 
     var append_chat_data = function (chat_data) {
         chat_data.forEach(function (data) {
@@ -376,39 +376,39 @@
                 //console.log(formattedDate);
 //alert(formattedDate);
 
-            var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-            var print_message = print_message.replace(/%26amp;/gi, "&");
-                
-                
-                    var html = ' <li class="clearfix">';
-                    html += '   <div class="message-data align-right">';
-                    html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
-                    html += '    <span  class="message-data-name fr"  >' + fname +
-                            ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
-                    html += ' </div>';
-                    html += '<div class="message other-message float-right">' + print_message + '</div>';
-                    html += '</li>';
-                    $('.' + 'status' + touser).html(print_message);
-               
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&");
+
+
+                var html = ' <li class="clearfix">';
+                html += '   <div class="message-data align-right">';
+                html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
+                html += '    <span  class="message-data-name fr"  >' + fname +
+                        ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
+                html += ' </div>';
+                html += '<div class="message other-message float-right">' + print_message + '</div>';
+                html += '</li>';
+                $('.' + 'status' + touser).html(print_message);
+
             } else {
 
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 //console.log(formattedDate);
-            var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-            var print_message = print_message.replace(/%26amp;/gi, "&")
-                
-                    var html = '<li> <div class="message-data">';
-                    html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
-                    html += '<span class="message-data-time">' + formattedDate + ' </span>';
-                    html += ' </div>';
-                    html += ' <div class="message my-message">' + print_message + '</div>';
-                    html += '</li>';
-                    $('.' + 'status' + curuser).html(print_message);
-                
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&")
+
+                var html = '<li> <div class="message-data">';
+                html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
+                html += '<span class="message-data-time">' + formattedDate + ' </span>';
+                html += ' </div>';
+                html += ' <div class="message my-message">' + print_message + '</div>';
+                html += '</li>';
+                $('.' + 'status' + curuser).html(print_message);
+
             }
 //            $('.chat-history').animate({scrollTop: $('.chat-history').height()}, 2000);
 //            var dchativ = $(".chat-history");
@@ -422,7 +422,7 @@
 //        $('#received').animate({scrollTop: $('#received').height()}, 1000);
     }
 
-        var update_chats = function () {
+    var update_chats = function () {
         if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
@@ -450,13 +450,13 @@
 
 //         data = data.replace(/\<br\>/g,'');
         data = data.replace(/&nbsp;/gi, " ");
-        
-        data = data.replace(/&gt;/gi,">");
+
+        data = data.replace(/&gt;/gi, ">");
         data = data.replace(/div/gi, "p");
 
         data = data.replace(/&/g, "%26");
-     
-     alert(data);   
+
+        alert(data);
         if (data == "") {
             return false;
         }
@@ -537,7 +537,7 @@
      
      $.ajax({ 
      type:'POST',
-     url:'<?php // echo base_url() . "chat/user_list"                ?>',
+     url:'<?php // echo base_url() . "chat/user_list"                  ?>',
      data:'search_user='+val,
      //     dataType: "json",
      success:function(data){ 
@@ -621,7 +621,7 @@
     {
         $("#bottom")[0].scrollTop = $("#bottom")[0].scrollHeight - $("#bottom").height();
     });
-    
+
     $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>
 

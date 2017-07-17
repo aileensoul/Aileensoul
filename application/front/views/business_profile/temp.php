@@ -109,8 +109,8 @@
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / ></div>
-                         <?php }
-                         ?>
+                    <?php }
+                    ?>
 
 
                 </div>
@@ -209,13 +209,13 @@
 
                             if ($status == 0 || $status == " ") {
                                 ?>
-                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "followdiv">
-                                                                                                                                                                                      <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                  </div>
+                                                                                                                                                                                          <div class="msg_flw_btn_1" id= "followdiv">
+                                                                                                                                                                                              <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                                                                                                                                                          </div>
                             <?php } elseif ($status == 1) { ?>
-                                                                                                                                                                                  <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                                                                                                                                      <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                  </div>
+                                                                                                                                                                                          <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                                                                                                                                                              <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                                                                                                                                                          </div>
                             <?php } ?>
                                       </div> 
                                       <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
@@ -247,8 +247,8 @@
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                    </li> -->
+                                                                                                                      <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                            </li> -->
 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist</a>
                                     </li>
@@ -338,7 +338,7 @@
                                             </li>
 
                                             <li>
-                                                <a  href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                <a  href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id'].'/5/5'); ?>">Message</a></li>
                                         <?php } ?>
 
                                     </ul>   
@@ -860,7 +860,7 @@
                                        <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                     <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); 
                                               name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
-                                              <div class="fifty_val">                   
+                                    <div class="fifty_val">                   
                                         <input size=1 value=50 name=text_num class="text_num" readonly> 
                                     </div>
 
@@ -868,7 +868,7 @@
 
                                 <div class="col-md-1 padding-left camer_h" ><i class=" fa fa-camera " ></i> </div>
 
-                                    </div>
+                            </div>
                             <div class="row"></div>
                             <div  id="text"  class="editor-content col-md-12 popup-textarea" >
                                 <textarea id="test-upload_des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
@@ -1009,7 +1009,7 @@
                                                         <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucwords($companyname); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucwords($companyname); ?> </a>
 
                                                                 <div class="datespan"> 
-                                                                  <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
+                                                                    <span class="ctre_date"><?php echo date('d-M-Y', strtotime($row['created_date'])); ?> </span> 
                                                                 </div>
 
                                                             </div></li>
@@ -1088,14 +1088,14 @@
                                             </div>
 
 
-  <?php if($row['product_name'] || $row['product_description']){?>
+                                            <?php if ($row['product_name'] || $row['product_description']) { ?>
 
-                                            <div class="post-design-desc" >
-                <?php }?>                          
+                                                <div class="post-design-desc" >
+                                                <?php } ?>                          
                                                 <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
                                                 </div>
-                                                
+
 
                                                 <div id="<?php echo 'editpostbox' . $row['business_profile_post_id']; ?>" style="display:none;">
                                                     <input type="text" id="<?php echo 'editpostname' . $row['business_profile_post_id']; ?>" name="editpostname" placeholder="Product Name" value="<?php echo $row['product_name']; ?>">
@@ -1105,15 +1105,15 @@
                                                 <div id="<?php echo 'editpostdetails' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                     <span class="show">  
                                                         <?php $new_product_description = $this->common->make_links($row['product_description']); ?>
-                                                                <?php  echo  nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
-                                                                <?php //echo  nl2br($new_product_description); ?>
+                                                        <?php echo nl2br(htmlentities($new_product_description, ENT_QUOTES, 'UTF-8')); ?>
+                                                        <?php //echo  nl2br($new_product_description); ?>
                                                     </span>
                                                 </div>
 
                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                            </textarea> 
+                                                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                                            </textarea> 
                                                     -->
                                                     <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
 
@@ -1128,10 +1128,10 @@
 
 
                                             </div> 
-                                            <?php if($row['product_name'] || $row['product_description']){?>
-                                        </div>
-                                       <?php } ?>
-                                      
+                                            <?php if ($row['product_name'] || $row['product_description']) { ?>
+                                            </div>
+                                        <?php } ?>
+
 
 
                                         <div class="post-design-mid col-md-12" >  
@@ -1330,12 +1330,12 @@
                                                             if (!in_array($userid, $likeuserarray)) {
                                                                 ?>               
 
-                                                                <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
-                                                            <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
+                                                                                        <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                             <?php } else { ?> 
-                                                                <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-                                                            <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
+                                                                                        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                                <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>
                                                             <?php } ?>
 
                                                             <span class="like_As_count">
@@ -1515,11 +1515,12 @@
                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                     <?php
                                                                     $new_product_comment = $this->common->make_links($rowdata['comments']);
-                                                                    
-                                                                //    echo  nl2br(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')); 
-                                                                    echo  nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8'))); ?>
+
+                                                                    //    echo  nl2br(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')); 
+                                                                    echo nl2br(htmlspecialchars_decode(htmlentities($new_product_comment, ENT_QUOTES, 'UTF-8')));
+                                                                    ?>
                                                                 </div>
-                                                                
+
                                                                 <div class="edit-comment-box">
                                                                     <div class="inputtype-edit-comment">
 
@@ -1637,7 +1638,7 @@
 
 
                                             <div >
-                                                  <div id="content" class="col-md-12  inputtype-comment cmy_2" >
+                                                <div id="content" class="col-md-12  inputtype-comment cmy_2" >
 
                                                     <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                 </div>
@@ -2006,7 +2007,7 @@
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
                     $('#post_comment' + clicked_id).html("");
 
                     var x = document.getElementById('threecomment' + clicked_id);
@@ -2117,7 +2118,7 @@
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             $('#post_comment' + clicked_id).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2625,7 +2626,7 @@
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
 //                    alert(txt);
 //                    return false;
                     $.ajax({
@@ -2714,7 +2715,7 @@
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             //$('#editcomment' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -2792,7 +2793,7 @@
                     {
                         return false;
                     }
-                    txt = txt.replace(/&/g,"%26");
+                    txt = txt.replace(/&/g, "%26");
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2886,7 +2887,7 @@
                             {
                                 return false;
                             }
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             //$('#editcommenttwo' + abc).html("");
 
                             if (window.preventDuplicateKeyPresses)
@@ -3122,14 +3123,13 @@
                 /* When the user clicks on the button, 
                  toggle between hiding and showing the dropdown content */
                 function myFunction1(clicked_id) {
-                    
+
                     var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
                     dropDownClass = dropDownClass.split(" ").pop(-1);
-                    if(dropDownClass != 'show'){
+                    if (dropDownClass != 'show') {
                         $('.dropdown-content2').removeClass('show');
                         $('#myDropdown' + clicked_id).addClass('show');
-                    }
-                    else{
+                    } else {
                         $('.dropdown-content2').removeClass('show');
                     }
                 }
@@ -3204,8 +3204,8 @@
                     var $field = $('#editpostname' + abc);
                     //var data = $field.val();
                     var editpostdetails = $('#editpostdesc' + abc).html();
-                    
-                    editpostdetails = editpostdetails.replace(/&/g,"%26");
+
+                    editpostdetails = editpostdetails.replace(/&/g, "%26");
 
 
                     // $('#editpostdesc' + abc).html("");
@@ -3610,7 +3610,7 @@
                             event.preventDefault();
                             var sel = $("#post_comment" + clicked_id);
                             var txt = sel.html();
-                            txt = txt.replace(/&/g,"%26");
+                            txt = txt.replace(/&/g, "%26");
                             $('#post_comment' + clicked_id).html("");
                             // $("#result").html(txt);
                             // sel.html("")
@@ -3944,7 +3944,7 @@
                     });
                 });
             </script>
-            
+
             <script type="text/javascript">
                 $(document).keydown(function (e) {
                     if (!e)
@@ -3960,64 +3960,64 @@
 
 
 // pop up open & close aarati code start 
-jQuery(document).mouseup(function (e) {
-            //var container3 = $("#myBtn1");
-             var container1 = $("#myModal3");
-            //container.show();
-            
-                //alert('bb');
-                container1.show();
-                if( container1.show()) 
+                jQuery(document).mouseup(function (e) {
+                    //var container3 = $("#myBtn1");
+                    var container1 = $("#myModal3");
+                    //container.show();
 
-                {
-                     jQuery(document).mouseup(function (e) {
-                    var container = $("#close");
+                    //alert('bb');
+                    container1.show();
+                    if (container1.show())
 
-            //container.show();
-            if (!container.is(e.target) // if the target of the click isn't the container...
-                && container.has(e.target).length === 0) // ... nor a descendant of the container
-            {
-               // alert('aa');
-                container1.hide();
-            }
-        });
-                }
-        
-        });
+                    {
+                        jQuery(document).mouseup(function (e) {
+                            var container = $("#close");
+
+                            //container.show();
+                            if (!container.is(e.target) // if the target of the click isn't the container...
+                                    && container.has(e.target).length === 0) // ... nor a descendant of the container
+                            {
+                                // alert('aa');
+                                container1.hide();
+                            }
+                        });
+                    }
+
+                });
 
 // pop up open & close aarati code end
 
- 
+
 // $('#myModal3').click(function(event){
 //      event.stopPropagation();
 // });
-    
+
             </script>
-            
-<script type="text/javascript">
 
-    var _onPaste_StripFormatting_IEPaste = false;
+            <script type="text/javascript">
 
-    function OnPaste_StripFormatting(elem, e) {
+                var _onPaste_StripFormatting_IEPaste = false;
 
-        if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.originalEvent.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (e.clipboardData && e.clipboardData.getData) {
-            e.preventDefault();
-            var text = e.clipboardData.getData('text/plain');
-            window.document.execCommand('insertText', false, text);
-        } else if (window.clipboardData && window.clipboardData.getData) {
-            // Stop stack overflow
-            if (!_onPaste_StripFormatting_IEPaste) {
-                _onPaste_StripFormatting_IEPaste = true;
-                e.preventDefault();
-                window.document.execCommand('ms-pasteTextOnly', false);
-            }
-            _onPaste_StripFormatting_IEPaste = false;
-        }
+                function OnPaste_StripFormatting(elem, e) {
 
-    }
+                    if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                        e.preventDefault();
+                        var text = e.originalEvent.clipboardData.getData('text/plain');
+                        window.document.execCommand('insertText', false, text);
+                    } else if (e.clipboardData && e.clipboardData.getData) {
+                        e.preventDefault();
+                        var text = e.clipboardData.getData('text/plain');
+                        window.document.execCommand('insertText', false, text);
+                    } else if (window.clipboardData && window.clipboardData.getData) {
+                        // Stop stack overflow
+                        if (!_onPaste_StripFormatting_IEPaste) {
+                            _onPaste_StripFormatting_IEPaste = true;
+                            e.preventDefault();
+                            window.document.execCommand('ms-pasteTextOnly', false);
+                        }
+                        _onPaste_StripFormatting_IEPaste = false;
+                    }
 
-</script>
+                }
+
+            </script>

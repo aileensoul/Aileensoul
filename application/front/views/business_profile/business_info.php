@@ -58,9 +58,9 @@
                                     ?>"><a href="<?php echo base_url('business_profile/description'); ?>">Description</a></li>
 
                                     <li class="custom-none <?php
-                                        if ($businessdata[0]['business_step'] < '3') {
-                                            echo "khyati";
-                                        }
+                                    if ($businessdata[0]['business_step'] < '3') {
+                                        echo "khyati";
+                                    }
                                     ?>"><a href="<?php echo base_url('business_profile/image'); ?>">Business Images</a></li>
 
                                 </ul>
@@ -104,11 +104,11 @@
                                 <fieldset class="full-width" <?php if ($companyname) { ?> class="error-msg" <?php } ?>>
                                     <label>Company Name:<span style="color:red">*</span></label>
                                     <input name="companyname" tabindex="1" autofocus type="text" id="companyname" placeholder="Enter Company Name" value="<?php
-                                           if ($companyname1) {
-                                               echo $companyname1;
-                                           }
-                                ?>"/>
-                                        <?php echo form_error('companyname'); ?>
+                                    if ($companyname1) {
+                                        echo $companyname1;
+                                    }
+                                    ?>"/>
+                                           <?php echo form_error('companyname'); ?>
                                 </fieldset>
 
 
@@ -129,13 +129,13 @@
                                                 else {
                                                     ?>
                                                     <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name']; ?></option>
-            <?php
-        }
-    }
-}
-?>
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
                                     </select><span id="country-error"></span>
-                                        <?php echo form_error('country'); ?> 
+                                    <?php echo form_error('country'); ?> 
                                 </fieldset>
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
@@ -154,12 +154,12 @@
                                             else {
                                                 ?>
                                                 <option value="">Select country first</option>
-        <?php
-    }
-}
-?>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </select><span id="state-error"></span>
-                                        <?php echo form_error('state'); ?>
+                                    <?php echo form_error('state'); ?>
                                 </fieldset>
 
 
@@ -186,14 +186,14 @@
 
                                                 <option value="<?php echo $cnt['city_id']; ?>"><?php echo $cnt['city_name']; ?></option>
 
-        <?php
-    }
-} else {
-    ?>
+                                                <?php
+                                            }
+                                        } else {
+                                            ?>
                                             <option value="">Select state first</option>
 
-<?php }
-?>
+                                        <?php }
+                                        ?>
                                     </select><span id="city-error"></span>
 
                                 </fieldset>
@@ -202,10 +202,10 @@
                                 <fieldset>
                                     <label>Pincode:</label>
                                     <input name="pincode" tabindex="5"   type="text" id="pincode" placeholder="Enter Pincode" value="<?php
-if ($pincode1) {
-    echo $pincode1;
-}
-?>">
+                                    if ($pincode1) {
+                                        echo $pincode1;
+                                    }
+                                    ?>">
 
                                 </fieldset>
 
@@ -216,11 +216,11 @@ if ($pincode1) {
 
 
                                     <textarea name ="business_address" tabindex="6"  id="business_address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;"><?php
-if ($address1) {
-    echo $address1;
-}
-?></textarea>
-<?php echo form_error('business_address'); ?>
+                                        if ($address1) {
+                                            echo $address1;
+                                        }
+                                        ?></textarea>
+                                    <?php echo form_error('business_address'); ?>
 
                                 </fieldset>
 
@@ -289,7 +289,7 @@ if ($address1) {
         <!-- footer start -->
         <footer>
 
-<?php echo $footer; ?>
+            <?php echo $footer; ?>
         </footer>
 
     </body>

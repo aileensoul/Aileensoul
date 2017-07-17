@@ -147,7 +147,7 @@
 
                                     <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
-                                                           <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
+                                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
                                         <?php } ?>
                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
 
@@ -196,7 +196,7 @@
         </div>
     </div> 
     </header>
-<?php
+    <?php
 } else {
     ?>
     <header>
@@ -451,40 +451,40 @@
 <!-- all popup close close using esc end-->
 
 
-    <!-- script for update all read notification start-->
-    <script type="text/javascript">
+<!-- script for update all read notification start-->
+<script type="text/javascript">
 
-        function getmsgNotification() {
-            msgNotification();
-            msgheader();
-        }
+    function getmsgNotification() {
+        msgNotification();
+        msgheader();
+    }
 
-        function msgNotification() {
-            // first click alert('here'); 
-            $.ajax({
-                url: "<?php echo base_url(); ?>notification/update_msg_noti",
-                type: "POST",
-                //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
-                success: function (data) {
-                    data = JSON.parse(data);
-                    //alert(data);
-                    //update some fields with the updated data
-                    //you can access the data like 'data["driver"]'
-                }
-            });
-        }
-        function msgheader()
-        {
-            // $("#fad" + clicked_id).fadeOut(6000);
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
-                data: 'message_from_profile=5&message_to_profile=5',
-                success: function (data) {
-                    $('#' + 'notificationsmsgBody').html(data);
-                }
-            });
+    function msgNotification() {
+        // first click alert('here'); 
+        $.ajax({
+            url: "<?php echo base_url(); ?>notification/update_msg_noti",
+            type: "POST",
+            //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+            success: function (data) {
+                data = JSON.parse(data);
+                //alert(data);
+                //update some fields with the updated data
+                //you can access the data like 'data["driver"]'
+            }
+        });
+    }
+    function msgheader()
+    {
+        // $("#fad" + clicked_id).fadeOut(6000);
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
+            data: 'message_from_profile=5&message_to_profile=5',
+            success: function (data) {
+                $('#' + 'notificationsmsgBody').html(data);
+            }
+        });
 
-        }
-    </script>
-    <!------  commen script harshad  ---------------->
+    }
+</script>
+<!------  commen script harshad  ---------------->

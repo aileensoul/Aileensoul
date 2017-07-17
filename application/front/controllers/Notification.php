@@ -684,9 +684,10 @@ class Notification extends MY_Controller {
 
         //echo "<pre>"; print_r($data); die();
 
-        $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
-        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+      $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
+      $search_condition = "(city_name LIKE '" . trim($this->input->get("q")) . "%')";
+      $result = $this->common->select_data_by_search('notification', $search_condition,$contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+   
         $data = array(
             'not_read' => 1
         );
