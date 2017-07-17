@@ -229,7 +229,7 @@ echo $freelancer_post_header2_border;
                         </li> <?php 
                                                                 } ?>
                       <li>
-           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a>
+           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/4/3'); ?>">Message</a>
                  </li>
                   
       <?php }} ?>
