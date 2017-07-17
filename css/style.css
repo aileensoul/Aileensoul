@@ -13714,7 +13714,7 @@ body {
     margin-left: 10px;
 }
 .business-profile-right {
-    width: 83%;
+    width: 82%;
     float: left;
     padding-left: 30px;
 }
@@ -14442,6 +14442,7 @@ header.animated {
     .rec_check {
         font-size: 14px;
     }
+	.profile-main-box-buis-menu li a{font-size:13px; padding:17px 10px 12px;}
 }
 @media screen and (max-width: 1024px) {
     .header ul li a{padding-bottom: 0px !important;
@@ -14558,29 +14559,15 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
-     .cover-pic {
-    position: absolute !important;
-top: inherit;
-right: -4%;
-bottom: 48%;
-z-index: 99;
-    }
-    .cls-ve{position: absolute;
-top: 23px;
-z-index: 10;
-right: 0;}
+     .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
+    .cls-ve{position: absolute; top: 23px; z-index: 10; : 0;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
-        .profile-text1 .as-p{font-size: 12px; line-height: 0;}
-       .profile-text1{
-                           top:51px;
-                        left: 0;
-                        right: 0;
-                        margin: 0 auto;
-                        }
+    .profile-text1 .as-p{font-size: 12px; line-height: 0;}
+    .profile-text1{top:51px; left: 0; : 0; margin: 0 auto; }
     .dropdown-menu::before{right: 3.5%;}
-     .people-list {
+    .people-list {
         width: 32%;
     }
     .profile-pho {
@@ -14811,6 +14798,8 @@ right: 0;}
     ul.current-user {
         float: none;
     }
+	.profile-main-box-buis-menu li a{font-size:12px; padding:17px 5px 12px;}
+	.flw_msg_btn ul li a{margin-top:0;}
 }
 @media screen and (max-width: 900px) {
     .custom-right {
@@ -15372,6 +15361,8 @@ text-align: center;}
 	.profile-text1 .alert.alert-warning{width:100%; float:left;}
 	.email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}
+	.profile-left{width:70%;}
+	#contact_per{width:30%;}
 }
 @media screen and (max-width: 640px) {
 .profile-text1{width: 100%; top:40px;}
