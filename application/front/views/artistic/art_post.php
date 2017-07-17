@@ -738,7 +738,10 @@
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;">
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?> my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur="check_length(this.form)">
+
+                           <input size=1 class="text_num" value=50 name=text_num readonly> 
+
                            </div>
                         </div>
                          
@@ -3267,9 +3270,9 @@
 <!-- multi image add post khyati end -->
 <script language=JavaScript>
    function check_length(my_form)
-   {
+   { //alert("hii");
        maxLen = 50;
-   
+   //alert(my_form.my_text.value.length);
        // max number of characters allowed
        if (my_form.my_text.value.length >= maxLen) {
            // Alert message if maximum limit is reached. 
