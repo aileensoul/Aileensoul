@@ -306,17 +306,46 @@ if($status == 0 || $status == " "){?>
                              <!-- text head start -->
                     <div class="profile-text" >
                    
-                     <?php 
-                     if($artisticdata[0]['designation'] == '')
-                     {
-                     ?>
-  
-                      <a>Current Work</a>
-                     <?php }else{?>
+                               <?php
+        $userid = $this->session->userdata('aileenuser');
 
-                  
-                      <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                      <?php }?>                  
+            if($artisticdata[0]['user_id'] == $userid){
+
+
+              if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
+
+                    
+
+                <?php } else { ?> 
+
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php } 
+
+            }else{ ?>
+
+           <?php  if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a>Current Work</a>
+
+                    
+
+                <?php } else { ?> 
+
+                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php }  ?>
+                
+
+                <?php }?>                  
             </div>
             
 

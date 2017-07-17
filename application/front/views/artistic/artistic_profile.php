@@ -331,24 +331,46 @@ if ($status == 0 || $status == " ") {
         <div>
             <div class="profile-text" >
 
-<?php
-if ($artisticdata[0]['designation'] == '') {
-    ?>
+            <?php
+        $userid = $this->session->userdata('aileenuser');
+
+            if($artisticdata[0]['user_id'] == $userid){
+
+
+              if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
 
                     
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-                        
 
                 <?php } else { ?> 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                    <?php } else { ?>
-                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                    <?php } ?>
-                <?php } ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php } 
+
+            }else{ ?>
+
+           <?php  if ($artisticdata[0]['designation'] == '') {
+                    ?>
+                        <a>Current Work</a>
+
+                    
+
+                <?php } else { ?> 
+
+                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
+                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+
+                        </a>
+
+                    <?php }  ?>
+                
+
+                <?php }?>
 
 
                 <!-- The Modal -->
