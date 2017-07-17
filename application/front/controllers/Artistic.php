@@ -5661,30 +5661,80 @@ public function followtwo() {
 
 
 
-            $contition_array = array('image_type' => 1, 'is_deleted' => '1');
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0');
 
-            $artistic_data = $this->data['artistic_data'] = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+             $artisticpost = $this->data['artisticdatapost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //echo "<pre>"; print_r($artisticpost); die();
 
-//echo "<pre>"; print_r($this->data['artistic_data']); die();
+             foreach ($artisticpost as $value) {
+                
+            
+            $contition_array = array('image_type' => 1, 'is_deleted' => '1', 'post_id' => $value['art_post_id']);
+
+            $art_data = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $a_d[] =  $art_data;
+           }
+
+           foreach ($a_d as $key_ad => $value_ad) {
+               foreach ($value_ad as $art_fn => $v) {
+
+          // echo "<pre>"; print_r($art_fn);  
+
+          // echo "<pre>"; print_r($v); 
+
+
+                $art_data[] = $v;
+                   
+               }
+           }//die();
+
+           $art_data = array_unique($art_data, SORT_REGULAR);
+
+           $this->data['artistic_data'] = $art_data; 
+
+            //echo "<pre>"; print_r($art_data); die();
+
+
 
         } else {
 
-            $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
-
+           $contition_array = array('user_id' => $id, 'status' => '1');
 
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //  echo "<pre>"; print_r($artisticdata); die();
 
 
 
-            // $join_str[0]['table'] = 'post_image';
-            // $join_str[0]['join_table_id'] = 'post_image.post_id';
-            // $join_str[0]['from_table_id'] = 'art_post.art_post_id';
-            // $join_str[0]['join_type'] = '';
+            $contition_array = array('user_id' => $id, 'is_delete' => '0');
+
+             $artisticpost = $this->data['artisticdatapost'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //echo "<pre>"; print_r($artisticpost); die();
+
+             foreach ($artisticpost as $value) {
+                
+            
+            $contition_array = array('image_type' => 1, 'is_deleted' => '1', 'post_id' => $value['art_post_id']);
+
+            $art_data = $this->common->select_data_by_condition('post_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $a_d[] =  $art_data;
+           }
+
+           foreach ($a_d as $key_ad => $value_ad) {
+               foreach ($value_ad as $art_fn => $v) {
+
+          // echo "<pre>"; print_r($art_fn);  
+
+          // echo "<pre>"; print_r($v); 
 
 
-            $contition_array = array('image_type' => 1, 'is_deleted' => '1');
+                $art_data[] = $v;
+                   
+               }
+           }//die();
 
-             $artisticdata1= $this->data['artistic_data'] = $this->common->select_data_by_condition('post_image', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           $art_data = array_unique($art_data, SORT_REGULAR);
+
+           $this->data['artistic_data'] = $art_data; 
         }
 //code search
         $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
