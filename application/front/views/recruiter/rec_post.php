@@ -228,7 +228,7 @@ if ($returnpage == 'job') {
                    <ul>
                     <?php
                     if($this->uri->segment(3) != ""){ ?>
-                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3)); ?>">Message</a> </li>
+                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/2/1'); ?>">Message</a> </li>
                         <?php } ?>
                     </ul>
                 </div>

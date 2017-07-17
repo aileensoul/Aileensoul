@@ -789,7 +789,7 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                                                 <div class="apply-btn fr" >
                                      <?php $userid = $this->session->userdata('aileenuser');
                                      if($userid != $rec['userid']){ ?>
-                                             <a href="<?php echo base_url('chat/abc/' . $rec['userid']); ?>">Message</a>
+                                             <a href="<?php echo base_url('chat/abc/' . $rec['userid'].'/2/1'); ?>">Message</a>
                                        <!--<a href="#popup1" class="button">Remove Candidate </a>-->
                                                     <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $rec['save_id'] ?>)">Remove</a>
                                      <?php } ?>

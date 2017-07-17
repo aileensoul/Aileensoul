@@ -146,19 +146,13 @@
                                     </select> 
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
+                                
 
-                                <fieldset>
-
-                                </fieldset>
+                               
 
 
-                                <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
-                                    <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
-                                    <input name="other_skill" type="text" class="skill_other" tabindex="3" id="other_skill" placeholder="Enter Your Skill" />
-                                    <span id="fullname-error"></span>
-                                    <?php echo form_error('other_skill'); ?>
-                                </fieldset>
-                                <!--  </div> -->
+
+
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Position<span style="color:red">*</span> :</label>
                                     <input name="position_no" type="text"  id="position" value="1" tabindex="4" placeholder="Enter No of Candidate"/>
