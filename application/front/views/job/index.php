@@ -209,7 +209,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                     <label>First Name :<span class="red">*</span></label>
-                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" value="<?php if ($fname1) {
+                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" style="text-transform: capitalize;" value="<?php if ($fname1) {
                                         echo $fname1;
                                     } else {
                                         echo $job[0]['first_name'];
@@ -219,7 +219,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>  
                                     <label>Last Name :<span class="red">*</span> </label>
-                                    <input type="text" name="lname" tabindex="2"  id="lname" placeholder="Enter Last name" value="<?php if ($lname1) {
+                                    <input type="text" name="lname" tabindex="2"  id="lname" placeholder="Enter Last name" style="text-transform: capitalize;" value="<?php if ($lname1) {
     echo $lname1;
 } else {
     echo $job[0]['last_name'];

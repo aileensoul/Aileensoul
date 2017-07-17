@@ -112,7 +112,7 @@
 							
 
                                        
-                                           <textarea name ="curricular" tabindex="1" autofocus id="curricular" rows="4" cols="50" placeholder="Enter Curricular Activities" style="resize: none;"><?php if($curricular1){ echo $curricular1; } ?></textarea>
+                                           <textarea name ="curricular" tabindex="1" autofocus id="curricular" rows="4" cols="50" placeholder="Enter Curricular Activities" onpaste="OnPaste_StripFormatting(this, event);" style="resize: none;"><?php if($curricular1){ echo $curricular1; } ?></textarea>
                                          <?php echo form_error('curricular'); ?>
                           </fieldset>
                                  <fieldset class="hs-submit full-width">
@@ -342,3 +342,29 @@ $(window).load(function(){
 });
 });
 </script>  
+
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED START -->
+ <script type="text/javascript">
+            var _onPaste_StripFormatting_IEPaste = false;
+            function OnPaste_StripFormatting(elem, e) {
+               // alert(456);
+                if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.originalEvent.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (e.clipboardData && e.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (window.clipboardData && window.clipboardData.getData) {
+                    // Stop stack overflow
+                    if (!_onPaste_StripFormatting_IEPaste) {
+                        _onPaste_StripFormatting_IEPaste = true;
+                        e.preventDefault();
+                        window.document.execCommand('ms-pasteTextOnly', false);
+                    }
+                    _onPaste_StripFormatting_IEPaste = false;
+                }
+            }
+        </script>
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->
