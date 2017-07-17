@@ -12,15 +12,18 @@ class Api extends CI_Controller {
     }
 
     public function send_message($id = '') {
-
-         $userid = $this->session->userdata('aileenuser');
+      
+    
+        $userid = $this->session->userdata('aileenuser');
         $message = $this->input->get('message', null);
         //$message = $this->common->make_links($message);
         $message = $message;
         $nickname = $this->input->get('nickname', '');
         $guid = $this->input->get('guid', '');
+        $type = $this->input->get('type', '');
+        $login = $this->input->get('login', '');
 
-        $this->Chat_model->add_message($message, $nickname, $guid, $userid, $id);
+        $this->Chat_model->add_message($message,$nickname, $guid, $userid, $id,$type, $login);
         $this->_setOutput($message);
     }
 
@@ -28,8 +31,9 @@ class Api extends CI_Controller {
         $userid = $this->session->userdata('aileenuser');
 
         $timestamp = $this->input->get('timestamp', null);
+        $login = $this->input->get('login', null);
 
-        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id);
+        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id,$login);
         $i = 0;
         foreach ($messages as $mes) {
             if (preg_match('/<img/', $mes['message'])) {
