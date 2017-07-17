@@ -740,7 +740,19 @@
                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
                               <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" class="my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
 
+                              <?php 
+                              if($row['art_post']){ 
+                                $counter = $row['art_post'];
+                                $a = strlen($counter);
+
+                                ?>
+
+                            <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
+
+                           <?php }else{?>
                            <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+
+                           <?php }?>
 
                            </div>
                         </div>
