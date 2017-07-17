@@ -342,7 +342,7 @@ class Notification extends MY_Controller {
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
         $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
 
-        // echo '<pre>'; print_r($totalnotification); die();
+    //  echo count($totalnotification);  echo '<pre>'; print_r($totalnotification); die();
         $this->load->view('notification/index', $this->data);
     }
 
