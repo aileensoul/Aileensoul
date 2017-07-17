@@ -112,13 +112,19 @@
 
                                 <?php
                                 foreach ($totalnotification as $total) { 
+                               
                                     if ($total['not_from'] == 1) {
                                       $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;  ?> 
                                        <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>">
                                         <li> 
                                         
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                            <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>    
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                            
                                             <div class="notification-data-inside" id="notification_inside">
@@ -144,7 +150,12 @@
                                         <li> 
                                         
                                             <div class="notification-pic" id="noti_pc">
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -170,7 +181,12 @@
                                             <li>
                                              
                                                 <div class="notification-pic" id="noti_pc">
+                   <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>                                 
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -189,16 +205,21 @@
                                // }
                                 ?>
 
-                                <?php
+                                <?php 
                                // foreach ($artlike as $art) { //echo '<pre>'; print_r($artlike); 
                                     if ($total['not_from'] == 3) {
-                                        if ($total['not_img'] == 2) {
+                                        if ($total['not_img'] == 2) { 
                                             ?>
                                             <a href="<?php echo base_url('notification/art_post/' . $total['art_post_id']); ?>"> 
                                             <li>
                                             
                                                 <div class="notification-pic" id="noti_pc" >
+                                                 <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>   
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -237,7 +258,14 @@
                                             <li>
                                              
                                                 <div class="notification-pic" id="noti_pc" >
+                                                
+                                                    
+                                                    <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -261,7 +289,12 @@
                                             <li> 
                                             
                                                 <div class="notification-pic"  id="noti_pc">
+                                        <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>            
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -288,7 +321,12 @@
                                             <li>
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                        <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>        
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -317,7 +355,12 @@
                                             <li>
                                             
                                             <div class="notification-pic" id="noti_pc">
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -350,7 +393,14 @@
                                         <li>
                                         
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                
+                                                <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    
+<!--                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -381,7 +431,12 @@
                                             <li>
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                     <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>           
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -410,7 +465,12 @@
                                             <li>
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                             <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>   
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -441,7 +501,12 @@
                                             <li>
                                              
                                                 <div class="notification-pic" id="noti_pc" >
+                                                     <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                   
                                                 </div>
                                                
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -469,7 +534,13 @@
                                             <li>
                                             
                                                 <div class="notification-pic" id="noti_pc" >
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                           <?php         if ($total['user_image']) { ?>
+                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+            <?php    } else { ?>
+                   <img src="<?php echo base_url(NOIMAGE); ?>" >
+           <?php     } ?>
+
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -497,7 +568,12 @@
                                             <li>
                                              
                                                 <div class="notification-pic" id="noti_pc" >
+                                                 <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>   
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -525,7 +601,12 @@
                                             <li>
                                              
                                                 <div class="notification-pic" id="noti_pc" >
+                                                    <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -553,7 +634,12 @@
                                             <li>
                                             
                                                 <div class="notification-pic" id="noti_pc" >
+                                                    <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -582,7 +668,12 @@
                                             <li> 
                                             
                                                 <div class="notification-pic" id="noti_pc" >
+                                                    <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -611,7 +702,12 @@
                                             <li>
                                             
                                                 <div class="notification-pic" id="noti_pc" >
+                                                    <?php         if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
@@ -637,7 +733,12 @@
                                         <li>
                                          
                                             <div class="notification-pic" id="noti_pc" >
-                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php         if ($total['user_image']) { ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                <?php    } else { ?>
+                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php     } ?>
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">

@@ -738,7 +738,7 @@
                               <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
                            </div>
                 <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
-                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?> my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur="check_length(this.form)">
+                              <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" class="my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyPress=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
 
                            <input size=1 class="text_num" value=50 name=text_num readonly> 
 
@@ -3287,6 +3287,33 @@
        } else { //alert("1");
            // Maximum length not reached so update the value of my_text counter
            my_form.text_num.value = maxLen - my_form.my_text.value.length;
+       }
+   }
+
+
+    function check_lengthedit(abc)
+   { //alert("hii");
+       maxLen = 50;
+   //alert(my_form.my_text.value.length);
+       // max number of characters allowed
+
+       var val_a = document.getElementsById('editpostname' + abc).value;
+       var a = val_a.length;
+       alert(a);
+       if ( val_a.length >= maxLen) { alert("hii");
+
+           // Alert message if maximum limit is reached. 
+           // If required Alert can be removed. 
+          // var msg = "You have reached your maximum limit of characters allowed";
+           //    alert(msg);
+           //my_form.text_num.value = maxLen - my_form.my_text.value.length;
+           //$('#post .mes').html("<div class='pop_content'>" + msg + "</div>");
+          // $('#post').modal('show');
+           // Reached the Maximum length so trim the textarea
+          // my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+       } else { alert("1");
+           // Maximum length not reached so update the value of my_text counter
+           //my_form.text_num.value = maxLen - my_form.my_text.value.length;
        }
    }
    //-->
