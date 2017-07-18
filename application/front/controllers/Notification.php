@@ -1782,7 +1782,7 @@ class Notification extends MY_Controller {
                     array_push($return_arrayfrom, $return);
                 }
             }
-            
+           
             $userlist = array_merge($return_arrayto, $return_arrayfrom);
             
             
