@@ -9794,8 +9794,15 @@ class Business_profile extends MY_Controller {
         }
         //if user deactive profile then redirect to business_profile/index untill active profile End
 
-        $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
-        $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         $contition_array = array('contact_type' => 2);
+        $search_condition = "((contact_to_id = '$to_id' AND contact_from_id = ' $userid') OR (contact_from_id = '$to_id' AND contact_to_id = '$userid'))";
+        $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+
+
+        // $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
+        // $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($contactperson) {
 
             $status = $contactperson[0]['status'];
@@ -9825,9 +9832,14 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</a>';
             } elseif ($status == 'cancel') {
                 $data = array(
+
+                    'contact_from_id' => $userid,
+                    'contact_to_id' => $to_id,
+                    'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'pending',
                     'not_read' => 2
+                   
                 );
 
 
