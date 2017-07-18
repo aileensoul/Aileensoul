@@ -105,14 +105,15 @@
                      <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="panel-group wrap" id="bs-collapse">
                            <div class="panel">
-                              <div class="panel-heading" id="panel-heading">
+                             
+                              <div <?php if($this->uri->segment(3) =="primary"){ ?> class="panel-heading active" <?php }else{ ?> class="panel-heading" <?php } ?> id="panel-heading">
                                  <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#bs-collapse" href="#one" id="toggle">
                                     Primary
                                     </a>
                                  </h4>
                               </div>
-                              <div id="one" class="panel-collapse collapse">
+                              <div id="one" <?php if($this->uri->segment(3) =="primary"){ ?> class="panel-collapse collapse in"<?php }else{ ?> class="panel-collapse collapse" <?php } ?>>
                                  <div class="panel-body">
                                     <section id="section1">
                                        <article class="none_aaaart">
@@ -184,18 +185,32 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$jobdata[0]['edu_id'].'/primary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
                                                       {
                                                     ?>
+
                                              <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
                                              <?php
                                                 }
                                              }
                                                  ?>
                                           </fieldset>
+
+                                          <?php if($edu_certificate_primary1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary(<?php echo $jobdata[0]['edu_id']; ?>);">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
                                           <div class="fr job_education_submitbox">
                                              <input type="hidden" name="image_hidden_primary" value="<?php
                                                 if ($edu_certificate_primary1) {
@@ -294,7 +309,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_secondary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_secondary/'.$jobdata[0]['edu_id'].'/secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -413,7 +428,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id'].'/higher-secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -637,7 +652,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
@@ -826,7 +841,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -1391,11 +1406,45 @@
    }, "No space please and don't leave it empty");
 
     //    jQuery.validator.addMethod('selectcheck', function (value) {
-    //      alert(value);
+    //    alert(value);
+    //      if(value == '463')
+    //      {
+    //         alert(hi);
+    //        // return value;
+    //      }
+    //      else
+    //      {
+    //         alert(hi1);
+    //         //return true;
+    //      }
        
-    //    // return (value == '463');
     // }, "other is not valide");
-   
+    $.validator.addMethod("valueNotEquals", function(value, element, arg){ 
+      if(arg == value)
+      { 
+         if(($.fancybox.open()))
+         {
+                  
+               if($('#input1 #university1').hasClass('error') )
+               {
+                     
+             
+                     $("#input1 .university").removeClass("error");
+                     $('label.error').remove();
+                    return true;     
+                }
+
+          
+         }
+
+         return false;
+      }
+      else
+      {
+         return true;
+      }
+ }, "Other Option Selection Is Not Valid");
+
    
    $.validator.addMethod("regx", function(value, element, regexpr) {          
    //return value == '' || value.trim().length != 0; 
@@ -1429,7 +1478,8 @@
                'university[]': {
    
                    required: true,
-                 // selectcheck:true,
+                    valueNotEquals: 463,
+                  //selectcheck:true,
    
                },
    
@@ -1709,9 +1759,10 @@
       var uni=(item.val());
       if(uni == 463)
       {
-            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');
-   
-             $('.message #univer').on('click', function () {
+            $.fancybox.open('<div class="message"><h2>Add University</h2><input type="text" name="other_uni" id="other_uni"><a id="univer" class="btn">OK</a></div>');   
+
+   $('.message #univer').on('click', function () {
+
       var $textbox = $('.message').find('input[type="text"]'),
       textVal  = $textbox.val();
       $.ajax({
@@ -3011,6 +3062,30 @@ var other_stream=(item1.val());
            }
        });
    }
+
+   //delete primary certificate Start
+function delete_primary(edu_id) {
+  
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/delete_primary" ?>',
+           data: 'edu_id=' + edu_id,
+           // dataType: "html",
+           success: function (data) {
+               if (data == 'ok') {
+                  //$('.job_work_edit_' + grade_id).remove();
+               }
+               //window.location.reload();
+           }
+       });
+
+             });
+          }
+   //delete primary certificate End
+
 </script>
 <style type="text/css">
    .job_work_experience_main_div{
