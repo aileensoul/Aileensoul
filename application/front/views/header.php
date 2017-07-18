@@ -9,6 +9,14 @@
   ga('send', 'pageview');
 
 </script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6060111582812113",
+    enable_page_level_ads: true
+  });
+</script>
 <!-- header -->
 
 <!-- <script type="text/javascript">
@@ -321,6 +329,7 @@ $( document ).on( 'keydown', function ( e ) {
     {
         $("#InboxLink").click(function ()
         {
+            alert(1212);
 //$("#notificationLink").hide();
 
             $("#Frnd_reqContainer").hide();
