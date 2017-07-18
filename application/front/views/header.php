@@ -483,7 +483,7 @@ if($userid){?>
                                                   <img src="<?php echo base_url('img/i3.jpg')?>">
                                              </div>
                                              <div class="text-all">
-                                                    Freelancer Profile
+                                                    Freelance Profile
                                              </div>
                                               </a>
                                          </div>
