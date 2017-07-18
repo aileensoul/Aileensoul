@@ -42,7 +42,7 @@
 							<div class="row">
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-									  <input type="text" name="contact_name" id="contact_name" class="form-control input-sm required" placeholder="First Name*">
+									  <input type="text" name="contact_name" id="contact_name" class="form-control input-sm" placeholder="First Name*">
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
