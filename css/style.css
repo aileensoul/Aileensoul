@@ -4452,11 +4452,9 @@ abbr {
     border: 1px solid #888;
    /* display: table;*/
     width: 100%;
-<<<<<<< HEAD
+
     float:left;
-=======
-    float: left;
->>>>>>> 222fb10b1537c2be762476dcb142ca40a7a9bde9
+
 }
 /* The Close Button */
 
