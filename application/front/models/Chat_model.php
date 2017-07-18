@@ -51,7 +51,6 @@ class Chat_model extends CI_Model {
                         'not_from' => $not_from,
                         'not_product_id' => $msg_insert_id,
                         'not_created_date' => date('Y-m-d H:i:s'),
-			
 		);
 		  
 		$this->db->insert('notification', $data2);
