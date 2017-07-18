@@ -33,7 +33,10 @@ if($returnpage=='freelancer_post'){
 echo $freelancer_post_header2_border;
 }
 else{
-echo $freelancer_hire_header2_border;} ?>
+echo $freelancer_hire_header2_border; 
+    
+}
+?>
 
 
 
