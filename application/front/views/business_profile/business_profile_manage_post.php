@@ -2037,7 +2037,7 @@
                 uploadUrl: '#', // you must set a valid URL here else you will get an error
                         allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'],
                         overwriteInitial: false,
-                        maxFileSize: 1000,
+                        maxFileSize: 1000000,
                         maxFilesNum: 10,
                         //allowedFileTypes: ['image', 'video', 'flash'],
                         slugCallback: function (filename) {
