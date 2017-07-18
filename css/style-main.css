@@ -252,6 +252,7 @@ a:hover{
 	padding:100px 0;
 	background:url('../img/bg.png') no-repeat;
 	background-size:100%;
+	min-height:95vh;
 }
 .top-middle{
 	padding:45px 0 10px 50px;
@@ -1290,12 +1291,12 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 #fre-popup.how-it-popup .pro_img{padding-bottom:50px;}
 .header-login label.error{position:absolute;}
 /*.main-inner{min-height: 100%; position:relative}*/
-
+.cover .fancybox-slide .modal-dialog{margin:0; border-radius: 5px;}
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
 	footer > .container {padding-left:15px; padding-right:15px; width:1250px;}
 }
-@media (min-height: 500px){
+@media (min-height: 650px){
     .mid-trns{top: 50%; position: absolute; left: 50%; width:100%;
 		-ms-transform: translate(-50%,-50%);
 		-webkit-transform: translate(-50%,-50%);
@@ -1412,7 +1413,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	footer ul{float:none; display:inline-block; padding-top:15px;}
 	.btn-right{width:100%; float:left; padding-top:15px;}
 	footer{height:90px;}
-	.main-inner{padding-bottom:90px; height: auto;}
+	.main-inner{padding-bottom:120px; height: auto;}
 	.header-login .input{width:46%;}
 	.main-inner .btn-right.pull-right{text-align:center; padding-top:0;}
 	.mail-sent li{width:100%; padding:5px 15px; border-right:0;}
