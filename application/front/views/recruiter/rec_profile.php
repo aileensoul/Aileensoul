@@ -535,11 +535,11 @@ function text2link($text){
                                                if($recdata[0]['re_comp_interview'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <p> 
+                                                      <li> <b>Company Interview Process</b><span> <pre> 
                                                      <?php 
                                                        echo $this->common->make_links($recdata[0]['re_comp_interview']); ?>
 
-                                                      </p> </span>
+                                                      </pre> </span>
                                                        </li>
                                                          <?php   }
                                                    else
@@ -553,11 +553,11 @@ function text2link($text){
                                                if($recdata[0]['re_comp_interview'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <p> 
+                                                      <li> <b>Company Interview Process</b><span> <pre> 
                                                      <?php 
                                                        echo $this->common->make_links($recdata[0]['re_comp_interview']); ?>
 
-                                                      </p> </span>
+                                                      </pre> </span>
                                                        </li>
                                                          <?php   }
                                                   
@@ -577,11 +577,11 @@ function text2link($text){
                                                 if($recdata[0]['re_comp_project'])
                                                {
                                                  ?>
-                                               <li><b> Company Best Project</b> <span><p>
+                                               <li><b> Company Best Project</b> <span><pre>
                                                <?php 
              
                                                   echo $this->common->make_links($recdata[0]['re_comp_project']);
-                                                 ?></p></span> </li>
+                                                 ?></pre></span> </li>
                                                <?php }
 
                                                 else
@@ -599,7 +599,7 @@ function text2link($text){
                                                 <?php 
              
                                                  echo $this->common->make_links($recdata[0]['re_comp_project']);
-                                                   ?></p></span> </li>
+                                                   ?></pre></span> </li>
                                                   <?php }                                                  
                                                    else
                                                    {
@@ -617,11 +617,11 @@ function text2link($text){
                                                 {
                                                       ?>
                                               <li><b> Other Activities</b> <span>
-                                             <p>  <?php 
+                                             <pre> <?php 
            
                                               echo $this->common->make_links($recdata[0]['re_comp_activities']);
 
-                                          ?></p> </span> </li>
+                                          ?></pre> </span> </li>
                                            <?php  }
 
                                                 else
@@ -636,11 +636,11 @@ function text2link($text){
                                                 {
                                                  ?>
                                                    <li><b> Other Activities</b> <span>
-                                                     <p>  <?php 
+                                                     <pre>  <?php 
            
                                                      echo $this->common->make_links($recdata[0]['re_comp_activities']);
 
-                                                     ?></p> </span> </li>
+                                                     ?></pre> </span> </li>
                                                    <?php  }                 
                                                    else
                                                    {

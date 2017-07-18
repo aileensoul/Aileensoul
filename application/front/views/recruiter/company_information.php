@@ -199,6 +199,9 @@
 var jquery_validate_min = $.noConflict(true);
 </script> -->
 
+
+
+
   <script type="text/javascript">
 
             //validation for edit email formate form
@@ -375,3 +378,5 @@ $(window).load(function(){
 });
 });
 </script>
+
+
