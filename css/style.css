@@ -4448,7 +4448,7 @@ abbr {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    display: table;
+   /* display: table;*/
     width: 100%;
 }
 /* The Close Button */
@@ -15443,7 +15443,7 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 540px) {
-
+    .like_user_list_main_desc{width: 78%;}
     .cls-ve{top: 23px; right: 3px;}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
