@@ -346,7 +346,7 @@
     </p>  
  </span>
   </li>
-     <li><b>Salary</b><span title="Min - Max" >
+     <li><b>Salary</b><span title=" <?php echo $post['min_sal'];?> Min - <?php echo $post['max_sal'];?> Max" >
      <?php 
  $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 
