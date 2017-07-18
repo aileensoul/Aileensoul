@@ -1,10 +1,10 @@
-.header2 ul li a#addcontactLink{padding: 6px 5px;}
-.header2 ul li a.bus-h{padding: 6px 5px;}
+.header2 ul li a#addcontactLink{padding: 6px 11px;}
+.header2 ul li a.bus-h{padding: 8px 12px;}
 .header2 ul li{float: left;}
-.header2 ul li a .bu_home{  background-image: url(../img/icon_home_h.png); float: left; background-size: 100%;
-height: 24px;
-width: 24px; }
-.header2 ul li a:hover .bu_home{  background-image: url(../img/icon_home.png);}
+.header2 ul li a .bu_home{  background-image: url(../img/home_22x22_h.png); float: left; background-size: 100%;
+height: 19px;
+width: 20px; }
+.header2 ul li a:hover .bu_home{  background-image: url(../img/home_22x22.png);}
 .header2 ul li a .bu_req{  background-image: url(../img/icon_contact_request_h.png); float: left; background-size: 100%;
 height: 25px;
 width: 25px; }
@@ -171,7 +171,7 @@ scrollbar[orient="vertical"] {
 .fancybox-close-small:hover::after{background:none;}
 .cover .fancybox-slide .modal-content{padding:0;}
 
-.cover .fancybox-slide .modal-content{border:none;}
+.cover .fancybox-slide .modal-content{border:none; box-shadow: none;}
 
 @media screen and (max-width: 1200px) {}
 @media screen and (max-width: 1024px) {}

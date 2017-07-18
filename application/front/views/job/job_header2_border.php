@@ -31,7 +31,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-5 fw-479">
+                  <div class="col-sm-5 col-md-5 col-xs-12 h2-smladd fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
