@@ -15946,6 +15946,7 @@ top: 8px;}
 	.details_all_tital{font-size:18px;}
 }
 @media screen and (max-width: 360px) {
+    .header2 ul li a#addcontactLink{padding: 6px 2px !important;}
     #InboxContainer::before{right: 120px;}
     #notificationContainer::before{right: 82px;}
     .header ul li a{}

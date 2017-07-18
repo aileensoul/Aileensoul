@@ -444,7 +444,7 @@ if($userid){?>
                                     </a>
 
                                     <div id="acon">
-                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr"><span class="img-all"></span></a></div>
+                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
                                     <div id="abody" class="as">
                                     <ul>
                                         <li>
@@ -701,7 +701,7 @@ if($userid){?>
                                     </a>
 
                                     <div id="acon">
-                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr"><span class="img-all"></span></a></div>
+                                    <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
                                     <div id="abody" class="as">
                                     <ul>
                                         <li>
