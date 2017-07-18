@@ -30,7 +30,7 @@
   <section class="middle-main pd-low">
     <div class="container">
       
-      
+      <div class="mid-trns">
         <div class="inner-form pt-100">
           <div class="login">
               <div class="title">
@@ -111,7 +111,7 @@
                 </select>
               </div>
               
-              <p class="clr-c fs12 pt15 pb15">
+              <p class="clr-c fs12">
                 By Clicking on create an account button you agree our 
                 <a href="#">Terms and Condition</a>.
               </p>
@@ -119,7 +119,7 @@
                 <button class="btn1">Create an account</button>
               </p>
               
-              <div class="sign_in pt15">
+              <div class="sign_in pt10">
                 <p>
                     Already have an account ? <a href="<?php echo base_url('login'); ?>" > Log In </a>
                 </p>
@@ -130,7 +130,7 @@
           </div>
         </div>
         
-      
+      </div>
     </div>
   </section>
 

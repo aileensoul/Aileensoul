@@ -220,9 +220,9 @@
 
                      <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-art">
 
-
+ <?php if($art_data[0]){ ?>
     <div class="col-md-12 col-sm-12 post-design-box">
-
+           
                             <div class=" ">
                                 <div class="post-design-top col-md-12" >  
                                     <div class="post-design-pro-img"> 
@@ -1274,8 +1274,14 @@
                                     </div>
                                 </div>
                             </div>
+            
                         </div>
-
+<?php }else{?>
+        <div>
+            Sorry, this content isn't available at the moment
+        </div>
+        
+            <?php }?>
                     </div>
                     </section>
                     <footer>

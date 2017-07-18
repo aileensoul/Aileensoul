@@ -32,12 +32,12 @@
   <section class="middle-main">
     <div class="container">
       
-       
+       <div class="mid-trns">
 
         <div id="feedbacksucc"></div>
 
         
-        <div class="inner-form pt-50">
+        <div class="inner-form">
           <div class="login">
              <div class="title">
           <h1>Send us feedback</h1>
@@ -46,7 +46,7 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-6">
                     <div class="form-group">
-                      <input type="text" name="feedback_firstname" id="feedback_firstname" class="form-control input-sm required" placeholder="First Name*">
+                      <input type="text" name="feedback_firstname" id="feedback_firstname" class="form-control input-sm" placeholder="First Name*">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-6">
@@ -79,7 +79,7 @@
           </div>
         </div>
         
-      
+      </div>
     </div>
   </section>
 
