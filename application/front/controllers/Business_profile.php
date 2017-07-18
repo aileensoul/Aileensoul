@@ -9880,12 +9880,16 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</div>';
                 $contactdata .= '</a>';
             } elseif ($status == 'reject') {
-                $data = array(
+                 $data = array(
+
+                    'contact_from_id' => $userid,
+                    'contact_to_id' => $to_id,
+                    'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'pending',
                     'not_read' => 2
+                   
                 );
-
 
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
