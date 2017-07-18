@@ -1500,17 +1500,17 @@
    $('#file-fr').fileinput({
        language: 'fr',
        uploadUrl: '#',
-       allowedFileExtensions: ['jpg', 'png', 'gif']
+       allowedFileExtensions: ['jpg', 'png', 'gif' , 'mp4','mp3','pdf']
    });
    $('#file-es').fileinput({
        language: 'es',
        uploadUrl: '#',
-       allowedFileExtensions: ['jpg', 'png', 'gif']
+       allowedFileExtensions: ['jpg', 'png', 'gif' , 'mp4', 'mp3', 'pdf']
    });
    
    $("#file-1").fileinput({
        uploadUrl: '#', // you must set a valid URL here else you will get an error
-       allowedFileExtensions: ['jpg', 'png', 'gif'],
+       allowedFileExtensions: ['jpg', 'png', 'gif' , 'mp4' , 'mp3' ,'pdf'],
        overwriteInitial: false,
        maxFileSize: 1000000,
        maxFilesNum: 10,
@@ -1547,7 +1547,7 @@
    $(document).ready(function () {
        $("#test-upload").fileinput({
            'showPreview': false,
-           'allowedFileExtensions': ['jpg', 'png', 'gif'],
+           'allowedFileExtensions': ['jpg', 'png', 'gif', 'mp4','mp3','pdf'],
            'elErrorContainer': '#errorBlock'
        });
        $("#kv-explorer").fileinput({
