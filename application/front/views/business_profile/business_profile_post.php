@@ -872,24 +872,20 @@
                                                                         if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
                                                                             ?>
                                                                             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
-                                                                                <i class="fa fa-trash-o" aria-hidden="true">
-                                                                                </i> Delete Post
+                                                                                <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
                                                                             <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
-                                                                                <i class="fa fa-pencil-square-o" aria-hidden="true">
-                                                                                </i>Edit
+                                                                                <span class="h3-img h2-srrt"></span>Edit
                                                                             </a>
 
                                                                         <?php } else {
                                                                             ?>
 
                                                                             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
-                                                                                <i class="fa fa-trash-o" aria-hidden="true">
-                                                                                </i> Delete Post
+                                                                                <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
                                                                             <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
-                                                                                <i class="fa fa-user" aria-hidden="true">
-                                                                                </i> Contact Person
+                                                                                <span class="h2-img h2-srrt"></span>Contact Person
                                                                             </a>
 
                                                                             <?php
@@ -899,16 +895,14 @@
                                                                         <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
     <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">    <i class="fa fa-trash-o" aria-hidden="true">    </i> Delete Post           </a>
      <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
-     <i class="fa fa-pencil-square-o" aria-hidden="true">    </i>Edit </a>
+     <span class="h3-img h2-srrt"></span>Edit </a>
                          <?php } else { ?>
           <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
-     <i class="fa fa-trash-o" aria-hidden="true">
-                                                                                </i> Delete Post
+     <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
 
                                                                             <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
-                                                                                <i class="fa fa-user" aria-hidden="true">
-                                                                                </i> Contact Person
+                                                                                <span class="h2-img h2-srrt"></span> Contact Person
                                                                             </a>
                                                                             <?php
                                                                         }

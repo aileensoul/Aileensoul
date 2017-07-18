@@ -706,12 +706,12 @@
                            
                                if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
                                    ?>
-                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-                        <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
+                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
+                        <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><span class="h3-img h2-srrt"></span>Edit</a>
                         <?php } else {
                            ?>
-                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
+                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
                         <?php
                            }
                            } else {
@@ -720,11 +720,11 @@
                            $userid = $this->session->userdata('aileenuser');
                            if ($row['user_id'] == $userid) {
                                ?>
-                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
+                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                         <?php } else { ?>
-                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                        <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
+                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
                         <?php
                            }
                            }
