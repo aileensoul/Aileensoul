@@ -691,32 +691,32 @@
 
                                     <?php if ($singlearray2[0]['image_name']) { ?>
                                         <td class="image_profile"> 
-                                            <video  controls>
+                                            <audio  controls>
 
 
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
 
                                     <?php if ($singlearray2[1]['image_name']) { ?>
                                         <td class="image_profile">
-                                            <video  controls>
+                                            <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[2]['image_name']) { ?>
                                         <td class="image_profile">
-                                            <video  controls>
+                                            <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
                                 </tr>
@@ -724,29 +724,29 @@
 
                                     <?php if ($singlearray2[3]['image_name']) { ?>
                                         <td class="image_profile"> 
-                                            <video  controls>
+                                            <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[4]['image_name']) { ?>
                                         <td class="image_profile">
-                                            <video  controls>
+                                            <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[5]['image_name']) { ?>
                                         <td class="image_profile">
-                                            <video  controls>
+                                            <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
-                                            </video>
+                                            </audio>
                                         </td>
                                     <?php } ?>
                                 </tr>
