@@ -1284,7 +1284,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 #fre-popup .card ul.nav-tabs li a:hover{background:none;; color:#1b8ab9;}
 #fre-popup .card ul.nav-tabs li.active a{color:#1b8ab9;}
 #fre-popup.how-it-popup .pro_img{padding-bottom:50px;}
-
+.header-login label.error{position:absolute;}
 
 
 /***  media query  ***/
@@ -1375,6 +1375,9 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	.custom-box .custom-width .right-box h1 a{font-size:45px;}
 	.banner-box .banner-img{max-height:260px;}
 	.custom-box .custom-width .right-box .btns{padding-top:60px;}
+	.form-text .mob-none{display:none;}
+	.main-login .middle-main{background-position:0% 25%;}
+	
 }
 @media screen and (max-width: 767px) {
     .t-r-l{text-align: right !important;}

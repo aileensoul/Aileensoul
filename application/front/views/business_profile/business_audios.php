@@ -159,13 +159,8 @@
                         <div class="bui-menu-profile">
 
 
-<<<<<<< HEAD
-						<div class="profile-left">
-                        <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
-=======
-
+							<div class="profile-left">
                             <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
->>>>>>> 81d9fee2441b79a7f321dc44c814389f26493736
 
                             <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> 
 
@@ -181,13 +176,8 @@
                                     ?>
 
 
-<<<<<<< HEAD
-                            </a></h4>
-						</div>
-=======
                                 </a></h4>
->>>>>>> 81d9fee2441b79a7f321dc44c814389f26493736
-
+							</div>
                             <?php
                             $userid = $this->session->userdata('aileenuser');
                             if ($businessdata1[0]['user_id'] != $userid) {
@@ -253,54 +243,19 @@
                                             <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
                                             <?php } ?>
 
-<<<<<<< HEAD
-            <?php }elseif($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm'){ ?>   
-                      <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
-            <?php }?>
-               
-                    <div class="">
-                        <div class="add-contact">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>
-						</div>
-                       <div class="addtocont">
-                            <span class="ft-13"><i class="icon-user"></i>
-            <?php 
-
-        //print_r($contactperson[0]['status']) ; die();
-        
-                     if($contactperson[0]['status'] == 'cancel'){?>
-                                Add to contact
-                     <?php }elseif($contactperson[0]['status'] == 'pending'){ ?>   
-                            Cancel request  
-                     <?php }elseif($contactperson[0]['status'] == 'confirm'){ ?>
-                        In your contact
-                   <?php  }elseif($contactperson[0]['status'] == 'reject'){ ?>
-
-                      Add to contact
-                   <?php } else{?>
-
-                   Add to contact
-                   <?php }?>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                    </div>
-=======
                                             <div class="">
-                                                <div id="ripple" class="centered" >
-                                                    <div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>
+                                                <div class="add-contact">
 
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>
 
-                                                </div>
+                                        </div>
                                                 <div class="addtocont">
                                                     <span class="ft-13"><i class="icon-user"></i>
                                                         <?php
                                                         //print_r($contactperson[0]['status']) ; die();
->>>>>>> 81d9fee2441b79a7f321dc44c814389f26493736
 
                                                         if ($contactperson[0]['status'] == 'cancel') {
                                                             ?>
@@ -353,7 +308,7 @@
                                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
                                             </li>
 
-                                            <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts<br>  (<?php echo (count($businesscontacts)); ?>)</a>
+                                            <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts</a>
                                             </li>
 
                                             <?php

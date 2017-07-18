@@ -4617,7 +4617,7 @@ abbr {
     padding: 1px;
     vertical-align: bottom;
     border: 3px solid #ffffff;
-    box-shadow: 0px 0px 2px 2px #dad3cb;
+    /*box-shadow: 0px 0px 2px 2px #dad3cb;*/
 }
 .profile-boxProfileCard-avatarContainer {
     width: 72px
@@ -14803,6 +14803,10 @@ padding-top: 7px !important;}
     }
 	.profile-main-box-buis-menu li a{font-size:12px; padding:17px 5px 12px;}
 	.flw_msg_btn ul li a{margin-top:0;}
+	.left_side_box_img{width:100%; text-align:center;}
+	.profile-boxProfilebuisness-avatarLink2{margin:-30px auto 0;}
+	.right_left_box_design{width:100% !important; text-align:center; padding-top:5px !important;}
+	.profile-boxProfileCard-content::before{top:75px !important;}
 }
 @media screen and (max-width: 900px) {
     .custom-right {
