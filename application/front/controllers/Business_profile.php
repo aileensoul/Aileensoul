@@ -9812,8 +9812,9 @@ class Business_profile extends MY_Controller {
 
                 $contactdata = '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9833,8 +9834,9 @@ class Business_profile extends MY_Controller {
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9853,8 +9855,10 @@ class Business_profile extends MY_Controller {
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9874,8 +9878,10 @@ class Business_profile extends MY_Controller {
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9902,8 +9908,10 @@ class Business_profile extends MY_Controller {
 
             $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
             $contactdata .= '<div class="">';
-            $contactdata .= '<div id="ripple" class="centered">';
-            $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+            $contactdata .= '<div class="add-contact">';
+            $contactdata .= ' <div></div><div></div><div></div>';
+
+            $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
             $contactdata .= '</div>';
