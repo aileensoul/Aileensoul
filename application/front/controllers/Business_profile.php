@@ -9794,8 +9794,15 @@ class Business_profile extends MY_Controller {
         }
         //if user deactive profile then redirect to business_profile/index untill active profile End
 
-        $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
-        $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+         $contition_array = array('contact_type' => 2);
+        $search_condition = "((contact_to_id = '$to_id' AND contact_from_id = ' $userid') OR (contact_from_id = '$to_id' AND contact_to_id = '$userid'))";
+        $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+
+
+        // $contition_array = array('contact_to_id' => $to_id, 'contact_from_id' => $userid);
+        // $contactperson = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($contactperson) {
 
             $status = $contactperson[0]['status'];
@@ -9812,8 +9819,9 @@ class Business_profile extends MY_Controller {
 
                 $contactdata = '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9824,17 +9832,23 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</a>';
             } elseif ($status == 'cancel') {
                 $data = array(
+
+                    'contact_from_id' => $userid,
+                    'contact_to_id' => $to_id,
+                    'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'pending',
                     'not_read' => 2
+                   
                 );
 
 
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9853,8 +9867,10 @@ class Business_profile extends MY_Controller {
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person(' . $to_id . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9864,18 +9880,24 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</div>';
                 $contactdata .= '</a>';
             } elseif ($status == 'reject') {
-                $data = array(
+                 $data = array(
+
+                    'contact_from_id' => $userid,
+                    'contact_to_id' => $to_id,
+                    'contact_type' => 2,
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'pending',
                     'not_read' => 2
+                   
                 );
-
 
                 $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contact_id);
                 $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
                 $contactdata .= '<div class="">';
-                $contactdata .= '<div id="ripple" class="centered">';
-                $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+                $contactdata .= '<div class="add-contact">';
+                $contactdata .= ' <div></div><div></div><div></div>';
+                
+                $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
                 $contactdata .= '</div>';
@@ -9902,8 +9924,10 @@ class Business_profile extends MY_Controller {
 
             $contactdata = '<a href="#" onclick="return contact_person_model(' . $to_id . "," . "'" . 'pending' . "'" . ');" style="cursor: pointer;">';
             $contactdata .= '<div class="">';
-            $contactdata .= '<div id="ripple" class="centered">';
-            $contactdata .= '<div class="circle"><span href="" class="add_r_c"><i class="fa fa-user-plus"  aria-hidden="true"></i></span></div>';
+            $contactdata .= '<div class="add-contact">';
+            $contactdata .= ' <div></div><div></div><div></div>';
+
+            $contactdata .= '<div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>';
 
 
             $contactdata .= '</div>';

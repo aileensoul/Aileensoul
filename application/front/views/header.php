@@ -329,7 +329,7 @@ $( document ).on( 'keydown', function ( e ) {
     {
         $("#InboxLink").click(function ()
         {
-            alert(1212);
+            
 //$("#notificationLink").hide();
 
             $("#Frnd_reqContainer").hide();

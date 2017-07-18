@@ -866,7 +866,9 @@ img.aligncenter {
     padding: 0;
     margin: 0;
     position: relative;
+    height: 45px;
 }
+.header ul li ul li {height: auto;}
 .header ul li a {
     font-size: 18px;
     color: #fff;
@@ -6625,6 +6627,7 @@ follow box*/
     padding-bottom: 4px;
 }
 .follow_left_box_main_btn {
+    margin-left: 10px;
     display: inline-block;
     float: left;
     padding-top: 18px !important;
@@ -15927,6 +15930,7 @@ top: 8px;}
     .editable_text {
         padding-right: 45px;
     }
+    .btn{color: white;}
 	.cover-pic{bottom:60%;}
 	.cover-pic .btn{font-size:13px; padding:3px 10px;}
 	.add-contact div{width:40px; height:40px;}

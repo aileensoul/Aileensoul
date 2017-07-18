@@ -2,10 +2,11 @@
 html{
 	min-height:100%;
 	position:relative;
+	background:#f3f3f3;
 }
 body{
-	background:#f7f6f6 !important;
-	padding-bottom:60px;
+	/*background:#f7f6f6 !important;
+	padding-bottom:60px;*/
 	width:100%;
 	float:left;
 }
@@ -244,6 +245,7 @@ a:hover{
 }
 /*.pt-100{padding-top: 100px;}*/
 /***  middle part  ***/
+/*.middle-main{height:90vh;}*/
 .main-login .middle-main{
 	padding:120px 0 70px;
 	background:url('../img/bg.png') no-repeat;
@@ -336,7 +338,7 @@ a:hover{
 	float:left;
 	padding-left: 30px;
     text-align: left;
-	padding-top:35px;
+	padding-top:20px;
 }
 /***  end slider  ***/
 .bottom-middle{
@@ -1285,7 +1287,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 #fre-popup .card ul.nav-tabs li.active a{color:#1b8ab9;}
 #fre-popup.how-it-popup .pro_img{padding-bottom:50px;}
 .header-login label.error{position:absolute;}
-
+/*.main-inner{min-height: 100%; position:relative}*/
 
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
@@ -1377,6 +1379,8 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 	.custom-box .custom-width .right-box .btns{padding-top:60px;}
 	.form-text .mob-none{display:none;}
 	.main-login .middle-main{background-position:0% 25%;}
+	.login h4{font-size:24px;}
+	.top-middle h3{font-size:19px;}
 	
 }
 @media screen and (max-width: 767px) {

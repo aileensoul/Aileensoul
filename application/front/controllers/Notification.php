@@ -1615,7 +1615,7 @@ class Notification extends MY_Controller {
         }
         
         
-        if ($id == "") {
+        if ($id == "") { //     echo $message_from_profile; die();
             $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
             $loginuser = $this->common->select_data_by_id('user', 'user_id', $userid, $data = 'first_name,last_name');
