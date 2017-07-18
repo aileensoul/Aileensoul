@@ -398,12 +398,13 @@ if ($returnpage == 'job') {
                                             <li><b>Job Description</b><span><pre><?php echo $this->common->make_links($post['post_description']); ?></pre></span>
                                             </li>
                                             <li><b>Interview Process</b><span>
-                                            <pre>
+                                           
 
                                             <?php if($post['interview_process'] != ''){?>
-                                            <?php echo $this->common->make_links($post['interview_process']); ?>
+                                             <pre>
+                                            <?php echo $this->common->make_links($post['interview_process']); ?></pre>
                                                <?php }else{ echo PROFILENA;}?>
-                                               </pre>
+                                               
                                             </span>
                                             </li>
                                             <!-- vishang 14-4 start -->
@@ -624,11 +625,12 @@ if ($returnpage == 'job') {
                                             <li><b>Job Description</b><span><pre><?php echo $this->common->make_links($post['post_description']); ?></pre></span>
                                             </li>
                                             <li><b>Interview Process</b><span>
-                                            <pre>
+                                           
 
                                             <?php if($post['interview_process'] != ''){?>
-                                            <?php echo $this->common->make_links($post['interview_process']); ?>
-                                               <?php }else{ echo PROFILENA; }?> </pre>
+                                             <pre>
+                                            <?php echo $this->common->make_links($post['interview_process']); ?></pre>
+                                               <?php }else{ echo PROFILENA; }?> 
                                             </span>
                                             </li>
 
