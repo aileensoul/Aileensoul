@@ -468,7 +468,7 @@
                                           <div class="profile-job-details">
                                              <ul>
                                                 <li>
-                                                   <p class="details_all_tital"> Education</p>
+                                                   <p class="details_all_tital">Education</p>
                                                 </li>
                                              </ul>
                                           </div>
@@ -495,8 +495,24 @@
                                              <li>
                                                 <b>Education Certificate </b>
                                                 <span>
-                                                   <!--  <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_primary']) ?>" style="width:100px;height:100px;"> -->
-                                                   <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_primary'])?>" data-lightbox="example-1">certificate </a>
+                                                  <?php
+                                                if ($job_edu[0]['edu_certificate_primary']) {
+                                                   $ext = explode('.',$job_edu[0]['edu_certificate_primary']);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                             <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_primary'])?>" data-lightbox="example-1">certificate </a>
+                                             <?php
+                                                }
+                                             }
+                                                 ?>
+                                                  
                                                 </span>
                                              </li>
                                              <!-- <a href="#" onclick="lightbox_open();">Open lightbox</a> -->
@@ -529,8 +545,24 @@
                                              <li>
                                                 <b>Education Certificate </b>
                                                 <span>
-                                                   <!--  <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_secondary']) ?>" style="width:100px;height:100px;"> -->
-                                                   <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_secondary'])?>" data-lightbox="example-1">certificate </a>
+                                                <?php
+                                                if ($job_edu[0]['edu_certificate_secondary']) {
+                                                   $ext = explode('.',$job_edu[0]['edu_certificate_secondary']);
+                                                   if($ext[1] == 'pdf')
+                                                   { 
+                                                   ?>
+                                                   <a href="<?php echo base_url('job/creat_pdf_secondary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                          <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_secondary'])?>" data-lightbox="example-1">certificate </a>
+                                             <?php
+                                                }
+                                             }
+                                                 ?>
+                                                   
                                                 </span>
                                              </li>
                                              <?php
@@ -559,8 +591,24 @@
                                              <li>
                                                 <b>Education Certificate </b>
                                                 <span>
-                                                   <!--  <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $job_edu[0]['edu_certificate_higher_secondary']) ?>" style="width:100px;height:100px;"> -->
-                                                   <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_higher_secondary'])?>" data-lightbox="example-1">certificate </a>
+                                                    <?php
+                                                if ($job_edu[0]['edu_certificate_higher_secondary']) {
+                                                   $ext = explode('.',$job_edu[0]['edu_certificate_higher_secondary']);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }
+                                                      else
+                                                      {
+                                                    ?>
+                                           <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$job_edu[0]['edu_certificate_higher_secondary'])?>" data-lightbox="example-1">certificate </a>
+                                             <?php
+                                                }
+                                             }
+                                                 ?>
+                                                  
                                                 </span>
                                              </li>
                                              <li>
@@ -648,9 +696,24 @@
                                                 <?php
                                                    if ($graduation['edu_certificate'] != "") {
                                                        ?>
-                                                <li><b>Education Certificate <?php 
-                                                   ?> </b> <span>
+                                                <li><b>Education Certificate </b> 
+                                                <span>  
+                                                <?php 
+                                                $ext = explode('.',$graduation['edu_certificate']);
+                                                      if($ext[1] == 'pdf')
+                                                      {
+                                                ?>
+                                                 <a href="<?php echo base_url('job/creat_pdf_graduation/'.$graduation['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                <?php
+                                                      }
+                                                      else
+                                                      {
+                                                ?>
                                                    <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$graduation['edu_certificate'])?>" data-lightbox="example-1">certificate <?php echo $new; ?></a>
+                                                   <?php 
+                                                   }
+                                                   ?>
+                                                   
                                                    </span>
                                                 </li>
                                                 <?php
@@ -663,7 +726,7 @@
                                                 }
                                                 ?>                                                  
                                              <div class="tab pagi_exp" style="">
-                                                <?php if(count($job_graduation) >= 1 ){ ?>
+                                                <?php if(count($job_graduation) > 1 ){ ?>
                                                 <button class="tablinks  " onclick="openCity(event, 'gra1')">1</button>
                                                 <?php } ?>
                                                 <?php if(count($job_graduation) >= 2 ){ ?>
@@ -1257,7 +1320,7 @@
                                              <?php if($job_work[0]['experience'] != "Fresher")
                                                 {?>                                  
                                              <div class="tab pagi_exp">
-                                                <?php if(count($job_work) >= 1){ ?>   
+                                                <?php if(count($job_work) > 1){ ?>   
                                                 <button class="tablinks" onclick="openCity(event, 'work6')">1</button>
                                                 <?php } if(count($job_work) >= 2){ ?>
                                                 <button class="tablinks" onclick="openCity(event, 'work7')">2</button>

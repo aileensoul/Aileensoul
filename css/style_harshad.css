@@ -166,7 +166,6 @@ scrollbar[orient="vertical"] {
 .inner_search{}
 .search_head{border:1px solid #d9d9d9; padding:5px 10px;}
 .cover .fancybox-slide > *{padding:0; background:none;}
-.cover .fancybox-slide .modal-dialog{margin:0;}
 .fancybox-close-small::after{background:none; font-size:30px; color:#777;}
 .fancybox-close-small:hover{background:none;}
 .fancybox-close-small:hover::after{background:none;}
