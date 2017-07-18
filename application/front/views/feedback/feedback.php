@@ -32,12 +32,12 @@
   <section class="middle-main">
     <div class="container">
       
-       
+       <div class="mid-trns">
 
         <div id="feedbacksucc"></div>
 
         
-        <div class="inner-form pt-50">
+        <div class="inner-form">
           <div class="login">
              <div class="title">
           <h1>Send us feedback</h1>
@@ -79,7 +79,7 @@
           </div>
         </div>
         
-      
+      </div>
     </div>
   </section>
 

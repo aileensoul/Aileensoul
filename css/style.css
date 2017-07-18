@@ -4452,6 +4452,7 @@ abbr {
     border: 1px solid #888;
    /* display: table;*/
     width: 100%;
+    float:left;
 }
 /* The Close Button */
 
