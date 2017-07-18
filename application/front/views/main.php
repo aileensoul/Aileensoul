@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="css/common-style.css">
   <link rel="stylesheet" href="css/style-main.css">
    <link rel="stylesheet" href="css/style_new.css">
+   <link rel="stylesheet" href="css/style_harshad.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -100,7 +101,8 @@
 <!--   <div id="error"></div> -->
   <section class="middle-main">
     <div class="container">
-      <div class="row">
+	<div class="mid-trns">
+      <div class="">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
             <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>Every person in the world to make their career.</p></h3>
@@ -161,7 +163,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-sm-6 pt20">
+        <div class="col-md-5 col-sm-6">
           <div class="login">
             <h4>Join Aileensoul - It's Free</h4>
             <form role="form" name="register_form" id="register_form" method="post">
@@ -252,7 +254,7 @@
           </div>
         </div>
       </div>
-      
+    </div>
     </div>
   </section>
 
@@ -268,7 +270,7 @@
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>
-		<div class="col-md-6 col-sm-4">
+		<div class="col-md-6 col-sm-4 col-xs-12">
           © 2017 | by Aileensoul
         </div>
       </div>

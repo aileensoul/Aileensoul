@@ -32,7 +32,7 @@
   <section class="middle-main pd-low">
 		<div class="container">
 			<div id="contactsucc"></div>
-			<div class="">
+			<div class="mid-trns">
 				<div class="inner-form">
 					<div class="login">
 						<div class="title">
