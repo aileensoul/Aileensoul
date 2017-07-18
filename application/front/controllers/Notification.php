@@ -1531,19 +1531,18 @@ class Notification extends MY_Controller {
     public function msg_header($id = "") {
         $message_from_profile = $_POST['message_from_profile'];
         $message_to_profile = $_POST['message_to_profile'];
+        
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
          // from job
         if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        $message_from_profile_id =   $this->data['message_from_profile_id'] = $message_from_profile_id[0]['job_id'];
-           
+            $message_from_profile_id =   $this->data['message_from_profile_id'] = $message_from_profile_id[0]['job_id'];
         }
-        
-         if ($message_to_profile == 1) {
+        if ($message_to_profile == 1) {
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           $message_to_profile_id = $this->data['message_to_profile_id'] = $message_to_profile_id[0]['job_id'];
+            $message_to_profile_id = $this->data['message_to_profile_id'] = $message_to_profile_id[0]['job_id'];
         }
         
         // from recruiter
@@ -1628,7 +1627,7 @@ class Notification extends MY_Controller {
             $contition_array = array('id !=' => '');
             $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id  OR message_to_profile_id = $message_from_profile_id)";
             $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-          
+         
             if ($lastuser[0]['message_from'] == $userid) {
                 $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
             } else {
@@ -1728,7 +1727,6 @@ class Notification extends MY_Controller {
             }
 
             // replace name of message_to in user_id
-
             $return_arrayto = array();
 
             foreach ($tolist as $to_list) {
@@ -1756,6 +1754,7 @@ class Notification extends MY_Controller {
 
             $search_condition = "((message_to = '$userid') && (message_from != '$lstusr')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id  OR message_to_profile_id = $message_from_profile_id)";
             $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+           
             // uniq array of fromlist  
             foreach ($fromlist as $k => $v) {
                 foreach ($fromlist as $key => $value) {
@@ -1783,10 +1782,10 @@ class Notification extends MY_Controller {
                     array_push($return_arrayfrom, $return);
                 }
             }
-
+            
             $userlist = array_merge($return_arrayto, $return_arrayfrom);
-
-
+            
+            
             // uniq array of fromlist  
             foreach ($userlist as $k => $v) {
                 foreach ($userlist as $key => $value) {
@@ -2000,7 +1999,9 @@ class Notification extends MY_Controller {
             if($user_message[0] == ''){
                 $user_message = array();
             }
+            
         }
+            
         foreach ($user_message as $msg) {
             $contition_array = array('not_product_id' => $msg['id'], 'not_type' => "2");
             $data = array(' notification.*');
@@ -2030,9 +2031,9 @@ class Notification extends MY_Controller {
         }
         $notmsg .= '</div>';
         if ($user_message) {
-            $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '">See All</a></div>';
+            $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '/index/'. $message_from_profile . '/' . $message_to_profile.'">See All</a></div>';
         } else {
-            $notmsg .= '<div id="InboxFooter"><a>No Messages</a></div>';
+            $notmsg .= '<div class=""><div id="InboxFooter"><a>No Messages</a></div></div>';
         }
         echo $notmsg;
     }

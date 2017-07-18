@@ -62,7 +62,7 @@ class Chat_model extends CI_Model {
 	// khyati start 
         
        $this->db->where('timestamp >', $timestamp);
-       $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND message_from_profile = "'.$message_from_profile.'" AND message_to_profile ="'.$message_to_profile.'" ';
+       $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "'.$message_from_profile.'" AND message_to_profile ="'.$message_to_profile.'" ) OR (message_from_profile = "'.$message_to_profile.'" AND message_to_profile ="'.$message_from_profile.'" ))';
        $this->db->where($where);
 
 		// khyati end
