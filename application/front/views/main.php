@@ -414,7 +414,14 @@ setTimeout(function() {
 <!-- validation for edit email formate form strat -->
 
 <script>
-                            $(document).ready(function () { 
+
+$(document).ready(function () { 
+
+  $.validator.addMethod("lowercase", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Email Should be in Small Character");
+
+
                                 $("#register_form").validate({ 
                                     rules: {
                                         first_name: {
@@ -426,6 +433,7 @@ setTimeout(function() {
                                         email_reg: {
                                             required: true,
                                             email:true,
+                                             lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                                              remote: {
                                                url: "<?php echo site_url() . 'registration/check_email' ?>",
                                              type: "post",
