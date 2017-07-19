@@ -9,6 +9,7 @@ width: 20px; }
 height: 25px;
 width: 25px; }
 .header2 ul li a:hover .bu_req{  background-image: url(../img/icon_contact_request.png);}
+.header2 ul li a.contact_notification_available .bu_req{  background-image: url(../img/icon_contact_request.png);}
 .dropdown_hover #art_profile:hover{color:white;}
 .dropdown_hover #art_profile{font-family: robotoregular; color: #d7ecf5; font-size: 14px;}
 .u2{font-family: robotoregular; color: #d7ecf5;}
@@ -175,6 +176,11 @@ scrollbar[orient="vertical"] {
 
 /***  harshad  ***/
 /*.profile-text textarea{height:100px;}*/
+.modal.message-box span.mes{padding:10px 25px 0;}
+.cover .modal-close{line-height:32px !important;}
+input[type="submit"], input[type="button"], button {padding:10px 30px;}
+#popup-form input[type="submit"]{margin:15px 1px 10px 0;}
+.custom-c .middle-section{background:#f3f3f3;}
 
 
 @media screen and (max-width: 1200px) {}
