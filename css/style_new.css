@@ -25,8 +25,9 @@ font-family: arial;
 */
 .dropdown-content1 a{color: #787878 !important;}
 .dropdown-content2 a{color: #787878 !!important;}
-
+.dropdown-content1 a:hover{color: #fff  !important}
 .profile-boxProfileCard .not_available p{text-align:center;}
+.alert-danger{color: black!important;font-size: 22px !important;}
 
 /*** new style css  ***/
 /*** new style css  ***/
