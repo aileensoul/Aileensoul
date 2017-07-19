@@ -513,6 +513,403 @@ class Chat extends MY_Controller {
     }
 
     public function abc($id = '', $message_from_profile = '', $message_to_profile = '') {
+        // search result script start 
+        
+         // search code for job
+       if ($message_from_profile == 1) {
+              // code for search
+        $contition_array = array('re_status' => '1');
+        $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1');
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'post_name,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+       
+        $uni = array_merge($results_recruiter, $results_post, $skill);
+       
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+         $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+     
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+    
+        $this->data['city_data']= array_values($loc);
+
+        $this->data['demo'] = array_values($result1);
+        }
+        
+       // search code for recruiter
+       if ($message_from_profile == 2) {
+            //code for search
+
+        $contition_array = array('status' => '1', 'user_id' => $userid);
+
+        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1');
+
+        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($artpost);die();
+
+
+        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
+        //   echo count($unique);
+
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach ($result as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+
+        $this->data['demo'] = array_values($result1);
+        
+                $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['city_data'] = array_values($res);
+        }
+        
+        // search code for freelancer hire
+         if ($message_from_profile == 3) {
+            // code for search
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_otherskill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($results_recruiter);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $unique = array_merge($field, $skill, $freelancer_postdata);
+        // echo count($unique);
+        // $this->data['demo']=$unique;
+
+
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+$results = array_unique($result);
+       foreach($results as $key =>$value){
+
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+            // echo "<pre>"; print_r($result1);die();
+         
+
+         $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+          //echo "<pre>"; print_r($loc);die();
+          // echo "<pre>"; print_r($result1);die();
+
+        $this->data['city_data']= array_values($loc);
+
+         $this->data['demo']= array_values($result1);
+        }
+          // search code for freelancer post
+         if ($message_from_profile == 4) {
+            //code for search
+        $contition_array = array('status' => '1', 'is_delete' => '0','free_post_step' => 7);
+
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($freelancer_postdata);die();
+
+        $contition_array = array('status' => '1', 'type' => '1');
+
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $contition_array = array('status' => '1');
+
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $uni = array_merge($skill, $freelancer_postdata, $field,$results_post);
+        // echo count($unique);
+        // $this->data['demo']=$uni;
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        $results = array_unique($result);
+        foreach($results as $key =>$value){
+            $result1[$key]['label']=$value;
+            $result1[$key]['value']=$value;
+          }
+
+         
+ $contition_array = array('status' => '1');
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+   
+
+          foreach ($location_list as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $location[] = $val1;
+              }
+          }
+          //echo "<pre>"; print_r($location);die();
+          foreach ($location as $key => $value) {
+              $loc[$key]['label'] =$value;
+              $loc[$key]['value'] =$value;
+          }
+         
+ //echo "<pre>"; print_r($loc);die();
+
+        $this->data['city_data']= array_values($loc);
+
+
+         $this->data['demo']= array_values($result1);
+
+        }
+          // search code for business profile
+         if ($message_from_profile == 5) {
+         // code for search
+        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
+
+
+        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($businessdata);die();
+
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($businesstype);
+
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+
+
+        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>";print_r($industrytype);die();
+        $unique = array_merge($businessdata, $businesstype, $industrytype);
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+        $contition_array = array('status' => '1');
+        $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        foreach ($citiesss as $key1) {
+
+            $location[] = $key1['city_name'];
+        }
+        // echo "<pre>"; print_r($location);die();
+        foreach ($location as $key => $value) {
+            $loc[$key]['label'] = $value;
+            $loc[$key]['value'] = $value;
+        }
+
+        //echo "<pre>"; print_r($loc);die();
+        // echo "<pre>"; print_r($loc);
+        // echo "<pre>"; print_r($result1);die();
+
+        $this->data['city_data'] = $loc;
+        $this->data['demo'] = array_values($result1);
+        }
+           // search code for artistic
+         if ($message_from_profile == 6) {
+             
+              // code for search
+        $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
+
+
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+
+        $return_array = array();
+        //  //echo  $return_array;
+
+        foreach ($artdata as $get) {
+            $return = array();
+            $return = $get;
+
+
+            $return['firstname'] = $get['art_name'] . " " . $get['art_lastname'];
+            unset($return['art_name']);
+            unset($return['art_lastname']);
+
+            array_push($return_array, $return);
+            //echo $returnarray; 
+        }
+
+        // $contition_array = array('status' => '1');
+        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        $contition_array = array('status' => '1', 'type' => '2');
+
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        // echo "<pre>"; print_r($artpost);die();
+
+
+        $uni = array_merge($return_array, $artpost);
+        //   echo count($unique);
+
+
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+
+        $this->data['demo'] = array_values($result1);
+        
+              $contition_array = array('status' => '1');
+
+       
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+           
+
+            foreach ($cty as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $resu[] = $val;
+                }
+            }
+        }
+        $resul = array_unique($resu);
+        foreach ($resul as $key => $value) {
+            $res[$key]['label'] = $value;
+            $res[$key]['value'] = $value;
+        }
+        
+        $this->data['city_data'] = array_values($res);
+            
+        }
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         // from job
