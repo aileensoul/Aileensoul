@@ -6594,7 +6594,7 @@ follow box*/
     border: 1px solid #dcdcdc;
     display: inline-block;
     cursor: pointer;
-    color: #9C9999!important;
+    color: #9C9999;
     font-family: Arial;
     font-size: 13px;
     margin-top: 3px;
@@ -8081,7 +8081,7 @@ input:-moz-placeholder {
 .bg_following {
    background: #1b8ab9!important;
     color: #fff!important;
-    margin: 0px;
+  
   }
 .add_tag_design {
     text-align: center;
@@ -8525,7 +8525,7 @@ line-height: 40px;
     font-weight: 600;
     margin-left: 0px;
     width: 93%;
-white-space: nowrap;
+/*white-space: nowrap;*/
 overflow: hidden;
 text-overflow: ellipsis;
 }
