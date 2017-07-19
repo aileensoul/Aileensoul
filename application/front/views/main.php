@@ -61,41 +61,7 @@
   <!-- model for forgot password start -->
 
 
-<div id="myModal" class="modal">
-  <div class="modal-content md-2">
 
-
-  <?php
-        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
-        echo form_open('profile/forgot_password', $form_attribute);
-    ?>
-
-    <div class="modal-header" style=" text-align: center;">
-
-      <span class="close">&times;</span>
-      <label style="color: #a0b3b0;">Forgot Password</label>
-    </div>
-
-
-    <div class="modal-body" style=" 
-    text-align: center;">
-        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
-        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email*" autocomplete="off" class="form-control placeholder-no-fix">
-
-    </div>
-
-    <div class="modal-footer ">
-      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-       -->  
-        <div class="submit_btn">              
-        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
-       </div>
-    </div>
-
-  </form>
-
-  </div>
-</div>
   <!-- model for forgot password end -->
 
 <!--   <div id="error"></div> -->
@@ -277,11 +243,47 @@
     </div>
   </footer>
 </div>
+
 <style type="text/css">
 
 </style>
 
 </body>
+<div id="myModal" class="modal">
+  <div class="modal-content md-2">
+
+
+  <?php
+        $form_attribute = array('name' => 'forgot', 'method' => 'post', 'class' => 'forgot_password', 'id' => 'forgot_password');
+        echo form_open('profile/forgot_password', $form_attribute);
+    ?>
+
+    <div class="modal-header" style=" text-align: center;">
+
+      <span class="close">&times;</span>
+      <label style="color: #a0b3b0;">Forgot Password</label>
+    </div>
+
+
+    <div class="modal-body" style=" 
+    text-align: center;">
+        <label  style="margin-bottom: 15px; color: #a0b3b0;"> Enter your e-mail address below to get your password.</label>
+        <input style="" type="text" name="forgot_email" id="forgot_email" placeholder="Email*" autocomplete="off" class="form-control placeholder-no-fix">
+
+    </div>
+
+    <div class="modal-footer ">
+      <!--  <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+       -->  
+        <div class="submit_btn">              
+        <input class="btn btn-theme btn1" type="submit" name="submit" value="Submit" /> 
+       </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
 </html>
 
 <script>

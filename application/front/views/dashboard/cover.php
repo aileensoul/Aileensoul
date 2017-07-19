@@ -432,7 +432,7 @@
 				<div class="modal-footer">
 
 					<?php if($job[0]['job_step'] != 10){?>
-					<a class="btn-2" href="<?php echo base_url('job'); ?>">Register Now</a>
+					<a class="btn-4" href="<?php echo base_url('job'); ?>">Register Now</a>
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a>
 					<?php }?>
@@ -468,7 +468,7 @@
 				<div class="modal-footer">
 
 					 <?php if($recrdata[0]['re_step'] != 3){?>
-					<a class="btn-2" href="<?php echo base_url('recruiter'); ?>">Register Now</a>
+					<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Register Now</a>
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
 
@@ -529,7 +529,7 @@
 				<div class="modal-footer">
 
 					<?php if($hiredata[0]['free_hire_step'] != 3 && $workdata[0]['free_post_step'] != 7){ ?>
-					<a class="btn-2" href="<?php echo base_url('freelancer'); ?>">Register Now</a>
+					<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Register Now</a>
 
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
@@ -572,7 +572,7 @@
 				<div class="modal-footer">
 
 					<?php if($busdata[0]['business_step'] != 4){ ?>
-					<a class="btn-2" href="<?php echo base_url('business_profile'); ?>">Register Now</a>
+					<a class="btn-4" href="<?php echo base_url('business_profile'); ?>">Register Now</a>
 					<?php }else{?>
                     <a class="btn-4" href="<?php echo base_url('business_profile'); ?>">Take me in</a>
 					<?php }?>
@@ -611,7 +611,7 @@
 				</div>
 				<div class="modal-footer">
 					<?php if($artdata[0]['art_step'] != 4){?>
-					<a class="btn-2" href="<?php echo base_url('artistic'); ?>">Register Now</a>
+					<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Register Now</a>
 					<?php }else{?>
 					<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 
