@@ -8083,6 +8083,13 @@ input:-moz-placeholder {
     color: #fff!important;
   
   }
+  .custome-approved-contact .addcontact-text span{width: 100% !important; display: block;
+line-height: 1;
+white-space: inherit;
+overflow: inherit;
+text-overflow: inherit;
+max-width: 200px;
+max-width: 100%;}
 .add_tag_design {
     text-align: center;
     padding-bottom: 6px;
