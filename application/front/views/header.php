@@ -42,7 +42,7 @@ $(window).load(function(){
         -moz-border-radius: 9px;
         -webkit-border-radius: 2px;
         position: absolute;
-        margin-top: -1px;
+        
       
     }
     /*style for span id=notification_count End*/
@@ -62,10 +62,10 @@ $(window).load(function(){
         -webkit-border-radius: 2px;
         position: absolute;
 
-        margin-top: -2px;font-size: 10px;
-        top: 9px;
+      font-size: 10px;
+        top: 3px;
         line-height: normal;
-        right: 11px;
+        right: 1px;
     }
     /*style for span id=message_count End*/
 
@@ -89,7 +89,7 @@ $(window).load(function(){
         } else
         {
             $('#notification_count').html(msg);
-            $('#notification_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#notification_count').css({"background-color": "#FF4500"});
             $('#notificationLink').addClass('notification_available');
         }
     }
@@ -152,12 +152,13 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#addcontact_count").html('');
-
+            $('#addcontactLink').removeClass('contact_notification_available');
 
         } else
         {
             $('#addcontact_count').html(msg);
-            $('#addcontact_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#addcontact_count').css({"background-color": "#FF4500"});
+            $('#addcontactLink').addClass('contact_notification_available');
 
         }
 

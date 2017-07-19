@@ -401,8 +401,7 @@
             success: function (data) {
 
                 //$('#addcontactBody').html(data);
-
-
+                
             }
         });
 
@@ -462,7 +461,7 @@
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#message_count').css({"background-color": "#FF4500"});
             $('#InboxLink').addClass('msg_notification_available');
             //alert("welcome");
         }
