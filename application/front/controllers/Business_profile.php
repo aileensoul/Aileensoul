@@ -19,8 +19,6 @@ class Business_profile extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
-
-
         $contition_array = array('user_id' => $userid, 'status' => '0');
         $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($businessdata) {
