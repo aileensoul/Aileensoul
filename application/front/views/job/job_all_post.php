@@ -200,7 +200,26 @@
                                         <li>
      <b>Required Experience</b>
                        <span>
-     <p title="Min - Max">
+     <p title="<?php 
+
+
+  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+     { 
+ 
+
+      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
+     } 
+     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
+     {
+      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+     }
+    else
+    {
+      echo "Fresher";
+         
+    }
+
+ ?> ">
      <?php 
 
 
@@ -224,9 +243,15 @@
     
     </p>  
  </span>
-  </li>                                       <li><b>Salary</b><span title="Min - Max">
+  </li>                                       
+<?php  $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name; ?>
+  <li><b>Salary</b><span title=" <?php
+                                             // $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
+                                             
+                                             
+                                             if ($post['min_sal'] !='' || $post['max_sal'] != ''){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency ." Per Year"; } else { echo PROFILENA;} ?>">
                                           <?php
-                                             $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
+                                             // $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
                                              
                                              
                                              if ($post['min_sal'] !='' || $post['max_sal'] != ''){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency ." Per Year"; } else { echo PROFILENA;} ?></span>

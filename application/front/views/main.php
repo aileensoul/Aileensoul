@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Find the Best Jobs, Hiring, Freelance for Free | Grow Business Network - Aileensoul.com</title>
-     <meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field.">
+  <meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field.">
   <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
 
   <script>
@@ -16,7 +16,13 @@
 
 </script>
 
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6060111582812113",
+    enable_page_level_ads: true
+  });
+</script>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -416,7 +422,14 @@ setTimeout(function() {
 <!-- validation for edit email formate form strat -->
 
 <script>
-                            $(document).ready(function () { 
+
+$(document).ready(function () { 
+
+  $.validator.addMethod("lowercase", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Email Should be in Small Character");
+
+
                                 $("#register_form").validate({ 
                                     rules: {
                                         first_name: {
@@ -428,6 +441,7 @@ setTimeout(function() {
                                         email_reg: {
                                             required: true,
                                             email:true,
+                                             lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                                              remote: {
                                                url: "<?php echo site_url() . 'registration/check_email' ?>",
                                              type: "post",

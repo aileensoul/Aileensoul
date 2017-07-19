@@ -1305,11 +1305,11 @@ ul.dropdown-menu li a i {
     float: left;
 }
 /* v 28-4*/
-
+.select2-container-multi .select2-choices .select2-search-field input{margin:3px 0 !important; }
 .common-form input[type=radio],
 .common-form input[type=checkbox] {
     width: auto;
-    margin: 14px 10px;
+    margin: 13px 10px;
     vertical-align: middle;
     display: inline-block;
 }
@@ -1633,6 +1633,8 @@ margin-bottom: 15px;
     color: #fff;
     padding: 8px 20px;
 }
+    .message .btn:focus{color: white;}
+        .message .btn:hover{color: white;}
 .cv-form input[type=submit],
 .cv-form input[type=button],
 .cv-form button {
@@ -4655,6 +4657,7 @@ abbr {
 .profile-boxProfileCard-tweetbox .Icon--geo {
     margin: 0
 }
+.fancybox-slide >.message{text-align: center;}
 .profile-boxProfileCard-tweetbox .photo-selector .text {
     display: none
 }
@@ -10257,7 +10260,7 @@ div .comment {
     word-break: break-all;
     background-color: #fff;
     padding: 16px 20px 16px;  
-    
+    cursor: inherit;
     font-size: 13px;
     min-height: 60px;
     position: relative;
@@ -14199,10 +14202,11 @@ input[type=number]::-webkit-outer-spin-button {
     text-overflow: ellipsis;
 }
 .like_user_list_main_desc {
-    width: 80%;
-    padding: 4px 10px 4px 10px;
-    float: left;
-    text-align: left;
+   max-width: 80%;
+padding: 4px 10px 4px 10px;
+float: left;
+text-align: left;
+display: inline-block;
 }
 .like_user_list_img {
     height: 50px;
@@ -14473,6 +14477,7 @@ header.animated {
     .profile-main-box-buis-menu li a{font-size:13px; padding:17px 10px 12px;}
 }
 @media screen and (max-width: 1024px) {
+    .common-form input[type="radio"], .common-form input[type="checkbox"]{margin: 6px 10px;}
     .comment-details{font-size: 15px;}
     .post-design-name_follow{width: 42%;    }
     .follow_left_box_main_btn button{width: 72px;
@@ -14859,6 +14864,7 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
+
     .logo{padding:0;}
     .h2-smladd {margin-top: -45px;}
     .logo h2{padding:2px 0;}
@@ -15962,7 +15968,7 @@ top: 8px;}
     .editable_text {
         padding-right: 45px;
     }
-    .btn{color: white;}
+
     .cover-pic{bottom:60%;}
     .cover-pic .btn{font-size:13px; padding:3px 10px;}
     .add-contact div{width:40px; height:40px;}
