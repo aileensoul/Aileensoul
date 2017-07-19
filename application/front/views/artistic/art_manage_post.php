@@ -1078,7 +1078,7 @@ $loginuser = $userdata[0]['art_id'];
 
                                                                 <!--<a id="<?php //echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>-->
 
-                                                                <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                                                                <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a> -->
 
                                                             <?php }
                                                         } else {
@@ -1095,7 +1095,7 @@ $loginuser = $userdata[0]['art_id'];
 
                 <?php } else { ?>
                                                                 <!--<a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>-->
-                                                               <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                                                              <!--  <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a> -->
                                                             <?php }
                                                         }
                                                         ?>

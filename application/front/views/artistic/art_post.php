@@ -711,7 +711,7 @@
                         <?php } else {
                            ?>
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
+                        <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
                         <?php
                            }
                            } else {
@@ -724,7 +724,7 @@
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                         <?php } else { ?>
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
+                        <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
                         <?php
                            }
                            }
