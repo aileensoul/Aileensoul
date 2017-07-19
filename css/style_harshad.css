@@ -181,12 +181,18 @@ scrollbar[orient="vertical"] {
 input[type="submit"], input[type="button"], button {padding:10px 30px;}
 #popup-form input[type="submit"]{margin:15px 1px 10px 0;}
 .custom-c .middle-section{background:#f3f3f3;}
-
+.common-form1 h3{border: 1px solid rgba(0, 0, 0, 0.1);}
+.addcontact-left.custome-approved-contact{width:100% !important;}
 
 @media screen and (max-width: 1200px) {}
 @media screen and (max-width: 1024px) {}
-@media screen and (max-width: 991px) {}
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 991px) {
+	.common-form1{max-width:750px; float:none; margin:0 auto;}
+}
+@media screen and (max-width: 767px) {
+	.common-form1 h3{margin:20px 0;}
+	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
+}
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 479px) {}
 @media screen and (max-width: 360px) {}
