@@ -123,8 +123,10 @@ class Email_model extends CI_Model {
 //         $config['newline'] = "\r\n";
          
         $config['protocol'] = "SMTP";
-        $config['smtp_host'] = "email-smtp.us-west-2.amazonaws.com";
-        $config['smtp_port'] = "465";
+        //$config['smtp_host'] = "email-smtp.us-west-2.amazonaws.com";
+        $config['smtp_host'] = "Smtp.gmail.com";
+        //$config['smtp_port'] = "465";
+        $config['smtp_port'] = "25";
         $config['smtp_user'] = "noreply@aileensoul.com";
         $config['smtp_pass'] = "aileensoul@123";
         $config['charset'] = "utf-8";
