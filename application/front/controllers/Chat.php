@@ -21,7 +21,7 @@ class Chat extends MY_Controller {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
          
          // from job
-        if ($message_from_profile == 1) {
+        if ($message_from_profile == 2) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
       $message_from_profile_id =       $this->data['message_from_profile_id'] = $message_from_profile_id[0]['job_id'];
@@ -35,9 +35,7 @@ class Chat extends MY_Controller {
         }
 
         // from recruiter
-        if ($message_from_profile == 2) {
-            echo 1;
-            exit;
+        if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 're_status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
      $message_from_profile_id =        $this->data['message_from_profile_id'] = $message_from_profile_id[0]['rec_id'];
@@ -711,7 +709,7 @@ class Chat extends MY_Controller {
         $join_str3[0]['from_table_id'] = 'user.user_id';
         $join_str3[0]['join_type'] = '';
 
-        $search_condition = "((message_from = '$userid') && (message_to != '$id')) ";
+        $search_condition = "((message_from = '$userid') && (message_to != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
 
         $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,message_to,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
 
@@ -753,7 +751,7 @@ class Chat extends MY_Controller {
         $join_str4[0]['from_table_id'] = 'user.user_id';
         $join_str4[0]['join_type'] = '';
 
-        $search_condition = "((message_to = '$userid') && (message_from != '$id'))";
+        $search_condition = "((message_to = '$userid') && (message_from != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
 
         $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
 
