@@ -1678,7 +1678,7 @@ ul.cv-btn li a i {
     text-align: center;
     border-radius: 10px;
     background: #fff;
-    margin: 0;
+    margin: 10px 0 20px;
     padding: 6px 15px 8px;
     font-size: 20px;
     line-height: 28px;
@@ -14585,6 +14585,7 @@ padding-top: 7px !important;}
     #notificationContainer{top:22px;}
     #InboxContainer{top:25px;}
     #InboxContainer::before{right: 4%;}
+	.common-form1{padding-top:20px; width:100%; float:left;} 
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed {
