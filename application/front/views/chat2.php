@@ -606,7 +606,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var userid = '<?php echo $userid; ?>';
             var curuser = data.message_from;
             var touser = data.message_to;
-            alert(touser);
             if (curuser == userid) {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);

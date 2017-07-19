@@ -1713,7 +1713,7 @@ class Chat extends MY_Controller {
     overflow: hidden;
     text-overflow: ellipsis;
 ">';
-                    $usrsrch .= '' . $user['message'] . '';
+                    $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
                     $usrsrch .= '</div>';
                     $usrsrch .= '</div>';
                     $usrsrch .= '</li>';
@@ -1749,7 +1749,7 @@ class Chat extends MY_Controller {
                     $messages = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = '*', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
 
-                    $usrsrch .= '' . $messages[0]['message'] . '';
+                    $usrsrch .= '' . str_replace('\\', '', $messages[0]['message']) . '';
 
                     $usrsrch .= '</div>
           </div>
@@ -1781,7 +1781,7 @@ class Chat extends MY_Controller {
     overflow: hidden;
     text-overflow: ellipsis;
 ">';
-                        $usrsrch .= '' . $user['message'] . '';
+                        $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</li></a>';
