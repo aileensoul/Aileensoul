@@ -718,7 +718,7 @@
                                                                     </div>
                                                                 <?php } else { ?>
                                                                     <div class="column1">
-                                                                        <div class="bui_res_i">  
+                                                                        <div class="bui_res_i2">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                             <div class="view_bui"> 
 
