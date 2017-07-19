@@ -2727,7 +2727,7 @@ ul.business_pf_ct_person_detail li b {
     height: 165px;
     display: inline-block;
     float: left;
-    display: table;
+ 
     padding-left: 10px;
 }
 .bui_res_i img {
@@ -4407,14 +4407,15 @@ abbr {
     cursor: pointer;
 }
 .view_bui {
-    position: absolute;
+     position: absolute;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     height: 166px;
-    width: 215px;
-    left: 10px;
+    width: 221px;
+    left: 0px;
 }
-.view_bui a {
+
+.view_bui #myBtn {
     position: absolute;
     bottom: 0;
     left: 37%;
@@ -9445,8 +9446,12 @@ padding-top: 30px;}
 font-size: 32px;}
 /*no post foun end*/
 
-
-
+.bui_res_i2{height: 166px;
+width: 223px;
+position: relative;}
+.bui_res_i2 img
+{height: 100%; width: 100%;}
+    
 /*Zalak 25-5*/
 .day-text{padding-top:6px;
 float: left;
