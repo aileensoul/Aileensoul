@@ -25,12 +25,12 @@ class Api extends CI_Controller {
         $this->_setOutput($message);
     }
 
-    public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '') {
+    public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '',$message_from_profile_id = '', $message_to_profile_id = '') {
         $userid = $this->session->userdata('aileenuser');
 
         $timestamp = $this->input->get('timestamp', null);
 
-        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile);
+        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
         $i = 0;
         foreach ($messages as $mes) {
             if (preg_match('/<img/', $mes['message'])) {
