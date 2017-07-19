@@ -2420,7 +2420,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
           
 }
 
-//echo "<pre>"; print_r($jobr11);
+//echo "<pre>"; print_r($jobr11); die();
   
 
               
@@ -2486,28 +2486,29 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 $unique = array_merge($jobr11, $jobr);
             }
 
-// echo "<pre>";print_r($jobr);
+// echo "<pre>";print_r($unique); die();
 // echo "<pre>";print_r($jobr11);
 
-//die();
+// die();
 
-//               foreach ($unique as $ke => $arr) {
-//                foreach ($arr as $va) {
+              foreach ($unique as $ke => $arr) {
+               foreach ($arr as $va) {
         
     
-//                     $skildataa[] = $va;
-//                 }
-//             }
-// //echo "<pre>";print_r($postdata);
-//                 $new = array();
-//                 foreach ($skildataa as $value) {
-//                     $new[$value['user_id']] = $value;
-//                 }
+                    $skildataa[] = $va;
+                }
+            }
+//echo "<pre>";print_r($postdata);
+                $new = array();
+                foreach ($skildataa as $value) {
+                    $new[$value['user_id']] = $value;
+                }
 
-             $new = array_unique($unique, SORT_REGULAR);
+             // $new = array_unique($unique, SORT_REGULAR);
+             // $new  = array_filter($new);
                  
 
-    //echo "<pre>"; print_r($new); 
+    //echo "<pre>"; print_r($new);  die();
 
        // die();
       

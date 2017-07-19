@@ -148,7 +148,12 @@
                                 </fieldset>
                                 
 
-                               
+                               <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
+                                    <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
+                                    <input name="other_skill" type="text" class="skill_other" tabindex="3" id="other_skill" placeholder="Enter Your Skill" />
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('other_skill'); ?>
+                                </fieldset>
 
 
 
