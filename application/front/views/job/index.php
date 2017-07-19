@@ -619,7 +619,7 @@ if(mm<10) {
 
                     required: true,
                     email: true,
-                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
+                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                     remote: {
                         url: "<?php echo site_url() . 'job/check_email' ?>",
                         type: "post",
