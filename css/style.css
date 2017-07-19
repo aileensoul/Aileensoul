@@ -1309,7 +1309,7 @@ ul.dropdown-menu li a i {
 .common-form input[type=radio],
 .common-form input[type=checkbox] {
     width: auto;
-    margin: 0 10px;
+    margin: 14px 10px;
     vertical-align: middle;
     display: inline-block;
 }
