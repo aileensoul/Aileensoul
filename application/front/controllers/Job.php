@@ -5603,55 +5603,131 @@ $select .= '<option value="' . $stream_otherdata[0]['stream_id'] . '">' . $strea
 
 // create pdf start
 
-public function creat_pdf_primary($id) {
-   
+public function creat_pdf_primary($id,$seg) {
+
         $contition_array = array('edu_id' => $id, 'status' => '1');
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='edu_certificate_primary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if($pdf[0]['edu_certificate_primary'])
         { 
-            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            if($seg == 'primary')
+            {
+
+                $select = '<form action="'.base_url().'/job/job_education_update/primary" method="post">';
+                $select .= '<button type="submit">Back</button>';
+                $select .= '</form>';
+                echo $select;
+                 //echo form_close();
+            }
+            else
+            {
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                
+            }
+           
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_primary'].'"width="100%" height="100%">';
         }
 }
 
-public function creat_pdf_secondary($id) {
+public function creat_pdf_secondary($id,$seg) {
 
         $contition_array = array('edu_id' => $id, 'status' => '1');
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='edu_certificate_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if($pdf[0]['edu_certificate_secondary'])
         { 
-            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+             if($seg == 'secondary')
+            {
+
+                $select = '<form action="'.base_url().'/job/job_education_update/secondary" method="post">';
+                $select .= '<button type="submit">Back</button>';
+                $select .= '</form>';
+                echo $select;
+                 //echo form_close();
+            }
+            else
+            {
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                
+            }
+           
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_secondary'].'"width="100%" height="100%">';
         }
 }
 
-public function creat_pdf_higher_secondary($id) {
+public function creat_pdf_higher_secondary($id,$seg) {
     
         $contition_array = array('edu_id' => $id, 'status' => '1');
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data='  edu_certificate_higher_secondary', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if($pdf[0]['edu_certificate_higher_secondary'])
         { 
-            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            if($seg == 'higher-secondary')
+            {
+
+                $select = '<form action="'.base_url().'/job/job_education_update/higher-secondary" method="post">';
+                $select .= '<button type="submit">Back</button>';
+                $select .= '</form>';
+                echo $select;
+                 //echo form_close();
+            }
+            else
+            {
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                
+            }
+           
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_higher_secondary'].'"width="100%" height="100%">';
         }
 }
 
-public function creat_pdf_graduation($id) {
+public function creat_pdf_graduation($id,$seg) {
     
         $contition_array = array('job_graduation_id' => $id);
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data='edu_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         if($pdf[0]['edu_certificate'])
         { 
-            echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            if($seg == 'graduation')
+            {
+
+                $select = '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
+                $select .= '<button type="submit">Back</button>';
+                $select .= '</form>';
+                echo $select;
+                 //echo form_close();
+            }
+            else
+            {
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                
+            }
+           
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate'].'"width="100%" height="100%">';
         }
 }
 //create pdf end 
 
+//DELETE PRIMARY CERIFICATE & PDF START
+public function delete_primary()
+{
+        $id=$_POST['edu_id'];
+           $data = array(
+                'edu_certificate_primary' => ''
+                
+            );
+
+            // echo '<pre>'; print_r($data);die();
+            $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id',$id);
+            unlink(base_url("uploads/job_education".$group_picture));
+      die();
+        if($delete_data){
+            echo 'ok';
+        }
+  die();
+}
+
+//DELETE PRIMARY CERIFICATE & PDF END
 public function temp(){
 
     $this->load->view('job/temp');

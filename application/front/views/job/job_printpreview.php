@@ -371,7 +371,7 @@
                                                 ?>
                                              </span>
                                           </li>
-                                          <li> <b>Address </b><span> <?php echo $job[0]['address']; ?></span>
+                                          <li> <b>Address </b><span><pre><?php echo $job[0]['address']; ?></pre></span>
                                           </li>
                                        </ul>
                                        <ul class="clearfix">
@@ -459,7 +459,7 @@
                                                 ?>
                                              </span>
                                           </li>
-                                          <li> <b>Address </b><span> <?php echo $job[0]['address_permenant']; ?></span>
+                                          <li> <b>Address </b><span><pre> <?php echo $job[0]['address_permenant']; ?></pre></span>
                                           </li>
                                        </ul>
                                     </div>
@@ -501,7 +501,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$job_edu[0]['edu_id'].'/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -551,7 +551,7 @@
                                                    if($ext[1] == 'pdf')
                                                    { 
                                                    ?>
-                                                   <a href="<?php echo base_url('job/creat_pdf_secondary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                   <a href="<?php echo base_url('job/creat_pdf_secondary/'.$job_edu[0]['edu_id'].'/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -597,7 +597,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$job_edu[0]['edu_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$job_edu[0]['edu_id'].'/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }
                                                       else
@@ -703,7 +703,7 @@
                                                       if($ext[1] == 'pdf')
                                                       {
                                                 ?>
-                                                 <a href="<?php echo base_url('job/creat_pdf_graduation/'.$graduation['job_graduation_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                 <a href="<?php echo base_url('job/creat_pdf_graduation/'.$graduation['job_graduation_id'].'/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                 <?php
                                                       }
                                                       else
@@ -802,7 +802,7 @@
                                                 <?php
                                                    if ($job[0]['project_description']) {
                                                                ?>
-                                                <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
+                                                <li><b>Project Description</b> <span><pre><?php echo $this->common->make_links($job[0]['project_description']); ?></pre></span> </li>
                                                 <?php
                                                    }
                                                    else
@@ -925,7 +925,7 @@
                                                                     ?>
                                                       </span>
                                                    </li>
-                                                   <li><b>Project Description</b> <span><?php echo $this->common->make_links($job[0]['project_description']); ?></span> </li>
+                                                   <li><b>Project Description</b> <span><pre><?php echo $this->common->make_links($job[0]['project_description']); ?></pre></span> </li>
                                                    <?php
                                                       }
                                                       else
@@ -1379,7 +1379,7 @@
                                           </div>
                                           <div class="profile-job-profile-menu">
                                              <ul class="clearfix">
-                                                <li> <b> Extra Curricular Activites</b><span>
+                                                <li> <b> Extra Curricular Activites</b><span><pre>
                                                    <?php
                                                       if($job[0]['curricular'])
                                                       { 
@@ -1392,7 +1392,7 @@
                                                                   echo "";
                                                       }
                                                       ?>
-                                                   </span>
+                                                   </pre></span>
                                                 </li>
                                              </ul>
                                           </div>
@@ -1420,7 +1420,7 @@
                                           </div>
                                           <div class="profile-job-profile-menu">
                                              <ul class="clearfix">
-                                                <li> <b> Extra Curricular Activites</b><span>
+                                                <li> <b> Extra Curricular Activites</b><span><pre>
                                                    <?php
                                                       if($job[0]['curricular'])
                                                       { 
@@ -1433,7 +1433,7 @@
                                                                   echo PROFILENA;
                                                       }
                                                       ?>
-                                                   </span>
+                                                   </pre></span>
                                                 </li>
                                              </ul>
                                           </div>
@@ -1452,14 +1452,14 @@
                                           </div>
                                           <div class="profile-job-profile-menu">
                                              <ul class="clearfix">
-                                                <li> <b> Interest </b> <span><?php echo $this->common->make_links($job[0]['interest']); ?></span>
+                                                <li> <b> Interest </b> <span><pre><?php echo $this->common->make_links($job[0]['interest']); ?></pre></span>
                                                 </li>
                                                 <?php
                                                    if ($returnpage == 'recruiter') {
                                                        
                                                        if ($job[0]['reference']) {
                                                                        ?>
-                                                <li> <b> Reference </b> <span><?php echo $this->common->make_links($job[0]['reference']); ?></span>
+                                                <li> <b> Reference </b> <span><pre><?php echo $this->common->make_links($job[0]['reference']); ?></pre></span>
                                                 </li>
                                                 <?php
                                                    }
@@ -1472,7 +1472,7 @@
                                                    {
                                                    if ($job[0]['reference']) {
                                                        ?>
-                                                <li> <b> Reference </b> <span><?php echo $this->common->make_links($job[0]['reference']); ?></span>
+                                                <li> <b> Reference </b> <span><pre><?php echo $this->common->make_links($job[0]['reference']); ?></pre></span>
                                                 </li>
                                                 <?php
                                                    }
@@ -1510,7 +1510,7 @@
                                                       if ($job[0]['carrier']) 
                                                        {
                                                              ?>
-                                                   <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
+                                                   <li> <b> Carrier Objectives </b><span> <pre><?php echo $this->common->make_links($job[0]['carrier']); ?></pre></span>
                                                    </li>
                                                    <?php
                                                       }
@@ -1546,7 +1546,7 @@
                                                       if ($job[0]['carrier']) 
                                                        {
                                                              ?>
-                                                   <li> <b> Carrier Objectives </b> <span><?php echo $this->common->make_links($job[0]['carrier']); ?></span>
+                                                   <li> <b> Carrier Objectives </b><span> <pre><?php echo $this->common->make_links($job[0]['carrier']); ?></pre></span>
                                                    </li>
                                                    <?php
                                                       }

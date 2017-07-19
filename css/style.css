@@ -1309,7 +1309,7 @@ ul.dropdown-menu li a i {
 .common-form input[type=radio],
 .common-form input[type=checkbox] {
     width: auto;
-    margin: 0 10px;
+    margin: 14px 10px;
     vertical-align: middle;
     display: inline-block;
 }
@@ -1678,7 +1678,7 @@ ul.cv-btn li a i {
     text-align: center;
     border-radius: 10px;
     background: #fff;
-    margin: 0;
+    margin: 10px 0 20px;
     padding: 6px 15px 8px;
     font-size: 20px;
     line-height: 28px;
@@ -14397,6 +14397,18 @@ header.animated {
 /***  add contact ripple effect  ***/
 
 
+.cover .modal.in .modal-dialog{
+	top:50%;
+	left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+	margin:0;
+	float:left;
+}
+.cover .modal-close{line-height:30px;}
+
+
+
 /***  media query  ***/
 
 @media (min-width: 1400px) {
@@ -14573,6 +14585,7 @@ padding-top: 7px !important;}
     #notificationContainer{top:22px;}
     #InboxContainer{top:25px;}
     #InboxContainer::before{right: 4%;}
+	.common-form1{padding-top:20px; width:100%; float:left;} 
 }
 @media screen and (max-width: 1023px) {
     #paddingtop_fixed {
@@ -14581,12 +14594,12 @@ padding-top: 7px !important;}
 }
 @media screen and (max-width: 991px) {
      .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
-    .cls-ve{position: absolute; top: 23px; z-index: 10; : 0;}
+    .cls-ve{position: absolute; top: 23px; z-index: 10;right:15px;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
     .profile-text1 .chng_email{font-size: 11px;}
     .profile-text1 .as-p{font-size: 12px; line-height: 0;}
-    .profile-text1{top:51px; left: 0; : 0; margin: 0 auto; }
+    .profile-text1{/*top:51px; */left: 0; : 0; margin: 0 auto; }
     .dropdown-menu::before{right: 3.5%;}
     .people-list {
         width: 32%;
@@ -15037,7 +15050,7 @@ text-align: center;}
     .post-design-desc{padding-left: 17px;}
     .post-design-mid{padding-left: 21px;}
     .xs-p0{padding:0;}
-    .profile-text1{top:40px;}
+    .profile-text1{top:30px;}
     .sticky-container{display: none;}
     .sticky-container{display: none;}
     .email-verify{padding-left: 2px; padding-right: 2px;}
@@ -15398,11 +15411,12 @@ text-align: center;}
     
 }
 @media screen and (max-width: 640px) {
-.profile-text1{width: 100%; top:40px;}
-.profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }} 
+	.profile-text1{width: 100%; /*top:40px;*/}
+	.profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }
+} 
 @media screen and (max-width: 639px) {
     .cover-pic{bottom: 62%; right: -10%;}
-    .cls-ve{top: 18px;}
+    .cls-ve{/*top: 18px;*/}
     .right-side-menu {
         padding-left: 18%;
     }
@@ -15465,7 +15479,7 @@ text-align: center;}
 @media screen and (max-width: 540px) {
     .h2-smladd{margin-top: 0px;}
     .like_user_list_main_desc{width: 78%;}
-    .cls-ve{top: 23px; right: 3px;}
+    .cls-ve{top: 23px; /*right: 3px;*/}
     .custom-right-business .popup-img img{height: 43px; width: 43px;}
     .profile-job-post-location-name-rec .post_designation{font-size: 12PX;}
     .fifty_val{right: 22px;}
@@ -15603,7 +15617,7 @@ top: 8px;}
     .profile-text1{width: 100%;}
     .profile-text1 .chng_email{font-size: 12px;}
     .profile-text1 .vert_email{font-size: 12px; margin: 0px;}
-    .profile-text1{top:18px; padding-top: 25px;}
+    .profile-text1{top:16px; padding-top: 25px;}
     .profile-text1 .as-p{letter-spacing: 0px;}
 
     .post-design-desc {
@@ -15957,6 +15971,7 @@ top: 8px;}
     #contact_per{width:40%;}
     .text-center.tab-block a{margin:0 10px;}
     .details_all_tital{font-size:18px;}
+	.cls-ve{top:35px;}
 }
 @media screen and (max-width: 360px) {
     #acon::before{right: 125px!important;}
@@ -16106,6 +16121,7 @@ top: 8px;}
         font-size: 14px;
         font-weight: 500;
     }
+	.cls-ve{top:23px;}
 
 }
 /*** test for form ***/
