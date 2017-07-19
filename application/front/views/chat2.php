@@ -644,7 +644,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile ?>?timestamp=' + request_timestamp, function (data) {
+        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile .'/'. $message_from_profile_id . '/' .$message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
             append_chat_data(data);
 
             var newIndex = data.length - 1;

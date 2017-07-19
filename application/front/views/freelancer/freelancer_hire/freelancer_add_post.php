@@ -563,9 +563,9 @@ $( "#searchplace" ).autocomplete({
 
   <script type="text/javascript">
 function checkvalue(){
-   //alert("hi");
-  var searchkeyword=document.getElementById('tags').value;
-  var searchplace=document.getElementById('searchplace').value;
+   alert("hi");
+  var searchkeyword=$.trim(document.getElementById('tags').value);
+  var searchplace=$.trim(document.getElementById('searchplace').value);
   // alert(searchkeyword);
   // alert(searchplace);
   if(searchkeyword == "" && searchplace == ""){
@@ -575,9 +575,9 @@ function checkvalue(){
 }
 
  function checkvalue_search() {
-       
-        var searchkeyword = document.getElementById('tags').value;
-        var searchplace = document.getElementById('searchplace').value;
+       alert(123);
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
         
         if (searchkeyword == "" && searchplace == "") 
         {
@@ -608,8 +608,8 @@ var datepicker = document.getElementById('example2').value;
  var city = document.getElementById('city').value;
 
  
-   var searchkeyword = document.getElementById('tags').value;
-    var searchplace = document.getElementById('searchplace').value;
+   var searchkeyword = $.trim(document.getElementById('tags').value);
+    var searchplace = $.trim(document.getElementById('searchplace').value);
     // alert(searchkeyword);
     // alert(searchplace);
        

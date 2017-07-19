@@ -173,6 +173,10 @@ scrollbar[orient="vertical"] {
 
 .cover .fancybox-slide .modal-content{border:none; box-shadow: none;}
 
+/***  harshad  ***/
+/*.profile-text textarea{height:100px;}*/
+
+
 @media screen and (max-width: 1200px) {}
 @media screen and (max-width: 1024px) {}
 @media screen and (max-width: 991px) {}

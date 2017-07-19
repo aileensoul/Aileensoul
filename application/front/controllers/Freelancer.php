@@ -2090,11 +2090,20 @@ $contition_array = array('status'=>'1','is_delete' =>'0','user_id !=' =>$userid,
  // echo "<pre>"; print_r($contition_array1); 
 
 
-       $candidate = $this->data['candidatefreelancer'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $candidate  = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       $all_candidate[] = $candidate;
 
            }
 
         }
+        foreach ($all_candidate as $child) {
+            foreach ($child as $value) {
+                $final_candidate[] = $value;
+            }
+        }
+         $final_candidate = array_unique($final_candidate, SORT_REGULAR);
+         $this->data['candidatefreelancer']=$final_candidate;
+
       //  echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
 
   
