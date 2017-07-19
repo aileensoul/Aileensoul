@@ -204,7 +204,8 @@
                                           ?>
                                            <div style="float: left;">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary(<?php echo $jobdata[0]['edu_id']; ?>);">
+                                                  <!--  <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary(<?php //echo $jobdata[0]['edu_id'] .',"'.$edu_certificate_primary1.'"'?>);"> -->
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary('<?php  echo'"'.$edu_certificate_primary1.'"' ?>')">
                                                 </div>
                                              </div>
 
@@ -1774,7 +1775,7 @@
                        
                                if(response.select == 0)
                               {
-                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                                $.fancybox.open('<div class="message"><h2>Written University already available in University Selection</h2><div class="fw text-center"><button data-fancybox-close="" class="btn">OK</button></div></div>');
                               }
                               else if(response.select == 1)
                               {
@@ -3064,8 +3065,9 @@ var other_stream=(item1.val());
    }
 
    //delete primary certificate Start
-function delete_primary(edu_id) {
-  
+function delete_primary(edu_id,certificate) {
+   alert(edu_id);
+   alert(certificate);  
 $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
 
       $('.message #delete').on('click', function () {
