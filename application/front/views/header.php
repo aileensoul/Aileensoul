@@ -89,7 +89,7 @@ $(window).load(function(){
         } else
         {
             $('#notification_count').html(msg);
-            $('#notification_count').css({"background-color": "#FF4500"});
+            $('#notification_count').css({"background-color": "#FF4500" , "height": "18px" ,"width": "18px" , "padding" : "5px 6px"});
             $('#notificationLink').addClass('notification_available');
         }
     }
@@ -157,7 +157,7 @@ $(window).load(function(){
         } else
         {
             $('#addcontact_count').html(msg);
-            $('#addcontact_count').css({"background-color": "#FF4500"});
+            $('#addcontact_count').css({"background-color": "#FF4500" , "height": "16px" ,"width": "16px" , "padding" : "3px 4px"});
             $('#addcontactLink').addClass('contact_notification_available');
 
         }

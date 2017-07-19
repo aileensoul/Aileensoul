@@ -454,11 +454,6 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
 
-
-
-
-
-
         $this->load->view('business_profile/contact_info', $this->data);
     }
 

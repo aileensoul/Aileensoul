@@ -10,7 +10,7 @@ body{
 	padding-bottom:60px;*/
 	width:100%;
 	float:left;
-	height:100%;
+	/*height:100%;*/
 }
 
 @font-face {
@@ -250,12 +250,12 @@ a:hover{
 /*.pt-100{padding-top: 100px;}*/
 /***  middle part  ***/
 /*.middle-main{height:90vh;}*/
-.main-login{/**min-height:95vh;*/ height:100%;}
+
 .main-login .middle-main{
-	padding:100px 0;
+	/*padding:100px 0;*/
 	background:url('../img/bg.png') no-repeat;
 	background-size:100%;
-	height:100%;
+
 }
 .main-login .middle-main .container{height:100%; position:relative;}
 .top-middle{
@@ -603,13 +603,13 @@ textarea:focus::-webkit-input-placeholder
 	padding-bottom:60px;
 	width:100%;
 	float:left;
-	height:100%;
+
 }
 .main-inner .middle-main{
 /*	padding:62px 0 0;*/
 	width:100%;
 	float:left;
-	height:100%;
+
 }
 .main-inner .middle-main .container{height:100%;}
 .pt-a{padding-top: 65px;}
@@ -1315,14 +1315,20 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
 	footer > .container {padding-left:15px; padding-right:15px; width:1250px;}
 }
-@media (min-height: 600px){
-	html{height:100%;}
-    .mid-trns{top: 50%; position: absolute; left: 50%; width:100%;
+@media (min-height: 667px){
+	html{/*height:100%;*/}
+    .mid-trns{/*top: 50%; position: absolute; left: 50%; width:100%;
 		-ms-transform: translate(-50%,-50%);
 		-webkit-transform: translate(-50%,-50%);
 		-moz-transform: translate(-50%,-50%);
 		-o-transform: translate(-50%,-50%);
-		transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);*/
+
+	}
+	.mid-trns{
+		display : flex;
+		align-items : center;
+		height:100vh;
 	}
 	.main-inner{/*height: 100vh;*/}
 	/*.main-login{height:95vh;}*/
@@ -1478,7 +1484,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	body{/*padding-bottom:90px;*/}
 	.login form{padding:16px 15px 15px;}
 	footer .col-md-6{width:100%; float:left;}
-
+	.mid-trns{display:inherit; height:auto;}
 }
 @media screen and (max-width: 640px) {
     .main-inner .middle-main{padding-bottom: 0px !important; padding: 170px 0;}

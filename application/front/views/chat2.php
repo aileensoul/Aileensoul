@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <!-- http://bootsnipp.com/snippets/4jXW -->
@@ -21,8 +21,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
 
     <body>
-        <?php echo $header; ?>
+        <?php echo $header; 
+        
+        if($message_from_profile == 1){
+            echo $job_header2_border;
+        } else if($message_from_profile == 2){
+              echo $recruiter_header2_border;
+          } else if($message_from_profile == 3){
+            echo $freelancer_hire_header2_border; 
 
+        } else if($message_from_profile == 4){
+            echo $freelancer_post_header2_border; 
+
+        }else if($message_from_profile == 5){
+            echo $business_header2_border;
+        }else if($message_from_profile == 6){
+           echo $art_header2_border;
+        }
+?>
+        
+        
 
 
         <div class="container_chat " id="paddingtop_fixed">
@@ -873,4 +891,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     }
 
+</script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data = <?php echo json_encode($demo); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#tags").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#tags").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#tags").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
+</script>
+<script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data1 = <?php echo json_encode($de); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#searchplace").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data1, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
 </script>

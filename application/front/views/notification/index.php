@@ -750,7 +750,7 @@
                                             
                                         </li>
                                         </a>
-                                        <!--
+                                        
                                         <?php
                                    }
                                }
@@ -762,7 +762,7 @@
                 </div>  
 
             </div>           </div>
-        <!-- END PAGE TITLE -->
+        <!-- END PAGE TITLE 
     </div>
 </div>
 <!-- END PAGE HEAD-->

@@ -34,7 +34,7 @@ class Api extends CI_Controller {
         $i = 0;
         foreach ($messages as $mes) {
             if (preg_match('/<img/', $mes['message'])) {
-                $messages[$i]['message'] = $mes['message'];
+                $messages[$i]['message'] = str_replace("\\", "", $mes['message']);
             } else {
                 $messages_new = $this->common->make_links($mes['message']);
                 $messages[$i]['message'] = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
