@@ -399,10 +399,10 @@
                                                         <i class="fa fa-trash-o" aria-hidden="true">
                                                         </i> Delete Post
                                                     </a>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['posted_user_id'] . ''); ?>">
+                                                    <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['posted_user_id'] . ''); ?>">
                                                         <i class="fa fa-user" aria-hidden="true">
                                                         </i> Contact Person
-                                                    </a>
+                                                    </a> -->
                                                     <?php
                                                 }
                                             } else {
@@ -412,7 +412,7 @@
                                                     <a id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                                                 <?php } else { ?>
                                                     <a onclick="user_postdeleteparticular(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>
-                                                    <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a>
+                                                    <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $busienss_data[0]['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a> -->
                                                     <?php
                                                 }
                                             }

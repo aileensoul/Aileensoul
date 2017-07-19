@@ -884,9 +884,9 @@
                                                                             <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
                                                                                 <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
-                                                                            <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
+                                                                            <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
                                                                                 <span class="h2-img h2-srrt"></span>Contact Person
-                                                                            </a>
+                                                                            </a> -->
 
                                                                             <?php
                                                                         }
@@ -901,9 +901,9 @@
      <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
 
-                                                                            <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
+                                                                            <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
                                                                                 <span class="h2-img h2-srrt"></span> Contact Person
-                                                                            </a>
+                                                                            </a> -->
                                                                             <?php
                                                                         }
                                                                     }

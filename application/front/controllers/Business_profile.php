@@ -2155,10 +2155,10 @@ class Business_profile extends MY_Controller {
                     $return_html .= '<a onclick="user_postdelete(' . $row['business_profile_post_id'] . ')">
                                                     <i class="fa fa-trash-o" aria-hidden="true">
                                                     </i> Delete Post
-                                                </a>
-                                                <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id']) . '">
-                                                    <i class="fa fa-user" aria-hidden="true">
-                                                    </i> Contact Person </a>';
+                                                </a>';
+                                                // <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id']) . '">
+                                                //     <i class="fa fa-user" aria-hidden="true">
+                                                //     </i> Contact Person </a>';
                 }
             } else {
                 if ($this->session->userdata('aileenuser') == $row['user_id']) {
@@ -2174,12 +2174,12 @@ class Business_profile extends MY_Controller {
                     $return_html .= '<a onclick="user_postdeleteparticular(' . $row['business_profile_post_id'] . ')">
                                                     <i class="fa fa-trash-o" aria-hidden="true">
                                                     </i> Delete Post
-                                                </a>
-
-                                                <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['user_id']) . '">
-                                                    <i class="fa fa-user" aria-hidden="true">
-                                                    </i> Contact Person
                                                 </a>';
+
+                                                // <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['user_id']) . '">
+                                                //     <i class="fa fa-user" aria-hidden="true">
+                                                //     </i> Contact Person
+                                                // </a>';
                 }
             }
 
