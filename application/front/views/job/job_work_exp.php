@@ -1021,8 +1021,21 @@ if(num==5)
    }
    // return regexpr.test(value);
    }, "Only space, only number and only special characters are not allow");
-   
-  
+
+//PHONE NUMBER VALIDATION FUNCTION   
+   $.validator.addMethod("matches", function(value, element, regexpr) {          
+   //return value == '' || value.trim().length != 0; 
+   if(!value) 
+   {
+   return true;
+   }
+   else
+   {
+   return regexpr.test(value);
+   }
+   // return regexpr.test(value);
+   }, "Phone number is not in proper format");
+  //PHONE NUMBER VALIDATION FUNCTION END
 
    
        $("#jobseeker_regform1").validate({
@@ -1061,9 +1074,10 @@ if(num==5)
                },
                 'companyphn[]': {
 
-                            number: true,
+                          //  number: true,
                             minlength: 8,
-                           maxlength:15                   
+                           maxlength:15,
+                          matches: /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/,                   
                         },
                // 'companyphn[]': {
                     
@@ -1096,7 +1110,7 @@ if(num==5)
                },
    
                //  'companyphn[]': {
-               //      required: "Please Enter Numeric Value."
+               //      matches: "Enter proper.",
                // },
            }
    

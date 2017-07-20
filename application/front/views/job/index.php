@@ -594,6 +594,22 @@ if(mm<10) {
 
 //date validation end
 
+
+//PHONE NUMBER VALIDATION FUNCTION START  
+   $.validator.addMethod("matches", function(value, element, regexpr) {          
+   //return value == '' || value.trim().length != 0; 
+   if(!value) 
+   {
+   return true;
+   }
+   else
+   {
+   return regexpr.test(value);
+   }
+   // return regexpr.test(value);
+   }, "Phone number is not in proper format");
+//PHONE NUMBER VALIDATION FUNCTION END
+
         $("#jobseeker_regform").validate({
 
             ignore: ".language",
@@ -635,9 +651,10 @@ if(mm<10) {
 
                 phnno: {
 
-                            number: true,
+                           // number: true,
                            minlength: 8,
-                           maxlength:15
+                           maxlength:15,
+                           matches: /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/,   
                             
                             
                         },

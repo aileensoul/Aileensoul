@@ -709,7 +709,7 @@
                                                       else
                                                       {
                                                 ?>
-                                                   <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_thumb_upload_path').$graduation['edu_certificate'])?>" data-lightbox="example-1">certificate <?php echo $new; ?></a>
+                                                   <a class="example-image-link" href="<?php echo base_url($this->config->item('job_edu_main_upload_path').$graduation['edu_certificate'])?>" data-lightbox="example-1">certificate <?php echo $new; ?></a>
                                                    <?php 
                                                    }
                                                    ?>
