@@ -183,8 +183,14 @@ input[type="submit"], input[type="button"], button {padding:10px 30px;}
 .custom-c .middle-section{background:#f3f3f3;}
 .common-form1 h3{border: 1px solid rgba(0, 0, 0, 0.1);}
 .addcontact-left.custome-approved-contact{width:100% !important;}
-.common-form fieldset input{height:35px; line-height:1;}
-
+.common-form fieldset input{height:30px; line-height:1;}
+.common-form fieldset input::-webkit-input-placeholder {
+     line-height:17px !important;
+}
+.job-search-box1 fieldset input{height:28px; line-height:1;}
+.job-search-box1 fieldset input::-webkit-input-placeholder {
+     line-height:17px !important;
+}
 
 
 
