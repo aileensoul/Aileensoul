@@ -185,13 +185,8 @@
                             
                                <div class="job_work_experience_main_div">
                                  <label>Experience:<span class="red">*</span></label>
-
-                                 <select style="" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
-                                    <option value="" selected option disabled>Year</option>
-
                                  <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
-                                    <option value="disable" selected option disabled>Year</option>
-
+                                    <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
                                     <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
@@ -214,13 +209,8 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-
-                                 <select style="" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
-                                    <option value="" selected option disabled>Month</option>
-
                                  <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
-                                    <option value="disable" selected option disabled>Month</option>
-
+                                    <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
@@ -238,7 +228,7 @@
                                  <?php echo form_error('experience_year'); ?>
                                  <?php echo form_error('experience_month'); ?>
                                
-                                 <label  style="margin-top: 10px; width:100%; float:left;">Job Title:<span class="red">*</span></label>
+                                 <label  style="    margin-top: 6px;">Job Title:<span class="red">*</span></label>
                                  <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                     if ($jobtitle1) {
                                         echo $jobtitle1;
@@ -323,12 +313,6 @@
                                  </div>
                                  <?php } ?>
 
-                                 <?php if ($y == 1 ) {
-                                    ?>
-                                 <div class="hs-submit full-width fl " style="margin-top: 29px;">
-                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete1" onclick="delete_job_work_first('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
-                                 </div>
-                                 <?php } ?>
                               </div>
                            </div>
                            <?php
@@ -399,7 +383,7 @@
                               <?php echo form_error('experience_year'); ?>
                               <?php echo form_error('experience_month'); ?>
                              
-                              <label style="margin-top: 10px; width:100%; float:left;">Job Title:<span class="red">*</span></label>
+                              <label style="    margin-top: 6px;">Job Title:<span class="red">*</span></label>
                               <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                  if ($jobtitle1) {
                                      echo $jobtitle1;
@@ -1252,8 +1236,8 @@ if(num==5)
        $('#input' + newNum + ' .experience_year').val('');
        $('#input' + newNum + ' .experience_month').val('');
        $('#input'+newNum+ ' .experience_month').attr("disabled", "disabled");
-     
-        $('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
+      $('#input'+newNum+' .certificate').val('');
+        //$('#input' + newNum + '.certificate').replaceWith($("#certificate"+ newNum).val('').clone(true));
    
        $('#input' + newNum + ' .hs-submit').remove();
        $("#input" + newNum + ' img').remove();
@@ -1334,45 +1318,7 @@ if(num==5)
    }
 //DELETE JOB WORK EXP CLONE END
 
- //DELETE FIRST WORK EXP START
-    function delete_job_work_first(work_id,certificate) {
-   
-      $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
-  
-    $('.message #delete').on('click', function () {
-       
 
-       var value_year = $( '.job_work_edit_'+work_id+' select#experience_year option:disabled').val();
-       var value_month = $( '.job_work_edit_'+work_id+' select#experience_year option:disabled').val();
-     
-       $.ajax({
-           type: 'POST',
-           url: '<?php echo base_url() . "job/job_work_delete" ?>',
-           data: 'work_id=' + work_id+ '&certificate=' + certificate,
-          // dataType: "html",
-           success: function (data) {
-               if(data == 1)
-               {
-                   $.fancybox.close();
-                   $('.job_work_edit_'+work_id+' select#experience_year').val(value_year);
-                   $('.job_work_edit_'+work_id+' select#experience_month').val(value_month);
-                   $('.job_work_edit_'+work_id+' #jobtitle').val("");
-                   $('.job_work_edit_'+work_id+' #companyname').val("");
-                   $('.job_work_edit_'+work_id+' #companyemail').val("");
-                   $('.job_work_edit_'+work_id+' #companyphn').val("");
-                   
-                 
-                  $('.job_work_edit_'+work_id+' .img_work_exp a').remove();
-                  $('.job_work_edit_'+work_id+' .img_work_exp img').remove();
-                  $('.job_work_edit_'+work_id+'  #work_certi').remove();
-                 
-               }
-                
-           }
-       });//$.ajax end
-       });
-   }
-//DELETE FIRST WORK EXP END
 </script>
 <style type="text/css">
    .hs-submit img{
