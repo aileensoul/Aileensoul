@@ -719,7 +719,7 @@
                                                 ?>
                                              <div style="float: left;">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="home(<?php echo $jobgrad[$x]['job_graduation_id']; ?>);">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_job_exp('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
                                                 </div>
                                              </div>
                                              <?php } ?>
@@ -3085,16 +3085,16 @@ var other_stream=(item1.val());
    } 
    </style>-->
 <script type="text/javascript">
-     function home(grade_id) {
-   
-    $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a class="mesg_link btn" onclick="return delete_job_exp(' + grade_id + ');">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
- }
+     
+function delete_job_exp(grade_id,certificate) {
 
-   function delete_job_exp(grade_id) {
+      $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+
+  $('.message #delete').on('click', function () {
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "job/job_edu_delete" ?>',
-           data: 'grade_id=' + grade_id,
+           data: 'grade_id=' + grade_id+ '&certificate=' + certificate,
            // dataType: "html",
            success: function (data) {
                if (data == 1) {
@@ -3104,6 +3104,7 @@ var other_stream=(item1.val());
              // window.location.reload();
            }
        });
+        });
    }
 
    //DELETE PRIMARY CERTIFICATE START
@@ -3201,10 +3202,10 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this D
 
                if (data == 1) 
                {
-                  $.fancybox.close();      
-                  $('.img_work_exp a').remove();
-                  $('.img_work_exp img').remove();
-                  $('#graduation_certi').remove();
+                  $.fancybox.close();   
+                  $('.job_work_edit_'+edu_id+' .img_work_exp a').remove();
+                  $('.job_work_edit_'+edu_id+' .img_work_exp img').remove();
+                  $('.job_work_edit_'+edu_id+'  #graduation_certi').remove();
                }
                
            }
