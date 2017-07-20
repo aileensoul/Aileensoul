@@ -1026,8 +1026,8 @@
                                                                                     Your browser does not support the audio tag.
                                                                                 </audio>
                                                                             </div>
-                                                                            <div class="audio_mp3">
-                                                                                <p title="<?php echo $businessmultiimage[0]['image_name']; ?>"><?php echo $businessmultiimage[0]['image_name']; ?></p>
+                                                                            <div class="audio_mp3" id="<?php echo "postname" . $row['business_profile_post_id']; ?>">
+                                                                                <p title="<?php echo $row['product_name']; ?>"><?php echo $row['product_name']; ?></p>
                                                                             </div>
                                                                         </div> 
                                                                         <!-- one audio end -->
@@ -3124,6 +3124,23 @@
     {
     var foundPresent1 = $.inArray(ext1, allowesaudio) > - 1;
     if (foundPresent1 == true && fileInput.length == 1) {
+
+        if (product_name == '') {
+    $('.biderror .mes').html("<div class='pop_content'>You have to add audio title.");
+    $('#bidmodal').modal('show');
+    //setInterval('window.location.reload()', 10000);
+
+    $(document).on('keydown', function (e) {
+    if (e.keyCode === 27) {
+    //$( "#bidmodal" ).hide();
+    $('#bidmodal').modal('hide');
+    $('.modal-post').show();
+    }
+    });
+    event.preventDefault();
+    return false;
+    }
+
     } else {
     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
     $('#bidmodal').modal('show');
@@ -3647,6 +3664,7 @@
             $('#' + 'editpostdata' + abc).html(data.title);
             //$('#' + 'editpostdetails' + abc).html(data.description);
             $('#' + 'khyati' + abc).html(data.description);
+            $('#' + 'postname' + abc).html(data.postname);
             }
     });
     }
