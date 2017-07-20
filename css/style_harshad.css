@@ -193,6 +193,9 @@ input[type="submit"], input[type="button"], button {padding:10px 30px;}
 }
 .flw_msg_btn ul li button.bg_following{margin-bottom:0;}
 
+.common-form fieldset input{margin:0 !important; height:16px;}
+.common-form fieldset .radio_check_text{padding-right:20px;}
+
 
 
 @media screen and (max-width: 1200px) {}
