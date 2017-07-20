@@ -3017,9 +3017,10 @@
             type: 'POST',
             url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
             data: 'business_profile_post_id=' + abc,
+            dataType: "json",
             //alert(data);
             success: function (data) {
-                $('#' + 'removepost' + abc).html(data);
+                $('#' + 'removepost' + abc).html(data.notfound);
             }
         });
     }
