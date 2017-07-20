@@ -2866,8 +2866,20 @@ class Job extends MY_Controller {
 
          $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      
-        $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+
+        $count_data=count($job_reg_data);
+
+for ($x = 0; $x < $count_data; $x++) {
+
+     $job_reg_prev_image = $job_reg_data[$x]['work_certificate'];
+    
+
+    $image_hidden_certificate = $userdata[0]['image_hidden_certificate'][$x];
+   // echo "<pre>";print_r($image_hidden_degree);die();
+       $work_certificate = $files['certificate']['name'][$x];
+
+     
+       // $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
      //  echo "<pre>";print_r($job_reg_prev_image);die();
         
 
@@ -2877,18 +2889,24 @@ class Job extends MY_Controller {
             $job_image_main_path = $this->config->item('job_work_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-               // unlink($job_bg_full_image);
+                 if($image_hidden_certificate==$job_reg_prev_image && $work_certificate!= "")
+                 {
+                        unlink($job_bg_full_image);
+                 }
             }
             
             $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-               //unlink($job_bg_thumb_image);
+                if( $image_hidden_certificate==$job_reg_prev_image && $work_certificate!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
             }
 
 
         }
-
+}//for loop end
              }else {
 
                 $dataimage= '';
@@ -2915,18 +2933,18 @@ class Job extends MY_Controller {
                    
                         if ($work_certificate == "") {
                         
-                            $data = array(
-                                 'work_certificate'=> $userdata[0]['image_hidden_certificate'][$x]
-                             );
-                       
+                                 // $edu_certificate1 = $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id']);
+
+                                 $work_certificate1 = $userdata[0]['image_hidden_certificate'][$x];
+                        
                         } else {
-                           $data = array(
-                                 'work_certificate'=>  $work_certificate
-                             );
+                          
+                                 $work_certificate1 =  $work_certificate;
+                         
                           
                         }
                   
-                      $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+                     // $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         $data = array(
                             'user_id' => $userid,
@@ -2936,7 +2954,8 @@ class Job extends MY_Controller {
                             'jobtitle' => $userdata[0]['jobtitle'][$x],
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
-                            'companyphn' => $userdata[0]['companyphn'][$x]
+                            'companyphn' => $userdata[0]['companyphn'][$x],
+                            'work_certificate'=>  $work_certificate1
                           
                         );
 
