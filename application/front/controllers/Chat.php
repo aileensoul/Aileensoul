@@ -510,30 +510,61 @@ class Chat extends MY_Controller {
     }
 
     public function abc($id = '', $message_from_profile = '', $message_to_profile = '') {
-        
+
         $this->chat_search($id, $message_from_profile, $message_to_profile);
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         // from job
         if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-            $message_from_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['job_id'];
+            $message_from_profile_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_data[0]['job_id'];
+            
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['job_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['fname'] . $message_from_profile_data[0]['lname'];
+            if ($message_from_profile_data[0]['job_user_image'] != '') {
+                $this->data['message_from_profile_data']['user_image'] = base_url().'uploads/job_profile/thumbs/'.$message_from_profile_data[0]['job_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+            
             $this->data['message_from_profile'] = 1;
             $this->data['message_to_profile'] = 2;
         }
-
         if ($message_to_profile == 1) {
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $message_to_profile_id = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            $this->data['message_to_profile_id'] = $message_to_profile_id[0]['job_id'];
+            $message_to_profile_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $this->data['message_to_profile_id'] = $message_to_profile_data[0]['job_id'];
+            
+            $this->data['message_to_profile_data']['user_profile_id'] = $message_to_profile_data[0]['job_id'];
+            $this->data['message_to_profile_data']['user_name'] = $message_to_profile_data[0]['fname'] . $message_to_profile_data[0]['lname'];
+            if ($message_to_profile_data[0]['job_user_image'] != '') {
+                $this->data['message_to_profile_data']['user_image'] = base_url().'uploads/job_profile/thumbs/'.$message_to_profile_data[0]['job_user_image'];
+            }
+            else{
+                $this->data['message_to_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_to_profile_data']['user_designation'] = $message_to_profile_data[0]['designation'] == '' ? 'Current Work':$message_to_profile_data[0]['designation'];
         }
 
         // from recruiter
         if ($message_from_profile == 2) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 're_status' => '1');
-            $message_from_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['rec_id'];
+            $message_from_profile_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['rec_firstname'] . $message_from_profile_data[0]['rec_lastname'];
+            if ($message_from_profile_data[0]['recruiter_user_image'] != '') {
+                $this->data['message_from_profile_data']['recruiter_user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_from_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+            
             $this->data['message_from_profile'] = 2;
             $this->data['message_to_profile'] = 1;
         }
@@ -541,8 +572,18 @@ class Chat extends MY_Controller {
 
         if ($message_to_profile == 2) {
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
-            $message_to_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $message_to_profile_id = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['rec_id'];
+            
+            $this->data['message_to_profile_data']['user_profile_id'] = $message_to_profile_data[0]['rec_id'];
+            $this->data['message_to_profile_data']['user_name'] = $message_to_profile_data[0]['rec_firstname'] . $message_to_profile_data[0]['rec_lastname'];
+            if ($message_to_profile_data[0]['job_user_image'] != '') {
+                $this->data['message_to_profile_data']['user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_to_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_to_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_to_profile_data']['user_designation'] = $message_to_profile_data[0]['designation'] == '' ? 'Designation':$message_to_profile_data[0]['designation'];
         }
 
         // from freelancer hire
@@ -550,6 +591,17 @@ class Chat extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['reg_id'];
+           
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['rec_firstname'] . $message_from_profile_data[0]['rec_lastname'];
+            if ($message_from_profile_data[0]['recruiter_user_image'] != '') {
+                $this->data['message_from_profile_data']['recruiter_user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_from_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+            
             $this->data['message_from_profile'] = 3;
             $this->data['message_to_profile'] = 4;
         }
@@ -564,6 +616,17 @@ class Chat extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['freelancer_post_reg_id'];
+            
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['rec_firstname'] . $message_from_profile_data[0]['rec_lastname'];
+            if ($message_from_profile_data[0]['recruiter_user_image'] != '') {
+                $this->data['message_from_profile_data']['recruiter_user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_from_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+            
             $this->data['message_from_profile'] = 4;
             $this->data['message_to_profile'] = 3;
         }
@@ -578,6 +641,17 @@ class Chat extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
+            
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['rec_firstname'] . $message_from_profile_data[0]['rec_lastname'];
+            if ($message_from_profile_data[0]['recruiter_user_image'] != '') {
+                $this->data['message_from_profile_data']['recruiter_user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_from_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+            
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
         }
 
@@ -591,6 +665,17 @@ class Chat extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['art_id'];
+            
+            $this->data['message_from_profile_data']['user_profile_id'] = $message_from_profile_data[0]['rec_id'];
+            $this->data['message_from_profile_data']['user_name'] = $message_from_profile_data[0]['rec_firstname'] . $message_from_profile_data[0]['rec_lastname'];
+            if ($message_from_profile_data[0]['recruiter_user_image'] != '') {
+                $this->data['message_from_profile_data']['recruiter_user_image'] = base_url().'uploads/recruiter_profile/thumbs/'.$message_from_profile_data[0]['recruiter_user_image'];
+            }
+            else{
+                $this->data['message_from_profile_data']['user_image'] = base_url().NOIMAGE;
+            }
+            $this->data['message_from_profile_data']['user_designation'] = $message_from_profile_data[0]['designation'] == '' ? 'Current Work':$message_from_profile_data[0]['designation'];
+                        
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 6;
         }
 
@@ -1107,10 +1192,7 @@ class Chat extends MY_Controller {
             $join_str4[0]['join_type'] = '';
 
             $search_condition = "((message_to = '$userid') && (message_from != '$lstusr'))";
-
-
             $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.id,messages.message_from,first_name,user_image,message', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str4, $groupby = '');
-
 
             // uniq array of fromlist  
             foreach ($fromlist as $k => $v) {
@@ -1181,7 +1263,7 @@ class Chat extends MY_Controller {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; ">';
-                    $usrsrch .= '' . $user['message'] . '';
+                    $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
                     $usrsrch .= '</div>';
                     $usrsrch .= '</div>';
                     $usrsrch .= '</li>';
@@ -1204,7 +1286,7 @@ class Chat extends MY_Controller {
         $userid = $this->session->userdata('aileenuser');
         $usrsearchdata = trim($_POST['search_user']);
         $usrid = trim($_POST['user']);
-        
+
         // from job
         if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
@@ -1655,7 +1737,7 @@ class Chat extends MY_Controller {
                     }
                 }
             }
-        // replace name of message_to in user_id
+            // replace name of message_to in user_id
 
             $return_arrayfrom = array();
 
@@ -1819,7 +1901,8 @@ class Chat extends MY_Controller {
     public function scroll(&$array, $key) {
         $this->load->view('scroll');
     }
-    public function chat_search($id, $message_from_profile, $message_to_profile){
+
+    public function chat_search($id, $message_from_profile, $message_to_profile) {
         // search result script start 
         // search code for job
         if ($message_from_profile == 1) {
@@ -1917,7 +2000,7 @@ class Chat extends MY_Controller {
 
             $this->data['city_data'] = array_values($res);
         }
-        
+
         // search code for freelancer hire
         if ($message_from_profile == 3) {
             // code for search
