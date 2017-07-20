@@ -606,7 +606,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var userid = '<?php echo $userid; ?>';
             var curuser = data.message_from;
             var touser = data.message_to;
-
             if (curuser == userid) {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
@@ -935,7 +934,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    
    (function ($) {
    
-       var data1 = <?php echo json_encode($de); ?>;
+       var data1 = <?php echo json_encode($city_data); ?>;
        //alert(data);
    
    

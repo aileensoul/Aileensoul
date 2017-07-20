@@ -2148,10 +2148,10 @@ class Business_profile extends MY_Controller {
                     $return_html .= '<a onclick="user_postdelete(' . $row['business_profile_post_id'] . ')">
                                                     <i class="fa fa-trash-o" aria-hidden="true">
                                                     </i> Delete Post
-                                                </a>
-                                                <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id']) . '">
-                                                    <i class="fa fa-user" aria-hidden="true">
-                                                    </i> Contact Person </a>';
+                                                </a>';
+                                                // <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id']) . '">
+                                                //     <i class="fa fa-user" aria-hidden="true">
+                                                //     </i> Contact Person </a>';
                 }
             } else {
                 if ($this->session->userdata('aileenuser') == $row['user_id']) {
@@ -2167,12 +2167,12 @@ class Business_profile extends MY_Controller {
                     $return_html .= '<a onclick="user_postdeleteparticular(' . $row['business_profile_post_id'] . ')">
                                                     <i class="fa fa-trash-o" aria-hidden="true">
                                                     </i> Delete Post
-                                                </a>
-
-                                                <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['user_id']) . '">
-                                                    <i class="fa fa-user" aria-hidden="true">
-                                                    </i> Contact Person
                                                 </a>';
+
+                                                // <a href="' . base_url('business_profile/business_profile_contactperson/' . $row['user_id']) . '">
+                                                //     <i class="fa fa-user" aria-hidden="true">
+                                                //     </i> Contact Person
+                                                // </a>';
                 }
             }
 
@@ -2256,8 +2256,8 @@ class Business_profile extends MY_Controller {
                                                         Your browser does not support the audio tag.
                                                     </audio>
                                                 </div>
-                                                <div class="audio_mp3">
-                                                    <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                <div class="audio_mp3" id="'. "postname" . $row['business_profile_post_id'].'">
+                                                    <p title="'.$row['product_name'].'">'.$row['product_name'].'</p>
                                                 </div>
                                             </div>';
                 }
@@ -5727,10 +5727,13 @@ class Business_profile extends MY_Controller {
                     $editpostdes .= '...<span id="kkkk" onClick="khdiv(' . $_POST["business_profile_post_id"] . ')">View More</div>';
                 }
             }
+
+            $postname = '<p title="'.$businessdata[0]['product_name'].'">'.$businessdata[0]['product_name'].'</p>';
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
                     array("title" => $editpost,
-                        "description" => $editpostdes));
+                        "description" => $editpostdes,
+                        "postname" => $postname));
         }
     }
 
@@ -10020,7 +10023,7 @@ class Business_profile extends MY_Controller {
                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
                     $contactdata .= '<li>';
-                    $contactdata .= '<div class="addcontact-left">';
+                    $contactdata .= '<div class="addcontact-left custome-approved-contact">';
                     $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
                     $contactdata .= '<div class="addcontact-pic">';
 
@@ -10165,7 +10168,7 @@ class Business_profile extends MY_Controller {
                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
                     $contactdata .= '<li>';
-                    $contactdata .= '<div class="addcontact-left">';
+                    $contactdata .= '<div class="addcontact-left custome-approved-contact">';
                     $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
                     $contactdata .= '<div class="addcontact-pic">';
 

@@ -535,11 +535,8 @@ function text2link($text){
                                                if($recdata[0]['re_comp_interview'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <pre> 
-                                                     <?php 
-                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?>
-
-                                                      </pre> </span>
+                                                      <li> <b>Company Interview Process</b><span><pre><?php 
+                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?></pre> </span>
                                                        </li>
                                                          <?php   }
                                                    else
@@ -553,19 +550,15 @@ function text2link($text){
                                                if($recdata[0]['re_comp_interview'])
                                                       {
                                                       ?>
-                                                      <li> <b>Company Interview Process</b><span> <pre> 
-                                                     <?php 
-                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?>
-
-                                                      </pre> </span>
+                                                      <li> <b>Company Interview Process</b><span><pre><?php 
+                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?></pre> </span>
                                                        </li>
                                                          <?php   }
                                                   
                                                    else
                                                    {
                                                      ?>
-                                                     <li><b>Company Interview Process</b> <span>
-                                               <?php echo PROFILENA; ?></span>
+                                                     <li><b>Company Interview Process</b><span><?php echo PROFILENA; ?></span>
                                                         </li>
                                                    <?php 
                                                     }

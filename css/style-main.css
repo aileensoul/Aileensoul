@@ -600,7 +600,7 @@ textarea:focus::-webkit-input-placeholder
 /***  inner page  ***/
 .main-inner{
 	background:#f3f3f3;
-	padding-bottom:60px;
+	/*padding-bottom:60px;*/
 	width:100%;
 	float:left;
 
@@ -1051,7 +1051,7 @@ h3.text-effect span {
 }
 
 /***  validation  ***/
-.error{font-size: 9px; color: #ff0000 !important;}
+.error{font-size: 12px; color: #ff0000 !important; font-weight:normal;}
 #forgot_password .modal-body label.error{color: #ff0000 !important;}
 .login .form-group select{top: 0;}
 .dob{position: relative;}
@@ -1263,7 +1263,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 		z-index:9;
 		margin-top:-141px;
 	}
- .main-inner .pd-low{padding-top: 100px;}
+ .main-inner .pd-low{/*padding-top: 100px;*/}
 	.sticky-right li{
 		list-style-type: none;
 		background-color: #333;
@@ -1311,11 +1311,14 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 
 #selgen{color:#848484 !important;}
 input.form-control{box-shadow:none !important; -webkit-appearance: none;}
+
+
+
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
 	footer > .container {padding-left:15px; padding-right:15px; width:1250px;}
 }
-@media (min-height: 667px){
+@media (min-height: 650px){
 	html{/*height:100%;*/}
     .mid-trns{/*top: 50%; position: absolute; left: 50%; width:100%;
 		-ms-transform: translate(-50%,-50%);
@@ -1336,7 +1339,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 }
 
 @media (min-width: 1280px) { 
-   .main-inner .pd-low{padding-top: 100px;}
+   .main-inner .pd-low{/*padding-top: 100px;*/}
   .container {width: 1280px;}   
   
 }

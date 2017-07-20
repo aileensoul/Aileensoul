@@ -5396,10 +5396,13 @@ public function followtwo() {
 
                 
                 }
+
+                $postname = '<p title="'.$artdata[0]['art_post'].'">'.$artdata[0]['art_post'].'</p>';
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
                     array("title" => $editpost,
-                        "description" => $editpostdes));
+                        "description" => $editpostdes,
+                        "postname" => $postname));
         }
     }
 

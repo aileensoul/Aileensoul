@@ -5330,7 +5330,7 @@ public function job_applied_post() {
         $grade_id = $_POST['grade_id'];
         $delete_data = $this->common->delete_data('job_graduation', 'job_graduation_id', $grade_id);
         if($delete_data){
-            echo 'ok';
+            echo 1;
         }
     }
 //reactivate accont end 
@@ -5712,22 +5712,105 @@ public function creat_pdf_graduation($id,$seg) {
 public function delete_primary()
 {
         $id=$_POST['edu_id'];
+        $certificate= $_POST['certificate'];
+        
            $data = array(
                 'edu_certificate_primary' => ''
                 
             );
 
-            // echo '<pre>'; print_r($data);die();
-            $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id',$id);
-            unlink(base_url("uploads/job_education".$group_picture));
-      die();
-        if($delete_data){
-            echo 'ok';
-        }
-  die();
+           $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_education/main/'.$certificate;
+            $path1='uploads/job_education/thumbs/'.$certificate;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
+}
+//DELETE PRIMARY CERIFICATE & PDF END
+
+//DELETE SECONDARY CERIFICATE & PDF END
+public function delete_secondary()
+{
+        $id=$_POST['edu_id'];
+        $certificate= $_POST['certificate'];
+       
+           $data = array(
+                'edu_certificate_secondary' => ''
+                
+            );
+
+           $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_education/main/'.$certificate;
+            $path1='uploads/job_education/thumbs/'.$certificate;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
 }
 
-//DELETE PRIMARY CERIFICATE & PDF END
+//DELETE SECONDARY CERIFICATE & PDF END
+
+//DELETE HIGHER SECONDARY CERIFICATE & PDF END
+public function delete_higher_secondary()
+{
+        $id=$_POST['edu_id'];
+        $certificate= $_POST['certificate'];
+       
+           $data = array(
+                'edu_certificate_higher_secondary' => ''
+                
+            );
+
+           $updatedata = $this->common->update_data($data, 'job_add_edu', 'edu_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_education/main/'.$certificate;
+            $path1='uploads/job_education/thumbs/'.$certificate;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
+}
+
+//DELETE HIGHER SECONDARY CERIFICATE & PDF END
+
+//DELETE GRADUATION CERIFICATE & PDF END
+public function delete_graduation()
+{
+        $id=$_POST['edu_id'];
+        $certificate= $_POST['certificate'];
+
+       
+           $data = array(
+                'edu_certificate' => ''
+                
+            );
+
+           $updatedata = $this->common->update_data($data, 'job_graduation', 'job_graduation_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_education/main/'.$certificate;
+            $path1='uploads/job_education/thumbs/'.$certificate;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
+}
+
+//DELETE GRADUATION CERIFICATE & PDF END
 public function temp(){
 
     $this->load->view('job/temp');

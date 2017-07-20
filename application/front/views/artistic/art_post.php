@@ -711,7 +711,7 @@
                         <?php } else {
                            ?>
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
+                        <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
                         <?php
                            }
                            } else {
@@ -724,7 +724,7 @@
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                         <?php } else { ?>
                         <a id="<?php echo $row['art_post_id']; ?>" onClick="deletepostmodel(this.id)"><span class="h4-img h2-srrt"></span>Delete Post</a>
-                        <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a>
+                        <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
                         <?php
                            }
                            }
@@ -837,8 +837,8 @@
                                  Your browser does not support the audio tag.
                               </audio>
                            </div>
-                           <div class="audio_mp3">
-                              <p title="hellow this is mp3">This text will scroll from right to left</p>
+                           <div class="audio_mp3" id="<?php echo "postname" . $row['art_post_id']; ?>">
+                              <p title="<?php echo $row['art_post']; ?>"><?php echo $row['art_post']; ?></p>
                            </div>
                         </div>
                         <!-- one audio end -->
@@ -3048,6 +3048,26 @@
                    var foundPresent1 = $.inArray(ext1, allowesaudio) > -1;
    
                    if (foundPresent1 == true && fileInput.length == 1) {
+
+
+                    if (product_name == '') {
+                           $('#post .mes').html("<div class='pop_content'>You have to add audio title.");
+                           $('#post').modal('show');
+                           //setInterval('window.location.reload()', 10000);
+                            $( document ).on( 'keydown', function ( e ) {
+                     if ( e.keyCode === 27 ) {
+                   //$( "#bidmodal" ).hide();
+                   $('#post').modal('hide');
+                   $('.modal-post').show();
+   
+                  }
+               });  
+   
+                           event.preventDefault();
+                           return false;
+                       }
+
+
                    } else {
                        $('#post .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
                        $('#post').modal('show');
@@ -3557,6 +3577,7 @@
                    $('#' + 'editpostdata' + abc).html(data.title);
                   // $('#' + 'editpostdetails' + abc).html(data.description);
                    $('#' + 'khyati' + abc).html(data.description);
+                   $('#' + 'postname' + abc).html(data.postname);
                  
                }
            });
