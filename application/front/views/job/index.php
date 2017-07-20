@@ -245,7 +245,7 @@ $gender = form_error('gender');
                                         <?php echo form_error('phnno'); ?>
                                 </fieldset>
 
-                                <fieldset <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="marital-status" <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
                                     <label>Marital Status :<span class="red">*</span> </label>
                                     <input type="radio" name="marital_status" tabindex="5" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
                     <span class="radio_check_text">Married</span>
@@ -322,16 +322,16 @@ if (count($nation) > 0) {
 
                                 </fieldset>
 
-                                <fieldset <?php if ($gender) { ?> class="error-msg" <?php } ?>>
+                                <fieldset class="gender-custom" <?php if ($gender) { ?> class="error-msg" <?php } ?>>
                                     <label>Gender:<span class="red">*</span></label>
                                     <input type="radio" name="gender" value="male" id="gender" tabindex="9" <?php if($gender1){if($gender1 == 'male') { echo 'checked' ; }}
                                     else { if($job[0]['user_gender'] == 'M'){ echo 'checked' ; }}
                                        
-                                    ?>>Male
+                                    ?>><span class="radio_check_text pl5">Male</span>
                                     <input type="radio" name="gender" value="female" id="gender" tabindex="9" <?php  if($gender1){if($gender1 == 'female') { echo 'checked' ; }}
                                     else { if($job[0]['user_gender'] == 'F'){echo 'checked' ; }}
                                        
-                                    ?> >Female
+                                    ?> ><span class="radio_check_text pl5">Female</span>
                                     <span id="gender-error"> </span>
 <?php echo form_error('gender'); ?>
                                 </fieldset>
