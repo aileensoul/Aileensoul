@@ -1142,6 +1142,7 @@ $(".odd").hover(function() {
 });
 //on hover click class add and class remove End
 
+
 </script>
 
 

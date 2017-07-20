@@ -19,8 +19,6 @@ class Business_profile extends MY_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
-
-
         $contition_array = array('user_id' => $userid, 'status' => '0');
         $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         if ($businessdata) {
@@ -455,11 +453,6 @@ class Business_profile extends MY_Controller {
 
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
-
-
-
-
-
 
         $this->load->view('business_profile/contact_info', $this->data);
     }
@@ -2263,8 +2256,8 @@ class Business_profile extends MY_Controller {
                                                         Your browser does not support the audio tag.
                                                     </audio>
                                                 </div>
-                                                <div class="audio_mp3">
-                                                    <p title="hellow this is mp3">This text will scroll from right to left</p>
+                                                <div class="audio_mp3" id="'. "postname" . $row['business_profile_post_id'].'">
+                                                    <p title="'.$row['product_name'].'">'.$row['product_name'].'</p>
                                                 </div>
                                             </div>';
                 }
@@ -5734,10 +5727,13 @@ class Business_profile extends MY_Controller {
                     $editpostdes .= '...<span id="kkkk" onClick="khdiv(' . $_POST["business_profile_post_id"] . ')">View More</div>';
                 }
             }
+
+            $postname = '<p title="'.$businessdata[0]['product_name'].'">'.$businessdata[0]['product_name'].'</p>';
             //echo $editpost;   echo $editpostdes;
             echo json_encode(
                     array("title" => $editpost,
-                        "description" => $editpostdes));
+                        "description" => $editpostdes,
+                        "postname" => $postname));
         }
     }
 

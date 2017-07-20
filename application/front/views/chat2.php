@@ -21,26 +21,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
 
     <body>
-        <?php echo $header; 
-        
-        if($message_from_profile == 1){
+        <?php
+        echo $header;
+
+        if ($message_from_profile == 1) {
             echo $job_header2_border;
-        } else if($message_from_profile == 2){
-              echo $recruiter_header2_border;
-          } else if($message_from_profile == 3){
-            echo $freelancer_hire_header2_border; 
-
-        } else if($message_from_profile == 4){
-            echo $freelancer_post_header2_border; 
-
-        }else if($message_from_profile == 5){
+        } else if ($message_from_profile == 2) {
+            echo $recruiter_header2_border;
+        } else if ($message_from_profile == 3) {
+            echo $freelancer_hire_header2_border;
+        } else if ($message_from_profile == 4) {
+            echo $freelancer_post_header2_border;
+        } else if ($message_from_profile == 5) {
             echo $business_header2_border;
-        }else if($message_from_profile == 6){
-           echo $art_header2_border;
+        } else if ($message_from_profile == 6) {
+            echo $art_header2_border;
         }
-?>
-        
-        
+        ?>
+
+
 
 
         <div class="container_chat " id="paddingtop_fixed">
@@ -68,29 +67,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
                                         <?php } else { ?>
-
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
                                             </div>
                                         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] .'/'. $message_from_profile .'/'. $message_to_profile; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
                                             <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-                                                <?php echo $user['message']; ?>
+                                                <?php echo str_replace('\\', '', $user['message']); ?>
                                             </div>
                                         </div>
                                     </li>
                                     <?php
                                 }
                             } else {
-
                                 $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
-
-
                                 if ($lstusrdata) {
                                     ?>
-
                                     <li class="clearfix <?php
                                     if ($lstusrdata[0]['user_id'] == $toid) {
                                         echo "active";
@@ -107,19 +101,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/'. $message_from_profile .'/'. $message_to_profile; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>"><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . "<br>"; ?></a> </div>
                                             <div class="<?php echo 'status' . $lstusrdata[0]['user_id']; ?>" id="status_user">
-
                                             </div>
                                         </div>
                                     </li>
-
                                     <?php
                                 }
                                 foreach ($userlist as $user) {
                                     if ($user['user_id'] != $toid) {
                                         ?>
-                                        <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/'. $message_from_profile .'/'. $message_to_profile; ?>">
+                                        <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
                                             <li class="clearfix <?php
                                             if ($user['user_id'] == $toid) {
                                                 echo "active";
@@ -138,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <div class="name"> 
                                                         <?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-                                                        <?php echo $user['message']; ?>
+                                                        <?php echo str_replace('\\', '', $user['message']); ?>
                                                     </div>
                                                 </div>
                                             </li></a> 
@@ -151,10 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- loop end -->
                     </ul>
                 </div>
-
-
                 <!-- chat start -->
-
                 <?php
                 $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
@@ -176,7 +165,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="chat-about">
                                 <div class="chat-with">
-                                    <span>  <?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name']; ?></span>  </div>
+                                    <span><?php echo $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name']; ?></span>  
+                                </div>
                                 <div class="chat-num-messages"> Current Work</div>
                             </div>
                         </div>
@@ -200,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -267,7 +257,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -302,200 +292,200 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </body>
 </html>
 <!------  commen script khyati 15-7  ---------------->
-    <script>
-        jQuery(document).ready(function($) {
-         if(screen.width <= 767){
-     document.getElementById('chat').style.display = 'none';
-         }
-          });</script>
+<script>
+    jQuery(document).ready(function ($) {
+        if (screen.width <= 767) {
+            document.getElementById('chat').style.display = 'none';
+        }
+    });</script>
 <!--<script type="text/javascript">
-    var request_timestamp = 0;
+var request_timestamp = 0;
 
-    var setCookie = function (key, value) {
-        var expires = new Date();
-        expires.setTime(expires.getTime() + (5 * 60 * 1000));
-        document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+var setCookie = function (key, value) {
+    var expires = new Date();
+    expires.setTime(expires.getTime() + (5 * 60 * 1000));
+    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+}
+
+var getCookie = function (key) {
+    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+    return keyValue ? keyValue[2] : null;
+}
+
+var guid = function () {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+if (getCookie('user_guid') == null || typeof (getCookie('user_guid')) == 'undefined') {
+    var user_guid = guid();
+    setCookie('user_guid', user_guid);
+}
+
+
+var parseTimestamp = function (timestamp) {
+    var d = new Date(timestamp * 1000), // milliseconds
+            yyyy = d.getFullYear(),
+            mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
+            dd = ('0' + d.getDate()).slice(-2), // Add leading 0.
+            hh = d.getHours(),
+            h = hh,
+            min = ('0' + d.getMinutes()).slice(-2), // Add leading 0.
+            ampm = 'AM',
+            timeString;
+
+    if (hh > 12) {
+        h = hh - 12;
+        ampm = 'PM';
+    } else if (hh === 12) {
+        h = 12;
+        ampm = 'PM';
+    } else if (hh == 0) {
+        h = 12;
     }
 
-    var getCookie = function (key) {
-        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-        return keyValue ? keyValue[2] : null;
+    timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
+
+    return timeString;
+}
+
+
+
+var sendChat = function (message, callback) {
+
+    var fname = '<?php echo $logfname; ?>';
+    var lname = '<?php echo $loglname; ?>';
+    var message = message;
+    var str = message.replace(/<div><br><\/div>/gi, "");
+
+
+    if (str == '') {
+        return false;
+    } else if (/^\s+$/gi.test(str))
+    {
+        return false;
+    } else {
+  
+       
+        $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            callback();
+        });
     }
+    
+}
 
-    var guid = function () {
-        function s4() {
-            return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-        }
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-    }
+var append_chat_data = function (chat_data) {
+    chat_data.forEach(function (data) {
+        var is_me = data.guid == getCookie('user_guid');
+        var userid = '<?php echo $userid; ?>';
+        var curuser = data.message_from;
+        var touser = data.message_to;
 
-    if (getCookie('user_guid') == null || typeof (getCookie('user_guid')) == 'undefined') {
-        var user_guid = guid();
-        setCookie('user_guid', user_guid);
-    }
+        if (curuser == userid) {
+            var timestamp = data.timestamp; // replace your timestamp
+            var date = new Date(timestamp * 1000);
+            var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+            console.log(formattedDate);
+         var print_message = data.message;
+        var print_message = print_message.replace(/"/gi, " ");
+        var print_message = print_message.replace(/%26amp;/gi, "&");
+            var html = ' <li class="clearfix">';
+            html += '   <div class="message-data align-right">';
+            html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
+            html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
+            html += ' </div>';
+            html += '     <div class="message other-message float-right">' + print_message + '</div>';
+            html += '</li>';
 
-
-    var parseTimestamp = function (timestamp) {
-        var d = new Date(timestamp * 1000), // milliseconds
-                yyyy = d.getFullYear(),
-                mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
-                dd = ('0' + d.getDate()).slice(-2), // Add leading 0.
-                hh = d.getHours(),
-                h = hh,
-                min = ('0' + d.getMinutes()).slice(-2), // Add leading 0.
-                ampm = 'AM',
-                timeString;
-
-        if (hh > 12) {
-            h = hh - 12;
-            ampm = 'PM';
-        } else if (hh === 12) {
-            h = 12;
-            ampm = 'PM';
-        } else if (hh == 0) {
-            h = 12;
-        }
-
-        timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
-
-        return timeString;
-    }
-
-
-
-    var sendChat = function (message, callback) {
-
-        var fname = '<?php echo $logfname; ?>';
-        var lname = '<?php echo $loglname; ?>';
-        var message = message;
-        var str = message.replace(/<div><br><\/div>/gi, "");
-
-
-        if (str == '') {
-            return false;
-        } else if (/^\s+$/gi.test(str))
-        {
-            return false;
+            $('.' + 'status' + touser).html(print_message);
         } else {
-      
-           
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-                callback();
-            });
-        }
-        
-    }
 
-    var append_chat_data = function (chat_data) {
-        chat_data.forEach(function (data) {
-            var is_me = data.guid == getCookie('user_guid');
-            var userid = '<?php echo $userid; ?>';
-            var curuser = data.message_from;
-            var touser = data.message_to;
-
-            if (curuser == userid) {
-                var timestamp = data.timestamp; // replace your timestamp
-                var date = new Date(timestamp * 1000);
-                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
+            var timestamp = data.timestamp; // replace your timestamp
+            var date = new Date(timestamp * 1000);
+            var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+            console.log(formattedDate);
+          
              var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-            var print_message = print_message.replace(/%26amp;/gi, "&");
-                var html = ' <li class="clearfix">';
-                html += '   <div class="message-data align-right">';
-                html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
-                html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
-                html += ' </div>';
-                html += '     <div class="message other-message float-right">' + print_message + '</div>';
-                html += '</li>';
+        var print_message = print_message.replace(/"/gi, " ");
+         var print_message = print_message.replace(/%26amp;/gi, "&"); 
 
-                $('.' + 'status' + touser).html(print_message);
-            } else {
-
-                var timestamp = data.timestamp; // replace your timestamp
-                var date = new Date(timestamp * 1000);
-                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
-              
-                 var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-             var print_message = print_message.replace(/%26amp;/gi, "&"); 
-
-                var html = '<li> <div class="message-data">';
-                html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
-                html += '<span class="message-data-time">' + formattedDate + ' </span>';
-                html += ' </div>';
-                html += '     <div class="message my-message">' + data.message + '</div>';
-                html += '</li>';
+            var html = '<li> <div class="message-data">';
+            html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
+            html += '<span class="message-data-time">' + formattedDate + ' </span>';
+            html += ' </div>';
+            html += '     <div class="message my-message">' + data.message + '</div>';
+            html += '</li>';
 
 
-                $('.' + 'status' + curuser).html(print_message);
-            }
-
-            var $cont = $('.chat-history');
-            $cont[0].scrollTop = $cont[0].scrollHeight;
-
-            $("#received").html($("#received").html() + html);
-        });
-
-        $('#received').animate({scrollTop: $('#received').height()}, 1000);
-    }
-
-    var update_chats = function () {
-        if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
-            var offset = 52560000; // 100 years min
-            request_timestamp = parseInt(Date.now() / 1000 - offset);
+            $('.' + 'status' + curuser).html(print_message);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data) {
-            append_chat_data(data);
 
-            var newIndex = data.length - 1;
-            if (typeof (data[newIndex]) != 'undefined') {
-                request_timestamp = data[newIndex].timestamp;
-            }
-        });
+        var $cont = $('.chat-history');
+        $cont[0].scrollTop = $cont[0].scrollHeight;
+
+        $("#received").html($("#received").html() + html);
+    });
+
+    $('#received').animate({scrollTop: $('#received').height()}, 1000);
+}
+
+var update_chats = function () {
+    if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
+        var offset = 52560000; // 100 years min
+        request_timestamp = parseInt(Date.now() / 1000 - offset);
+    }
+    $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data) {
+        append_chat_data(data);
+
+        var newIndex = data.length - 1;
+        if (typeof (data[newIndex]) != 'undefined') {
+            request_timestamp = data[newIndex].timestamp;
+        }
+    });
+}
+
+
+$('#submit').click(function (e) {
+    e.preventDefault();
+
+    var $field = $('#message');
+    var data = $('#message').html();
+
+    data = data.replace(/&nbsp;/gi, " ");
+    data = data.replace(/<br>$/, '');
+    if (data == '' || data == '<br>') {
+        return false;
+    }
+    if (/^\s+$/gi.test(data))
+    {
+        return false;
+    }
+    data = data.replace(/&/g, "%26");
+
+    if (data == "") {
+        return false;
     }
 
+    $("#message").html("");
 
-    $('#submit').click(function (e) {
+    $field.addClass('disabled').attr('disabled', 'disabled');
+    sendChat(data, function () {
+        $field.val('').removeClass('disabled').removeAttr('disabled');
+    });
+});
+
+$('#message').keyup(function (e) {
+    if (e.which == 13 && !e.shiftKey) {
         e.preventDefault();
+        $('#submit').trigger('click');
+    }
+});
 
-        var $field = $('#message');
-        var data = $('#message').html();
-
-        data = data.replace(/&nbsp;/gi, " ");
-        data = data.replace(/<br>$/, '');
-        if (data == '' || data == '<br>') {
-            return false;
-        }
-        if (/^\s+$/gi.test(data))
-        {
-            return false;
-        }
-        data = data.replace(/&/g, "%26");
-
-        if (data == "") {
-            return false;
-        }
-
-        $("#message").html("");
-
-        $field.addClass('disabled').attr('disabled', 'disabled');
-        sendChat(data, function () {
-            $field.val('').removeClass('disabled').removeAttr('disabled');
-        });
-    });
-
-    $('#message').keyup(function (e) {
-        if (e.which == 13 && !e.shiftKey) {
-            e.preventDefault();
-            $('#submit').trigger('click');
-        }
-    });
-
-    setInterval(function () {
-        update_chats();
-    }, 1500);
+setInterval(function () {
+    update_chats();
+}, 1500);
 
 </script>-->
 <script type="text/javascript">
@@ -577,7 +567,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' .$message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                 callback();
             });
         }
@@ -610,11 +600,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
-             var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-            var print_message = print_message.replace(/%26amp;/gi, "&");
-          // alert(print_message);
+//                alert(formattedDate);
+//                console.log(formattedDate);
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&");
+                // alert(print_message);
                 var html = ' <li class="clearfix">';
                 html += '   <div class="message-data align-right">';
                 html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
@@ -630,11 +621,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
-              
-                 var print_message = data.message;
-            var print_message = print_message.replace(/"/gi, " ");
-             var print_message = print_message.replace(/%26amp;/gi, "&"); 
+//                console.log(formattedDate);
+
+                var print_message = data.message;
+                var print_message = print_message.replace(/"/gi, " ");
+                var print_message = print_message.replace(/%26amp;/gi, "&");
 
                 var html = '<li> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
@@ -661,7 +652,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var offset = 52560000; // 100 years min
             request_timestamp = parseInt(Date.now() / 1000 - offset);
         }
-        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' .$message_to_profile .'/'. $message_from_profile_id . '/' .$message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
+        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' . $message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
             append_chat_data(data);
 
             var newIndex = data.length - 1;
@@ -748,7 +739,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url() . "chat/userlisttwo/" . $message_from_profile .'/'. $message_to_profile ?>',
+                url: '<?php echo base_url() . "chat/userlisttwo/" . $message_from_profile . '/' . $message_to_profile ?>',
 
                 data: 'search_user=' + val + '&user=' + usrid,
                 success: function (data) {
@@ -894,74 +885,74 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
+    jQuery.noConflict();
+
+    (function ($) {
+
+        var data = <?php echo json_encode($demo); ?>;
+        //alert(data);
+
+
+        $(function () {
+            // alert('hi');
+            $("#tags").autocomplete({
+                source: function (request, response) {
+                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                    response($.grep(data, function (item) {
+                        return matcher.test(item.label);
+                    }));
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    event.preventDefault();
+                    $("#tags").val(ui.item.label);
+                    $("#selected-tag").val(ui.item.label);
+                    // window.location.href = ui.item.value;
+                }
+                ,
+                focus: function (event, ui) {
+                    event.preventDefault();
+                    $("#tags").val(ui.item.label);
+                }
+            });
+        });
+
+    })(jQuery);
+
 </script>
 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($city_data); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
+    jQuery.noConflict();
+
+    (function ($) {
+
+        var data1 = <?php echo json_encode($city_data); ?>;
+        //alert(data);
+
+
+        $(function () {
+            // alert('hi');
+            $("#searchplace").autocomplete({
+                source: function (request, response) {
+                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                    response($.grep(data1, function (item) {
+                        return matcher.test(item.label);
+                    }));
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    event.preventDefault();
+                    $("#searchplace").val(ui.item.label);
+                    $("#selected-tag").val(ui.item.label);
+                    // window.location.href = ui.item.value;
+                }
+                ,
+                focus: function (event, ui) {
+                    event.preventDefault();
+                    $("#searchplace").val(ui.item.label);
+                }
+            });
+        });
+
+    })(jQuery);
+
 </script>

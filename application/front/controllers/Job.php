@@ -1814,104 +1814,7 @@ class Job extends MY_Controller {
 
 //End first time insert and update
 //Insert Degree Education Data End
-//More education Insert Start
-    public function job_add_education() {
-        $userid = $this->session->userdata('aileenuser');
 
-          //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
-
-        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        if($job_deactive)
-        {
-             redirect('job/');
-        }
-     //if user deactive profile then redirect to job/index untill active profile End
-        $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
-
-        //for getting degree data
-        $contition_array = array('status' => 1);
-        $this->data['degree_data'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        //for getting univesity data
-        $contition_array = array('status' => 1);
-        $this->data['university_data'] = $this->common->select_data_by_condition('university', $contition_array, $data = '*', $sortby = 'university_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-
-        $this->load->view('job/job_add_education', $this->data);
-    }
-
-    public function job_add_education_insert() {
-        $userid = $this->session->userdata('aileenuser');
-
-          //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
-
-        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        if($job_deactive)
-        {
-             redirect('job/');
-        }
-     //if user deactive profile then redirect to job/index untill active profile End
-
-        $contition_array = array('user_id' => $userid);
-        $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        $count = count($jobdata);
-        $count_incr = $count + 1;
-
-
-        //upload education certificate process start
-        $config['upload_path'] = 'uploads/job_edu_certificate/';
-        $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-        // $config['file_name'] = $_FILES['picture']['name'];
-        $config['file_name'] = $_FILES['certificate']['name'];
-
-        //Load upload library and initialize configuration
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-
-        if ($this->upload->do_upload('certificate')) {
-            $uploadData = $this->upload->data();
-            //$picture = $uploadData['file_name']."-".date("Y_m_d H:i:s");
-            $certificate = $uploadData['file_name'];
-            // echo $certificate;die();
-        } else {
-            $certificate = '';
-        }
-        //upload education certificate process End
-
-        $data = array(
-            'user_id' => $userid,
-            'degree' => $this->input->post('degree'),
-            'stream' => $this->input->post('stream'),
-            'university' => $this->input->post('university'),
-            'college' => $this->input->post('college'),
-            'grade' => $this->input->post('grade'),
-            'percentage' => $this->input->post('percentage'),
-            'pass_year' => $this->input->post('pass_year'),
-            'edu_certificate' => $certificate,
-            'degree_sequence' => degree . $count_incr,
-            'stream_sequence' => stream . $count_incr,
-            'grad_step' => 1,
-            'status' => 1
-        );
-        // echo '<pre>'; print_r($data);die();
-        $insert_id = $this->common->insert_data_getid($data, 'job_add_edu');
-
-        if ($insert_id) {
-            $this->session->set_flashdata('success', 'Education updated successfully');
-            redirect('job/job_education_update');
-        } else {
-            $this->session->flashdata('error', 'Your data not inserted');
-            redirect('job/job_add_education', 'refresh');
-        }
-    }
-
-//More education Insert End
 //job seeker EDUCATION controller end
 //job seeker Project And Training / Internship controller start
     public function job_project_update() {
@@ -2963,8 +2866,20 @@ class Job extends MY_Controller {
 
          $contition_array = array('user_id' => $userid);
         $job_reg_data = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      
-        $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
+
+        $count_data=count($job_reg_data);
+
+for ($x = 0; $x < $count_data; $x++) {
+
+     $job_reg_prev_image = $job_reg_data[$x]['work_certificate'];
+    
+
+    $image_hidden_certificate = $userdata[0]['image_hidden_certificate'][$x];
+   // echo "<pre>";print_r($image_hidden_degree);die();
+       $work_certificate = $files['certificate']['name'][$x];
+
+     
+       // $job_reg_prev_image = $job_reg_data[0]['work_certificate'];
      //  echo "<pre>";print_r($job_reg_prev_image);die();
         
 
@@ -2974,18 +2889,24 @@ class Job extends MY_Controller {
             $job_image_main_path = $this->config->item('job_work_main_upload_path');
             $job_bg_full_image = $job_image_main_path . $job_reg_prev_image;
             if (isset($job_bg_full_image)) {
-               // unlink($job_bg_full_image);
+                 if($image_hidden_certificate==$job_reg_prev_image && $work_certificate!= "")
+                 {
+                        unlink($job_bg_full_image);
+                 }
             }
             
             $job_image_thumb_path = $this->config->item('job_work_thumb_upload_path');
             $job_bg_thumb_image = $job_image_thumb_path . $job_reg_prev_image;
             if (isset($job_bg_thumb_image)) {
-               //unlink($job_bg_thumb_image);
+                if( $image_hidden_certificate==$job_reg_prev_image && $work_certificate!="")
+                {
+                    unlink($job_bg_thumb_image);
+                }
             }
 
 
         }
-
+}//for loop end
              }else {
 
                 $dataimage= '';
@@ -3012,18 +2933,18 @@ class Job extends MY_Controller {
                    
                         if ($work_certificate == "") {
                         
-                            $data = array(
-                                 'work_certificate'=> $userdata[0]['image_hidden_certificate'][$x]
-                             );
-                       
+                                 // $edu_certificate1 = $this->input->post('image_hidden_degree' . $jobdata[$x]['job_graduation_id']);
+
+                                 $work_certificate1 = $userdata[0]['image_hidden_certificate'][$x];
+                        
                         } else {
-                           $data = array(
-                                 'work_certificate'=>  $work_certificate
-                             );
+                          
+                                 $work_certificate1 =  $work_certificate;
+                         
                           
                         }
                   
-                      $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
+                     // $updatedata1 = $this->common->update_data($data, 'job_add_workexp', 'work_id', $jobdata[$x]['work_id']);
 
                         $data = array(
                             'user_id' => $userid,
@@ -3033,7 +2954,8 @@ class Job extends MY_Controller {
                             'jobtitle' => $userdata[0]['jobtitle'][$x],
                             'companyname' => $userdata[0]['companyname'][$x],
                             'companyemail' => $userdata[0]['companyemail'][$x],
-                            'companyphn' => $userdata[0]['companyphn'][$x]
+                            'companyphn' => $userdata[0]['companyphn'][$x],
+                            'work_certificate'=>  $work_certificate1
                           
                         );
 
@@ -5328,7 +5250,15 @@ public function job_applied_post() {
     } 
     public function job_edu_delete(){
         $grade_id = $_POST['grade_id'];
+        $certificate= $_POST['certificate'];
         $delete_data = $this->common->delete_data('job_graduation', 'job_graduation_id', $grade_id);
+
+        $path='uploads/job_education/main/'.$certificate;
+        $path1='uploads/job_education/thumbs/'.$certificate;
+           
+        unlink($path); 
+        unlink($path1); 
+
         if($delete_data){
             echo 1;
         }

@@ -23,6 +23,21 @@
     enable_page_level_ads: true
   });
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "name": "Aileensoul",
+  "url": "https://www.aileensoul.com",
+  "sameAs": [
+    "https://www.facebook.com/aileensouldotcom/",
+    "https://twitter.com/aileen_soul"
+    "https://instagram.com/aileensoul_com",
+    "https://in.linkedin.com/in/aileensouldotcom",
+  ]
+}
+</script>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
