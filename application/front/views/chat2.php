@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -257,7 +257,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -599,13 +599,25 @@ setInterval(function () {
             if (curuser == userid) {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
-                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-//                alert(formattedDate);
-//                console.log(formattedDate);
+
+                var month = new Array();
+                month[0] = "Jan";
+                month[1] = "Feb";
+                month[2] = "Mar";
+                month[3] = "Apr";
+                month[4] = "May";
+                month[5] = "Jun";
+                month[6] = "Jul";
+                month[7] = "Aug";
+                month[8] = "Sep";
+                month[9] = "Oct";
+                month[10] = "Nov";
+                month[11] = "Dec";
+                var formattedDate = ('0' + date.getDate()).slice(-2) + ' ' + ('0' + (month[date.getMonth()])).slice(-3) + ' ' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
                 var print_message = data.message;
                 var print_message = print_message.replace(/"/gi, " ");
                 var print_message = print_message.replace(/%26amp;/gi, "&");
-                // alert(print_message);
+
                 var html = ' <li class="clearfix">';
                 html += '   <div class="message-data align-right">';
                 html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
@@ -620,7 +632,20 @@ setInterval(function () {
 
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
-                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+                 var month = new Array();
+                month[0] = "Jan";
+                month[1] = "Feb";
+                month[2] = "Mar";
+                month[3] = "Apr";
+                month[4] = "May";
+                month[5] = "Jun";
+                month[6] = "Jul";
+                month[7] = "Aug";
+                month[8] = "Sep";
+                month[9] = "Oct";
+                month[10] = "Nov";
+                month[11] = "Dec";
+                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (month[date.getMonth()])).slice(-3) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 //                console.log(formattedDate);
 
                 var print_message = data.message;
