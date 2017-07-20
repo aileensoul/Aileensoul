@@ -838,7 +838,7 @@
                               </audio>
                            </div>
                            <div class="audio_mp3">
-                              <p title="hellow this is mp3">This text will scroll from right to left</p>
+                              <p title="<?php echo $artmultiimage[0]['image_name']; ?>"><?php echo $artmultiimage[0]['image_name']; ?></p>
                            </div>
                         </div>
                         <!-- one audio end -->
