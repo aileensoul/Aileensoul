@@ -1091,7 +1091,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 	}
 </script>
 <script>
-    function sendmail(abc) {
+    function sendmail(abc) {  
 
 //alert(abc);
 
@@ -1144,9 +1144,6 @@ $(".odd").hover(function() {
 
 
 </script>
-
-
-
 
 </body>
 </html>
