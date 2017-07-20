@@ -600,7 +600,7 @@ textarea:focus::-webkit-input-placeholder
 /***  inner page  ***/
 .main-inner{
 	background:#f3f3f3;
-	padding-bottom:60px;
+	/*padding-bottom:60px;*/
 	width:100%;
 	float:left;
 
@@ -1263,7 +1263,7 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 		z-index:9;
 		margin-top:-141px;
 	}
- .main-inner .pd-low{padding-top: 100px;}
+ .main-inner .pd-low{/*padding-top: 100px;*/}
 	.sticky-right li{
 		list-style-type: none;
 		background-color: #333;
@@ -1339,7 +1339,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 }
 
 @media (min-width: 1280px) { 
-   .main-inner .pd-low{padding-top: 100px;}
+   .main-inner .pd-low{/*padding-top: 100px;*/}
   .container {width: 1280px;}   
   
 }

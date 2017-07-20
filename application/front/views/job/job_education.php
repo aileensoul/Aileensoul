@@ -175,7 +175,7 @@
                                                    ?> 
                                              </select>
                                           </fieldset>
-                                          <fieldset class="full-width">
+                                          <fieldset class="full-width" id="primary_remove">
                                              <h6>Education Certificate:</h6>
                                              <input  type="file" name="edu_certificate_primary" tabindex="5" id="edu_certificate_primary" class="edu_certificate_primary" placeholder="CERTIFICATE" multiple="" />
                                              <div class="bestofmine_image_primary" style="color:#f00; display: block;"></div>
@@ -202,10 +202,9 @@
                                           <?php if($edu_certificate_primary1)
                                                  {
                                           ?>
-                                           <div style="float: left;">
+                                           <div style="float: left;" id="primary_certi">
                                                 <div class="hs-submit full-width fl">
-                                                  <!--  <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary(<?php //echo $jobdata[0]['edu_id'] .',"'.$edu_certificate_primary1.'"'?>);"> -->
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onclick="delete_primary('<?php  echo'"'.$edu_certificate_primary1.'"' ?>')">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_primary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_primary1; ?>')">
                                                 </div>
                                              </div>
 
@@ -299,7 +298,7 @@
                                                 ?> 
                                           </select>
                                        </fieldset>
-                                       <fieldset class="full-width">
+                                       <fieldset class="full-width" id="secondary_remove">
                                           <h6>Education Certificate:</h6>
                                           <input type="file" tabindex="6" name="edu_certificate_secondary" id="edu_certificate_secondary" class="edu_certificate_secondary" placeholder="CERTIFICATE" multiple="" />
                                           <div class="bestofmine_image_secondary" style="color:#f00; display: block;"></div>
@@ -323,6 +322,20 @@
                                           ?>
 
                                        </fieldset>
+
+                                        <?php if($edu_certificate_secondary1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;" id="secondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_secondary1; ?>')">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
+
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden" name="image_hidden_secondary" value="<?php
                                              if ($edu_certificate_secondary1) {
@@ -419,7 +432,7 @@
                                                 ?> 
                                           </select>
                                        </fieldset>
-                                       <fieldset class="full-width">
+                                       <fieldset class="full-width" id="higher_secondary_remove">
                                           <h6>Education Certificate:</h6>
                                           <input type="file" name="edu_certificate_higher_secondary" id="edu_certificate_higher_secondary" class="edu_certificate_higher_secondary" placeholder="CERTIFICATE" multiple="" tabindex="6" />
                                           <div class="bestofmine_image_higher_secondary" style="color:#f00; display: block;"></div>
@@ -442,6 +455,20 @@
                                           ?>
 
                                        </fieldset>
+
+                                       <?php if($edu_certificate_higher_secondary1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;" id="higher_secondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
+
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden"  tabindex="8" name="image_hidden_higher_secondary" value="<?php
                                              if ($edu_certificate_higher_secondary1) {
@@ -667,6 +694,20 @@
                                           <?php
                                              }//if ($edu_certificate1) rnd
                                           ?>
+
+                                           <?php if($edu_certificate1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;" id="graduation_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
+
 
                                              <?php echo form_error('certificate'); ?>
                                              <input type="hidden" name="image_hidden_degree<?php echo $jobgrad[$x]['job_graduation_id']; ?>" value="<?php
@@ -3056,37 +3097,122 @@ var other_stream=(item1.val());
            data: 'grade_id=' + grade_id,
            // dataType: "html",
            success: function (data) {
-               if (data == 'ok') {
+               if (data == 1) {
+                   $.fancybox.close();
                    $('.job_work_edit_' + grade_id).remove();
                }
-               window.location.reload();
+             // window.location.reload();
            }
        });
    }
 
-   //delete primary certificate Start
+   //DELETE PRIMARY CERTIFICATE START
 function delete_primary(edu_id,certificate) {
-   alert(edu_id);
-   alert(certificate);  
-$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Graduation Detail?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
-
+  
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Primary Education Certificate?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
       $('.message #delete').on('click', function () {
          $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "job/delete_primary" ?>',
-           data: 'edu_id=' + edu_id,
-           // dataType: "html",
+           data: 'edu_id=' + edu_id+ '&certificate=' + certificate,
            success: function (data) {
-               if (data == 'ok') {
-                  //$('.job_work_edit_' + grade_id).remove();
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();      
+                  $('#primary_remove a').remove();
+                  $('#primary_remove img').remove();
+                  $('#primary_certi').remove();
                }
-               //window.location.reload();
+             
            }
        });
 
              });
           }
-   //delete primary certificate End
+   //DELETE PRIMARY CERTIFICATE END
+
+//DELETE SECONDARY CERTIFICATE START
+function delete_secondary(edu_id,certificate) {
+  
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Secondary Education Certificate?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/delete_secondary" ?>',
+           data: 'edu_id=' + edu_id+ '&certificate=' + certificate,
+           success: function (data) {
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();      
+                  $('#secondary_remove a').remove();
+                  $('#secondary_remove img').remove();
+                  $('#secondary_certi').remove();
+               }
+               
+           }
+       });
+
+             });
+          }
+//DELETE SECONDARY CERTIFICATE END
+
+//DELETE SECONDARY HIGHER CERTIFICATE START
+function delete_higher_secondary(edu_id,certificate) {
+  
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Higher Secondary Education Certificate?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/delete_higher_secondary" ?>',
+           data: 'edu_id=' + edu_id+ '&certificate=' + certificate,
+           success: function (data) {
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();      
+                  $('#higher_secondary_remove a').remove();
+                  $('#higher_secondary_remove img').remove();
+                  $('#higher_secondary_certi').remove();
+               }
+               
+           }
+       });
+
+             });
+          }
+//DELETE SECONDARY HIGHER CERTIFICATE END
+
+//DELETE DEGREE CERTIFICATE START
+function delete_graduation(edu_id,certificate) {
+  
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Degree Certificate?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/delete_graduation" ?>',
+           data: 'edu_id=' + edu_id+ '&certificate=' + certificate,
+           success: function (data) {
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();      
+                  $('.img_work_exp a').remove();
+                  $('.img_work_exp img').remove();
+                  $('#graduation_certi').remove();
+               }
+               
+           }
+       });
+
+             });
+          }
+//DELETE DEGREE CERTIFICATE END
 
 </script>
 <style type="text/css">
