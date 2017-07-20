@@ -35,6 +35,7 @@
     "https://twitter.com/aileen_soul"
     "https://instagram.com/aileensoul_com",
     "https://in.linkedin.com/in/aileensouldotcom",
+    "https://plus.google.com/+Aileensoul",
   ]
 }
 </script>
