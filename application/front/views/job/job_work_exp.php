@@ -151,6 +151,7 @@
                            <div>
                               <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                            </div>
+                           <!--UPDATE TIME-->
                            <?php
                               $clone_mathod_count = 1;
                               if ($workdata) {
@@ -175,6 +176,7 @@
 
                                       $work_certificate1 = $workdata[$x]['work_certificate'];
                                       $y = $x + 1;
+
                                       ?>
                            <input type="hidden" name="exp_data[]" value="old" class="exp_data" id="exp_data<?php echo $y; ?>">
 
@@ -184,7 +186,7 @@
                                <div class="job_work_experience_main_div">
                                  <label>Experience:<span class="red">*</span></label>
                                  <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
-                                    <option value="" selected option disabled>Year</option>
+                                    <option value="disable" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
                                     <option value="2 year"  <?php if ($experience_year1 == "2 year") echo 'selected'; ?>>2 year</option>
@@ -208,7 +210,7 @@
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
                                  <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
-                                    <option value="" selected option disabled>Month</option>
+                                    <option value="disable" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
                                     <option value="2 month"  <?php if ($experience_month1 == "2 month") echo 'selected'; ?>>2 month</option>
@@ -264,11 +266,39 @@
                                     if ($work_certificate1) {
                                         ?>
                                  <div class="img_work_exp" style=" " >
-                                    <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
+                                    <?php
+                                                   $ext = explode('.',$work_certificate1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }//if($ext[1] == 'pdf')
+                                                      else
+                                                      {
+                                                    ?>
+                                                 <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
+                                             <?php
+                                                }//else end
+                                                ?>
                                  </div>
                                  <?php
-                                    }
+                                    }//if $work_certificate1 end
                                     ?>
+
+                                      <?php if($work_certificate1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;" id="work_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_workexp('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
+
                                  <span id="certificate-error"> </span>
                                  <?php echo form_error('certificate'); ?>
                                  <input type="hidden" name="image_hidden_certificate[]" value="<?php
@@ -279,7 +309,14 @@
                                  <?php if ($y != 1) {
                                     ?>
                                  <div class="hs-submit full-width fl " style="margin-top: 29px;">
-                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="home(<?php echo $workdata[$x]['work_id']; ?>);">
+                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete" onclick="delete_job_work('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
+                                 </div>
+                                 <?php } ?>
+
+                                 <?php if ($y == 1 ) {
+                                    ?>
+                                 <div class="hs-submit full-width fl " style="margin-top: 29px;">
+                                    <input class="delete_btn" style="min-width: 70px;" type="button" value="Delete1" onclick="delete_job_work_first('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
                                  </div>
                                  <?php } ?>
                               </div>
@@ -300,7 +337,9 @@
                                  </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
-                              } else {
+                              }
+//INSERT TIME
+                               else {
                                   ?>
                            <!--clone div start-->              
                            <div id="input1" style="margin-bottom:4px;" class="clonedInput">
@@ -388,7 +427,21 @@
                                  if ($work_certificate1) {
                                      ?>
                               <div class="img_work_exp" style="">
-                                 <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
+                              <?php
+                                                   $ext = explode('.',$work_certificate1);
+                                                   if($ext[1] == 'pdf')
+                                                      { 
+                                                   ?>
+                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id'].'/experience') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                      <?php
+                                                      }//if($ext[1] == 'pdf')
+                                                      else
+                                                      {
+                                                    ?>
+                                                 <img src="<?php echo base_url($this->config->item('job_work_main_upload_path'). $work_certificate1) ?>" style="width:100px;height:100px;">
+                                             <?php
+                                                }//else end
+                                                ?>
                               </div>
                               <?php
                                  }
@@ -1245,29 +1298,71 @@ if(num==5)
 </style>
 <script type="text/javascript">
 
-   function home(work_id) {
+//DELETE JOB WORK EXP CLONE START
+   function delete_job_work(work_id,certificate) {
    
-    $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a class="mesg_link btn" onclick="return delete_job_work(' + work_id + ');">OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
- }
-
-
-   function delete_job_work(work_id) {
+      $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
   
+    $('.message #delete').on('click', function () {
+
        $.ajax({
            type: 'POST',
-           url: '<?php echo base_url() . "job/jon_work_delete" ?>',
-           data: 'work_id=' + work_id,
+           url: '<?php echo base_url() . "job/job_work_delete" ?>',
+           data: 'work_id=' + work_id+ '&certificate=' + certificate,
           // dataType: "html",
            success: function (data) {
-               if(data == 'ok')
+               if(data == 1)
                {
+                   $.fancybox.close();
                    $('.job_work_edit_' + work_id).remove();
                  
                }
-                 window.location.reload();
+                
            }
+       });//$.ajax end
        });
    }
+//DELETE JOB WORK EXP CLONE END
+
+ //DELETE FIRST WORK EXP START
+    function delete_job_work_first(work_id,certificate) {
+   
+      $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+  
+    $('.message #delete').on('click', function () {
+       
+
+       var value_year = $( '.job_work_edit_'+work_id+' select#experience_year option:disabled').val();
+       var value_month = $( '.job_work_edit_'+work_id+' select#experience_year option:disabled').val();
+     
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/job_work_delete" ?>',
+           data: 'work_id=' + work_id+ '&certificate=' + certificate,
+          // dataType: "html",
+           success: function (data) {
+               if(data == 1)
+               {
+                   $.fancybox.close();
+                   $('.job_work_edit_'+work_id+' select#experience_year').val(value_year);
+                   $('.job_work_edit_'+work_id+' select#experience_month').val(value_month);
+                   $('.job_work_edit_'+work_id+' #jobtitle').val("");
+                   $('.job_work_edit_'+work_id+' #companyname').val("");
+                   $('.job_work_edit_'+work_id+' #companyemail').val("");
+                   $('.job_work_edit_'+work_id+' #companyphn').val("");
+                   
+                 
+                  $('.job_work_edit_'+work_id+' .img_work_exp a').remove();
+                  $('.job_work_edit_'+work_id+' .img_work_exp img').remove();
+                  $('.job_work_edit_'+work_id+'  #work_certi').remove();
+                 
+               }
+                
+           }
+       });//$.ajax end
+       });
+   }
+//DELETE FIRST WORK EXP END
 </script>
 <style type="text/css">
    .hs-submit img{
@@ -1554,4 +1649,31 @@ $(document).ready(function(){
 });
 //for Work Experience certificate End
 
+
+//DELETE WORK EXPERIENCE CERTIFICATE START
+function delete_workexp(work_id,certificate) {
+ 
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Experience Certificate?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "job/delete_workexp" ?>',
+           data: 'work_id=' + work_id+ '&certificate=' + certificate,
+           success: function (data) {
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();   
+                  $('.job_work_edit_'+work_id+' .img_work_exp a').remove();
+                  $('.job_work_edit_'+work_id+' .img_work_exp img').remove();
+                  $('.job_work_edit_'+work_id+'  #work_certi').remove();
+               }
+               
+           }
+       });
+
+             });
+          }
+//DELETE WORK EXPERIENCE CERTIFICATE END
 </script>

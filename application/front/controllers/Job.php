@@ -5241,12 +5241,23 @@ public function job_applied_post() {
         }
     }
     
-    public function jon_work_delete(){
+    public function job_work_delete(){
         $work_id = $_POST['work_id'];
-        $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $work_id);
-        if($delete_data){
-            echo 'ok';
-        }
+         $certificate= $_POST['certificate'];
+
+       // $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $work_id);
+
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_work/main/'.$certificate;
+            $path1='uploads/job_work/thumbs/'.$certificate;
+           
+           // unlink($path); 
+           // unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+
+       // if($delete_data){
+            echo 1;
+        //}
     } 
     public function job_edu_delete(){
         $grade_id = $_POST['grade_id'];
@@ -5636,6 +5647,18 @@ public function creat_pdf_graduation($id,$seg) {
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate'].'"width="100%" height="100%">';
         }
 }
+
+public function creat_pdf_workexp($id) {
+    
+        $contition_array = array('work_id' => $id);
+        $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data='work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+          
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+           
+            echo '<embed src="' .base_url().$this->config->item('job_work_main_upload_path').$pdf[0]['work_certificate'].'"width="100%" height="100%">';
+       
+}
 //create pdf end 
 
 //DELETE PRIMARY CERIFICATE & PDF START
@@ -5663,7 +5686,7 @@ public function delete_primary()
 }
 //DELETE PRIMARY CERIFICATE & PDF END
 
-//DELETE SECONDARY CERIFICATE & PDF END
+//DELETE SECONDARY CERIFICATE & PDF START
 public function delete_secondary()
 {
         $id=$_POST['edu_id'];
@@ -5689,7 +5712,7 @@ public function delete_secondary()
 
 //DELETE SECONDARY CERIFICATE & PDF END
 
-//DELETE HIGHER SECONDARY CERIFICATE & PDF END
+//DELETE HIGHER SECONDARY CERIFICATE & PDF START
 public function delete_higher_secondary()
 {
         $id=$_POST['edu_id'];
@@ -5715,7 +5738,7 @@ public function delete_higher_secondary()
 
 //DELETE HIGHER SECONDARY CERIFICATE & PDF END
 
-//DELETE GRADUATION CERIFICATE & PDF END
+//DELETE GRADUATION CERIFICATE & PDF START
 public function delete_graduation()
 {
         $id=$_POST['edu_id'];
@@ -5741,6 +5764,32 @@ public function delete_graduation()
 }
 
 //DELETE GRADUATION CERIFICATE & PDF END
+
+//DELETE WORK EXPERIENCE CERIFICATE & PDF START
+public function delete_workexp()
+{
+        $id=$_POST['work_id'];
+        $certificate= $_POST['certificate'];
+
+       $data = array(
+                'work_certificate' => ''
+                
+            );
+
+           $updatedata = $this->common->update_data($data, 'job_add_workexp', 'work_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/job_work/main/'.$certificate;
+            $path1='uploads/job_work/thumbs/'.$certificate;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
+}
+
+//DELETE WORK EXPERIENCE CERIFICATE & PDF END
 public function temp(){
 
     $this->load->view('job/temp');

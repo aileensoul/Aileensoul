@@ -1148,35 +1148,60 @@
                                                       <li>
                                                          <b> Total Experience </b>
                                                          <span>
-                                                         <?php 
-                                                            $total_work_year=0;
-                                                            $total_work_month=0;
-                                                            foreach ($job_work as $work1) {
-                                                            
-                                                            $total_work_year+=$work1['experience_year'];
-                                                            $total_work_month+=$work1['experience_month'];
-                                                            }
-                                                            if($total_work_month == '12 month' && $total_work_year =='0 year'){
-                                                                echo "1 year";
-                                                            }
-                                                            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
-                                                                 $month = explode(' ', $total_work_year);
-                                                                                                $year=$month[0];
-                                                                                                $years=$year + 1;
-                                                                                                echo $years." Years";
-                                                            }
-                                                            else if($work1['experience'] == "Fresher")
-                                                            {
-                                                                echo "Fresher";
-                                                            }
-                                                            else{
-                                                                echo $total_work_year; echo "&nbsp"; echo "Year";
-                                                            echo "&nbsp";
-                                                            echo $total_work_month; echo "&nbsp"; echo "Month";
-                                                            }
-                                                            }
-                                                            
-                                                            ?> 
+
+            <?php
+
+               $total_work_year=0;
+            $total_work_month=0;
+            foreach ($job_work as $work1) {
+
+            $total_work_year+=$work1['experience_year'];
+            $total_work_month+=$work1['experience_month'];
+            }
+            //echo  $total_work_year;
+            //echo   $total_work_month;
+            
+              if($total_work_month == '12 month' && $total_work_year =='0 year'){
+                echo "1 year";
+            }
+            elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
+                 $month = explode(' ', $total_work_year);
+                 //print_r($month);
+                                                $year=$month[0];
+                                                $y=0;
+                                                for($i=0;$i<=$y;$i++)
+                                                {
+                                                   if($total_work_month >= 12)
+                                                   {
+                                                      $year=$year + 1;
+                                                      $total_work_month = $total_work_month - 12;
+                                                      $y++;
+                                               
+                                                   }
+                                                   else
+                                                   {
+                                                      $y=0;
+                                                   }
+                                                }
+
+                                                
+                                                 echo $year; echo "&nbsp"; echo "Year";
+                                                 echo "&nbsp";
+                                                 if($total_work_month != 0)
+                                                 {
+                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                }
+
+            
+            }
+            else{
+                echo $total_work_year; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                }   
+                                                
+            }
+            ?> 
                                                          </span>
                                                       </li>
                                                    </ul>
@@ -1298,8 +1323,25 @@
                                                          <?php
                                                             if ($work['work_certificate'] != "") {
                                                                 ?>
-                                                         <li><b>Experience Certificate </b> <span>
-                                                            <a class="example-image-link" href="<?php echo base_url($this->config->item('job_work_thumb_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate</a>
+                                                         <li><b>Experience Certificate </b> 
+                                                         <span>
+
+                                          <?php 
+                                                $ext = explode('.',$work['work_certificate']);
+                                                      if($ext[1] == 'pdf')
+                                                      {
+                                                ?>
+                                                 <a href="<?php echo base_url('job/creat_pdf_workexp/'.$work['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                <?php
+                                                      }
+                                                      else
+                                                      {
+                                                ?>
+                                                  <a class="example-image-link" href="<?php echo base_url($this->config->item('job_work_main_upload_path') . $work['work_certificate']) ?>" data-lightbox="example-1">certificate</a>
+                                                   <?php 
+                                                   }
+                                                   ?>
+                                                           
                                                             </span>
                                                          </li>
                                                          <?php

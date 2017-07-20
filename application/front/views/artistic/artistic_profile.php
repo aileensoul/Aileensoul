@@ -145,7 +145,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
         <!-- text head start -->
         <div>
-            </div>
+          <!--   </div> -->
             <div class="profile-text" >
 
 <?php
