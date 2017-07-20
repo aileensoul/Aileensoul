@@ -180,7 +180,7 @@
             </div>
             <!-- text head end -->
          </div>
-         <div class="col-md-8 col-sm-8 mob-clear">
+         <div class="col-md-8 col-sm-12 mob-clear">
             <div class="">
                <div class="common-form">
                   <div class="job-saved-box">

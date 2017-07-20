@@ -183,7 +183,7 @@
                             
                                <div class="job_work_experience_main_div">
                                  <label>Experience:<span class="red">*</span></label>
-                                 <select style="width: 45%; margin-right: 43px; float: left;" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
+                                 <select style="" tabindex="1" autofocus name="experience_year[]" id="experience_year" class="experience_year keyskil" onchange="expyear_change_edittime();">
                                     <option value="" selected option disabled>Year</option>
                                     <option value="0 year"  <?php if ($experience_year1 == "0 year") echo 'selected'; ?>>0 year</option>
                                     <option value="1 year"  <?php if ($experience_year1 == "1 year") echo 'selected'; ?>>1 year</option>
@@ -207,7 +207,7 @@
                                     <option value="19 year"  <?php if ($experience_year1 == "19 year") echo 'selected'; ?>>19 year</option>
                                     <option value="20 year"  <?php if ($experience_year1 == "20 year") echo 'selected'; ?>>20 year</option>
                                  </select>
-                                 <select style="width: 45%;" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
+                                 <select style="" name="experience_month[]" tabindex="2"   id="experience_month" class="experience_month keyskil">
                                     <option value="" selected option disabled>Month</option>
                                     <option value="0 month"  <?php if ($experience_month1 == "0 month") echo 'selected'; if ($experience_year1 == "0 year") echo 'selected option disabled'; ?>>0 month</option>
                                     <option value="1 month"  <?php if ($experience_month1 == "1 month") echo 'selected'; ?>>1 month</option>
@@ -226,7 +226,7 @@
                                  <?php echo form_error('experience_year'); ?>
                                  <?php echo form_error('experience_month'); ?>
                                
-                                 <label  style="    margin-top: 6px;">Job Title:<span class="red">*</span></label>
+                                 <label  style="margin-top: 10px; width:100%; float:left;">Job Title:<span class="red">*</span></label>
                                  <input type="text" name="jobtitle[]" tabindex="3"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                     if ($jobtitle1) {
                                         echo $jobtitle1;
@@ -350,7 +350,7 @@
                               <?php echo form_error('experience_year'); ?>
                               <?php echo form_error('experience_month'); ?>
                              
-                              <label style="    margin-top: 6px;">Job Title:<span class="red">*</span></label>
+                              <label style="margin-top: 10px; width:100%; float:left;">Job Title:<span class="red">*</span></label>
                               <input type="text" name="jobtitle[]"  class="jobtitle" id="jobtitle"  placeholder="Enter Job Title" value="<?php
                                  if ($jobtitle1) {
                                      echo $jobtitle1;

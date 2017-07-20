@@ -14,7 +14,7 @@ width: 25px; }
 .dropdown_hover #art_profile{font-family: robotoregular; color: #d7ecf5; font-size: 14px;}
 .u2{font-family: robotoregular; color: #d7ecf5;}
 .u2:hover{color: #fff;}
-.dropdown .img-circle{border: 2px solid #d7ecf5;}
+.dropdown .img-circle{border: 2px solid #d7ecf5; background:#d7ecf5;}
 .header ul li a i{color: #d7ecf5;}
 .dropdown_hover span i {
     margin-right: -8px;
@@ -183,7 +183,8 @@ input[type="submit"], input[type="button"], button {padding:10px 30px;}
 .custom-c .middle-section{background:#f3f3f3;}
 .common-form1 h3{border: 1px solid rgba(0, 0, 0, 0.1);}
 .addcontact-left.custome-approved-contact{width:100% !important;}
-.common-form fieldset input{height:30px; line-height:1;}
+.common-form fieldset input{height:35px; line-height:1;}
+.common-form fieldset.hs-submit input{height:auto; line-height:1;}
 .common-form fieldset input::-webkit-input-placeholder {
      line-height:17px !important;
 }
@@ -191,22 +192,58 @@ input[type="submit"], input[type="button"], button {padding:10px 30px;}
 .job-search-box1 fieldset input::-webkit-input-placeholder {
      line-height:17px !important;
 }
+.job_work_experience_main_div input{height:28px; line-height:1;}
+.job_work_experience_main_div input::-webkit-input-placeholder {
+     line-height:17px !important;
+}
+
 .flw_msg_btn ul li button.bg_following{margin-bottom:0;}
 
-.common-form fieldset input{margin:0 !important; height:16px;}
+.common-form fieldset.marital-status input, .common-form fieldset.gender-custom input {margin:-2px 0 0 !important; height:18px; }
 .common-form fieldset .radio_check_text{padding-right:20px;}
 
+/*.select2-container-multi .select2-choices .select2-search-choice {box-shadow:none !important; height:29px; line-height:13px !important; padding:0 !important;}
+.select2-container-multi .select2-choices .select2-search-choice div{padding:7px 8px 7px 15px !important;}*/
+fieldset .select2-container-multi .select2-choices .select2-search-choice{padding:0 !important;}
+fieldset .select2-container-multi .select2-choices .select2-search-choice div{padding:5px; float:right;}
+fieldset .select2-container-multi .select2-choices .select2-search-choice a.select2-search-choice-close{position:inherit; float:left; left:inherit; right:inherit; top:inherit; margin-top:5px; margin-left:3px;}
+
+.experience_year{float: left; margin-right: 43px; width: 45%;}
+.experience_month{float: left; width: 45%;}
+.certificate{border:none; padding-left:0;}
+.hs-submit .delete_btn{margin-top:5px;}
+.modal.in .modal-dialog{
+	position:absolute;
+	top: 50%; left: 50%;
+		-ms-transform: translate(-50%,-50%) !important;
+		-webkit-transform: translate(-50%,-50%) !important;
+		-moz-transform: translate(-50%,-50%) !important;
+		-o-transform: translate(-50%,-50%) !important;
+		transform: translate(-50%,-50%) !important;
+}
+.modal.in .modal-dialog .mes .pop_content{padding-bottom:5px;}
+.job-saved-box{margin-bottom:50px; width:100%; float:left;}
+/*.job-saved-box{width:100%; float:left; border:1px solid #d9d9d9; margin-bottom:50px; border-radius:4px;}*/
+.contact-frnd-post{ border-bottom-left-radius: 4px;  border-bottom-right-radius: 4px; /*border-top:none;*/}
 
 
-@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 1200px) {
+	.experience_year{margin-right:34px;}
+}
 @media screen and (max-width: 1024px) {}
 @media screen and (max-width: 991px) {
 	.common-form1{max-width:750px; float:none; margin:0 auto;}
+	.job-menu-profile{margin-top:20px; padding-bottom:10px;}
 }
 @media screen and (max-width: 767px) {
 	.common-form1 h3{margin:20px 0;}
 	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
+	.experience_year{margin-right:33px;}
 }
 @media screen and (max-width: 540px) {}
-@media screen and (max-width: 479px) {}
+@media screen and (max-width: 479px) {
+	.experience_year{width:100%; margin-right:0; margin-bottom:15px;}
+	.experience_month{width:100%;}
+}
 @media screen and (max-width: 360px) {}

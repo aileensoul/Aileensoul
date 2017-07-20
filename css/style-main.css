@@ -1378,7 +1378,7 @@ body{height:100%;}
 }
 
 @media screen and (max-width: 991px) {
-    .main-inner .pd-low{padding-top: 100px;}
+    .main-inner .pd-low{/*padding-top: 100px;*/}
 	.banner-box .left-profile{left: 0px!important;}
 	.m-h-a{max-height: 215px;}
 	.upload-profile
