@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -257,7 +257,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                           <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -600,7 +600,8 @@ setInterval(function () {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
+//                alert(formattedDate);
+//                console.log(formattedDate);
                 var print_message = data.message;
                 var print_message = print_message.replace(/"/gi, " ");
                 var print_message = print_message.replace(/%26amp;/gi, "&");
@@ -620,7 +621,7 @@ setInterval(function () {
                 var timestamp = data.timestamp; // replace your timestamp
                 var date = new Date(timestamp * 1000);
                 var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                console.log(formattedDate);
+//                console.log(formattedDate);
 
                 var print_message = data.message;
                 var print_message = print_message.replace(/"/gi, " ");
