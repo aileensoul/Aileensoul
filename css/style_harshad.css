@@ -191,6 +191,7 @@ input[type="submit"], input[type="button"], button {padding:10px 30px;}
 .job-search-box1 fieldset input::-webkit-input-placeholder {
      line-height:17px !important;
 }
+.flw_msg_btn ul li button.bg_following{margin-bottom:0;}
 
 
 
