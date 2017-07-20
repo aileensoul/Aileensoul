@@ -92,7 +92,7 @@
       <div class="">
         <div class="col-md-7 col-sm-6">
           <div class="top-middle">
-            <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>Every person in the world to make their career.</p></h3>
+            <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>every person in the world to make their career.</p></h3>
            
           </div>
           <div class="bottom-middle">

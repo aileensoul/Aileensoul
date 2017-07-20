@@ -26,12 +26,20 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
     
          <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
-
+<style type="text/css">
+    .chat .chat-history .message:hover .messagedelete{ visibility: visible;
+  opacity: 1;
+}
+    .chat .chat-history .message .messagedelete{ visibility: hidden;  cursor: pointer;}
+</style>
 
     </head>
     <body>
 
         <div class="container_chat " id="paddingtop_fixed">
+        
+
+        </div> 
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
                     <div class="search border_btm">
@@ -241,8 +249,6 @@
 
 
 
-        </div> 
-
 
     </body>
 </html>
@@ -387,7 +393,7 @@
                     html += '    <span  class="message-data-name fr"  >' + fname +
                             ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
                     html += ' </div>';
-                    html += '<div class="message other-message float-right">' + print_message + '</div>';
+                    html += '<div class="message other-message float-right"> <div class="messagedelete fr" <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
                     html += '</li>';
                     $('.' + 'status' + touser).html(print_message);
                
@@ -405,7 +411,7 @@
                     html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                     html += '<span class="message-data-time">' + formattedDate + ' </span>';
                     html += ' </div>';
-                    html += ' <div class="message my-message">' + print_message + '</div>';
+                    html += ' <div class="message my-message"><div class="messagedelete fr" <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> ' + print_message + '</div>';
                     html += '</li>';
                     $('.' + 'status' + curuser).html(print_message);
                 

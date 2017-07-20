@@ -193,9 +193,9 @@ header h2{
 	font-weight:bold;
 }
 .header-login .input{		
-	width:26%;		
+	width:29%;		
 	float:left;		
-	margin-right:15px;		
+	margin-right:20px;		
 }
 .header-login input{
 	background:transparent;
@@ -252,7 +252,7 @@ a:hover{
 /*.middle-main{height:90vh;}*/
 
 .main-login .middle-main{
-	/*padding:100px 0;*/
+	padding:100px 0;
 	background:url('../img/bg.png') no-repeat;
 	background-size:100%;
 
@@ -1313,25 +1313,38 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 
 
+.mid-trns{width:100%; float:left;}
+
+
+/*** all page center  ***/
+body{height:100%;}
+.main-login{height:100%;}
+.middle-main{height:100%;}
+.main-inner{height:100%;}
+.middle-main .container{height:100%; position:relative;}
+.main-inner .middle-main .container{height:100%; position:relative;}
+/***  ***/
+#login_form{text-align:right;}
+
 
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
 	footer > .container {padding-left:15px; padding-right:15px; width:1250px;}
 }
-@media (min-height: 650px){
-	html{/*height:100%;*/}
-    .mid-trns{/*top: 50%; position: absolute; left: 50%; width:100%;
+@media (min-height: 600px){
+	html{height:100%;}
+    .mid-trns{top: 50%; position: absolute; left: 50%; width:100%;
 		-ms-transform: translate(-50%,-50%);
 		-webkit-transform: translate(-50%,-50%);
 		-moz-transform: translate(-50%,-50%);
 		-o-transform: translate(-50%,-50%);
-		transform: translate(-50%,-50%);*/
+		transform: translate(-50%,-50%);
 
 	}
 	.mid-trns{
-		display : flex;
+		/*display : flex;
 		align-items : center;
-		height:100vh;
+		height:100vh;*/
 	}
 	.main-inner{/*height: 100vh;*/}
 	/*.main-login{height:95vh;}*/
@@ -1346,6 +1359,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 @media (max-width: 1280px) {
 	.top-middle{padding-left:0;}
 	.bottom-middle{padding-left:0;}
+	.header-login .input{width:26%;}
 }
 @media screen and (max-width: 1199px) {
 	.login{width:100%;}
@@ -1440,7 +1454,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	.inner-form .login{width:99%;}
 	footer{text-align:center;}
 	footer ul{float:none; display:inline-block; padding-top:15px;}
-	.btn-right{width:100%; float:left; padding-top:15px;}
+	.btn-right{width:100%; float:left; padding-top:15px; padding-right:15px;}
 	footer{height:90px;}
 	.main-inner{padding-bottom:120px; height: auto;}
 	.header-login .input{width:46%;}
