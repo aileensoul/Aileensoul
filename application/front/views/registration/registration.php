@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-<body>
+<body class="registeration">
 <div class="main-inner">
   <header>
     <div class="container">
@@ -30,10 +30,10 @@
       </div>
     </div>
   </header>
-  <section class="middle-main pd-low">
+  <section class="middle-main">
     <div class="container">
       
-      <div class="mid-trns">
+      <div class="form-pd row">
         <div class="inner-form pt-100">
           <div class="login">
               <div class="title">
