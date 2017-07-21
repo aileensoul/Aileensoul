@@ -53,7 +53,22 @@ class Chat_model extends CI_Model {
 
     function get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
         // khyati start 
+        $this->db->where('timestamp >', $timestamp);
+        $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
+        $this->db->where($where);
 
+        // khyati end
+        //$this->db->where('message_from', $userid);
+        //$this->db->where('message_to', $id);
+        $this->db->order_by('timestamp', 'DESC');
+        //	$this->db->limit(10); 
+        $query = $this->db->get('messages');
+        //echo $this->db->last_query();
+        //die();
+        return array_reverse($query->result_array());
+    }
+    function delete_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
+        // khyati start 
         $this->db->where('timestamp >', $timestamp);
         $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
         $this->db->where($where);
