@@ -821,3 +821,15 @@ $config['art_post_main_max_height'] = '3000';
 $config['art_post_thumb_upload_path'] = 'uploads/artistic_post/thumbs/';
 $config['art_post_thumb_width'] = '350';
 $config['art_post_thumb_height'] = '200';
+
+// BLOG MAIN IMAGE
+$config['blog_main_upload_path'] = 'uploads/blog/main/';
+$config['blog_main_allowed_types'] = '*';
+$config['blog_main_max_size'] = '800000'; //in KB
+$config['blog_main_max_width'] = '5000';
+$config['blog_main_max_height'] = '5000';
+
+// BLOG THUMB THUMB
+$config['blog_thumb_upload_path'] = 'uploads/blog/thumbs/';
+$config['blog_thumb_width'] = '150';
+$config['blog_thumb_height'] = '150';

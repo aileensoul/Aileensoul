@@ -9,21 +9,7 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_yatin.css'); ?>">
  
-<!-- 
-  <link rel="stylesheet" type="text/css" href="css/common-style.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/style_new.css">
-  <link rel="stylesheet" type="text/css" href="css/style_harshad.css">
-  <link rel="stylesheet" type="text/css" href="css/style_yatin.css">
-  <link rel="stylesheet" type="text/css" href="css/media.css">
-  <link rel="stylesheet" type="text/css" href="css/gyc.css">
-  <link rel="stylesheet" type="text/css" href="css/lato.css">
-  <link rel="stylesheet" type="text/css" href="css/blog.css">
- -->
 </head>
 <body class="blog">
  <header class="">
@@ -90,26 +76,43 @@
         </div>
       </div>
       </div>
+
 <div class="blog-mid-section user-midd-section">
   <div class="container">
     <div class="row">
+
+<?php
+      foreach ($blog_detail as $blog) 
+      {
+?>
     
 <div class="blog_post_outer col-md-9 col-sm-8 pr0">
     <div class="date_blog_left">
       <div class="blog-date-change">
         <div class="blog-month blog-picker">
           <span class="blog_monthd">
-            Jan
+
+            <?php 
+                   $date_time = new DateTime($blog['created_date']);
+                    $month= $date_time->format('M').PHP_EOL;
+                    echo $month;
+            ?>
           </span>
         </div class="blog-date blog-picker">
         <div>
           <span class="blog_mdate">
-            15
+          <?php 
+                   $date = new DateTime($blog['created_date']);
+                    echo $date->format('d').PHP_EOL;
+            ?>
           </span>
         </div>
         <div class="blog-year blog-picker">
           <span class="blog_moyear" >
-            2017
+            <?php 
+                   $year = new DateTime($blog['created_date']);
+                    echo $year->format('Y').PHP_EOL;
+            ?>
           </span>
         </div>
       </div>
@@ -130,24 +133,26 @@
       <div class="blog_inside_post_main">
         <div class="blog_main_post_first_part">
         <div class="blog_main_post_img">
-          <img src="img/banner1.jpg">
+
+          <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" >
+
         </div>
         </div>
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-            Lorem ipsum dolor sit amet, consectetuer.
+            <?php echo $blog['title'];?>
           </span>
         </div>
         <div class="blog_class_main_by">
           <span>
-            by zalak
+          
           </span>
           
         </div>
         <div class="blog_class_main_desc">
           <span>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes....
+            <?php echo $blog['description'];?>
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -179,7 +184,7 @@
             
           </div>
           <div class="fr blog_view_link">
-            <a href=""> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a href="<?php echo base_url('blog/read_more/'.$blog['id'])?>"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 </a>
           </div>
         </div>
@@ -189,9 +194,12 @@
 
      </div>
      </div>
-    
+  
 
 </div>
+<?php
+      }//for loop end
+?>
      <div class="col-md-3 col-sm-4 hidden-xs">
       <div class="blog_search">
         <h6> Blog Search </h6>
