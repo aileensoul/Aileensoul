@@ -19,7 +19,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
-
+        <style type="text/css">
+            .chat .chat-history .message:hover .messagedelete{ visibility: visible;
+                                                               opacity: 1;
+            }
+            .chat .chat-history .message .messagedelete{ visibility: hidden;  cursor: pointer;}
+        </style>
     <body>
         <?php
         echo $header;
@@ -105,8 +110,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php
                                 }
                                 foreach ($userlist as $user) {
-                                   
-                                                
+
+
                                     if ($user['user_id'] != $toid) {
                                         ?>
                                         <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
@@ -123,23 +128,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 if ($message_from_profile == 2) {
                                                     $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                                    
                                                 }
                                                 if ($message_from_profile == 3) {
                                                     $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
-                                                    
                                                 }
                                                 if ($message_from_profile == 4) {
                                                     $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
-                                                    
                                                 }
                                                 if ($message_from_profile == 5) {
                                                     $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
-                                                    
                                                 }
                                                 if ($message_from_profile == 6) {
                                                     $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                                                    
                                                 }
                                                 ?>
                                                 <?php if ($user_image) { ?>
@@ -153,75 +153,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php } ?>
                                                 <div class="about">
                                                     <div class="name"> 
-                                                        <?php echo $user['first_name'] . "<br>"; ?></div>
+            <?php echo $user['first_name'] . "<br>"; ?></div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-                                                        <?php echo str_replace('\\', '', $user['message']); ?>
+                                                <?php echo str_replace('\\', '', $user['message']); ?>
                                                     </div>
                                                 </div>
                                             </li></a> 
-                                        <?php
-                                    }
-                                }
-                            }
-                            ?>
+                                                        <?php
+                                                    }
+                                                }
+                                            }
+                                            ?>
                         </div>
                         <!-- loop end -->
                     </ul>
                 </div>
                 <!-- chat start -->
-                <?php
-                $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
+<?php
+$lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
 
-                if ($lstusrdata) {
-                    ?>
+if ($lstusrdata) {
+    ?>
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
-                            
-                               <?php
-                                                if ($message_to_profile == 1) {
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
-                                                }
-                                                if ($message_to_profile == 2) {
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
-                                                }
-                                                if ($message_from_profile == 3) {
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url =  base_url() . 'freelancer/freelancer_post_profile/' . $id . '?page=freelancer_hire';
-                                                }
-                                                if ($message_from_profile == 4) {
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'freelancer/freelancer_hire_profile/' . $id . '?page=freelancer_post';
-                                                }
-                                                if ($message_from_profile == 5) {
-                                                    $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $id, $data = 'business_slug');
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'business_profile/business_profile_manage_post/' . $busdata[0]['business_slug'];
-                                                }
-                                                if ($message_from_profile == 6) {
-                                                    $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'artistic/art_manage_post/' . $id;
-                                                }
-                                                ?>
-                           <a href="<?php echo $profile_url; ?>">
-                            <?php if ($last_user_image) { ?>
-                                <div class="chat_heae_img">
-                                    <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">
-                                </div>
-                            <?php } else { ?>
-                                <div class="chat_heae_img">
-                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
-                                </div>
-                            <?php } ?>
 
-                            <div class="chat-about">
-                                <div class="chat-with">
-                                    <span><?php echo $last_user_data['user_name']; ?></span>  
+                    <?php
+                    if ($message_to_profile == 1) {
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
+                    }
+                    if ($message_to_profile == 2) {
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
+                    }
+                    if ($message_from_profile == 3) {
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'freelancer/freelancer_post_profile/' . $id . '?page=freelancer_hire';
+                    }
+                    if ($message_from_profile == 4) {
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'freelancer/freelancer_hire_profile/' . $id . '?page=freelancer_post';
+                    }
+                    if ($message_from_profile == 5) {
+                        $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $id, $data = 'business_slug');
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'business_profile/business_profile_manage_post/' . $busdata[0]['business_slug'];
+                    }
+                    if ($message_from_profile == 6) {
+                        $last_user_image = $last_user_data['user_image'];
+                        $profile_url = base_url() . 'artistic/art_manage_post/' . $id;
+                    }
+                    ?>
+                            <a href="<?php echo $profile_url; ?>">
+                            <?php if ($last_user_image) { ?>
+                                    <div class="chat_heae_img">
+                                        <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="chat_heae_img">
+                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
+                                    </div>
+                                <?php } ?>
+
+                                <div class="chat-about">
+                                    <div class="chat-with">
+                                        <span><?php echo $last_user_data['user_name']; ?></span>  
+                                    </div>
+                                    <div class="chat-num-messages"> <?php echo $last_user_data['designation'];
+                                ; ?></div>
                                 </div>
-                                <div class="chat-num-messages"> <?php echo $last_user_data['designation'];; ?></div>
-                            </div>
                             </a>
                         </div>
                         <div class="chat-history">
@@ -244,7 +245,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                                   <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -257,10 +258,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                          ">
 
                                                         <div id="notificationsBody1" class="notifications1">
-                                                            <?php
-                                                            $i = 0;
-                                                            foreach ($smiley_table as $key => $value) {
-                                                                ?>
+    <?php
+    $i = 0;
+    foreach ($smiley_table as $key => $value) {
+        ?>
 
                                                                 <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
 
@@ -285,7 +286,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-                <?php } else { ?>
+<?php } else { ?>
 
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix ">
@@ -311,7 +312,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                                   <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -339,7 +340,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+<?php } ?>
                 <!-- chat start -->
             </div>
 
@@ -680,7 +681,7 @@ setInterval(function () {
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
                 html += ' </div>';
                 //html += ' <div class="chat-body clearfix">';
-                html += '     <div class="message other-message float-right">' + print_message + '</div>';
+                html += '     <div class="message other-message float-right"><div class="messagedelete fr"> <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
                 html += '</li>';
 
                 $('.' + 'status' + touser).html(print_message);
@@ -714,7 +715,7 @@ setInterval(function () {
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 html += '<span class="message-data-time">' + formattedDate + ' </span>';
                 html += ' </div>';
-                html += '     <div class="message my-message">' + data.message + '</div>';
+                html += '     <div class="message my-message"><div class="messagedelete fr"> <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + data.message + '</div>';
                 html += '</li>';
 
 

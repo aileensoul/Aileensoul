@@ -393,7 +393,7 @@
                     html += '    <span  class="message-data-name fr"  >' + fname +
                             ' ' + lname + '  <i class="fa fa-circle me"></i></span>';
                     html += ' </div>';
-                    html += '<div class="message other-message float-right"> <div class="messagedelete fr" <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
+                    html += '<div class="message other-message float-right"> <div class="messagedelete fr"> <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
                     html += '</li>';
                     $('.' + 'status' + touser).html(print_message);
                
@@ -411,7 +411,7 @@
                     html += '<span class="message-data-name fl" ><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                     html += '<span class="message-data-time">' + formattedDate + ' </span>';
                     html += ' </div>';
-                    html += ' <div class="message my-message"><div class="messagedelete fr" <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> ' + print_message + '</div>';
+                    html += ' <div class="message my-message"><div class="messagedelete fr"> <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> ' + print_message + '</div>';
                     html += '</li>';
                     $('.' + 'status' + curuser).html(print_message);
                 
