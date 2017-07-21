@@ -301,19 +301,29 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                  $month = explode(' ', $total_work_year);
                                                 $year=$month[0];
 
-                                                $years=$year + 1;
-                                                $total_work_month = $total_work_month - 12;
-                                                if ($total_work_month == 0) {
-                                                echo $years." Years"; 
-                                                  
-                                                }
-                                                else
+                                              $y=0;
+                                                for($i=0;$i<=$y;$i++)
                                                 {
-                                               echo $years; echo "&nbsp"; echo "Year";
-            echo "&nbsp";
-            echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                   if($total_work_month >= 12)
+                                                   {
+                                                      $year=$year + 1;
+                                                      $total_work_month = $total_work_month - 12;
+                                                      $y++;
+                                               
+                                                   }
+                                                   else
+                                                   {
+                                                      $y=0;
+                                                   }
+                                                }  
 
+                                                   echo $year; echo "&nbsp"; echo "Year";
+                                                 echo "&nbsp";
+                                                 if($total_work_month != 0)
+                                                 {
+                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
                                                 }
+
             }
             else{
                 echo $total_work_year; echo "&nbsp"; echo "Year";
