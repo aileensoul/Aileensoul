@@ -473,7 +473,11 @@ start head -->
                                         </div>
                                         <div class="profile-job-profile-menu">
                                             <ul class="clearfix">
+<<<<<<< HEAD
                                                 <li> <b>Company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
+=======
+                                                <li> <b>company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
+>>>>>>> 824792bfeaf0dcd69273efe959b8e2dbfa2f46f4
                                                 </li>
 
                                                 <li> <b> Country</b> <span> <?php echo $this->db->get_where('countries', array('country_id' => $businessdata1[0]['country']))->row()->country_name; ?> </span>
@@ -666,7 +670,11 @@ start head -->
                                                     ?></span>
                                                         </li> -->
 
+<<<<<<< HEAD
                                                     <li><b>Details Of Your business </b> 
+=======
+                                                    <li><b>Details Of Your Business </b> 
+>>>>>>> 824792bfeaf0dcd69273efe959b8e2dbfa2f46f4
                                                         <span>
                                                             <p> <?php echo $this->common->make_links($businessdata1[0]['details']);
                                                     ?></p>

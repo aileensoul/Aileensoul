@@ -269,7 +269,7 @@
                                                                          padding-top: 10px; padding-bottom: 10px;">
                                                                         <ul>
                                                                             <li style="padding-top: 0px;">
-                                                                                <a  style="font-weight: 600; font-size: 16px;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
+                                                                                <a  class="main_search_head" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
                                                                             </li>
                                                                             <li style="display: block;">
                                                                                 <a  class="color-search" s title="">
@@ -356,7 +356,7 @@
                                             <?php if ($description) { ?>
                                                 <div class="col-md-12 profile_search " style="float: left; background-color: white; margin-top: 10px; margin-bottom: 10px; padding:0px!important;">
                                                     <h4 class="search_head">Posts</h4>
-                                                    <div class="inner_search search" style="float: left;">
+                                                    <div class="inner_search search inner_search_2" style="float: left;">
 
                                                         <?php
                                                         foreach ($description as $p) {

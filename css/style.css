@@ -491,7 +491,7 @@ select {
     background: white;
     border: 1px solid #cacaca;
     outline: none;
-    padding: 9px 15px;
+    padding: 5px 15px;
     color: #000;
     font-size: 14px !important;
     font-weight: 400;
@@ -7135,7 +7135,8 @@ follow box*/
     height: 100%;
     width: 100%;
 }
-.post-design-product-img_post {} #paddingtop_fixed1 {
+.post-design-product-img_post {} 
+#paddingtop_fixed1 {
     padding-top: 62px!important;
 }
 #two_images_bui {
@@ -9767,6 +9768,7 @@ fieldset .add_post_btns:hover {
 .profile-job-profile-button ul li a {
     margin-right: 0px;
 }
+.profile-job-profile-button ul li a.main_search_head{font-weight: 600; font-size: 16px; font-family: robotoregular;}
 .apply-btn a {
     border: 1px solid #1b8ab9;
 }
@@ -9799,6 +9801,7 @@ fieldset .add_post_btns:hover {
 .post-design-product .post_dot_2 {
     color: #1b8ab9;
 }
+.inner_search_2{padding: 10px;}
 .notifications li .notification-data-inside a {
     padding: 0px;
 }

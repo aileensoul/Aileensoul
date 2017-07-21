@@ -29,7 +29,7 @@ start head -->
 <?php echo $art_header2_border; ?>
 <body   class="page-container-bg-solid page-boxed">
    <section class="custom-row">
-      <div class="container" id="paddingtop_fixed">
+      <div class="container" id="paddingtop_fixed_art">
          <div class="row" id="row1" style="display:none;">
             <div class="col-md-12 text-center">
                <div id="upload-demo"></div>
