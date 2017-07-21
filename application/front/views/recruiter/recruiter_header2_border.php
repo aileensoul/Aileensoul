@@ -379,7 +379,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
-            data: 'message_from_profile=2&message_to_profile=1',
+            data: 'message_from_profile=1&message_to_profile=2',
             success: function (data) {
                 $('#' + 'notificationsmsgBody').html(data);
             }
