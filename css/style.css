@@ -5724,6 +5724,20 @@ label.cameraButton input[accept*="camera"] {
     margin-top: 13%;
     transform: scale(0.3);
 }
+.cameraButton .fa.fa-camera{
+    width:30px;
+    height:26px;
+    background:url('../img/cam.png') no-repeat;
+    border:none;
+    padding:5px;
+    opacity: 0.6;
+    background-size:100%;
+}
+.cameraButton .fa-camera::before{
+    display:none;
+}
+
+
 @media screen and (min-width: 800px) {
     #floatBarsG {
         transform: scale(1);
@@ -8564,8 +8578,8 @@ label.cameraButton {
     padding: 0.5em;
     border: 1px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
-    background-color: #DDD;
-    opacity: 0.7;
+    background-color: #000;
+    opacity: 0.6;
 }
 /* Look like a clicked/depressed button */
 
@@ -8923,7 +8937,7 @@ fieldset .add_post_btns {
     width: 180px;
     background-color: black;
     color: #fff;
-    opacity: 0.6;
+    opacity:0.6;
     text-align: center;
     padding: 13px 0px;
     position: absolute;
@@ -9052,7 +9066,7 @@ fieldset .add_post_btns {
     width: 180px;
     background-color: black;
     color: #fff;
-    opacity: 0.6;
+    opacity: 1.0;
     text-align: center;
     padding: 10px 0px;
     position: absolute;
@@ -9075,8 +9089,11 @@ fieldset .add_post_btns {
 .cameraButton:hover .tooltiptext {
     visibility: visible;
 }
+.cameraButton .fa.fa-camera:hover{
+    opacity: 1.0;
+}
 label.cameraButton:hover {
-    opacity: 1.0
+
 }/*
 #notificationsBody::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -9285,10 +9302,13 @@ label.cameraButton {
     /* Styles to make it look like a button */
     
     padding: 0.5em;
-    border: 1px solid #666;
+    border: 0px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
-    background-color: #DDD;
-    opacity: 0.7;
+  
+}
+.cameraButton{
+    background-color: black;
+    opacity: 0.6;
 }
 /* Look like a clicked/depressed button */
 
