@@ -1039,7 +1039,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         }
      //if user deactive profile then redirect to artistic/index untill active profile End
 
-        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $contition_array = array('user_id' => $userid, 'status' => '1', 'art_step' => '4');
         $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($this->data['artisticdata']); die();
@@ -1324,7 +1324,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
+
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_post', $this->data);
+       }else{
+       redirect('artistic/');
+       }
     }
 
     public function art_manage_post($id = "") {
@@ -1439,9 +1444,13 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
-
+        if($this->data['artisticdata']){
 
         $this->load->view('artistic/art_manage_post', $this->data);
+       }
+       else{
+       redirect('artistic/');
+       }
     }
 
     public function art_addpost() {
@@ -2419,8 +2428,12 @@ $datacount = count($otherdata);
 
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/artistic_profile', $this->data);
+       }
+        else{
+       redirect('artistic/');
+       }
     }
 
 //keyskill automatic retrieve cobtroller start
@@ -2585,8 +2598,11 @@ $datacount = count($otherdata);
         $this->data['de'] = array_values($res);
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/artistic_userlist', $this->data);
+        }else{
+       redirect('artistic/');
+       }
     }
 
     public function follow() {
@@ -3251,8 +3267,12 @@ public function followtwo() {
         
         $this->data['de'] = array_values($res);
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_followers', $this->data);
+       }else{
+       redirect('artistic/');
+
+       }
     }
 
     public function following($id = "") {
@@ -3384,8 +3404,12 @@ public function followtwo() {
 
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_following', $this->data);
+       }else{
+       redirect('artistic/');
+
+       }
     }
 
 // end of user lidt
@@ -5335,8 +5359,13 @@ public function followtwo() {
         $this->data['de'] = array_values($res);
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/postnewpage', $this->data);
+    }
+       else {
+       redirect('artistic/');
+
+        }
     }
 
 // click on post after post open on new page end
@@ -5812,8 +5841,12 @@ public function followtwo() {
         $this->data['de'] = array_values($res);
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_photos', $this->data);
+       }else{
+       redirect('artistic/');
+
+       }
     }
 
 //multiple images for user end   
@@ -5928,8 +5961,11 @@ public function followtwo() {
         $this->data['de'] = array_values($res);
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_videos', $this->data);
+         }else{
+       redirect('artistic/');
+       }
     }
 
 //multiple videos for user end 
@@ -6045,8 +6081,12 @@ public function followtwo() {
         $this->data['de'] = array_values($res);
 
 
-
+        if($this->data['artisticdata']){
         $this->load->view('artistic/art_audios', $this->data);
+        }else{
+          redirect('artistic/');
+
+        }
     }
 
 //multiple audios for user end  
@@ -6162,8 +6202,12 @@ public function followtwo() {
         $this->data['de'] = array_values($res);
 
 
-        
+        if($this->data['artisticdata']){ 
         $this->load->view('artistic/art_pdf', $this->data);
+       }else{
+       redirect('artistic/');
+        
+       }
     }
 
 //multiple pdf for user end    
