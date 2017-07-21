@@ -295,7 +295,7 @@
           </ul>
         </div>
 		<div class="col-md-6 col-sm-4 col-xs-12">
-          © 2017 | by Aileensoul
+          © 2017dddd | by Aileensoul
         </div>
       </div>
     </div>
