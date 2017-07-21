@@ -94,7 +94,7 @@
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     //echo "<pre>";print_r($image);
                     $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                    if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
                         ?>
                      
                             <img src="<?php echo base_url($this->config->item('rec_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
@@ -129,7 +129,7 @@
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
-                <?php if ($recruiterdata[0]['recruiter_user_image'] != '') { ?>
+                <?php if (file_exists($this->config->item('rec_profile_thumb_upload_path').$recruiterdata[0]['recruiter_user_image'])) { ?>
                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
@@ -291,10 +291,18 @@
                   <div class="profile-job-post-location-name-rec">
                  <div style="display: inline-block; float: left;">
 <div class="buisness-profile-pic-candidate" >
+                       
+
+
                                 <!-- <rash code 12-4 start> -->
 
+                              <!--   <?php 
+
+                              //  echo base_url().$this->config->item('job_profile_thumb_upload_path').$rec['job_user_image']; die();
+
+                                ?> -->
                   <?php
-                 if ($rec['job_user_image']) {
+                 if (file_exists($this->config->item('job_profile_thumb_upload_path').$rec['job_user_image'])) {
                     ?>
                <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
                <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"></a>
