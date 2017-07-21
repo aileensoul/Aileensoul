@@ -53,8 +53,10 @@ class Chat_model extends CI_Model {
 
     function get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
         // khyati start 
+        
         $this->db->where('timestamp >', $timestamp);
-        $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
+        $where = '((message_from="' . $userid . '" AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
+        $where .= 'AND is_message_from_delete !="' . $userid . '" AND is_message_to_delete !="' . $userid . '"';
         $this->db->where($where);
 
         // khyati end
@@ -67,7 +69,8 @@ class Chat_model extends CI_Model {
         //die();
         return array_reverse($query->result_array());
     }
-    function delete_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
+
+    function delete_messages($timestamp, $userid, $message_from_profile, $message_to_profile) {
         // khyati start 
         $this->db->where('timestamp >', $timestamp);
         $where = '((message_from="' . $userid . '"AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
