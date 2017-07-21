@@ -9300,7 +9300,7 @@ label.cameraButton {
     display: inline-block;
     margin: 1em 0;
     /* Styles to make it look like a button */
-    
+    border-radius: 5px;
     padding: 0.5em;
     border: 0px solid #666;
     border-color: #EEE #CCC #CCC #EEE;
