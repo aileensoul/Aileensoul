@@ -72,7 +72,7 @@ class Chat extends MY_Controller {
 
         // from business
         if ($message_from_profile == 5) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'business_profile.is_deleted' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
@@ -272,14 +272,14 @@ class Chat extends MY_Controller {
 
             // from business
             if ($message_from_profile == 5) {
-                $contition_array = array('user_id' => $lstusr, 'is_deleted' => '0', 'status' => '1');
+                $contition_array = array('user_id' => $lstusr, 'business_profile.is_deleted' => '0', 'status' => '1');
                 $lastuser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 $message_from_profile_id = $this->data['message_from_profile_id'] = $lastuser[0]['business_profile_id'];
                 $this->data['lstfname'] = $lastuser[0]['company_name'];
                 $this->data['lstlname'] = $lastuser[0]['company_name'];
 
                 // slected user chat to
-                $contition_array = array('is_deleted' => '0', 'status' => '1');
+                $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
 
                 $join_str1[0]['table'] = 'messages';
                 $join_str1[0]['join_table_id'] = 'messages.message_to';
@@ -294,7 +294,7 @@ class Chat extends MY_Controller {
                 // slected user chat from
 
 
-                $contition_array = array('is_deleted' => '0', 'status' => '1');
+                $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
 
                 $join_str2[0]['table'] = 'messages';
                 $join_str2[0]['join_table_id'] = 'messages.message_from';
@@ -529,7 +529,7 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] .  ' ' . $last_user_data[0]['lname'];
-            if (last_user_data[0]['job_user_image'] != '') {
+             if ($last_ust_user_data[0]['job_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -560,7 +560,7 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] .  ' ' . $last_user_data[0]['rec_lastname'];
-            if (last_user_data[0]['recruiter_user_image'] != '') {
+            if  ($last_ust_user_data[0]['recruiter_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -593,7 +593,7 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] .  ' ' . $last_user_data[0]['username'];
-            if (last_user_data[0]['freelancer_hire_user_image'] != '') {
+            if  ($last_ust_user_data[0]['freelancer_hire_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -624,7 +624,7 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] .  ' ' . $last_user_data[0]['freelancer_post_username'];
-            if (last_user_data[0]['freelancer_post_user_image'] != '') {
+            if  ($last_ust_user_data[0]['freelancer_post_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -641,18 +641,18 @@ class Chat extends MY_Controller {
         }
         // from business
         if ($message_from_profile == 5) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'business_profile.is_deleted' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
 
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
             // last user detail start
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'business_profile.is_deleted' => '0', 'status' => '1');
             $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['company_name'];
-            if (last_user_data[0]['business_user_image'] != '') {
+            if  ($last_ust_user_data[0]['business_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -663,7 +663,7 @@ class Chat extends MY_Controller {
         }
 
         if ($message_to_profile == 5) {
-            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'business_profile.is_deleted' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
         }
@@ -682,7 +682,7 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['art_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['art_name'] .  ' ' . $last_user_data[0]['art_lastname'];
-            if (last_user_data[0]['art_user_image'] != '') {
+            if  ($last_ust_user_data[0]['art_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['art_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -828,7 +828,7 @@ class Chat extends MY_Controller {
             $join_str1[0]['join_table_id'] = 'messages.message_to';
             $join_str1[0]['from_table_id'] = 'business_profile.user_id';
             $join_str1[0]['join_type'] = '';
-            $contition_array = array('is_deleted' => '0', 'status' => '1');
+            $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $seltousr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 6) {
@@ -883,7 +883,7 @@ class Chat extends MY_Controller {
             $join_str2[0]['join_table_id'] = 'messages.message_from';
             $join_str2[0]['from_table_id'] = 'business_profile.user_id';
             $join_str2[0]['join_type'] = '';
-            $contition_array = array('is_deleted' => '0', 'status' => '1');
+            $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $selfromusr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 6) {
@@ -977,7 +977,7 @@ class Chat extends MY_Controller {
             $join_str3[0]['join_table_id'] = 'messages.message_to';
             $join_str3[0]['from_table_id'] = 'business_profile.user_id';
             $join_str3[0]['join_type'] = '';
-            $contition_array = array('is_deleted' => '0', 'status' => '1');
+            $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 6) {
@@ -1061,7 +1061,7 @@ class Chat extends MY_Controller {
             $join_str4[0]['join_table_id'] = 'messages.message_from';
             $join_str4[0]['from_table_id'] = 'business_profile.user_id';
             $join_str4[0]['join_type'] = '';
-            $contition_array = array('is_deleted' => '0', 'status' => '1');
+            $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $fromlist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 6) {
@@ -1566,14 +1566,14 @@ class Chat extends MY_Controller {
         }
         // from business
         if ($message_from_profile == 5) {
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'business_profile.is_deleted' => '0', 'status' => '1');
             $message_from_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_id[0]['business_profile_id'];
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
         }
 
         if ($message_to_profile == 5) {
-            $contition_array = array('user_id' => $id, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $id, 'business_profile.is_deleted' => '0', 'status' => '1');
             $message_to_profile_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['business_profile_id'];
         }
@@ -1657,7 +1657,7 @@ class Chat extends MY_Controller {
 
             if ($message_from_profile == 5) {
                 // message to user
-                $contition_array = array('is_deleted' => '0', 'status' => '1', 'message_to !=' => $userid);
+                $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
                 $join_str7[0]['join_table_id'] = 'messages.message_to';
@@ -2348,7 +2348,7 @@ class Chat extends MY_Controller {
         // search code for business profile
         if ($message_from_profile == 5) {
             // code for search
-            $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
+            $contition_array = array('status' => '1', 'business_profile.is_deleted' => '0', 'business_step' => 4);
 
 
             $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
