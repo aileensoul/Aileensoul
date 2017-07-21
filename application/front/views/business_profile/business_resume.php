@@ -1415,5 +1415,13 @@ start head -->
                         }
                     });
 
+                    $(document).on('keydown', function (e) {
+                        if (e.keyCode === 27) { //alert("jii");
+                           // $('#myModal1').modal('hide');
+                            document.getElementById("myModal1").style.display = "none";
+
+                        }
+                    });
+
                 </script>
                 <!-- all popup close close using esc end
