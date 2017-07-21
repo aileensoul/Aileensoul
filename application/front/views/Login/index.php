@@ -30,9 +30,9 @@
       </div>
     </div>
   </header>
-  <section class="middle-main pd-low">
+  <section class="middle-main">
     <div class="container">
-      <div class="mid-trns">
+      <div class="form-pd row">
 
 
 <!--<div id="error1" style="display:block;">

@@ -47,10 +47,18 @@ class Api extends CI_Controller {
     
     public function delete_messages($message_from_profile = '', $message_to_profile = '',$message_for = '', $message_id = '') {
         $userid = $this->session->userdata('aileenuser');
-
         $timestamp = $this->input->get('timestamp', null);
+        
+        if($message_from_profile == $message_for){
+            $data = array('is_message_from_delete' => $userid);
+        }
+        else{
+            $data = array('is_message_to_delete' => $userid);
+        }
+        
+        $update_data = $this->common->update_data($data, 'messages', 'id', $message_id);
 
-        $messages = $this->Chat_model->get_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
+        $messages = $this->Chat_model->delete_messages($timestamp, $userid, $message_from_profile, $message_to_profile);
         $i = 0;
         foreach ($messages as $mes) {
             if (preg_match('/<img/', $mes['message'])) {

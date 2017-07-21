@@ -2184,7 +2184,7 @@ class Notification extends MY_Controller {
                 $notmsg .= 'active2';
             }
             $notmsg .= '">';
-            $notmsg .= '<a href="' . $profile_url . '" class="clearfix msg_dot" style="padding:0px!important;">';
+            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '" class="clearfix msg_dot" style="padding:0px!important;">';
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
             if ($user_image) {

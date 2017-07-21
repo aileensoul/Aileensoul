@@ -44,145 +44,50 @@ echo $leftmenu;
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php
-                    $form_attr = array('id' => 'add_product_frm', 'enctype' => 'multipart/form-data');
-                    echo form_open_multipart('product/add', $form_attr);
+                    $form_attr = array('id' => 'add_blog_frm', 'enctype' => 'multipart/form-data');
+                    echo form_open_multipart('blog/blog_insert', $form_attr);
                     ?>
                     <div class="box-body">
-                        <!-- product name start -->
+                    
+                        <!-- BLOG TITLE START -->
                         <div class="form-group col-sm-10">
-                            <label for="productname" name="product_name" id="page_title">Product Name*</label>
-                            <input type="text" class="form-control" name="name" id="name" value="">
+                            <label for="blogtitle" name="blogtitle" id="blogtitle">Blog Title*</label>
+                            <input type="text" class="form-control" name="blog_title" id="blog_title" value="">
                         </div>
-                        <!-- product name end -->
-                        <!-- product short desc start -->
-                        <div class="form-group col-sm-10">
-                            <label for="productshortdesc" name="productshortdesc" id="page_title">Product Short Description*</label>
-                            <input type="text" class="form-control" name="short_description" id="short_description" value="">
-                        </div>
-                        <!-- product short desc end -->
-                        <!-- product category start -->
+                        <!-- BLOG TITLE END -->
+
+                        <!--  TAG SELECTION START -->
                         <div class="form-group col-sm-5">
                             <div class="form-group">
-                                <label>Product Category*</label>
-                                <select name="category_id" id="category_id" class="form-control select2" style="width: 100%;">
-                                    <option value="">Select Category</option>
+                                <label>Tag*</label>
+                                <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
+                                    <option value="" selected option disabled="">Select Tag</option>
                                     <?php
-                                    foreach ($category_list as $category) {
+                                    foreach ($blog_tag as $tag) {
                                         ?>
-                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                        <option value="<?php echo $tag['id']; ?>"><?php echo $tag['name']; ?></option>
                                         <?php
                                     }
                                     ?>
                                 </select>
                             </div>
                         </div>
-                        <!-- product category end -->
+                        <!-- TAG SELECTION END -->
 
-                        <!-- product Manufacture start -->
-                        <div class="form-group col-sm-5">
-                            <div class="form-group">
-                                <label>Product Manufacture*</label>
-                                <select name="manufacture_id" id="manufacture_id" class="form-control select2" style="width: 100%;">
-                                    <option value="">Select Manufacture</option>
-                                    <?php
-                                    foreach ($manufacturer_list as $manufacturer) {
-                                        ?>
-                                        <option value="<?php echo $manufacturer['id']; ?>"><?php echo $manufacturer['name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- product Manufacture end -->
-                        <!-- product price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productprice" name="product_price" id="product_price">Product Price*</label>
-                            <input type="text" class="form-control" name="cost_price" id="cost_price" value="">
-                        </div>
-                        <!-- product price end -->
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productsellingprice" name="product_selling_price" id="product_selling_price">Product Selling Price*</label>
-                            <input type="text" class="form-control" name="sell_price" id="sell_price" value="">
-                        </div>
-                        <!-- product selling price end -->
-
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productavailablefor" name="product_availablefor" id="product_availablefor">Product Available For*</label>
-                            <!--<input type="text" class="form-control" name="name" id="name" value="">-->
-                            <div class="form-group">
-                                <label>
-                                    <input type="radio" name="available_for" value="buy" id="buy" class="available_for minimal" checked>
-                                    Buy
-                                </label>
-                                <label>
-                                    <input type="radio" name="available_for" value="bid" id="bid" class="available_for minimal">
-                                    Bid
-                                </label>
-                            </div>
-                        </div>
-                        <!-- product selling price end -->
-                        <!-- product stock start -->
-                        <div class="form-group col-sm-5 stock">
-                            <label for="productstock" name="product_stock" id="product_stock">Product Stock*</label>
-                            <input type="number" class="form-control" name="stock" id="stock" value="" min="1">
-                        </div>
-                        <!-- product stock end -->
-                        <!-- product bid time start -->
-
-
-                        <!--<div class="form-group col-sm-3 pull-center bidding clockpicker" data-placement="right" data-align="top" data-autoclose="true">
-                            <label for="productbiddingtime" name="product_bidding_time" id="product_bidding_time">Product Bidding Time*</label>
-                            <input type="text" class="form-control input-small" name="bid_time" id="bid_time timepicker2" value="12:00">
-                        </div>
-
-                        <script type="text/javascript">
-                            $('.clockpicker').clockpicker();
-                        </script> -->
-                        <!-- product bid time end -->
-
-                        <!-- product description start -->
+                        <!-- BLOG DESCRIPTION START -->
                         <div class="form-group col-sm-10">
-                            <label for="productdescription" name="product_description" id="product_description">Description *</label>
+                            <label for="blogdescription" name="blogdescription" id="blogdescription">Description *</label>
                             <?php echo form_textarea(array('name' => 'description', 'id' => 'description editor1', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
                         </div>
-                        <!-- product description end -->
-                        <!-- product price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productprice" name="product_price" id="product_price">Estimated delivery day*</label>
-                            <input type="number" class="form-control" name="delivery_day" id="delivery_day" value="" min="1">
-                        </div>
-                        <!-- product price end -->
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productcondition" name="product_condition" id="product_condition">Product Condition*</label>
-                            <select name="condition" id="condition" class="form-control">
-                                <option value="New">New</option>
-                                <option value="Old">Old</option>
-                            </select>
-                        </div>
-                        <!-- product selling price end -->
-                        <!-- product available date -->
-                        <div class="form-group col-sm-5 date form_datetime" style="float:left">
-                            <label for="productavailabledate" name="product_available_date" id="product_available_date">Availble Date*</label>
-                            <input type="text" class="form-control" name="available_date" id="available_date" value="">
-                            <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                        <!-- product available date -->
-                        <!-- product image start -->
+                        <!-- BLOG DESCRIPTION END -->
+                       
+                        <!-- BLOG IMAGE START -->
                         <div class="form-group col-sm-10">
-                            <label for="productimage" name="productimage" id="productimage">Image *</label>
+                            <label for="blogimage" name="blogimage" id="blogimage">Image *</label>
                             <input type="file" class="form-control" name="image" id="image" value="" style="border: none;">
                         </div>
-                        <!-- product image end -->
-                        <!-- product sub image start -->
-                        <div class="form-group col-sm-10">
-                            <label for="productsubimage" name="productsubimage" id="productsubimage">Sub Image</label>
-                            <input type="file" class="form-control" name="sub_image[]" multiple="5" id="sub_image" value="" style="border: none;">
-                        </div>
-                        <!-- product sub image end -->
+                        <!-- BLOG IMAGE END -->
+
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <?php
@@ -207,81 +112,40 @@ echo $leftmenu;
     $(document).ready(function () {
 
 
-        $("#add_product_frm").validate({
+        $("#add_blog_frm").validate({
             rules: {
-                name: {
+                blog_title: {
                     required: true,
                 },
-                category_id: {
+                tag: {
                     required: true,
                 },
                 manufacture_id: {
                     required: true,
                 },
-                cost_price: {
-                    required: true,
-                    digits: true,
-                },
-                sell_price: {
-                    required: true,
-                    digits: true,
-                },
-                stock: {
-                    required: true,
-                },
-                available_for: {
-                    required: true,
-                },
-                bid_time: {
-                    required: true,
-                },
-                available_date: {
-                    required: true,
-                },
-                short_description: {
-                    required: true,
-                },
                 description: {
                     required: true,
-                }
+                },
+                image: {
+                    required: true,
+                },
+                
             },
             messages:
                     {
-                        name: {
-                            required: "Please enter product name",
+                        blog_title: {
+                            required: "Please enter blog title",
                         },
-                        category_id: {
-                            required: "Please enter category",
-                        },
-                        manufacture_id: {
-                            required: "Please enter manufacturers",
-                        },
-                        cost_price: {
-                            required: "Please enter product price",
-                            digits: "Product cost price should be numeric",
-                        },
-                        sell_price: {
-                            required: "Please enter product selling price",
-                            digits: "Product sell price should be numeric",
-                        },
-                        stock: {
-                            required: "Please enter product stock",
-                        },
-                        available_for: {
-                            required: "Please enter product available for",
-                        },
-                        bid_time: {
-                            required: "Please enter product bidding time",
-                        },
-                        available_date: {
-                            required: "Please enter available date",
-                        },
-                        short_description: {
-                            required: "Please enter product short description",
+                        tag: {
+                            required: "Please select tag",
                         },
                         description: {
-                            required: "Please enter product description",
+                            required: "Please enter blog description",
+                        },
+                        image: {
+                            required: "Please choose image",
                         }
+                       
                     },
         });
         $(".bidding").hide();

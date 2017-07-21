@@ -13,7 +13,7 @@
   <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 </head>
 <body>
-<div class="main-inner">
+<div class="main-inner" class="feedback">
   <header>
     <div class="container">
       <div class="row">
@@ -32,7 +32,7 @@
   <section class="middle-main">
     <div class="container">
       
-       <div class="mid-trns">
+       <div class="form-pd row">
 
         <div id="feedbacksucc"></div>
 

@@ -1,16 +1,7 @@
 <?php
 
-
-
 class Common extends CI_Model {
-
-
-
-
-
-
-
- function check_login($user_name, $user_password) {
+    function check_login($user_name, $user_password) {
         $this->db->select("user_id,first_name,last_name,user_email,user_password,status");
         $this->db->where("user_email", $user_name);
         $this->db->where("user_password", md5($user_password));
@@ -26,45 +17,22 @@ class Common extends CI_Model {
         }
     }
 
-
-
-
     // insert database
-
     function insert_data($data, $tablename) {
-
         if ($this->db->insert($tablename, $data)) {
-
             return true;
-
         } else {
-
             return false;
-
         }
-
     }
-
-
-
     // insert database
-
     function insert_data_getid($data, $tablename) {
-
         if ($this->db->insert($tablename, $data)) {
-
             return $this->db->insert_id();
-
         } else {
-
             return false;
-
         }
-
     }
-
-
-
     // update database
 
     function update_data($data, $tablename, $columnname, $columnid) {

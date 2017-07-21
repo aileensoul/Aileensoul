@@ -431,6 +431,16 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
 }, "Only space, only number and only specila characters are not allow");
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }  
+}, "Pincode should be less than or equal 12 digit");
 
             $(document).ready(function () { 
 
@@ -457,7 +467,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             //noSpace: true
                             regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
                            
-                        }
+                        },
+                        pincode:{
+                            regx1:/(?=.*[0-9])(?=.*[a-z])^[a-z0-9]{0,12}$/
+                            
+                        },
                         
                     },
 
@@ -481,6 +495,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             required: "Address Is Required.",
                             
                         },
+                       
                         
                     },
 

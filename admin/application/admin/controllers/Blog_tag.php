@@ -46,7 +46,7 @@ class Blog_tag extends CI_Controller {
 
 
     public function tag_add() {
-          $adminid =  $this->session->userdata('aileen_admin');
+        $adminid =  $this->session->userdata('aileen_admin');
        
         $data = array(
                     'name' => $this->input->post('name'),

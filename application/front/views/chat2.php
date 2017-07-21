@@ -30,9 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php
         echo $header;
 
-        if ($message_to_profile == 1) {
+        if ($message_from_profile == 1) {
             echo $job_header2_border;
-        } else if ($message_to_profile == 2) {
+        } else if ($message_from_profile == 2) {
             echo $recruiter_header2_border;
         } else if ($message_from_profile == 3) {
             echo $freelancer_hire_header2_border;
@@ -179,7 +179,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
-                            <?php
+                            <?php 
                             if ($message_to_profile == 1) {
                                 $last_user_image = $last_user_data['user_image'];
                                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
@@ -223,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="chat-num-messages"> <?php
                                         echo $last_user_data['designation'];
-                                        ;
+                                      
                                         ?></div>
                                 </div>
                             </a>
