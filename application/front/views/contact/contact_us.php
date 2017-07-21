@@ -12,7 +12,7 @@
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
   <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 </head>
-<body>
+<body class="contact">
 <div class="main-inner">
   <header>
     <div class="container">
@@ -29,10 +29,10 @@
       </div>
     </div>
   </header>
-  <section class="middle-main pd-low">
+  <section class="middle-main">
 		<div class="container">
 			<div id="contactsucc"></div>
-			<div class="mid-trns">
+			<div class="form-pd row">
 				<div class="inner-form">
 					<div class="login">
 						<div class="title">
