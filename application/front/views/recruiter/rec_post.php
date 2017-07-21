@@ -38,7 +38,7 @@ if ($returnpage == 'job') {
 }
 ?>
 
-<body   class="page-container-bg-solid page-boxed">
+<body   class="page-container-bg-solid page-boxed custom-border">
 
     <section class="custom-row">
         <div class="container mt-22" id="paddingtop_fixed">

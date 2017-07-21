@@ -492,7 +492,7 @@
                               <div <?php if($this->uri->segment(3) =="graduation"){ ?> class="panel-heading active" <?php }else{ ?> class="panel-heading" <?php } ?>  id="panel-heading3">
                                  <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#bs-collapse" href="#four" id="toggle3">
-                                    Graduation
+                                    Graduation / Post Graduation
                                     </a>
                                  </h4>
                               </div>

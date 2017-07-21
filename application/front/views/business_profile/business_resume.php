@@ -473,7 +473,7 @@ start head -->
                                         </div>
                                         <div class="profile-job-profile-menu">
                                             <ul class="clearfix">
-                                                <li> <b>Comapny Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
+                                                <li> <b>Company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
                                                 </li>
 
                                                 <li> <b> Country</b> <span> <?php echo $this->db->get_where('countries', array('country_id' => $businessdata1[0]['country']))->row()->country_name; ?> </span>
@@ -640,7 +640,7 @@ start head -->
                                             </div>
                                             <div class="profile-job-profile-menu">
                                                 <ul class="clearfix">
-                                                    <li> <b>Buisness  Type </b> <span><?php
+                                                    <li> <b>Business  Type </b> <span><?php
                                                             $business_typename = $this->db->get_where('business_type', array('type_id' => $businessdata1[0]['business_type']))->row()->business_name;
                                                             if ($business_typename) {
                                                                 echo $business_typename;
@@ -666,7 +666,7 @@ start head -->
                                                     ?></span>
                                                         </li> -->
 
-                                                    <li><b>Details Of Your buisness </b> 
+                                                    <li><b>Details Of Your business </b> 
                                                         <span>
                                                             <p> <?php echo $this->common->make_links($businessdata1[0]['details']);
                                                     ?></p>
