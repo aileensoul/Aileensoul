@@ -61,11 +61,11 @@ echo $leftmenu;
                             <div class="form-group">
                                 <label>Tag*</label>
                                 <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
-                                    <option value="" selected option disabled="">Select Category</option>
+                                    <option value="" selected option disabled="">Select Tag</option>
                                     <?php
-                                    foreach ($category_list as $category) {
+                                    foreach ($blog_tag as $tag) {
                                         ?>
-                                        <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                        <option value="<?php echo $tag['id']; ?>"><?php echo $tag['name']; ?></option>
                                         <?php
                                     }
                                     ?>

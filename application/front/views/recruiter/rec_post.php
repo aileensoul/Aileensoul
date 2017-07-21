@@ -86,7 +86,7 @@ if ($returnpage == 'job') {
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                   $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                    if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
                         ?>
 
                      
@@ -125,7 +125,7 @@ if ($returnpage == 'job') {
             <div class="user-pic padd_img">
               <?php 
              
-              if($postdataone[0]['recruiter_user_image'] != '' ){ ?>
+              if(file_exists($this->config->item('rec_profile_thumb_upload_path').$postdataone[0]['recruiter_user_image'])){ ?>
                            <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $postdataone[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />

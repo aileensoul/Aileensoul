@@ -384,7 +384,7 @@
                                                 else
                                                 {
                                             ?>
-                                        <option value="">Select Country first</option>
+                                        <option value="">Select state first</option>
 
                                          <?php
                                             
@@ -787,7 +787,7 @@ if (clicked_id == 4) {
   
 function imgval(){ 
 
-
+$("#postinfo .select2-selection").removeClass("keyskill_border_active");
  var skill_main = document.getElementById("skills").value;
  var skill_other = document.getElementById("other_skill").value;
  //alert();

@@ -1874,7 +1874,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             $this->form_validation->set_rules('profilepic', 'Upload profilepic', 'required');
             //$picture = '';
         } else {
-       // // echo "hii";die();
+     //  echo "hii";die();
        //      $config['upload_path'] = 'uploads/user_image/';
        //      $config['allowed_types'] = 'jpg|jpeg|png|gif|mp4|3gp|mpeg|mpg|mpe|qt|mov|avi|pdf';
        //      // $config['file_name'] = $_FILES['picture']['name'];
@@ -1907,12 +1907,28 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             $this->upload->do_upload('profilepic');
             //Getting Uploaded Image File Data
             $imgdata = $this->upload->data();
+
+
+          //  echo "<pre>"; print_r($imgdata); 
+
+
             $imgerror = $this->upload->display_errors();
             if ($imgerror == '') {
+
+
+                echo "string";
                 //Configuring Thumbnail 
                 $recruiter_thumb['image_library'] = 'gd2';
                 $recruiter_thumb['source_image'] = $recruiter['upload_path'] . $imgdata['file_name'];
+
+
+          //  echo "<pre>"; print_r($recruiter_thumb['source_image']); 
+
                 $recruiter_thumb['new_image'] = $this->config->item('rec_profile_thumb_upload_path') . $imgdata['file_name'];
+
+
+          //  echo "<pre>"; print_r($recruiter_thumb['new_image']); die();
+
                 $recruiter_thumb['create_thumb'] = TRUE;
                 $recruiter_thumb['maintain_ratio'] = TRUE;
                 $recruiter_thumb['thumb_marker'] = '';
@@ -1931,24 +1947,32 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
                 $thumberror = $this->image_lib->display_errors();
             } else {
 
+
+                echo "string1";
                 $thumberror = '';
             }
             if ($imgerror != '' || $thumberror != '') {
+
+                echo "string2";
                  
 
                 $error[0] = $imgerror;
                 $error[1] = $thumberror;
             } else {
+                echo "string3";
                  
 
                 $error = array();
             }
             if ($error) {
+                echo "string4";
     
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');
             } else {
+
+                echo "string5";
                $contition_array = array('user_id' => $userid);
         $recruiter_reg_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'recruiter_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 

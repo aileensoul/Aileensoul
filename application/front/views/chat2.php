@@ -30,9 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php
         echo $header;
 
-        if ($message_to_profile == 1) {
+        if ($message_from_profile == 1) {
             echo $job_header2_border;
-        } else if ($message_to_profile == 2) {
+        } else if ($message_from_profile == 2) {
             echo $recruiter_header2_border;
         } else if ($message_from_profile == 3) {
             echo $freelancer_hire_header2_border;
