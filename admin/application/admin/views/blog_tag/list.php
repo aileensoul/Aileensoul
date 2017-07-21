@@ -21,9 +21,7 @@ echo $leftmenu;
             </li>
             <li class="active">Job User</li>
         </ol>
-        <!-- <div class="fr">
-                         <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
-        </div> -->
+        <a name="Add" href="<?php echo base_url('blog_tag/add'); ?>" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
     </section>
 
 

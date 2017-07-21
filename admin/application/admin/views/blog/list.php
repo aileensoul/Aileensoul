@@ -19,11 +19,11 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active">Job User</li>
+            <li class="active">Blog</li>
         </ol>
-        <!-- <div class="fr">
-                         <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
-        </div> -->
+        <div class="fr">      
+                         <a name="Add" href="<?php echo base_url('Blog/add'); ?>" class="btn bg-orange btn-flat margin-r-5" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
+        </div>
     </section>
 
 
