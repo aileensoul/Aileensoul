@@ -26,7 +26,7 @@ class Dashboard extends MY_Controller {
     }
 
  public function list() 
-    {
+ {
 
         $this->load->view('blog_tag/list', $this->data);
     }

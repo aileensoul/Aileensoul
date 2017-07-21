@@ -58,7 +58,7 @@
 
                     <li><a href="<?php echo base_url('Blog_tag/list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
 
-                    <li><a href="<?php echo base_url('Blog/add'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Blog Add</a></li>
+                    <li><a href="<?php echo base_url('Blog/add'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Blog List</a></li>
                 </ul>
             </li>
            <!--End Blog-->
