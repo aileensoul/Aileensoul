@@ -445,6 +445,9 @@ echo $freelancer_hire_header2_border;
                                                   echo $post['post_exp_year'];  
                                                 }
                                                 if($post['post_exp_month']){
+                                                    if($post['post_exp_year']==''){
+                                                        echo 0;
+                                                    }
                                                     echo ".";
                                                     echo $post['post_exp_month'];
                                                 } 
