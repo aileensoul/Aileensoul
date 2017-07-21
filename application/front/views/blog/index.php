@@ -1,104 +1,338 @@
-<?php
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-?>
-
+<!DOCTYPE html>
 <html>
-    <head>
+<head>
+  <title></title>
+   <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
+  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+ 
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_yatin.css'); ?>">
+ 
+<!-- 
+  <link rel="stylesheet" type="text/css" href="css/common-style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style_new.css">
+  <link rel="stylesheet" type="text/css" href="css/style_harshad.css">
+  <link rel="stylesheet" type="text/css" href="css/style_yatin.css">
+  <link rel="stylesheet" type="text/css" href="css/media.css">
+  <link rel="stylesheet" type="text/css" href="css/gyc.css">
+  <link rel="stylesheet" type="text/css" href="css/lato.css">
+  <link rel="stylesheet" type="text/css" href="css/blog.css">
+ -->
+</head>
+<body class="blog">
+ <header class="">
+        <div class="header animated fadeInDownBig">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
+                        <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
+                        <div class="logo">
+                            <a tabindex="-200" href="#"> <h2  style="color: white;">Aileensoul</h2></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
+                        <div class="main-menu-right">
+                            <ul class="">
+                          <!--   <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><img class="h-img" src="img/header_icon_menu.png"></a></li>
+                            <li> <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><img class="h-img" src="img/header_icon_notification.png">
+                                        <span id="message_count"></span>
+                                    </a></li>
+                            <li> </li> -->
+                            </ul>
+                         </div>
+                     </div>
+               </div>
+           </div>
+       </div>
+  </header>
 
 
-        <title>Find the Best Jobs, Hiring, Employment and Freelance | Aileensoul.com</title>
-        <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-        
-<!--Need to add following TAG in Header.-->
-
-<link rel="canonical" href="https://www.aileensoul.com" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Busines and find or search jobs of your preference in your required fiel." />
-<meta name="keywords" content="Hire Freelancers, Freelance Jobs Online, Find Freelance Work, Freelance Jobs, Get Online Work, online freelance jobs, freelance websites, freelance portal, online freelance work, freelance job sites, freelance consulting jobs, hire freelancers online, best freelancing sites, online writing jobs for beginners, top freelance websites, freelance marketplace, jobs, Job search, job vacancies, Job Opportunities in India, jobs in India, job openings, Jobs Recruitment, Apply For Jobs, Find the right Job, online job applications, apply for jobs online, online job search, online jobs india, job posting sites, job seeking sites, job search websites, job websites in india, job listing websites, jobs hiring, how to find a job, employment agency, employment websites, employment vacancies, application for employment, employment in india, searching for a job, job search companies, job search in india, best jobs in india, job agency, job placement agencies, how to apply for a job, jobs for freshers, job vacancies for freshers, recruitment agencies, employment agencies, job recruitment, hiring agencies, hiring websites, recruitment sites, corporate recruiter, career recruitment, online recruitment, executive recruiters, job recruiting companies, online job recruitment, job recruitment agencies, it, recruitment agencies, recruitment websites, executive search firms, sales recruitment agencies, top executive search firms, recruitment services, technical recruiter, recruitment services, job recruitment agency, recruitment career" />
-<!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
-
-<!-- Add following GoogleAnalytics tracking code in Header.-->
-
-<!-- <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-91486853-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6060111582812113",
-    enable_page_level_ads: true
-  });
-</script> -->
-
-<!-- seo changes end -->
-
-<!-- seo changes end -->
-
-
-        <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">  -->
-
+  <header >
+         <div class="blog_header">
+          <div class="container">
+            <div class="row"> 
+            <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
+                        <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
+                        <div class="logo pl20">
+                            <a > <h3  style="color: #1b8ab9;">Blog</h3></a>
+                        </div>
+                    </div>
+                      <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
+                        <div class="main-menu-right">
+                            <ul class="">
+                            <li><a href="">Recent Post  </a></li>
+                            <li><a href="">Most Popular</a></li>
+                            <li> <a href="">Most Newest </a></li>
+                           
+                            </ul>
+                         </div>
+                     </div>
+            </div>
+            
+          </div>
+          
+         </div>
+  </header>
+<section>
+<div class="col-md-12 hidden-md hidden-lg pt20">
+      <div class="blog_search">
       
-
-        
-    </head>
-<!--- header end -->
-<div class="container">
-    <div class="project-top-patination">
-        <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><span>Blog</span></li>
-        </ul>
-    </div>
-</div>
-<div class="container">
+        <div>
+          <div class="searc_w"><input type="" name="" placeholder="Search Blog Post"></div>
+          <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
+</a></div>
+        </div>
+      </div>
+      </div>
+<div class="blog-mid-section user-midd-section">
+  <div class="container">
     <div class="row">
-        <div class="blog_tab">
+    
+<div class="blog_post_outer col-md-9 col-sm-8 pr0">
+    <div class="date_blog_left">
+      <div class="blog-date-change">
+        <div class="blog-month blog-picker">
+          <span class="blog_monthd">
+            Jan
+          </span>
+        </div class="blog-date blog-picker">
+        <div>
+          <span class="blog_mdate">
+            15
+          </span>
+        </div>
+        <div class="blog-year blog-picker">
+          <span class="blog_moyear" >
+            2017
+          </span>
+        </div>
+      </div>
+      <div class="blog-left-comment">
+        <div class="blog-comment-count">
+          <a>10</a>
+        </div>
+        <div class="blog-comment">
+          <a>Comments</a>
+        </div>
+        
+      </div>
+    </div>
+    
 
-        <!-- blog list start -->
-         <div class="col-sm-9 blog_left">
-        <?php foreach($blogdata as $blg_key => $blog_value){ ?>
-             <div class="one_blog">
-                    <h2><a href="<?php echo base_url('blog/blogdetail/' . $blog_value->blog_id); ?>"> <?php echo $blog_value->title; ?></a></h2>
-                    <ul class="entry-meta">
-                                    <li class="entry-date"><i class="fa fa-calendar" aria-hidden="true"></i><?php echo date('M d, Y', strtotime($blog_value->date)); ?></li>
-                                    <li class="entry-author"><i class="fa fa-female" aria-hidden="true"></i><a rel="author external" title="Visit Dhara Dhanesha’s website" href="#"><?php echo $blog_value->author; ?></a></li>
-                                    <li class="entry-catagory"><i class="fa fa-comment" aria-hidden="true"></i><a rel="category tag" href="<?php echo base_url('blog/blogdetail/' . $blog_value->blog_id); ?>"> <?php echo count($this->blog_model->Blogcount($blog_value->blog_id)) . '  '; ?>  Comment</a></li>
-                                    
-                    </ul>
-                    <a href="<?php echo base_url('blog/blogdetail/' . $blog_value->blog_id); ?>"> <img src="<?php echo BLOG_IMAGE.$blog_value->blog_image; ?>" height="50" width="50" alt="Smiley face" title="<?php echo $blog_value->image_title?>" content="<?php echo $blog_value->image_description?>"></a>
-                    <p><?php echo $blog_value->description; ?></p>
-                </div>
-             <?php } ?>
+    <div class="date_blog_right">
+     <div class="blog_post_main">
+      <div class="blog_inside_post_main">
+        <div class="blog_main_post_first_part">
+        <div class="blog_main_post_img">
+          <img src="img/banner1.jpg">
+        </div>
+        </div>
+        <div class="blog_main_post_second_part">
+        <div class="blog_class_main_name">
+          <span>
+            Lorem ipsum dolor sit amet, consectetuer.
+          </span>
+        </div>
+        <div class="blog_class_main_by">
+          <span>
+            by zalak
+          </span>
+          
+        </div>
+        <div class="blog_class_main_desc">
+          <span>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes....
+          </span>
+        </div>
+        <div class="blog_class_main_social">
+          <div class="left_blog_icon fl">
+          <ul class="social_icon_bloag fl">
+            <li>
+            
+                <a href=""><span  class="social_fb"></span></a>
+              
+            </li>
+            <li>
+              
+                  <a href=""><span  class="social_gp"></span></a>
+              
+            </li>
+            <li>
+                
+                <a href=""><span  class="social_lk"></span></a>
+              
+            </li>
+            <li>
+            
+                <a href=""><span class="social_tw"></span></a>
+            
+            </li>
+
+
+          </ul>
+            
+          </div>
+          <div class="fr blog_view_link">
+            <a href=""> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+</a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+     </div>
+     </div>
+    
+
+</div>
+     <div class="col-md-3 col-sm-4 hidden-xs">
+      <div class="blog_search">
+        <h6> Blog Search </h6>
+        <div>
+          <div class="searc_w"><input type="" name="" placeholder="Search Blog Post"></div>
+          <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
+</a></div>
+        </div>
+      </div>
+      <div class="blog_latest_post">
+        <h3>Latest Post</h3>
+      <div class="latest_post_posts">
+        <ul>
+          <li> 
+          <div class="post_inside_data">
+          <div class="post_latest_left">
+            <div class="lateaqt_post_img">
+              <img src="img/pic.jpg">
+            </div>
+          </div>  
+            <div class="post_latest_right">
+            <div>
+              <sapn class="rifght_fname"> Business </sapn>
+            </div>
+          
+            <div>
+              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+            </div>  
             </div>
 
-            <!-- blog list end -->
-           
-           
-            <ul class="l_imges">
-            <?php foreach($blogolddata as $old_key=>$old_value){ ?>
-                <li><a href="<?php echo base_url('blog/blogdetail/' . $old_value->blog_id); ?>"><img src="<?php echo BLOG_IMAGE.$old_value->blog_image; ?>" height="50" width="50" alt="Smiley face" title="<?php echo $old_value->image_title?>" content="<?php echo $old_value->image_description?>"><p><?php echo $old_value->title; ?></p></a></li>
-                  <?php }  ?>
-                    
-                   </ul>
-            
-            
-           
-        </div>
-    </div>
-</div>
+          </div>
+
+          </li>
+          <li></li>
+        </ul>
+      </div>  
+      <div class="latest_post_posts">
+        <ul>
+          <li> 
+          <div class="post_inside_data">
+          <div class="post_latest_left">
+            <div class="lateaqt_post_img">
+              <img src="img/pic.jpg">
+            </div>
+          </div>  
+            <div class="post_latest_right">
+            <div>
+              <sapn class="rifght_fname"> Business </sapn>
+            </div>
+          
+            <div>
+              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+            </div>  
+            </div>
+
+          </div>
+
+          </li>
+          <li></li>
+        </ul>
+      </div>  <div class="latest_post_posts">
+        <ul>
+          <li> 
+          <div class="post_inside_data">
+          <div class="post_latest_left">
+            <div class="lateaqt_post_img">
+              <img src="img/pic.jpg">
+            </div>
+          </div>  
+            <div class="post_latest_right">
+            <div>
+              <sapn class="rifght_fname"> Business </sapn>
+            </div>
+          
+            <div>
+              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+            </div>  
+            </div>
+
+          </div>
+
+          </li>
+          <li></li>
+        </ul>
+      </div>  <div class="latest_post_posts">
+        <ul>
+          <li> 
+          <div class="post_inside_data">
+          <div class="post_latest_left">
+            <div class="lateaqt_post_img">
+              <img src="img/pic.jpg">
+            </div>
+          </div>  
+            <div class="post_latest_right">
+            <div>
+              <sapn class="rifght_fname"> Business </sapn>
+            </div>
+          
+            <div>
+              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+            </div>  
+            </div>
+
+          </div>
+
+          </li>
+          <li></li>
+        </ul>
+      </div>  <div class="latest_post_posts">
+        <ul>
+          <li> 
+          <div class="post_inside_data">
+          <div class="post_latest_left">
+            <div class="lateaqt_post_img">
+              <img src="img/pic.jpg">
+            </div>
+          </div>  
+            <div class="post_latest_right">
+            <div>
+              <sapn class="rifght_fname"> Business </sapn>
+            </div>
+          
+            <div>
+              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+            </div>  
+            </div>
+
+          </div>
+
+          </li>
+          <li></li>
+        </ul>
+      </div>  
+      </div>
+     </div>
+
+     </div>
+  </div>
+</div>  
+</section>
+
+
+</body>
+</html>

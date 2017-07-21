@@ -290,12 +290,12 @@
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-           
+            <li><a href="<?php echo base_url('blog'); ?>">Blog</a>|</li>
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>
 		<div class="col-md-6 col-sm-4 col-xs-12">
-          © 2017dddd | by Aileensoul
+          © 2017 | by Aileensoul
         </div>
       </div>
     </div>
