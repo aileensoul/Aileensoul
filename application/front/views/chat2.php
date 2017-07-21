@@ -117,11 +117,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?>">
 
                                                 <?php
-                                                if ($message_to_profile == 1) {
+                                                if ($message_from_profile == 1) {
                                                     $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                                                 }
 
-                                                if ($message_to_profile == 2) {
+                                                if ($message_from_profile == 2) {
                                                     $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                                                     
                                                 }
@@ -181,9 +181,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                <?php
                                                 if ($message_to_profile == 1) {
                                                     $last_user_image = $last_user_data['user_image'];
-                                                    $profile_url = base_url() . 'job/rec_profile/' . $id . '?page=job';
+                                                    $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
                                                 }
-
                                                 if ($message_to_profile == 2) {
                                                     $last_user_image = $last_user_data['user_image'];
                                                     $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
