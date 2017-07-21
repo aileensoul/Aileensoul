@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Blog_tag extends MY_Controller {
+class Blog_tag extends CI_Controller {
 
     public $data;
 

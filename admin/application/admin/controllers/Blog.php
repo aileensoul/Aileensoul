@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Dashboard extends MY_Controller {
+class Blog extends MY_Controller {
 
     public $data;
 
@@ -28,7 +28,7 @@ class Dashboard extends MY_Controller {
  public function list() 
  {
 
-        $this->load->view('blog_tag/list', $this->data);
+        $this->load->view('blog/list', $this->data);
     }
  public function add()
      {
