@@ -1,24 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog extends MY_Controller
+class Blog extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-
-        $this->load->library('form_validation');
-        $this->load->model('email_model');
-        $this->data['title'] = "Aileensoul";
-        
-         $this->load->helper('smiley');
-         
-        if (!$this->session->userdata('aileenuser')) {
-            redirect('login', 'refresh');
-        }
-
-        include ('include.php');
+        $this->load->model(array('category_model', 'Blog_model' => 'blog_model'));
     }
 
     // Meta Array Define
