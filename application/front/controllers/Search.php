@@ -231,7 +231,7 @@ class Search extends CI_Controller {
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%')";
 
-            $otherdata = $other['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $otherdata = $other['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($otherdata); 
 
             $join_str[0]['table'] = 'art_reg';
@@ -455,8 +455,8 @@ public function business_search() {
 
         if ($search_business == "") {
 
-            $contition_array = array('city' => $cache_time, 'status' => '1','business_step' => 4);
-            $new = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $contition_array = array('business_profile.user_id !=' => $userid, 'city' => $cache_time, 'status' => '1','business_step' => 4);
+             $business_profile = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
          elseif ($search_place == "") {
