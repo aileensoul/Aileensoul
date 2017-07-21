@@ -7135,7 +7135,8 @@ follow box*/
     height: 100%;
     width: 100%;
 }
-.post-design-product-img_post {} #paddingtop_fixed1 {
+.post-design-product-img_post {} 
+#paddingtop_fixed1 {
     padding-top: 62px!important;
 }
 #two_images_bui {
