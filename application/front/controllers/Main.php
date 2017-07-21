@@ -34,5 +34,19 @@ class Main extends CI_Controller {
        $this->load->view('show');
 
     }
+    
+    //job user end
+     public function terms_condition()
+    {
+       $this->load->view('termcondition');
+
+    }
+    
+    //job user end
+     public function privacy_policy()
+    {
+       $this->load->view('privacypolicy');
+
+    }
 
 }
