@@ -116,7 +116,7 @@
               
               <p class="clr-c fs12">
                 By Clicking on create an account button you agree our 
-                <a href="#">Terms and Condition</a>.
+                 <a href="#">Terms and Condition</a> and <a href="">Policy & policy</a>.
               </p>
                 <p>
                 <button class="btn1">Create an account</button>

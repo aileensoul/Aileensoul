@@ -233,7 +233,7 @@
               
               <p class="form-text">
                 By Clicking on create an account button you agree our<br class="mob-none">
-                <a tabindex="14" href="#">Terms and Condition.</a>
+             <a href="#">Terms and Condition</a> and <a href="">Policy & policy</a>.
               </p>
                 <p>
                 <button tabindex="13" class="btn1">Create an account</button>
