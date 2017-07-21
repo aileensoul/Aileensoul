@@ -246,7 +246,7 @@
                                                         foreach ($profile as $p) {
                                                             //                                                 echo "<pre>"; print_r($p);die();
                                                             ?>
-                                                            <div class="profile-job-profile-button clearfix box_search_module" style="border: 1px solid #efefef;margin-bottom: 20px!important;">
+                                                            <div class="profile-job-profile-button clearfix box_search_module" style="margin-bottom: 20px!important;">
                                                                 <div class="profile-job-post-location-name-rec">
                                                                     <div class="module_Ssearch" style="display: inline-block; float: left;">
                                                                         <div class="search_img" style="height: 110px; width: 108px;" >
@@ -269,7 +269,7 @@
                                                                          padding-top: 10px; padding-bottom: 10px;">
                                                                         <ul>
                                                                             <li style="padding-top: 0px;">
-                                                                                <a  style="font-weight: 600; font-size: 18px;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
+                                                                                <a  style="font-weight: 600; font-size: 16px;" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
                                                                             </li>
                                                                             <li style="display: block;">
                                                                                 <a  class="color-search" s title="">
@@ -309,7 +309,7 @@
                                                                                 </a>
                                                                             </li>
                                                                             <li style="display: block;">
-                                                                                <a title="" class="color-search" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
+                                                                                <a title="" class="color-search websir-se" href="<?php echo $p['contact_website']; ?>" target="_blank"> <?php echo $p['contact_website']; ?></a>
                                                                             </li>
                                                                             <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                                         </ul>

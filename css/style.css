@@ -2702,8 +2702,9 @@ ul.business_pf_ct_person_detail li b {
 .profile-job-post-location-name-rec ul li a {
     color: #5b5b5b;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
 }
+.websir-se:hover{color: #1b8ab9 !important; text-decoration-line: underline;}
 .bui_close {
     margin-left: -12px;
     margin-top: -10px;
@@ -8575,9 +8576,7 @@ label.cameraButton:active {
 label.cameraButton input[accept*="camera"] {
     display: none;
 }
-.inner_search {
-    padding: 10px;
-}
+
 /* ^ job printprivew */
 
 .profile-job-post-title-inside .profile_search {
@@ -8724,20 +8723,21 @@ fieldset .add_post_btns {
     box-shadow: 6p 12px 44px 4px #bfbfbf!important;*/
     
     border-bottom: 1px solid #d9d9d9;
-    border-radius: 2px!important;
+    border-radius: 0px!important;
     z-index: 9999!important;
 }
 .module_Ssearch {
     display: inline-block;
     float: left;
-    padding-top: 15px;
+    padding-top: 8px;
     padding-left: 16px;
 }
+.box_search_module:last-child{border-bottom: none ;}
 .post-design-search-top {
     border-radius: 5px;
     padding: 5px;
     padding-bottom: 0px;
-    border: 1px solid #efefef;
+ 
     border-bottom: none;
 }
 .color-search {
@@ -9168,9 +9168,9 @@ paginatiom*/
 }
 .profile-job-post-title-inside .profile_search .search_head {
     /* color: #737373; */
-    
- /*   border-radius: 3px;
- */
+    border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+
     background-color: #fff;
     color: #1b8ab9;
     /*margin-bottom: 10px;*/
@@ -14010,9 +14010,10 @@ images css start*/
 }
 .inner_search {
     width: 100%;
-    padding: 10px;
     border: 1px solid #d9d9d9;
     border-top: none;
+        border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 /*** job recruter and freelancer  ***/
 
