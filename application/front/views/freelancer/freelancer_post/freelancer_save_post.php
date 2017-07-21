@@ -85,8 +85,8 @@
 
                              <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
 
-<?php }
-?>
+                         <?php }
+                         ?>
                          <!-- rash code end 12-4 -->
                 </div>
             </div>
@@ -107,82 +107,47 @@
                 <div class="profile-pho">
 
                     <div class="user-pic padd_img">
-<?php if ($jobdata[0]['freelancer_post_user_image'] != '') { ?>
+                        <?php if ($jobdata[0]['freelancer_post_user_image'] != '') { ?>
                             <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $jobdata[0]['freelancer_post_user_image']); ?>" alt="" >
                         <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                         <?php } ?>
-                    <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-
-
                     </div>
-
-                    <!-- <div id="popup-form">
-<?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="2">
-                        <input type="submit" name="cancel2" id="cancel2" value="Cancel">
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                        </form>
-                    </div>
-                    -->
-
                 </div>      
 
                 <div class="job-menu-profile mob-block">
                     <a href="javascript:void(0);"> <h3> <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h3></a>
                     <div class="profile-text">
-
-
-
-<?php
-if ($freepostdata[0]['designation'] == "") {
-    ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                            <a id="designation" class="designation" title="Designation">Designation</a>
                         <?php
+                        if ($freepostdata[0]['designation'] == "") {
+                            ?> 
+                            <a id="designation" class="designation" title="Designation">Designation</a>
+                            <?php
                         } else {
                             ?> 
-                            <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
                             <a id="designation" class="designation" title="<?php echo ucwords($freepostdata[0]['designation']); ?>"><?php echo ucwords($freepostdata[0]['designation']); ?></a>
                         <?php } ?>
-
                     </div>
-
                 </div>
-
-
                 <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
-
                     <div class=" right-side-menu art-side-menu padding_less_right  right-menu-jr"> 
-
-
-<?php
-$userid = $this->session->userdata('aileenuser');
-if ($freepostdata[0]['user_id'] == $userid) {
-    ?>     
+                        <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($freepostdata[0]['user_id'] == $userid) {
+                            ?>     
                             <ul class="current-user pro-fw">
-
-                        <?php } else { ?>
+                            <?php } else { ?>
                                 <ul class="pro-fw4">
-                        <?php } ?>  
+                                <?php } ?>  
                                 <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                                 </li>
-
-
                                 <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
-
-
-
-
                                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
                                     </li>
-
                                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
                                     </li>
-
-
-<?php } ?>
+                                <?php } ?>
                             </ul>
 
                     </div>
@@ -193,60 +158,34 @@ if ($freepostdata[0]['user_id'] == $userid) {
                 <div class="job-menu-profile mob-none pt20">
                     <a href="javascript:void(0);"> <h5> <?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></h5></a>
                     <div class="profile-text">
-
-
-
-<?php
-if ($freepostdata[0]['designation'] == "") {
-    ?> <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+                        <?php
+                        if ($freepostdata[0]['designation'] == "") {
+                            ?> 
                             <a id="designation" class="designation" title="Designation">Designation</a>
-<?php
-} else {
-    ?> 
-                            <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+                            <?php
+                        } else {
+                            ?> 
                             <a id="designation" class="designation" title="<?php echo ucwords($freepostdata[0]['designation']); ?>"><?php echo ucwords($freepostdata[0]['designation']); ?></a>
                         <?php } ?>
 
                     </div>
 
                 </div>
-                <!-- The Modal -->
-                <!--      <div id="myModal" class="modal"> -->
-                <!-- Modal content -->
-                <!-- <div class="col-md-2"></div>
-                <div class="modal-content col-md-8">
-                    <span class="close">&times;</span>
-                    <fieldset></fieldset>
-<?php echo form_open(base_url('freelancer/designation'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-    
-                    <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $userdata[0]['designation']; ?>">
-    
-<?php echo form_error('designation'); ?>
-                    </fieldset>
-    
-                    <input type="hidden" name="hitext" id="hitext" value="2">
-                    <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-<?php echo form_close(); ?>
-    
-    
-    
-                </div>
-            </div> -->
-
+               
                 <div class="col-md-8 col-sm-12 col-xs-12 mob-clear">
                     <div class="common-form">
                         <div class="job-saved-box">
                             <h3>Saved Posts</h3>
                             <div class="contact-frnd-post">
-<?php
+                                <?php
 
-function text2link($text) {
-    $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-    $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-    $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-    return $text;
-}
-?>
+                                function text2link($text) {
+                                    $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
+                                    $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
+                                    $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
+                                    return $text;
+                                }
+                                ?>
 
 
                                 <?php
@@ -279,36 +218,40 @@ function text2link($text) {
                                                                     <ul>
                                                                         <li class="fr">
                                                                             Created Date : <?php
-                                echo trim(date('d-M-Y', strtotime($post['created_date'])));
-                                ?>
+                                                                            echo trim(date('d-M-Y', strtotime($post['created_date'])));
+                                                                            ?>
                                                                         </li>
                                                                         <li>
                                                                             <a href="#" title="<?php echo ucwords(text2link($post['post_name'])); ?>" class="post_title">
-            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+                                                                                <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
 
-                                                                            <?php
-                                                                            $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
-                                                                            $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
-                                                                            ?>
+                                                                        <?php
+                                                                        $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
+                                                                        $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
+                                                                        ?>
 
                                                                         <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'] . '?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                                                                             </a>
 
-                                                                        <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
-                                                                        <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                                        <?php if ($cityname || $countryname) { ?>
+                                                                            <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
+                                                                            <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
+                                                                            <?php if ($cityname || $countryname) { ?>
 
                                                                                 <div class="fr lction">
 
                                                                                     <p title="Location">
-                                                                                        <i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname) {
-                                                                echo $cityname . ",";
-                                                            } ?><?php if ($countryname) {
-                                                                    echo $countryname;
-                                                                } ?></i></p>
+                                                                                        <i class="fa fa-map-marker" aria-hidden="true">  <?php
+                                                                                            if ($cityname) {
+                                                                                                echo $cityname . ",";
+                                                                                            }
+                                                                                            ?><?php
+                                                                                            if ($countryname) {
+                                                                                                echo $countryname;
+                                                                                            }
+                                                                                            ?></i></p>
                                                                                 </div>
-            <?php } ?>
+                                                                            <?php } ?>
                                                                         </li>
                                                                         <!-- vishang 14-4 end -->    
                                                                     </ul>
@@ -321,55 +264,57 @@ function text2link($text) {
                                                                         </span>
                                                                     </li>
                                                                     <li> <b> Skills</b> <span> 
-            <?php
-            $comma = ", ";
-            $k = 0;
-            $aud = $post['post_skill'];
-            $aud_res = explode(',', $aud);
+                                                                            <?php
+                                                                            $comma = ", ";
+                                                                            $k = 0;
+                                                                            $aud = $post['post_skill'];
+                                                                            $aud_res = explode(',', $aud);
 
-            if (!$post['post_skill']) {
-                echo $post['post_other_skill'];
-            } else if (!$post['post_other_skill']) {
+                                                                            if (!$post['post_skill']) {
+                                                                                echo $post['post_other_skill'];
+                                                                            } else if (!$post['post_other_skill']) {
 
 
-                foreach ($aud_res as $skill) {
-                    if ($k != 0) {
-                        echo $comma;
-                    }
-                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                                                                foreach ($aud_res as $skill) {
+                                                                                    if ($k != 0) {
+                                                                                        echo $comma;
+                                                                                    }
+                                                                                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
-                    echo $cache_time;
-                    $k++;
-                }
-            } else if ($post['post_skill'] && $post['post_other_skill']) {
-                foreach ($aud_res as $skill) {
-                    if ($k != 0) {
-                        echo $comma;
-                    }
-                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                                                                    echo $cache_time;
+                                                                                    $k++;
+                                                                                }
+                                                                            } else if ($post['post_skill'] && $post['post_other_skill']) {
+                                                                                foreach ($aud_res as $skill) {
+                                                                                    if ($k != 0) {
+                                                                                        echo $comma;
+                                                                                    }
+                                                                                    $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
-                    echo $cache_time;
-                    $k++;
-                } echo "," . $post['post_other_skill'];
-            }
-            ?>     
+                                                                                    echo $cache_time;
+                                                                                    $k++;
+                                                                                } echo "," . $post['post_other_skill'];
+                                                                            }
+                                                                            ?>     
 
                                                                         </span>
                                                                     </li>
 
 
                                                                     <!-- <?php if ($post['post_other_skill']) { ?>
-                                                                            <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
-                                                                            </li>
-            <?php } else { ?>
-                                                                            <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
+                                                                                    <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
+                                                                                    </li>
+                                                                    <?php } else { ?>
+                                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                                     <li><b>Post Description</b><span><p>
-                                                                    <?php if ($post['post_description']) {
-                                                                        echo text2link($post['post_description']);
-                                                                    } else {
-                                                                        echo PROFILENA;
-                                                                    } ?> </p></span>
+                                                                                <?php
+                                                                                if ($post['post_description']) {
+                                                                                    echo text2link($post['post_description']);
+                                                                                } else {
+                                                                                    echo PROFILENA;
+                                                                                }
+                                                                                ?> </p></span>
                                                                     </li>
                                                                     <li><b>Rate</b><span>
                                                                             <?php
@@ -415,11 +360,13 @@ function text2link($text) {
 
 
 
-                                                                    <li><b>Estimated Time</b><span> <?php if ($post['post_est_time']) {
+                                                                    <li><b>Estimated Time</b><span> <?php
+                                                                            if ($post['post_est_time']) {
                                                                                 echo $post['post_est_time'];
                                                                             } else {
                                                                                 echo PROFILENA;
-                                                                            } ?></span>
+                                                                            }
+                                                                            ?></span>
                                                                     </li>
 
 
@@ -428,31 +375,33 @@ function text2link($text) {
                                                             <div class="profile-job-profile-button clearfix">
                                                                 <div class="profile-job-details col-md-12">
                                                                     <ul><li class="job_all_post last_date">
-                                                                            Last Date : <?php if ($post['post_last_date']) {
+                                                                            Last Date : <?php
+                                                                            if ($post['post_last_date']) {
                                                                                 echo date('d-M-Y', strtotime($post['post_last_date']));
                                                                             } else {
                                                                                 echo PROFILENA;
-                                                                            } ?>                                                          </li>
+                                                                            }
+                                                                            ?>                                                          </li>
 
 
 
                                                                         <li class=fr>
                                                                             <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['app_id'] ?>)">Remove</a>
-            <?php
-            $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-            $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
-            $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            if ($freelancerapply1) {
-                ?>
+                                                                            <?php
+                                                                            $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+                                                                            $contition_array = array('post_id' => $post['post_id'], 'job_delete' => 0, 'user_id' => $userid);
+                                                                            $freelancerapply1 = $this->data['freelancerapply'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                            if ($freelancerapply1) {
+                                                                                ?>
                                                                                 <!-- <a href="javascript:void(0);" class="button applied">Applied</a> -->
-                <?php
-            } else {
-                ?>
+                                                                                <?php
+                                                                            } else {
+                                                                                ?>
 
                                                                                 <a href="javascript:void(0);" class="button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['app_id'] ?>)">Apply</a>
                                                                             </li> 
 
-                                            <?php } ?>
+                                                                        <?php } ?>
 
 
                                                                         </li>                        
@@ -466,22 +415,23 @@ function text2link($text) {
 
 
                                             </div>
-        <?php }
-    }
-} else {
-    ?>
-                                     <div class="art-img-nn">
-         <div class="art_no_post_img">
+                                            <?php
+                                        }
+                                    }
+                                } else {
+                                    ?>
+                                    <div class="art-img-nn">
+                                        <div class="art_no_post_img">
 
-           <img src="<?php echo base_url('img/free-no.png')?>">
-        
-         </div>
-         <div class="art_no_post_text">
-           No Saved Post Available.
-         </div>
-          </div>
-    <?php }
-?>
+                                            <img src="<?php echo base_url('img/free-no.png') ?>">
+
+                                        </div>
+                                        <div class="art_no_post_text">
+                                            No Saved Post Available.
+                                        </div>
+                                    </div>
+                                <?php }
+                                ?>
 
 
 
@@ -496,7 +446,7 @@ function text2link($text) {
 
 
     <footer>
-<?php echo $footer; ?>
+        <?php echo $footer; ?>
     </footer>
 
     <!-- Bid-modal  -->
@@ -521,7 +471,7 @@ function text2link($text) {
                 <div class="modal-body">
                     <span class="mes">
                         <div id="popup-form">
-<?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                            <?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                             <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                             <div class="popup_previred">
                                 <img id="preview" src="#" alt="your image" />
@@ -529,7 +479,7 @@ function text2link($text) {
                             <input type="hidden" name="hitext" id="hitext" value="2">
                             <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                             <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  >
-<?php echo form_close(); ?>
+                            <?php echo form_close(); ?>
                         </div>
                     </span>
                 </div>
@@ -557,33 +507,33 @@ function text2link($text) {
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
 
-                                                                    var data = <?php echo json_encode($demo); ?>;
+                                                                                    var data = <?php echo json_encode($demo); ?>;
 //alert(data);
 
 
-                                                                    $(function () {
-                                                                        // alert('hi');
-                                                                        $("#tags").autocomplete({
-                                                                            source: function (request, response) {
-                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                response($.grep(data, function (item) {
-                                                                                    return matcher.test(item.label);
-                                                                                }));
-                                                                            },
-                                                                            minLength: 1,
-                                                                            select: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                                $("#selected-tag").val(ui.item.label);
-                                                                                // window.location.href = ui.item.value;
-                                                                            }
-                                                                            ,
-                                                                            focus: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                            }
-                                                                        });
-                                                                    });
+                                                                                    $(function () {
+                                                                                        // alert('hi');
+                                                                                        $("#tags").autocomplete({
+                                                                                            source: function (request, response) {
+                                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                                response($.grep(data, function (item) {
+                                                                                                    return matcher.test(item.label);
+                                                                                                }));
+                                                                                            },
+                                                                                            minLength: 1,
+                                                                                            select: function (event, ui) {
+                                                                                                event.preventDefault();
+                                                                                                $("#tags").val(ui.item.label);
+                                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                                // window.location.href = ui.item.value;
+                                                                                            }
+                                                                                            ,
+                                                                                            focus: function (event, ui) {
+                                                                                                event.preventDefault();
+                                                                                                $("#tags").val(ui.item.label);
+                                                                                            }
+                                                                                        });
+                                                                                    });
 
 </script>
 
@@ -826,19 +776,19 @@ function text2link($text) {
         //alert(abc);     
 
 
-        var  savepara  =  'save';
+        var    savepara    =    'save';
         $.ajax({
-            type:  'POST',
-            url:  '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
+            type:    'POST',
+            url:    '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
             data: 'app_id=' + abc + '&para=' + savepara,
             success: function (data) {
                 $('#' + 'postdata' + abc).html(data);
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "   <div class="art-img-nn"><div class="art_no_post_img" <img src="<?php echo base_url('img/free-no.png')?>"> </div> <div class="art_no_post_text">No Saved Post Available.</div></div>";
-                    $('.contact-frnd-post').html(nodataHtml);
-                }
+                var nodataHtml = "   <div class="art - img - nn"><div class="art_no_post_img" <img src="<?php echo base_url('img/free-no.png') ?>"> </div> <div class="art_no_post_text">No Saved Post Available.</div></div>";
+                $('.contact-frnd-post').html(nodataHtml);
+            }
             }
         });
     }
@@ -894,7 +844,7 @@ function text2link($text) {
                             if (searchkeyword == "" && searchplace == "") {
 //alert('Please enter Key                                        word');
                     return  false;
-                            }
+                    }
                     }
 </script> 
 
@@ -1036,7 +986,7 @@ function text2link($text) {
 //  $(document).load().scrollTop(1000);
 
                     $('html,body').animate({scrollTop:265}, 100);
-                            })
+                    })
                     ;
 //For Scroll page at perticular position js End
 </script>
