@@ -183,8 +183,10 @@
           </ul>
             
           </div>
+
           <div class="fr blog_view_link">
-            <a href="<?php echo base_url('blog/read_more/'.$blog['id'])?>"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+
+            <a onclick="read_more('<?php echo $blog['id']; ?>')"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 </a>
           </div>
         </div>
@@ -235,105 +237,9 @@
           </li>
           <li></li>
         </ul>
-      </div>  
-      <div class="latest_post_posts">
-        <ul>
-          <li> 
-          <div class="post_inside_data">
-          <div class="post_latest_left">
-            <div class="lateaqt_post_img">
-              <img src="img/pic.jpg">
-            </div>
-          </div>  
-            <div class="post_latest_right">
-            <div>
-              <sapn class="rifght_fname"> Business </sapn>
-            </div>
-          
-            <div>
-              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
-            </div>  
-            </div>
-
-          </div>
-
-          </li>
-          <li></li>
-        </ul>
-      </div>  <div class="latest_post_posts">
-        <ul>
-          <li> 
-          <div class="post_inside_data">
-          <div class="post_latest_left">
-            <div class="lateaqt_post_img">
-              <img src="img/pic.jpg">
-            </div>
-          </div>  
-            <div class="post_latest_right">
-            <div>
-              <sapn class="rifght_fname"> Business </sapn>
-            </div>
-          
-            <div>
-              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
-            </div>  
-            </div>
-
-          </div>
-
-          </li>
-          <li></li>
-        </ul>
-      </div>  <div class="latest_post_posts">
-        <ul>
-          <li> 
-          <div class="post_inside_data">
-          <div class="post_latest_left">
-            <div class="lateaqt_post_img">
-              <img src="img/pic.jpg">
-            </div>
-          </div>  
-            <div class="post_latest_right">
-            <div>
-              <sapn class="rifght_fname"> Business </sapn>
-            </div>
-          
-            <div>
-              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
-            </div>  
-            </div>
-
-          </div>
-
-          </li>
-          <li></li>
-        </ul>
-      </div>  <div class="latest_post_posts">
-        <ul>
-          <li> 
-          <div class="post_inside_data">
-          <div class="post_latest_left">
-            <div class="lateaqt_post_img">
-              <img src="img/pic.jpg">
-            </div>
-          </div>  
-            <div class="post_latest_right">
-            <div>
-              <sapn class="rifght_fname"> Business </sapn>
-            </div>
-          
-            <div>
-              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
-            </div>  
-            </div>
-
-          </div>
-
-          </li>
-          <li></li>
-        </ul>
-      </div>  
-      </div>
+      </div><!--latest_post_posts end -->
+     
+      </div><!--blog_latest_post end -->
      </div>
 
      </div>
@@ -344,3 +250,25 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+     
+function read_more(blog_id) {
+
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url()."blog/read_more" ?>',
+           data: 'blog_id=' + blog_id,         
+           // dataType: "html",
+           success: function (data) {
+               if (data == 1) 
+               {
+                  window.location= "<?php echo base_url() ?>blog/blogdetail";
+                   //redirect('blog/blogdetail');
+               }
+             
+           }
+       });
+   }
+</script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>

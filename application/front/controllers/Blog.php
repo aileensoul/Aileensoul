@@ -23,11 +23,33 @@ class Blog extends CI_Controller {
     //MAIN INDEX PAGE END   
 
     //READ MORE CLICK START
-    public function read_more($id)
+    public function read_more()
     { 
-        echo $id;die();
+        
+        $id=$_POST['blog_id'];
+
+        //FOR INSERT READ MORE BLOG START
+        $data = array(
+                    'blog_id' => $id,
+                    'visiter_date' => date('Y-m-d H:i:s')
+                ); 
+         $insert_id = $this->common->insert_data_getid($data, 'blog_visit');
+               
+         //FOR INSERT READ MORE BLOG END
+
+        if ($insert_id) 
+        {
+            echo 1;
+        } 
+        else 
+        {
+            echo 0;
+        }
 
     }
     //READ MORE CLICK END
-
+    public function blogdetail()
+    { 
+         $this->load->view('blog/blogdetail',$this->data);
+    }
   }  
