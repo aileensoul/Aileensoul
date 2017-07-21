@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
-                            <?php
+                            <?php 
                             if ($message_to_profile == 1) {
                                 $last_user_image = $last_user_data['user_image'];
                                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
@@ -222,7 +222,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="chat-num-messages"> <?php
                                         echo $last_user_data['designation'];
-                                        ;
+                                      
                                         ?></div>
                                 </div>
                             </a>
