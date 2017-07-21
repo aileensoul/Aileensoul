@@ -1549,7 +1549,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] .  ' ' . $last_user_data[0]['lname'];
-            if (last_user_data[0]['job_user_image'] != '') {
+            if ($last_user_data[0]['job_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1580,7 +1580,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] .  ' ' . $last_user_data[0]['rec_lastname'];
-            if (last_user_data[0]['recruiter_user_image'] != '') {
+            if ($last_user_data[0]['recruiter_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1613,7 +1613,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] .  ' ' . $last_user_data[0]['username'];
-            if (last_user_data[0]['freelancer_hire_user_image'] != '') {
+            if ($last_user_data[0]['freelancer_hire_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1644,7 +1644,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] .  ' ' . $last_user_data[0]['freelancer_post_username'];
-            if (last_user_data[0]['freelancer_post_user_image'] != '') {
+            if ($last_user_data[0]['freelancer_post_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1672,7 +1672,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['company_name'];
-            if (last_user_data[0]['business_user_image'] != '') {
+            if ($last_user_data[0]['business_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1702,7 +1702,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['art_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['art_name'] .  ' ' . $last_user_data[0]['art_lastname'];
-            if (last_user_data[0]['art_user_image'] != '') {
+            if ($last_user_data[0]['art_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['art_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
