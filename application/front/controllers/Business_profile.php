@@ -1115,7 +1115,7 @@ class Business_profile extends MY_Controller {
         //if user deactive profile then redirect to business_profile/index untill active profile End
 
 
-        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $contition_array = array('user_id' => $userid, 'status' => '1', 'business_step' => '4');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($this->data['businessdata']); die(); 
@@ -1356,12 +1356,12 @@ class Business_profile extends MY_Controller {
         $this->data['demo'] = array_values($result1);
         // echo '<pre>'; print_r($result); die();
 
-
-
-
-
+        if($this->data['businessdata']){
 
         $this->load->view('business_profile/business_profile_post', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
     public function business_profile_manage_post($id = "") {
@@ -1386,7 +1386,7 @@ class Business_profile extends MY_Controller {
         $slug_id = $this->data['slug_data'][0]['business_slug'];
         if ($id == $slug_id || $id == '') {
 
-            $contition_array = array('business_slug' => $slug_id, 'status' => '1');
+            $contition_array = array('business_slug' => $slug_id, 'status' => '1', 'business_step' => '4');
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'status' => 1, 'is_delete' => '0');
@@ -1467,7 +1467,12 @@ class Business_profile extends MY_Controller {
         $this->data['demo'] = $result1;
         // echo '<pre>'; print_r($result1); die();
         //echo "<pre>"; print_r($this->data['business_profile_data']); die();
+
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_profile_manage_post', $this->data);
+      }else{
+            redirect('business_profile/');
+      }
 
         // save post end       
     }
@@ -3182,8 +3187,11 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
 
-
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_resume', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
     public function business_user_post($id) {
@@ -3345,7 +3353,7 @@ class Business_profile extends MY_Controller {
         //if user deactive profile then redirect to business_profile/index untill active profile End
         $artdata = $this->data['artdata'] = $this->common->select_data_by_id('business_profile', 'user_id', $userid, $data = '*');
 
-        $contition_array = array('user_id' => $userid);
+        $contition_array = array('business_step' => 4,'user_id' => $userid);
         $this->data['artisticdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -3433,13 +3441,11 @@ class Business_profile extends MY_Controller {
 
 
 
-
-
-
-
-
-
+        if($this->data['artisticdata']){
         $this->load->view('business_profile/business_userlist', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
     public function follow() {
@@ -3799,7 +3805,7 @@ class Business_profile extends MY_Controller {
         }
         //if user deactive profile then redirect to business_profile/index untill active profile End
 
-        $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1, 'business_step' => '4');
 
         $artdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $slugid = $artdata[0]['business_slug'];
@@ -3899,7 +3905,13 @@ class Business_profile extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
         //echo "<pre>"; print_r($this->data['userlist']); die();
+        if($this->data['artisticdata']){
+
         $this->load->view('business_profile/business_followers', $this->data);
+       }else{
+            redirect('business_profile/');
+
+       }
     }
 
     public function following($id = "") {
@@ -3915,7 +3927,7 @@ class Business_profile extends MY_Controller {
         }
         //if user deactive profile then redirect to business_profile/index untill active profile End
 
-        $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
+        $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1, 'business_step' => '4');
 
         $artdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4015,12 +4027,12 @@ class Business_profile extends MY_Controller {
 
 
 
-
-
-
-
-
+        if($this->data['artisticdata']){
         $this->load->view('business_profile/business_following', $this->data);
+       }else{
+            redirect('business_profile/');
+
+       }
     }
 
 // end of user list
@@ -5609,7 +5621,7 @@ class Business_profile extends MY_Controller {
             redirect('business_profile/');
         }
         //if user deactive profile then redirect to business_profile/index untill active profile End
-        $contition_array = array('user_id' => $userid, 'status' => '1');
+        $contition_array = array('user_id' => $userid, 'status' => '1', 'business_step' => '4');
         $this->data['businessdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
@@ -5673,7 +5685,11 @@ class Business_profile extends MY_Controller {
         $this->data['demo'] = $result1;
 
         //echo "<pre>"; print_r($this->data['art_data']);die();
+        if($this->data['businessdata']){
         $this->load->view('business_profile/postnewpage', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
 // click on post after post open on new page end 
@@ -6076,8 +6092,12 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
+        if($this->data['businessdata1']){
 
         $this->load->view('business_profile/business_photos', $this->data);
+         }else{
+            redirect('business_profile/');
+       }
     }
 
 //multiple iamge for manage user end   
@@ -6177,8 +6197,11 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
-
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_videos', $this->data);
+        }else{
+            redirect('business_profile/');
+       }
     }
 
 //multiple video for manage user end 
@@ -6281,7 +6304,13 @@ class Business_profile extends MY_Controller {
 
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
+
+        if($this->data['businessdata1']){
+
         $this->load->view('business_profile/business_audios', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
 //multiple audio for manage user end   
@@ -6383,7 +6412,12 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_pdf', $this->data);
+        }else{
+            redirect('business_profile/');
+
+        }
     }
 
 //multiple pdf for manage user end 
@@ -10352,7 +10386,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['busuid'] = $busuid = $this->session->userdata('aileenuser');
 
-            $contition_array = array('user_id' => $busuid, 'is_deleted' => 0, 'status' => 1);
+            $contition_array = array('business_step' => '4','user_id' => $busuid, 'is_deleted' => 0, 'status' => 1);
 
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -10366,7 +10400,7 @@ class Business_profile extends MY_Controller {
         } else {
 
 
-            $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
+            $contition_array = array('business_step' => '4', 'business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
 
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -10440,7 +10474,11 @@ class Business_profile extends MY_Controller {
 
 
         //echo "<pre>"; print_r($unique_user); die();
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/bus_contact', $this->data);
+       }else{
+            redirect('business_profile/');
+       }
     }
 
     public function removecontactuser() {
