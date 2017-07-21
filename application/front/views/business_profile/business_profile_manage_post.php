@@ -1915,7 +1915,7 @@
                         } else {
                             ?>
                             <div class="art_no_post_avl">
-                                <h3>Business Post</h3>
+                                <h3> Post</h3>
                                 <div class="art-img-nn">
                                     <div class="art_no_post_img">
 
