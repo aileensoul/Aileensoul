@@ -6734,8 +6734,8 @@ public function followtwo() {
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deleteimg"';
-                // $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'id="post_deleteimg"';
+                $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
+                //$cmtinsert .= 'id="post_deleteimg"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deleteimg(this.id)">';
