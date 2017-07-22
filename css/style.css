@@ -3884,14 +3884,15 @@ a:focus {
     .profile-content a h5{    color: #404040;
     line-height: 20px;
 font-size: 15px;}
-.main_compny_name{font-size: 18px;}
-.dc_cl_m{color: #8c8c8c;}
+.main_compny_name{font-size: 15px;}
+.dc_cl_m{color: #8c8c8c; padding-bottom: 8px; display: inline-block;}
 .main_data_cq {
     width: 98%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.connect-link a.cr-decline:hover {color: #136386; background-color: white;}
     .profile-content a p{color: #8c8c8c; float: left;
         width: 100%; text-align: center;
     font-family: robotoregular;}
