@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 Delete history
                             </a>
                         </div>
-                        <div class="chat-history">
+                        <div class="chat-history" id="chat-history">
                             <ul  id="received" class="padding_less_right">
 
                             </ul>
@@ -247,7 +247,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -301,7 +301,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="chat-num-messages"></div>
                             </div>
                         </div>
-                        <div class="chat-history">
+                        <div class="chat-history" id="chat-history">
                             <ul id="received" class="padding_less_right">
 
                             </ul>
@@ -314,7 +314,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -739,10 +739,9 @@ setInterval(function () {
                 $('.' + 'status' + curuser).html(print_message);
             }
 
-            var $cont = $('.chat-history');
-            $cont[0].scrollTop = $cont[0].scrollHeight;
-
             $("#received").html($("#received").html() + html);
+            $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
+
         });
 
         $('#received').animate({scrollTop: $('#received').height()}, 1000);
@@ -844,15 +843,15 @@ setInterval(function () {
         var message_to_profile = <?php echo $message_to_profile ?>;
         var message_from_profile_id = <?php echo $message_from_profile_id ?>;
         var message_to_profile_id = <?php echo $message_to_profile_id ?>;
-        
+
         $.ajax({
             type: 'POST',
             url: '<?php echo base_url() ?>api/delete_history',
-            data: 'timestamp=' + request_timestamp + '&id=' + id  + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
+            data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
 //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
             dataType: "html",
             success: function (data) {
-                if(data == 1){
+                if (data == 1) {
                     $('ul#received li').hide();
                 }
             }
@@ -991,7 +990,7 @@ setInterval(function () {
     })
 
 
-    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
+//    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>
 
 <script type="text/javascript">

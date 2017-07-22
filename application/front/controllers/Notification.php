@@ -2195,7 +2195,8 @@ class Notification extends MY_Controller {
 
 
             $notmsg .= '' . str_replace('\\', '', $msg['message']) . '';
-            $notmsg .= '</div><div class="data_noti_msg"><i class="clockimg" ></i><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
+            $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
+//            $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">'. $not[0]['not_created_date'] . '</span></div>';
             $notmsg .= '</div></div></a></li>';
         }
         $notmsg .= '</div>';
