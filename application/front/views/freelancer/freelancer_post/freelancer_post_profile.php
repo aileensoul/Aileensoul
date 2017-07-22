@@ -1604,7 +1604,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
                             var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && keyword == "") {
+                            if (keyword == "" && place == "") {
                                 return false;
                             }
                         }

@@ -809,7 +809,7 @@ if ($postdata) {
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
                             var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && keyword == "") {
+                            if (keyword == "" && place == "") {
                                 return false;
                             }
                         }
