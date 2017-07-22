@@ -2338,6 +2338,7 @@ ul.business_pf_ct_person_detail li b {
     padding-bottom: 30px;
     font-weight: bold;
 }
+.panel-body fieldset textarea#varmailformat{word-break: break-all; word-break: break-word;}
 .job-post-detail .job-post-title .button {
     padding: 6px 16px;
     text-transform: capitalize;

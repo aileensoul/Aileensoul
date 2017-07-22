@@ -142,7 +142,7 @@
                         <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
                             
                           <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
+                                   <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
                                    <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
                           
@@ -272,7 +272,7 @@
                         <b><h2 class="freelancer_editpost_title">Payment For Freelancer : </h2></b>
                          </fieldset>
                          
-                          <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
+                          <fieldset style="" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
                             <label  class="control-label">Rate:<span style="color:red">*</span></label>
                             <input tabindex="8" name="rate" type="number" id="rate" placeholder="Enter Your rate" min='1'/>
                                 <span id="fullname-error"></span>
@@ -293,7 +293,7 @@
                              <?php echo form_error('currency'); ?>
 </fieldset>
 
-<fieldset class="col-md-4">
+<fieldset class="col-md-4 mgrd">
 
 <label> Work Type</label>  <input type="radio" tabindex="10" class="worktype_minheight" name="rating" value="0" checked> Hourly
   <input type="radio"  name="rating" value="1"> Fixed
