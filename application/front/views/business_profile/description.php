@@ -369,7 +369,7 @@
     });
 
 </script>
-<script>
+<!-- <script>
    jQuery.noConflict();
    
    (function ($) {
@@ -404,8 +404,8 @@
    
    })(jQuery);
    
-</script>
-<script>
+</script> -->
+<!-- <script>
    jQuery.noConflict();
    
    (function ($) {
@@ -441,7 +441,7 @@
    })(jQuery);
    
 </script>
-
+ -->
 <script type="text/javascript">
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
