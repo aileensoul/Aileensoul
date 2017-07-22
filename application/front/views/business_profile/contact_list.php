@@ -40,14 +40,94 @@
         border-bottom: 1px solid;
     }
 </style>
-<div class="user-midd-section" id="paddingtop_fixed">
+
+        <div class="col-md-4 col-xs-12  hidden-md hidden-sm hidden-lg pt120 ">
+                <div class="common-form ">
+                <div class="main_cqlist-1"> 
+                    <div class="contact-list ">
+                        <h3 class="list-title">Contact Request Notifications</h3>
+                        <div class="noti_cq">
+                            
+                             <div class="cq_post">
+        <ul>
+
+
+       <?php if ($friendlist_con) { //echo "hii";
+                                foreach ($friendlist_con as $friend) {
+                                
+                                    ?>
+
+
+                                    <?php
+                                    $userid = $this->session->userdata('aileenuser');
+
+
+                                    if ($friend['contact_from_id'] == $userid) {
+                                        ?>
+          <li> 
+          <div class="cq_main_lp">
+          <div class="cq_latest_left">
+            <div class="cq_post_img">
+
+              <?php if ($friend['business_user_image'] != '') { ?>
+               <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $friend['business_user_image']); ?>">
+                        </a>
+             <?php } else { ?>
+              <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+                    <img src="<?php echo base_url(NOIMAGE); ?>" />
+                    </a>
+                <?php } ?>
+                                                            
+
+            </div>
+          </div>  
+            <div class="cq_latest_right">
+            <div class="cq_desc_post">
+              <sapn class="rifght_fname">  
+               <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+              <span class="main_name">
+              <?php echo ucwords($friend['company_name']); ?> 
+              </span>
+              </a>
+              <span style="color: #8c8c8c;">confirmed your contact request .</span>
+              </sapn>
+            </div>
+          
+            <div class="cq_desc_post">
+              <sapn class="cq_rifght_desc">  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($friend['modify_date'])));  ?> </sapn>
+            </div>  
+            </div>
+
+
+
+          </div>
+
+          </li>
+        <?php } } }else{?>
+
+         <li>
+          <div class="cq_main_lp">
+         No contact request  available...
+         </div>
+         </li>
+        <?php }?>
+        </ul>
+      </div>
+                        </div>
+                    </div>  
+                    </div>
+            </div>
+</div>
+<div class="user-midd-section" id="paddingtop_fixed pt_mn">
+
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-10">
+            <div class="col-md-8 col-sm-7 pt120 pt_mn2">
                 <div class="common-form main_cqlist">
 
                     <div class="contact-list">
-                        <h3 class="list-title"> Contact Request</h3>
+                        <h3 class="list-title list-title2"> Contact Request</h3>
 
                     </div>  
                     <div class="all-list">
@@ -109,7 +189,7 @@
                                     <?php } ?>
 
                                 <?php }
-                            } else { //echo "hii"; die();
+                            } else { //echo "hi"i; die();
                                 ?>
                                 <li>
                                
@@ -123,7 +203,7 @@
                 </div>
                 <!-- END PAGE TITLE -->
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-sm-5 pt120 hidden-xs ">
                 <div class="common-form ">
                 <div class="main_cqlist-1"> 
                     <div class="contact-list ">

@@ -213,6 +213,8 @@
      <div class="comment_box">
      <h3>Give Comment</h3>
 
+<?php echo form_open_multipart(array('id' => 'comment', 'name' => 'comment', 'class' => 'clearfix')); ?>
+
        <fieldset class="full-width comment_foem">
          <label>Name </label>
        <input type="text" name="name" id="name" placeholder="Enter your name">
@@ -228,9 +230,10 @@
        </fieldset>
        <fieldset class="comment_foem">
        
-         <button onclick="comment_insert('<?php echo $blog_detail[0]['id']; ?>')">Send a Comment</button>
+         <input type="button" onclick="comment_insert('<?php echo $blog_detail[0]['id']; ?>')" value="Send a Comment">
        </fieldset>
-    
+  </form>
+</div>
       </div>
     
 

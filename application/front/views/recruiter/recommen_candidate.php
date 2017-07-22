@@ -33,7 +33,7 @@
                
                 <?php
                  $image_ori = $recruiterdata1[0]['profile_background'];
-                if ($image_ori) {
+                if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
                         //echo "hii"; die();
                                                                                               ?>
                    <!-- box image start -->
@@ -54,7 +54,7 @@
                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
-                                                if ($recruiterdata1[0]['recruiter_user_image'] != '') {
+                                                if (file_exists($this->config->item('rec_profile_thumb_upload_path').$recruiterdata1[0]['recruiter_user_image'])) {
                                                     // echo "hii"; die();
                                                     ?>
                        <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
@@ -145,7 +145,9 @@
           <div style="display: inline-block; float: left;">
              <div  class="buisness-profile-pic-candidate">
                <?php
-                if ($row['job_user_image']) {
+
+               if (file_exists($this->config->item('job_profile_thumb_upload_path').$row['job_user_image'])) {
+                
                ?>
            <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
            <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $row['job_user_image']); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>">
@@ -808,6 +810,61 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                             });
                     </script>
                     
+                                     <script>
+                                                            var data = <?php echo json_encode($demo); ?>;
+//alert(data);
+                                                            $(function () {
+// alert('hi');
+                                                                $("#tags1").autocomplete({
+                                                                    source: function (request, response) {
+                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                        response($.grep(data, function (item) {
+                                                                            return matcher.test(item.label);
+                                                                        }));
+                                                                    },
+                                                                    minLength: 1,
+                                                                    select: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags1").val(ui.item.label);
+                                                                        $("#selected-tag").val(ui.item.label);
+                                                                        // window.location.href = ui.item.value;
+                                                                    }
+                                                                    ,
+                                                                    focus: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#tags1").val(ui.item.label);
+                                                                    }
+                                                                });
+                                                            });
+                    </script>
+
+                    <script>
+                                                            var data1 = <?php echo json_encode($de); ?>;
+//alert(data);
+                                                            $(function () {
+// alert('hi');
+                                                                $("#searchplace1").autocomplete({
+                                                                    source: function (request, response) {
+                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                        response($.grep(data1, function (item) {
+                                                                            return matcher.test(item.label);
+                                                                        }));
+                                                                    },
+                                                                    minLength: 1,
+                                                                    select: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#searchplace1").val(ui.item.label);
+                                                                        $("#selected-tag").val(ui.item.label);
+                                                                        // window.location.href = ui.item.value;
+                                                                    }
+                                                                    ,
+                                                                    focus: function (event, ui) {
+                                                                        event.preventDefault();
+                                                                        $("#searchplace1").val(ui.item.label);
+                                                                    }
+                                                                });
+                                                            });
+                    </script>
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");
@@ -817,6 +874,16 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                             // alert(searchplace);
                             if (searchkeyword == "" && searchplace == "") {
                                 //    alert('Please enter Keyword');
+                                return false;
+                            }
+                        }
+                    </script>
+
+                    <script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
                                 return false;
                             }
                         }

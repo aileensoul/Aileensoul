@@ -25,8 +25,8 @@
                                     <button type="button" class="close">×</button>
                                     <form  action=<?php echo base_url('search/recruiter_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="text" id="tags" name="skills" placeholder="Find Persons">
-                                            <input type="text" id="searchplace" name="searchplace" placeholder="Find Location">
+                                            <input type="text" id="tags1" name="skills" placeholder="Find Persons">
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Location">
                                             <input type="submit" name="search_submit" value="Search" class="btn btn-primary"></button>
                                         </div>
                                     </form>
