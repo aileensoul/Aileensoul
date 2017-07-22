@@ -10276,7 +10276,7 @@ class Business_profile extends MY_Controller {
         $friendlist_con = $this->data['friendlist_con'] = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-        $this->data['friendlist'] = array_merge($friendlist_con, $friendlist_req);
+        //$this->data['friendlist'] = array_merge($friendlist_con, $friendlist_req);
 
 
 
