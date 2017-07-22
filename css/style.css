@@ -2342,6 +2342,7 @@ ul.business_pf_ct_person_detail li b {
     padding: 6px 16px;
     text-transform: capitalize;
 }
+.common-form fieldset.mgrd input{margin: 0px 10px; }
 .job-post-detail .job-post-title .button:hover {
     color: #ffffff;
     background-color: #000;

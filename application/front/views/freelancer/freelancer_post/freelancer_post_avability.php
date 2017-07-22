@@ -97,7 +97,7 @@ $job_type = form_error('job_type');
 $work_hour = form_error('work_hour');
 ?>
 
-                            <fieldset class="col-md-4" <?php if ($inweek) { ?> class="error-msg" <?php } ?>>
+                            <fieldset class="col-md-5 mgrd" <?php if ($inweek) { ?> class="error-msg" <?php } ?>>
                             <label> Working As</label>
                                 <input type="radio" tabindex="1" autofocus name="job_type" id="job_type" value="Full Time" <?php if ($job_type1 == 'Full Time') {
                                     echo 'checked';
