@@ -253,7 +253,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 #notification_inside h6{height:25px;}
 .notification-data-inside .clockimg{display:none;}
 .notifications li .notification-data-inside div{padding-left:0;}
-
+.custom-row .user-pic:hover a{width:100%;}
 
 
 @media screen and (max-width: 1200px) {
