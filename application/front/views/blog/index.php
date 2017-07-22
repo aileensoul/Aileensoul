@@ -81,12 +81,14 @@
   <div class="container">
     <div class="row">
 
+
+    
+<div class="blog_post_outer col-md-9 col-sm-8 pr0">
 <?php
       foreach ($blog_detail as $blog) 
       {
 ?>
-    
-<div class="blog_post_outer col-md-9 col-sm-8 pr0">
+<div class="blog_main_o">
     <div class="date_blog_left">
       <div class="blog-date-change">
         <div class="blog-month blog-picker">
@@ -196,12 +198,13 @@
 
      </div>
      </div>
+     </div>
   
-
-</div>
 <?php
       }//for loop end
 ?>
+</div>
+
      <div class="col-md-3 col-sm-4 hidden-xs">
       <div class="blog_search">
         <h6> Blog Search </h6>
@@ -213,22 +216,29 @@
       </div>
       <div class="blog_latest_post">
         <h3>Latest Post</h3>
+
+      <?php
+          foreach($blog_last as $blog)
+          {
+      ?>
       <div class="latest_post_posts">
         <ul>
           <li> 
           <div class="post_inside_data">
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
-              <img src="img/pic.jpg">
+
+              <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" >
+
             </div>
           </div>  
             <div class="post_latest_right">
             <div>
-              <sapn class="rifght_fname"> Business </sapn>
+              <sapn class="rifght_fname"> <?php echo $blog['title'];?> </sapn>
             </div>
           
             <div>
-              <sapn class="rifght_desc"> Lorem ipsum dolor sit amet, consectetuer. </sapn>
+              <sapn class="rifght_desc"> <?php echo $blog['description'];?> </sapn>
             </div>  
             </div>
 
@@ -238,6 +248,9 @@
           <li></li>
         </ul>
       </div><!--latest_post_posts end -->
+    <?php
+          }//for loop end
+    ?>
      
       </div><!--blog_latest_post end -->
      </div>
@@ -263,7 +276,7 @@ function read_more(blog_id) {
            success: function (data) {
                if (data == 1) 
                {
-                  window.location= "<?php echo base_url() ?>blog/blogdetail";
+                  window.location= "<?php echo base_url() ?>blog/blogdetail/" + blog_id;
                    //redirect('blog/blogdetail');
                }
              
