@@ -42,8 +42,8 @@
                                     <button type="button" class="close">×</button>
                                     <form action=<?php echo base_url('search/job_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="search" id="tags" name="skills" value="" placeholder="Find Your Job" />
-                                            <input type="search" id="searchplace" name="searchplace" value="" placeholder="Find Your Location" />
+                                            <input type="search" id="tags1" name="skills" value="" placeholder="Find Your Job" />
+                                            <input type="search" id="searchplace1" name="searchplace" value="" placeholder="Find Your Location" />
                                             <button type="submit"  id="search_btn" class="btn btn-primary">Search</button>
                                         </div>
                                     </form>

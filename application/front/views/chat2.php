@@ -236,47 +236,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="panel-footer">
                             <div class="clearfix">
-                                <!-- <div class="col-md-3">
-                                  <div class="input-group">
-                                    <span class="input-group-addon">
-                                      Nickname:
-                                    </span>
-                                    <input id="nickname" type="text" class="form-control input-sm" placeholder="Nickname..." />
-                                  </div>
-                                </div> -->
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
-
-                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
-
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
                                             <div for="smily"  class="smily_b" >
                                                 <div id="notification_li1" >
                                                     <a class="smil" href="#" id="notificationLink1" ">
                                                         <i class="em em-blush"></i></a>
-
-                                                    <div id="notificationContainer1" style="display: none;
-                                                         ">
-
+                                                    <div id="notificationContainer1" style="display: none;">
                                                         <div id="notificationsBody1" class="notifications1">
                                                             <?php
                                                             $i = 0;
                                                             foreach ($smiley_table as $key => $value) {
                                                                 ?>
-
                                                                 <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
-
                                                                 <?php
                                                                 $i++;
                                                             }
                                                             ?>
                                                         </div>
-
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </form>
 
@@ -292,9 +273,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix ">
-
-
-
                             <div class="chat-about">
                                 <div class="chat-with">
                                 </div>
@@ -303,34 +281,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="chat-history" id="chat-history">
                             <ul id="received" class="padding_less_right">
-
                             </ul>
-
                         </div>
-
                         <div class="panel-footer">
                             <div class="clearfix">
-
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
-
-                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
-
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
                                             <div for="smily"  class="smily_b">
                                                 <div id="notification_li" >
                                                     <a href="#" id="notificationLink"><i class="em em-blush"></i></a>
-
-                                                    <div id="notificationContainer" style="display: none;
-                                                         ">
-
+                                                    <div id="notificationContainer" style="display: none;">
                                                         <div id="notificationsBody" class="notifications"></div>
-
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </form>
 
@@ -369,197 +334,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if (screen.width <= 767) {
             document.getElementById('chat').style.display = 'none';
         }
-    });</script>
-<!--<script type="text/javascript">
-var request_timestamp = 0;
-
-var setCookie = function (key, value) {
-    var expires = new Date();
-    expires.setTime(expires.getTime() + (5 * 60 * 1000));
-    document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
-}
-
-var getCookie = function (key) {
-    var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
-    return keyValue ? keyValue[2] : null;
-}
-
-var guid = function () {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
-if (getCookie('user_guid') == null || typeof (getCookie('user_guid')) == 'undefined') {
-    var user_guid = guid();
-    setCookie('user_guid', user_guid);
-}
-
-
-var parseTimestamp = function (timestamp) {
-    var d = new Date(timestamp * 1000), // milliseconds
-            yyyy = d.getFullYear(),
-            mm = ('0' + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
-            dd = ('0' + d.getDate()).slice(-2), // Add leading 0.
-            hh = d.getHours(),
-            h = hh,
-            min = ('0' + d.getMinutes()).slice(-2), // Add leading 0.
-            ampm = 'AM',
-            timeString;
-
-    if (hh > 12) {
-        h = hh - 12;
-        ampm = 'PM';
-    } else if (hh === 12) {
-        h = 12;
-        ampm = 'PM';
-    } else if (hh == 0) {
-        h = 12;
-    }
-
-    timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
-
-    return timeString;
-}
-
-
-
-var sendChat = function (message, callback) {
-
-    var fname = '<?php echo $logfname; ?>';
-    var lname = '<?php echo $loglname; ?>';
-    var message = message;
-    var str = message.replace(/<div><br><\/div>/gi, "");
-
-
-    if (str == '') {
-        return false;
-    } else if (/^\s+$/gi.test(str))
-    {
-        return false;
-    } else {
-  
-       
-        $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-            callback();
-        });
-    }
-    
-}
-
-var append_chat_data = function (chat_data) {
-    chat_data.forEach(function (data) {
-        var is_me = data.guid == getCookie('user_guid');
-        var userid = '<?php echo $userid; ?>';
-        var curuser = data.message_from;
-        var touser = data.message_to;
-
-        if (curuser == userid) {
-            var timestamp = data.timestamp; // replace your timestamp
-            var date = new Date(timestamp * 1000);
-            var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-            console.log(formattedDate);
-         var print_message = data.message;
-        var print_message = print_message.replace(/"/gi, " ");
-        var print_message = print_message.replace(/%26amp;/gi, "&");
-            var html = ' <li class="clearfix">';
-            html += '   <div class="message-data align-right">';
-            html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
-            html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
-            html += ' </div>';
-            html += '     <div class="message other-message float-right">' + print_message + '</div>';
-            html += '</li>';
-
-            $('.' + 'status' + touser).html(print_message);
-        } else {
-
-            var timestamp = data.timestamp; // replace your timestamp
-            var date = new Date(timestamp * 1000);
-            var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-            console.log(formattedDate);
-          
-             var print_message = data.message;
-        var print_message = print_message.replace(/"/gi, " ");
-         var print_message = print_message.replace(/%26amp;/gi, "&"); 
-
-            var html = '<li> <div class="message-data">';
-            html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
-            html += '<span class="message-data-time">' + formattedDate + ' </span>';
-            html += ' </div>';
-            html += '     <div class="message my-message">' + data.message + '</div>';
-            html += '</li>';
-
-
-            $('.' + 'status' + curuser).html(print_message);
-        }
-
-        var $cont = $('.chat-history');
-        $cont[0].scrollTop = $cont[0].scrollHeight;
-
-        $("#received").html($("#received").html() + html);
     });
-
-    $('#received').animate({scrollTop: $('#received').height()}, 1000);
-}
-
-var update_chats = function () {
-    if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
-        var offset = 52560000; // 100 years min
-        request_timestamp = parseInt(Date.now() / 1000 - offset);
-    }
-    $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid ?>?timestamp=' + request_timestamp, function (data) {
-        append_chat_data(data);
-
-        var newIndex = data.length - 1;
-        if (typeof (data[newIndex]) != 'undefined') {
-            request_timestamp = data[newIndex].timestamp;
-        }
-    });
-}
-
-
-$('#submit').click(function (e) {
-    e.preventDefault();
-
-    var $field = $('#message');
-    var data = $('#message').html();
-
-    data = data.replace(/&nbsp;/gi, " ");
-    data = data.replace(/<br>$/, '');
-    if (data == '' || data == '<br>') {
-        return false;
-    }
-    if (/^\s+$/gi.test(data))
-    {
-        return false;
-    }
-    data = data.replace(/&/g, "%26");
-
-    if (data == "") {
-        return false;
-    }
-
-    $("#message").html("");
-
-    $field.addClass('disabled').attr('disabled', 'disabled');
-    sendChat(data, function () {
-        $field.val('').removeClass('disabled').removeAttr('disabled');
-    });
-});
-
-$('#message').keyup(function (e) {
-    if (e.which == 13 && !e.shiftKey) {
-        e.preventDefault();
-        $('#submit').trigger('click');
-    }
-});
-
-setInterval(function () {
-    update_chats();
-}, 1500);
-
-</script>-->
+</script>
 <script type="text/javascript">
     var request_timestamp = 0;
 
@@ -586,8 +362,6 @@ setInterval(function () {
         setCookie('user_guid', user_guid);
     }
 
-
-// https://gist.github.com/kmaida/6045266
     var parseTimestamp = function (timestamp) {
         var d = new Date(timestamp * 1000), // milliseconds
                 yyyy = d.getFullYear(),
@@ -610,11 +384,8 @@ setInterval(function () {
         }
 
         timeString = yyyy + '-' + mm + '-' + dd + ', ' + h + ':' + min + ' ' + ampm;
-
         return timeString;
     }
-
-
 
     var sendChat = function (message, callback) {
 
@@ -622,16 +393,6 @@ setInterval(function () {
         var lname = '<?php echo $loglname; ?>';
         var message = message;
         var str = message.replace(/<div><br><\/div>/gi, "");
-//        str = str.replace(/"/gi, "");
-//        var str = str.replace(/ /g, "");
-
-//        str = message.replace(/<div>/gi, "");
-//        str = str.replace(/<\/div>/gi, "");
-//        str = str.replace(/&nbsp;/gi, " ");
-//        str = str.replace(/<p><\/div>/gi, "");
-
-        //str = str.replace(/<br>/gi, "");
-        //if (str == '<div><br></div><div><br></div>' || str == '<div><br></div>') {
 
         if (str == '') {
             return false;
@@ -643,23 +404,6 @@ setInterval(function () {
                 callback();
             });
         }
-        /*$('#message').keypress(function (e) {
-         
-         if (e.keyCode == 13 && !e.shiftKey) {
-         e.preventDefault();
-         var sel = $("#message");
-         var txt = sel.html();
-         if (txt == '') {
-         return false;
-         } else {
-         $.getJSON('<?php echo base_url() . 'api/send_message/' . $toid ?>?message=' + txt + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-         callback();
-         });
-         }
-         }
-         }); */
-
-
     }
 
     var append_chat_data = function (chat_data) {
@@ -735,7 +479,6 @@ setInterval(function () {
                 html += '     <div class="message my-message"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + data.message + '</div>';
                 html += '</li>';
 
-
                 $('.' + 'status' + curuser).html(print_message);
             }
 
@@ -769,54 +512,50 @@ setInterval(function () {
         var $field = $('#message');
         var data = $('#message').html();
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
-//        alert(data);
-
-//        data = data.replace(/&nbsp;/gi, " ");
-//        data = data.replace(/<br>/gi, '');
-//        if (data == '' || data == '<br>') {
-//            return false;
-//        }
-//        if (/^\s+$/gi.test(data))
-//        {
-//            return false;
-//        }
-//        data = data.replace(/&/g, "%26");
-//
-//
-//        if (data == "") {
-//            return false;
-//        }
-
         $("#message").html("");
 
-        $field.addClass('disabled').attr('disabled', 'disabled');
         sendChat(data, function () {
-            $field.val('').removeClass('disabled').removeAttr('disabled');
         });
     });
 
-//    $('#message').keyup(function (e) {
-//        if (e.which == 13 && !e.shiftKey) {
-//            e.preventDefault();
-//            $('#submit').trigger('click');
-//        }else if (e.which == 13 && e.shiftKey) {
-//            pasteIntoInput(this, "\n");
-//        }
-//    });
-    $('#message').keyup(function (e) {
-        if (e.which == 13 && !e.shiftKey) {
+
+    $("#message").click(function () {
+        $(this).prop("contentEditable", true);
+    });
+    $('#message').keypress(function (e) {
+
+        if (e.keyCode == 13 && !e.shiftKey) {
             e.preventDefault();
-            var $field = $('#message');
-            var data = $('#message').html();
-            var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
-            var data = data.replace(/<br><br><br><br>/, '');
-            var data = data.replace(/<br>/, '');
-            if(data ==''){
+            var sel = $("#message");
+            var txt = sel.html();
+            txt = txt.replace(/&nbsp;/gi, " ");
+            txt = txt.replace(/<br>$/, '');
+            txt = txt.replace(/&gt;/gi, ">");
+            txt = txt.replace(/div/gi, "p");
+            if (txt == '' || txt == '<br>') {
                 return false;
             }
-            $('#submit').trigger('click');
+            if (/^\s+$/gi.test(txt))
+            {
+                return false;
+            }
+            data = txt.replace(/&/g, "%26");
+            $('#message').html("");
+
+            sendChat(data, function () {
+            });
+
+            if (window.preventDuplicateKeyPresses)
+                return;
+            window.preventDuplicateKeyPresses = true;
+            window.setTimeout(function () {
+                window.preventDuplicateKeyPresses = false;
+            }, 500);
+
+
         }
     });
+
 
     setInterval(function () {
         update_chats();
@@ -824,6 +563,22 @@ setInterval(function () {
 
 </script>
 
+<script type="text/javascript">
+    if (e.which == 13 && !e.shiftKey) {
+        e.preventDefault();
+        var $field = $('#message');
+        var data = $('#message').html();
+        alert(data);
+        var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+        var data = data.replace(/<br><br><br><br>/, '');
+        var data = data.replace(/<br>/, '');
+        if (data == '') {
+            return false;
+        }
+        $('#submit').trigger('click');
+    }
+
+</script>
 <script type="text/javascript">
     function delete_chat(from, message_id) {
         $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this message?<div class='model_ok_cancel'><a class='okbtn' onClick='deleted_chat(" + from + ',' + message_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
@@ -893,59 +648,11 @@ setInterval(function () {
                     $('#userlist').html(data);
                 }
             });
-            // khyati chnages end
-
         });
     });
-
-
-    /* 
-     function enteruser()
-     {
-     
-     $(document).ready(function() {
-     
-     
-     $('#user_search').keypress(function() { 
-     
-     var val = $('#user_search').val();
-     // alert(val);
-     
-     //alert(val); return false;
-     // khyati chnages  start
-     
-     $.ajax({ 
-     type:'POST',
-     url:'<?php echo base_url() . "chat/userlisttwo" ?>',
-     data:'search_user='+val,
-     //     dataType: "json",
-     success:function(data){ 
-     $('input').each(function(){
-     //$(this).val('');
-     });
-     
-     //  $('.insertcomment' + clicked_id).html(data);
-     $('#userlist').html(data);
-     //   $('.insertcomment' + clicked_id).html(data.comment);
-     
-     }
-     }); 
-     
-     
-     // khyati chnages end
-     
-     
-     });
-     });
-     
-     }
-     */
 </script>
 
 <!-- user search list 20-4 end -->
-
-
-
 <script type="text/javascript">
     $(document).ready(function ()
     {

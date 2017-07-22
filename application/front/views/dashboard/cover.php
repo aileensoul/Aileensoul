@@ -196,7 +196,7 @@
              
 
 						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-								<img src="img/cam.png">Update Profile Picture</a>
+								<img src="img/u1.png">Update Profile Picture</a>
 	
 
 						</div>
