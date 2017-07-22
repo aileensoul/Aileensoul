@@ -867,6 +867,7 @@ img.aligncenter {
     font-size: 0;
     margin: 0;
     padding: 0;
+
 }
 .header ul li {
     float:left;
@@ -877,6 +878,7 @@ img.aligncenter {
     position: relative;
     height: 45px;
 }
+.header-left-menu ul{padding-bottom: 9px;}
 .header ul li ul li {height: auto;}
 .header ul li a {
     font-size: 18px;
@@ -9492,7 +9494,7 @@ position: relative;}
 .day-text{padding-top:6px;
 float: left;
 padding-left: 3px;}
-.day-text2{float: left; padding-left: 3px;}
+.day-text2{float: left;/* padding-left: 3px;*/}
 .clockimg{height: 13px; width: 13px; float: left; background-size: 100% !important; background: url("../img/clock.png") no-repeat;}
 
 #kkkk{color: #838384;
