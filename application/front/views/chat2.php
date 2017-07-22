@@ -120,17 +120,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?>">
 
                                                 <?php
-                                                if ($message_from_profile == 1) {
+                                                if ($message_from_profile == 2) {
                                                     $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                                                 }
 
-                                                if ($message_from_profile == 2) {
+                                                if ($message_from_profile == 1) {
                                                     $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                                                 }
-                                                if ($message_from_profile == 3) {
+                                                if ($message_from_profile == 4) {
                                                     $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                                                 }
-                                                if ($message_from_profile == 4) {
+                                                if ($message_from_profile == 3) {
                                                     $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                                                 }
                                                 if ($message_from_profile == 5) {

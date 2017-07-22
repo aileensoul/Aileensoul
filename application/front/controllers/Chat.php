@@ -800,48 +800,48 @@ class Chat extends MY_Controller {
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'job_reg.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'job_reg.job_id';
             $join_str1[0]['join_type'] = '';
 
             $seltousr = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 2) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'recruiter.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'recruiter.rec_id';
             $join_str1[0]['join_type'] = '';
             $contition_array = array('is_delete' => '0', 're_status' => '1');
             $seltousr = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_to,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str1[0]['join_type'] = '';
 
             $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
             $join_str1[0]['join_type'] = '';
 
             $seltousr = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 5) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'business_profile.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str1[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $seltousr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str1[0]['table'] = 'messages';
-            $join_str1[0]['join_table_id'] = 'messages.message_to';
-            $join_str1[0]['from_table_id'] = 'art_reg.user_id';
+            $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str1[0]['from_table_id'] = 'art_reg.art_id';
             $join_str1[0]['join_type'] = '';
 
             $seltousr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
@@ -855,48 +855,48 @@ class Chat extends MY_Controller {
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'job_reg.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'job_reg.job_id';
             $join_str2[0]['join_type'] = '';
 
             $selfromusr = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 2) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'recruiter.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'recruiter.rec_id';
             $join_str2[0]['join_type'] = '';
             $contition_array = array('is_delete' => '0', 're_status' => '1');
             $selfromusr = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_from,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str2[0]['join_type'] = '';
 
             $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
             $join_str2[0]['join_type'] = '';
 
             $selfromusr = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 5) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'business_profile.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str2[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $selfromusr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str2[0]['table'] = 'messages';
-            $join_str2[0]['join_table_id'] = 'messages.message_from';
-            $join_str2[0]['from_table_id'] = 'art_reg.user_id';
+            $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str2[0]['from_table_id'] = 'art_reg.art_id';
             $join_str2[0]['join_type'] = '';
 
             $selfromusr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
@@ -947,50 +947,50 @@ class Chat extends MY_Controller {
         $search_condition = "((message_from = '$userid') && (message_to != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         
         //20-7-2017@nkit
-        if ($message_from_profile == 1) {
+        if ($message_from_profile == 2) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'job_reg.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'job_reg.job_id';
             $join_str3[0]['join_type'] = '';
 
             $tolist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
-        if ($message_from_profile == 2) {
+        if ($message_from_profile == 1) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'recruiter.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'recruiter.rec_id';
             $join_str3[0]['join_type'] = '';
             $contition_array = array('is_delete' => '0', 're_status' => '1');
             $tolist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_to,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
-        if ($message_from_profile == 3) {
+        if ($message_from_profile == 4) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str3[0]['join_type'] = '';
 
             $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
-        if ($message_from_profile == 4) {
+        if ($message_from_profile == 3) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
             $join_str3[0]['join_type'] = '';
 
             $tolist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 5) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'business_profile.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str3[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str3[0]['table'] = 'messages';
-            $join_str3[0]['join_table_id'] = 'messages.message_to';
-            $join_str3[0]['from_table_id'] = 'art_reg.user_id';
+            $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
+            $join_str3[0]['from_table_id'] = 'art_reg.art_id';
             $join_str3[0]['join_type'] = '';
 
             $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
@@ -1009,7 +1009,6 @@ class Chat extends MY_Controller {
         // replace name of message_to in user_id
 
         $return_arrayto = array();
-
         foreach ($tolist as $to_list) {
             if ($to_list['message_to'] != $id) {
                 $return = array();
@@ -1033,48 +1032,48 @@ class Chat extends MY_Controller {
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'job_reg.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'job_reg.job_id';
             $join_str4[0]['join_type'] = '';
 
             $fromlist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 2) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'recruiter.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'recruiter.rec_id';
             $join_str4[0]['join_type'] = '';
             $contition_array = array('is_delete' => '0', 're_status' => '1');
             $fromlist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_from,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str4[0]['join_type'] = '';
 
             $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
             $join_str4[0]['join_type'] = '';
 
             $fromlist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 5) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'business_profile.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str4[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
             $fromlist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str4[0]['table'] = 'messages';
-            $join_str4[0]['join_table_id'] = 'messages.message_from';
-            $join_str4[0]['from_table_id'] = 'art_reg.user_id';
+            $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+            $join_str4[0]['from_table_id'] = 'art_reg.art_id';
             $join_str4[0]['join_type'] = '';
 
             $fromlist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
@@ -1107,7 +1106,7 @@ class Chat extends MY_Controller {
                 array_push($return_arrayfrom, $return);
             }
         }
-
+        
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
         // uniq array of fromlist  
@@ -1125,6 +1124,8 @@ class Chat extends MY_Controller {
         if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
+        
+        
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);
 
 //echo '<pre>'; print_r($this->data['userlist']); die();
@@ -1606,8 +1607,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'job_reg.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'job_reg.job_id';
                 $join_str7[0]['join_type'] = '';
 
 
@@ -1622,8 +1623,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('is_delete' => '0', 're_status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'recruiter.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'recruiter.rec_id';
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((rec_firstname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
@@ -1637,8 +1638,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
@@ -1652,8 +1653,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'freelancer_post_reg.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((freelancer_post_fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
@@ -1667,8 +1668,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'business_profile.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'business_profile.business_profile_id';
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((company_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
@@ -1682,8 +1683,8 @@ class Chat extends MY_Controller {
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
                 $join_str7[0]['table'] = 'messages';
-                $join_str7[0]['join_table_id'] = 'messages.message_to';
-                $join_str7[0]['from_table_id'] = 'art_reg.user_id';
+                $join_str7[0]['join_table_id'] = 'messages.message_to_profile_id';
+                $join_str7[0]['from_table_id'] = 'art_reg.art_id';
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((art_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
