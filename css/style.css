@@ -9509,6 +9509,7 @@ position: relative;}
 .cq_post ul{ padding: 0; float: left; width: 100%; }
 .cq_post ul li{list-style: none; float: left; width: 100%;}
 .cq_post_img{height: 68px;
+    border: 1px solid #d9d9d9;
 width: 68px;
 float: left;
 padding: 5px;
@@ -9516,7 +9517,10 @@ display: inline-block;}
 .cq_main_lp{float: left; width: 100%;   }
 .cq_post_img img{width: 100%; height: 100%;}
 .cq_latest_left{float: left;width: 18%;}
-.cq_latest_right{width: 82%; float: left;}
+.cq_latest_right{    width: 79%;
+    float: left;
+    margin-left: 10px;
+}
 .cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold;}
 /*Zalak 25-5*/
 .main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9;}
