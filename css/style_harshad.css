@@ -228,6 +228,10 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 #row2{border:1px solid #d9d9d9; border-top:0;}
 .chat_nobcx{margin-top:15px;}
 
+#search .new-search-input{height:215px;}
+#search .new-search-input .btn.btn-primary{width:auto;}
+.ui-autocomplete{z-index:9999 !important;}
+
 
 
 @media screen and (max-width: 1200px) {
