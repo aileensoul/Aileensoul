@@ -445,7 +445,7 @@
                                         <div id="<?php echo "khyati" . $busienss_data[0]['business_profile_post_id']; ?>" style="display:block;">
                                             <?php
                                             $small = substr($busienss_data[0]['product_description'], 0, 180);
-                                            echo $small;
+                                            echo $this->common->make_links($small);
                                             if (strlen($busienss_data[0]['product_description']) > 180) {
                                                 echo '... <span id="kkkk" onClick="khdiv(' . $busienss_data[0]['business_profile_post_id'] . ')">View More</span>';
                                             }
