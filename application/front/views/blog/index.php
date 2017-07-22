@@ -245,7 +245,7 @@
           </div>
 
           </li>
-          <li></li>
+        
         </ul>
       </div><!--latest_post_posts end -->
     <?php
