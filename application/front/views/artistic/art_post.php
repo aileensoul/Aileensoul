@@ -138,6 +138,22 @@
                         <?php } else { ?> 
                         <div class="data_img_2">
                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                          <!-- <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym .= $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 .= $w[0];
+                            }?>
+
+
+                            <?php echo  $acronym .' '. $acronym1;
+                           ?> -->
                         </div>
                         <?php } ?>
                         <!-- box image end -->
