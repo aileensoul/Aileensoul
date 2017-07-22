@@ -250,6 +250,9 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 	background-image: linear-gradient(to left, #6297BE 0%, #B85790 70%);
 
 }
+#notification_inside h6{height:25px;}
+.notification-data-inside .clockimg{display:none;}
+.notifications li .notification-data-inside div{padding-left:0;}
 
 
 

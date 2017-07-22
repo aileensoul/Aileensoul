@@ -59,6 +59,7 @@ $(window).load(function(){
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
+	 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
    
 </head>
@@ -205,6 +206,7 @@ $(window).load(function(){
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+
 <script type="text/javascript" charset="utf-8">
 
     function addmsg(type, msg)
@@ -963,28 +965,12 @@ A second common modern English style is to use no indenting, but add vertical wh
                 </div>
             </div>
         </div>
-        <div class="demo">
-            <h2>ADV</h2>
-            <div class="bOuter outer">
-                <div class="bInner inner">
-                    <h3>Lorem ipsum dolor sit amet</h3>
-                    <p>Fusce finibus, neque at euismod sagittis, turpis mi facilisis velit, id mattis nibh lacus non mi. Nulla lacus odio, tincidunt vitae nisl non, egestas iaculis arcu. Ut non purus non diam vestibulum dignissim id sed justo. Duis porttitor posuere turpis at cursus. Sed nec malesuada nulla. Quisque consectetur neque nec accumsan laoreet. Curabitur ut libero sed urna elementum mollis sit amet at lectus. Pellentesque nec mauris arcu. Suspendisse sodales nibh in risus aliquam pretium. Fusce semper commodo vulputate. Morbi tincidunt, leo ac pretium fermentum, mauris ipsum rutrum orci, at eleifend magna risus in orci.</p>
-                    <p>Duis neque ligula, varius vitae pharetra eu, vulputate at mauris. Aliquam in porttitor purus. Fusce vel neque odio. Morbi eget purus lobortis, ultrices nulla vel, interdum lorem. Etiam consequat pulvinar mi a pretium. Curabitur mi arcu, efficitur a mollis quis, aliquam ac justo. Sed odio arcu, interdum congue tincidunt eget, consequat quis turpis. Aliquam eu porta libero, et venenatis velit. In lorem enim, tempor imperdiet leo vitae, dapibus tempor nisl. Fusce ipsum nulla, lacinia eu risus ac, pulvinar posuere ligula. Nulla at purus arcu. Donec vel urna imperdiet, sagittis augue at, bibendum enim. Morbi a nisi purus. Vivamus magna erat, viverra non ante eget, viverra ultricies augue. Praesent condimentum, turpis fermentum lacinia pulvinar, nibh erat tempor ipsum, ut pulvinar lectus sapien sed ipsum. Cras ante dolor, eleifend a molestie ut, laoreet quis dolor.</p>
-                </div>
-            </div>
-        </div>
-        <div class="explain">
-            <button class="add">Add new content</button>
-            <button class="toBottom">Scroll to bottom</button>
-            <button class="to250">Scroll to 250px</button>
-            <button class="autoScroll">Infinite scrolling</button>
-        </div>
-        
-        <div class="ctn"></div>
+  
     </div>
 
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script type="text/javascript" src="<?php echo base_url('js/scrollbar.js'); ?>"></script> 
 <!--script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script-->
 <script>$(window).load(function() {
     <script src="<?php echo base_url('js/jquery.mCustomScrollbar.js'); ?>"></script>
@@ -1288,3 +1274,23 @@ function moveScrollTo(parent, scrollPosition) {
             });
         })(jQuery);
     </script>
+	<script>  
+    $(function() {  
+        /* 调用插件 */
+
+        var bodyScrollbar = $('body').scrollbar({
+            autoBottom: false,//内容改变，是否自动滚动到底部
+            backClass: 'bodyBackClass',
+            frontClass: 'bodyFrontClass',
+        });  
+        var aScrollbar = $('.aOuter').scrollbar({});  
+        
+
+
+
+      
+
+        
+    });  
+</script>  
+
