@@ -145,7 +145,7 @@
                         <?php
                     } else {
                         ?>
-                        <div class="bg-images">
+                        <div class="bg-images no-cover-upload">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
