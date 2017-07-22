@@ -1532,7 +1532,7 @@ class Notification extends MY_Controller {
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
-        // from job
+       // from job
         if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
             $message_from_profile_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1540,21 +1540,23 @@ class Notification extends MY_Controller {
 
             $this->data['message_from_profile'] = 1;
             $this->data['message_to_profile'] = 2;
-
-            // last user detail start
-            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+             // last user etail start
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
+            $last_user_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] . ' ' . $last_user_data[0]['lname'];
-            if ($last_user_data[0]['job_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] .  ' ' . $last_user_data[0]['rec_lastname'];
+            if  ($last_user_data[0]['recruiter_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
+
+           
         }
         if ($message_to_profile == 1) {
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
@@ -1563,7 +1565,7 @@ class Notification extends MY_Controller {
         }
 
         // from recruiter
-        if ($message_from_profile == 2) {
+        if ($message_from_profile == 2) { 
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 're_status' => '1');
             $message_from_profile_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $message_from_profile_id = $this->data['message_from_profile_id'] = $message_from_profile_data[0]['rec_id'];
@@ -1572,14 +1574,16 @@ class Notification extends MY_Controller {
             $this->data['message_from_profile'] = 2;
             $this->data['message_to_profile'] = 1;
 
-            // last user etail start
-            $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           
+            
+             // last user detail start
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] . ' ' . $last_user_data[0]['rec_lastname'];
-            if ($last_user_data[0]['recruiter_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] .  ' ' . $last_user_data[0]['lname'];
+             if ($last_user_data[0]['job_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
@@ -1604,21 +1608,22 @@ class Notification extends MY_Controller {
 
             $this->data['message_from_profile'] = 3;
             $this->data['message_to_profile'] = 4;
-
-            // last user detail start
+            
+             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] . ' ' . $last_user_data[0]['username'];
-            if ($last_user_data[0]['freelancer_hire_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
+            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] .  ' ' . $last_user_data[0]['freelancer_post_username'];
+            if  ($last_user_data[0]['freelancer_post_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
+           
         }
 
         if ($message_to_profile == 3) {
@@ -1636,14 +1641,16 @@ class Notification extends MY_Controller {
             $this->data['message_from_profile'] = 4;
             $this->data['message_to_profile'] = 3;
 
-            // last user detail start
+           
+            
+             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] . ' ' . $last_user_data[0]['freelancer_post_username'];
-            if ($last_user_data[0]['freelancer_post_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
+            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] .  ' ' . $last_user_data[0]['username'];
+            if  ($last_user_data[0]['freelancer_hire_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
@@ -1670,7 +1677,7 @@ class Notification extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['company_name'];
-            if ($last_user_data[0]['business_user_image'] != '') {
+            if  ($last_user_data[0]['business_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1699,8 +1706,8 @@ class Notification extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id,art_name,art_lastname,art_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['art_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['art_name'] . ' ' . $last_user_data[0]['art_lastname'];
-            if ($last_user_data[0]['art_user_image'] != '') {
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['art_name'] .  ' ' . $last_user_data[0]['art_lastname'];
+            if  ($last_user_data[0]['art_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['art_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
@@ -1717,7 +1724,7 @@ class Notification extends MY_Controller {
         }
 
         // last user if $id is null
-        $contition_array = array('id !=' => '', 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
@@ -1760,7 +1767,7 @@ class Notification extends MY_Controller {
 
         // last message user fetch
 
-        $contition_array = array('id !=' => '', 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$id' OR message_to = '$id')  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
@@ -1805,7 +1812,7 @@ class Notification extends MY_Controller {
         }
         // slected user chat to
 
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1');
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
 
         //20-7-2017@nkit
@@ -1857,12 +1864,12 @@ class Notification extends MY_Controller {
 
             $seltousr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
-
+        
         // slected user chat from
 
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1');
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-
+        
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str2[0]['table'] = 'messages';
@@ -1912,7 +1919,7 @@ class Notification extends MY_Controller {
 
             $selfromusr = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
-
+        
         $selectuser = array_merge($seltousr, $selfromusr);
         $selectuser = $this->aasort($selectuser, "id");
 
@@ -1927,7 +1934,7 @@ class Notification extends MY_Controller {
             if ($sel_list['message_to']) {
                 if ($sel_list['message_to'] == $id) {
                     $return['user_id'] = $sel_list['message_to'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'] .  ' ' . $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -1940,7 +1947,7 @@ class Notification extends MY_Controller {
             }else {
                 if ($sel_list['message_from'] == $id) {
                     $return['user_id'] = $sel_list['message_from'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'] .  ' ' . $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -1954,9 +1961,9 @@ class Notification extends MY_Controller {
         } array_push($return_arraysel, $return);
 
         // message to user
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid, 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
         $search_condition = "((message_from = '$userid') && (message_to != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-
+        
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str3[0]['table'] = 'messages';
@@ -2006,7 +2013,7 @@ class Notification extends MY_Controller {
 
             $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
-
+        
         // uniq array of tolist  
         foreach ($tolist as $k => $v) {
             foreach ($tolist as $key => $value) {
@@ -2027,7 +2034,7 @@ class Notification extends MY_Controller {
                 $return = $to_list;
 
                 $return['user_id'] = $to_list['message_to'];
-                $return['first_name'] = $to_list['first_name'] . ' ' . $to_list['last_name'];
+                $return['first_name'] = $to_list['first_name'] .  ' ' . $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
 
@@ -2038,9 +2045,9 @@ class Notification extends MY_Controller {
         }
 
         // message from user
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid, 'is_message_from_delete !=' => $userid, 'is_message_to_delete !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
         $search_condition = "((message_to = '$userid') && (message_from != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-
+        
         //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str4[0]['table'] = 'messages';
@@ -2090,7 +2097,7 @@ class Notification extends MY_Controller {
 
             $fromlist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
-
+        
         // uniq array of fromlist  
         foreach ($fromlist as $k => $v) {
             foreach ($fromlist as $key => $value) {
@@ -2136,11 +2143,8 @@ class Notification extends MY_Controller {
         if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
-
-        if ($user_message[0] == '') {
-            $user_message = array();
-        }
         $user_message = array_merge($return_arraysel, $userlist);
+       // $user_message = array_merge($return_arraysel, $userlist);
 
         foreach ($user_message as $msg) {
             
