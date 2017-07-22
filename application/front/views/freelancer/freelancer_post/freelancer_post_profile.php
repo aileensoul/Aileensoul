@@ -1289,7 +1289,7 @@ $( "#searchplace" ).autocomplete({
 <script>
                                                                                 var data = <?php echo json_encode($demo); ?>;
                                                                                 //alert(data);
-
+   
                                                                                 $(function () {
                                                                                     // alert('hi');
                                                                                     $("#tags1").autocomplete({
