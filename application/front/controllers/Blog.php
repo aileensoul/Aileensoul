@@ -52,21 +52,47 @@ class Blog extends CI_Controller {
 
     }
     //READ MORE CLICK END
+
+    //BLOGDETAIL FOR PERICULAR ONE POST START
     public function blogdetail($id)
     { 
          //FOR GETTING ALL DATA
         $condition_array = array('status !=' => 'delete');
         $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
-        //echo "<pre>";print_r( $this->data['blog_all']);die();
-
+      
         //FOR GETTING BLOG
         $condition_array = array('status !=' => 'delete','id' => $id);
         $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
-
+      
          //FOR GETTING 5 LAST DATA
         $condition_array = array('status !=' => 'delete');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
          $this->load->view('blog/blogdetail',$this->data);
+    }
+     //BLOGDETAIL FOR PERICULAR ONE POST END
+
+    public function comment_insert()
+    {
+        $id=$_POST['blog_id'];
+        echo $id;die();
+
+        //FOR INSERT READ MORE BLOG START
+        $data = array(
+                    'blog_id' => $id,
+                    'visiter_date' => date('Y-m-d H:i:s')
+                ); 
+         $insert_id = $this->common->insert_data_getid($data, 'blog_visit');
+               
+         //FOR INSERT READ MORE BLOG END
+
+        if ($insert_id) 
+        {
+            echo 1;
+        } 
+        else 
+        {
+            echo 0;
+        }
     }
   }  
