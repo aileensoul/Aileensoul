@@ -123,7 +123,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-7 pt120 ">
+            <div class="col-md-8 col-sm-7 pt120 pt_mn2">
                 <div class="common-form main_cqlist">
 
                     <div class="contact-list">

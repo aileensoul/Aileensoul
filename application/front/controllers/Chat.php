@@ -522,21 +522,23 @@ class Chat extends MY_Controller {
 
             $this->data['message_from_profile'] = 1;
             $this->data['message_to_profile'] = 2;
-
-            // last user detail start
-            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+             // last user etail start
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
+            $last_user_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] .  ' ' . $last_user_data[0]['lname'];
-             if ($last_user_data[0]['job_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] .  ' ' . $last_user_data[0]['rec_lastname'];
+            if  ($last_user_data[0]['recruiter_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
+
+           
         }
         if ($message_to_profile == 1) {
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
@@ -554,14 +556,16 @@ class Chat extends MY_Controller {
             $this->data['message_from_profile'] = 2;
             $this->data['message_to_profile'] = 1;
 
-            // last user etail start
-            $contition_array = array('user_id' => $id, 'is_delete' => '0', 're_status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           
+            
+             // last user detail start
+            $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
+            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] .  ' ' . $last_user_data[0]['rec_lastname'];
-            if  ($last_user_data[0]['recruiter_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] .  ' ' . $last_user_data[0]['lname'];
+             if ($last_user_data[0]['job_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
@@ -586,21 +590,22 @@ class Chat extends MY_Controller {
 
             $this->data['message_from_profile'] = 3;
             $this->data['message_to_profile'] = 4;
-
-            // last user detail start
+            
+             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] .  ' ' . $last_user_data[0]['username'];
-            if  ($last_user_data[0]['freelancer_hire_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
+            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] .  ' ' . $last_user_data[0]['freelancer_post_username'];
+            if  ($last_user_data[0]['freelancer_post_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
+           
         }
 
         if ($message_to_profile == 3) {
@@ -618,14 +623,16 @@ class Chat extends MY_Controller {
             $this->data['message_from_profile'] = 4;
             $this->data['message_to_profile'] = 3;
 
-            // last user detail start
+           
+            
+             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] .  ' ' . $last_user_data[0]['freelancer_post_username'];
-            if  ($last_user_data[0]['freelancer_post_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
+            $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
+            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] .  ' ' . $last_user_data[0]['username'];
+            if  ($last_user_data[0]['freelancer_hire_user_image'] != '') {
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
                 $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
             }
