@@ -106,6 +106,7 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b8a
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b8ab9', endColorstr='#3bb0ac',GradientType=0 ); 
 	
 }
+
 .btn1:focus{
 	opacity:0.6;
 }
@@ -1173,7 +1174,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', end
 	transition:none;
 	border-radius:4px;
 }
-.btn-4:hover{background:none !important; color:#000 !important;}
+
 
 .right-profile{/*width:56px; height:276px; position:fixed; right:0; top:100px; z-index:9;*/}
 .right-profile ul{padding-left:0;}
@@ -1212,7 +1213,13 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 .custom-box .custom-width .right-box p{font-size:20px; padding-top:20px;}
 .custom-box .custom-width .right-box .btns{padding-top:70px;}
 .custom-box .custom-width .right-box .btns a:hover{color:#1b83b9; text-decoration: underline;}
-.custom-box .custom-width .right-box .btns a.btn-4:hover{color:#1b83b9; text-decoration: none;}
+.custom-box .custom-width .right-box .btns a.btn-4:hover{text-decoration: none; background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b8ab9), color-stop(56%, #3bb0ac), color-stop(100%, #3bb0ac)); 
+	background: -webkit-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%); 
+	background: -o-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%);
+	background: -ms-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%); 
+	background: linear-gradient(354deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b8ab9', endColorstr='#3bb0ac',GradientType=0 ); 
+}
 .custom-box .custom-width .right-box .btns a.btn-1:hover{color:#1b83b9; text-decoration: none;}
 .custom-box .custom-width .right-box a{font-size:18px; color:#000; transition:none;}
 .custom-box.tabindex{padding-top:60px;}
