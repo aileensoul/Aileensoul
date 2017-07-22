@@ -2170,19 +2170,19 @@
     }
 
     function comment_deletedtwo(clicked_id)
-    {
-    var post_delete1 = document.getElementById("post_deletetwo");
-    //alert(post_delete.value);
+    {//alert("hii");
+    var post_deleteone = document.getElementById("post_deletetwo" + clicked_id);
+    //alert(post_deleteone.value);
     $.ajax({
     type: 'POST',
             url: '<?php echo base_url() . "business_profile/delete_commenttwo" ?>',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_deleteone.value,
             dataType: "json",
             success: function (data) {
             //alert('.' + 'insertcomment' + clicked_id);
-            $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+            $('.' + 'insertcommenttwo' + post_deleteone.value).html(data.comment);
             //$('#' + 'insertcount' + post_delete1.value).html(data.count);
-            $('.comment_count' + post_delete1.value).html(data.comment_count);
+            $('.comment_count' + post_deleteone.value).html(data.comment_count);
             $('.post-design-commnet-box').show();
             }
     });
