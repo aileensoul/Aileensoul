@@ -681,12 +681,10 @@ class Notification extends MY_Controller {
 
     public function update_msg_noti() {
         $userid = $this->session->userdata('aileenuser');
-
         //echo "<pre>"; print_r($data); die();
 
         $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
         $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'not_from_id');
-
 
         $data = array(
             'not_read' => 1
@@ -1719,7 +1717,7 @@ class Notification extends MY_Controller {
         }
 
         // last user if $id is null
-        $contition_array = array('id !=' => '');
+        $contition_array = array('id !=' => '','is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
@@ -1762,7 +1760,7 @@ class Notification extends MY_Controller {
 
         // last message user fetch
 
-        $contition_array = array('id !=' => '');
+        $contition_array = array('id !=' => '','is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "(message_from = '$id' OR message_to = '$id')  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
 
@@ -1807,7 +1805,7 @@ class Notification extends MY_Controller {
         }
         // slected user chat to
 
-        $contition_array = array('is_delete' => '0', 'status' => '1');
+        $contition_array = array('is_delete' => '0', 'status' => '1','is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
 
         //20-7-2017@nkit
@@ -1862,7 +1860,7 @@ class Notification extends MY_Controller {
         
         // slected user chat from
 
-        $contition_array = array('is_delete' => '0', 'status' => '1');
+        $contition_array = array('is_delete' => '0', 'status' => '1','is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         
         //20-7-2017@nkit
@@ -1956,7 +1954,7 @@ class Notification extends MY_Controller {
         } array_push($return_arraysel, $return);
 
         // message to user
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid,'is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "((message_from = '$userid') && (message_to != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         
         //20-7-2017@nkit
@@ -2040,7 +2038,7 @@ class Notification extends MY_Controller {
         }
 
         // message from user
-        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
+        $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid,'is_message_from_delete !=' => $userid,'is_message_to_delete !=' => $userid);
         $search_condition = "((message_to = '$userid') && (message_from != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
         
         //20-7-2017@nkit
