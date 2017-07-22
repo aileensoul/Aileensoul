@@ -233,7 +233,7 @@
               
               <p class="form-text">
                 By Clicking on create an account button you agree our<br class="mob-none">
-                <a tabindex="14" href="#">Terms and Condition.</a>
+             <a href="<?php echo base_url('main/terms_condition'); ?>">Terms and Condition</a> and <a href="<?php echo base_url('main/privacy_policy'); ?>">Privacy policy</a>.
               </p>
                 <p>
                 <button tabindex="13" class="btn1">Create an account</button>
@@ -290,7 +290,7 @@
           <ul>
             <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
             <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-            <li><a href="<?php echo base_url('blog'); ?>">Blog</a>|</li>
+           <!--  <li><a href="<?php //echo base_url('blog'); ?>">Blog</a>|</li> -->
             <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
           </ul>
         </div>

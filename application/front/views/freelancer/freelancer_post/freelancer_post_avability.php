@@ -239,6 +239,16 @@ $( "#searchplace" ).autocomplete({
 
     //validation for edit email formate form
 
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+   if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }  
+}, "Please Enter valid number");
     $(document).ready(function () {
 
         $("#freelancer_post_avability").validate({
@@ -248,7 +258,8 @@ $( "#searchplace" ).autocomplete({
                 work_hour:{
                     required: false,
                     number: true,
-                    max: 168
+                    max: 168,
+                    regx:/^0*[1-9]\d*$/ 
                 },
 
                

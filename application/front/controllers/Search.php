@@ -1522,15 +1522,19 @@ else
     }
 
     public function freelancer_hire_search($searchkeyword,$searchplace) {
+       // echo "<pre>";print_r($_GET);die();
+      
         $userid = $this->session->userdata('aileenuser');
-
+       
          if($this->input->get('search_submit'))
         {
+             //echo "123";exit;
            $searchkeyword=trim($this->input->get('skills'));
            $searchplace=trim($this->input->get('searchplace'));
         }
         else
         {
+            //echo "098";exit;
               if($this->uri->segment(3) =="0")
 
                 {

@@ -40,11 +40,11 @@
                                  </div>
                                  <div id="search">
                                     <button type="button" class="close">×</button>
-                                    <form>
+                                    <form action=<?php echo base_url('search/job_search')?> method="get">
                                         <div class="new-search-input">
                                             <input type="search" id="tags" name="skills" value="" placeholder="Find Your Job" />
                                             <input type="search" id="searchplace" name="searchplace" value="" placeholder="Find Your Location" />
-                                            <button type="submit" onclick="return checkvalue();"  id="search_btn" class="btn btn-primary">Search</button>
+                                            <button type="submit"  id="search_btn" class="btn btn-primary">Search</button>
                                         </div>
                                     </form>
                                 </div>

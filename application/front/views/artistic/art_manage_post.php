@@ -1131,7 +1131,7 @@ $loginuser = $userdata[0]['art_id'];
                       <div id="<?php echo "khyati" . $row['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($row['art_description'], 0, 180);
-                     echo $small;
+                     echo $this->common->make_links($small);
 
                      if (strlen($row['art_description']) > 180) {
                           echo '... <span id="kkkk" onClick="khdiv(' . $row['art_post_id'] . ')">View More</span>';

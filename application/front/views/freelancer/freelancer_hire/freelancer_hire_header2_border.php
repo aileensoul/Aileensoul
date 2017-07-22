@@ -15,11 +15,15 @@
                                  </div>
                                  <div id="search">
                                     <button type="button" class="close">×</button>
-                                    <form>
+                                    <form action=<?php echo base_url('search/freelancer_hire_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="search" value="" placeholder="Find Your Freelancer" />
-                                            <input type="search" value="" placeholder="Find Your Location" />
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <input type="text" id="tags1" name="skills"  placeholder="Find Your freelancer" />
+                                            <input type="text" id="searchplace1" name="searchplace"  placeholder="Find Your Location" />
+                                            <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')){?>
+                                            <input type="submit" name="search_submit" value="Search" onclick="return leave_page(4)" class="btn btn-primary">
+                                             <?php }else{?>
+                                            <input type="submit" name="search_submit" value="Search"  class="btn btn-primary">
+                                            <?php } ?>
                                         </div>
                                     </form>
                                 </div>

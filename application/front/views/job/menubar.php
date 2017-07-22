@@ -81,8 +81,14 @@
                     </a>
                         </li>
                                                                 <?php } ?>
-                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a> </li>
-                       <?php } }?>
+                       <li> 
+     <?php   $returnpage= $_GET['page'];
+   if($returnpage == 'recruiter'){ ?>
+      <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/2/1'); ?>">Message</a> </li>
+     <?php }
+   else{ ?>
+   <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a> </li>
+      <?php }?>                <?php } }?>
                     </ul>
                 </div>
 </div>

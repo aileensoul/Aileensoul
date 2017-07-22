@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
@@ -45,10 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         ?>
 
-
-
-
-        <div class="container_chat " id="paddingtop_fixed">
+        <div class="container_chat" id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
                     <div class="search border_btm">
@@ -179,7 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix border_btm">
 
-                            <?php 
+                            <?php
                             if ($message_to_profile == 1) {
                                 $last_user_image = $last_user_data['user_image'];
                                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
@@ -223,12 +220,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="chat-num-messages"> <?php
                                         echo $last_user_data['designation'];
-                                      
                                         ?></div>
                                 </div>
                             </a>
+                            <a href="javascript:void(0);" onClick="delete_history()" style="float:right; margin: 7px 10px 0px 0px;">
+                                Delete history
+                            </a>
                         </div>
-                        <div class="chat-history">
+                        <div class="chat-history" id="chat-history">
                             <ul  id="received" class="padding_less_right">
 
                             </ul>
@@ -248,7 +247,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -289,7 +288,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } else { ?>
+                <?php } else { ?>
 
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix ">
@@ -302,7 +301,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="chat-num-messages"></div>
                             </div>
                         </div>
-                        <div class="chat-history">
+                        <div class="chat-history" id="chat-history">
                             <ul id="received" class="padding_less_right">
 
                             </ul>
@@ -315,7 +314,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -343,12 +342,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } ?>
+                <?php } ?>
                 <!-- chat start -->
             </div>
 
     </body>
 </html>
+<!-- Bid-modal  -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+    <div class="modal-dialog modal-lm">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;
+            </button>       
+            <div class="modal-body">
+              <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                <span class="mes">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
 <!------  commen script khyati 15-7  ---------------->
 <script>
     jQuery(document).ready(function ($) {
@@ -678,7 +692,7 @@ setInterval(function () {
                 var print_message = print_message.replace(/%26gt;/gi, ">");
                 var print_message = print_message.replace(/%26lt;/gi, "<");
 
-                var html = ' <li class="clearfix">';
+                var html = ' <li class="clearfix" id="message_li_' + data.id + '">';
                 html += '   <div class="message-data align-right">';
                 html += '    <span class="message-data-time" >' + formattedDate + '</span>&nbsp; &nbsp;';
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
@@ -705,7 +719,7 @@ setInterval(function () {
                 month[9] = "Oct";
                 month[10] = "Nov";
                 month[11] = "Dec";
-                var formattedDate = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (month[date.getMonth()])).slice(-3) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+                var formattedDate = ('0' + date.getDate()).slice(-2) + ' ' + ('0' + (month[date.getMonth()])).slice(-3) + ' ' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
 //                console.log(formattedDate);
 
                 var print_message = data.message;
@@ -714,7 +728,7 @@ setInterval(function () {
                 var print_message = print_message.replace(/%26gt;/gi, ">");
                 var print_message = print_message.replace(/%26lt;/gi, "<");
 
-                var html = '<li> <div class="message-data">';
+                var html = '<li id="message_li_' + data.id + '"> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 html += '<span class="message-data-time">' + formattedDate + ' </span>';
                 html += ' </div>';
@@ -725,10 +739,9 @@ setInterval(function () {
                 $('.' + 'status' + curuser).html(print_message);
             }
 
-            var $cont = $('.chat-history');
-            $cont[0].scrollTop = $cont[0].scrollHeight;
-
             $("#received").html($("#received").html() + html);
+            $('.chat-history').scrollTop($('.chat-history')[0].scrollHeight);
+
         });
 
         $('#received').animate({scrollTop: $('#received').height()}, 1000);
@@ -750,33 +763,29 @@ setInterval(function () {
         });
     }
 
-
     $('#submit').click(function (e) {
         e.preventDefault();
 
         var $field = $('#message');
-        //var data = $field.val();
         var data = $('#message').html();
-
-        data = data.replace(/&nbsp;/gi, " ");
-        data = data.replace(/<br>$/, '');
-        if (data == '' || data == '<br>') {
-            return false;
-        }
-        if (/^\s+$/gi.test(data))
-        {
-            return false;
-        }
-        data = data.replace(/&/g, "%26");
+        var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+//        alert(data);
 
 //        data = data.replace(/&nbsp;/gi, " ");
-//        data = data.replace(/&gt;/gi, ">");
-//        data = data.replace(/div/gi, "p");
+//        data = data.replace(/<br>/gi, '');
+//        if (data == '' || data == '<br>') {
+//            return false;
+//        }
+//        if (/^\s+$/gi.test(data))
+//        {
+//            return false;
+//        }
 //        data = data.replace(/&/g, "%26");
-//       alert(data);
-        if (data == "") {
-            return false;
-        }
+//
+//
+//        if (data == "") {
+//            return false;
+//        }
 
         $("#message").html("");
 
@@ -797,6 +806,14 @@ setInterval(function () {
     $('#message').keyup(function (e) {
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
+            var $field = $('#message');
+            var data = $('#message').html();
+            var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+            var data = data.replace(/<br><br><br><br>/, '');
+            var data = data.replace(/<br>/, '');
+            if(data ==''){
+                return false;
+            }
             $('#submit').trigger('click');
         }
     });
@@ -809,13 +826,39 @@ setInterval(function () {
 
 <script type="text/javascript">
     function delete_chat(from, message_id) {
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this message?<div class='model_ok_cancel'><a class='okbtn' onClick='deleted_chat(" + from + ',' + message_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+    function deleted_chat(from, message_id) {
         $.getJSON('<?php echo base_url() . 'api/delete_messages/' . $message_from_profile . '/' . $message_to_profile ?>/' + from + '/' + message_id + '?timestamp=' + request_timestamp, function (data) {
-            //alert(data.id);
-            append_chat_data(data);
+        });
+        $('#message_li_' + message_id).hide();
+    }
+    function delete_history() {
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this history?<div class='model_ok_cancel'><a class='okbtn' onClick='deleted_history()' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+    function deleted_history() {
+        if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
+            var offset = 52560000; // 100 years min
+            request_timestamp = parseInt(Date.now() / 1000 - offset);
+        }
+        var id = <?php echo $toid ?>;
+        var message_from_profile = <?php echo $message_from_profile ?>;
+        var message_to_profile = <?php echo $message_to_profile ?>;
+        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
 
-            var newIndex = data.length - 1;
-            if (typeof (data[newIndex]) != 'undefined') {
-                request_timestamp = data[newIndex].timestamp;
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() ?>api/delete_history',
+            data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
+//            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
+            dataType: "html",
+            success: function (data) {
+                if (data == 1) {
+                    $('ul#received li').hide();
+                }
             }
         });
     }
@@ -952,7 +995,7 @@ setInterval(function () {
     })
 
 
-    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
+//    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
 </script>
 
 <script type="text/javascript">

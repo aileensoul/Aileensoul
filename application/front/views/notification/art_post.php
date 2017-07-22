@@ -223,7 +223,7 @@
 
                             $likeuserarray = explode(',', $artdelete[0]['delete_post']);
 
-                            if (!in_array($userid, $likeuserarray)) {
+                            if (!in_array($userid, $likeuserarray) && $artdelete[0]['is_delete'] == '0') {
                                 ?>
 
 
@@ -425,7 +425,7 @@
                      <div id="<?php echo "khyati" . $art_data[0]['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($art_data[0]['art_description'], 0, 180);
-                     echo $small;
+                     echo $this->common->make_links($small);
 
                      if (strlen($art_data[0]['art_description']) > 180) {
                           echo '... <span id="kkkk" onClick="khdiv(' . $art_data[0]['art_post_id'] . ')">View More</span>';
@@ -1023,7 +1023,13 @@
              </div>
       </div>
 
-                <?php }  }  else {
+                <?php }   else if($artdelete[0]['is_delete'] == '1'){?>
+
+                           <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" >Sorry, this content isn't available at the moment.</h4>
+                            </div>
+
+                   <?php }  }else {
                             ?>
 
 

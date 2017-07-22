@@ -5418,7 +5418,7 @@ public function followtwo() {
 //                $editpostdes .= '<span class="dots">...</span><span class="morectnt"><span></span>&nbsp;&nbsp;<a href="javascript:void(0);" class="showmoretxt">More</a></span></span>';
             
                 $small = substr($artdata[0]['art_description'], 0, 180);
-                    $editpostdes .= $small;
+                    $editpostdes .= $this->common->make_links($small);
                     if(strlen($artdata[0]['art_description']) >180){
                         $editpostdes .= '...<span id="kkkk" onClick="khdiv(' . $_POST["art_post_id"] . ')">View More</div>'; 
                     }
@@ -6734,8 +6734,8 @@ public function followtwo() {
 
 
                 $cmtinsert .= '<input type="hidden" name="post_deleteimg"';
-                // $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
-                $cmtinsert .= 'id="post_deleteimg"';
+                $cmtinsert .= 'id="post_deleteimg' . $art_comment['post_image_comment_id'] . '"';
+                //$cmtinsert .= 'id="post_deleteimg"';
                 $cmtinsert .= 'value= "' . $art_comment['post_image_id'] . '">';
                 $cmtinsert .= '<a id="' . $art_comment['post_image_comment_id'] . '"';
                 $cmtinsert .= 'onClick="comment_deleteimg(this.id)">';

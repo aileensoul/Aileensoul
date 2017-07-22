@@ -53,7 +53,6 @@ body{
 .pr0{padding-right: 0;} .pr5{padding-right: 5px;} .pr10{padding-right: 10px;} .pr15{padding-right: 15px;} .pr20{padding-right: 20px;}
 .pl0{padding-left: 0;} .pl5{padding-left: 5px;} .pl10{padding-left: 10px;} .pl15{padding-left: 15px;} .pl20{padding-left: 20px;}
 .pt0{padding-top: 0;} .pt5{padding-top: 5px;} .pt10{padding-top: 10px;} .pt15{padding-top: 15px;} .pt20{padding-top: 20px;}
-
 .pb0{padding-bottom: 0;} .pb5{padding-bottom: 5px;} .pb10{padding-bottom: 10px;} .pb15{padding-bottom: 15px;} .pb20{padding-bottom: 20px;}
 .main-inner .btn-right .btn3:hover{text-decoration: none;}
 
@@ -798,7 +797,7 @@ h3.text-effect span {
 	width:100%;
 	height:350px;
 }
-.banner-box .left-profile{
+/*.banner-box .left-profile{
 	position:absolute;
 	width:290px;
 	height:100%;
@@ -819,17 +818,17 @@ h3.text-effect span {
     border-radius: 100%;
     -khtml-border-radius: 100%;
 	background:#1b8ab9;
-}
+}*/
 .profile-table{
 	position: relative;
     top: 50%;
     transform: translate(0px, -50%);
 }
-.banner-box .left-profile .profile-photo img.main-pic{
+/*.banner-box .left-profile .profile-photo img.main-pic{
 	width:142px;
 	height:142px;
 	border-radius: 100%;
-}
+}*/
 .d_o_b{
 	color: #848484;
     font-size: 10px;
@@ -841,17 +840,17 @@ h3.text-effect span {
 }
 .login .form-group select{padding-left: 3px;}
 .upload-profile{
-	position:absolute;
-	background-color: rgba(0,0,0,0.4);
-	width: 142px;
-	height: 142px;
-	border-radius:100%;
-	padding:30px 15px;
-	left:0;
-	bottom:0;
-	display:none;
-	text-align:center;
-	color:#fff;
+	background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    bottom: 4px;
+    color: #fff;
+    display: none;
+    height: 140px;
+    left: 4px;
+    padding: 30px 15px;
+    position: absolute;
+    text-align: center;
+    width: 140px;
 }
 
 .upload-profile img{display:block; margin:0 auto; margin-bottom:10px;}
@@ -1326,6 +1325,29 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 /***  ***/
 #login_form{text-align:right;}
 .form-pd{padding:40px 0;}
+.left-profile{padding-bottom:10px; -webkit-box-shadow: 0 10px 10px -10px #d9d9d9;
+   -moz-box-shadow: 0 10px 10px -10px #d9d9d9;
+        box-shadow: 0 10px 10px -10px #d9d9d9; margin-bottom:10px;}
+.left-profile .profile-photo{
+	background: #fff none repeat scroll 0 0;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    height: 150px;
+    margin: -110px auto 0;
+    padding: 4px;
+    width: 150px;
+}
+.left-profile .profile-photo img.main-pic{
+	width:140px;
+	height:140px;
+	border-radius:4px;
+}
+.left-profile .profile-detail{text-align:center;}
+.left-profile .profile-detail h2{margin-top:5px; font-size:32px; font-family:'arial';}
+.cover .middle-section .container{width:990px;}
+
+
+
 
 /***  media query  ***/
 @media only screen and (max-width: 1350px) and (min-width: 1280px)  {
@@ -1359,20 +1381,14 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 
 @media screen and (max-width: 991px) {
     .main-inner .pd-low{/*padding-top: 100px;*/}
-	.banner-box .left-profile{left: 0px!important;}
+	/*.banner-box .left-profile{left: 0px!important;}*/
 	.m-h-a{max-height: 215px;}
-	.upload-profile
-	{
-	width: 106px;
-	height: 106px;
-	padding: 25px 11px;
-	left: 0;
-	bottom: 0px;
-	}
-	.banner-box .left-profile{width: 235px;}
-	.banner-box .left-profile .profile-photo{width: 114px; height: 114px;}
-	.banner-box .left-profile .profile-photo img.main-pic{width: 106px; height: 106px;}
+	.upload-profile{ width: 110px; height: 110px; padding: 25px 11px;}
+	/*.banner-box .left-profile{width: 235px;}*/
+	.left-profile .profile-photo{width: 120px; height: 120px;}
+	.left-profile .profile-photo img.main-pic{width: 110px; height: 110px;}
 	.profile-detail h2{font-size: 20px;}
+	.left-profile .profile-photo{margin-top:-90px;}
 	.upload-profile img{width:25px; margin-bottom:2px;}
 	.upload-profile{font-size:13px; padding-top:30px;}
 	.header-login .input{width:25%;}
@@ -1408,6 +1424,8 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	.main-login .middle-main{background-position:0% 25%;}
 	.login h4{font-size:24px;}
 	.top-middle h3{font-size:19px;}
+	.cover .middle-section .container{width:750px;}
+	.banner-box #row2 img{height:250px;}
 	
 }
 @media screen and (max-width: 767px) {
@@ -1483,12 +1501,14 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	footer .col-md-6{width:100%; float:left;}
 	.mid-trns{display:inherit; height:auto;}
 	.titlea h1{margin-bottom:0;}
+	.cover .middle-section .container{width:100%;}
+	.banner-box .upload-camera .cameraButton{padding:4px 7px 3px;}
 }
 @media screen and (max-width: 640px) {
     .main-inner .middle-main{padding-bottom: 0px !important; padding: 125px 0;}
 	.registeration .main-inner .middle-main{padding-top:70px;}
     .main-inner .pd-low{padding: 120px 0;}
-	.banner-box .left-profile{left: 0px!important;}
+	/*.banner-box .left-profile{left: 0px!important;}*/
 	.box-profile{margin:0 10px 20px;}
 	.box-profile, .profile-box-1, .all-profile a.active-profile {width:200px; height:200px;}
 	.profile-box-1 .all-img img{width:70px;}
@@ -1498,16 +1518,18 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	.profile-box-1.bus::before{top:-10%;}
 	.hover-content p{padding:22px 0;}
 	.profile-box-1.art:before, .profile-box-1.art::after {height:47px;}
-	.banner-box .left-profile{width:200px;}
+	/*.banner-box .left-profile{width:200px;}
 	.banner-box .left-profile .profile-photo img{width:35px; height:35px;}
-	.banner-box .left-profile{padding:30px 10px;}
+	.banner-box .left-profile{padding:30px 10px;}*/
 	.profile-detail h2{font-size:22px;}
 	.banner-box .banner-img{max-height:200px;}
 	.banner-box img{height:200px;}
-	.banner-box .left-profile .profile-photo{width: 80px; height: 80px;}
-	.banner-box .left-profile .profile-photo img.main-pic{height:72px; width:72px;}
-	.upload-profile{width: 72px; height: 72px; bottom:0; padding:8px 4px; font-size:9px; line-height:1.5;}
+	.left-profile .profile-photo{width: 85px; height: 85px;}
+	.left-profile .profile-photo img.main-pic{height:75px; width:75px;}
+	.upload-profile{width: 75px; height: 75px; padding:8px 4px; font-size:9px; line-height:1.5;}
 	.upload-profile img{width:25px !important; height:25px !important;}
+	.banner-box #row2 img{height:200px;}
+	.left-profile .profile-photo{margin-top:-60px;}
 }
 @media screen and (max-width: 479px) {
     .pt-a{padding-top: 35px;}
@@ -1527,7 +1549,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 	.title h1{font-size:24px;}
 	.box-profile{margin:0px 15px 20px;}
 	.profile-box-1.job::after, .profile-box-1.job::before, .profile-box-1.bus::before, .profile-box-1.art::before, .profile-box-1.art::after {display:none;}
-	.banner-box .left-profile{width:130px;}
+	/*.banner-box .left-profile{width:130px;}*/
 	.login .form-group select.year{width:57px;}
 	.login h4{font-size:20px;}
 	.md-2{width:90% !important;}
