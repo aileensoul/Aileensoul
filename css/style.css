@@ -3817,12 +3817,14 @@ a:focus {
     display: inline-block;
     
     margin-top: 5px;   }
+    .pt120{padding-top: 120px;}
     .job-saved-box .notification-box ul li{display: flex!important;}
     #notification_inside{ margin-left: 0px; margin-top: 0px;   padding: 5px 10px 9px 10px;
     margin-left: 11px;
     display: inline-block;}
     #noti_pc img{border-radius: none;}
     #notification_inside h6{font-size: 17px;}
+    .contact-list .list-title2{padding: 15px 30px !important;}
     .contact-list .list-title{
         font-size: 22px;
         background: #fff; 
@@ -9507,7 +9509,13 @@ position: relative;}
 .noti_cq{float: left; background-color: white; width: 100%; padding-top: 15px;}
 .cq_post{  width: 100%; float: left;}
 .cq_post ul{ padding: 0; float: left; width: 100%; }
-.cq_post ul li{list-style: none; float: left; width: 100%;}
+.cq_post ul li{    list-style: none;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 14px;
+}
+.cq_post ul li:last-child{border-bottom: none;}
 .cq_post_img{height: 68px;
     border: 1px solid #d9d9d9;
 width: 68px;
@@ -9523,8 +9531,8 @@ display: inline-block;}
 }
 .cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold; color: #646464;}
 /*Zalak 25-5*/
-.main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9;}
-.main_cqlist{border:1px solid #d9d9d9;}
+.main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9; margin-bottom: }
+.main_cqlist{border:1px solid #d9d9d9; margin-bottom: 10px;}
 .bor_btm_cq{ border:1px solid #d9d9d9; border-bottom: none!important;}
 .bor_top_cq{ border:1px solid #d9d9d9; border-top: none!important;}
 .day-text{padding-top:6px;
@@ -14127,6 +14135,7 @@ text-overflow: ellipsis;}
     margin: 0px 15px;
     display: inline-block;
 }
+.header2 #InboxFooter a{color: #1b8ab9;}
 .mob-inner-page {
     background: #fff;
     border-bottom: 1px solid #d9d9d9;
@@ -14690,7 +14699,12 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
+
+    .pt120 {padding-top: 100px;}
+    .pt_mn2{padding-top: 20px;}
      .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
+    
+  .contact-list .list-title{font-size: 18px;}
     .cls-ve{position: absolute; top: 23px; z-index: 10;right:15px;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
@@ -14956,7 +14970,7 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
-
+        .pt_mn{padding-top: 40px;}
     .logo{padding:0;}
     .h2-smladd {margin-top: -45px;}
     .logo h2{padding:2px 0;}
