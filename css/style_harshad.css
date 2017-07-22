@@ -36,6 +36,7 @@ width: 25px; }
     width: 260px;
     right: 0;
     border-radius: 5px;
+	padding-bottom:10px;
 }
 #acon:before {
     content: '';
@@ -254,7 +255,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .notification-data-inside .clockimg{display:none;}
 .notifications li .notification-data-inside div{padding-left:0;}
 .custom-row .user-pic:hover a{width:100%;}
-
+.header ul li #abody ul li:last-child{border:none;}
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
