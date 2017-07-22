@@ -28,7 +28,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
+    $(document).ready(function(){ //alert("hii");
 
      document.getElementById('tags').value = null;
      document.getElementById('searchplace').value = null;

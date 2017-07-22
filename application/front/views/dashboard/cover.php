@@ -170,24 +170,39 @@
 					
 				</div>
 				<div class="left-profile">
-						<div class="profile-photo">
 
-					<?php
+				<?php
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
+						<div class="profile-photo">
+
+					
                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" class="main-pic">
-
-              <?php } else { ?>
-
-                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
-               <?php } ?>
 
 						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
 								<img src="img/cam.png">Update Profile Picture</a>
 	
 
 						</div>
+						<?php }else{?>
+
+						<div class="profile-photo no-image-upload">
+
+					
+                    
+
+                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
+             
+
+						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
+								<img src="img/cam.png">Update Profile Picture</a>
+	
+
+						</div>
+
+						  <?php } ?>
+
 						<div class="profile-detail">
 							<h2> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h2>
 							<!-- <p>Ahmedabad, Gujarat</p> -->

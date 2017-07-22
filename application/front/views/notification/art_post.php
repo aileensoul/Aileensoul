@@ -425,7 +425,7 @@
                      <div id="<?php echo "khyati" . $art_data[0]['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($art_data[0]['art_description'], 0, 180);
-                     echo $small;
+                     echo $this->common->make_links($small);
 
                      if (strlen($art_data[0]['art_description']) > 180) {
                           echo '... <span id="kkkk" onClick="khdiv(' . $art_data[0]['art_post_id'] . ')">View More</span>';
