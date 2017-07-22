@@ -3953,7 +3953,7 @@ display: inline-block;
     display: none;
     float: left;
     width: 358px;
-    right: 2;
+    right: 2px;
     border-radius: 5px;
     }
     #addcontactContainer::before {
@@ -4029,9 +4029,11 @@ display: inline-block;
         #addcontactBody  li .addcontact-right a.add-left-true i {color:#fff;}
     .addcontact-pic {
         height: 50px;
-        width: 50px;
-        border-radius: 50%;
+        width: 68px;
+     
         float: left;
+        margin-right: 15px; 
+        border:1px solid #d9d9d9;
 
     }
     .addcontact-pic img{height: 100%; width: 100%;}
@@ -4275,17 +4277,16 @@ li.active2 {
 #InboxContainer {
    border-radius: 5px;
 background-color: #fff;
-border: 1px solid rgba(100, 100, 100, .4);
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 overflow: visible;
 position: absolute;
 top: 25px;
-margin-top: 10px;
+margin-top: 13px;
 z-index: 2;
 display: none;
 float: left;
 width: 358px;
-right: -6px;
+right: -8px;
 }
 #InboxContainer:before {
     content: '';
@@ -14148,7 +14149,7 @@ text-overflow: ellipsis;}
     padding-bottom: 10px;
 }
 #addcontactContainer {
-    top: 35px !important;
+    top: 38px !important;
 }
 .right_left_box_design .profile-company-name {
     display: inline-block;
