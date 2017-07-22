@@ -473,9 +473,9 @@
                                             <ul class="clearfix">
 
                                                 <li> <b>Company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span></li>
-                                                <li> <b>company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
+                                                <!--li> <b>company Name</b> <span> <?php echo $businessdata1[0]['company_name']; ?> </span>
 
-                                                </li>
+                                                </li-->
 
                                                 <li> <b> Country</b> <span> <?php echo $this->db->get_where('countries', array('country_id' => $businessdata1[0]['country']))->row()->country_name; ?> </span>
                                                 </li>
@@ -667,7 +667,7 @@
                                                     ?></span>
                                                         </li> -->
 
-                                                    <li><b>Details Of Your business </b> </li>
+                                                    
                                                     <li><b>Details Of Your Business </b> 
 
                                                         <span>
