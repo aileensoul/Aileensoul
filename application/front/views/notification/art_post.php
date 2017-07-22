@@ -223,7 +223,7 @@
 
                             $likeuserarray = explode(',', $artdelete[0]['delete_post']);
 
-                            if (!in_array($userid, $likeuserarray)) {
+                            if (!in_array($userid, $likeuserarray) && $artdelete[0]['is_delete'] == '0') {
                                 ?>
 
 
@@ -1023,7 +1023,13 @@
              </div>
       </div>
 
-                <?php }  }  else {
+                <?php }   else if($artdelete[0]['is_delete'] == '1'){?>
+
+                           <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" >Sorry, this content isn't available at the moment.</h4>
+                            </div>
+
+                   <?php }  }else {
                             ?>
 
 
