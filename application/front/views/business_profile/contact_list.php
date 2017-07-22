@@ -41,7 +41,7 @@
     }
 </style>
 
-        <div class="col-md-4 col-xs-12  hidden-md hidden-sm hidden-lg pt120 ">
+        <div class="col-md-4 col-xs-12  hidden-md hidden-sm hidden-lg pt1201 ">
                 <div class="common-form ">
                 <div class="main_cqlist-1"> 
                     <div class="contact-list ">
