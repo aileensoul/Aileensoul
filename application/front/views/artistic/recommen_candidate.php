@@ -1018,7 +1018,15 @@ if($artuserdata1){
                         }
 </script>
 
-
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
                     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>

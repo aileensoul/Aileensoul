@@ -20,7 +20,7 @@
                                         <div class="new-search-input">
                                              <input type="text" id="tags1" name="skills" placeholder="Find Your Art">
                                             <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
                                 </div>
@@ -98,11 +98,11 @@
                                  </div>
                                  <div id="search">
                                     <button type="button" class="close">×</button>
-                                    <form>
+                                   <form action=<?php echo base_url('search/execute_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="search" value="" placeholder="Find Your Job" />
-                                            <input type="search" value="" placeholder="Find Your Location" />
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                              <input type="text" id="tags1" name="skills" placeholder="Find Your Art">
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
+                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
                                 </div>
@@ -352,4 +352,14 @@ $(document).ready(function() {
 
     }
 </script>
-<!------  commen script harshad  ---------------->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+     document.getElementById('tags1').value = null;
+     document.getElementById('searchplace1').value = null;
+
+    });
+</script>
+<!--  commen script harshad  -->
