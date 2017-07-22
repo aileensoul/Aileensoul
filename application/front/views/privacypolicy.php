@@ -13,7 +13,7 @@
 
   <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
 </head>
-<body >
+<body class="custom-tp">
 <div class="main-inner">
   <header class="terms-con2">
   <div class="overlaay">

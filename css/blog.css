@@ -307,3 +307,7 @@ background-image: -webkit-linear-gradient(right, #F13B6F 0%, #ECB044 90%);
 
 /* W3C Markup */ 
 background-image: linear-gradient(to left, #F13B6F 0%, #ECB044 90%);}
+
+
+
+.custom-tp footer{background:#fff;}
