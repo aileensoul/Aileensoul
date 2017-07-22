@@ -538,7 +538,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                            
                         },
                         pincode:{
-                            regx1:/(?=.*[0-9])(?=.*[a-z])^[a-z0-9]{0,12}$/
+                            regx1:/^.{0,12}$/
                             
                         },
                         
