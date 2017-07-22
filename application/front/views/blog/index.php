@@ -233,11 +233,11 @@
             </div>
           </div>  
             <div class="post_latest_right">
-            <div>
+            <div class="desc_post">
               <sapn class="rifght_fname"> <?php echo $blog['title'];?> </sapn>
             </div>
           
-            <div>
+            <div class="desc_post">
               <sapn class="rifght_desc"> <?php echo $blog['description'];?> </sapn>
             </div>  
             </div>
