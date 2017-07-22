@@ -75,14 +75,20 @@ class Blog extends CI_Controller {
     public function comment_insert()
     {
         $id=$_POST['blog_id'];
-        echo $id;die();
-
+        $name=$_POST['name'];
+        $email=$_POST['email'];
+        $message=$_POST['message'];
         //FOR INSERT READ MORE BLOG START
         $data = array(
+
                     'blog_id' => $id,
-                    'visiter_date' => date('Y-m-d H:i:s')
+                    'name'=>$name,
+                    'email'=>$email,
+                    'message'=>$message,
+                    'comment_date' => date('Y-m-d H:i:s'),
+                    'status'=>'pending'
                 ); 
-         $insert_id = $this->common->insert_data_getid($data, 'blog_visit');
+         $insert_id = $this->common->insert_data_getid($data, 'blog_comment');
                
          //FOR INSERT READ MORE BLOG END
 
