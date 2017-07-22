@@ -3884,14 +3884,15 @@ a:focus {
     .profile-content a h5{    color: #404040;
     line-height: 20px;
 font-size: 15px;}
-.main_compny_name{font-size: 18px;}
-.dc_cl_m{color: #8c8c8c;}
+.main_compny_name{font-size: 15px;}
+.dc_cl_m{color: #8c8c8c; padding-bottom: 8px; display: inline-block;}
 .main_data_cq {
     width: 98%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.connect-link a.cr-decline:hover {color: #136386; background-color: white;}
     .profile-content a p{color: #8c8c8c; float: left;
         width: 100%; text-align: center;
     font-family: robotoregular;}
@@ -9508,6 +9509,7 @@ position: relative;}
 .cq_post ul{ padding: 0; float: left; width: 100%; }
 .cq_post ul li{list-style: none; float: left; width: 100%;}
 .cq_post_img{height: 68px;
+    border: 1px solid #d9d9d9;
 width: 68px;
 float: left;
 padding: 5px;
@@ -9515,8 +9517,11 @@ display: inline-block;}
 .cq_main_lp{float: left; width: 100%;   }
 .cq_post_img img{width: 100%; height: 100%;}
 .cq_latest_left{float: left;width: 18%;}
-.cq_latest_right{width: 82%; float: left;}
-.cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold;}
+.cq_latest_right{    width: 79%;
+    float: left;
+    margin-left: 10px;
+}
+.cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold; color: #646464;}
 /*Zalak 25-5*/
 .main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9;}
 .main_cqlist{border:1px solid #d9d9d9;}

@@ -53,8 +53,8 @@
                     <div class="all-list">
                         <ul  id="contactlist">
                             <?php
-                            if ($friendlist) {
-                                foreach ($friendlist as $friend) {
+                            if ($friendlist_req) {
+                                foreach ($friendlist_req as $friend) {
                                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $friend['industriyal'], $data = '*', $join_str = array());
                                     ?>
 
@@ -69,17 +69,27 @@
                                             <div class="list-box">
                                                 <div class="profile-img">
                                                     <?php if ($friend['business_user_image'] != '') { ?>
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
                                                         <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $friend['business_user_image']); ?>">
+                                                        </a>
                                                     <?php } else { ?>
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
                                                         <img src="<?php echo base_url(NOIMAGE); ?>" />
+                                                        </a>
                                                     <?php } ?>
                                                             <!--<img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">-->
                                                 </div>
                                                 <div class="profile-content">
-                                                                                                   <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
-                                                      <div class="main_data_cq">   <span title="faludo" class="main_compny_name"><?php echo $friend['company_name']; ?></span></div>
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+                                                      <div class="main_data_cq">   <span title="<?php echo $friend['company_name']; ?>" class="main_compny_name"><?php echo $friend['company_name']; ?></span></div>
                                                       <div class="main_data_cq">
-                                                        <span class="dc_cl_m"   title="zalk"> <?php echo $inddata[0]['industry_name']; ?></span>
+
+                                                      <?php if($inddata[0]['industry_name']){?>
+                                                        <span class="dc_cl_m"   title="<?php echo $inddata[0]['industry_name']; ?>"> <?php echo $inddata[0]['industry_name']; ?></span>
+                                                        <?php }else{?>
+
+                                                         <span class="dc_cl_m"   title="<?php echo $friend['other_industrial']; ?>"> <?php echo $friend['other_industrial']; ?></span>
+                                                        <?php }?>
                                                         </div>
                                                     </a>
                                                     </span>
@@ -97,35 +107,15 @@
                                         </li>
 
                                     <?php } ?>
-                                <?php //else { ?>
-
-                                        <!-- <li>
-                                            <div class="list-box">
-                                                <div class="profile-img">
-                                                    <?php if ($friend['business_user_image'] != '') { ?>
-                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $friend['business_user_image']); ?>">
-                                                    <?php } else { ?>
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" />
-                                                    <?php } ?>
-                                                            <img src="http://localhost/aileensoul/uploads/user_profile/thumbs/images_(4).jpg">
-                                                </div>
-                                                <div class="profile-content">
-                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
-                                                        <h5><?php echo ucwords($friend['company_name']); ?></h5> confirmed your contact request
-                                                
-                                                    </a>
-
-                                                </div>
-                                            </div>
-                                        </li> -->
-
-                                    <?php //} ?>
 
                                 <?php }
-                            } else {
+                            } else { //echo "hii"; die();
                                 ?>
-
+                                <li>
+                               
                                 No contacts available...
+                              
+                                </li>
 
 <?php } ?>
                         </ul>
@@ -142,29 +132,68 @@
                             
                              <div class="cq_post">
         <ul>
+
+
+       <?php if ($friendlist_con) { //echo "hii";
+                                foreach ($friendlist_con as $friend) {
+                                
+                                    ?>
+
+
+                                    <?php
+                                    $userid = $this->session->userdata('aileenuser');
+
+
+                                    if ($friend['contact_from_id'] == $userid) {
+                                        ?>
           <li> 
           <div class="cq_main_lp">
           <div class="cq_latest_left">
             <div class="cq_post_img">
 
-              <img src="<?php echo base_url("images/_eiffel-tower-wallpaper-18_TJ30uc8.jpg") ?>" >
+              <?php if ($friend['business_user_image'] != '') { ?>
+               <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $friend['business_user_image']); ?>">
+                        </a>
+             <?php } else { ?>
+              <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+                    <img src="<?php echo base_url(NOIMAGE); ?>" />
+                    </a>
+                <?php } ?>
+                                                            
 
             </div>
           </div>  
             <div class="cq_latest_right">
             <div class="cq_desc_post">
-              <sapn class="rifght_fname">  <span class="main_name"><?php echo ucwords($friend['company_name']); ?> </span><span style="color: #8c8c8c;">confirmed your contact request .</span></sapn>
+              <sapn class="rifght_fname">  
+               <a  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $friend['business_slug']); ?>">
+              <span class="main_name">
+              <?php echo ucwords($friend['company_name']); ?> 
+              </span>
+              </a>
+              <span style="color: #8c8c8c;">confirmed your contact request .</span>
+              </sapn>
             </div>
           
             <div class="cq_desc_post">
-              <sapn class="cq_rifght_desc"> 2 hour ago</sapn>
+              <sapn class="cq_rifght_desc">  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($friend['modify_date'])));  ?> </sapn>
             </div>  
             </div>
+
+
 
           </div>
 
           </li>
-        
+        <?php } } }else{?>
+
+         <li>
+          <div class="cq_main_lp">
+         No contact request  available...
+         </div>
+         </li>
+        <?php }?>
         </ul>
       </div>
                         </div>

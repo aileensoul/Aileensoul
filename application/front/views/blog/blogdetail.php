@@ -10,6 +10,9 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
 
+<!-- This Css is used for call popup -->
+<link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
+
 </head>
 <body class="blog">
  <header class="">
@@ -133,7 +136,30 @@
             
           </div>
           <div class="fr blog_view_link2">
-            <a href=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+           <?php 
+                if(count($blog_all) != 0)
+                {                
+                    
+                    foreach ($blog_all as $key => $blog) 
+                    {
+                      
+                      if($blog['id'] == $blog_detail[0]['id'] && ($key+1) != 1)
+                      {
+                         
+                     
+                  ?>
+                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key-1]['id']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+                         <!--  <a href=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a> -->
+                  <?php
+                      }
+                }
+                    
+              }
+
+                ?>
+           
             <span>
 
             <!-- 5/10 -->
@@ -146,7 +172,7 @@
         
                       if($blog['id'] == $blog_detail[0]['id'])
                       {
-                         echo $key; echo '/'; echo count($blog_all);
+                         echo $key+1; echo '/'; echo count($blog_all);
                       }
                 }
                     
@@ -161,13 +187,11 @@
                     
                     foreach ($blog_all as $key => $blog) 
                     {
-                      if($blog['id'] == $blog_detail[0]['id'])
+
+                      if($blog['id'] == $blog_detail[0]['id'] && ($key+1) != count($blog_all))
                       {
                          
-                       //echo $blog_all[$key+1]['title'] ;
-
-                       
-                         
+                     
                   ?>
                          <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key+1]['id']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   <?php
@@ -188,24 +212,28 @@
      </div>
      <div class="comment_box">
      <h3>Give Comment</h3>
-     <form>
+
+<?php echo form_open_multipart(array('id' => 'comment', 'name' => 'comment', 'class' => 'clearfix')); ?>
+
        <fieldset class="full-width comment_foem">
          <label>Name </label>
-       <input type="" name="" placeholder="Enter your name">
+       <input type="text" name="name" id="name" placeholder="Enter your name">
        </fieldset>
          <fieldset class="full-width comment_foem">
          <label>Email Address </label>
-       <input type="" name="" placeholder="Enter your email address">
+       <input type="text" name="email" id="email" placeholder="Enter your email address">
        </fieldset>
          
          <fieldset class="full-width comment_foem">
          <label>Message </label>
-      <textarea placeholder="Enter Your message"></textarea>
+      <textarea name="message" id="message" placeholder="Enter Your message"></textarea>
        </fieldset>
        <fieldset class="comment_foem">
-         <button>Send a Comment</button>
+       
+         <input type="button" onclick="comment_insert('<?php echo $blog_detail[0]['id']; ?>')" value="Send a Comment">
        </fieldset>
-     </form>
+  </form>
+</div>
       </div>
     
 
@@ -273,3 +301,33 @@
 </body>
 </html>
 
+<script type="text/javascript">
+     
+function comment_insert(blog_id) {
+
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var message=document.getElementById("message").value;
+
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url()."blog/comment_insert" ?>',
+           data: 'blog_id=' +blog_id+ '&name=' +name+ '&email=' + email+ '&message=' + message,         
+
+           success: function (data) {
+               if (data == 1) 
+               {
+                  $.fancybox.open('<div class="message"><h2>Thank you for your valuable feedback</h2></div>');
+                  $('#name').val(''); 
+                  $('#email').val(''); 
+                  $('#message').val(''); 
+               }
+             
+           }
+       });
+   }
+</script>
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<!-- This Js is used for call popup -->
+<script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
