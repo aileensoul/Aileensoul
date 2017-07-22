@@ -702,3 +702,12 @@ $( "#searchplace" ).autocomplete({
  
  </script>
  <!-- all popup close close using esc end-->
+ <script type="text/javascript">
+
+    $(document).ready(function(){ //alert("hii");
+
+     document.getElementById('tags').value = null;
+     document.getElementById('searchplace').value = null;
+
+    });
+</script>
