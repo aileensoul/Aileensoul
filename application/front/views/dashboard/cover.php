@@ -167,7 +167,9 @@
 					</div>
 
                                          
-					<div class="left-profile">
+					
+				</div>
+				<div class="left-profile">
 						<div class="profile-photo">
 
 					<?php
@@ -191,7 +193,6 @@
 							<!-- <p>Ahmedabad, Gujarat</p> -->
 						</div>
 					</div>
-				</div>
 			</section>
 		</div>
 		<div class="sticky-container right-profile">
