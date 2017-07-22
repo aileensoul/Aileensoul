@@ -107,8 +107,8 @@
         <?php } } }else{?>
 
          <li>
-          <div class="cq_main_lp">
-         No contact request  available...
+          <div class="cq_main_lp2">
+         No Notifications  available...
          </div>
          </li>
         <?php }?>
@@ -269,8 +269,8 @@
         <?php } } }else{?>
 
          <li>
-          <div class="cq_main_lp">
-         No contact request  available...
+          <div class="cq_main_lp2">
+         No Notifiaction  available...
          </div>
          </li>
         <?php }?>
