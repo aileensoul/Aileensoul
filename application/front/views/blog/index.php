@@ -54,7 +54,7 @@
                             <ul class="">
                             <li><a href="">Recent Post  </a></li>
                             <li><a href="">Most Popular</a></li>
-                            <li> <a href="">Most Newest </a></li>
+                            <li> <a href="">Newest</a></li>
                            
                             </ul>
                          </div>

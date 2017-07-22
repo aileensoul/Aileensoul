@@ -78,6 +78,7 @@ class Blog extends CI_Controller {
         $name=$_POST['name'];
         $email=$_POST['email'];
         $message=$_POST['message'];
+
         //FOR INSERT READ MORE BLOG START
         $data = array(
 
@@ -88,8 +89,9 @@ class Blog extends CI_Controller {
                     'comment_date' => date('Y-m-d H:i:s'),
                     'status'=>'pending'
                 ); 
+
          $insert_id = $this->common->insert_data_getid($data, 'blog_comment');
-               
+          
          //FOR INSERT READ MORE BLOG END
 
         if ($insert_id) 

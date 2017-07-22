@@ -57,7 +57,7 @@
                             <ul class="">
                             <li><a href="">Recent Post  </a></li>
                             <li><a href="">Most Popular</a></li>
-                            <li> <a href="">Most Newest </a></li>
+                            <li> <a href="">Newest</a></li>
                            
                             </ul>
                          </div>
@@ -213,8 +213,8 @@
      <div class="comment_box">
      <h3>Give Comment</h3>
 
-<?php echo form_open_multipart(array('id' => 'comment', 'name' => 'comment', 'class' => 'clearfix')); ?>
 
+  <form role="form" name="comment" id="comment" method="post" action="" autocomplete="off">
        <fieldset class="full-width comment_foem">
          <label>Name </label>
        <input type="text" name="name" id="name" placeholder="Enter your name">
@@ -228,12 +228,13 @@
          <label>Message </label>
       <textarea name="message" id="message" placeholder="Enter Your message"></textarea>
        </fieldset>
+       <input type="hidden" value="<?php echo $blog_detail[0]['id']; ?>" name="blog_id" id="blog_id">
        <fieldset class="comment_foem">
-       
-         <input type="button" onclick="comment_insert('<?php echo $blog_detail[0]['id']; ?>')" value="Send a Comment">
+       <!-- onclick="comment_insert('<?php //echo $blog_detail[0]['id']; ?>')"-->
+       <!-- <input type="button" value="Send a Comment"> -->
+       <button>Send a Comment</button>
        </fieldset>
-  </form>
-</div>
+   </form>
       </div>
     
 
@@ -301,15 +302,61 @@
 </body>
 </html>
 
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 <script type="text/javascript">
-     
-function comment_insert(blog_id) {
+   $(document).ready(function () {
 
-var name=document.getElementById("name").value;
-var email=document.getElementById("email").value;
-var message=document.getElementById("message").value;
 
-       $.ajax({
+
+    $("#comment").validate({
+        rules: {
+            name: {
+                required: true,
+              
+            },
+            email: {
+                required: true,
+                email:true,
+              
+            },
+            message: {
+                required: true,
+              
+            },
+          
+        },
+        messages: {
+            name: {
+                required: "Please enter a name",
+               
+            },
+             email: {
+                required: "Please enter a email",
+               
+            },
+             message: {
+                required: "Please enter a message",
+               
+            },
+            
+        },
+
+
+      });
+
+    //It prevent page automatically refresh
+    $("#comment").submit(function(e) {
+        e.preventDefault();
+        if( $(this).valid() ) 
+        {
+          var blog_id=document.getElementById("blog_id").value;
+          var name=document.getElementById("name").value;
+          var email=document.getElementById("email").value;
+          var message=document.getElementById("message").value;
+
+          $.ajax({
            type: 'POST',
            url: '<?php echo base_url()."blog/comment_insert" ?>',
            data: 'blog_id=' +blog_id+ '&name=' +name+ '&email=' + email+ '&message=' + message,         
@@ -324,10 +371,18 @@ var message=document.getElementById("message").value;
                }
              
            }
-       });
-   }
+          });
+        }
+                
+});
+
+  });
+  </script>
+<script type="text/javascript">
+     
+
 </script>
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+
 <!-- This Js is used for call popup -->
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
