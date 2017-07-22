@@ -161,15 +161,15 @@
                     
                     foreach ($blog_all as $key => $blog) 
                     {
-                  
                       if($blog['id'] == $blog_detail[0]['id'])
                       {
-                         $new3 = array();
-                       // echo $key; 
-                        $key['title']= $blog;
-                         print_r($key);
+                         
+                       //echo $blog_all[$key+1]['title'] ;
+
+                       
+                         
                   ?>
-                         <a href="<?php echo base_url('blog/blogdetail/'.$blog['id']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key+1]['id']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   <?php
                       }
                 }
