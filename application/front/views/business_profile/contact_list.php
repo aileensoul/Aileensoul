@@ -53,8 +53,8 @@
                     <div class="all-list">
                         <ul  id="contactlist">
                             <?php
-                            if ($friendlist) {
-                                foreach ($friendlist as $friend) {
+                            if ($friendlist_req) {
+                                foreach ($friendlist_req as $friend) {
                                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $friend['industriyal'], $data = '*', $join_str = array());
                                     ?>
 
@@ -109,10 +109,13 @@
                                     <?php } ?>
 
                                 <?php }
-                            } else {
+                            } else { //echo "hii"; die();
                                 ?>
-
+                                <li>
+                               
                                 No contacts available...
+                              
+                                </li>
 
 <?php } ?>
                         </ul>
@@ -131,8 +134,8 @@
         <ul>
 
 
-       <?php if ($friendlist) { //echo "hii";
-                                foreach ($friendlist as $friend) {
+       <?php if ($friendlist_con) { //echo "hii";
+                                foreach ($friendlist_con as $friend) {
                                 
                                     ?>
 
