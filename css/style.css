@@ -9521,7 +9521,7 @@ display: inline-block;}
     float: left;
     margin-left: 10px;
 }
-.cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold;}
+.cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold; color: #646464;}
 /*Zalak 25-5*/
 .main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9;}
 .main_cqlist{border:1px solid #d9d9d9;}
