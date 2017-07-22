@@ -4503,27 +4503,22 @@
                         percent.html(percentVal);
 
                     },
-                        //            uploadProgress: function (event, position, total, percentComplete) {
-                        //                $("#progress-bar").width(percentComplete + '%');
-                        //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
-                        //            },
-                        complete: function (response) { //alert(response.responseText);
+                        
+                        complete: function (response) { alert(response.responseText);
 
-                        document.getElementById('test-upload-product').value = null;
-                        document.getElementById('test-upload-des').value = null;
 
-                        $(".file-preview-frame").hide(); 
+            document.getElementById('test-upload_product').value = null;
+            document.getElementById('test-upload_des').value = null;
+
+            $(".file-preview-frame").hide();
+             
+
                         // Output AJAX response to the div container
-                        // console.log(response.responseText);
-                        //                    $(".upload-image-messages").html(response.responseText);
-                        //    document.getElementById("myModal").style.display="none";
-                        //                $(".business-all-post").prepend(response.responseText);
-                        //                $('#progress-bar').hide();
                         $('#progress_div').fadeOut('5000').remove();
+                        
                         $(".job-contact-frnd").prepend(response.responseText);
-                        //$(".bor_none").hide();
                         $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
-                        }
+                    }
                 };
                 // Submit the form
                 $(".upload-image-form").ajaxForm(options);
