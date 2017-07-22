@@ -292,6 +292,7 @@ $(document).ready(function() {
         {
             $("#message_count").html('');
             $('#InboxLink').removeClass('msg_notification_available');
+            $('span#message_count').removeAttr('style');
         } else
         {
             $('#message_count').html(msg);

@@ -44,7 +44,7 @@
                                         <div class="new-search-input">
                                             <input type="search" id="tags1" name="skills" value="" placeholder="Find Your Job" />
                                             <input type="search" id="searchplace1" name="searchplace" value="" placeholder="Find Your Location" />
-                                            <button type="submit"  id="search_btn" class="btn btn-primary">Search</button>
+                                            <button type="submit"  id="search_btn" class="btn btn-primary" onclick="return check();">Search</button>
                                         </div>
                                     </form>
                                 </div>
