@@ -229,7 +229,14 @@ echo $freelancer_post_header2_border;
                         </li> <?php 
                                                                 } ?>
                       <li>
-           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/4/3'); ?>">Message</a>
+                          <?php
+    $returnpage=$_GET['page'];
+    if($returnpage == 'freelancer_hire'){ ?>
+       <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/3/4'); ?>">Message</a>
+   <?php }
+    else{ ?>
+  <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/4/3'); ?>">Message</a>
+  <?php  }?>
                  </li>
                   
       <?php }} ?>
