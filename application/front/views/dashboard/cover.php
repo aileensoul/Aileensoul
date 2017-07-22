@@ -137,13 +137,8 @@
 
 
             <div class="" id="row2">
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    
-                    $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                   <?php 
+                    if ($userdata[0]['profile_background']) {
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
@@ -157,14 +152,7 @@
 
                 </div>
 
-						<?php if($userdata[0]['profile_background']){?>
-						<img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" class="main-cover"/ >
-
-						<?php }else{?>
-						 <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" class="main-cover" />
-
-						<?php }?>
-
+						
 					</div>
 
 
