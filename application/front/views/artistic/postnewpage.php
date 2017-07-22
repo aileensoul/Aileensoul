@@ -394,7 +394,7 @@
                                             <div id="<?php echo "khyati" . $art_data[0]['art_post_id']; ?>" style="display:block;">
                       <?php
                      $small = substr($art_data[0]['art_description'], 0, 180);
-                     echo $small;
+                     echo $this->common->make_links($small);
 
                      if (strlen($art_data[0]['art_description']) > 180) {
                           echo '... <span id="kkkk" onClick="khdiv(' . $art_data[0]['art_post_id'] . ')">View More</span>';
@@ -731,7 +731,7 @@
                                                  
                                 
                       <?php
-                      echo $this->common->make_links($rowdata['comments']);
+                      echo $this->common->make_links($rowdata['comment']);
                    ?>
 
               
@@ -807,8 +807,8 @@
                                                                                         ?> 
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
-                                                                                            <input type="hidden" name="post_deleteimg"  id="post_deleteimg<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
-                                                                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_deleteimg(this.id)"> Delete<span class="<?php echo 'insertcommentimg' . $rowdata['post_image_comment_id']; ?>">
+                                            <input type="hidden" name="post_deleteimg"  id="post_deleteimg<?php echo $rowdata['post_image_comment_id']; ?>" value= "<?php echo $rowdata['post_image_id']; ?>">
+                                            <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="comment_deleteimg(this.id)"> Delete<span class="<?php echo 'insertcommentimg' . $rowdata['post_image_comment_id']; ?>">
                                                                                                 </span>
                                                                                             </a>
                                                                                         </div>
@@ -3211,7 +3211,7 @@
                         }
 
                         function comment_deletedimg(clicked_id)
-                        {
+                        { //alert(clicked_id);
                             var post_delete = document.getElementById("post_deleteimg" + clicked_id);
                             //  alert(post_delete.value);
                             $.ajax({

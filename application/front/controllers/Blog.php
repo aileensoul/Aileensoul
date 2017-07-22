@@ -54,6 +54,19 @@ class Blog extends CI_Controller {
     //READ MORE CLICK END
     public function blogdetail($id)
     { 
+         //FOR GETTING ALL DATA
+        $condition_array = array('status !=' => 'delete');
+        $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+        //echo "<pre>";print_r( $this->data['blog_all']);die();
+
+        //FOR GETTING BLOG
+        $condition_array = array('status !=' => 'delete','id' => $id);
+        $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+
+         //FOR GETTING 5 LAST DATA
+        $condition_array = array('status !=' => 'delete');
+        $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
+
          $this->load->view('blog/blogdetail',$this->data);
     }
   }  

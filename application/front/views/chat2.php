@@ -247,7 +247,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group" id="set_input">
 
-                                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
@@ -314,7 +314,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-md-12" id="msg_block">
                                     <div class="input-group">
 
-                                                                               <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
+                                                                                       <!--  <input id="message" type="text" class="form-control input-sm" placeholder="Type your message here..." /> -->
                                         <form name="blog">
 
                                             <div class="form-control input-sm" contentEditable="true" name="comments" placeholder="Type your message here..." id="message  smily" style="position: relative;"></div>
@@ -767,28 +767,25 @@ setInterval(function () {
         e.preventDefault();
 
         var $field = $('#message');
-        //var data = $field.val();
         var data = $('#message').html();
-
-        data = data.replace(/&nbsp;/gi, " ");
-        data = data.replace(/<br>$/, '');
-        if (data == '' || data == '<br>') {
-            return false;
-        }
-        if (/^\s+$/gi.test(data))
-        {
-            return false;
-        }
-        data = data.replace(/&/g, "%26");
+        var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+//        alert(data);
 
 //        data = data.replace(/&nbsp;/gi, " ");
-//        data = data.replace(/&gt;/gi, ">");
-//        data = data.replace(/div/gi, "p");
+//        data = data.replace(/<br>/gi, '');
+//        if (data == '' || data == '<br>') {
+//            return false;
+//        }
+//        if (/^\s+$/gi.test(data))
+//        {
+//            return false;
+//        }
 //        data = data.replace(/&/g, "%26");
-//       alert(data);
-        if (data == "") {
-            return false;
-        }
+//
+//
+//        if (data == "") {
+//            return false;
+//        }
 
         $("#message").html("");
 
@@ -809,6 +806,14 @@ setInterval(function () {
     $('#message').keyup(function (e) {
         if (e.which == 13 && !e.shiftKey) {
             e.preventDefault();
+            var $field = $('#message');
+            var data = $('#message').html();
+            var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+            var data = data.replace(/<br><br><br><br>/, '');
+            var data = data.replace(/<br>/, '');
+            if(data ==''){
+                return false;
+            }
             $('#submit').trigger('click');
         }
     });
