@@ -423,7 +423,7 @@
                   </select><span id="city-error"></span>
                                     <?php echo form_error('city'); ?>
                 </fieldset>
-
+						<div class="fr">
                             <fieldset class="hs-submit full-width">
 
                                 <!-- <input type="reset"> -->
@@ -440,7 +440,9 @@
                                 <input type="submit" tabindex="15" id="submit" class="add_post_btns" name="submit" value="Save">
                                 
                             </fieldset>
-                            </div>
+                            
+						</div>	
+							</div>
 
                             </form>
                             </div>

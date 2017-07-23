@@ -51,8 +51,8 @@ width: 25px; }
     margin-left: 18px;
     right: 19px;}
 #abody {
-padding: 0px 0px 0px 0px !important;
-min-height:300px;
+	padding: 0px 0px 0px 0px !important;
+	min-height:300px;
 }
 .header ul .Setting a i{color: #787878;}
 .header ul .logout a i{color: #787878;}
@@ -256,6 +256,14 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .notifications li .notification-data-inside div{padding-left:0;}
 .custom-row .user-pic:hover a{width:100%;}
 .header ul li #abody ul li:last-child{border:none;}
+
+/***  font css  ***/
+.left-side-bar ul li a{font-family: 'robotoregular';}
+.common-form1 h3{font-family: 'robotoregular';}
+.common-form h3{font-family: 'robotoregular';}
+.profile-company-name a{}
+
+
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}

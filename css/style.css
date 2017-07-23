@@ -124,7 +124,17 @@
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'times_new_romanregular';
+    src: url('../fonts/font/times-webfont.eot');
+    src: url('../fonts/font/times-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/times-webfont.woff2') format('woff2'),
+         url('../fonts/font/times-webfont.woff') format('woff'),
+         url('../fonts/font/times-webfont.svg#times_new_romanregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
 
 
 
