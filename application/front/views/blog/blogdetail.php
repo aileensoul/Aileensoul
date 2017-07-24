@@ -22,7 +22,7 @@
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo">
-                            <a tabindex="-200" href="#"> <h2  style="color: white;">Aileensoul</h2></a>
+                            <a tabindex="-200" href="<?php echo base_url(); ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
@@ -49,16 +49,14 @@
             <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo pl20">
-                            <a > <h3  style="color: #1b8ab9;">Blog</h3></a>
+                           <a href="<?php echo base_url('blog/'); ?>"><h3  style="color: #1b8ab9;">Blog</h3></a>
                         </div>
                     </div>
                       <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
                         <div class="main-menu-right">
                             <ul class="">
-                            <li><a href="">Recent Post  </a></li>
-                            <li><a href="">Most Popular</a></li>
-                            <li> <a href="">Newest</a></li>
-                           
+                            <li><a href="<?php echo base_url('blog/');?>">Recent Post </a></li>
+                            <li> <a href="<?php echo base_url('blog/index/popular');?>">Most Popular</a></li>
                             </ul>
                          </div>
                      </div>
@@ -151,7 +149,7 @@
                   ?>
                          <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key-1]['id']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 
-                         <!--  <a href=""><i class="fa fa-arrow-left" aria-hidden="true"></i></a> -->
+                      
                   <?php
                       }
                 }
@@ -162,7 +160,6 @@
            
             <span>
 
-            <!-- 5/10 -->
             <?php 
                 if(count($blog_all) != 0)
                 {                
@@ -255,17 +252,17 @@
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-             <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" >
+             <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-              <sapn class="rifght_fname"> <?php echo $blog['title'];?> </sapn>
+               <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"><span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div>
           
             <div class="desc_post">
-              <sapn class="rifght_desc"> <?php echo $blog['description'];?>  </sapn>
+              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <span class="rifght_desc"> <?php echo $blog['description'];?>  </span></a>
             </div>  
             </div>
 
