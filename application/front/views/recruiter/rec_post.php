@@ -85,8 +85,8 @@ if ($returnpage == 'job') {
                     $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 're_status' => '1');
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                  $image_ori = $image[0]['profile_background'];
-                    if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
+                  $image_ori= $this->config->item('rec_bg_main_upload_path').$image[0]['profile_background'];
+           if(file_exists($image_ori) && $image[0]['profile_background'] != '') {
                         ?>
 
                      
@@ -124,8 +124,10 @@ if ($returnpage == 'job') {
 
             <div class="user-pic padd_img">
               <?php 
+               $imageee= $this->config->item('rec_profile_thumb_upload_path').$postdataone[0]['recruiter_user_image'];
+           if(file_exists($imageee) && $recdata[0]['recruiter_user_image'] != '')
              
-              if(file_exists($this->config->item('rec_profile_thumb_upload_path').$postdataone[0]['recruiter_user_image'])){ ?>
+            { ?>
                            <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $postdataone[0]['recruiter_user_image']);?>" alt="" >
                             <?php } else { ?>
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />

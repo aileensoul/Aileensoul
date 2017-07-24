@@ -33,14 +33,10 @@
                
                 <?php
 
-                $image_ori = base_url().$this->config->item('rec_bg_thumb_upload_path').$recruiterdata1[0]['profile_background'];
+                $image_ori = $this->config->item('rec_bg_thumb_upload_path').$recruiterdata1[0]['profile_background'];
                
-
-               // print_r($image_ori); die();
-                // $image_ori = $recruiterdata1[0]['profile_background'];
-                if (file_exists($image_ori)) {
-                        //echo "hii"; die();
-                                                                                              ?>
+                if ($recruiterdata1[0]['profile_background'] != '' && file_exists($image_ori)) {
+                                                                       ?>
                    <!-- box image start -->
                <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path'). $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
                     <!-- box image end -->
@@ -156,8 +152,10 @@
           <div style="display: inline-block; float: left;">
              <div  class="buisness-profile-pic-candidate">
                <?php
+                $imagee = $this->config->item('job_profile_thumb_upload_path').$row['job_user_image'];
 
-               if (file_exists($this->config->item('job_profile_thumb_upload_path').$row['job_user_image'])) {
+
+               if (file_exists($imagee) && $row['job_user_image'] != '') {
                 
                ?>
            <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
