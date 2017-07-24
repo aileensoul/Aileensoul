@@ -447,6 +447,29 @@ $( "#searchplace1" ).autocomplete({
             }, "Please Enter Percentage like 89.96.");
   
              //pattern validation at percentage end//
+              $.validator.addMethod("valueNotEquals", function(value, element, arg){ 
+      if(arg == value)
+      { 
+         if(($.fancybox.open()))
+         {
+                  
+               if($(' #university').hasClass('error') )
+               {
+                     $(" .university_1").removeClass("error");
+                     $('label.error').remove();
+                    return true;     
+                }
+
+         }
+
+         return false;
+      }
+      else
+      {
+         return true;
+      }
+ }, "Other Option Selection Is Not Valid");
+
 
         $(document).ready(function () {
 
@@ -463,6 +486,9 @@ $( "#searchplace1" ).autocomplete({
                      percen: /^([0-9]{1,2}){1}(\.[0-9]{1,2})?$/
 
                     },
+                    university:{
+                        valueNotEquals: 463,
+                    }
 
                    
 
