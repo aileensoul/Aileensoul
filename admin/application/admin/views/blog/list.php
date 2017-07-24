@@ -8,7 +8,7 @@ echo $leftmenu;
  <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <img src="<?php echo SITEURL .'/img/i1.jpg' ?>" alt=""  style="height: 50px; width: 50px;">
+            <i class="fa fa-rss" aria-hidden="true"></i>
             <?php echo $module_name; ?>
             <small>Control panel</small>
         </h1>
@@ -103,7 +103,7 @@ echo $leftmenu;
 
                     <th><i class="fa fa-user"></i>
                     <a href="<?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/ASC/' . $offset); ?>"> 
-                     Name
+                     Title
                      </a>
 
                      <?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
@@ -111,23 +111,11 @@ echo $leftmenu;
                     </th>
 
                     <th><i class="fa fa-envelope"></i> 
-                     <a href="javascript:void(0);">Email</a>
-                     </th>
-
-                    <th><i class="fa fa-fw fa-phone-square"></i> 
-                     <a href="javascript:void(0);">Phone No.</a>
-                     </th>
-
-                    <th><i class="fa fa-fw fa-venus"></i> 
-                     <a href="javascript:void(0);">Gender</a>
-                     </th>
-
-                    <th><i class="fa fa-fw fa-home"></i> 
-                     <a href="javascript:void(0);">Location</a>
+                     <a href="javascript:void(0);">Tag Name</a>
                      </th>
 
                     <th><i class="fa fa-fw fa-image"></i> 
-                     <a href="javascript:void(0);">Profile Image</a>
+                     <a href="javascript:void(0);">Image</a>
                      </th>
 
                     <th><i class="fa fa-fw fa-pencil-square"></i> 
@@ -148,92 +136,47 @@ echo $leftmenu;
                 </tr>
 
                  <?php
-                if ($total_rows != 0) 
+                if (count($blog_detail) != 0) 
                 {
 
                         $i = $offset + 1; 
-                        foreach ($users as $user) {
+                        foreach ($blog_detail as $blog) {
                 ?>
 
-                <tr id="delete<?php echo $user['job_id']?>">
-                    <td><?php echo $i++; ?></td>
+                <tr id="delete<?php echo $blog['id'];?>">
+                    <td><?php echo $i++; ?></td> 
 
-                    <td><?php echo ucfirst($user['fname']); echo ' ';echo ucfirst($user['lname']);  ?></td>
+                    <td><?php echo $blog['title']; ?></td>
 
-                    <td><?php echo $user['email']; ?></td>
-
-                    <td><?php if($user['phnno'])
-                              {
-                                echo $user['phnno']; 
-                              }
-                              else
-                              {
-                                echo PROFILENA;
-                              }
-                            ?>
-                      </td>
-
-                    <td><?php echo $user['gender']; ?>
-                        <?php if($user['gender']=="female")
-                        {
-                        ?>
-                        <i class="fa fa-fw fa-female"></i>
-                        <?php
-                        }
-                        if($user['gender']=="male")
-                        {
-                        ?>
-                        <i class="fa fa-fw fa-male"></i>
-                        <?php
-                        }
-                        ?>
-                    </td>
-
+                     <td><?php echo $blog['tag_id']; ?></td>
 
                     <td> 
-                        <?php 
-
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
-
-                            echo $cityname; if( $cityname){echo ",<br>";}
-
-                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
-
-                            echo $statename;if( $statename){echo ",<br>";}
-
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
-                                            
-                            echo $countryname;
-                        ?>
-                    </td>
-
-                    <td> 
-                        <?php  if($user['job_user_image']) 
+                        <?php  if($blog['image']) 
                                 {
                         ?>
-                                <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
+                                <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog['image']; ?>" alt=""  style="height: 70px; width: 70px;">
                         <?php }else{
                         ?>
                                 <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
                     </td>
 
-                    <td id="active<?php echo $user['job_id']?>">
-                        <?php if ($user['status'] == 1) 
+                    <td id="active<?php echo $blog['id'];?>">
+                        <?php if ($blog['status'] == 'publish') 
                               {
                         ?>
-                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['job_id']; ?>);">Active</button>
+                                    <button class="btn btn-block  btn-primary btn-sm"  onclick="publish(<?php echo $blog['id']; ?>);">publish</button>
                         <?php 
                             }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['job_id']; ?>);">Deactive</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="draft(<?php echo $blog['id']; ?>);">draft</button>
 
                          <?php }?></button>
                     </td>
 
-                    <td><?php echo $user['created_date']; ?></td>
+                    <td><?php echo $blog['created_date']; ?></td>
 
-                    <td><?php echo $user['modified_date']; ?></td>
+                    <td><?php echo $blog['modify_date']; ?></td>
 
                     <td>
 
@@ -241,7 +184,7 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['job_id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete(<?php echo $blog['id']; ?>);">
                         <i class="fa fa-trash-o"></i>
                         </button>
 
@@ -359,21 +302,21 @@ echo $leftmenu;
 
 <script>
 //deactive user Start
-   function deactive_user(job_id) 
+   function publish(id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to change this status to draft?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #activate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/deactive_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "blog/publish" ?>',
+                          data: 'id=' + id,
                           success: function (response) 
                           {    
                                  $.fancybox.close();
-                                $('#' + 'active' + job_id).html(response);
+                                $('#'+'active'+id).html(response);
                           }
             });   
         });
@@ -381,21 +324,21 @@ echo $leftmenu;
 //deactive user End
 
 //active user Start
-   function active_user(job_id) 
+   function draft(id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to change this status to publish?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #deactivate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/active_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "blog/draft" ?>',
+                          data: 'id=' + id,
                           success: function (response) 
                           {        
                                   $.fancybox.close();  
-                                  $('#' + 'active' + job_id).html(response);
+                                  $('#'+'active'+id).html(response);
                           }
             });   
         });
@@ -403,17 +346,17 @@ echo $leftmenu;
 //active user End\
 
 //Delete user Start
-   function delete_user(job_id) 
+   function delete(id) 
    {
    
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this Blog?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #delete').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/delete_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "blog/delete_blog" ?>',
+                          data: 'id=' + id,
                           success: function (response) 
                           {          
                                 window.location.reload();

@@ -8,7 +8,7 @@ echo $leftmenu;
  <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <img src="<?php echo SITEURL .'/img/i1.jpg' ?>" alt=""  style="height: 50px; width: 50px;">
+           <i class="fa fa-rss" aria-hidden="true"></i>
             <?php echo $module_name; ?>
             <small>Control panel</small>
         </h1>
@@ -19,9 +19,12 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active">Job User</li>
+            <li class="active">Blog Tag</li>
         </ol>
-        <a name="Add" href="<?php echo base_url('blog_tag/add'); ?>" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
+
+        <div class="fr"> 
+        <a name="Add" href="<?php echo base_url('blog_tag/add'); ?>" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog Tag</a>
+         </div>
     </section>
 
 

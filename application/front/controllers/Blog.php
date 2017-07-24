@@ -102,6 +102,7 @@ class Blog extends CI_Controller {
         $condition_array = array('status !=' => 'delete');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
+        
          $this->load->view('blog/blogdetail',$this->data);
     }
      //BLOGDETAIL FOR PERICULAR ONE POST END

@@ -683,6 +683,7 @@ $config['art_post_thumb_height'] = '200';
 
 // BLOG MAIN IMAGE
 $config['blog_main_upload_path'] = '../uploads/blog/main/';
+$config['blog_view_main_upload_path'] = 'uploads/blog/main/';
 $config['blog_main_allowed_types'] = '*';
 $config['blog_main_max_size'] = '800000'; //in KB
 $config['blog_main_max_width'] = '5000';
