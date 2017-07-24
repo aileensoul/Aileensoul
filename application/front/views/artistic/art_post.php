@@ -1254,7 +1254,25 @@
                                        } else {
                                            ?>
                               <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                              <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+
+
+                             <!--  <img src="<?php //echo base_url(NOIMAGE); ?>" alt=""> -->
+                              <?php 
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
                               </a>
                               <?php
                                  }
@@ -1383,6 +1401,9 @@
                      <?php
                         $userid = $this->session->userdata('aileenuser');
                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                        $art_fn = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_name;
+                        $art_ln = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
+
                         ?>
                      <div class="post-design-proo-img hidden-mob">
                         <?php if ($art_userimage[0]['art_user_image']) { ?>
@@ -1390,7 +1411,25 @@
                         <?php
                            } else {
                                ?>
-                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                        <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="No Image"> -->
+
+                        <?php 
+                          $a = $art_fn;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_ln;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
                         <?php
                            }
                            ?>
