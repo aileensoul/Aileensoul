@@ -580,7 +580,7 @@
                                                                     <?php } else { ?>
 
                                                                         <div class="user_btn_f follow_btn_<?php echo $user['follow_to']; ?>" id= "unfollowdiv">
-                                                                            <button id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
+                                                                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
                                                                         </div>   
 
                                                                     <?php } ?>
@@ -1056,21 +1056,24 @@
             <script type="text/javascript">
                 function followuser_two(clicked_id)
                 {
-                    // alert(clicked_id);
+                    //alert(clicked_id);
                     // return false;
 
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/follow_two" ?>',
                         data: 'follow_to=' + clicked_id,
-                        success: function (data) {
+                        success: function (data) {  //alert(data);
+
+                            $('.' + 'fr' + clicked_id).html(data);
+
                             //alert(data);
                             // return false;
                             //$('.' + 'fruser_list' + clicked_id).html(data);
-                            $('.' + 'follow_btn_' + clicked_id).html(data);
-                            $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
-                            $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
-                            $('#' + 'unfollow' + clicked_id).html('');
+                            //$('.' + 'follow_btn_' + clicked_id).html(data);
+                            //$('.' + 'follow_btn_' + clicked_id).removeClass('user_btn');
+                            //$('.' + 'follow_btn_' + clicked_id).addClass('user_btn_h');
+                            //$('#' + 'unfollow' + clicked_id).html('');
 
                         }
                     });
@@ -1092,11 +1095,13 @@
                         data: 'follow_to=' + clicked_id,
                         success: function (data) {
 
-                            $('.' + 'follow_btn_' + clicked_id).html(data);
-                            $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
-                            $('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
-                            $('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
+                            //$('.' + 'follow_btn_' + clicked_id).html(data);
+                            //$('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_h');
+                            //$('.' + 'follow_btn_' + clicked_id).removeClass('user_btn_f');
+                            //$('.' + 'follow_btn_' + clicked_id).addClass('user_btn_i');
                             // $('#unfollowdiv').html('');
+                            $('.' + 'fr' + clicked_id).html(data);
+
                         }
                     });
                 }
