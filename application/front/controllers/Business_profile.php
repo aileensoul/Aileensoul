@@ -1510,7 +1510,7 @@ class Business_profile extends MY_Controller {
         if (count($otherdata) == 0) {
             $notfound = '<div class="contact-frnd-post bor_none">';
             $notfound .= '<div class="text-center rio">';
-            $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
+            $notfound .= '<h4 class="page-heading  product-listing">No post Available.</h4>';
             $notfound .= '</div></div>';
 
             $notvideo = 'Video Not Available';
