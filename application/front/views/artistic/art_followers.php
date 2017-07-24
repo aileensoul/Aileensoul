@@ -1,4 +1,4 @@
-<!-- start head -->
+start head -->
 <?php  echo $head; ?>
 <style type="text/css">
    #popup-form img{display: none;}
@@ -103,7 +103,29 @@
                <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                <?php } else { ?>
-               <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+
+
+               <!-- <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
+
+               <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-user">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+
                <?php } ?>
                <?php
                   $userid = $this->session->userdata('aileenuser');
@@ -323,6 +345,10 @@
                                     <div class="follow-img">
                                        <?php 
                                           $followerid =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->user_id; ?>
+
+                                           <?php 
+                                             $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
+                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
                                        <?php 
                                           $followerusername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_user_image; ?>
                                        <?php if($followerusername != ''){ ?>
@@ -330,16 +356,36 @@
                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > </a>
                                        <?php } else { ?>
                                        <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
-                                       <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>
+
+
+                                       <!-- <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />-->
+
+                                       <?php 
+                          $a = $followername;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-userlist">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                                       </a>
                                        <?php } ?> 
                                     </div>
                                  </li>
                                  <li class="folle_text">
                                     <div class="">
                                        <div class="follow-li-text">
-                                          <?php 
-                                             $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
-                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
+                                         
                                           <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a>
                                        </div>
                                           <?php  if ($user['designation']) { ?>
@@ -1097,4 +1143,4 @@ $( "#searchplace1" ).autocomplete({
    });  
    
 </script>
-<!-- all popup close close using esc end -->
+<!-- all popup close close using esc end
