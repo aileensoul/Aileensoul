@@ -212,7 +212,7 @@ header h2{
 	box-shadow:none;
 	font-size:14px;
 	color:#fff;
-	height:35px;
+	height:32px;
 	
 }
 .header-login input:focus{
@@ -1344,7 +1344,8 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 .middle-main .container{height:100%; position:relative;}
 .main-inner .middle-main .container{height:100%; position:relative;}
 /***  ***/
-#login_form{text-align:right;}
+#login_form{/*text-align:right;*/}
+.main-login header{padding:18px 0;}
 .form-pd{padding:40px 0;}
 .left-profile{padding-bottom:10px; -webkit-box-shadow: 0 10px 10px -10px #d9d9d9;
    -moz-box-shadow: 0 10px 10px -10px #d9d9d9;
