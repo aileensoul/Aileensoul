@@ -592,7 +592,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         e.preventDefault();
         var $field = $('#message');
         var data = $('#message').html();
-        alert(data);
+       
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
         var data = data.replace(/<br><br><br><br>/, '');
         var data = data.replace(/<br>/, '');
