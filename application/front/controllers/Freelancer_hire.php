@@ -771,18 +771,18 @@ $results = array_unique($result);
          $this->session->set_flashdata('success', 'professional information updated successfully');
 
          if($userdata[0]['free_hire_step'] == 3){
-          $contition_array = array('user_id' => $userid,'status' => '1');
-         $postdata= $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        // echo "<pre>"; print_r($postdata);
-          if(count($postdata) <= 0){
-           // echo "hhh"; die();
-             redirect('freelancer/freelancer_add_post', refresh);
-           }else{
-          //  echo "mmm"; die();
+//          $contition_array = array('user_id' => $userid,'status' => '1');
+//         $postdata= $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//        // echo "<pre>"; print_r($postdata);
+//          if(count($postdata) <= 0){
+//            echo "hhh"; die();
+//             redirect('freelancer/freelancer_add_post', refresh);
+//           }else{
+            //echo "mmm"; die();
              redirect('freelancer/freelancer_hire_profile', refresh);
-           }
+//           }
        }else{
-        redirect('freelancer/freelancer_add_post', refresh);
+        redirect('freelancer/freelancer_add_post?page=professional', refresh);
        }
       }
       else
