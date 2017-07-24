@@ -4595,7 +4595,8 @@
 
             $(".file-preview-frame").hide();
              
-
+            $(".art_no_post_avl").hide();
+            
                         // Output AJAX response to the div container
                         $('#progress_div').fadeOut('5000').remove();
                         

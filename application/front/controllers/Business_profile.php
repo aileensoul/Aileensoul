@@ -1508,10 +1508,19 @@ class Business_profile extends MY_Controller {
 
 
         if (count($otherdata) == 0) {
-            $notfound = '<div class="contact-frnd-post bor_none">';
-            $notfound .= '<div class="text-center rio">';
-            $notfound .= '<h4 class="page-heading  product-listing">No post Available.</h4>';
-            $notfound .= '</div></div>';
+            $notfound = '<div class="art_no_post_avl">
+                                        <h3>Business Post</h3>
+                                        <div class="art-img-nn">
+                                            <div class="art_no_post_img">
+
+                                                <img src="'.base_url('img/bui-no.png').'">
+
+                                            </div>
+                                            <div class="art_no_post_text">
+                                                No Post Available.
+                                            </div>
+                                        </div>
+                                    </div>';
 
             $notvideo = 'Video Not Available';
             $notaudio = 'Audio Not Available';
@@ -1701,19 +1710,37 @@ class Business_profile extends MY_Controller {
                 $datacount = "count";
 
 
-                $notfound = '<div class="contact-frnd-post bor_none">';
-                $notfound .= '<div class="text-center rio">';
-                $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
-                $notfound .= '</div></div>';
+                $notfound = '<div class="art_no_post_avl">
+                                        <h3>Business Post</h3>
+                                        <div class="art-img-nn">
+                                            <div class="art_no_post_img">
+
+                                                <img src="'.base_url('img/bui-no.png').'">
+
+                                            </div>
+                                            <div class="art_no_post_text">
+                                                No Post Available.
+                                            </div>
+                                        </div>
+                                    </div>';
             }
         } else {
 
             $datacount = "count";
 
-            $notfound = '<div class="contact-frnd-post bor_none">';
-            $notfound .= '<div class="text-center rio">';
-            $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
-            $notfound .= '</div></div>';
+            $notfound = '<div class="art_no_post_avl">
+                                        <h3>Business Post</h3>
+                                        <div class="art-img-nn">
+                                            <div class="art_no_post_img">
+
+                                                <img src="'.base_url('img/bui-no.png').'">
+
+                                            </div>
+                                            <div class="art_no_post_text">
+                                                No Post Available.
+                                            </div>
+                                        </div>
+                                    </div>';
         }
 
         echo json_encode(
@@ -2350,9 +2377,9 @@ class Business_profile extends MY_Controller {
             $likeuserarray = explode(',', $active[0]['business_like_user']);
             if (!in_array($userid, $likeuserarray)) {
 
-                $return_html .= '<i class="fa fa-thumbs-up main_color" style="color: #999;" aria-hidden="true"></i>';
+                $return_html .= '<i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>';
             } else {
-                $return_html .= '<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>';
+                $return_html .= '<i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>';
             }
             $return_html .= '<span class="like_As_count">';
 
@@ -5956,19 +5983,37 @@ class Business_profile extends MY_Controller {
                 $datacount = "count";
 
 
-                $notfound = '<div class="contact-frnd-post bor_none">';
-                $notfound .= '<div class="text-center rio">';
-                $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
-                $notfound .= '</div></div>';
+                $notfound = '<div class="art_no_post_avl">
+                                        <h3>Business Post</h3>
+                                        <div class="art-img-nn">
+                                            <div class="art_no_post_img">
+
+                                                <img src="'.base_url('img/bui-no.png').'">
+
+                                            </div>
+                                            <div class="art_no_post_text">
+                                                No Post Available.
+                                            </div>
+                                        </div>
+                                    </div>';
             }
         } else {
 
             $datacount = "count";
 
-            $notfound = '<div class="contact-frnd-post bor_none">';
-            $notfound .= '<div class="text-center rio">';
-            $notfound .= '<h4 class="page-heading  product-listing">No Following Found.</h4>';
-            $notfound .= '</div></div>';
+            $notfound = '<div class="art_no_post_avl">
+                                        <h3>Business Post</h3>
+                                        <div class="art-img-nn">
+                                            <div class="art_no_post_img">
+
+                                                <img src="'.base_url('img/bui-no.png').'">
+
+                                            </div>
+                                            <div class="art_no_post_text">
+                                                No Post Available.
+                                            </div>
+                                        </div>
+                                    </div>';
         }
 
         echo json_encode(
