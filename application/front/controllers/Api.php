@@ -92,7 +92,31 @@ class Api extends CI_Controller {
             echo 2;
         }
     }
+    
+     public function last_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
+      $userid = $this->session->userdata('aileenuser');
+        $timestamp = $this->input->post('timestamp');
+        $id = $this->input->post('id');
+        $message_from_profile = $this->input->post('message_from_profile');
+        $message_to_profile = $this->input->post('message_to_profile');
+        $message_from_profile_id = $this->input->post('message_from_profile_id');
+        $message_to_profile_id = $this->input->post('message_to_profile_id');
 
+        $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
+         
+      
+            if (preg_match('/<img/', $messages[0]['message'])) {
+                $messages = str_replace("\\", "", $messages[0]['message']);
+            } else {
+                $messages_new = $this->common->make_links($messages[0]['message']);
+                $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+            }
+          
+       
+echo  $messages; 
+    
+    }
+    
     private function _setOutput($data) {
         header('Cache-Control: no-cache, must-revalidate');
         header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
