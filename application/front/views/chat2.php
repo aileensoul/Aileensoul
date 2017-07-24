@@ -177,11 +177,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="chat-header clearfix border_btm">
 
                             <?php
-                            if ($message_to_profile == 1) {
+                            if ($message_from_profile == 1) {
                                 $last_user_image = $last_user_data['user_image'];
                                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
                             }
-                            if ($message_to_profile == 2) {
+                            if ($message_from_profile == 2) {
                                 $last_user_image = $last_user_data['user_image'];
                                 $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
                             }
@@ -600,14 +600,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var message_from_profile_id = <?php echo $message_from_profile_id ?>;
         var message_to_profile_id = <?php echo $message_to_profile_id ?>;
 
-        $.ajax({
+        $.ajax({  
             type: 'POST',
             url: '<?php echo base_url() ?>api/last_messages',
             data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
 //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
              dataType: "json",
             success: function (data) {
-                
                    $('.' + 'status' + id).html(data);
               
             }
@@ -829,5 +828,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
 
     })(jQuery);
+    
+     $( document ).on( 'keydown', function ( e ) { 
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+         document.getElementById('notificationContainer1').style.display = 'none';
+    }
+});  
+
+$('body').on("click", "*", function (e) {
+       document.getElementById('notificationContainer1').style.display = 'none';
+   });
 
 </script>
