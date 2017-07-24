@@ -4060,10 +4060,10 @@ display: inline-block;
         color:#8c8c8c;
      
         text-align:left;
-        font-size:13px;
+        font-size:12px;
         font-family:arial;
     }
-    .addcontact-text span{color:#404040; font-size:15px;}
+    .addcontact-text span{color:#404040; font-size:13px;}
     #addcontactBody li:hover{background-color:e9f4f8; }
         #addcontactBody li:hover .addcontact-text{}
     .addcontact-text span{
@@ -4073,7 +4073,7 @@ display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 165px;
-		min-height:18px;
+		min-height:15px;
     }
     .addcontact-left{
         width:75%;
@@ -5791,6 +5791,7 @@ padding-top: 2px;
 padding:0px;
 font-family: arial;
 display: contents;
+word-break:break-word;
 }
 
 
@@ -8178,7 +8179,7 @@ input:-moz-placeholder {
   
   }
   .custome-approved-contact .addcontact-text span{width: 100% !important; display: block;
-line-height: 1;
+line-height: 1.5;
 white-space: inherit;
 overflow: inherit;
 text-overflow: inherit;
@@ -14287,7 +14288,7 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 .message-data .message-data-time {
-    width: 100px;
+    width: 105px;
     display: block;
     margin: 0 auto;
 }
