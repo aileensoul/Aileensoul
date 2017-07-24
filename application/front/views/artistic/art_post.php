@@ -152,7 +152,7 @@
                             }?>
 
                             <div>
-                            <?php echo  $acronym . $acronym1; ?>
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
                             </div>
                         </div>
                         <?php } ?>
@@ -229,11 +229,30 @@
                                        echo ucwords($userlist['art_lastname']);
                                        ?>" > 
                                     <?php } else { ?>
-                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+
+                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
                                        echo"&nbsp;";
                                        echo ucwords($userlist['art_lastname']);
-                                       ?>">
+                                       ?>"> -->
+
+                                       <?php 
+                          $a = $userlist['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acr = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userlist['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acr1 = $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            </div>
+                       
                                     <?php } ?>
                                     </a>
                                  </div>
@@ -314,11 +333,28 @@
                                        echo ucwords($userlist['art_lastname']);
                                        ?>">
                                     <?php } else { ?> 
-                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+
+                                    <?php 
+                          $a = $userlist['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acr = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userlist['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acr1 = $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            </div>
+                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
                                        echo"&nbsp;";
                                        echo ucwords($userlist['art_lastname']);
-                                       ?>">
+                                       ?>"> -->
                                     <?php } ?>
                                     </a>
                                  </div>
@@ -398,11 +434,28 @@
                                        echo"&nbsp;";
                                        echo ucwords($userlist['art_lastname']);
                                        ?>"> <?php } else { ?>
-                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
                                        echo"&nbsp;";
                                        echo ucwords($userlist['art_lastname']);
-                                       ?>">
+                                       ?>"> -->
+
+                                       <?php 
+                          $a = $userlist['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acr = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userlist['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acr1 = $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            </div>
                                     <?php } ?></a>
                                  </div>
                                  <div class="post-design-name_follow fl">
@@ -482,11 +535,28 @@
                                        echo ucwords($userlist['art_lastname']);
                                        ?>">
                                     <?php } else { ?> 
-                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
+                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
                                        echo"&nbsp;";
                                        echo ucwords($userlist['art_lastname']);
-                                       ?>">
+                                       ?>"> -->
+
+                                       <?php 
+                          $a = $userlist['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acr = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userlist['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acr1 = $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            </div>
                                     <?php } ?></a>
                                  </div>
                                  <div class="post-design-name_follow fl">
@@ -562,11 +632,19 @@
                   <?php }else{?>
 
 
-                   <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($artisticdata[0]['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>">
+                   <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php
+                                      // echo ucwords($artisticdata[0]['art_name']);
+                                       //echo"&nbsp;";
+                                       //echo ucwords($artisticdata[0]['art_lastname']);
+                                       ?>"> -->
+
+                                       
+                          
+                            <div class= "data_img_2">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                        
+                        
 
                   <?php }?>
                </div>
@@ -603,23 +681,48 @@
                      <?php
                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id'], 'status' => 1))->row()->art_user_image;
                         
-                        $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
+                        $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->art_user_image;
+
+                        $userfn = $this->db->get_where('art_reg', array('user_id' => $row['user_id'], 'status' => 1))->row()->art_name;
+                        $userln = $this->db->get_where('art_reg', array('user_id' => $row['user_id'], 'status' => 1))->row()->art_lastname;
+                      
+
+                        $userimagefn = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->art_name;
+                        $userimageln = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->art_lastname;
+
                         ?>
                      <?php if ($row['posted_user_id']) { ?>
                      <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
 
                      <?php ?>
 
-                     <?php if($userimageposted){?>
+                     <?php if(!$userimageposted){?>
                      <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
-                     <?php }else{?>
+                     <?php }else{  ?>
 
-                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($artisticdata[0]['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>">
+                      <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php
+                                       //echo ucwords($artisticdata[0]['art_name']);
+                                       //echo"&nbsp;";
+                                       //echo ucwords($artisticdata[0]['art_lastname']);
+                                       ?>"> -->
+                                       <?php 
 
+                          $a = $userimagefn;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acrony = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userimageln;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acrony1 = $w[0];
+                            }?>
+
+                            <div class="data_img_2">
+                            <?php echo  ucwords($acrony) . ucwords($acrony1); ?>
+                            </div>
+                       
 
                      <?php }?>
 
@@ -629,13 +732,26 @@
 
                      <?php if($art_userimage){?>
                      <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
-                     <?php }else{?>
+                     <?php }else{  ?>
 
-                      <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($artisticdata[0]['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>">
+                      <?php 
+                                         //echo $userfn; echo $userln; 
+                          $a = $userfn;
+                          $word = explode(" ", $a);
+                          foreach ($word as $w) {
+                            $userf = $w[0];
+                            }?>
+                          <?php 
+                          $b = $userln;
+                          $word = explode(" ", $b);
+                          foreach ($word as $w) {
+                            $userl = $w[0];
+                            }?>
+
+                            <div class="data_img_2">
+                            <?php echo  ucwords($userf) . ucwords($userl); ?>
+                            </div>
+                       
 
 
                      <?php }?>
