@@ -1597,7 +1597,7 @@ class Chat extends MY_Controller {
         if ($usrsearchdata != "") {
             // FOR JOB 
 
-            if ($message_from_profile == 1) {
+            if ($message_from_profile == 2) {
                 // message to user
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
@@ -1608,12 +1608,12 @@ class Chat extends MY_Controller {
 
 
                 $search_condition = "((fname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'message_to,fname,job_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'message_to,fname as first_name,job_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR RECRUITER
 
-            if ($message_from_profile == 2) {
+            if ($message_from_profile == 1) {
                 // message to user
                 $contition_array = array('is_delete' => '0', 're_status' => '1', 'message_to !=' => $userid);
 
@@ -1623,12 +1623,12 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((rec_firstname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'message_to,rec_firstname,recruiter_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'message_to,rec_firstname as first_name,recruiter_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR FREELANCER HIRE POST 
 
-            if ($message_from_profile == 3) {
+            if ($message_from_profile == 4) {
                 // message to user
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
@@ -1638,12 +1638,12 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'message_to,fullname,freelancer_hire_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'message_to,fullname as first_name,freelancer_hire_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR FREELANCER POST APPLY
 
-            if ($message_from_profile == 4) {
+            if ($message_from_profile == 3) {
                 // message to user
                 $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
 
@@ -1653,7 +1653,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((freelancer_post_fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'message_to,freelancer_post_fullname,freelancer_post_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'message_to,freelancer_post_fullname as first_name,freelancer_post_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR BUSINESS
@@ -1668,7 +1668,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((company_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'message_to,company_name,business_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'message_to,company_name as first_name,business_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR ARTISTIC
@@ -1683,22 +1683,22 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((art_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-                $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'message_to,art_name,art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'message_to,art_name as first_name,art_user_image as user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
 
 
             // message to user
-            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
-
-            $join_str7[0]['table'] = 'messages';
-            $join_str7[0]['join_table_id'] = 'messages.message_to';
-            $join_str7[0]['from_table_id'] = 'user.user_id';
-            $join_str7[0]['join_type'] = '';
-
-
-            $search_condition = "((first_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-            $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+//            $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
+//
+//            $join_str7[0]['table'] = 'messages';
+//            $join_str7[0]['join_table_id'] = 'messages.message_to';
+//            $join_str7[0]['from_table_id'] = 'user.user_id';
+//            $join_str7[0]['join_type'] = '';
+//
+//
+//            $search_condition = "((first_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+//            $tolist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'message_to,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
 
             // uniq array of tolist  
             foreach ($tolist as $k => $v) {
@@ -1729,15 +1729,71 @@ class Chat extends MY_Controller {
 
             // message from user
             $contition_array = array('is_delete' => '0', 'status' => '1', 'message_from !=' => $userid);
+            if ($message_from_profile == 2) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'job_reg.job_id';
+                $join_str4[0]['join_type'] = '';
+                
+                $search_condition = "((fname LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+               
+                $fromlist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
+            if ($message_from_profile == 1) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'recruiter.rec_id';
+                $join_str4[0]['join_type'] = '';
+                $contition_array = array('is_delete' => '0', 're_status' => '1');
+                
+                $search_condition = "((rec_firstname LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+                
+                $fromlist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_from,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
+            if ($message_from_profile == 4) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
+                $join_str4[0]['join_type'] = '';
+                
+                $search_condition = "((username LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+                
+                $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
+            if ($message_from_profile == 3) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
+                $join_str4[0]['join_type'] = '';
+                
+                $search_condition = "((freelancer_post_fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+                
+                $fromlist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
+            if ($message_from_profile == 5) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'business_profile.business_profile_id';
+                $join_str4[0]['join_type'] = '';
+                $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
+                
+                $search_condition = "((company_name LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+                
+                $fromlist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
+            if ($message_from_profile == 6) {
+                $join_str4[0]['table'] = 'messages';
+                $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
+                $join_str4[0]['from_table_id'] = 'art_reg.art_id';
+                $join_str4[0]['join_type'] = '';
 
-            $join_str[0]['table'] = 'messages';
-            $join_str[0]['join_table_id'] = 'messages.message_from';
-            $join_str[0]['from_table_id'] = 'user.user_id';
-            $join_str[0]['join_type'] = '';
+                $search_condition = "((art_name LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
+                
+                $fromlist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,art_name as first_name,art_lastname as last_name,art_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            }
 
-            $search_condition = "((first_name LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id)";
-            $fromlist = $this->common->select_data_by_search('user', $search_condition, $contition_array, $data = 'messages.message_from,first_name,user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
+            
+            
             // uniq array of fromlist  
             foreach ($fromlist as $k => $v) {
                 foreach ($fromlist as $key => $value) {
@@ -1758,6 +1814,7 @@ class Chat extends MY_Controller {
 
                 $return['user_id'] = $from_list['message_from'];
                 $return['first_name'] = $from_list['first_name'];
+                $return['last_name'] = $from_list['last_name'];
                 $return['user_image'] = $from_list['user_image'];
 
                 unset($return['message_from']);
@@ -1812,7 +1869,7 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] . '<br></a>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] .' '.$user['last_name']. '<br></a>';
                     $usrsrch .= '</div><div class="status">Current Work</div></div></li>';
                 }
             } else {
