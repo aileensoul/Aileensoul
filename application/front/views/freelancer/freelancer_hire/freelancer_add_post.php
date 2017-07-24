@@ -1,3 +1,5 @@
+<?php  $pages=$_GET['page']; 
+?>
 <!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
@@ -398,16 +400,19 @@
                  <div class="fr">           
 
                     <fieldset class="hs-submit full-width">
-
+                        <input type="hidden" value="<?php echo $pages;?>" name="page" id="page">
 <!--                        <input type="reset" value="cancel" >-->
 
-                       <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancerlancer_edit_post')){?>
-                                
+                       <?php if(($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancerlancer_edit_post')){ 
+                          // echo 1; die();
+                              ?>
                                
                                  <a class="add_post_btnc"  onclick="return leave_page(9)">Cancel</a>
-                                 <?php }else{?>
-
-                                 <a class="add_post_btnc"   href="javascript:history.back()">Cancel</a>
+                                 <?php }else{ 
+                                    // echo 2; die();
+                                     ?>
+                                 
+                                 <a class="add_post_btnc" <?php if($page=='professional'){?> href="<?php echo base_url('freelancer/recommen_candidate');?>" <?php } else { ?>  href="javascript:history.back()" <?php }?> >Cancel</a>
                                  <?php } ?>
                     
                       
@@ -674,6 +679,8 @@ function checkvalue(){
 var datepicker = document.getElementById('example2').value;
   var country = document.getElementById('country').value;
  var city = document.getElementById('city').value;
+ var page = document.getElementById('page').value;
+
 
  
    var searchkeyword = $.trim(document.getElementById('tags').value);
@@ -742,7 +749,11 @@ var datepicker = document.getElementById('example2').value;
     }
      if(clicked_id==9)
     {
+        if(page=='professional'){
+             location.href = '<?php echo base_url('freelancer/recommen_candidate'); ?>';
+        }else{
             location.href = 'javascript:history.back()';
+        }
 
     }
 
@@ -1220,6 +1231,4 @@ var today = yyyy;
                 }
             }
         </script>
-
-
 
