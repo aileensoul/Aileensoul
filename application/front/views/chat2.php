@@ -587,7 +587,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function deleted_chat(from, message_id) {
         $.getJSON('<?php echo base_url() . 'api/delete_messages/' . $message_from_profile . '/' . $message_to_profile ?>/' + from + '/' + message_id + '?timestamp=' + request_timestamp, function (data) {
         });
-        $('#message_li_' + message_id).hide();
+         $('#message_li_' + message_id).hide();  alert(1234);
+          if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
+            var offset = 52560000; // 100 years min
+            request_timestamp = parseInt(Date.now() / 1000 - offset);
+        }
+        var id = <?php echo $toid ?>;
+        var message_from_profile = <?php echo $message_from_profile ?>;
+        var message_to_profile = <?php echo $message_to_profile ?>;
+        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() ?>message/last_messages',
+            data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
+//            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
+             dataType: "json",
+            success: function (data) {
+                
+                   $('.' + 'status' + id).html(data);
+              
+            }
+        });
+       
     }
     function delete_history() {
         $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this history?<div class='model_ok_cancel'><a class='okbtn' onClick='deleted_history()' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
