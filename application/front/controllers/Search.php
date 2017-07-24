@@ -72,7 +72,7 @@ class Search extends CI_Controller {
 //insert search keyword into data base code end
 
          if ($searchskill == "") {
-            $contition_array = array('art_city' => $cache_time, 'status' => '1', 'art_reg.user_id !=' => $userid, 'art_step' => 4);
+            $contition_array = array('art_city' => $cache_time, 'status' => '1', 'art_step' => 4);
             $new = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             
@@ -85,7 +85,7 @@ class Search extends CI_Controller {
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($skilldata); 
-            $contion_array = array('art_reg.status' => '1', 'art_reg.user_id !=' => $userid ,'art_step' => 4);
+            $contion_array = array('art_reg.status' => '1', 'art_step' => 4);
             $artregdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contion_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // echo "<pre>";print_r($artregdata);
@@ -105,7 +105,7 @@ class Search extends CI_Controller {
                 }
             }
              //echo "<pre>"; print_r($artskillpost); die();
-            $contition_array = array('art_reg.is_delete' => '0', 'art_reg.status' => '1','art_reg.user_id !=' => $userid,'art_step' => 4);
+            $contition_array = array('art_reg.is_delete' => '0', 'art_reg.status' => '1','art_step' => 4);
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%' or art_yourart LIKE '%$searchskill%')";
             // echo $search_condition;
@@ -164,7 +164,7 @@ class Search extends CI_Controller {
             } else {
                //  echo "panalia"; die();
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
-             $contition_array = array('art_reg.user_id !=' => $userid ,'art_reg.art_step' => 4);
+             $contition_array = array('art_reg.art_step' => 4);
 
                 // echo $search_condition;
                 $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -206,7 +206,7 @@ class Search extends CI_Controller {
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($skilldata); 
-            $contion_array = array('art_reg.user_id !=' => $userid ,'status' => '1', 'art_city' => $cache_time , 'art_step' => 4);
+            $contion_array = array('status' => '1', 'art_city' => $cache_time , 'art_step' => 4);
             $artregdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contion_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -227,7 +227,7 @@ class Search extends CI_Controller {
             }
             // echo "<pre>"; print_r($artskillpost);
 
-            $contition_array = array('art_reg.user_id !=' => $userid ,'is_delete' => '0', 'status' => '1', 'art_city' => $cache_time , 'art_step' => 4);
+            $contition_array = array('is_delete' => '0', 'status' => '1', 'art_city' => $cache_time , 'art_step' => 4);
 
             $search_condition = "(designation LIKE '%$searchskill%' or other_skill LIKE '%$searchskill%' or art_name LIKE '%$searchskill%' or art_lastname LIKE '%$searchskill%')";
 
@@ -282,7 +282,7 @@ class Search extends CI_Controller {
                 $search_condition = "(art_name LIKE '%$fullname[0]%' or art_lastname LIKE '%$fullname[1]%')";
 
                 // echo $search_condition;
-                $contition_array = array('art_reg.user_id !=' => $userid ,'art_reg.art_city' => $cache_time ,'art_step' => 4);
+                $contition_array = array('art_reg.art_city' => $cache_time ,'art_step' => 4);
                 $artfullname = $fullnamedata['data'] = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -331,7 +331,7 @@ class Search extends CI_Controller {
          // die();
 
         // code for search
-        $contition_array = array('art_reg.user_id !=' => $userid , 'status' => '1', 'is_delete' => '0', 'art_step' => 4);
+        $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);
 
 
         $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -455,7 +455,7 @@ public function business_search() {
 
         if ($search_business == "") {
 
-            $contition_array = array('business_profile.user_id !=' => $userid, 'city' => $cache_time, 'status' => '1','business_step' => 4);
+            $contition_array = array('city' => $cache_time, 'status' => '1','business_step' => 4);
              $business_profile = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         }
@@ -488,7 +488,7 @@ public function business_search() {
             $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
             $join_str[0]['join_type'] = '';
 
-            $condition_array = array('business_profile_post.user_id !=' => $userid,'business_step' => 4);
+            $condition_array = array('business_step' => 4);
 
             $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
 
@@ -511,7 +511,7 @@ public function business_search() {
 
         else {
 
-            $condition_array = array('business_profile_id !=' => '', 'status' => '1', 'city' => $cache_time ,'business_profile.user_id !=' => $userid,'business_step' => 4);
+            $condition_array = array('business_profile_id !=' => '', 'status' => '1', 'city' => $cache_time , 'business_step' => 4);
              
 
             $searchbusiness = $this->db->get_where('business_type', array('business_name' => $search_business))->row()->type_id;
@@ -531,7 +531,7 @@ public function business_search() {
             $join_str[0]['from_table_id'] = 'business_profile_post.user_id';
             $join_str[0]['join_type'] = '';
 
-            $condition_array = array('business_profile_post.user_id !=' => $userid ,'business_step' => 4);
+            $condition_array = array('business_step' => 4);
 
             $search_condition = "(business_profile_post.product_name LIKE '%$search_business%' or business_profile_post.product_description LIKE '%$search_business%')";
             $business_post = $post['data'] = $this->common->select_data_by_search('business_profile_post', $search_condition, $contition_array, $data = 'business_profile_post.*,business_profile.company_name,business_profile.industriyal', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');

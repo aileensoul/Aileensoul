@@ -135,7 +135,27 @@ $(document).ready(function(){
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+
+
+                            <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-user">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+                            <!-- <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
+
                             <?php } ?>
 
 

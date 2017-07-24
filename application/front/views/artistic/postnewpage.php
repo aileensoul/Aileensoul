@@ -131,7 +131,24 @@
                                                 </div>
                                             <?php } else { ?> 
                                                 <div class="data_img_2">
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+
+                                                   <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
                                                 </div>
                                             <?php } ?>
                                             <!-- box image end -->
@@ -230,34 +247,108 @@
 
                                          $userid = $this->session->userdata('aileenuser');
 
+                                         $firstname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_name;
+                                            $lastname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_lastname;
+
+                                            $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_name;
+                                            $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_lastname;
+
+
                                         $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id'], 'status' => 1))->row()->art_user_image;
 
                                         $userimageposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_user_image;
                                         ?>
                                         <?php if ($art_data[0]['posted_user_id']) { ?>
                                             <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['posted_user_id']); ?>">
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
+
+                                                <?php if($userimageposted){?>
+                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                                <?php }else{?>
+
+                                                    <?php 
+                          $a = $firstnameposted;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $lastnameposted;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                                                <?php }?>
+                                                 </a>
 
                                         <?php } else if($art_data[0]['user_id'] == $userid){ ?>
 
                                          <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>">
-                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" /> </a>
+
+                                            <?php if($art_userimage){?>
+                                                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
+
+                                                <?php }else{?>
+
+
+                                                 <?php 
+                          $a = $firstname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+
+                                                <?php }?>
+
+                                                 </a>
 
                                             <?php }
                                             else { ?>
                                             <a class="post_dot"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" name="image_src" id="image_src" /> </a>
+
+
+                                                <?php 
+                          $a = $row['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $row['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                                                </a>
 
                                         <?php } ?>
                                     </div>
                                     <div class="post-design-name fl col-xs-8 col-md-10">
                                         <ul>
                                             <?php
-                                            $firstname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_name;
-                                            $lastname = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['user_id']))->row()->art_lastname;
-
-                                            $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_name;
-                                            $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $art_data[0]['posted_user_id']))->row()->art_lastname;
+                                            
 
                                             $designation = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->designation;
                                             
@@ -705,6 +796,8 @@
                                                                     if ($artmulimage) {
                                                                         foreach ($artmulimage as $rowdata) {
                                                                             $companyname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_name;
+
+                                                                            $lastname = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id']))->row()->art_lastname;
                                                                             ?>
                                                                             <div class="all-comment-comment-box">
                                                                                 <div class="post-design-pro-comment-img"> 
@@ -714,8 +807,26 @@
                                                                     <?php if($art_userimage){?>
                                                                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
 
-                                                                     <?php }else{?>  
-                                                                      <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                                                     <?php }else{?> 
+
+
+                                                                      <?php 
+                          $a = $companyname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
 
                                                                      <?php }?>            
                                                                                 </div>
@@ -847,6 +958,9 @@
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
                                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                                                            $art_firstuser = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_name;
+                                                            $art_lastuser = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
+
                                                             ?>
                                                             <div class="post-design-proo-img">
                                                                 <?php if ($art_userimage) { ?>
@@ -854,7 +968,23 @@
                                                                     <?php
                                                                 } else {
                                                                     ?>
-                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                                    <?php 
+                          $a = $art_firstuser;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_lastuser;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
                                                                     <?php
                                                                 }
                                                                 ?>
@@ -1095,13 +1225,31 @@
                                                         <div class="post-design-pro-comment-img"> 
                                                             <?php
                                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
+                                                            $art_first = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_name;
+                                                            $art_last = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_lastname;
                                                             ?>
                                                             <?php if ($art_userimage) { ?>
                                                                 <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
                                                                 <?php
                                                             } else {
                                                                 ?>
-                                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                <?php 
+                          $a = $art_first;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_last;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
                                                                 <?php
                                                             }
                                                             ?>
@@ -1251,6 +1399,9 @@
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                                    $art_first = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_name;
+                                    $art_last = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
+
                                     ?>
                                     <div class="post-design-proo-img">
                                         <?php if ($art_userimage) { ?>
@@ -1258,7 +1409,23 @@
                                             <?php
                                         } else {
                                             ?>
-                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                            <?php 
+                          $a = $art_first;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_last;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
                                             <?php
                                         }
                                         ?>

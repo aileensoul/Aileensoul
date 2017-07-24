@@ -213,10 +213,10 @@
                 $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                 <?php  if($cityname || $countryname){ ?>
                                                     <div class="fr lction">
-       <p title="location"><i class="fa fa-map-marker" aria-hidden="true">
-
-          <?php if($cityname){ echo $cityname .', ';} echo $countryname; ?> 
-                    </i></p>
+		<p title="location">
+			<i class="fa fa-map-marker" aria-hidden="true"></i>
+			<?php if($cityname){ echo $cityname .', ';} echo $countryname; ?> 
+		</p>
                                                     </div>
                                                     <?php }?> 
                                                     <?php

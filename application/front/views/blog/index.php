@@ -19,7 +19,7 @@
                     <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo">
-                            <a tabindex="-200" href="#"> <h2  style="color: white;">Aileensoul</h2></a>
+                            <a tabindex="-200" href="<?php echo base_url(); ?>"> <h2  style="color: white;">Aileensoul</h2></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
@@ -46,16 +46,55 @@
             <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo pl20">
-                            <a > <h3  style="color: #1b8ab9;">Blog</h3></a>
+                        <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                        {
+                        ?>
+                           <a href="<?php echo base_url('blog/'); ?>"> <h3  style="color: #1b8ab9;">Blog</h3></a>
+                        <?php
+                        }
+                        else
+                        {
+                        ?>
+                            <a href="javascript:void(0)"> <h3  style="color: #1b8ab9;">Blog</h3></a>
+                        <?php
+                        }
+                        ?>
                         </div>
                     </div>
                       <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
                         <div class="main-menu-right">
                             <ul class="">
-                            <li><a href="">Recent Post  </a></li>
-                            <li><a href="">Most Popular</a></li>
-                            <li> <a href="">Newest</a></li>
-                           
+                            <li>
+                                <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                                {
+                                ?>
+                                    <a href="<?php echo base_url('blog/');?>">Recent Post </a>
+                                 <?php
+                                }
+                                else
+                                {
+                                ?>
+                                     <a href="javascript:void(0)">Recent Post </a>
+                              <?php
+                                }
+                                ?>
+                            </li>
+                            <li>
+                                <?php if($this->uri->segment(3) == 'popular')
+                                {
+                                ?>
+                                    <a href="javascript:void(0)">Most Popular</a>
+                                 <?php
+                                }
+                                else
+                                {
+                                ?>
+                                     <a href="<?php echo base_url('blog/index/popular');?>">Most Popular</a>
+                              <?php
+                                }
+                                ?>
+
+                            </li>
                             </ul>
                          </div>
                      </div>
@@ -85,6 +124,28 @@
     
 <div class="blog_post_outer col-md-9 col-sm-8 pr0">
 <?php
+
+if($this->input->get('search_blog_post'))
+      {
+          echo "Search results for '$search_keyword' ";
+          
+      }//if end  
+
+if(count($blog_detail) == 0 )
+{
+  echo "<br>";
+  if($this->input->get('search_blog_post'))
+  {
+      echo "Oops No Data Found !";
+  }
+  if($this->uri->segment(3) == 'popular')
+  {
+     echo "Not Any Popular Blog";
+  }
+}//if end
+else
+{
+       
       foreach ($blog_detail as $blog) 
       {
 ?>
@@ -120,7 +181,12 @@
       </div>
       <div class="blog-left-comment">
         <div class="blog-comment-count">
-          <a>10</a>
+          <a>
+          <?php 
+                  $condition_array = array('status' => 'approve','blog_id'=>$blog['id']);
+                  $blog_comment = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
+                  echo count($blog_comment);?>
+          </a>
         </div>
         <div class="blog-comment">
           <a>Comments</a>
@@ -136,14 +202,14 @@
         <div class="blog_main_post_first_part">
         <div class="blog_main_post_img">
 
-          <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" >
+         <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
         </div>
         </div>
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-            <?php echo $blog['title'];?>
+             <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"><?php echo $blog['title'];?></a>
           </span>
         </div>
         <div class="blog_class_main_by">
@@ -154,7 +220,7 @@
         </div>
         <div class="blog_class_main_desc">
           <span>
-            <?php echo $blog['description'];?>
+           <?php echo $blog['description'];?>
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -202,6 +268,7 @@
   
 <?php
       }//for loop end
+}//else end
 ?>
 </div>
 
@@ -209,9 +276,14 @@
       <div class="blog_search">
         <h6> Blog Search </h6>
         <div>
-          <div class="searc_w"><input type="" name="" placeholder="Search Blog Post"></div>
-          <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
-</a></div>
+
+ <!-- <?php //echo form_open(base_url('blog/index/search'), array('id' => 'blog_search', 'name' => 'blog_search', 'class' => 'clearfix')); ?>  -->
+  <form action=<?php echo base_url('blog/')?> method="get" autocomplete="off"> 
+          <div class="searc_w"><input type="text" name="search_blog_post" id="search_blog_post" placeholder="Search Blog Post"></div>
+         <button type="submit" class="butn_w" onclick="return checkvalue();"><i class="fa fa-search"></i></button> 
+        <!-- <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
+</a></div> -->
+<?php echo form_close(); ?>
         </div>
       </div>
       <div class="blog_latest_post">
@@ -228,17 +300,17 @@
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-              <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" >
+              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-              <sapn class="rifght_fname"> <?php echo $blog['title'];?> </sapn>
+              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div>
           
             <div class="desc_post">
-              <sapn class="rifght_desc"> <?php echo $blog['description'];?> </sapn>
+              <span class="rifght_desc"> <?php echo $blog['description'];?> </span>
             </div>  
             </div>
 
@@ -284,4 +356,21 @@ function read_more(blog_id) {
        });
    }
 </script>
+
+<!-- FOR SEARCH VALIDATION FOR EMAPTY SEARCH START -->
+<script type="text/javascript">
+   function checkvalue() 
+   {
+     
+       var searchkeyword = $.trim(document.getElementById('search_blog_post').value);
+     
+       if (searchkeyword == "") 
+       {
+           return false;
+       }
+   }
+   
+</script>
+<!-- FOR SEARCH VALIDATION FOR EMAPTY SEARCH END -->
+
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>

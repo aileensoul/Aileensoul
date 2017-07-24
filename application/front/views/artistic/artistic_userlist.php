@@ -117,7 +117,28 @@
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
-                    <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+
+
+                    <!-- <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
+                    <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-user">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+
                 <?php } ?>
             <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
@@ -329,8 +350,30 @@
                                                         <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
                                                             <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $user['art_user_image']); ?>" height="50px" width="50px" alt="" > </a>
                                                         <?php } else { ?>
-                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
-                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> </a>
+                                <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
+
+                           <!--  <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                            -->
+
+                            <?php 
+                          $a = $user['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $user['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-userlist">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                             </a>
                                                         <?php } ?> 
                                                     </div>
                                                 </li>

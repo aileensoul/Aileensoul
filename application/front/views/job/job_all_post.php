@@ -122,9 +122,10 @@
                                              <?php if($countryname || $cityname){ ?>
                                              <div class="fr lction">
                                                 <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
-                                                   <?php  if($cityname){echo $cityname;echo ', ';}
-                                                      echo $countryname; ?> 
+                                                    
                                                    </i>
+												   <?php  if($cityname){echo $cityname;echo ', ';}
+                                                      echo $countryname; ?>
                                                 </p>
                                              </div>
                                              <?php }?>
