@@ -314,6 +314,11 @@
                                                                             <input type="hidden" name="search" id="search" value="<?php echo $keyword; ?>">
                                                                         </ul>
                                                                     </div>
+        
+        <?php 
+        $userid = $this->session->userdata('aileenuser');
+        if($p['user_id'] != $userid){ ?>
+
                                                                     <div class="fl search_button">
                                                                         <div class="<?php echo "fruser" . $p['business_profile_id']; ?>">
                                                                             <?php
@@ -336,6 +341,8 @@
 
                                                                         <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $p['user_id'].'/5/5'); ?>'"> Message</button>
                                                                     </div>
+
+                                                                    <?php }?>
                                                                 </div>
                                                             </div>
                                                             <?php

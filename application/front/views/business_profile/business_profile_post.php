@@ -3778,7 +3778,10 @@
             document.getElementById('test-upload-product').value = null;
             document.getElementById('test-upload-des').value = null;
 
-            $(".file-preview-frame").hide(); 
+            $(".file-preview-frame").hide();
+
+            $(".art_no_post_avl").hide();
+
             // Output AJAX response to the div container
             // console.log(response.responseText);
 //                    $(".upload-image-messages").html(response.responseText);
