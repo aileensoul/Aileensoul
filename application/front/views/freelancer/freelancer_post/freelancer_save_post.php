@@ -171,7 +171,7 @@
                     </div>
 
                 </div>
-               
+
                 <div class="col-md-8 col-sm-12 col-xs-12 mob-clear">
                     <div class="common-form">
                         <div class="job-saved-box">
@@ -302,10 +302,10 @@
 
 
                                                                     <!-- <?php if ($post['post_other_skill']) { ?>
-                                                                                    <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
-                                                                                    </li>
+                                                                                            <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
+                                                                                            </li>
                                                                     <?php } else { ?>
-                                                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
+                                                                                            <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                                     <li><b>Post Description</b><span><p>
                                                                                 <?php
@@ -507,33 +507,33 @@
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
 
-                                                                                    var data = <?php echo json_encode($demo); ?>;
+                                                                    var data = <?php echo json_encode($demo); ?>;
 //alert(data);
 
 
-                                                                                    $(function () {
-                                                                                        // alert('hi');
-                                                                                        $("#tags").autocomplete({
-                                                                                            source: function (request, response) {
-                                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                                response($.grep(data, function (item) {
-                                                                                                    return matcher.test(item.label);
-                                                                                                }));
-                                                                                            },
-                                                                                            minLength: 1,
-                                                                                            select: function (event, ui) {
-                                                                                                event.preventDefault();
-                                                                                                $("#tags").val(ui.item.label);
-                                                                                                $("#selected-tag").val(ui.item.label);
-                                                                                                // window.location.href = ui.item.value;
-                                                                                            }
-                                                                                            ,
-                                                                                            focus: function (event, ui) {
-                                                                                                event.preventDefault();
-                                                                                                $("#tags").val(ui.item.label);
-                                                                                            }
-                                                                                        });
-                                                                                    });
+                                                                    $(function () {
+                                                                        // alert('hi');
+                                                                        $("#tags").autocomplete({
+                                                                            source: function (request, response) {
+                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                response($.grep(data, function (item) {
+                                                                                    return matcher.test(item.label);
+                                                                                }));
+                                                                            },
+                                                                            minLength: 1,
+                                                                            select: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                // window.location.href = ui.item.value;
+                                                                            }
+                                                                            ,
+                                                                            focus: function (event, ui) {
+                                                                                event.preventDefault();
+                                                                                $("#tags").val(ui.item.label);
+                                                                            }
+                                                                        });
+                                                                    });
 
 </script>
 
@@ -568,6 +568,67 @@
     });
 
 </script>
+<script>
+                                                                                var data = <?php echo json_encode($demo); ?>;
+                                                                                //alert(data);
+
+                                                                                $(function () {
+                                                                                    // alert('hi');
+                                                                                    $("#tags1").autocomplete({
+                                                                                        source: function (request, response) {
+                                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                            response($.grep(data, function (item) {
+                                                                                                return matcher.test(item.label);
+                                                                                            }));
+                                                                                        },
+                                                                                        minLength: 1,
+                                                                                        select: function (event, ui) {
+                                                                                            event.preventDefault();
+                                                                                            $("#tags1").val(ui.item.label);
+                                                                                            $("#selected-tag").val(ui.item.label);
+                                                                                            // window.location.href = ui.item.value;
+                                                                                        }
+                                                                                        ,
+                                                                                        focus: function (event, ui) {
+                                                                                            event.preventDefault();
+                                                                                            $("#tags1").val(ui.item.label);
+                                                                                        }
+                                                                                    });
+                                                                                });
+
+                    </script>
+                    <script>
+
+                        var data1 = <?php echo json_encode($city_data); ?>;
+                        //alert(data);
+
+
+                        $(function () {
+                            // alert('hi');
+                            $("#searchplace1").autocomplete({
+                                source: function (request, response) {
+                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                    response($.grep(data1, function (item) {
+                                        return matcher.test(item.label);
+                                    }));
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#searchplace1").val(ui.item.label);
+                                    $("#selected-tag").val(ui.item.label);
+                                    // window.location.href = ui.item.value;
+                                }
+                                ,
+                                focus: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#searchplace1").val(ui.item.label);
+                                }
+                            });
+                        });
+
+                    </script>
+
 <!-- <script>
 //select2 autocomplete start for skill
     $('#searchskills').select2({
@@ -776,10 +837,10 @@
         //alert(abc);     
 
 
-        var    savepara    =    'save';
+        var      savepara      =      'save';
         $.ajax({
-            type:    'POST',
-            url:    '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
+            type:      'POST',
+            url:      '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
             data: 'app_id=' + abc + '&para=' + savepara,
             success: function (data) {
                 $('#' + 'postdata' + abc).html(data);
@@ -838,16 +899,22 @@
                     function checkvalue() {
 
                     var searchkeyword = $.trim(document.getElementById('tags').value);
-                            var searchplace = $.trim(document.getElementById('searchplace').value);
-// alert(searchke                                    yword);
-// alert(search                                    place);
+                     var searchplace = $.trim(document.getElementById('searchplace').value);
                             if (searchkeyword == "" && searchplace == "") {
-//alert('Please enter Key                                        word');
-                    return  false;
-                    }
+                                return  false;
+                          }
                     }
 </script> 
 
+ <script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script> 
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
                             function removepopup(id) {

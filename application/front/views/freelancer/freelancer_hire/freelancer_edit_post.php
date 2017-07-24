@@ -423,7 +423,7 @@
                   </select><span id="city-error"></span>
                                     <?php echo form_error('city'); ?>
                 </fieldset>
-
+						<div class="fr">
                             <fieldset class="hs-submit full-width">
 
                                 <!-- <input type="reset"> -->
@@ -440,7 +440,9 @@
                                 <input type="submit" tabindex="15" id="submit" class="add_post_btns" name="submit" value="Save">
                                 
                             </fieldset>
-                            </div>
+                            
+						</div>	
+							</div>
 
                             </form>
                             </div>
@@ -560,7 +562,75 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
+<script>
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+        
+$(function() {
+    // alert('hi');
+$( "#tags1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script>
 
+var data1= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
   <script type="text/javascript">
 
 function checkvalue(){
@@ -582,7 +652,7 @@ function checkvalue_search() {
         
         if (searchkeyword == "" && searchplace == "") 
         {
-          //  alert('Please enter Keyword');
+            alert('Please enter Keyword');
             return false;
         }
     }
@@ -602,6 +672,7 @@ function checkvalue_search() {
    
     if(clicked_id==4)
     {
+        //alert(qwe);
        if(searchkeyword=="" && searchplace=="" )
        {
             return checkvalue_search;
@@ -615,7 +686,7 @@ function checkvalue_search() {
 
   function home(clicked_id,searchkeyword,searchplace) {
   
-                        
+          // alert(789);             
       $('.biderror .mes').html("<div class='pop_content'>Do you want to discard your changes?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
 

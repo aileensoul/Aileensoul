@@ -137,34 +137,22 @@
 
 
             <div class="" id="row2">
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-                    $image = $this->common->select_data_by_condition('user', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                    
-                    $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                   <?php 
+                    if ($userdata[0]['profile_background']) {
                         ?>
                         <div class="bg-images">
                             <img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" / ></div>
                         <?php
                     } else {
                         ?>
-                        <div class="bg-images">
+                        <div class="bg-images no-cover-upload">
                             <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" /></div>
                     <?php }
                     ?>
 
                 </div>
 
-						<?php if($userdata[0]['profile_background']){?>
-						<img src="<?php echo base_url($this->config->item('user_bg_main_upload_path'). $userdata[0]['profile_background']); ?>" name="image_src" id="image_src" class="main-cover"/ >
-
-						<?php }else{?>
-						 <img src="<?php echo WHITEIMAGE; ?>" name="image_src" id="image_src" alt="WHITE IMAGE" class="main-cover" />
-
-						<?php }?>
-
+						
 					</div>
 
 
@@ -179,31 +167,47 @@
 					</div>
 
                                          
-					<div class="left-profile">
-						<div class="profile-photo">
+					
+				</div>
+				<div class="left-profile">
 
-					<?php
+				<?php
                 $image_ori = $userdata[0]['user_image'];
                 if ($image_ori) {
                     ?>
+						<div class="profile-photo">
+
+					
                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" class="main-pic">
-
-              <?php } else { ?>
-
-                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
-               <?php } ?>
 
 						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
 								<img src="img/cam.png">Update Profile Picture</a>
 	
 
 						</div>
+						<?php }else{?>
+
+						<div class="profile-photo no-image-upload">
+
+					
+                    
+
+                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
+             
+
+						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
+								<img src="img/u1.png">Update Profile Picture</a>
+	
+
+						</div>
+
+						  <?php } ?>
+
 						<div class="profile-detail">
 							<h2> <?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></h2>
 							<!-- <p>Ahmedabad, Gujarat</p> -->
 						</div>
 					</div>
-				</div>
 			</section>
 		</div>
 		<div class="sticky-container right-profile">

@@ -1105,7 +1105,16 @@
                     ?>
 
 
-                    <div class="fw">
+                    <div class="job-contact-frnd">
+
+                    <div class='progress' id="progress_div" style="display: none">
+                                    <div class='bar' id='bar'></div>
+                                    <div class='percent' id='percent'>0%</div>
+                                </div>
+                                <div class="business-all-post">
+                                    <div class="nofoundpost"> 
+                                    </div>
+                                </div>
                         <!-- middle section start -->
 
                         <?php
@@ -1116,6 +1125,7 @@
                                 $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
                                 $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                 ?>
+                                  <div class="fw">
 
                                 <div id="<?php echo "removeownpost" . $row['business_profile_post_id']; ?>">
 
@@ -1301,7 +1311,7 @@
                                                     <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                                                         <?php
                                                         $small = substr($row['product_description'], 0, 180);
-                                                        echo $small;
+                                                        echo $this->common->make_links($small);
                                                         if (strlen($row['product_description']) > 180) {
                                                             echo '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</span>';
                                                         }
@@ -1909,10 +1919,13 @@
                                         </div>
 
                                     </div> </div>
-
+                                    </div>
                                 <?php
                             }
-                        } else {
+                        } 
+                        
+
+                         else {
                             ?>
                             <div class="art_no_post_avl">
                                 <h3> Post</h3>
@@ -2176,6 +2189,89 @@
                 });
                 });
             </script>
+
+            <script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data = <?php echo json_encode($demo); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#tags1").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#tag1").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#tags1").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
+</script>
+<script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data1 = <?php echo json_encode($de); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#searchplace1").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data1, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace1").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace1").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
+</script>
+
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
             <script type="text/javascript">
                 function checkvalue() {
                 //alert("hi");
@@ -4463,6 +4559,10 @@
             <script>
                 jQuery(document).ready(function ($) {
 
+
+                var bar = $('#bar');
+                var percent = $('#percent');
+
                 var options = {
                 beforeSend: function () {
                 // Replace this with your loading gif image
@@ -4470,29 +4570,38 @@
                 //                document.getElementById("progress-div").style.display = "block";
                 //                $("#progress-bar").width('0%');
                 document.getElementById("myModal3").style.display = "none";
-                $(".fw").prepend('<p style="text-align:center;"><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                 document.getElementById("progress_div").style.display = "block";
+                        var percentVal = '0%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
                 },
-                        //            uploadProgress: function (event, position, total, percentComplete) {
-                        //                $("#progress-bar").width(percentComplete + '%');
-                        //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
-                        //            },
-                        complete: function (response) {
+                uploadProgress: function (event, position, total, percentComplete) {
+                        var percentVal = percentComplete + '%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+                    },
+                    success: function () {
+                        var percentVal = '100%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
 
-                        document.getElementById('test-upload-product').value = null;
-                        document.getElementById('test-upload-des').value = null;
+                    },
+                        
+                        complete: function (response) { //alert(response.responseText);
 
-                        $(".file-preview-frame").hide(); 
+
+            document.getElementById('test-upload_product').value = null;
+            document.getElementById('test-upload_des').value = null;
+
+            $(".file-preview-frame").hide();
+             
+
                         // Output AJAX response to the div container
-                        // console.log(response.responseText);
-                        //                    $(".upload-image-messages").html(response.responseText);
-                        //    document.getElementById("myModal").style.display="none";
-                        //                $(".business-all-post").prepend(response.responseText);
-                        //                $('#progress-bar').hide();
-                        $('.loader').remove();
-                        $(".fw").prepend(response.responseText);
-                        //$(".bor_none").hide();
+                        $('#progress_div').fadeOut('5000').remove();
+                        
+                        $(".job-contact-frnd").prepend(response.responseText);
                         $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
-                        }
+                    }
                 };
                 // Submit the form
                 $(".upload-image-form").ajaxForm(options);

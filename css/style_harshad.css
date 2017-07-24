@@ -36,6 +36,7 @@ width: 25px; }
     width: 260px;
     right: 0;
     border-radius: 5px;
+	padding-bottom:10px;
 }
 #acon:before {
     content: '';
@@ -50,8 +51,8 @@ width: 25px; }
     margin-left: 18px;
     right: 19px;}
 #abody {
-padding: 0px 0px 0px 0px !important;
-min-height:300px;
+	padding: 0px 0px 0px 0px !important;
+	min-height:300px;
 }
 .header ul .Setting a i{color: #787878;}
 .header ul .logout a i{color: #787878;}
@@ -225,13 +226,63 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .job-saved-box{margin-bottom:50px; width:100%; float:left;}
 /*.job-saved-box{width:100%; float:left; border:1px solid #d9d9d9; margin-bottom:50px; border-radius:4px;}*/
 .contact-frnd-post{ border-bottom-left-radius: 4px;  border-bottom-right-radius: 4px; /*border-top:none;*/}
-#row2{border:1px solid #d9d9d9;}
+#row2{border:1px solid #d9d9d9; border-top:0;}
+.chat_nobcx{margin-top:15px;}
+
+#search .new-search-input{height:215px;}
+#search .new-search-input .btn.btn-primary{width:auto;}
+.ui-autocomplete{z-index:9999 !important;}
+.bg-images.no-cover-upload{
+	background-image: -ms-linear-gradient(right, #6297BE 0%, #B85790 70%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(right, #6297BE 0%, #B85790 70%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(right, #6297BE 0%, #B85790 70%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #6297BE), color-stop(70, #B85790));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(right, #6297BE 0%, #B85790 70%);
+
+	/* W3C Markup */ 
+	background-image: linear-gradient(to left, #6297BE 0%, #B85790 70%);
+
+}
+#notification_inside h6{height:25px;}
+.notification-data-inside .clockimg{display:none;}
+.notifications li .notification-data-inside div{padding-left:0;}
+.custom-row .user-pic:hover a{width:100%;}
+.header ul li #abody ul li:last-child{border:none;}
+
+/***  font css  ***/
+.left-side-bar ul li a{font-family: 'robotoregular';}
+.common-form1 h3{font-family: 'robotoregular';}
+.common-form h3{font-family: 'robotoregular';}
+.profile-company-name a{}
+
+/*** 24-7-17  ***/
+.data_img_2 {
+	color:#fff;
+	background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
+	background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
+	background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+}
+ 
 
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
 }
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+	#notificationLink span{top:5px;}
+}
 @media screen and (max-width: 991px) {
 	.common-form1{max-width:750px; float:none; margin:0 auto;}
 	.job-menu-profile{margin-top:20px; padding-bottom:10px;}

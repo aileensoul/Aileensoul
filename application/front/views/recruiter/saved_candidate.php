@@ -42,6 +42,15 @@
         }
     }
 </script>
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 <!-- END HEADER -->
 
 <body   class="page-container-bg-solid page-boxed custom-border">
@@ -94,7 +103,7 @@
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     //echo "<pre>";print_r($image);
                     $image_ori = $image[0]['profile_background'];
-                    if ($image_ori) {
+                    if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
                         ?>
                      
                             <img src="<?php echo base_url($this->config->item('rec_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
@@ -129,7 +138,7 @@
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
-                <?php if ($recruiterdata[0]['recruiter_user_image'] != '') { ?>
+                <?php if (file_exists($this->config->item('rec_profile_thumb_upload_path').$recruiterdata[0]['recruiter_user_image'])) { ?>
                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
@@ -291,10 +300,18 @@
                   <div class="profile-job-post-location-name-rec">
                  <div style="display: inline-block; float: left;">
 <div class="buisness-profile-pic-candidate" >
+                       
+
+
                                 <!-- <rash code 12-4 start> -->
 
+                              <!--   <?php 
+
+                              //  echo base_url().$this->config->item('job_profile_thumb_upload_path').$rec['job_user_image']; die();
+
+                                ?> -->
                   <?php
-                 if ($rec['job_user_image']) {
+                 if (file_exists($this->config->item('job_profile_thumb_upload_path').$rec['job_user_image'])) {
                     ?>
                <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
                <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"></a>
@@ -938,6 +955,69 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
+<script>
+
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#tags1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script>
+
+var data1 = <?php echo json_encode($de); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+
 
 
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>

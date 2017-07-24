@@ -628,13 +628,14 @@ public function business_search() {
         
         if($this->input->get('search_submit'))
         {
-          
+         // echo "hhh";die();
            $searchkeyword=$this->input->get('skills');
            $searchplace=$this->input->get('searchplace');
          
         }
         else
         {
+           // echo "kkk";die();
                
 
                 if($this->uri->segment(3) =="0")
@@ -685,7 +686,7 @@ if ($searchkeyword == "" && $searchplace == "") {
          //trim($searchkeyword);
 
 
-       // echo $rec_search; die();
+    //echo $rec_search; die();
       
 
         $this->data['keyword'] = $rec_search;
@@ -754,7 +755,7 @@ if ($searchkeyword == "" && $searchplace == "") {
             // echo $search_condition;die();
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           //  echo "<pre>"; print_r($skilldata); 
+           // echo "<pre>"; print_r($skilldata);  die();
 
             $join_str = array(array(
                    'join_type' => 'left',
@@ -769,15 +770,15 @@ if ($searchkeyword == "" && $searchplace == "") {
             );
             $contition_array = array('job_reg.status' => '1', 'job_reg.user_id !=' => $userid ,'job_reg.job_step' => 10);
             $jobdata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-            // echo "<pre>"; print_r($jobdata); die();
+          //  echo "<pre>"; print_r($jobdata); die();
 
             foreach ($skilldata as $key) {
                 $id = $key['skill_id'];
-                // echo $id; echo "<br>";
+           // echo $id; echo "<br>";
                 foreach ($jobdata as $postskill) {
                     $skill = explode(',', $postskill['keyskill']);
-                    ;
-
+                    
+                  //  echo "<pre>"; print_r($skill);
 
                     if (in_array($id, $skill)) {
                         // echo "Match found"; echo "</br>";
@@ -787,9 +788,11 @@ if ($searchkeyword == "" && $searchplace == "") {
                 }
             }
 
-           // echo "<pre>"; print_r($jobskillpost); die();
+           // die();
+
+           //echo "<pre>"; print_r($jobskillpost); die();
             $this->data['rec_skill'] = $jobskillpost;
-            // echo "<pre>"; print_r( $this->data['rec_skill']); die();
+        // echo "<pre>"; print_r( $this->data['rec_skill']); die();
 
             $join_str = array(array(
                   'join_type' => 'left',
@@ -832,16 +835,12 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
               $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'sum(experience_year),user_id,sum(experience_month)', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ='user_id');
-                                       
-
-//$rec_search1[0] = explode(' ', $rec_search);
-
-//echo "<pre>"; print_r($rec_search1[0]); 
-
+        
 
 foreach ($recdata as $rec) {
 
         $rec_search = str_replace(' ', '', $rec_search);
+
 
     
                                                 $y=0;
@@ -860,16 +859,13 @@ foreach ($recdata as $rec) {
                                                    }
                                                       $rec['sum(experience_year)'] = $rec['sum(experience_year)'].'year';
                                                       $rec['sum(experience_month)'] = $rec['sum(experience_month)'].'month';
-
-                                                
-
-                                                } 
-
-                                                
+                            
                                                 
     if(($rec['sum(experience_year)'] == '0year') && (strcmp($rec['sum(experience_month)'],$rec_search) == 0))
     {
 
+
+//echo "string";
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -895,6 +891,8 @@ foreach ($recdata as $rec) {
  elseif(strcmp($rec['sum(experience_year)'],$rec_search) == 0)
     {
 
+
+//echo "string11";
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -916,25 +914,25 @@ foreach ($recdata as $rec) {
 
             $resul[] = $jobprofiledata['data'] = $this->common->select_data_by_condition('job_reg',$contition_array, $data='job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*,job_add_workexp.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 }
-
-
-
- 
+else
+{
+                $resul[] = array();
 }
 
-//die();
-
+}
+}
  foreach ($resul as $ke => $arr) {
+     $new3 = array();
 
-    foreach ($arr as $ar) {
+            foreach ($arr as $ky => $valu) {
+   
         
     
 
-                $results11[] = $ar;
+                $new3[$valu['user_id']] = $valu;
+               
             }
         }
-
-//echo "<pre>"; print_r($results11); die();
 
   $join_str = array(array(
                     'join_type' => '',
@@ -1059,7 +1057,7 @@ foreach ($recdata as $rec) {
 
                 $postdata1[] = $arr;
             }
-            // echo '<pre>'; print_r($postdata1); 
+          // echo "string";  echo '<pre>'; print_r($postdata1); die();
 
             $new1 = array();
             foreach ($postdata1 as $value) {
@@ -1067,30 +1065,36 @@ foreach ($recdata as $rec) {
                 $new1[$value['job_id']] = $value;
             }
 
-            // echo '<pre>'; print_r($new1); die();
+           // echo '<pre>'; print_r($new1); die();
+
+           // echo count($new1); die();
 
             if (count($new1) == 0) {
 
 
-                //echo "pallavidsd";
+               // echo "pallavidsd";
                 // echo "<pre>"; print_r($results1); die();
 
-                $unique = array_merge($yeardata, $genderdata, $results1,$results11, $jobdata);
+                $unique = array_merge($yeardata, $genderdata, $results1,$new3, $jobdata);
                 // echo count($unique) . "<br>"; die();
                  //echo "<pre>"; print_r($unique); die();
             } else {
 
+         
 
-                // echo "vaghela";
-                $unique = array_merge($new1, $yeardata, $genderdata, $results1,$results11, $jobdata);
+
+             ///echo "vaghela";
+                $unique = array_merge($new1, $yeardata, $genderdata, $results1, $new3, $jobdata);
+
+          //  echo "<pre>"; print_r($unique); die();
+
             }
 
         }
 
+                 
+
          else {
-
-
-
 
             //echo "Skill & Place  Search";die();
 
@@ -1208,26 +1212,41 @@ foreach ($recdata as $rec) {
            //  echo "<pre>"; print_r($genderdata); die();
 
 
+  $contition_array = array('status' => '1','user_id !=' => $userid);
 
-            $contition_array = array('status' => '1','user_id !=' => $userid);
 
-
-              $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'sum(experience_year),user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ='user_id');
-
-         // echo "<pre>";print_r($recdata); 
-
-$rec_search1[0] = explode(' ', $rec_search);
-
+              $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'sum(experience_year),user_id,sum(experience_month)', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ='user_id');
+        
 
 foreach ($recdata as $rec) {
+
+        $rec_search = str_replace(' ', '', $rec_search);
+
+
     
-// echo "<pre>"; print_r($rec['sum(experience_year)']); 
-// echo "<pre>"; print_r($rec['user_id']); 
-
-
-    if(in_array($rec['sum(experience_year)'],$rec_search1[0]))
+                                                $y=0;
+                                                for($i=0;$i<=$y;$i++)
+                                                {
+                                                   if($rec['sum(experience_month)'] >= 12)
+                                                   {
+                                                      $rec['sum(experience_year)'] = $rec['sum(experience_year)'] + 1;
+                                                      $rec['sum(experience_month)'] = $rec['sum(experience_month)'] - 12;
+                                                      $y++;
+                                               
+                                                   }
+                                                   else
+                                                   {
+                                                      $y=0;
+                                                   }
+                                                      $rec['sum(experience_year)'] = $rec['sum(experience_year)'].'year';
+                                                      $rec['sum(experience_month)'] = $rec['sum(experience_month)'].'month';
+                            
+                                                
+    if(($rec['sum(experience_year)'] == '0year') && (strcmp($rec['sum(experience_month)'],$rec_search) == 0))
     {
 
+
+//echo "string";
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -1247,10 +1266,55 @@ foreach ($recdata as $rec) {
            
             $contition_array = array('job_reg.user_id' => $rec['user_id'] ,'job_reg.job_step' => 10);
 
-            $results11 = $jobprofiledata['data'] = $this->common->select_data_by_condition('job_reg',$contition_array, $data='job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*,job_add_workexp.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+            $resul[] = $jobprofiledata['data'] = $this->common->select_data_by_condition('job_reg',$contition_array, $data='job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*,job_add_workexp.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+}
+
+ elseif(strcmp($rec['sum(experience_year)'],$rec_search) == 0)
+    {
+
+
+//echo "string11";
+            $join_str = array(array(
+                    'join_type' => '',
+                    'table' => 'job_add_edu',
+                    'join_table_id' => 'job_reg.user_id',
+                    'from_table_id' => 'job_add_edu.user_id'),
+                array(
+                    'join_type' => '',
+                    'table' => 'job_add_workexp',
+                    'join_table_id' => 'job_reg.user_id',
+                    'from_table_id' => 'job_add_workexp.user_id'),
+                  array(
+                'join_type' => 'left',
+                'table' => 'job_graduation',
+                'join_table_id' => 'job_reg.user_id',
+                'from_table_id' => 'job_graduation.user_id')
+            );
+           
+            $contition_array = array('job_reg.user_id' => $rec['user_id'] ,'job_reg.job_step' => 10);
+
+            $resul[] = $jobprofiledata['data'] = $this->common->select_data_by_condition('job_reg',$contition_array, $data='job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*,job_add_workexp.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+}
+else
+{
+                $resul[] = array();
 }
 
 }
+}
+
+ foreach ($resul as $ke => $arr) {
+     $new3 = array();
+
+            foreach ($arr as $ky => $valu) {
+   
+        
+    
+
+                $new3[$valu['user_id']] = $valu;
+               
+            }
+        }
 
 
   $join_str = array(array(
@@ -1343,16 +1407,19 @@ foreach ($recdata as $rec) {
             // echo '<pre>'; print_r($new1); die();
 
             if (count($new1) == 0) {
-                $unique = array_merge($adddata, $genderdata, $results1,$results11, $jobdata);
+                $unique = array_merge($adddata, $genderdata, $results1,$new3, $jobdata);
                 // echo count($unique) . "<br>"; die();
                 // echo "<pre>"; print_r($unique); die();
             } else {
 
                 //echo "hi"; die();
-                $unique = array_merge($new1, $adddata, $genderdata, $results1,$results11, $jobdata);
+                $unique = array_merge($new1, $adddata, $genderdata, $results1,$new3, $jobdata);
             }
             // echo "<pre>"; print_r($unique); die();
         }
+
+ 
+       // echo "<pre>"; print_r($unique); die();
 
            foreach ($unique as $ke => $arr) {
               
@@ -1366,7 +1433,7 @@ foreach ($recdata as $rec) {
                 }
 
         $this->data['postdetail'] = $new11;
-       // echo "<pre>"; print_r($unique); die();
+  //  echo "<pre>"; print_r($new11); die();
 
         $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
@@ -1455,15 +1522,19 @@ foreach ($recdata as $rec) {
     }
 
     public function freelancer_hire_search($searchkeyword,$searchplace) {
+       // echo "<pre>";print_r($_GET);die();
+      
         $userid = $this->session->userdata('aileenuser');
-
+       
          if($this->input->get('search_submit'))
         {
+             //echo "123";exit;
            $searchkeyword=trim($this->input->get('skills'));
            $searchplace=trim($this->input->get('searchplace'));
         }
         else
         {
+            //echo "098";exit;
               if($this->uri->segment(3) =="0")
 
                 {

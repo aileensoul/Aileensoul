@@ -23,11 +23,11 @@
                                  </div>
                                  <div id="search">
                                     <button type="button" class="close">×</button>
-                                    <form>
+                                    <form  action=<?php echo base_url('search/recruiter_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="search" value="" placeholder="Find Your Job" />
-                                            <input type="search" value="" placeholder="Find Your Location" />
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <input type="text" id="tags1" name="skills" placeholder="Find Persons">
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Location">
+                                            <input type="submit" name="search_submit" value="Search" class="btn btn-primary"></button>
                                         </div>
                                     </form>
                                 </div>
@@ -292,6 +292,7 @@ $(document).ready(function() {
         {
             $("#message_count").html('');
             $('#InboxLink').removeClass('msg_notification_available');
+            $('span#message_count').removeAttr('style');
         } else
         {
             $('#message_count').html(msg);

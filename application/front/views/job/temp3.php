@@ -59,6 +59,7 @@ $(window).load(function(){
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
+	 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
    
 </head>
@@ -106,6 +107,98 @@ $(window).load(function(){
     /*style for span id=message_count End*/
 
 </style>
+<style>  
+        * {  
+            margin: 0;   
+            padding: 0;  
+            font-family: 'Roboto';
+        }  
+        body, html {  
+            width: 100%;  
+            height:100%;
+            background: #eee;
+        }  
+        .bodyInner {
+            height: 1000px;
+            margin:150px auto;
+            max-width:960px;
+        }
+        .demo {
+            float: left;
+            padding: 10px;
+        }
+        .outer {
+            width: 200px;
+            height: 300px;
+            border-radius: 5px;
+        }
+        .inner {
+            padding: 10px;
+        }
+        .aOuter {
+            background: #333333;
+            color: #eee;
+        }
+        .bOuter {
+            background: #C2BEB2;
+        }
+        h3 {
+            text-align: center;
+        }
+
+        /* 浏览器滚动条自定义样式 BEGIN */
+        body>.bodyBackClass {
+            width: 6px;
+            right: 0;
+            background: #000;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+        }
+        .bodyFrontClass {
+            width: 6px;
+            height: 40px;
+            left: 0;
+            background: #fff;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 20px;
+        }
+        /* 浏览器滚动条自定义样式 END */
+
+        /* demo2自定义样式 BEGIN */
+        div>.customBackClass {
+            background: rgba(0,0,0,0.15);
+            width: 2px;
+            border-radius: 5px;
+            right: 5px;
+        }
+        .customFrontClass {
+            background: rgba(0,0,0,0.6);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .customFrontClass:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        /* demo2自定义样式 END */
+
+        .explain, .ctn {
+            float: left;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .green {
+            background: green;
+        }
+        .blue {
+            background: blue;
+        }
+        .red {
+            background: red;
+        }
+    </style>  
 <!-- style for span id=notification_count end-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
@@ -113,6 +206,7 @@ $(window).load(function(){
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+
 <script type="text/javascript" charset="utf-8">
 
     function addmsg(type, msg)
@@ -860,29 +954,23 @@ A second common modern English style is to use no indenting, but add vertical wh
   </div>
 </div-->
 
-<div class="content demo-y">
-                <h2>Content y</h2>
-                <hr />
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> 
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p> 
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p> 
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p> 
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p> 
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p> 
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-                <hr />
-                <p>End of content.</p>
+<div class="bodyInner">
+        <div class="demo">
+            <h2>Basic</h2>
+            <div class="aOuter outer">
+                <div class="aInner inner">
+                    <h3>Lorem ipsum dolor sit amet</h3>
+                    <p>Fusce finibus, neque at euismod sagittis, turpis mi facilisis velit, id mattis nibh lacus non mi. Nulla lacus odio, tincidunt vitae nisl non, egestas iaculis arcu. Ut non purus non diam vestibulum dignissim id sed justo. Duis porttitor posuere turpis at cursus. Sed nec malesuada nulla. Quisque consectetur neque nec accumsan laoreet. Curabitur ut libero sed urna elementum mollis sit amet at lectus. Pellentesque nec mauris arcu. Suspendisse sodales nibh in risus aliquam pretium. Fusce semper commodo vulputate. Morbi tincidunt, leo ac pretium fermentum, mauris ipsum rutrum orci, at eleifend magna risus in orci.</p>
+                    <p>Duis neque ligula, varius vitae pharetra eu, vulputate at mauris. Aliquam in porttitor purus. Fusce vel neque odio. Morbi eget purus lobortis, ultrices nulla vel, interdum lorem. Etiam consequat pulvinar mi a pretium. Curabitur mi arcu, efficitur a mollis quis, aliquam ac justo. Sed odio arcu, interdum congue tincidunt eget, consequat quis turpis. Aliquam eu porta libero, et venenatis velit. In lorem enim, tempor imperdiet leo vitae, dapibus tempor nisl. Fusce ipsum nulla, lacinia eu risus ac, pulvinar posuere ligula. Nulla at purus arcu. Donec vel urna imperdiet, sagittis augue at, bibendum enim. Morbi a nisi purus. Vivamus magna erat, viverra non ante eget, viverra ultricies augue. Praesent condimentum, turpis fermentum lacinia pulvinar, nibh erat tempor ipsum, ut pulvinar lectus sapien sed ipsum. Cras ante dolor, eleifend a molestie ut, laoreet quis dolor.</p>
+                </div>
             </div>
+        </div>
+  
+    </div>
 
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script type="text/javascript" src="<?php echo base_url('js/scrollbar.js'); ?>"></script> 
 <!--script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js'></script-->
 <script>$(window).load(function() {
     <script src="<?php echo base_url('js/jquery.mCustomScrollbar.js'); ?>"></script>
@@ -1186,3 +1274,23 @@ function moveScrollTo(parent, scrollPosition) {
             });
         })(jQuery);
     </script>
+	<script>  
+    $(function() {  
+        /* 调用插件 */
+
+        var bodyScrollbar = $('body').scrollbar({
+            autoBottom: false,//内容改变，是否自动滚动到底部
+            backClass: 'bodyBackClass',
+            frontClass: 'bodyFrontClass',
+        });  
+        var aScrollbar = $('.aOuter').scrollbar({});  
+        
+
+
+
+      
+
+        
+    });  
+</script>  
+

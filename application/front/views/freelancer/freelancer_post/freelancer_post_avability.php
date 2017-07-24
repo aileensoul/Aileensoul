@@ -97,7 +97,7 @@ $job_type = form_error('job_type');
 $work_hour = form_error('work_hour');
 ?>
 
-                            <fieldset class="col-md-4" <?php if ($inweek) { ?> class="error-msg" <?php } ?>>
+                            <fieldset class="col-md-5 mgrd" <?php if ($inweek) { ?> class="error-msg" <?php } ?>>
                             <label> Working As</label>
                                 <input type="radio" tabindex="1" autofocus name="job_type" id="job_type" value="Full Time" <?php if ($job_type1 == 'Full Time') {
                                     echo 'checked';
@@ -212,6 +212,66 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
+<script>
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+        
+$(function() {
+    // alert('hi');
+$( "#tags1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script>
+
+var data1= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
  <!-- <script>
                     
                     //select2 autocomplete start for Location
@@ -239,6 +299,16 @@ $( "#searchplace" ).autocomplete({
 
     //validation for edit email formate form
 
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+   if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }  
+}, "Please Enter valid number");
     $(document).ready(function () {
 
         $("#freelancer_post_avability").validate({
@@ -248,7 +318,8 @@ $( "#searchplace" ).autocomplete({
                 work_hour:{
                     required: false,
                     number: true,
-                    max: 168
+                    max: 168,
+                    regx:/^0*[1-9]\d*$/ 
                 },
 
                
@@ -290,3 +361,12 @@ $(window).load(function(){
             }
             }
         </script> 
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>

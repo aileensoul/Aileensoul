@@ -25,7 +25,7 @@ class Api extends CI_Controller {
         $this->_setOutput($message);
     }
 
-    public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '',$message_from_profile_id = '', $message_to_profile_id = '') {
+    public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
         $userid = $this->session->userdata('aileenuser');
 
         $timestamp = $this->input->get('timestamp', null);
@@ -44,33 +44,53 @@ class Api extends CI_Controller {
 
         $this->_setOutput($messages);
     }
-    
-    public function delete_messages($message_from_profile = '', $message_to_profile = '',$message_for = '', $message_id = '') {
+
+    public function delete_messages($message_from_profile = '', $message_to_profile = '', $message_for = '', $message_id = '') {
         $userid = $this->session->userdata('aileenuser');
         $timestamp = $this->input->get('timestamp', null);
-        
-        if($message_from_profile == $message_for){
+
+        if ($message_from_profile == $message_for) {
             $data = array('is_message_from_delete' => $userid);
-        }
-        else{
+        } else {
             $data = array('is_message_to_delete' => $userid);
         }
-        
+
         $update_data = $this->common->update_data($data, 'messages', 'id', $message_id);
+    }
 
-        $messages = $this->Chat_model->delete_messages($timestamp, $userid, $message_from_profile, $message_to_profile);
-        $i = 0;
-        foreach ($messages as $mes) {
-            if (preg_match('/<img/', $mes['message'])) {
-                $messages[$i]['message'] = str_replace("\\", "", $mes['message']);
+    public function delete_history() {
+
+        $userid = $this->session->userdata('aileenuser');
+        $timestamp = $this->input->post('timestamp');
+        $id = $this->input->post('id');
+        $message_from_profile = $this->input->post('message_from_profile');
+        $message_to_profile = $this->input->post('message_to_profile');
+        $message_from_profile_id = $this->input->post('message_from_profile_id');
+        $message_to_profile_id = $this->input->post('message_to_profile_id');
+
+        //$this->db->where('timestamp >', $timestamp);
+        $where = '((message_from="' . $userid . '" AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
+        $where .= 'AND is_message_from_delete !="' . $userid . '" AND is_message_to_delete !="' . $userid . '"';
+        $this->db->where($where);
+        $this->db->order_by('timestamp', 'DESC');
+        $query = $this->db->get('messages');
+        //echo $this->db->last_query();
+
+        $mes_data = array_reverse($query->result_array());
+
+        foreach ($mes_data as $data) {
+            if ($message_from_profile == $data['message_from_profile']) {
+                $update_data = array('is_message_from_delete' => $userid);
             } else {
-                $messages_new = $this->common->make_links($mes['message']);
-                $messages[$i]['message'] = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+                $update_data = array('is_message_to_delete' => $userid);
             }
-            $i++;
+            $update_data1 = $this->common->update_data($update_data, 'messages', 'id', $data['id']);
         }
-
-        $this->_setOutput($messages);
+        if ($update_data1) {
+            echo 1;
+        } else {
+            echo 2;
+        }
     }
 
     private function _setOutput($data) {

@@ -944,7 +944,7 @@
                                                                 <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                     <?php
                                                                     $small = substr($row['product_description'], 0, 180);
-                                                                    echo $small;
+                                                                    echo $this->common->make_links($small);
                                                                     if (strlen($row['product_description']) > 180) {
                                                                         echo '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</span>';
                                                                     }
@@ -1690,7 +1690,88 @@
     );
     })(jQuery);</script>
 
+<script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data = <?php echo json_encode($demo); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#tags1").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#tag1").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#tags1").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
+</script>
+<script>
+   jQuery.noConflict();
+   
+   (function ($) {
+   
+       var data1 = <?php echo json_encode($de); ?>;
+       //alert(data);
+   
+   
+       $(function () {
+           // alert('hi');
+           $("#searchplace1").autocomplete({
+               source: function (request, response) {
+                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                   response($.grep(data1, function (item) {
+                       return matcher.test(item.label);
+                   }));
+               },
+               minLength: 1,
+               select: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace1").val(ui.item.label);
+                   $("#selected-tag").val(ui.item.label);
+                   // window.location.href = ui.item.value;
+               }
+               ,
+               focus: function (event, ui) {
+                   event.preventDefault();
+                   $("#searchplace1").val(ui.item.label);
+               }
+           });
+       });
+   
+   })(jQuery);
+   
+</script>
 
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 
 <script>
     $('#content').on('change keyup keydown paste cut', 'textarea', function () {
@@ -2089,19 +2170,19 @@
     }
 
     function comment_deletedtwo(clicked_id)
-    {
-    var post_delete1 = document.getElementById("post_deletetwo");
-    //alert(post_delete.value);
+    {//alert("hii");
+    var post_deleteone = document.getElementById("post_deletetwo" + clicked_id);
+    //alert(post_deleteone.value);
     $.ajax({
     type: 'POST',
             url: '<?php echo base_url() . "business_profile/delete_commenttwo" ?>',
-            data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
+            data: 'post_id=' + clicked_id + '&post_delete=' + post_deleteone.value,
             dataType: "json",
             success: function (data) {
             //alert('.' + 'insertcomment' + clicked_id);
-            $('.' + 'insertcommenttwo' + post_delete1.value).html(data.comment);
+            $('.' + 'insertcommenttwo' + post_deleteone.value).html(data.comment);
             //$('#' + 'insertcount' + post_delete1.value).html(data.count);
-            $('.comment_count' + post_delete1.value).html(data.comment_count);
+            $('.comment_count' + post_deleteone.value).html(data.comment_count);
             $('.post-design-commnet-box').show();
             }
     });

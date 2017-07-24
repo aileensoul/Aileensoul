@@ -142,7 +142,7 @@
                         <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
                             
                           <div>
-                                   <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
+                                   <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
                                    <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
                           
@@ -272,7 +272,7 @@
                         <b><h2 class="freelancer_editpost_title">Payment For Freelancer : </h2></b>
                          </fieldset>
                          
-                          <fieldset style="padding-left: 8px;" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
+                          <fieldset style="" class="col-md-4" <?php if($rate) {  ?> class="error-msg" <?php } ?> >
                             <label  class="control-label">Rate:<span style="color:red">*</span></label>
                             <input tabindex="8" name="rate" type="number" id="rate" placeholder="Enter Your rate" min='1'/>
                                 <span id="fullname-error"></span>
@@ -293,7 +293,7 @@
                              <?php echo form_error('currency'); ?>
 </fieldset>
 
-<fieldset class="col-md-4">
+<fieldset class="col-md-4 mgrd">
 
 <label> Work Type</label>  <input type="radio" tabindex="10" class="worktype_minheight" name="rating" value="0" checked> Hourly
   <input type="radio"  name="rating" value="1"> Fixed
@@ -530,6 +530,66 @@ $( "#tags" ).autocomplete({
   
 </script>
 <script>
+var data= <?php echo json_encode($demo); ?>;
+//alert(data);
+        
+$(function() {
+    // alert('hi');
+$( "#tags1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#tags1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script>
+
+var data1= <?php echo json_encode($city_data); ?>;
+//alert(data);
+
+        
+$(function() {
+    // alert('hi');
+$( "#searchplace1" ).autocomplete({
+     source: function( request, response ) {
+         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+         response( $.grep( data1, function( item ){
+             return matcher.test( item.label );
+         }) );
+   },
+    minLength: 1,
+    select: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+        $("#selected-tag").val(ui.item.label);
+        // window.location.href = ui.item.value;
+    }
+    ,
+    focus: function(event, ui) {
+        event.preventDefault();
+        $("#searchplace1").val(ui.item.label);
+    }
+});
+});
+  
+</script>
+<script>
 
 var data1= <?php echo json_encode($city_data); ?>;
 //alert(data);
@@ -560,7 +620,15 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
-
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
   <script type="text/javascript">
 function checkvalue(){
    alert("hi");

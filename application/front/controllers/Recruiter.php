@@ -1916,7 +1916,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             if ($imgerror == '') {
 
 
-                echo "string";
+              //  echo "string";
                 //Configuring Thumbnail 
                 $recruiter_thumb['image_library'] = 'gd2';
                 $recruiter_thumb['source_image'] = $recruiter['upload_path'] . $imgdata['file_name'];
@@ -1948,31 +1948,31 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             } else {
 
 
-                echo "string1";
+              //  echo "string1";
                 $thumberror = '';
             }
             if ($imgerror != '' || $thumberror != '') {
 
-                echo "string2";
+              //  echo "string2";
                  
 
                 $error[0] = $imgerror;
                 $error[1] = $thumberror;
             } else {
-                echo "string3";
+               // echo "string3";
                  
 
                 $error = array();
             }
             if ($error) {
-                echo "string4";
+               // echo "string4";
     
                 $this->session->set_flashdata('error', $error[0]);
                 $redirect_url = site_url('job');
                 redirect($redirect_url, 'refresh');
             } else {
 
-                echo "string5";
+               // echo "string5";
                $contition_array = array('user_id' => $userid);
         $recruiter_reg_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'recruiter_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 

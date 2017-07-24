@@ -124,7 +124,17 @@
     font-style: normal;
 
 }
+@font-face {
+    font-family: 'times_new_romanregular';
+    src: url('../fonts/font/times-webfont.eot');
+    src: url('../fonts/font/times-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/font/times-webfont.woff2') format('woff2'),
+         url('../fonts/font/times-webfont.woff') format('woff'),
+         url('../fonts/font/times-webfont.svg#times_new_romanregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
 
 
 
@@ -428,7 +438,7 @@ a:focus {
     display: inline-block;
  
 }
-.header2 ul li a#InboxLink{padding:12px 10px 4px;}
+.header2 ul li a#InboxLink{padding:12px 18px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -867,6 +877,7 @@ img.aligncenter {
     font-size: 0;
     margin: 0;
     padding: 0;
+
 }
 .header ul li {
     float:left;
@@ -877,6 +888,7 @@ img.aligncenter {
     position: relative;
     height: 45px;
 }
+.header-left-menu ul{padding-bottom: 9px;}
 .header ul li ul li {height: auto;}
 .header ul li a {
     font-size: 18px;
@@ -2336,10 +2348,12 @@ ul.business_pf_ct_person_detail li b {
     padding-bottom: 30px;
     font-weight: bold;
 }
+.panel-body fieldset textarea#varmailformat{word-break: break-all; word-break: break-word;}
 .job-post-detail .job-post-title .button {
     padding: 6px 16px;
     text-transform: capitalize;
 }
+.common-form fieldset.mgrd input{margin: 0px 10px; }
 .job-post-detail .job-post-title .button:hover {
     color: #ffffff;
     background-color: #000;
@@ -2429,7 +2443,7 @@ ul.business_pf_ct_person_detail li b {
     padding: 10px;
     background-color: white;
     border: 1px solid #d9d9d9;
-
+border-top: none;
 }
 .profile-boxProfileCard_follow .contact-frnd-post {
     border: none;
@@ -3815,22 +3829,27 @@ a:focus {
     display: inline-block;
     
     margin-top: 5px;   }
+    .pt120{padding-top: 120px;}
     .job-saved-box .notification-box ul li{display: flex!important;}
     #notification_inside{ margin-left: 0px; margin-top: 0px;   padding: 5px 10px 9px 10px;
     margin-left: 11px;
     display: inline-block;}
     #noti_pc img{border-radius: none;}
     #notification_inside h6{font-size: 17px;}
+    .contact-list .list-title2{padding: 15px 30px !important;}
     .contact-list .list-title{
+        font-size: 22px;
         background: #fff; 
         color: #000; 
-        border:1px solid #ddd;
-        border-radius: 4px;
+        padding: 15px 14px;
+        border-bottom: 1px solid #d9d9d9;
+        font-family: robotoregular;
     }
+    .p_cq_color{color: #646464;}
     .all-list{
         width:100%;
         text-align: center;
-        padding-top: 40px;
+       background-color: white;
     }
      .all-list ul{
         display: inline-block;
@@ -3840,6 +3859,7 @@ a:focus {
         display: inline-block;
         list-style-type: none;
         margin: 0;
+        float: left;
      }
      .all-list ul li .list-box{
         width: 235px;
@@ -3854,40 +3874,57 @@ a:focus {
      }
     .profile-img{
         width:110px; 
-        height: 110px;
-        border-radius: 100%;
+        height: 112px;
+      border:1px solid #d9d9d9;
         margin: 0px auto;
-        padding-top:4px;
-
-    }
+     }
     .profile-img img{
         width:110px; 
         height: 110px;
-        border-radius: 100%;
+     
     }
     .connect-link{
         padding: 13px 0;
+        display: contents;
     }
-
+.cq_main_lp2{padding: 0px 6px; font-size: 15px;}
     .profile-content a{
     font-family: robotoregular;
-    
+    width: 100%;
+  
     padding-top: 15px;
     color: #000;
     display: inline-block;
     }
     .profile-content a h5{    color: #404040;
-    line-height: 20px;}
-    .profile-content a p{color: #8c8c8c;
+    line-height: 20px;
+font-size: 15px;}
+.main_compny_name{font-size: 15px;}
+.dc_cl_m{color: #8c8c8c; padding-bottom: 8px; display: inline-block;}
+.main_data_cq {
+    width: 98%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.connect-link a.cr-decline:hover {color: #136386; background-color: white;}
+    .profile-content a p{color: #8c8c8c; float: left;
+        width: 100%; text-align: center;
     font-family: robotoregular;}
     .connect-link a{
             font-weight: 500;
     font-size: 16px;
     font-family: robotoregular;
     color: #1b8ab9;
-    padding: 6px 14px;
+ width: 40px;
+height: 40px;
+padding: 11px 0px;
+display: inline-block;
     }
+    .connect-link a span{line-height: 1px;}
      .connect-link a.cr-accept{
+        border-radius: 100% !important;
+        float: inherit;
     border: 1px solid #1b8ab9;
     background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
@@ -3911,7 +3948,7 @@ a:focus {
      }
     .connect-link a.cr-decline{    border: 1px solid #1b8ab9;
     border-radius: 2px;
-    margin-left: 33px;}
+   border-radius: 100%;}
     .connect-link a:hover{
   
     color: #fff;
@@ -3928,7 +3965,7 @@ a:focus {
     display: none;
     float: left;
     width: 358px;
-    right: 2;
+    right: 2px;
     border-radius: 5px;
     }
     #addcontactContainer::before {
@@ -4004,17 +4041,19 @@ a:focus {
         #addcontactBody  li .addcontact-right a.add-left-true i {color:#fff;}
     .addcontact-pic {
         height: 50px;
-        width: 50px;
-        border-radius: 50%;
+        width: 68px;
+     
         float: left;
+        margin-right: 15px; 
+        border:1px solid #d9d9d9;
 
     }
     .addcontact-pic img{height: 100%; width: 100%;}
     .addcontact-text{
         float: left;
-        width: 80%;
+        width: 100%;
         color:#8c8c8c;
-        padding-left: 8px;
+     
         text-align:left;
         font-size:13px;
         font-family:arial;
@@ -4250,17 +4289,16 @@ li.active2 {
 #InboxContainer {
    border-radius: 5px;
 background-color: #fff;
-border: 1px solid rgba(100, 100, 100, .4);
 -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
 overflow: visible;
 position: absolute;
 top: 25px;
-margin-top: 10px;
+margin-top: 13px;
 z-index: 2;
 display: none;
 float: left;
 width: 358px;
-right: -6px;
+right: -8px;
 }
 #InboxContainer:before {
     content: '';
@@ -9485,14 +9523,41 @@ position: relative;}
 .bui_res_i2 img
 {height: 100%; width: 100%;}
     
-
-
-
+/*contactreq*/
+.noti_cq{float: left; background-color: white; width: 100%; padding-top: 15px;}
+.cq_post{  width: 100%; float: left;}
+.cq_post ul{ padding: 0; float: left; width: 100%; }
+.cq_post ul li{    list-style: none;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #d9d9d9;
+    padding-bottom: 14px;
+}
+.cq_post ul li:last-child{border-bottom: none;}
+.cq_post_img{height: 68px;
+    border: 1px solid #d9d9d9;
+width: 68px;
+float: left;
+padding: 5px;
+display: inline-block;}
+.cq_main_lp{float: left; width: 100%;   }
+.cq_post_img img{width: 100%; height: 100%;}
+.cq_latest_left{float: left;width: 18%;}
+.cq_latest_right{    width: 79%;
+    float: left;
+    margin-left: 10px;
+}
+.cq_desc_post .rifght_fname .main_name{font-size: 15px; font-weight: bold; color: #646464;}
 /*Zalak 25-5*/
+.main_cqlist-1{float: left;width: 100%; border:1px solid #d9d9d9; margin-bottom: }
+.main_cqlist{border:1px solid #d9d9d9; margin-bottom: 10px;}
+.bor_btm_cq{ border:1px solid #d9d9d9; border-bottom: none!important;}
+.bor_top_cq{ border:1px solid #d9d9d9; border-top: none!important;}
 .day-text{padding-top:6px;
 float: left;
 padding-left: 3px;}
-.day-text2{float: left; padding-left: 3px;}
+.cq_rifght_desc{font-size: 12px; color: #8c8c8c;}
+.day-text2{float: left;/* padding-left: 3px;*/}
 .clockimg{height: 13px; width: 13px; float: left; background-size: 100% !important; background: url("../img/clock.png") no-repeat;}
 
 #kkkk{color: #838384;
@@ -14088,6 +14153,7 @@ text-overflow: ellipsis;}
     margin: 0px 15px;
     display: inline-block;
 }
+.header2 #InboxFooter a{color: #1b8ab9;}
 .mob-inner-page {
     background: #fff;
     border-bottom: 1px solid #d9d9d9;
@@ -14095,7 +14161,7 @@ text-overflow: ellipsis;}
     padding-bottom: 10px;
 }
 #addcontactContainer {
-    top: 35px !important;
+    top: 38px !important;
 }
 .right_left_box_design .profile-company-name {
     display: inline-block;
@@ -14651,7 +14717,12 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
+.all-list ul li .list-box{width: 172px;}
+    .pt120 {padding-top: 100px;}
+ 
      .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
+    
+  .contact-list .list-title{font-size: 18px;}
     .cls-ve{position: absolute; top: 23px; z-index: 10;right:15px;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
@@ -14917,7 +14988,11 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
-
+    .all-list ul li .list-box{width: 157px;}
+        .pt_mn{padding-top: 40px;}
+        .pt1201     {padding-top: 120px;}
+  
+        .pt120{padding-top:20px;}
     .logo{padding:0;}
     .h2-smladd {margin-top: -45px;}
     .logo h2{padding:2px 0;}
@@ -15470,10 +15545,12 @@ text-align: center;}
     
 }
 @media screen and (max-width: 640px) {
+     .pt_mn2{padding-top: 20px !important;}
 	.profile-text1{width: 100%; /*top:40px;*/}
 	.profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }
 } 
 @media screen and (max-width: 639px) {
+
     .cover-pic{bottom: 62%; right: -10%;}
     .cls-ve{/*top: 18px;*/}
     .right-side-menu {
@@ -15657,6 +15734,7 @@ top: 8px;}
     }
 }
 @media screen and (max-width: 479px) {
+
     .post-design-product span{font-size: 11px;}
     .post-design-pro-img{padding-left: 7px;}
     #a_li{position: inherit !important;}
@@ -16036,7 +16114,7 @@ top: 8px;}
 @media screen and (max-width: 360px) {
     #acon::before{right: 125px!important;}
     .header2 ul li a#addcontactLink{padding: 6px 2px !important;}
-   
+   .header2 ul li a#InboxLink{padding: 12px 8px 4px;}
     #notificationContainer::before{right: 82px;}
     .header ul li a{}
     .header ul li.dropdown-user a{padding: 0px 4px;}

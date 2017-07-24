@@ -1,7 +1,5 @@
 
 
-
-
 <!--post save success pop up style strat -->
 <style type="text/css">
   .dropdown-content_hover {
@@ -51,11 +49,11 @@
                                  </div>
                                  <div id="search">
                                     <button type="button" class="close">×</button>
-                                    <form>
+                                    <form action=<?php echo base_url('search/freelancer_post_search')?> method="get">
                                         <div class="new-search-input">
-                                            <input type="search" value="" placeholder="Find Your Freelancer" />
-                                            <input type="search" value="" placeholder="Find Your Location" />
-                                            <button type="submit" class="btn btn-primary">Search</button>
+                                            <input type="text" id="tags1" name="skills" placeholder="Find Your freelancer" />
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location" />
+                                            <button type="submit" onclick="return check()" class="btn btn-primary">Search</button>
                                         </div>
                                     </form>
                                 </div>
