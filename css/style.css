@@ -4041,14 +4041,19 @@ display: inline-block;
         #addcontactBody  li .addcontact-right a.add-left-true i {color:#fff;}
     .addcontact-pic {
         height: 50px;
-        width: 68px;
+        width: 50px;
      
         float: left;
-        margin-right: 15px; 
+        margin-right: 10px; 
         border:1px solid #d9d9d9;
 
     }
-    .addcontact-pic img{height: 100%; width: 100%;}
+    .addcontact-pic img{
+		height: 48px;
+    width: 48px;
+    max-width: 48px;
+		
+	}
     .addcontact-text{
         float: left;
         width: 100%;
@@ -4067,7 +4072,8 @@ display: inline-block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 200px;
+        max-width: 165px;
+		min-height:18px;
     }
     .addcontact-left{
         width:75%;
