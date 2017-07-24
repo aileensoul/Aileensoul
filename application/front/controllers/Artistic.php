@@ -4162,7 +4162,28 @@ public function followtwo() {
                 if($art_userimage){
                 $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
                   }else{
-                    $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+
+                    //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">';
+
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $cmtinsert .= '<div class="post-img-div">';
+                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  '</div>';
+
+
+                    $cmtinsert .= '</div>';
 
                   }
 
@@ -4307,7 +4328,30 @@ public function followtwo() {
                 if($art_userimage){
                 $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
                 }else{
-             $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+
+
+             //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
+
+
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $cmtinsert .= '<div class="post-img-div">';
+                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  '</div>';
+
+
+                    $cmtinsert .= '</div>';
 
                 }
 
@@ -4808,7 +4852,30 @@ public function followtwo() {
             if($art_userimage){
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
             }else{
-            $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+
+
+            //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+
+
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $cmtinsert .= '<div class="post-img-div">';
+                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  '</div>';
+
+
+                    $cmtinsert .= '</div>';
+
             }
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
@@ -5000,7 +5067,26 @@ public function followtwo() {
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
             }else{
 
-               $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+               //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>'; 
+
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $cmtinsert .= '<div class="post-img-div">';
+                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  '</div>';
+
+
+                    $cmtinsert .= '</div>'; 
             }
 
             $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
@@ -6642,6 +6728,9 @@ public function followtwo() {
 
             $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
 
+            $art_lastname = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_lastname;
+
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert = '<div class="all-comment-comment-box">';
@@ -6652,7 +6741,27 @@ public function followtwo() {
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
              }else{
 
-               $cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+               //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
+
+
+                          $a = $art_name;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $art_lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $cmtinsert .= '<div class="post-img-div">';
+                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  '</div>';
+
+
+                    $cmtinsert .= '</div>';
              }
 
             $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
@@ -7759,7 +7868,29 @@ public function followtwo() {
                 if ($art_userimage) {
                     $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
                 } else {
-                    $fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt=""></div>';
+
+
+                    //
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $fourdata .= '<div class="post-img-div">';
+                    $fourdata .=  ucwords($acronym) . ucwords($acronym1); 
+                    $fourdata .=  '</div>';
+
+
+                    $fourdata .= '</div>';
+                    //$fourdata .= '<img src="' . base_url(NOIMAGE) . '" alt=""></div>';
+
                 }
                 $fourdata .= '<div class="comment-name">';
                 $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
@@ -8124,7 +8255,29 @@ public function followtwo() {
          if ($art_image) {
                     $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
                 } else {
-                    $modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+
+
+                    //$modal .= '<img src="' . base_url(NOIMAGE) . '" alt="">';
+
+                          $a = $art_name1;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $art_lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $modal .= '<div class="post-img-div">';
+                    $modal .=  ucwords($acronym) . ucwords($acronym1); 
+                    $modal .=  '</div>';
+
+
+                    //$cmtinsert .= '</div>';
+
                 }
        $modal .=  '</div>';
        $modal .=  '<div class="like_user_list_main_desc">';
@@ -8947,7 +9100,30 @@ public function followtwo() {
                         $usrsrch .= '</div>';
                     } else {
                         $usrsrch .= ' <div class="chat_heae_img">';
-                        $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
+
+
+                       // $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
+
+
+                          $a = $user['first_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }
+                          
+                          $b = $user['last_name'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }
+
+                    $usrsrch .= '<div class="post-img-div">';
+                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  '</div>';
+
+
+                    //$cmtinsert .= '</div>';
+
                         $usrsrch .= '</div>';
                     }
 
