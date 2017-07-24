@@ -151,7 +151,7 @@
                             $acronym1 .= $w[0];
                             }?>
 
-                            <div class="post-img-div">
+                            <div>
                             <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
                             </div>
                         </div>
@@ -640,7 +640,7 @@
 
                                        
                           
-                            <div class= "data_img_2">
+                            <div class= "post-img-div">
                             <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
                             </div>
                         
