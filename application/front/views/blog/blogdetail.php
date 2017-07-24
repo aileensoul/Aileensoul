@@ -201,7 +201,34 @@
            
           </div>
         </div>
+		<div class="all-comments">
+			<ul>
+				<li class="comment-list">
+					<div class="c-user-img">
+						<img src="img/pic.jpg">
+					</div>
+					<div class="c-user-comments">
+						<h5>Lorem Ipsum</h5>
+						<p>This method returns the specified CSS property value of the FIRST matched element. However, shorthand CSS properties (like "background" and "border") are not fully supported and may give different results in different browsers.
+						</p>
+						<p class="pt5"><span class="comment-time">1 min ago</span></p>
+					</div>
+					<li class="comment-list">
+					<div class="c-user-img">
+						<img src="img/pic.jpg">
+					</div>
+					<div class="c-user-comments">
+						<h5>Lorem Ipsum</h5>
+						<p>This method returns the specified CSS property value of the FIRST matched element. However, shorthand CSS properties (like "background" and "border") are not fully supported and may give different results in different browsers.
+						</p>
+						<p class="pt5"><span class="comment-time">1 min ago</span></p>
+					</div>
+				</li>
+				</li>
+			</ul>
+		</div>
         </div>
+		
       </div>
 
 
