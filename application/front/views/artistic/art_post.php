@@ -151,7 +151,7 @@
                             $acronym1 .= $w[0];
                             }?>
 
-                            <div>
+                            <div class="post-img-div">
                             <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                             $acr1 = $w[0];
                             }?>
 
-                            <div>
+                            <div class="post-img-div">
                             <?php echo  ucwords($acr) . ucwords($acr1); ?>
                             </div>
                        
@@ -347,7 +347,7 @@
                             $acr1 = $w[0];
                             }?>
 
-                            <div>
+                            <div class="post-img-div">
                             <?php echo  ucwords($acr) . ucwords($acr1); ?>
                             </div>
                                     <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
@@ -453,7 +453,7 @@
                             $acr1 = $w[0];
                             }?>
 
-                            <div>
+                            <div class="post-img-div">
                             <?php echo  ucwords($acr) . ucwords($acr1); ?>
                             </div>
                                     <?php } ?></a>
@@ -554,7 +554,7 @@
                             $acr1 = $w[0];
                             }?>
 
-                            <div>
+                            <div class="post-img-div">
                             <?php echo  ucwords($acr) . ucwords($acr1); ?>
                             </div>
                                     <?php } ?></a>
@@ -719,7 +719,7 @@
                             $acrony1 = $w[0];
                             }?>
 
-                            <div class="data_img_2">
+                            <div class="post-img-div">
                             <?php echo  ucwords($acrony) . ucwords($acrony1); ?>
                             </div>
                        
@@ -748,7 +748,7 @@
                             $userl = $w[0];
                             }?>
 
-                            <div class="data_img_2">
+                            <div class="post-img-div">
                             <?php echo  ucwords($userf) . ucwords($userl); ?>
                             </div>
                        
