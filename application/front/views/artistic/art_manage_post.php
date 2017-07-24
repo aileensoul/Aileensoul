@@ -890,11 +890,32 @@ $loginuser = $userdata[0]['art_id'];
                                                     <?php ?>
                                                         
                                                        
-                                                      <?php   if ($userimageposted) {    ?>
-                                                        <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
-                                                        <?php  }else{?>
-                                                          <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                                                       <?php   }?>
+                <?php   if ($userimageposted) {    ?>
+                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+                <?php  }else{?>
+
+
+                    <!-- <img alt=""  src="<?php //echo base_url(NOIMAGE); ?>" alt="" /> -->
+
+                    <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                    <?php   }?>
                            
                         </div>
                         <div id="myBtn3"  class="editor-content popup-text">
@@ -921,7 +942,32 @@ $loginuser = $userdata[0]['art_id'];
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event);")); ?>
 
                         <div class="main-text-area col-md-12" >
-                            <div class="popup-img-in "> <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                            <div class="popup-img-in "> 
+
+                            <?php if($artisticdata[0]['art_user_image']){?>
+                            <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+
+                            <?php }else{?>
+
+                            <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+                            <?php }?>
                             </div>
                             <div id="myBtn3"    class="editor-content col-md-10 popup-text" >
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
@@ -996,6 +1042,12 @@ $loginuser = $userdata[0]['art_id'];
                                                     <?php
                                                     $userimage = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_user_image;
                                                     $userimageposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_user_image;
+
+                                                     $firstname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_name;
+                                                    $lastname = $this->db->get_where('art_reg', array('user_id' => $row['user_id']))->row()->art_lastname;
+
+                                                    $firstnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_name;
+                                                    $lastnameposted = $this->db->get_where('art_reg', array('user_id' => $row['posted_user_id']))->row()->art_lastname;
                                                     ?>
 
                                                     <?php if ($row['posted_user_id']) {  ?>
@@ -1004,7 +1056,26 @@ $loginuser = $userdata[0]['art_id'];
                                                       <?php   if ($userimageposted) {    ?>
                                                         <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
                                                         <?php  }else{?>
-                                                          <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+
+                                                        <?php 
+                          $a = $firstnameposted;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $lastnameposted;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+
                                                        <?php   }?>
                                       
               <?php } else {   ?>
@@ -1016,7 +1087,28 @@ $loginuser = $userdata[0]['art_id'];
                                 ?>
                                 <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" />
                                   <?php } else { ?>
-                                <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+
+
+                               <!--  <img alt=""  src="<?php //echo base_url(NOIMAGE); ?>" alt="" /> -->
+
+                               <?php 
+                          $a = $firstname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
                             <?php } ?>
                                                             </a>
 
@@ -1535,7 +1627,28 @@ $loginuser = $userdata[0]['art_id'];
                                             } else {
                                           ?>
                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
-                                         <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+
+
+                                         <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt=""> -->
+
+                                         <?php 
+                          $a = $artname;
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artlastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
                                              </a>
                                             <?php
                                         }
@@ -1687,7 +1800,27 @@ $loginuser = $userdata[0]['art_id'];
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+
+
+                                                    <?php 
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
+
+                            <div class="post-img-div">
+                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            </div>
+                       
+
+
                                                     <?php
                                                 }
                                                 ?>
