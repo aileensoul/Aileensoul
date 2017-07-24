@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ?>
                                     <li class="clearfix <?php
                                     if ($lstusrdata[0]['user_id'] == $toid) {
-                                        echo "active";
+                                        echo "active  last" . $id;
                                     }
                                     ?>">
 
@@ -661,7 +661,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             success: function (data) {
                 if (data.history == 1) {
                     $('ul#received li').hide();
-                     $('.' + 'status' + id).html(data.message);
+                    $('.last' + id).hide();
+                   document.getElementById('chat').style.display = 'none';
                 }
                 
             }
