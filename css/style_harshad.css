@@ -273,6 +273,10 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 	background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
 	background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+	font-size: 30px;
+    padding: 22px 0;
+    text-align: center;
+    text-transform: uppercase;
 }
  
 

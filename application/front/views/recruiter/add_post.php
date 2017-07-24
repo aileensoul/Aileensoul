@@ -175,11 +175,11 @@
                                         <option value="" selected option disabled>Year</option>
                                         
                                        <option value="0">0 Year</option>
-                                        <option value="0.6">0.6 Year</option>
+                                        <option value="0.5">0.5 Year</option>
                                         <option value="1">1 Year</option>
-                                        <option value="1.6">1.6 Year</option>
+                                        <option value="1.5">1.5 Year</option>
                                         <option value="2">2 Year</option>
-                                        <option value="2.6"> 2.6 Year</option>
+                                        <option value="2.5"> 2.5 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -213,11 +213,11 @@
                                       <select tabindex="7" name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="" selected option disabled>Year</option>
                                        <option value="0">0 Year</option>
-                                        <option value="0.6">0.6 Year</option>
+                                        <option value="0.5">0.5 Year</option>
                                         <option value="1">1 Year</option>
-                                        <option value="1.6">1.6 Year</option>
+                                        <option value="1.5">1.5 Year</option>
                                         <option value="2">2 Year</option>
-                                        <option value="2.6"> 2.6 Year</option>
+                                        <option value="2.5"> 2.5 Year</option>
                                         <option value="3">3 Year</option>
                                         <option value="4">4 Year</option>
                                         <option value="5">5 Year</option>
@@ -652,7 +652,7 @@ if(mm<10) {
                          post_desc: {
 
                             required: true,
-                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                          
                            
                         },
                          country: {

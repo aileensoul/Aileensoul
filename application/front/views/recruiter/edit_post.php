@@ -171,11 +171,11 @@
                                          <option value="" selected option disabled>Year</option>
                                     
                                        <option value="0" <?php if($postdata[0]['min_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
-                                       <option value="0.6" <?php if($postdata[0]['min_year']=="0.6") echo 'selected="selected"'; ?>>0.6 Year</option>
-                                    <option value="1" <?php if($postdata[0]['min_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
-                                     <option value="1.6" <?php if($postdata[0]['min_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
+                                       <option value="0.5" <?php if($postdata[0]['min_year']=="0.5") echo 'selected="selected"'; ?>>0.5 Year</option>
+                                    <option value="1" <?php if($postdata[0]['min_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
+                                     <option value="1.5" <?php if($postdata[0]['min_year']=="1.5") echo 'selected="selected"'; ?>>1.5 Year</option>
                                     <option value="2" <?php if($postdata[0]['min_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
-                                    <option value="2.6" <?php if($postdata[0]['min_year']=="2.6") echo 'selected="selected"'; ?>>2.6 Year</option>
+                                    <option value="2.5" <?php if($postdata[0]['min_year']=="2.5") echo 'selected="selected"'; ?>>2.5 Year</option>
                                     <option value="3" <?php if($postdata[0]['min_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
                                     <option value="4" <?php if($postdata[0]['min_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
                                     <option value="5" <?php if($postdata[0]['min_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
@@ -213,11 +213,11 @@
                                         <option value="" selected option disabled>Year</option>
                                     
                                        <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
-                                        <option value="0.6" <?php if($postdata[0]['max_year']=="0.6") echo 'selected="selected"'; ?>>0.6 Year</option>
+                                        <option value="0.5" <?php if($postdata[0]['max_year']=="0.5") echo 'selected="selected"'; ?>>0.5 Year</option>
                                     <option value="1" <?php if($postdata[0]['max_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
-                                     <option value="1.6" <?php if($postdata[0]['max_year']=="1.6") echo 'selected="selected"'; ?>>1.6 Year</option>
+                                     <option value="1.5" <?php if($postdata[0]['max_year']=="1.5") echo 'selected="selected"'; ?>>1.5 Year</option>
                                     <option value="2" <?php if($postdata[0]['max_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
-                                     <option value="2.6" <?php if($postdata[0]['max_year']=="2.6") echo 'selected="selected"'; ?>>2.6 Year</option>
+                                     <option value="2.5" <?php if($postdata[0]['max_year']=="2.5") echo 'selected="selected"'; ?>>2.5 Year</option>
                                     <option value="3" <?php if($postdata[0]['max_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
                                     <option value="4" <?php if($postdata[0]['max_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
                                     <option value="5" <?php if($postdata[0]['max_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>
