@@ -219,29 +219,29 @@ $(window).load(function(){
 <script>
     $(document).ready(function () {
         $("body").click(function (event) {
-            $("#notificationContainer").hide(600);
+            $("#notificationContainer").fadeOut("slow");
            // event.stopPropagation();
         });
 
     });
        $(document).ready(function () {
         $("body").click(function (event) {
-            $("#acon").hide(600);
+            $("#acon").fadeOut("slow");
            // event.stopPropagation();
         });
 
     });
-     $(document).ready(function () {
+     /*$(document).ready(function () {
         $("body").click(function (event) {
             $("#acon").hide(600);
            // event.stopPropagation();
         });
 
-    });
+    });*/
 
     $(document).ready(function () {
         $("body").click(function (event) {
-            $("#InboxContainer").hide(600);
+            $("#InboxContainer").fadeOut("slow");
 
            // event.stopPropagation();
         });
@@ -266,7 +266,7 @@ $(window).load(function(){
 
     $(document).ready(function () {
         $("body").click(function (event) {
-            $(".dropdown-menu").hide(600);
+            $(".dropdown-menu").fadeOut("slow");
           //event.stopPropagation();
         });
 

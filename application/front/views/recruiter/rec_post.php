@@ -559,10 +559,10 @@ if ($returnpage == 'job') {
                        <div class="fr lction">
                   
                     
-                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
-
-                  <?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
-                  </i></p>
+                <p title="Location">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					<?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
+				</p>
                                                             
                        
            </div>
