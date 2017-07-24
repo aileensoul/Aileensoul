@@ -264,7 +264,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .profile-company-name a{}
 
 /*** 24-7-17  ***/
-.data_img_2 {
+.data_img_2 div{
 	color:#fff;
 	background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ff3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9)); /* safari4+,chrome */
@@ -273,7 +273,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 	background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* ie10+ */
 	background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%); /* w3c */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
-	font-size: 30px;
+	font-size: 24px;
     padding: 22px 0;
     text-align: center;
     text-transform: uppercase;
