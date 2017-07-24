@@ -86,11 +86,36 @@ class Api extends CI_Controller {
             }
             $update_data1 = $this->common->update_data($update_data, 'messages', 'id', $data['id']);
         }
+        
+         $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
+         
+      
+            if (preg_match('/<img/', $messages[0]['message'])) {
+                $messages = str_replace("\\", "", $messages[0]['message']);
+            } else {
+                $messages_new = $this->common->make_links($messages[0]['message']);
+                $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+            }
+          
+       
+
         if ($update_data1) {
-            echo 1;
+             echo json_encode(
+                        array(
+                            "history" => 1,
+                            "message" => $messages
+                           
+                ));
         } else {
-            echo 2;
+             echo json_encode(
+                        array(
+                            "history" => 2,
+                            "message" => $messages,
+                            
+                ));
         }
+        
+        
     }
     
      public function last_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
