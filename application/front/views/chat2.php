@@ -600,7 +600,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() ?>message/last_messages',
+            url: '<?php echo base_url() ?>api/last_messages',
             data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
 //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
              dataType: "json",
