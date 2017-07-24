@@ -1021,15 +1021,19 @@ $( "#searchplace1" ).autocomplete({
 
 
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-<script>
-    function removepopup(id) {
-        $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_user(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
-    }
-    function updateprofilepopup(id) {
-        $('#bidmodal-2').modal('show');
-    }
-</script>
+
+
+
+ <script>
+                    function removepopup(id) {
+                      
+                        $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_user(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                        $('#bidmodal').modal('show');
+                    }
+                    function updateprofilepopup(id) {
+                        $('#bidmodal-2').modal('show');
+                    }
+            </script>
 
 <!-- <script>
 //select2 autocomplete start for skill
@@ -1255,29 +1259,37 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 <!-- remove save post start -->
 
 <script type="text/javascript">
-    function remove_user(abc)
-    {
+   
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "recruiter/remove_candidate" ?>',
-            data: 'save_id=' + abc,
-            success: function (data) {
+     function remove_user(abc)
+                {
 
-                $('#' + 'removeuser' + abc).html(data);
-                $('#' + 'removeuser' + abc).parent().removeClass();
-                var numItems = $('.contact-frnd-post .job-contact-frnd').length;
 
-                if (numItems == '0') {
-                    var nodataHtml = "  <div class="art-img-nn"><div class="art_no_post_img"> <img src="<?php echo base_url('img/job-no1.png')?>"> </div><div class="art_no_post_text">No Saved Candidate  Available.</div>  </div>";
-                    $('.contact-frnd-post').html(nodataHtml);
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "recruiter/remove_candidate" ?>',
+                        data: 'save_id=' + abc,
+                        success: function (data) {
+
+                            $('#' + 'removeuser' + abc).html(data);
+                            $('#' + 'removeuser' + abc).parent().removeClass();
+                            var numItems = $('.contact-frnd-post .job-contact-frnd').length;
+
+                            if (numItems == '0') {
+                              
+                                var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src = '<?php echo base_url('img/job-no1.png')?>'></div><div class='art_no_post_text'>No Saved Candidate  Available.</div></div>";
+                                $('.contact-frnd-post').html(nodataHtml);
+                            }
+
+
+
+
+                        }
+                    });
+
+
+
                 }
-
-
-            }
-        });
-
-    }
 </script>
 
 <!-- remove save post end

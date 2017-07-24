@@ -2037,10 +2037,12 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
     }
 
 //Remove Save candidate by search controller start
-    public function remove_candidate($saveid) {
+    public function remove_candidate() {
 //echo $saveid;die();
 
         $saveid = $_POST['save_id'];
+
+
 
         $userid = $this->session->userdata('aileenuser');
 
