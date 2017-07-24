@@ -432,6 +432,16 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
     return regexpr.test(value);
 }, "Only space, only number and only specila characters are not allow");
 
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }  
+}, "Pincode should be less than or equal 12 digit");
 
 
         $(document).ready(function () {
@@ -460,6 +470,9 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         //noSpace: true
 
                     },
+                    pincode:{
+                        regx1:/^.{0,12}$/
+                    }
                 },
 
                 messages: {

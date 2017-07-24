@@ -189,12 +189,12 @@
                                           <b>Job Description</b>
                                           <span>
                                              <p>
-                                                <?php if ($post['post_description']) {echo $this->common->make_links($post['post_description']);}else{ echo PROFILENA; } ?> 
+                                                <?php if ($post['post_description']) { ?> <pre> <?php echo $this->common->make_links($post['post_description']);  ?> </pre> <?php }else{ echo PROFILENA; } ?> 
                                              </p>
                                           </span>
                                        </li>
                                        <li><b>Interview Process</b><span>
-                                          <?php if($post['interview_process']){ echo $this->common->make_links($post['interview_process']);} else{echo PROFILENA;}?></span>
+                                          <?php if($post['interview_process']){ ?> <pre> <?php  echo $this->common->make_links($post['interview_process']);} else{echo PROFILENA;}?> </pre> </span>
                                        </li>
                                        <!-- vishang 14-4 start -->
                                         <li>
@@ -393,7 +393,7 @@
                                              ?>       
                                           </span>
                                        </li>
-                                       <li><b>Job Description:</b><span><?php echo $post['post_description']; ?></span>
+                                       <li><b>Job Description:</b><span> <pre> <?php echo $post['post_description']; ?> </pre> </span>
                                        </li>
                                        <div class="pull-right">
                                           <?php echo $post['created_date']; ?>

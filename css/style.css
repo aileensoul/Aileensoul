@@ -5776,6 +5776,40 @@ label.cameraButton input[accept*="camera"] {
 }
 
 
+/*Dhaval 24/7/17*/
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span pre{font-size: 13px;
+border: none;
+white-space: pre-line;
+background: transparent;
+padding-top: 2px;
+padding:0px;
+font-family: arial;
+display: contents;
+}
+
+
+.user_lst ul li button{
+    background: -moz-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -webkit-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -o-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: -ms-linear-gradient(bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background: linear-gradient(to top, #e9e9e9 5%, #f9f9f9 100%);  20    
+}
+.cover-pic{z-index: 0 !important;}
+
+.dropdown-content1 a{color: #787878 !important;}
+.dropdown-content2 a{color: #787878 !!important;}
+.dropdown-content1 a:hover{color: #fff  !important}
+.profile-boxProfileCard .not_available p{text-align:center;}
+.alert-danger{color: black!important;font-size: 22px !important;}
+.addcontact-pic{border: 1ps solid #d9d9d9;}
+.profile-head-text a{text-shadow: none !important;}
+
+
+
+/*End*/
+
+
 @media screen and (min-width: 800px) {
     #floatBarsG {
         transform: scale(1);
@@ -14125,10 +14159,10 @@ images css start*/
     border: none !important;
 }
 .ui-autocomplete {
-    -webkit-box-shadow: 0 0 5px 2px #ddd;
+ /*   -webkit-box-shadow: 0 0 5px 2px #ddd;
     -moz-box-shadow: 0 0 5px 2px #ddd;
     box-shadow: 0 0 5px 2px #ddd;
-    outline: none;
+*/    outline: none;
 }
 .ui-state-focus {
     margin: 0 !important;

@@ -32,12 +32,16 @@
                  aria-hidden="true" rel="noopener">
                
                 <?php
-                 $image_ori = $recruiterdata1[0]['profile_background'];
-                if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
+
+                $image_ori = $this->config->item('rec_bg_thumb_upload_path').$recruiterdata1[0]['profile_background'];
+
+               // print_r($image_ori); die();
+                // $image_ori = $recruiterdata1[0]['profile_background'];
+                if (file_exists($image_ori)) {
                         //echo "hii"; die();
                                                                                               ?>
                    <!-- box image start -->
-               <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path') . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+               <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path'). $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
                     <!-- box image end -->
                          <?php
                    } else {
@@ -54,7 +58,7 @@
                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
-                                                if (file_exists($this->config->item('rec_profile_thumb_upload_path').$recruiterdata1[0]['recruiter_user_image'])) {
+                                                if ($recruiterdata1[0]['recruiter_user_image'] != '') {
                                                     // echo "hii"; die();
                                                     ?>
                        <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
