@@ -152,7 +152,7 @@
                             }?>
 
                             <div>
-                            <?php echo  $acronym .' '. $acronym1; ?>
+                            <?php echo  $acronym . $acronym1; ?>
                             </div>
                         </div>
                         <?php } ?>
