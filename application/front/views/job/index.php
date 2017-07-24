@@ -209,7 +209,7 @@ $gender = form_error('gender');
 
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                     <label>First Name :<span class="red">*</span></label>
-                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" style="text-transform: capitalize;" value="<?php if ($fname1) {
+                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php if ($fname1) {
                                         echo $fname1;
                                     } else {
                                         echo $job[0]['first_name'];
@@ -929,6 +929,13 @@ else if(date_picker=="1970-01-01"){
      } 
                 
             });
+			
+			$(function() {
+      var input = $("#fname");
+    var len = input.val().length;
+    input[0].focus();
+    input[0].setSelectionRange(len, len);
+    });
 </script>
 
 

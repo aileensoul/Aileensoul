@@ -435,6 +435,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var print_message = print_message.replace(/%26amp;/gi, "&");
                 var print_message = print_message.replace(/%26gt;/gi, ">");
                 var print_message = print_message.replace(/%26lt;/gi, "<");
+                var print_message = print_message.replace(/\\r/gi, "");
 
                 var html = ' <li class="clearfix" id="message_li_' + data.id + '">';
                 html += '   <div class="message-data align-right">';
@@ -471,6 +472,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var print_message = print_message.replace(/%26amp;/gi, "&");
                 var print_message = print_message.replace(/%26gt;/gi, ">");
                 var print_message = print_message.replace(/%26lt;/gi, "<");
+                  var print_message = print_message.replace(/\\r/gi, "");
 
                 var html = '<li id="message_li_' + data.id + '"> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
