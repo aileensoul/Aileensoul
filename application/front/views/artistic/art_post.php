@@ -137,8 +137,8 @@
                         </div>
                         <?php } else { ?> 
                         <div class="data_img_2">
-                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
-                          <!-- <?php 
+                           <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"> -->
+                          <?php 
                           $a = $artisticdata[0]['art_name'];
                           $words = explode(" ", $a);
                           foreach ($words as $w) {
@@ -151,9 +151,9 @@
                             $acronym1 .= $w[0];
                             }?>
 
-
-                            <?php echo  $acronym .' '. $acronym1;
-                           ?> -->
+                            <div>
+                            <?php echo  $acronym .' '. $acronym1; ?>
+                            </div>
                         </div>
                         <?php } ?>
                         <!-- box image end -->
