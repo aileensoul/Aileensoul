@@ -102,8 +102,8 @@
                     $contition_array = array('user_id' => $user_id, 'is_delete' => '0', 're_status' => '1');
                     $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     //echo "<pre>";print_r($image);
-                    $image_ori = $image[0]['profile_background'];
-                    if (file_exists($this->config->item('rec_bg_main_upload_path').$image_ori)) {
+                    $image_ori= $this->config->item('rec_bg_main_upload_path').$image[0]['profile_background'];
+           if(file_exists($image_ori) && $image[0]['profile_background'] != '') {
                         ?>
                      
                             <img src="<?php echo base_url($this->config->item('rec_bg_main_upload_path') . $image[0]['profile_background']); ?>" name="image_src" id="image_src" / >
@@ -138,7 +138,9 @@
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
-                <?php if (file_exists($this->config->item('rec_profile_thumb_upload_path').$recruiterdata[0]['recruiter_user_image'])) { ?>
+                <?php $imageee= $this->config->item('rec_profile_thumb_upload_path').$recruiterdata[0]['recruiter_user_image'];
+           if(file_exists($imageee) && $recruiterdata[0]['recruiter_user_image'] != '')
+            { ?>
                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
@@ -311,7 +313,8 @@
 
                                 ?> -->
                   <?php
-                 if (file_exists($this->config->item('job_profile_thumb_upload_path').$rec['job_user_image'])) {
+                $imageee= $this->config->item('job_profile_thumb_upload_path').$rec['job_user_image'];
+           if(file_exists($imageee) && $rec['job_user_image'] != '') {
                     ?>
                <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
                <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $rec['job_user_image']); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"></a>

@@ -41,10 +41,11 @@
                  aria-hidden="true" rel="noopener">
                
                 <?php
-                 $image_ori = $recdata[0]['profile_background'];
-                if ($image_ori) {
-                        //echo "hii"; die();
-                                                                                              ?>
+
+                $imageee= $this->config->item('rec_bg_thumb_upload_path').$recdata[0]['profile_background'];
+           if(file_exists($imageee) && $recdata[0]['profile_background'] != '')
+                 {
+                   ?>
                    <!-- box image start -->
                <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path') . $recdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
                     <!-- box image end -->
@@ -62,9 +63,11 @@
                                         
                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
-//echo "<pre>"; print_r($recruiterdata1); die();
-                                                if ($recdata[0]['recruiter_user_image'] != '') {
-                                                    // echo "hii"; die();
+
+                                                 $imageee= $this->config->item('rec_profile_thumb_upload_path').$recdata[0]['recruiter_user_image'];
+                                              if(file_exists($imageee) && $recdata[0]['recruiter_user_image'] != '') { 
+
+                                               
                                                     ?>
                        <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" >
                                    <?php
@@ -167,8 +170,11 @@
                <div style="display: inline-block; float: left;">
              
                 <div  class="buisness-profile-pic-candidate ">
-                <?php
-                if ($p['job_user_image']) {
+                <?php 
+
+                 $imageee= $this->config->item('job_profile_thumb_upload_path').$p['job_user_image'];
+                if(file_exists($imageee) && $p['job_user_image'] != '') { ?>
+              
                ?>
            <a href="<?php echo base_url('job/job_printpreview/' . $p['iduser'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
            <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path')  . $p['job_user_image']); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>">

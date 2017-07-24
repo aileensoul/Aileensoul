@@ -234,10 +234,10 @@
                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?>
 
                                                                 <li><b>Job Description</b><span><p>
-                <?php if($post['post_description']){echo text2link($post['post_description']);}else{echo PROFILENA;} ?> </p></span>
+                <?php if($post['post_description']){ ?> <pre> <?php echo text2link($post['post_description']); ?> </pre> <?php }else{echo PROFILENA;} ?> </p></span>
                                                                 </li>
                                                                 <li><b>Interview Process</b><span>
-                    <?php if($post['interview_process']){echo $post['interview_process'];}else{echo PROFILENA;} ?></span>
+                    <?php if($post['interview_process']){  ?> <pre> <?php echo $post['interview_process']; ?> </pre> <?php }else{echo PROFILENA;} ?></span>
                                                                 </li>
                                                                 <!-- vishang 14-4 start -->
                 <li>

@@ -79,7 +79,25 @@ if ($user_data) {
 
                                                             <div class="profile-job-post-location-name-rec">
                                                                 <div style="display: inline-block; float: left;">
-                                                                     <div  class="buisness-profile-pic-candidate"><img src="<?php echo base_url(USERIMAGE . $row['job_user_image']); ?>" alt="" >
+                                                                     <div  class="buisness-profile-pic-candidate">
+
+                                              <?php
+                                               $imageee= $this->config->item('job_profile_thumb_upload_path').$row['job_user_image'];
+                                              if(file_exists($imageee) && $row['job_user_image'] != '') { ?>
+
+                                                                     <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path'). $row['job_user_image']); ?>" alt="" >
+
+                                                          <?php 
+                                                        }
+                                                        else
+                                                        {
+                                                          ?>
+                                                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+
+                                                           <?php }
+                                                           ?>
+
+
                                                                             </div>
 
                      </div>
