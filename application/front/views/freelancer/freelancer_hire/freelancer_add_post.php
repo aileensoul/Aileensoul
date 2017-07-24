@@ -412,7 +412,7 @@
                                     // echo 2; die();
                                      ?>
                                  
-                                 <a class="add_post_btnc" <?php if($page=='professional'){?> href="<?php echo base_url('freelancer/recommen_candidate');?>" <?php } else { ?>  href="javascript:history.back()" <?php }?> >Cancel</a>
+                                 <a class="add_post_btnc" <?php if($pages=='professional'){?> href="<?php echo base_url('freelancer/recommen_candidate');?>" <?php } else { ?>  href="javascript:history.back()" <?php }?> >Cancel</a>
                                  <?php } ?>
                     
                       
