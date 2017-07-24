@@ -220,7 +220,7 @@ else
         </div>
         <div class="blog_class_main_desc">
           <span>
-            <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <?php echo $blog['description'];?></a>
+           <?php echo $blog['description'];?>
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -310,7 +310,7 @@ else
             </div>
           
             <div class="desc_post">
-               <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"><span class="rifght_desc"> <?php echo $blog['description'];?> </span></a>
+              <span class="rifght_desc"> <?php echo $blog['description'];?> </span>
             </div>  
             </div>
 

@@ -262,7 +262,7 @@
             </div>
           
             <div class="desc_post">
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <span class="rifght_desc"> <?php echo $blog['description'];?>  </span></a>
+              <span class="rifght_desc"> <?php echo $blog['description'];?>  </span>
             </div>  
             </div>
 
