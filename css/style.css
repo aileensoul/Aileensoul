@@ -14060,10 +14060,10 @@ images css start*/
     border: none !important;
 }
 .ui-autocomplete {
-    -webkit-box-shadow: 0 0 5px 2px #ddd;
+ /*   -webkit-box-shadow: 0 0 5px 2px #ddd;
     -moz-box-shadow: 0 0 5px 2px #ddd;
     box-shadow: 0 0 5px 2px #ddd;
-    outline: none;
+*/    outline: none;
 }
 .ui-state-focus {
     margin: 0 !important;
