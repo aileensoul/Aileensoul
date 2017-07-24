@@ -218,7 +218,7 @@
 
  
 					<div class="c-user-img">
-						<img src="img/pic.jpg">
+						 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
 					</div>
 					<div class="c-user-comments"> 
 						<h5><?php echo $comment['name']; ?></h5>
@@ -232,7 +232,7 @@
                     $date = new DateTime($comment['comment_date']);
                     echo $date->format('M').PHP_EOL;
                     echo "-";
-                    
+
                     $date = new DateTime($comment['comment_date']);
                     echo $date->format('Y').PHP_EOL;
             ?>
