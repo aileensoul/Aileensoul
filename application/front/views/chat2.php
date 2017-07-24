@@ -121,34 +121,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 <?php
                                                 if ($message_from_profile == 2) {
+                                                    if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
-                                                }
+                                                    }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }
+                                                    }
 
                                                 if ($message_from_profile == 1) {
+                                                    if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                                }
+                                                
+                                                    }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }
+                                                    }
                                                 if ($message_from_profile == 4) {
+                                                       if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                                  }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }                                              
                                                 }
                                                 if ($message_from_profile == 3) {
+                                                      if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                               }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }
                                                 }
                                                 if ($message_from_profile == 5) {
+                                                      if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                               }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }
                                                 }
                                                 if ($message_from_profile == 6) {
+                                                      if($user['user_image']){
                                                     $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                                }else{
+                                                       $user_image =  base_url(NOIMAGE);
+                                                    }
                                                 }
                                                 ?>
                                                 <?php if ($user_image) { ?>
                                                     <div class="chat_heae_img">
                                                         <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
                                                     </div>
-                                                <?php } else { ?>
-                                                    <div class="chat_heae_img">
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
-                                                    </div>
-                                                <?php } ?>
+                                                <?php }  ?>
+                                                
                                                 <div class="about">
                                                     <div class="name"> 
                                                         <?php echo $user['first_name'] . "<br>"; ?></div>
