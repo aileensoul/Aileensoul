@@ -2341,7 +2341,7 @@ class Chat extends MY_Controller {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-">';
+">';           
                     $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
                     $usrsrch .= '</div>';
                     $usrsrch .= '</div>';

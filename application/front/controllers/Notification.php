@@ -2211,8 +2211,11 @@ class Notification extends MY_Controller {
             $notmsg .= '<h6>' . ucwords($msg['first_name']) . '</h6>';
             $notmsg .= '<div class="msg_desc_a">';
 
-
-            $notmsg .= '' . str_replace('\\', '', $msg['message']) . '';
+            $message = str_replace('\\r', '', $msg['message']); 
+             $message = str_replace('\\t', '', $message); 
+               $message = str_replace('\\', '', $message);
+        
+            $notmsg .= '' . $message . '';
             $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
 //            $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">'. $not[0]['not_created_date'] . '</span></div>';
             $notmsg .= '</div></div></a></li>';
