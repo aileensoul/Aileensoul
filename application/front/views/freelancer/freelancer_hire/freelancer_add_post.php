@@ -1231,4 +1231,7 @@ var today = yyyy;
                 }
             }
         </script>
+  <script type="text/javascript"> 
+ $(".alert").delay(3200).fadeOut(300);
+</script>
 
