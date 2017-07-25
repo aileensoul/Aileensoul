@@ -11,14 +11,14 @@ width: 25px; }
 .header2 ul li a:hover .bu_req{  background-image: url(../img/icon_contact_request.png);}
 .header2 ul li a.contact_notification_available .bu_req{  background-image: url(../img/icon_contact_request.png);}
 .dropdown_hover #art_profile:hover{color:white;}
-.dropdown_hover #art_profile{font-family: robotoregular; color: #d7ecf5; font-size: 14px;}
+.dropdown_hover #art_profile{font-family: robotoregular; color: #d7ecf5; font-size: 15px; letter-spacing:0.5;}
 .u2{font-family: robotoregular; color: #d7ecf5;}
 .u2:hover{color: #fff;}
 .dropdown .img-circle{border: 2px solid #d7ecf5; background:#d7ecf5;}
 .header ul li a i{color: #d7ecf5;}
 .dropdown_hover span i {
     margin-right: -8px;
-    padding-left: 7px;
+    padding-left: 6px;
     font-size: 17px;
 }
 #a_li{position:relative}
@@ -260,8 +260,15 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 /***  font css  ***/
 .left-side-bar ul li a{font-family: 'robotoregular';}
 .common-form1 h3{font-family: 'robotoregular';}
-.common-form h3{font-family: 'robotoregular';}
+.common-form h3{font-family: 'arial';}
 .profile-company-name a{}
+.profile-job-details .post_title{/*font-family: 'robotoregular';*/}
+.profile-job-details .job_companyname{font-family: 'arial'; font-weight:normal;}
+.profile-job-profile-button ul li a{font-family: 'arial'; font-weight:normal;}
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b{font-weight:normal;}
+.profile-job-post-detail .profile-job-post-title .button{}
+.profile-head-text{font-family: 'robotoregular';}
+
 
 /*** 24-7-17  ***/
 .data_img_2 div{
@@ -314,7 +321,8 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .post-design-proo-img .post-img-div{height:37px; width:38px; font-size:15px; padding:12px 0;}
 .post-design-pro-comment-img .post-img-div{height:37px; width:38px; font-size:15px; padding:12px 0;}
  
-
+.designation_rec_1{width:90%;}
+.required_field{display:none;}
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}

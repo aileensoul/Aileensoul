@@ -222,7 +222,7 @@ font-family: robotoregular;}
 @media screen and (max-width: 479px) {
 	.blog_header ul li{padding: 1px 6px; font-size: 11px;}
 	.blog_header{padding-top: 32px;}
-	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;}
+	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;	}
 }
 
 
