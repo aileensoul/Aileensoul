@@ -160,7 +160,12 @@
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="left_iner_img_profile">  
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                         <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div>
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                     </div>  <?php } ?>                           
                                                 <!-- 
                         <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
@@ -258,7 +263,13 @@
                                                                                 <?php
                                                                             } else {
                                                                                 ?>
-                                                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image" > </a>
+                                                                                 <?php 
+                                          $a = $p['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
+                                                                                </a>
                                                                                 <?php
                                                                             }
                                                                             ?>
@@ -434,7 +445,12 @@
                                                                                         </a>
                                                                                     <?php } else { ?>
                                                                                         <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>" title="">
-                                                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                                                             <?php 
+                                          $a = $p['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                         <?php } ?> </a>
                                                                                 <?php } else { ?>
                                                                                     <?php if ($business_userimage) { ?>
@@ -442,7 +458,13 @@
                                                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt=""> </a>
                                                                                     <?php } else { ?>
                                                                                         <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="">
-                                                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt=""> </a>
+                                                                                             <?php 
+                                          $a = $p['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
+                                             </a>
                                                                                         <?php
                                                                                     }
                                                                                 }
@@ -818,16 +840,21 @@
                                                                                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $pdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                                                                     ?>
                                                                                                     <?php if ($business_userimage) { ?>
-                                                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-                                                                                                    <?php } else { ?>
-                                                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-                                                                                                    <?php } ?>
-                                                                                                </div>
-                                                                                                <div class="comment-name">
-                                                                                                    <b title=" <?php echo $companyname; ?>">  
-                                                                                                        <?php
-                                                                                                        echo $companyname;
-                                                                                                        echo '</br>';
+                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                    <?php } else { ?>
+                                        <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
+                                            <?php } ?>
+                                        </div>
+                                         <div class="comment-name">
+                                            <b title=" <?php echo $companyname; ?>">  
+                                                    <?php
+                                                    echo $companyname;
+                                                        echo '</br>';
                                                                                                         ?>
                                                                                                     </b>
                                                                                                 </div>
@@ -923,11 +950,19 @@
                                                                                 <?php
                                                                                 $userid = $this->session->userdata('aileenuser');
                                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+
+                                                                                $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
+
                                                                                 ?>
                                                                                 <?php if ($business_userimage) { ?>
                                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                                 <?php } else { ?>
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                                     <?php 
+                                          $a = $business_user;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                 <?php } ?>
                                                                             </div>
 
