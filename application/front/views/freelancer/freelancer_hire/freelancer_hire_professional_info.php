@@ -334,7 +334,7 @@ jQuery.validator.addMethod("noSpace", function(value, element) {
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
-}, "Only space, only number and only specila characters are not allow");
+}, "Only space, only number and only special characters are not allow");
 
 
 
