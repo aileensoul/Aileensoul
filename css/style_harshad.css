@@ -331,6 +331,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 	#notificationLink span{top:5px;}
 }
 @media screen and (max-width: 991px) {
+	.tab-none{display:none;}
 	.common-form1{max-width:750px; float:none; margin:0 auto;}
 	.job-menu-profile{margin-top:20px; padding-bottom:10px;}
 }
