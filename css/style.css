@@ -3420,6 +3420,9 @@ margin: 10px;}
     background: rgba(255, 255, 255, 0.7);
     border-radius: 3px;
 }
+.profile-head-text a {
+        font-size: 26px;
+    }
 .box .overlay>.fa,
 .overlay-wrapper .overlay>.fa {
     position: absolute;
@@ -7246,6 +7249,7 @@ overflow: hidden;
 text-overflow: ellipsis;
     font-size: 28px;
  }
+ .profile-head-text_dg textarea{height: 45px; padding: 0;}
 
  .profile-head-text_dg a{font-size: 22px;  }
 #two_save_images_bui {

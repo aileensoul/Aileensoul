@@ -178,7 +178,7 @@
 
 
                             <div class="profile-left">
-           <h4> <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
+         <h4 class="profile-head-text"><a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
                 <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
 </h4>
             <!-- text head start -->
@@ -382,7 +382,7 @@
                             </span>      </div>
                         <table class="business_data_table">
                             <tr>
-                                <td class="business_data_td1"><i class="fa fa-key" aria-hidden="true"></i></td>
+                                <td class="business_data_td1"><i class="fa fa-trophy" aria-hidden="true"></i></td>
                                 <td class="business_data_td2">
 
                                     <?php
@@ -416,13 +416,13 @@
                             </tr>
 
                             <tr>
-                                <td class="business_data_td1 detaile_map"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
+                                <td class="business_data_td1 detaile_map"><i class="fa fa-envelope" aria-hidden="true"></i></td>
                                 <td class="business_data_td2">
 									<a href="mailto:<?php echo $artisticdata[0]['art_email']; ?>"><?php echo $artisticdata[0]['art_email']; ?></a>
 								</td>
                             </tr>
                             <tr>
-                                <td class="business_data_td1  detaile_map" ><i class="fa fa-map-marker"></i></td>
+                                <td class="business_data_td1  detaile_map" ><i class="fa fa-map-marker" aria-hidden="true"></i></td>
                                 <td class="business_data_td2"><span>
                                         <?php
                                         if ($artisticdata[0]['art_address']) {
