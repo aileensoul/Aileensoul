@@ -2873,13 +2873,13 @@
                 {
 
                 $('.biderror .mes').html("<div class='pop_content'>Do you want to delete this comment?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='comment_deletedtwo(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                $('#').modal('show');
+                $('#bidmodal').modal('show');
                 }
 
                 function comment_deletedtwo(clicked_id)
                 {
 
-                var post_delete1 = document.getElementById("post_deletetwo");
+                var post_delete1 = document.getElementById("post_deletetwo" + clicked_id);
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/delete_commenttwo" ?>',
