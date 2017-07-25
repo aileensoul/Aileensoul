@@ -182,7 +182,7 @@ public function publish()
         $update = $this->common->update_data($data, 'blog', 'id', $id);
 
          $select .= '<button class="btn btn-block btn-success btn-sm"    onClick="draft(' .  $id . ')">
-                              draft
+                              Draft
                       </button>';
 
         echo $select;
@@ -202,7 +202,7 @@ public function draft()
         $update = $this->common->update_data($data, 'blog', 'id', $id);
 
         $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="publish(' .  $id . ')">
-                              publish
+                              Publish
                       </button>';
 
         echo $select;
@@ -212,17 +212,33 @@ public function draft()
 //CHANGE STATUS DRAFT TO PUBLISH WITH AJAX END
 
 //DELETE BLOG WITH AJAX START
-public function delete_user() 
+public function delete_blog() 
 {
-     $job_id = $_POST['job_id'];
+     $id = $_POST['id'];
       $data = array(
-            'is_delete' => 1
+            'status' => 'delete'
         );
 
-        $update = $this->common->update_data($data, 'job_reg', 'job_id', $job_id);
+        $update = $this->common->update_data($data, 'blog', 'id', $id);
+               
         die();
 }
 //DELETE USER WITH AJAX END
+
+//VIEW BLOG DETAIL START
+public function blogdetail($id) 
+{
+    //FOR GETTING ALL DATA STARt
+    $condition_array = array('status !=' => 'delete','id'=> $id);
+    $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+    //FOR GETTING ALL DATA END 
+
+    //echo "<pre>";print_r($this->data['blog_detail']);die();
+
+     $this->load->view('blog/blogdetail',$this->data);
+
+}
+//VIEW BLOG DETAIL END
 
 }
 

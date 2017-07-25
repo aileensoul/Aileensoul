@@ -103,8 +103,28 @@
           <ul class="social_icon_bloag fl">
          <li>
             
-                <a href=""><span  class="social_fb"></span></a>
-              
+          <!--  <a href="" onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $blog_detail[0]['title'];?>&amp;p[url]=<?php echo base_url(); ?>&amp;&p[images][0]=<?php echo $image;?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)"></a> -->
+             <!--  <a href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $blog_detail[0]['title'];?>&amp;p[url]=<?php echo base_url(); ?>&amp;&p[images][0]=<?php echo $image;?>', 'sharer', 'toolbar=0,status=0,width=548,height=325');" target="_blank"><span  class="social_fb"></span></a> -->
+              <!--  <a href="" onClick="window.open('http://www.facebook.com/sharer.php?u=http://localhost/aileensoul/blog/blogdetail/8');" target="_parent" href="javascript: void(0)"><span  class="social_fb"></span></a> -->
+
+               <?php
+
+//$title=urlencode("My Name Is Ankit");
+               //echo $blog_detail[0]['title'];
+$title=urlencode('"'.$blog_detail[0]['title'].'"');
+//$url=urlencode("https://www.aileensoul.com/blog/blogdetail/8");
+$url=urlencode(base_url('blog/blogdetail/'.$blog_detail[0]['blog_slug']));
+//echo $url;
+$summary=urlencode('"'.$blog_detail[0]['description'].'"');
+$image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image']));
+//echo $image;
+?>
+<a onclick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo $title;?>&amp;p[summary]=<?php echo $summary;?>&amp;p[url]=<?php echo $url; ?>&amp;&p[images][0]=<?php echo $image;?>', 'sharer', 'toolbar=0,status=0,width=620,height=280');" href="javascript: void(0)"> 
+
+<span  class="social_fb"></span>
+</a>
+
+
             </li>
             <li>
               
@@ -147,7 +167,7 @@
                          
                      
                   ?>
-                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key-1]['id']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key-1]['blog_slug']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 
                       
                   <?php
@@ -190,7 +210,7 @@
                          
                      
                   ?>
-                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key+1]['id']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key+1]['blog_slug']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   <?php
                       }
                 }
@@ -212,18 +232,18 @@
     foreach ($blog_comment as $comment) 
     {
   ?>  
-		<div class="all-comments">
-			<ul>
-				<li class="comment-list">
+    <div class="all-comments">
+      <ul>
+        <li class="comment-list">
 
  
-					<div class="c-user-img">
-						 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
-					</div>
-					<div class="c-user-comments"> 
-						<h5><?php echo $comment['name']; ?></h5>
-						<p><?php echo $comment['message']; ?></p>
-						<p class="pt5"><span class="comment-time">
+          <div class="c-user-img">
+             <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+          </div>
+          <div class="c-user-comments"> 
+            <h5><?php echo $comment['name']; ?></h5>
+            <p><?php echo $comment['message']; ?></p>
+            <p class="pt5"><span class="comment-time">
              <?php 
                    $date = new DateTime($comment['comment_date']);
                     echo $date->format('d').PHP_EOL;
@@ -239,15 +259,15 @@
               
             </span></p>
   
-					</div>
+          </div>
           </li>
-			</ul>
-		</div>
+      </ul>
+    </div>
 <?php
         }//for loop end
 ?>
         </div>
-		
+    
       </div>
 
 
@@ -298,13 +318,13 @@
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-             <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+             <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-               <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"><span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
+               <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"><span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div>
           
             <div class="desc_post">
@@ -425,7 +445,6 @@
      
 
 </script>
-
 
 <!-- This Js is used for call popup -->
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>

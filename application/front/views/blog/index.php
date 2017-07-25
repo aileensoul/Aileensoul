@@ -202,14 +202,14 @@ else
         <div class="blog_main_post_first_part">
         <div class="blog_main_post_img">
 
-         <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+         <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
         </div>
         </div>
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-             <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"><?php echo $blog['title'];?></a>
+             <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
           </span>
         </div>
         <div class="blog_class_main_by">
@@ -254,7 +254,7 @@ else
 
           <div class="fr blog_view_link">
 
-            <a onclick="read_more('<?php echo $blog['id']; ?>')"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <a onclick="read_more('<?php echo $blog['id']; ?>','<?php echo $blog['blog_slug']; ?>')"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 </a>
           </div>
         </div>
@@ -300,13 +300,13 @@ else
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['id'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
+              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div>
           
             <div class="desc_post">
@@ -338,8 +338,7 @@ else
 
 <script type="text/javascript">
      
-function read_more(blog_id) {
-
+function read_more(blog_id,slug) {
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url()."blog/read_more" ?>',
@@ -348,7 +347,7 @@ function read_more(blog_id) {
            success: function (data) {
                if (data == 1) 
                {
-                  window.location= "<?php echo base_url() ?>blog/blogdetail/" + blog_id;
+                  window.location= "<?php echo base_url() ?>blog/blogdetail/" + slug;
                    //redirect('blog/blogdetail');
                }
              
