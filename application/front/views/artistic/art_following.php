@@ -321,6 +321,7 @@ if($status == 0 || $status == " "){?>
 }
 ?>
 
+</div>
 
   </div>  
     <!-- menubar -->                

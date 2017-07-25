@@ -7246,6 +7246,8 @@ overflow: hidden;
 text-overflow: ellipsis;
     font-size: 28px;
  }
+
+ .profile-head-text_dg a{font-size: 22px;  }
 #two_save_images_bui {
     float: left;
     height: 250px;
@@ -9616,7 +9618,7 @@ font-weight: 600;}
     margin-top: 20px;
 }
 .grybod {
-    border: 1px solid #d9d9d9!important;
+margin-top: 30px;
 }
 .edit_cpmment_edit {
     width: 81%;

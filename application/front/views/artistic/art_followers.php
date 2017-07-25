@@ -270,7 +270,8 @@
          </div>
          <!-- menubar -->                
       </div>
-      </div>
+      </div></div>
+
    
       </div>
        <div class="user-midd-section art-inner">

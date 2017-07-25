@@ -411,7 +411,7 @@ if ($status == 0 || $status == " ") {
                               
          </div>
          <div class="art_no_post_text1">
-           No video Available.
+           No Audio Available.
          </div>
        </div>
                          
