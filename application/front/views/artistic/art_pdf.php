@@ -112,11 +112,13 @@
         </label>
              </div>
            <?php }?>
+          
             <div class="profile-photo">
-            
-              <div class="profile-pho">
+   <div class="buisness-menu">
 
-                <div class="user-pic padd_img">
+                    <div class="profile-pho-bui">
+
+                        <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
@@ -146,30 +148,25 @@
     if($artisticdata[0]['user_id'] == $userid) {
     ?>
 
-                            <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                             <?php }?>
 
                         </div>
-                        
-<!--                        <div id="popup-form">
-                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix')); ?>
-                        <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                        <input type="hidden" name="hitext" id="hitext" value="5">
-                        <input type="submit" name="cancel5" id="cancel5" value="Cancel">
-                        <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                     <?php  echo form_close();?>
-                </div>-->
+                       
 
                 </div>
 
-                 <div class="job-menu-profile mob-block">    
+                         
+    <div class="business-profile-right">
+                        <div class="bui-menu-profile">
 
+
+                            <div class="profile-left">
+                   <h4 class="profile-head-text">
                    <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> 
-                   <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-    <div class="profile-text" >
-
-                     <?php
+                   <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+  </h4>
+<h4 class="profile-head-text_dg">                     <?php
                     if ($artisticdata[0]['designation'] == '') {
                         ?>
 
@@ -186,15 +183,15 @@
                         <?php } ?>
 
                     <?php } ?>
+                    </h4>
 </div>
               </div>
 
                 <!-- PICKUP -->
                                    <!-- menubar -->
-                                     <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+                                     <div class="business-data-menu padding_less_right ">
 
-           
-            <div class="right-side-menu art-side-menu ml0">
+                            <div class="profile-main-box-buis-menu ml0"> 
              <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
@@ -311,6 +308,7 @@ if ($status == 0 || $status == " ") {
 
 
 </div>
+</div>
 
               <!-- pickup -->
           
@@ -318,56 +316,7 @@ if ($status == 0 || $status == " ") {
 
 
    <div class="container art-custom">
-        <div class="job-menu-profile mob-none">    
-
-                   <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> 
-                   <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-    <div class="profile-text" >
-
-                     <?php
-        $userid = $this->session->userdata('aileenuser');
-
-            if($artisticdata[0]['user_id'] == $userid){
-
-
-              if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php } 
-
-            }else{ ?>
-
-           <?php  if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a>Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php }  ?>
-                
-
-                <?php }?>
-
-</div>
-              </div>
-
+       
         </div>
      
     <div class="user-midd-section grybod" >

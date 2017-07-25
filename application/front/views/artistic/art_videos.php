@@ -127,11 +127,13 @@ $(document).ready(function(){
         </label>
              </div>
            <?php }?>
+             
             <div class="profile-photo">
-          
-              <div class="profile-pho">
+   <div class="buisness-menu">
 
-                <div class="user-pic padd_img">
+                    <div class="profile-pho-bui">
+
+                        <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                             <?php } else { ?>
@@ -181,8 +183,16 @@ $(document).ready(function(){
                 </div>-->
 
                 </div>
-<div class="job-menu-profile mob-block"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"><h5> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-    <div class="profile-text" >
+         
+    <div class="business-profile-right">
+                        <div class="bui-menu-profile">
+
+
+                            <div class="profile-left">
+                            <h4 class="profile-head-text">
+                            <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                            </h4>
+   <h4 class="profile-head-text_dg">
 
                     <?php
                     if ($artisticdata[0]['designation'] == '') {
@@ -201,15 +211,14 @@ $(document).ready(function(){
                         <?php } ?>
 
                     <?php } ?>
-
+</h4>
   </div>
               </div>
                 <!-- PICKUP -->
                                    <!-- menubar -->
-                                    <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
+                                     <div class="business-data-menu padding_less_right ">
 
-           
-            <div class="right-side-menu art-side-menu ml0">
+                            <div class="profile-main-box-buis-menu ml0">  
              <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
@@ -319,6 +328,9 @@ if ($status == 0 || $status == " ") {
             ?>
 
 </div>
+  
+</div>
+
 
 
  
@@ -328,52 +340,7 @@ if ($status == 0 || $status == " ") {
               <!-- pickup -->
             </div>
               <div class="container art-custom">
-        <div class="job-menu-profile mob-none"><a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"><h5> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-    <div class="profile-text" >
 
-                   <?php
-        $userid = $this->session->userdata('aileenuser');
-
-            if($artisticdata[0]['user_id'] == $userid){
-
-
-              if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php } 
-
-            }else{ ?>
-
-           <?php  if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a>Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php }  ?>
-                
-
-                <?php }?>
-
-  </div>
-              </div>
             </div>
      
         

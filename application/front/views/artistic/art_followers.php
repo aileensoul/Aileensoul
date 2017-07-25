@@ -1,4 +1,4 @@
-start head -->
+
 <?php  echo $head; ?>
 <style type="text/css">
    #popup-form img{display: none;}
@@ -97,9 +97,13 @@ start head -->
          </label>
       </div>
       <?php }?>
-      <div class="profile-photo">
-         <div class="profile-pho">
-            <div class="user-pic padd_img">
+    
+            <div class="profile-photo">
+   <div class="buisness-menu">
+
+                    <div class="profile-pho-bui">
+
+                        <div class="user-pic">
                <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
                <?php } else { ?>
@@ -136,14 +140,17 @@ start head -->
             </div>
          </div>
          
+    <div class="business-profile-right">
+                        <div class="bui-menu-profile">
 
-         <div class="job-menu-profile mob-block">
+
+                            <div class="profile-left">
+                            <h4 class="profile-head-text">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
-                <h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
+               <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
 
-            <!-- text head start -->
-            <div class="profile-text" >
-
+            <!-- text head start --></h4>
+          <h4 class="profile-head-text_dg">
                 <?php
                 if ($artisticdata[0]['designation'] == '') {
                     ?>
@@ -159,7 +166,7 @@ start head -->
                         </a>
 
                     <?php } ?>
-
+</h4>
 
             </div>
 
@@ -167,10 +174,9 @@ start head -->
 
 
 
-          
-         <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les">
-            
-            <div class="right-side-menu art-side-menu ml0">
+       <div class="business-data-menu padding_less_right ">
+
+                            <div class="profile-main-box-buis-menu ml0"> 
                <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
@@ -265,60 +271,13 @@ start head -->
          <!-- menubar -->                
       </div>
       </div>
+   
+      </div>
        <div class="user-midd-section art-inner">
            <div class="container">
-      <div class="job-menu-profile mob-none">
-         <a href="<?php echo site_url('artistic/art_manage_post/'.$artisticdata[0]['user_id']); ?>">
-            <h5  > <?php echo ucwords($artisticdata[0]['art_name']) .' '.  ucwords($artisticdata[0]['art_lastname']); ?>
-            </h5>
-         </a>
-         <!-- text head start -->
-         <div class="profile-text" >
-            <?php
-        $userid = $this->session->userdata('aileenuser');
-
-            if($artisticdata[0]['user_id'] == $userid){
-
-
-              if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php } 
-
-            }else{ ?>
-
-           <?php  if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a>Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php }  ?>
-                
-
-                <?php }?>
-
-
-         </div>
-         <!-- text head end -->
-      </div>
+   <div class="col-md-3">
+  
+</div>
       <div class="col-md-7 col-sm-12 follow_mid mob-plr0">
       <div>
          <?php
