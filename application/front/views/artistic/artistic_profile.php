@@ -157,11 +157,12 @@ if ($artisticdata[0]['user_id'] == $userid) {
                         <div class="bui-menu-profile">
 
 
-                            <div class="profile-left"><h4>
+                            <div class="profile-left">
+                            <h4 class="profile-head-text">
         <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
 </h4>
         <!-- text head start -->
-      <h4>
+   <h4 class="profile-head-text_dg">
 
 <?php
 if ($artisticdata[0]['designation'] == '') {
@@ -329,7 +330,10 @@ if ($status == 0 || $status == " ") {
             ?>
         </div>  
         <!-- menubar -->                
-    </div>    
+    </div>
+      </div>    
+    
+</div>    
     
 </div>
         <div class="user-midd-section art-inner">

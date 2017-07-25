@@ -7246,6 +7246,8 @@ overflow: hidden;
 text-overflow: ellipsis;
     font-size: 28px;
  }
+
+ .profile-head-text_dg a{font-size: 22px;  }
 #two_save_images_bui {
     float: left;
     height: 250px;
@@ -9616,7 +9618,7 @@ font-weight: 600;}
     margin-top: 20px;
 }
 .grybod {
-    border: 1px solid #d9d9d9!important;
+
 }
 .edit_cpmment_edit {
     width: 81%;
@@ -13902,6 +13904,7 @@ body {
 }
 .buisness-menu {
     position: relative;
+    margin-bottom: 15px;
 }
 .buisness-menu:before {
     width: 100%;
@@ -15030,13 +15033,23 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
+	.hidden-mob {
+        display: none;
+    }
+    .search-mob-block {
+        display: block;
+    }
+	 .mob-width {
+        width: 100%;
+        position: absolute;
+    }
     .all-list ul li .list-box{width: 157px;}
         .pt_mn{padding-top: 40px;}
         .pt1201     {padding-top: 120px;}
   
         .pt120{padding-top:20px;}
     .logo{padding:0;}
-    .h2-smladd {margin-top: -45px;}
+    .h2-smladd {/*margin-top: -45px;*/}
     .logo h2{padding:2px 0;}
     .banner{padding-top: 21px;}
     .cover .middle-section{padding-bottom: 0px; margin-bottom: 0px;}
@@ -15203,7 +15216,7 @@ text-align: center;}
     }
     #paddingtop_fixed
     {
-        padding-top: 69px !important;
+        padding-top: 80px !important;
     }
     .dropdown-menu {
         left: inherit !important;
@@ -15352,7 +15365,7 @@ text-align: center;}
         padding-right: 0;
     }
     .bg-search .header2 {
-        margin-top: -10px;
+        margin-top: -1px;
     }
     .custom-none {
         display: none;
@@ -15504,10 +15517,7 @@ text-align: center;}
     .header2 ul li {
         position: inherit;
     }
-    .mob-width {
-        width: 100%;
-        position: absolute;
-    }
+   
     .header2 .hidden-mob {
         position: relative;
         z-index: 99;
@@ -15768,12 +15778,7 @@ top: 8px;}
     .post-editor{padding-left: 7px; padding-right: 7px;}
     .header2 ul li.active a{padding:9px 10px 10px}
     .camer_h i{font-size: 19px;}
-    .hidden-mob {
-        display: none;
-    }
-    .search-mob-block {
-        display: block;
-    }
+    
 }
 @media screen and (max-width: 479px) {
 

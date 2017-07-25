@@ -148,7 +148,9 @@ echo $leftmenu;
 
                     <td><?php echo $blog['title']; ?></td>
 
-                     <td><?php echo $blog['tag_id']; ?></td>
+                     <td>
+                       <?php echo $this->db->get_where('blog_tag', array('id' => $blog['tag_id']))->row()->name; ?>
+                     </td>
 
                     <td> 
                         <?php  if($blog['image']) 
@@ -165,13 +167,13 @@ echo $leftmenu;
                         <?php if ($blog['status'] == 'publish') 
                               {
                         ?>
-                                    <button class="btn btn-block  btn-primary btn-sm"  onclick="publish(<?php echo $blog['id']; ?>);">publish</button>
+                                    <button class="btn btn-block  btn-primary btn-sm"  onclick="publish(<?php echo $blog['id'];?>);">Publish</button>
                         <?php 
                             }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm" onclick="draft(<?php echo $blog['id']; ?>);">draft</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="draft(<?php echo $blog['id'];?>);">Draft</button>
 
-                         <?php }?></button>
+                         <?php }?>
                     </td>
 
                     <td><?php echo $blog['created_date']; ?></td>
@@ -179,16 +181,15 @@ echo $leftmenu;
                     <td><?php echo $blog['modify_date']; ?></td>
 
                     <td>
-
                         <!-- <button class="btn btn-primary btn-xs">
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete(<?php echo $blog['id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete_blog(<?php echo $blog['id']; ?>);">
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['job_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('blog/blogdetail/'.$blog['id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -326,7 +327,7 @@ echo $leftmenu;
 //active user Start
    function draft(id) 
    {
-   
+     
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to change this status to publish?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #deactivate').on('click', function () 
@@ -345,8 +346,8 @@ echo $leftmenu;
     }
 //active user End\
 
-//Delete user Start
-   function delete(id) 
+//DELETE USER START
+   function delete_blog(id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this Blog?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -358,13 +359,14 @@ echo $leftmenu;
                           url: '<?php echo base_url() . "blog/delete_blog" ?>',
                           data: 'id=' + id,
                           success: function (response) 
-                          {          
-                                window.location.reload();
+                          {         
+                                $.fancybox.close(); 
+                                $('#'+'delete'+id).remove();
                           }
             });   
         });
     }
-//Delete user End
+//DELETE USER END
 
 //Enable search button when user write something on textbox Start
  $(document).ready(function(){

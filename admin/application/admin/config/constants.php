@@ -135,4 +135,6 @@ else
 }
   			
 define('NOIMAGE', 'uploads/avatar.png');
+define('WHITEIMAGE', 'uploads/white.png');
+
 define('PROFILENA', '--');

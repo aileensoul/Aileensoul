@@ -342,6 +342,11 @@
 
 </div>
 
+</div>
+</div>
+
+
+
 <div class="text-center tab-block">
     <div class="container mob-inner-page">
        <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>">

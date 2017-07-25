@@ -88,14 +88,14 @@ class Blog extends CI_Controller {
     //READ MORE CLICK END
 
     //BLOGDETAIL FOR PERICULAR ONE POST START
-    public function blogdetail($id)
+    public function blogdetail($slug='')
     { 
          //FOR GETTING ALL DATA
         $condition_array = array('status !=' => 'delete');
         $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
         //FOR GETTING BLOG
-        $condition_array = array('status !=' => 'delete','id' => $id);
+        $condition_array = array('status !=' => 'delete','blog_slug' => $slug);
         $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
          //FOR GETTING 5 LAST DATA
