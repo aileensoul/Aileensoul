@@ -9618,7 +9618,7 @@ font-weight: 600;}
     margin-top: 20px;
 }
 .grybod {
-margin-top: 30px;
+
 }
 .edit_cpmment_edit {
     width: 81%;
@@ -13904,6 +13904,7 @@ body {
 }
 .buisness-menu {
     position: relative;
+    margin-bottom: 15px;
 }
 .buisness-menu:before {
     width: 100%;
