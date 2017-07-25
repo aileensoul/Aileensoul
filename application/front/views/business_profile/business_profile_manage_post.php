@@ -4064,6 +4064,7 @@
                 // Alert message if maximum limit is reached. 
                 // If required Alert can be removed. 
                 var msg = "You have reached your maximum limit of characters allowed";
+                 $("#test-upload-product").prop("readonly", true);
                 //alert(msg);
 
                 $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -4558,6 +4559,7 @@
 
                 $('.modal-close').on('click', function () {
                 $('#myModal').modal('show');
+                 $("#test-upload-product").prop("readonly", false);
                 });
             </script>
 
@@ -4631,8 +4633,12 @@
                         complete: function (response) { //alert(response.responseText);
 
 
-            document.getElementById('test-upload_product').value = null;
-            document.getElementById('test-upload_des').value = null;
+            document.getElementById('test-upload_product').value = '';
+            document.getElementById('test-upload_des').value = '';
+            document.getElementById('file-1').value = '';
+             //clearFileInput(document.getElementById("file-1"));
+             $("input[name='text_num']").val(50);
+
 
             $(".file-preview-frame").hide();
              
@@ -4696,3 +4702,16 @@
             #targetLayer{width:100% !important; text-align:center !important;}
             
             </style>-->
+
+
+<script type="text/javascript">
+    
+
+
+    $('#file-1').on('click', function(e){ 
+   $(".file-preview-thumbnails").html("");
+   clearFileInput(document.getElementById("file-1"));
+
+});
+</script>
+

@@ -742,7 +742,14 @@
 
 
                             <!-- body content start-->
+
+                            <div class='progress' id="progress_div">
+                                <div class='bar' id='bar'></div>
+                                <div class='percent' id='percent'>0%</div>
+                            </div>
                             <div class="business-all-post">
+
+                            
                                 <!--                                <div id="progress-div"><div id="progress-bar"></div></div>
                                                                 <div id="targetLayer"></div>-->
                                 <?php
@@ -2986,6 +2993,9 @@
     // Alert message if maximum limit is reached. 
     // If required Alert can be removed. 
     var msg = "You have reached your maximum limit of characters allowed";
+   
+
+    $("#test-upload-product").prop("readonly", true);
     //alert(msg);
 
     $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -3718,6 +3728,7 @@
     });
     $('.modal-close').on('click', function () {
     $('#myModal').modal('show');
+    $("#test-upload-product").prop("readonly", false);
     });</script>
 
 
@@ -3821,24 +3832,47 @@
 <script>
     jQuery(document).ready(function ($) {
 
+        var bar = $('#bar');
+                var percent = $('#percent');
+
     var options = {
     beforeSend: function () {
     // Replace this with your loading gif image
     //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
 //                document.getElementById("progress-div").style.display = "block";
 //                $("#progress-bar").width('0%');
-    document.getElementById("myModal").style.display = "none";
-    $(".business-all-post").prepend('<p style="text-align:center;"><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                        document.getElementById("progress_div").style.display = "block";
+                        var percentVal = '0%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+                        document.getElementById("myModal").style.display = "none";
     },
 //            uploadProgress: function (event, position, total, percentComplete) {
 //                $("#progress-bar").width(percentComplete + '%');
 //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
 //            },
+
+            uploadProgress: function (event, position, total, percentComplete) {
+                        var percentVal = percentComplete + '%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+                    },
+                    success: function () {
+                        var percentVal = '100%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+
+                    },
             complete: function (response) {
 
 
-            document.getElementById('test-upload-product').value = null;
-            document.getElementById('test-upload-des').value = null;
+            document.getElementById('test-upload-product').value = '';
+            document.getElementById('test-upload-des').value = '';
+             //clearFileInput(document.getElementById("file-1"));
+            document.getElementById('file-1').value = '';
+            //document.getElementsByClassName('text_num').value = '50';
+             $("input[name='text_num']").val(50);
+
 
             $(".file-preview-frame").hide();
 
@@ -3919,15 +3953,14 @@
 </script>
 
 <script type="text/javascript">
-    // function clearall(){ alert("hii");
-
-    //     $("#file-1").val("");
-    // }
+    
 
 
-//     $('#file-1').on('click', function(e){ alert("hii");
-//    $(".").html("");
-// });
+    $('#file-1').on('click', function(e){ 
+   $(".file-preview-thumbnails").html("");
+   clearFileInput(document.getElementById("file-1"));
+
+});
 </script>
 
 
