@@ -4237,6 +4237,7 @@ display: inline-block;
 .notification-data-inside {
     margin-left: 65px;
     margin-top: -55px;
+    padding-right: 12px;
 }
 .notification-data-inside h6 {
 /*    font-weight: 600;*/
@@ -6681,8 +6682,8 @@ follow box*/
 .follow_left_box_main_btn button {
     letter-spacing: 1px;
     letter-spacing: 1px;
-    width: 87px;
-    padding: 5px 7px;
+   width: 87px;
+padding: 8px 7px;
     background: rgb(44, 83, 158);
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
     background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%);
@@ -9595,7 +9596,7 @@ display: inline-block;}
 .bor_top_cq{ border:1px solid #d9d9d9; border-top: none!important;}
 .day-text{padding-top:6px;
 float: left;
-padding-left: 3px;}
+}
 .cq_rifght_desc{font-size: 12px; color: #8c8c8c;}
 .day-text2{float: left;/* padding-left: 3px;*/}
 .clockimg{height: 13px; width: 13px; float: left; background-size: 100% !important; background: url("../img/clock.png") no-repeat;}
@@ -16230,11 +16231,12 @@ top: 8px;}
         font-size: 10px;
     }
     .profile-job-details .job_companyname {
-        width: 150px;
+        width: 140px;
     }
     .profile-job-details ul li p {
-        font-size: 12px;
+        font-size: 10px;
         padding-right: 8px;
+        line-height: 10px;
     }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {
         font-size: 12px;

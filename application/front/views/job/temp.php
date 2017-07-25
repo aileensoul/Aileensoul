@@ -1,12 +1,8 @@
-<!-- header -->
-
-<!-- <script type="text/javascript">
-$(window).load(function(){
-        $('#message_count').hide();
-        return false;
-    });
-</script> -->
-<head> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <head> 
     <meta charset="utf-8" />
     <!-- SEO CHANGES START -->
     <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
@@ -19,35 +15,8 @@ $(window).load(function(){
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
     <meta name="description" content=" " />
     <meta name="keywords" content=" " />
-    <!-- Add following GoogleAnalytics tracking code in Header.-->
-    <!-- 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-      ga('create', 'UA-91486853-1', 'auto');
-      ga('send', 'pageview');
-    
-    </script>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-6060111582812113",
-        enable_page_level_ads: true
-      });
-    </script>
-    -->
-    <title><?php echo $title; ?></title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
-    <!-- CSS START -->
-
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+        <title>jScrollPane theme demo: Lozenge</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
@@ -55,12 +24,6 @@ $(window).load(function(){
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
-
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/style.css'); ?>">
-     <link rel="stylesheet" type="text/css" href="<?php echo base_url('zalak/css/demo.css'); ?>">
-
-   
-</head>
 
 <!-- style for span id=notification_count start-->
 <style>
@@ -112,7 +75,53 @@ $(window).load(function(){
 <script type="text/javascript" src="<?php // echo base_url('js/script.js'); ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js'); ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
-<script type="text/javascript" charset="utf-8">
+        <!-- styles specific to demo site -->
+        <link type="text/css" href="../zalak/css/demo.css" rel="stylesheet" media="all" />
+        <!-- styles needed by jScrollPane - include in your own sites -->
+        <link type="text/css" href="../zalak/css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+        <!-- the styles for the lozenge theme -->
+        <link type="text/css" href="../zalak/css/jquery.jscrollpane.lozenge.css" rel="stylesheet" media="all" />
+
+        <style type="text/css" id="page-css">
+            /* Styles specific to this particular page */
+            .scroll-pane,
+            .scroll-pane-arrows
+            {
+                width: 100%;
+                height: 200px;
+                overflow: auto;
+            }
+            .horizontal-only
+            {
+                height: auto;
+                max-height: 200px;
+            }
+        </style>
+
+        <!-- latest jQuery direct from google's CDN -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <!-- the mousewheel plugin -->
+        <script type="text/javascript" src="../zalak/js/jquery.mousewheel.js"></script>
+        <!-- the jScrollPane script -->
+        <script type="text/javascript" src="../zalak/js/jquery.jscrollpane.min.js"></script>
+        <!-- scripts specific to this demo site -->
+        <script type="text/javascript" src="../zalak/js/script/demo.js"></script>
+
+        <script type="text/javascript" id="sourcecode">
+            $(function()
+            {
+                $('.scroll-pane').jScrollPane();
+                $('.scroll-pane-arrows').jScrollPane(
+                    {
+                        showArrows: true,
+                        horizontalGutter: 10
+                    }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript" charset="utf-8">
 
     function addmsg(type, msg)
     {
@@ -847,11 +856,66 @@ if($userid){?>
     </header>
 
       <?php  }?>
-
-    
-
-    <!-- header end -->
-
+        <div id="container">
+        
+            <div class="scroll-pane" style="margin-top: 200px;'">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in ligula id sem tristique ultrices
+                    eget id neque. Duis enim turpis, tempus at accumsan vitae, lobortis id sapien. Pellentesque nec orci
+                    mi, in pharetra ligula. Nulla facilisi. Nulla facilisi. Mauris convallis venenatis massa, quis
+                    consectetur felis ornare quis. Sed aliquet nunc ac ante molestie ultricies. Nam pulvinar ultricies
+                    bibendum. Vivamus diam leo, faucibus et vehicula eu, molestie sit amet dui. Proin nec orci et elit
+                    semper ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                    mus. Sed quis urna mi, ac dignissim mauris. Quisque mollis ornare mauris, sed laoreet diam malesuada
+                    quis. Proin vel elementum ante. Donec hendrerit arcu ac odio tincidunt posuere. Vestibulum nec risus
+                    eu lacus semper viverra.
+                </p>
+                <p>
+                    Vestibulum dictum consectetur magna eu egestas. Praesent molestie dapibus erat, sit amet sodales
+                    lectus congue ut. Nam adipiscing, tortor ac blandit egestas, lorem ligula posuere ipsum, nec
+                    faucibus nisl enim eu purus. Quisque bibendum diam quis nunc eleifend at molestie libero tincidunt.
+                    Quisque tincidunt sapien a sapien pellentesque consequat. Mauris adipiscing venenatis augue ut
+                    tempor. Donec auctor mattis quam quis aliquam. Nullam ultrices erat in dolor pharetra bibendum.
+                    Suspendisse eget odio ut libero imperdiet rhoncus. Curabitur aliquet, ipsum sit amet aliquet varius,
+                    est urna ullamcorper magna, sed eleifend libero nunc non erat. Vivamus semper turpis ac turpis
+                    volutpat non cursus velit aliquam. Fusce id tortor id sapien porta egestas. Nulla venenatis luctus
+                    libero et suscipit. Sed sed purus risus. Donec auctor, leo nec eleifend vehicula, lacus felis
+                    sollicitudin est, vitae lacinia lectus urna nec libero. Aliquam pellentesque, arcu condimentum
+                    pharetra vestibulum, lectus felis malesuada felis, vel fringilla dolor dui tempus nisi. In hac
+                    habitasse platea dictumst. Ut imperdiet mauris vitae eros varius eget accumsan lectus adipiscing.
+                </p>
+                <p>
+                    Quisque et massa leo, sit amet adipiscing nisi. Mauris vel condimentum dolor. Duis quis ullamcorper
+                    eros. Proin metus dui, facilisis id bibendum sed, aliquet non ipsum. Aenean pulvinar risus eu nisi
+                    dictum eleifend. Maecenas mattis dolor eget lectus pretium eget molestie libero auctor. Praesent sit
+                    amet tellus sed nibh convallis semper. Curabitur nisl odio, feugiat non dapibus sed, tincidunt ut
+                    est. Nullam erat velit, suscipit aliquet commodo sit amet, mollis in mauris. Curabitur pharetra
+                    dictum interdum. In posuere pretium ultricies. Curabitur volutpat eros vehicula quam ultrices
+                    varius. Proin volutpat enim a massa tempor ornare. Sed ullamcorper fermentum nisl, ac hendrerit sem
+                    feugiat ac. Donec porttitor ullamcorper quam. Morbi pretium adipiscing quam, quis bibendum diam
+                    congue eget. Sed at lectus at est malesuada iaculis. Sed fermentum quam dui. Donec eget ipsum dolor,
+                    id mollis nisi. Donec fermentum vehicula porta.
+                </p>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
+                    sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+                    commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros
+                    ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.
+                    Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna
+                    eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis
+                    luctus, metus
+                </p>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+                    amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                </p>
+            </div>
+          
+            </div>
+        </div>
     <!-- script for update all read notification start-->
     <script type="text/javascript">
 
@@ -1014,61 +1078,3 @@ window.onclick = function(event) {
     <!-- Extra js if not work then add Start-->
     <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');      ?>"></script> -->
     <!-- Extra js if not work then add End-->
-
- <script type="text/javascript" src="<?php echo base_url('zalak/js/jquery.js'); ?>"></script>
-    <script>
-        // (function($){
-        //     $(window).on("load",function(){
-                
-        //         $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
-        //         $.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
-                
-                
-                
-        //         $("#notificationContainer").mCustomScrollbar({theme:"minimal"}); 
-
-        //         $(".all-themes-switch a").click(function(e){
-        //             e.preventDefault();
-        //             var $this=$(this),
-        //                 rel=$this.attr("rel"),
-        //                 el=$("#notificationContainer");
-        //             switch(rel){
-        //                 case "toggle-content":
-        //                     el.toggleClass("expanded-content");
-        //                     break;
-        //             }
-        //         });
-                
-        //     });
-        // })(jQuery);
-$("#notificationsBody").mouseover(function(){$(this).css("overflow","scroll");});
-$("#notificationsBody").mouseout(function(){$(this).css("overflow","hidden");});
-    </script>
-<style type="text/css">
-::-moz-scrollbar-track
-{
-    -moz-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-::-moz-scrollbar
-{
-    width: 7px;
-    background-color: #F5F5F5;
-
-}
-
-::-moz-scrollbar-thumb
-{
-    background-color: #2CC185;  
-    background-image: -moz-linear-gradient(45deg,
-                                              rgba(255, 255, 255, .2) 25%,
-                                              transparent 25%,
-                                              transparent 50%,
-                                              rgba(255, 255, 255, .2) 50%,
-                                              rgba(255, 255, 255, .2) 75%,
-                                              transparent 75%,
-                                              transparent)
-}
-
-</style>
