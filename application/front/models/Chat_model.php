@@ -35,14 +35,18 @@ class Chat_model extends CI_Model {
         } else {
             $not_from = 3;
         }
-
+ if($this->uri->segment(3) == $id){
+     $not_active = 2;
+ }else{
+     $not_active = 1;
+ }
         $data2 = array(
             'not_type' => 2,
             'not_from_id' => $userid,
             'not_to_id' => $id,
             'not_read' => 2,
             'not_img' => 0,
-            'not_active' => 1,
+            'not_active' => $not_active,
             'not_from' => $not_from,
             'not_product_id' => $msg_insert_id,
             'not_created_date' => date('Y-m-d H:i:s'),
