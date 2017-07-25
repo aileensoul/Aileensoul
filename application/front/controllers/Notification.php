@@ -1385,7 +1385,7 @@ array(
                 $notification .= '<li><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'] . '?page=freelancer_hire') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    $notification .= '<img src="' . base_url($this->config->item('free_post_profile_thumb_upload_path') . $total['user_image']) . '" >';
                 } else {
                     $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
                 }
@@ -1401,7 +1401,7 @@ array(
                 $notification .= '<li><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'] . '?page=freelancer_post') . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
-                    $notification .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $total['user_image']) . '" >';
+                    $notification .= '<img src="' . base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']) . '" >';
                 } else {
                     $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
                 }
