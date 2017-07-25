@@ -896,7 +896,11 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 <script>
     function removepopup(id) {
         $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this job?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
+        //$('#bidmodal').modal('show');
+        $('#bidmodal').modal('show').fadeIn("slow");
+		/*$('#bidmodal').click(function (event) {
+            $(".modal").fadeIn("slow");
+        });*/
     }
     function updateprofilepopup(id) {
         $('#bidmodal-2').modal('show');
@@ -1029,7 +1033,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
     $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
-        $('#bidmodal').modal('hide');
+        $('#bidmodal').modal('hide').fadeOut("slow");
     }
 });  
 
@@ -1037,7 +1041,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
      $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
-        $('#bidmodal-2').modal('hide');
+        $('#bidmodal-2').modal('hide').fadeOut("slow");
     }
 });  
 

@@ -1371,7 +1371,7 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 }
 .left-profile .profile-detail{text-align:center; padding-top: 40px;}
 .left-profile .profile-detail h2{margin-top:5px; font-size:32px; font-family:'times_new_romanbold';}
-.cover .middle-section .container{width:1270px}
+
 .profile-photo.no-image-upload .upload-profile{display:block; background:#333;}
 .profile-photo.no-image-upload .upload-profile img{width:40px;}
 .profile-photo.no-image-upload .upload-profile:before{}
@@ -1385,7 +1385,8 @@ input.form-control{box-shadow:none !important; -webkit-appearance: none;}
 }
 @media (min-width: 1280px) { 
    .main-inner .pd-low{/*padding-top: 100px;*/}
-  .container {width: 1280px;}   
+	.container {width: 1280px;}  
+	.cover .middle-section .container{width:1270px}
   
 }
 @media (max-width: 1280px) {
