@@ -212,7 +212,12 @@
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="left_iner_img_profile">  
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                         <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div>
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                     </div>
                                                 <?php } ?>                           
                                                 <!-- 
@@ -291,6 +296,12 @@
                                 <div class="post-design-top col-md-12" >
                                     <div class="post-design-pro-img " style="padding-left: 17px;"> 
                                         <?php
+
+                                        $companyname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->company_name;
+
+
+                                        $companynameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id']))->row()->company_name;
+
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_user_image;
 
                                         $userimageposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id']))->row()->business_user_image;
@@ -307,7 +318,12 @@
                                                 </a>
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                    <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                    <?php 
+                                          $a = $companynameposted;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                 </a>
                                             <?php } ?>
                                         <?php } else { ?>
@@ -317,7 +333,12 @@
                                                 </a>
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                    <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                 </a>
                                                 <?php
                                             }
@@ -327,7 +348,7 @@
                                     <div class="post-design-name fl col-xs-8 col-md-10">
                                         <ul>
                                             <?php
-                                            $companyname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->company_name;
+                                            
 
                                             $slugname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_slug;
 
@@ -336,7 +357,6 @@
 
                                             $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
 
-                                            $companynameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id']))->row()->company_name;
 
                                             $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['posted_user_id'], 'status' => 1))->row()->business_slug;
                                             ?>
@@ -844,7 +864,12 @@
                                                                 <?php
                                                             } else {
                                                                 ?>
-                                                                <img src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                                                <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                 <?php
                                                             }
                                                             ?>
@@ -974,13 +999,21 @@
                                         <?php
                                         $userid = $this->session->userdata('aileenuser');
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+
+                                        $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
+
                                         if ($business_userimage) {
                                             ?>
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                             <?php
                                         } else {
                                             ?>
-                                            <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="No Image">
+                                            <?php 
+                                          $a = $business_user;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                             <?php
                                         }
                                         ?>
@@ -1223,7 +1256,12 @@
                                                             <?php
                                                         } else {
                                                             ?>
-                                                            <img  src="<?php echo base_url(NOIMAGE) ?>" alt="No Image">
+                                                             <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                             <?php
                                                         }
                                                         ?>
@@ -1353,13 +1391,21 @@
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+                                    $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
+
+
                                     if ($business_userimage != '') {
                                         ?>
                                         <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>" alt="">
                                         <?php
                                     } else {
                                         ?>
-                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                        <?php 
+                                          $a = $business_user;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                         <?php
                                     }
                                     ?>

@@ -185,13 +185,20 @@
                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
                                                         </div>
                                                     <?php } else { ?>
-                                                        <div class="left_iner_img_profile">  
-                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                        <div class="left_iner_img_profile">
+
+
+                                                            <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>"> -->
+
+                                                            <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
+                                       
                                                         </div>  <?php } ?>                           
-                                                    <!-- 
-                            <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
-                            width: 68px;">
-                                                    -->
+                                                   
                                                 </a>
                                             </div>
                                             <div class="right_left_box_design ">
@@ -282,7 +289,14 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                                                                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
+
+                                                                                     <?php 
+                                          $a = $userlist['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                 </a>
                                                                             <?php } ?>
                                                                         </div>
@@ -358,7 +372,12 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                                                                                   <?php 
+                                          $a = $userlist['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                 </a>
                                                                             <?php } ?>                    
                                                                         </div>
@@ -433,7 +452,12 @@
                                                                                     <?php
                                                                                 } else {
                                                                                     ?>
-                                                                                    <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                                                                    <?php 
+                                          $a = $userlist['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                     <?php
                                                                                 }
                                                                                 ?>
@@ -509,7 +533,12 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>">
+                                                                                    <?php 
+                                          $a = $userlist['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                 </a>
                                                                             <?php } ?>
                                                                         </div>
@@ -601,7 +630,12 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                               <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                 <?php
                                             }
                                             ?>
@@ -645,7 +679,7 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;" onclick="clearall();">
                                                     </div></div>
 
 
@@ -683,7 +717,12 @@
                                         <?php if ($businessdata[0]['business_user_image']) { ?>
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                         <?php } else { ?>
-                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                             <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                         <?php } ?>
                                     </div>
                                     <div id="myBtn"  class="editor-content popup-text">
@@ -703,7 +742,14 @@
 
 
                             <!-- body content start-->
+
+                            <div class='progress' id="progress_div">
+                                <div class='bar' id='bar'></div>
+                                <div class='percent' id='percent'>0%</div>
+                            </div>
                             <div class="business-all-post">
+
+                            
                                 <!--                                <div id="progress-div"><div id="progress-bar"></div></div>
                                                                 <div id="targetLayer"></div>-->
                                 <?php
@@ -742,8 +788,11 @@
 
 
                                                                 <?php
+
+                                                                 $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->company_name;
                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
+                                                                 $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
                                                                 ?>
                                                                 <?php
                                                                 $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
@@ -759,7 +808,12 @@
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                                             <?php 
+                                          $a = $companynameposted;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                         </a>
                                                                     <?php } ?>
 
@@ -770,7 +824,12 @@
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                            <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                         </a>
                                                                         <?php
                                                                     }
@@ -780,12 +839,12 @@
                                                             <div class="post-design-name fl col-xs-8 col-md-10">
                                                                 <ul>
                                                                     <?php
-                                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->company_name;
+                                                                   
                                                                     $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
                                                                     $categoryid = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->industriyal;
                                                                     $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
 
-                                                                    $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
+                                                                   
 
                                                                     $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
                                                                     ?>
@@ -990,7 +1049,7 @@
                                                                         <!-- one image start -->
                                                                         <div class="one-image">
                                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                                <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>"> 
+                                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>"> 
                                                                             </a>
                                                                         </div>
                                                                         <!-- one image end -->
@@ -1330,7 +1389,12 @@
                                                                                     <?php } else { ?>
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
-                                                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                                             <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                                         </a>
                                                                                     <?php } ?>
                                                                                 </div>
@@ -1470,7 +1534,12 @@
                                                                 <?php if ($business_userimage) { ?>
                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                 <?php } else { ?>
-                                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                     <?php 
+                                          $a = $businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                                 <?php } ?>
                                                             </div>
 
@@ -2924,6 +2993,9 @@
     // Alert message if maximum limit is reached. 
     // If required Alert can be removed. 
     var msg = "You have reached your maximum limit of characters allowed";
+   
+
+    $("#test-upload-product").prop("readonly", true);
     //alert(msg);
 
     $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -3656,6 +3728,7 @@
     });
     $('.modal-close').on('click', function () {
     $('#myModal').modal('show');
+    $("#test-upload-product").prop("readonly", false);
     });</script>
 
 
@@ -3759,24 +3832,47 @@
 <script>
     jQuery(document).ready(function ($) {
 
+        var bar = $('#bar');
+                var percent = $('#percent');
+
     var options = {
     beforeSend: function () {
     // Replace this with your loading gif image
     //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
 //                document.getElementById("progress-div").style.display = "block";
 //                $("#progress-bar").width('0%');
-    document.getElementById("myModal").style.display = "none";
-    $(".business-all-post").prepend('<p style="text-align:center;"><img src = "<?php echo base_url() ?>images/loading.gif" class = "loader" /></p>');
+                        document.getElementById("progress_div").style.display = "block";
+                        var percentVal = '0%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+                        document.getElementById("myModal").style.display = "none";
     },
 //            uploadProgress: function (event, position, total, percentComplete) {
 //                $("#progress-bar").width(percentComplete + '%');
 //                $("#progress-bar").html('<div id="progress-status">' + percentComplete + ' %</div>')
 //            },
+
+            uploadProgress: function (event, position, total, percentComplete) {
+                        var percentVal = percentComplete + '%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+                    },
+                    success: function () {
+                        var percentVal = '100%';
+                        bar.width(percentVal)
+                        percent.html(percentVal);
+
+                    },
             complete: function (response) {
 
 
-            document.getElementById('test-upload-product').value = null;
-            document.getElementById('test-upload-des').value = null;
+            document.getElementById('test-upload-product').value = '';
+            document.getElementById('test-upload-des').value = '';
+             //clearFileInput(document.getElementById("file-1"));
+            document.getElementById('file-1').value = '';
+            //document.getElementsByClassName('text_num').value = '50';
+             $("input[name='text_num']").val(50);
+
 
             $(".file-preview-frame").hide();
 
@@ -3854,6 +3950,17 @@
     });
 
 
+</script>
+
+<script type="text/javascript">
+    
+
+
+    $('#file-1').on('click', function(e){ 
+   $(".file-preview-thumbnails").html("");
+   clearFileInput(document.getElementById("file-1"));
+
+});
 </script>
 
 

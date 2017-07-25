@@ -111,7 +111,12 @@
                     <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
                         <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
                     <?php } else { ?>
-                        <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                         <?php 
+                                          $a = $businessdata1[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-user">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                     <?php } ?>
 
                     <?php
@@ -472,7 +477,14 @@
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>">
-                                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" /></a>
+                                                                             <?php 
+                                          $a =  $followername;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-userlist">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
+
+                                                                            </a>
                                                                     <?php } ?> 
                                                                 </div>
                                                             </li>

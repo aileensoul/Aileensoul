@@ -464,7 +464,7 @@ public function business_search() {
 
 
 
-          $condition_array = array('business_profile_id !=' => '', 'business_profile.status' => '1','business_profile.user_id !=' => $userid ,'business_step' => 4);
+          $condition_array = array('business_profile_id !=' => '', 'business_profile.status' => '1','business_step' => 4);
 
              
 

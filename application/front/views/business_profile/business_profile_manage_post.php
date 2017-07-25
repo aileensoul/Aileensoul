@@ -144,7 +144,12 @@
                             <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
                             <?php } else { ?>
-                                <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                 <?php 
+                                          $a = $businessdata1[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-user">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                             <?php } ?>
 
                             <?php
@@ -988,7 +993,12 @@
                                 <div class="popup-img"> 
                                     <?php if ($businessdata[0]['business_user_image']) { ?><img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                     <?php } else { ?>
-                                        <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                         <?php 
+                                          $a =$businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
     <?php } ?>
                                 </div>
                                 <div id="myBtn1"  class="editor-content popup-text">
@@ -1024,7 +1034,12 @@
                                             <?php
                                         } else {
                                             ?>
-                                            <img  src="<?php echo base_url(NOIMAGE); ?>"  alt="">
+                                                                                     <?php 
+                                          $a =$businessdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                             <?php
                                         }
                                         ?>
@@ -1139,6 +1154,10 @@
                                                     <?php
                                                     $userid = $this->session->userdata('aileenuser');
 
+                                                    $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id']))->row()->company_name;
+
+                                                     $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
+
                                                     $userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id']))->row()->business_user_image;
 
                                                     $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
@@ -1149,7 +1168,12 @@
                                                         <?php if ($userimageposted) { ?>
                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
                                                         <?php } else { ?>
-                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                             <?php 
+                                          $a = $companynameposted;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                         <?php } ?>
 
                                                     <?php } else { ?>
@@ -1157,7 +1181,12 @@
                                                         <?php if ($userimage) { ?>
                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" />
                                                         <?php } else { ?>
-                                                            <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                                                            <?php 
+                                          $a = $companyname;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                                                             <?php
                                                         }
                                                     }
@@ -1169,7 +1198,7 @@
                                                     <ul>
 
                                                         <?php
-                                                        $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id']))->row()->company_name;
+                                                        
 
                                                         $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
 
@@ -1179,7 +1208,7 @@
                                                         $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
 
 
-                                                        $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
+                                                       
 
                                                         $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
                                                         ?>
@@ -1743,11 +1772,18 @@
                                                                     <div class="post-design-pro-comment-img"> 
                                                                         <?php
                                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+
+                                                                        $business_user = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->company_name;
                                                                         ?>
                                                                         <?php if ($business_userimage) { ?>
                                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                         <?php } else { ?>
-                                                                            <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                           <?php 
+                                          $a = $business_user;
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
                 <?php } ?>
 
                                                                     </div>
@@ -1898,7 +1934,12 @@
                                                     <?php if ($business_userimage) { ?>
                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                     <?php } else { ?>
-                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                        <?php 
+                                          $a = $businessdata1[0]['company_name'];
+                                          $acr = substr($a, 0, 1);?>
+                                            <div class="post-img-div">
+                                            <?php echo  ucwords($acr)?>
+                                            </div>
         <?php } ?>
                                                 </div>
 
@@ -4023,6 +4064,7 @@
                 // Alert message if maximum limit is reached. 
                 // If required Alert can be removed. 
                 var msg = "You have reached your maximum limit of characters allowed";
+                 $("#test-upload-product").prop("readonly", true);
                 //alert(msg);
 
                 $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -4517,6 +4559,7 @@
 
                 $('.modal-close').on('click', function () {
                 $('#myModal').modal('show');
+                 $("#test-upload-product").prop("readonly", false);
                 });
             </script>
 
@@ -4590,8 +4633,12 @@
                         complete: function (response) { //alert(response.responseText);
 
 
-            document.getElementById('test-upload_product').value = null;
-            document.getElementById('test-upload_des').value = null;
+            document.getElementById('test-upload_product').value = '';
+            document.getElementById('test-upload_des').value = '';
+            document.getElementById('file-1').value = '';
+             //clearFileInput(document.getElementById("file-1"));
+             $("input[name='text_num']").val(50);
+
 
             $(".file-preview-frame").hide();
              
@@ -4655,3 +4702,16 @@
             #targetLayer{width:100% !important; text-align:center !important;}
             
             </style>-->
+
+
+<script type="text/javascript">
+    
+
+
+    $('#file-1').on('click', function(e){ 
+   $(".file-preview-thumbnails").html("");
+   clearFileInput(document.getElementById("file-1"));
+
+});
+</script>
+

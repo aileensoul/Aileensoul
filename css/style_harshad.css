@@ -324,6 +324,12 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .designation_rec_1{width:90%;}
 .required_field{display:none;}
 
+.chat-history ul{padding:0;}
+.chat-history ul li{padding-left:0;}
+.file-preview-thumbnails .file-preview-frame .file-preview-video{width:110px !important; height:100px !important;}
+
+
+
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
 }

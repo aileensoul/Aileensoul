@@ -9,7 +9,7 @@
   
     <!-- start header -->
 <?php echo $header; ?>
-<?php echo $freelancer_hire_header2;?>
+<?php echo $freelancer_hire_header2_border;?>
     <!-- END HEADER -->
     <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
     <body class="page-container-bg-solid page-boxed">

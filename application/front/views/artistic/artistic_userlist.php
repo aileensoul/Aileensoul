@@ -110,10 +110,12 @@
            <?php }?>
 
 
-    <div class="profile-photo">
-        <div class="profile-pho">
+            <div class="profile-photo">
+   <div class="buisness-menu">
 
-            <div class="user-pic padd_img">
+                    <div class="profile-pho-bui">
+
+                        <div class="user-pic">
                 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
@@ -153,11 +155,16 @@
                             </div>-->
 
         </div>
-        <div class="job-menu-profile mob-block">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> <h5 > <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
-            </h5></a>
+      
+          <div class="business-profile-right">
+                        <div class="bui-menu-profile">
+
+
+                            <div class="profile-left"><h4>
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">  <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
+            </a></h4>
         <!-- text head start -->
-        <div class="profile-text" >
+       <h4>
 
             <?php
             if ($artisticdata[0]['designation'] == '') {
@@ -168,41 +175,13 @@
             <?php } ?>
 
 
-            <!-- The Modal -->
-            <!-- <div id="myModal" class="modal"> -->
-                <!-- Modal content -->
-                <!-- <div class="col-md-2"></div> -->
-                <!-- <div class="modal-content col-md-8">
-                    <span class="close">&times;</span>
-                    <fieldset></fieldset>
-                    <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                    <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-                        <?php echo form_error('designation'); ?>
-                    </fieldset>
-                    <input type="hidden" name="hitext" id="hitext" value="8">
-                    <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                    <?php echo form_close(); ?>
-
-
-
-                </div> -->
-                <!-- <div class="col-md-2"></div> -->
-            <!-- </div> -->
-
+         </h4>
         </div>
-        <!-- <div  class="add-post-button">
-
-            <a class="btn btn-3 btn-3b" href="<?php echo site_url('artistic/art_addpost'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Add Post</a>
-        </div> -->
-
-        <!-- text head end -->
+      
     </div>
-        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
+    <div class="business-data-menu padding_less_right ">
 
-          
-            <div class="right-side-menu art-side-menu ml0">
-
+                            <div class="profile-main-box-buis-menu ml0"> 
             <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
@@ -247,76 +226,17 @@
 
                 </ul>
             </div>
-            <?php
-            $userid = $this->session->userdata('aileenuser');
-            if ($artisticdata[0]['user_id'] != $userid) {
-                ?>
-                <div class="col-md-2 padding_les">
-                    <div class="flw_msg_btn">
-                        <ul>
-                            <li><button>Follow</button></li>
-                            <li>
-                                <a>Message</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
+            
         </div>  
         <!-- menubar -->                
     </div>                                       
     
-    
+    </div>
+    </div>
 
         <div class="user-midd-section art-inner">
             <div class="container">
-    <div class="job-menu-profile mob-none">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"> <h5 > <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
-            </h5></a>
-        <!-- text head start -->
-        <div class="profile-text" >
-
-            <?php
-            if ($artisticdata[0]['designation'] == '') {
-                ?>
-                <a id="designation" class="designation" title="Designation">Current Work</a>
-            <?php } else { ?> 
-                <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-            <?php } ?>
-
-
-            <!-- The Modal -->
-            <!-- <div id="myModal" class="modal"> -->
-                <!-- Modal content -->
-                <!-- <div class="col-md-2"></div> -->
-                <!-- <div class="modal-content col-md-8">
-                    <span class="close">&times;</span>
-                    <fieldset></fieldset>
-                    <?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                    <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-                        <?php echo form_error('designation'); ?>
-                    </fieldset>
-                    <input type="hidden" name="hitext" id="hitext" value="8">
-                    <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                    <?php echo form_close(); ?>
-
-
-
-                </div> -->
-                <!-- <div class="col-md-2"></div> -->
-            <!-- </div> -->
-
-        </div>
-        <!-- <div  class="add-post-button">
-
-            <a class="btn btn-3 btn-3b" href="<?php echo site_url('artistic/art_addpost'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Add Post</a>
-        </div> -->
-
-        <!-- text head end -->
-    </div>
+<div class="col-md-3"></div>
     <div class="col-md-7 col-sm-12 col-xs-12 mob-plr0">
 
         <div>
