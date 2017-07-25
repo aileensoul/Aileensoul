@@ -109,10 +109,12 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
 
 
-    <div class="profile-photo">
-        <div class="profile-pho">
+            <div class="profile-photo">
+   <div class="buisness-menu">
 
-            <div class="user-pic padd_img">
+                    <div class="profile-pho-bui">
+
+                        <div class="user-pic">
 <?php if ($artisticdata[0]['art_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" alt="" >
                 <?php } else { ?>
@@ -148,26 +150,18 @@ if ($artisticdata[0]['user_id'] == $userid) {
                     <!--<a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>-->
                     <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                 <?php } ?>
-            </div>
-
-<!--            <div id="popup-form">
-<?php // echo form_open_multipart(base_url('artistic/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                <input type="hidden" name="hitext" id="hitext" value="4">
-                <input type="submit" name="cancel4" id="cancel4" value="Cancel">
-                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                </form>
-            </div>-->
-
+           
         </div>
-        
-        <div class="job-menu-profile mob-block">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
+</div>
+          <div class="business-profile-right">
+                        <div class="bui-menu-profile">
 
+
+                            <div class="profile-left"><h4>
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+</h4>
         <!-- text head start -->
-        <div>
-          <!--   </div> -->
-            <div class="profile-text" >
+      <h4>
 
 <?php
 if ($artisticdata[0]['designation'] == '') {
@@ -212,20 +206,15 @@ if ($artisticdata[0]['designation'] == '') {
                     </div>
  -->
                     <!-- <div class="col-md-2"></div> -->
-                <!-- </div> -->
-            </div>
-
-
-            <!-- text head end -->
-
+                    </h4>
+        
         </div>
 
-    </div>
-        
-        <div class="profile-main-rec-box-menu  profile-box-art col-md-12 padding_les ">
+        </div>
+             <!-- menubar -->
+                        <div class="business-data-menu padding_less_right ">
 
-            
-            <div class="right-side-menu art-side-menu ml0">
+                            <div class="profile-main-box-buis-menu ml0"> 
                 <?php 
                $userid = $this->session->userdata('aileenuser');
                if($artisticdata[0]['user_id'] == $userid){
@@ -345,87 +334,7 @@ if ($status == 0 || $status == " ") {
 </div>
         <div class="user-midd-section art-inner">
             <div class="container">
-    <div class="job-menu-profile mob-none">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><h5><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></h5></a>
-
-        <!-- text head start -->
-        <div>
-            <div class="profile-text" >
-
-            <?php
-        $userid = $this->session->userdata('aileenuser');
-
-            if($artisticdata[0]['user_id'] == $userid){
-
-
-              if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php } 
-
-            }else{ ?>
-
-           <?php  if ($artisticdata[0]['designation'] == '') {
-                    ?>
-                        <a>Current Work</a>
-
-                    
-
-                <?php } else { ?> 
-
-                        <a title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
-
-                        </a>
-
-                    <?php }  ?>
-                
-
-                <?php }?>
-
-
-                <!-- The Modal -->
-                <!-- <div id="myModal" class="modal"> -->
-                    <!-- Modal content -->
-                    <!-- <div class="col-md-2"></div> -->
-                    <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-<?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-
-                        <?php echo form_error('designation'); ?>
-                        </fieldset>
-
-                        <input type="hidden" name="hitext" id="hitext" value="3">
-                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                            <?php echo form_close(); ?>
-
-
-
-                    </div>
- -->
-                    <!-- <div class="col-md-2"></div> -->
-                <!-- </div> -->
-            </div>
-
-
-            <!-- text head end -->
-
-        </div>
-
-    </div>
+    <div class="col-md-3"></div>
     <div class="col-md-7 col-sm-12 col-xs-12 mob-plr0">
         <div class="common-form">
             <div class="job-saved-box">
