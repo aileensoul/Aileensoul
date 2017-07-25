@@ -1941,8 +1941,8 @@
                                 </div>
                             </div>        
 <?php } ?>
-                        <div class="nofoundpost">
-                        </div>
+                       <!--  <div class="nofoundpost">
+                        </div> -->
 
 
                     </div>
@@ -3631,7 +3631,7 @@
                         url: '<?php echo base_url() . "business_profile/business_profile_deletepost" ?>',
                         dataType: 'json',
                         data: 'business_profile_post_id=' + abc,
-                        success: function (data) {
+                        success: function (data) { //alert(data.notfound);
                         //$('#' + 'removeownpost' + abc).html(data);
                         $('#' + 'removeownpost' + abc).remove();
                         if (data.notcount == 0) {

@@ -6,6 +6,7 @@ echo $leftmenu;
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
+              <i class="fa fa-rss" aria-hidden="true"></i>
             <?php echo $module_name; ?>
             <small>Control panel</small>
         </h1>

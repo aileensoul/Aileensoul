@@ -35,6 +35,10 @@ class Blog extends CI_Controller {
 //LIST OF BLOG ADD BY ADMIN START
  public function list() 
  {
+         //FOR GETTING ALL DATA STARt
+            $condition_array = array('status !=' => 'delete');
+            $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+        //FOR GETTING ALL DATA END 
 
         $this->load->view('blog/list', $this->data);
 }
@@ -167,6 +171,58 @@ public function create_slug($string)
 
 // BLOG SLUG END
 
+//CHANGE STATUS PUBLISH TO DRAFT WITH AJAX START
+public function publish() 
+{
+     $id = $_POST['id'];
+      $data = array(
+            'status' => 'draft'
+        );
+
+        $update = $this->common->update_data($data, 'blog', 'id', $id);
+
+         $select .= '<button class="btn btn-block btn-success btn-sm"    onClick="draft(' .  $id . ')">
+                              draft
+                      </button>';
+
+        echo $select;
+         die();
+
+}
+//CHANGE STATUS PUBLISH TO DRAFT WITH AJAX END
+
+//CHANGE STATUS DRAFT TO PUBLISH WITH AJAX START
+public function draft() 
+{
+     $id = $_POST['id'];
+      $data = array(
+            'status' => 'publish'
+        );
+
+        $update = $this->common->update_data($data, 'blog', 'id', $id);
+
+        $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="publish(' .  $id . ')">
+                              publish
+                      </button>';
+
+        echo $select;
+
+        die();
+}
+//CHANGE STATUS DRAFT TO PUBLISH WITH AJAX END
+
+//DELETE BLOG WITH AJAX START
+public function delete_user() 
+{
+     $job_id = $_POST['job_id'];
+      $data = array(
+            'is_delete' => 1
+        );
+
+        $update = $this->common->update_data($data, 'job_reg', 'job_id', $job_id);
+        die();
+}
+//DELETE USER WITH AJAX END
 
 }
 

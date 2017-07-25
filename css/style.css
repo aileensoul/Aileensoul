@@ -702,7 +702,7 @@ img.aligncenter {
     color: #fff;
     padding: 10px 35px;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 .button:hover {
     background: #156f95;
@@ -2836,8 +2836,7 @@ border-top: none;
     cursor: pointer;
 }
 .profile-text a {
-    color: #aba2a2;
-    color: #000000;
+    color: #8c8c8c;
     font-size: 19px;
     /*padding-right: 44px;*/
     
@@ -2952,7 +2951,6 @@ border-top: none;
 }
 .profile-job-details ul li a:hover {
     padding-left: 0px;
-    font-weight: bold;
     display: block;
     text-decoration: none;
 	
@@ -8624,7 +8622,7 @@ line-height: 40px;
 /* vishang 4-5-17 */
 
 .profile-job-post-location-name-rec .post_name {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
     margin-left: 0px;
     width: 93%;
@@ -8633,7 +8631,7 @@ overflow: hidden;
 text-overflow: ellipsis;
 }
 .profile-job-post-location-name-rec .post_designation {
-    font-size: 16px;
+    font-size: 15px;
 }
 #row2 {
     overflow: hidden;
@@ -8920,7 +8918,7 @@ fieldset .add_post_btns {
 }
 .required_field {
     padding-left: 8px;
-    font-size: 16px;
+    font-size: 13px;
     color: #7f7f7e;
 }
 .common-form form input::-webkit-input-placeholder {

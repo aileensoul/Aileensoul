@@ -201,7 +201,53 @@
            
           </div>
         </div>
+
+<?php
+
+ //FOR GETTING USER COMMENT
+  $condition_array = array('status' => 'approve','blog_id' => $blog_detail[0]['id']);
+  $blog_comment  = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+
+  
+    foreach ($blog_comment as $comment) 
+    {
+  ?>  
+		<div class="all-comments">
+			<ul>
+				<li class="comment-list">
+
+ 
+					<div class="c-user-img">
+						 <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+					</div>
+					<div class="c-user-comments"> 
+						<h5><?php echo $comment['name']; ?></h5>
+						<p><?php echo $comment['message']; ?></p>
+						<p class="pt5"><span class="comment-time">
+             <?php 
+                   $date = new DateTime($comment['comment_date']);
+                    echo $date->format('d').PHP_EOL;
+                    echo "-";
+
+                    $date = new DateTime($comment['comment_date']);
+                    echo $date->format('M').PHP_EOL;
+                    echo "-";
+
+                    $date = new DateTime($comment['comment_date']);
+                    echo $date->format('Y').PHP_EOL;
+            ?>
+              
+            </span></p>
+  
+					</div>
+          </li>
+			</ul>
+		</div>
+<?php
+        }//for loop end
+?>
         </div>
+		
       </div>
 
 

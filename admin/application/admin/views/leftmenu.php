@@ -51,7 +51,7 @@
             <!--Start Blog-->
             <li <?php if ($this->uri->segment(1) == 'blog' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
-                    <i class="fa fa-rss" aria-hidden="true"></i></i> <span>Blog</span>
+                    <i class="fa fa-rss" aria-hidden="true"></i><span>Blog</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">     
