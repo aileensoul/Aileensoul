@@ -94,8 +94,8 @@
                                     <span class="close2 cursor" onclick="closeModal()">×</span>
                                     <!--  multiple image start -->
                                                                         <!-- slider image rotation end  -->
-                                    <a class="prev" style="left: 0px" onclick="plusSlides(-1)">❮</a>
-                                    <a class="next" style="right: 0px" onclick="plusSlides(1)">❯</a>
+                                    <a class="prev" style="left: 0px" onclick="plusSlides(-1)">�?�</a>
+                                    <a class="next" style="right: 0px" onclick="plusSlides(1)">�?�</a>
                                     <div class="caption-container">
                                        <p id="caption"></p>
                                     </div>
@@ -112,19 +112,19 @@
 
                                 <?php
                                 foreach ($totalnotification as $total) { 
-                               //1
-                                    if ($total['not_from'] == 1) {
+                                      $abc = $total['not_id'];
+                               //1 
+                                    if ($total['not_from'] == 1) { 
                                       $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;  ?> 
                                        <a href="<?php echo base_url('notification/recruiter_post/' . $total['post_id']); ?>">
                                         <li> 
                                         
                                             <div class="notification-pic" id="noti_pc" >
                                             <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>    
-                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                            
                                             <div class="notification-data-inside" id="notification_inside">
@@ -151,7 +151,7 @@
                                         
                                             <div class="notification-pic" id="noti_pc">
                                                 <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -161,7 +161,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started following you in artistic."; ?></h6>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             
@@ -182,7 +182,7 @@
                                              
                                                 <div class="notification-pic" id="noti_pc">
                    <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>                                 
@@ -192,7 +192,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented on your post in artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -215,7 +215,7 @@
                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                  <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>   
@@ -225,7 +225,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post in artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php   echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -250,7 +250,7 @@
                                                 
                                                     
                                                     <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -260,7 +260,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post's comment in artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -279,7 +279,7 @@
                                             
                                                 <div class="notification-pic"  id="noti_pc">
                                         <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>            
@@ -289,7 +289,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo in artistic."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -311,7 +311,7 @@
                                             
                                             <div class="notification-pic" id="noti_pc" >
                                         <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>        
@@ -321,7 +321,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted on your photo in artistic."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             
@@ -345,7 +345,7 @@
                                             
                                             <div class="notification-pic" id="noti_pc">
                                                 <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -355,7 +355,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo's comment in artistic."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             
@@ -381,7 +381,7 @@
                                             <div class="notification-pic" id="noti_pc" >
                                                 
                                                 <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -392,7 +392,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($companyname) . "</b> Commented on your post in business profile."; ?></h6>
                                                 <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             
@@ -418,7 +418,7 @@
                                             
                                             <div class="notification-pic" id="noti_pc" >
                                      <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>           
@@ -428,7 +428,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($companyname)  . "</b> Commented on your photo in business profile."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                            
@@ -452,7 +452,7 @@
                                             
                                             <div class="notification-pic" id="noti_pc" >
                                              <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>   
@@ -462,7 +462,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes your photo's comment in business profile."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             
@@ -488,7 +488,7 @@
                                              
                                                 <div class="notification-pic" id="noti_pc" >
                                                      <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -498,7 +498,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Started following you in business profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -520,7 +520,7 @@
                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                            <?php         if ($total['user_image']) { ?>
-                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
             <?php    } else { ?>
                    <img src="<?php echo base_url(NOIMAGE); ?>" >
            <?php     } ?>
@@ -531,7 +531,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes your post in business profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -554,7 +554,7 @@
                                              
                                                 <div class="notification-pic" id="noti_pc" >
                                                  <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>   
@@ -562,9 +562,9 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<<b>" . "  " . ucwords($companyname) .  "</b> Likes your post's comment in business profile."; ?></h6>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes your post's comment in business profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -587,7 +587,7 @@
                                              
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -597,7 +597,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes your photo in business profile."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -620,7 +620,7 @@
                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -630,7 +630,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b><i> Job Seeker</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Aplied on your job post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -644,35 +644,34 @@
 
                                 <?php
                                // 18
-                                    if ($total['not_from'] == 6) {
-
-                                        $id = $this->db->get_where('freelancer_post_reg', array('user_id' => $total['user_id']))->row()->freelancer_post_reg_id;
-                                        if ($id) {
+//                                    if ($total['not_from'] == 6) {
+//
+//                                        $id = $this->db->get_where('freelancer_post_reg', array('user_id' => $total['user_id']))->row()->freelancer_post_reg_id;
+//                                        if ($id) {
                                             ?>
-                                            <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire'); ?>">
+<!--                                            <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'].'?page=freelancer_hire'); ?>">
                                             <li> 
-                                            
                                                 <div class="notification-pic" id="noti_pc" >
-                                                    <?php         if ($total['user_image']) { ?>
+                                                    <?php //        if ($total['user_image']) { ?>
                                                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
+                                                <?php  //  } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>
-                                                    <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
+                                                <?php  //   } ?>
+                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<font color='black'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> applied on your post."; ?></h6>
                                                     <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
                                             </li>
-                                            </a>
+                                            </a>-->
                                             <?php
-                                        }
-                                    }
+//                                        }
+//                                    }
                             //    }
                                 ?>
 
@@ -687,7 +686,7 @@
                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                                     <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -697,7 +696,7 @@
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<font color='black'><b><i>Employer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Selected you for project."; ?></h6>
                                                     <div><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                        <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                        <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
                                                 </div>
                                                 
@@ -718,7 +717,7 @@
                                          
                                             <div class="notification-pic" id="noti_pc" >
                                                 <?php         if ($total['user_image']) { ?>
-                                                    <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                                    <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
                                                 <?php     } ?>
@@ -728,7 +727,7 @@
                                             <div class="notification-data-inside" id="notification_inside">
                                                 <h6><?php echo "<font color='black'><b><i>Freelancer</i></font></b><b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Applied on your post."; ?></h6>
                                                 <div ><i class="fa fa-comment" aria-hidden="true" style="margin-right:8px;"></i>
-                                                    <?php echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
+                                                    <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
                                             </div>
                                             

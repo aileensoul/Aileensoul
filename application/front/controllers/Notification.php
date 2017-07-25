@@ -34,11 +34,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'job_apply.app_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'job_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'job_reg.user_id')
         );
-        $data = array('notification.*', 'job_apply.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'job_apply.*', 'job_reg.user_id as user_id', 'job_reg.fname as first_name', 'job_reg.job_user_image as user_image', 'job_reg.lname as last_name');
         $rec_not = $this->data['rec_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // recruiter notification end
 // job notfication start 
@@ -51,11 +51,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'job_apply.app_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'recruiter',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'recruiter.user_id')
         );
-        $data = array('notification.*', ' job_apply.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' job_apply.*', ' recruiter.user_id as user_id', 'recruiter.rec_firstname as first_name', 'recruiter.recruiter_user_image as user_image', 'recruiter.rec_lastname as last_name');
 
         $job_not = $this->data['job_not'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
@@ -71,11 +71,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'freelancer_apply.app_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'freelancer_post_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'freelancer_post_reg.user_id')
         );
-        $data = array('notification.*', 'freelancer_apply.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'freelancer_apply.*', ' freelancer_post_reg.user_id as user_id', 'freelancer_post_reg.freelancer_post_fullname as first_name', 'freelancer_post_reg.freelancer_post_user_image as user_image', 'freelancer_post_reg.freelancer_post_username as last_name');
 
         $hire_not = $this->data['hire_noth'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'app_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         // freelancer hire notification end
@@ -90,17 +90,15 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'user_invite.invite_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'freelancer_hire_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'freelancer_hire_reg.user_id')
         );
-        $data = array('notification.*', ' user_invite.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' user_invite.*', 'freelancer_hire_reg.user_id as user_id', 'freelancer_hire_reg.fullname as first_name', 'freelancer_hire_reg.freelancer_hire_user_image as user_image', 'freelancer_hire_reg.username as last_name');
 
         $work_post = $this->data['work_post'] = $work_post = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'invite_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
-        //   echo '<pre>'; print_r($this->data['hire_noth']); 
-        //  echo '<pre>'; print_r($this->data['work_post']); die();
 // freelancer post notification end
 //artistic notification start
 // follow notification start
@@ -113,11 +111,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'follow.follow_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', ' follow.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' follow.*', ' art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
 
         $artfollow = $this->data['artfollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['artfollow']); die();
@@ -132,11 +130,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'artistic_post_comment.artistic_post_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', ' artistic_post_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' artistic_post_comment.*','art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $artcommnet = $this->data['artcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 // comment notification end
 //post like notification start
@@ -148,11 +146,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'art_post.art_post_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', 'art_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'art_post.*','art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $artlike = $this->data['artlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'art_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $contition_array = array('notification.not_type' => 5, 'not_img' => 5, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -163,11 +161,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'post_image.image_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', 'post_image.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'post_image.*', 'art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $artimglike = $this->data['artimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
@@ -179,11 +177,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'artistic_post_comment.artistic_post_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', 'artistic_post_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'artistic_post_comment.*','art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $artcmtlike = $this->data['artcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'artistic_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $contition_array = array('notification.not_type' => 6, 'not_img' => 4, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -194,11 +192,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'art_post_image_comment.post_image_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', ' art_post_image_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' art_post_image_comment.*','art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $artimgcommnet = $this->data['artimgcommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $contition_array = array('notification.not_type' => 5, 'not_img' => 6, 'notification.not_from' => 3, 'notification.not_to_id' => $userid, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -209,11 +207,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'art_post_image_comment.post_image_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'art_reg',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'art_reg.user_id')
         );
-        $data = array('notification.*', ' art_post_image_comment.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' art_post_image_comment.*','art_reg.user_id as user_id', 'art_reg.art_name as first_name', 'art_reg.art_user_image as user_image', 'art_reg.art_lastname as last_name');
         $this->data['artimgcmtlike'] = $artimgcmtlike = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // like notification end
@@ -229,11 +227,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'follow.follow_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'follow.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'follow.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
         $busifollow = $this->data['busifollow'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'follow_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
 // follow notification end
@@ -247,11 +245,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'business_profile_post_comment.business_profile_post_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'business_profile_post_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'business_profile_post_comment.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $buscommnet = $this->data['buscommnet'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 //echo '<pre>'; print_r($this->data['buscommnet']);
@@ -263,11 +261,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'bus_post_image_comment.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $this->data['busimgcommnet'] = $busimgcommnet = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
@@ -282,11 +280,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'business_profile_post.business_profile_post_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', ' business_profile_post.*', ' user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', ' business_profile_post.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $buslike = $this->data['buslike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
@@ -298,11 +296,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'business_profile_post_comment.business_profile_post_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'business_profile_post_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'business_profile_post_comment.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $buscmtlike = $this->data['buscmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'business_profile_post_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
@@ -314,11 +312,11 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'post_image.image_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'post_image.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'post_image.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $busimglike = $this->data['busimglike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'image_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
@@ -330,18 +328,18 @@ class Notification extends MY_Controller {
                 'from_table_id' => 'bus_post_image_comment.post_image_comment_id'),
             array(
                 'join_type' => '',
-                'table' => 'user',
+                'table' => 'business_profile',
                 'join_table_id' => 'notification.not_from_id',
-                'from_table_id' => 'user.user_id')
+                'from_table_id' => 'business_profile.user_id')
         );
-        $data = array('notification.*', 'bus_post_image_comment.*', 'user.user_id', 'user.first_name', 'user.user_image', 'user.last_name');
+        $data = array('notification.*', 'bus_post_image_comment.*', 'business_profile.user_id as user_id', 'business_profile.company_name as first_name', 'business_profile.business_user_image as user_image');
 
         $busimgcmtlike = $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
         $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
 
-        // echo '<pre>'; print_r($totalnotification); die();
+       // echo '<pre>'; print_r($totalnotification); die();
         $this->load->view('notification/index', $this->data);
     }
 
@@ -1047,7 +1045,8 @@ class Notification extends MY_Controller {
         $notification = '<ul class="">';
         $i = 0;
         foreach ($totalnotification as $total) {
-//1
+//1     
+    $abc = $total['not_id'];
             if ($total['not_from'] == 1) {
                 $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;
 
@@ -1063,9 +1062,9 @@ class Notification extends MY_Controller {
 
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' <span class="noti-msg-y"> Invited you for an interview. </span></h6>';
+                $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' <span class="noti-msg-y"> Invited you for an interview. </span></h6>'; 
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
-                $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
+                $notification .= '' . $abc . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
             }
             //  }
@@ -1414,7 +1413,7 @@ class Notification extends MY_Controller {
             }
          
             $i++;
-            if ($i == 48) {
+            if ($i == 10) {
                 break;
             }
         }
@@ -1658,7 +1657,7 @@ class Notification extends MY_Controller {
         }
 
         if ($message_from_profile == 3) {
-            $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as first_name,fullname as last_name,user_id');
+            $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as last_name,fullname as first_name,user_id');
         }
 
         if ($message_from_profile == 4) {
@@ -1702,7 +1701,7 @@ class Notification extends MY_Controller {
             }
 
             if ($message_from_profile == 3) {
-                $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as first_name,fullname as last_name,user_id');
+                $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as last_name,fullname as first_name,user_id');
             }
 
             if ($message_from_profile == 4) {
@@ -1750,7 +1749,7 @@ class Notification extends MY_Controller {
             $join_str1[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str1[0]['join_type'] = '';
 
-            $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+            $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str1[0]['table'] = 'messages';
@@ -1806,7 +1805,7 @@ class Notification extends MY_Controller {
             $join_str2[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str2[0]['join_type'] = '';
 
-            $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+            $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str2[0]['table'] = 'messages';
@@ -1899,7 +1898,7 @@ class Notification extends MY_Controller {
             $join_str3[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str3[0]['join_type'] = '';
 
-            $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+            $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str3[0]['table'] = 'messages';
@@ -1982,7 +1981,7 @@ class Notification extends MY_Controller {
             $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str4[0]['join_type'] = '';
 
-            $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str4[0]['table'] = 'messages';

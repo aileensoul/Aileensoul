@@ -731,7 +731,7 @@ class Chat extends MY_Controller {
         }
 
         if ($message_from_profile == 3) {
-            $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as first_name,fullname as last_name,user_id');
+            $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as last_name,fullname as first_name,user_id');
         }
 
         if ($message_from_profile == 4) {
@@ -775,7 +775,7 @@ class Chat extends MY_Controller {
             }
 
             if ($message_from_profile == 3) {
-                $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as first_name,fullname as last_name,user_id');
+                $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as last_name,fullname as first_name,user_id');
             }
 
             if ($message_from_profile == 4) {
@@ -823,7 +823,7 @@ class Chat extends MY_Controller {
             $join_str1[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str1[0]['join_type'] = '';
 
-            $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+            $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str1[0]['table'] = 'messages';
@@ -878,7 +878,7 @@ class Chat extends MY_Controller {
             $join_str2[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str2[0]['join_type'] = '';
 
-            $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+            $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str2[0]['table'] = 'messages';
@@ -972,7 +972,7 @@ class Chat extends MY_Controller {
             $join_str3[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str3[0]['join_type'] = '';
 
-            $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+            $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 3) {
             $join_str3[0]['table'] = 'messages';
@@ -1055,7 +1055,7 @@ class Chat extends MY_Controller {
             $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
             $join_str4[0]['join_type'] = '';
 
-            $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 4) {
             $join_str4[0]['table'] = 'messages';
@@ -1767,7 +1767,7 @@ class Chat extends MY_Controller {
                 
                 $search_condition = "((username LIKE '" . trim($usrsearchdata) . "%') AND (message_from !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
                 
-                $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+                $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
             }
             if ($message_from_profile == 3) {
                 $join_str4[0]['table'] = 'messages';
@@ -1923,7 +1923,7 @@ class Chat extends MY_Controller {
             }
 
             if ($message_from_profile == 3) {
-                $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as first_name,fullname as last_name,user_id');
+                $loginuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $userid, $data = 'username as last_name,fullname as first_name,user_id');
             }
 
             if ($message_from_profile == 4) {
@@ -1966,7 +1966,7 @@ class Chat extends MY_Controller {
                 }
 
                 if ($message_from_profile == 3) {
-                    $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as first_name,fullname as last_name,user_id');
+                    $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as last_name,fullname as first_name,user_id');
                 }
 
                 if ($message_from_profile == 4) {
@@ -2013,7 +2013,7 @@ class Chat extends MY_Controller {
                 $join_str1[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
                 $join_str1[0]['join_type'] = '';
 
-                $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+                $seltousr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
             }
             if ($message_from_profile == 4) {
                 $join_str1[0]['table'] = 'messages';
@@ -2068,7 +2068,7 @@ class Chat extends MY_Controller {
                 $join_str2[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
                 $join_str2[0]['join_type'] = '';
 
-                $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+                $selfromusr = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
             }
             if ($message_from_profile == 4) {
                 $join_str2[0]['table'] = 'messages';
@@ -2156,7 +2156,7 @@ class Chat extends MY_Controller {
                 $join_str3[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
                 $join_str3[0]['join_type'] = '';
 
-                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_to,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
             }
             if ($message_from_profile == 3) {
                 $join_str3[0]['table'] = 'messages';
@@ -2238,7 +2238,7 @@ class Chat extends MY_Controller {
                 $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
                 $join_str4[0]['join_type'] = '';
 
-                $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as first_name,fullname as last_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+                $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
             }
             if ($message_from_profile == 3) {
                 $join_str4[0]['table'] = 'messages';
@@ -2364,7 +2364,7 @@ class Chat extends MY_Controller {
                     $lstusrdata = $this->common->select_data_by_id('recruiter', 'user_id', $toid, $data = 'rec_firstname as first_name,rec_lastname as last_name,user_id,recruiter_user_image as user_image');
                 }
                 if ($message_from_profile == 4) {
-                    $lstusrdata = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $toid, $data = 'username as first_name,fullname as last_name,user_id,freelancer_hire_user_image as user_image');
+                    $lstusrdata = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $toid, $data = 'username as last_name,fullname as first_name,user_id,freelancer_hire_user_image as user_image');
                 }
                 if ($message_from_profile == 3) {
                     $lstusrdata = $this->common->select_data_by_id('freelancer_post_reg', 'user_id', $toid, $data = 'freelancer_post_fullname as first_name,freelancer_post_username as last_name,user_id,freelancer_post_user_image as user_image');
