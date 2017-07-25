@@ -679,7 +679,7 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;" onclick="clearall();">
                                                     </div></div>
 
 
@@ -1042,7 +1042,7 @@
                                                                         <!-- one image start -->
                                                                         <div class="one-image">
                                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
-                                                                                <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>"> 
+                                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>"> 
                                                                             </a>
                                                                         </div>
                                                                         <!-- one image end -->
@@ -3916,6 +3916,18 @@
     });
 
 
+</script>
+
+<script type="text/javascript">
+    // function clearall(){ alert("hii");
+
+    //     $("#file-1").val("");
+    // }
+
+
+//     $('#file-1').on('click', function(e){ alert("hii");
+//    $(".").html("");
+// });
 </script>
 
 
