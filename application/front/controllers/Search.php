@@ -2213,6 +2213,7 @@ else
 //     }
 
     public function job_search() {
+     //   echo "123";die();
         // echo "hii";        // Retrieve the posted search term.
         //echo "<pre>";print_r($_POST);die();
         $userid = $this->session->userdata('aileenuser');
@@ -2493,7 +2494,7 @@ else
             $res[$key]['value'] = $value;
         }
         
-        $this->data['de'] = array_values($res);
+        $this->data['city_data'] = array_values($res);
 
  //echo "<pre>"; print_r($this->data['de']);die();
 
