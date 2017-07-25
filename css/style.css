@@ -13976,7 +13976,7 @@ body {
 images css start*/
 
 .one-image {
-    height: 333px;
+    height: auto;
     width: auto;
     max-width: 100%;
     text-align: center;
@@ -13985,7 +13985,7 @@ images css start*/
 .one-image img {
     width: auto;
     max-width: 100%;
-    height: 100%;
+    height: auto;
 }
 .two-images {
     float: left;
