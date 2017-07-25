@@ -507,11 +507,19 @@ class Chat extends MY_Controller {
         $this->load->view('chat', $this->data);
     }
 
-    public function abc($id = '', $message_from_profile = '', $message_to_profile = '') {
+    public function abc($id = '', $message_from_profile = '', $message_to_profile = '', $not_id = '') {
         $this->data['id'] = $id;
         $this->chat_search($id, $message_from_profile, $message_to_profile);
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
+        // update notification read code start
+        if($not_id){
+          $data = array(
+            'not_active' => 2
+        );
+        
+      $updatedata = $this->common->update_data($data, 'notification', 'not_id',$not_id);
+        }
+        // update notification read code end 
         // from job
         if ($message_from_profile == 1) {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
