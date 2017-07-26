@@ -241,7 +241,7 @@
                                                                                 <div class="fr lction">
 
                                                                                     <p title="Location">
-                                                                                        <i class="fa fa-map-marker" aria-hidden="true">  <?php
+                                                                                        <i class="fa fa-map-marker" aria-hidden="true"> </i> <?php
                                                                                             if ($cityname) {
                                                                                                 echo $cityname . ",";
                                                                                             }
@@ -249,7 +249,7 @@
                                                                                             if ($countryname) {
                                                                                                 echo $countryname;
                                                                                             }
-                                                                                            ?></i></p>
+                                                                                            ?></p>
                                                                                 </div>
                                                                             <?php } ?>
                                                                         </li>

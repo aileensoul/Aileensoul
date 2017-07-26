@@ -203,11 +203,15 @@ if ($postdata) {
                                                                     <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
                                                                     <?php if ($cityname || $countryname) { ?>
                                                                             <div class="fr lction">
-                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  <?php if ($cityname) {
+                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">  </i>
+																				<?php if ($cityname) {
                                                                 echo $cityname . ",";
                                                             } ?><?php if ($countryname) {
                                                                 echo $countryname;
-                                                            } ?></i></p>
+                                                            } ?>
+
+
+</p>
                                                                             </div>
         <?php } ?>
                                                                     </li>
