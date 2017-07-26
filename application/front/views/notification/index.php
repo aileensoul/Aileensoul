@@ -761,21 +761,14 @@
 <script type="text/javascript">
    function not_active(not_id)
    { 
-   
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "notification/not_active" ?>',
            data: 'not_id=' + not_id,
            success: function (data) {
-   
-               
-   
-           }
-   
-   
-       });
-   
-   }
+              }
+          });
+      }
    
 </script>
     

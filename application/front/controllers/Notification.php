@@ -1053,7 +1053,7 @@ array(
                     $notification .= 'active2'; 
                 }
                 $notification .= '"'; 
-                $notification .= '><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
+                $notification .= '><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
@@ -1075,7 +1075,12 @@ array(
             // foreach ($artfollow as $art) {
             if ($total['not_from'] == 3 && $total['not_img'] == 0) {
 
-                $notification .= '<li><a href="' . base_url('artistic/artistic_profile/' . $total['user_id']) . '"><div class="notification-database">';
+                 $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('artistic/artistic_profile/' . $total['user_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
@@ -1099,7 +1104,12 @@ array(
             $art_not_img = $total['not_img'];
             if ($art_not_from == '3' && $art_not_img == '1') {
 
-                $notification .= '<li><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database">';
+                    $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
                 if ($total['user_image']) {
@@ -1124,7 +1134,12 @@ array(
             $art_not_img = $total['not_img'];
             if ($art_not_from == '3' && $art_not_img == '2') {
 
-                $notification .= '<li><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database">';
+                   $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
@@ -1145,8 +1160,12 @@ array(
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 3) {
 
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '"><div class="notification-database"><div class="notification-pic" >';
+                        $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1165,8 +1184,12 @@ array(
            //6
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 5) {
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic">';
+                        $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic">';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1186,8 +1209,12 @@ array(
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 4) {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic">';
+                       $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic">';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1207,8 +1234,12 @@ array(
             if ($total['not_from'] == 3) {
                 if ($total['not_img'] == 6) {
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
+                       $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
                   if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1229,8 +1260,12 @@ array(
             $bus_not_img = $total['not_img'];
             $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
             if ($bus_not_from == '6' && $bus_not_img == '1') {
-                $notification .= '<li>';
-                $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
+                    $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                  if ($total['user_image']) {
                     $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
@@ -1247,7 +1282,12 @@ array(
                if ($total['not_from'] == 6 && $total['not_img'] == 0) {
                 $busslug = $this->db->get_where('business_profile', array('user_id' => $total['user_id']))->row()->business_slug;
                 $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
-                $notification .= '<li><a href="' . base_url('business_profile/business_resume/' . $busslug) . '"><div class="notification-database">';
+                   $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('business_profile/business_resume/' . $busslug) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
                 if ($total['user_image']) {
@@ -1266,7 +1306,12 @@ array(
             $bus_not_img = $total['not_img'];
             $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
             if ($bus_not_from == '6' && $bus_not_img == '2') {
-                $notification .= '<li><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '"><div class="notification-database">';
+                    $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
                     $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
@@ -1283,8 +1328,12 @@ array(
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 3) {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '">
+                       $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')">
                     <div class="notification-database"> <div class="notification-pic" >';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
@@ -1305,8 +1354,12 @@ array(
             if ($total['not_from'] == 6) {
                 if ($total['not_img'] == 5) {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
+                       $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1327,8 +1380,12 @@ array(
                 if ($total['not_img'] == 4) {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
+                        $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1349,8 +1406,12 @@ array(
                 if ($total['not_img'] == 6) {
                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                     $postid = $this->db->get_where('post_image', array('image_id' => $total['post_image_id']))->row()->post_id;
-                    $notification .= '<li>';
-                    $notification .= '<a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '"><div class="notification-database"><div class="notification-pic" >';
+                      $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
                     if ($total['user_image']) {
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
                     } else {
@@ -1369,7 +1430,12 @@ array(
             //16
             if ($total['not_from'] == 2) {
 
-                $notification .= '<li><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'] . '?page=recruiter') . '"><div class="notification-database">';
+                   $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'] . '?page=recruiter') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
                     $notification .= '<img src="' . base_url($this->config->item('job_profile_thumb_upload_path') . $total['user_image']) . '" >';
@@ -1385,7 +1451,12 @@ array(
             //17
             if ($total['not_from'] == 4) {
 
-                $notification .= '<li><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'] . '?page=freelancer_hire') . '"><div class="notification-database">';
+                    $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'] . '?page=freelancer_hire') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
                     $notification .= '<img src="' . base_url($this->config->item('free_post_profile_thumb_upload_path') . $total['user_image']) . '" >';
@@ -1401,7 +1472,12 @@ array(
             //18
             if ($total['not_from'] == 5) {
 
-                $notification .= '<li><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'] . '?page=freelancer_post') . '"><div class="notification-database">';
+                    $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'] . '?page=freelancer_post') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
                 if ($total['user_image']) {
                     $notification .= '<img src="' . base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']) . '" >';
