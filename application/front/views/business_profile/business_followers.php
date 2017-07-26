@@ -565,8 +565,15 @@
 
                             <?php } else { ?>
 
-                                <div class="text-center rio">
-                                    <h4 class="page-heading  product-listing">No Followers Found.</h4>
+                               <div class="art-img-nn">
+                                    <div class="art_no_post_img">
+
+                                        <img src="<?php echo base_url('img/bui-no.png') ?>">
+
+                                    </div>
+                                    <div class="art_no_post_text">
+                                        No Followers Available.
+                                    </div>
                                 </div>
 
                             <?php } ?>

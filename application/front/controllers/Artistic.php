@@ -3127,10 +3127,16 @@ public function followtwo() {
 
 
                 if (count($followingotherdata) == 0) {
-                    $notfound = '<div>';
-                    $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
-                    $notfound .= '</div></div>';
+                    $notfound = '<div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="'.base_url('img/art-no.png').'">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Following Available.
+         </div>
+          </div>';
                 }
 
                 echo json_encode(

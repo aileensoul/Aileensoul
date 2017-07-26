@@ -227,12 +227,9 @@
                                                                                             <div class="fr lction">
 
 
-                                                                                                <a href="" title="Location"><i class="fa fa-map-marker" aria-hidden="true" >
-                                                                                                        <?php if ($cityname) {
-                                                                                                            echo $cityname . ",";
-                                                                                                        } ?><?php if ($countryname) {
-                                                                                                            echo $countryname;
-                                                                                                        } ?></i></a>
+             <a href="" title="Location"><i class="fa fa-map-marker" aria-hidden="true" >                                                                                                       </i>
+				<?php if ($cityname) {                                                                                                            echo $cityname . ",";                                                                                                        } ?><?php if ($countryname) {                                                                                                            echo $countryname;                                                                                                        } ?>
+</a>
                                                                                             </div>
                                                                                         <?php } ?>
 
