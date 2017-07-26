@@ -455,8 +455,9 @@
     function addmsg1(type, msg)
     {
         if (msg == 0)
-        {
+        { //alert(1234);
             $("#message_count").html('');
+            $("#message_count").removeAttr("style");
             $('#InboxLink').removeClass('msg_notification_available');
         } else
         {

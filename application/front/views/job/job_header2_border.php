@@ -302,6 +302,7 @@ $(document).ready(function() {
         if (msg == 0)
         {
             $("#message_count").html('');
+            $("span#message_count").removeAttr("style");
             $('#InboxLink').removeClass('msg_notification_available');
         } else
         {
