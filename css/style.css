@@ -9746,9 +9746,15 @@ font-weight: 600;}
     float: left;
     float: left;
     margin-bottom: 6px;
+    margin-top: 10px;
     width: 227px;
     height: 173px;
 }
+.images_add_bui{display: block;
+text-align: center;
+padding: 15px;}
+.images_add_bui h6 {display: inline-block;}
+.images_add_bui a:hover{color: #136386;}
 .select2-container--default .select2-selection--multiple .select2-selection__rendered {
     padding: 0 15px;
 }
