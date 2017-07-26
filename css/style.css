@@ -4268,7 +4268,7 @@ display: inline-block;
     border-bottom-right-radius: 4px;
 }
 li.active2 {
-    background-color: #d2edf9;
+    background-color: #d2edf9 !important;
 }
 .notification-pic {
     height: 50px;
