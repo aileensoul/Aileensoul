@@ -3545,18 +3545,36 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-            $data = array(
-                'not_type' => 8,
-                'not_from_id' => $userid,
-                'not_to_id' => $busdatatoid[0]['user_id'],
-                'not_read' => 2,
-                'not_product_id' => $follow[0]['follow_id'],
-                'not_from' => 6,
-                'not_created_date' => date('Y-m-d H:i:s'),
-                'not_active' => 1
-            );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+
+             $contition_array = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6, 'not_img' => 2);
+            $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if ($busnotification[0]['not_read'] == 2) {
+                    
+                } elseif ($busnotification[0]['not_read'] == 1) {
+
+                    $datafollow = array(
+                        'not_read' => 2
+                    );
+
+                    $where = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6, 'not_img' => 2);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datafollow);
+                } 
+
+
+            // $data = array(
+            //     'not_type' => 8,
+            //     'not_from_id' => $userid,
+            //     'not_to_id' => $busdatatoid[0]['user_id'],
+            //     'not_read' => 2,
+            //     'not_product_id' => $follow[0]['follow_id'],
+            //     'not_from' => 6,
+            //     'not_created_date' => date('Y-m-d H:i:s'),
+            //     'not_active' => 1
+            // );
+
+            // $insert_id = $this->common->insert_data_getid($data, 'notification');
             // end notoification
 
              $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1);

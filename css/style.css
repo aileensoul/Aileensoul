@@ -4268,7 +4268,7 @@ display: inline-block;
     border-bottom-right-radius: 4px;
 }
 li.active2 {
-    background-color: #d2edf9;
+    background-color: #d2edf9 !important;
 }
 .notification-pic {
     height: 50px;
@@ -10617,8 +10617,9 @@ style chat css start*/
     padding: 25px 30px 20px;
     /* border-bottom: 1px solid white; */
     display:block;
-   overflow-y: scroll;
+	overflow-y: scroll;
     height: 438px;
+	position:relative;
    /* flex-direction: column-reverse;
     display: -moz-flex; 
     display: -webkit-flex; 
@@ -10826,16 +10827,16 @@ style chat css start*/
     /* position: absolute; */
     /* top: 30px; */
     
-    margin-left: -208px;
+    /*margin-left: -208px;*/
     width: 208px;
     z-index: 3;
     position: relative;
-    margin-bottom: 37px;
+    /*margin-bottom: 37px;*/
     box-shadow: 0 0 40px #ccc;
     border-radius: 5px;
     /* display: none; */
-    
-    position: relative;
+    right:23px; bottom:55px;
+    position: absolute;
 }
 #notificationLink1 {
     position: absolute;
@@ -10886,7 +10887,7 @@ style chat css start*/
     border-color: rgba(194, 225, 245, 0);
     border-top-color: #fff;
     bottom: -19px;
-    right: 29px;
+    right: 71px;
 }
 #notificationContainer1:after {
     border-color: rgba(204, 204, 204, 0);
@@ -14564,6 +14565,7 @@ header.animated {
   content: attr(placeholder);
   display: block; /* For Firefox */
   color: #ccc;
+  line-height:1;
 }
 
 div .comment {
@@ -14573,7 +14575,7 @@ div .comment {
     padding-right: 150px!important;
     word-break: break-all;
     background-color: #fff;
-    padding: 16px 20px 16px;  
+    padding: 20px 20px 16px;
     cursor: inherit;
     font-size: 13px;
     min-height: 60px;
@@ -14582,13 +14584,18 @@ div .comment {
     overflow-y: scroll;
     overflow-y: auto;
 }
-
+#set_input form{/*padding: 20px 20px 16px;*/}
 #msg_block{padding:0;}
 #msg_block .input-group{background:#fff; border-top:1px solid #d9d9d9;}
 #msg_block .input-group .comment{border-top:0;}
+.panel-footer{position:relative;}
+#chat.chat{position:relative;}
+#set_input .input-group-btn .btn{border-radius:3px;}
 
 
-
+.ui-autocomplete {
+	max-width: 300px!important;
+}
 /***  media query  ***/
 
 @media (min-width: 1400px) {

@@ -253,16 +253,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <ul  id="received" class="padding_less_right">
 
                             </ul>
-
-                        </div>
-
-                        <div class="panel-footer">
-                            <div class="clearfix">
-                                <div class="col-md-12" id="msg_block">
-                                    <div class="input-group" id="set_input">
-                                        <form name="blog">
-                                            <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
-                                            <div for="smily"  class="smily_b" >
+							<!--div for="smily"  class="smily_b" >
                                                 <div id="notification_li1" >
                                                     <a class="smil" href="#" id="notificationLink1" ">
                                                         <i class="em em-blush"></i></a>
@@ -280,6 +271,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div-->
+                        </div>
+
+                        <div class="panel-footer">
+							
+                            <div class="">
+                                <div class="" id="msg_block">
+                                    <div class="input-group" id="set_input">
+                                        <form name="blog">
+                                            <div class="comment" contentEditable="true" name="comments" id="message" onpaste="OnPaste_StripFormatting(this, event);" placeholder="Type your message here..." style="position: relative;"></div>
+                                            <div for="smily"  class="smily_b" >
+                                                <div id="notification_li1" >
+                                                    <a class="smil" href="#" id="notificationLink1" ">
+                                                        <i class="em em-blush"></i></a>
+                                                    
+                                                </div>
                                             </div>
                                         </form>
 
@@ -290,6 +297,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
+						<div id="notificationContainer1" style="display: none;">
+                                                        <div id="notificationsBody1" class="notifications1">
+                                                            <?php
+                                                            $i = 0;
+                                                            foreach ($smiley_table as $key => $value) {
+                                                                ?>
+                                                                <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                                                <?php
+                                                                $i++;
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                    </div>
                     </div>
                 <?php } else { ?>
 
@@ -752,6 +772,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         newheight = message.scrollHeight;
         message.style.height = newheight + "px";
     })
+	
+	var node = document.querySelector(".comment");
+	node.focus();
+	var caret = 10; // insert caret after the 10th character
+	var range = document.createRange();
+	range.setStart(node,caret);
+	range.setEnd(node,caret);
+	var sel = window.getSelection();
+	sel.removeAllRanges();
+	sel.addRange(range);
 
 
 //    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
