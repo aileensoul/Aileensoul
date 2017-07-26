@@ -730,7 +730,7 @@
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                             <div class="view_bui"> 
 
-                                                                                <a   id="myBtn">view all</a>
+                                                                                <a id="myBtn">view all</a>
 
                                                                             </div>
 
@@ -929,6 +929,15 @@
 
                 </html>
                 <!-- script for skill textbox automatic start (option 2)-->
+
+
+                <script>
+                    $(document).ready(function () {
+                        $("#myBtn").click(function () {
+                            $("#myModal").modal();
+                        });
+                    });
+                </script>
 
                 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -1438,13 +1447,7 @@
                     }
                 </script>
 
-                <script>
-                    $(document).ready(function () {
-                        $("#myBtn").click(function () {
-                            $("#myModal").modal();
-                        });
-                    });
-                </script>
+                
 
 
                 <script type="text/javascript">
