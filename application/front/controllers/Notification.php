@@ -2092,7 +2092,7 @@ array(
             $data = array(' notification.*');
             $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'not_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
             $notmsg .= '<li class="';
-            if ($not[0]['not_active'] == 1) {
+            if ($not[0]['not_active'] == 1 && ($this->uri->segment(3) != $msg['user_id'])) {
                 $notmsg .= 'active2';
             }
             $notmsg .= '">';

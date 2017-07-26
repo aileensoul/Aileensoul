@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Chat_model extends CI_Model {
 
     function add_message($message, $nickname, $guid, $userid, $id, $message_from_profile, $message_from_profile_id, $message_to_profile, $message_to_profile_id) {
-        date_default_timezone_set('Asia/Calcutta');
+        date_default_timezone_set('Asia/Kolkata');
         $data1 = array(
             'message' => (string) $message,
             'nickname' => (string) $nickname,
@@ -16,7 +16,7 @@ class Chat_model extends CI_Model {
             'message_to_profile' => (int) $message_to_profile,
             'message_to_profile_id' => (int) $message_to_profile_id,
             'guid' => (string) $guid,
-            'timestamp' => time(),
+            'timestamp' => time() + 92,
         );
 
         $this->db->insert('messages', $data1);
@@ -36,10 +36,10 @@ class Chat_model extends CI_Model {
             $not_from = 3;
         }
  if($this->uri->segment(3) == $id){
-     $not_active = 2;
+     $not_active = 1;
  }else{
      $not_active = 1;
- }
+ } //echo "hiii"; die();
         $data2 = array(
             'not_type' => 2,
             'not_from_id' => $userid,
