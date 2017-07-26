@@ -2468,7 +2468,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                         dataType: "json",
                         success: function (data) {
                         $('textarea').each(function () {
@@ -2484,7 +2484,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                         dataType: "json",
                         success: function (data) {
                         $('textarea').each(function () {
@@ -2586,7 +2586,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                         dataType: "json",
                         success: function (data) {
                         $('textarea').each(function () {
@@ -2602,7 +2602,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                         dataType: "json",
                         success: function (data) {
                         $('textarea').each(function () {
@@ -3045,7 +3045,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                         success: function (data) { //alert('falguni');
 
                         document.getElementById('editcomment' + abc).style.display = 'none';
@@ -3138,7 +3138,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                         success: function (data) { //alert('falguni');
                         document.getElementById('editcomment' + abc).style.display = 'none';
                         document.getElementById('showcomment' + abc).style.display = 'block';
@@ -3209,7 +3209,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                         success: function (data) { //alert('falguni');
 
                         document.getElementById('editcommenttwo' + abc).style.display = 'none';
@@ -3309,7 +3309,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-                        data: 'post_id=' + abc + '&comment=' + txt,
+                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                         success: function (data) { //alert('falguni');
 
 
@@ -4125,7 +4125,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + txt,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                         dataType: "json",
                         success: function (data) {
                         $('input').each(function () {
@@ -4140,7 +4140,7 @@
                 $.ajax({
                 type: 'POST',
                         url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-                        data: 'post_id=' + clicked_id + '&comment=' + val,
+                        data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(val),
                         // dataType: "json",
                         success: function (data) {
                         $('input').each(function () {
