@@ -3868,10 +3868,16 @@ class Business_profile extends MY_Controller {
 
 
                 if (count($followingotherdata) == 0) {
-                    $notfound = '<div>';
-                    $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Following Found.</h4>';
-                    $notfound .= '</div></div>';
+                    $notfound = '<div class="art-img-nn">
+                                    <div class="art_no_post_img">
+
+                                        <img src="'.base_url('img/bui-no.png').'">
+
+                                    </div>
+                                    <div class="art_no_post_text">
+                                        No Following Available.
+                                    </div>
+                                </div>';
                 }
 
                 echo json_encode(
@@ -10780,10 +10786,16 @@ class Business_profile extends MY_Controller {
 
 
         if (count($unique_user) == 0) {
-            $nomsg = '<div>';
-            $nomsg .= '<div class="text-center rio">';
-            $nomsg .= '<h4 class="page-heading  product-listing">No Contacts Found.</h4>';
-            $nomsg .= '</div></div>';
+            $nomsg = '<div class="art-img-nn">
+                                    <div class="art_no_post_img">
+
+                                        <img src="'.base_url('img/bui-no.png').'">
+
+                                    </div>
+                                    <div class="art_no_post_text">
+                                        No Contacts Available.
+                                    </div>
+                                </div>';
         }
 
 
