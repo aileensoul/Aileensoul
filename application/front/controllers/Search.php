@@ -2351,16 +2351,21 @@ else
 
             if (count($new) == 0) {
                 // echo "hello";
-                $unique = $results;
+                $unique1 = $results;
                 //echo count($unique) . "<br>"; die();
                 // echo "<pre>"; print_r($unique); die();
             } else {
-                $unique = array_merge($new, $results);
+                $unique1 = array_merge($new, $results);
                 // echo "<pre>"; print_r($unique); die(); 
             }
+            $unique=array();
+            foreach ($unique1 as $value){
+                
+                $unique[$value['user_id']]=$value;
+            }
 
-
-            // echo "<pre>"; print_r($unique); die();
+            // echo "<pre>"; print_r($new1); die();
+             
         } else {
                 // both
             // $search_job = $this->input->get('skills');
@@ -2443,11 +2448,16 @@ else
 
             if (count($new) == 0) {
                 // echo "hello";
-                $unique = $results;
+                $unique1 = $results;
             } else {
-                $unique = array_merge($new, $results);
+                $unique1 = array_merge($new, $results);
             }
            // echo "<pre>"; print_r($unique); die();
+            $unique=array();
+            foreach ($unique1 as $value){
+                
+                $unique[$value['user_id']]=$value;
+            }
         }
 
 
