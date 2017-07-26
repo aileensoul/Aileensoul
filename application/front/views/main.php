@@ -566,6 +566,37 @@
                 '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
             }
 
+              
+        var todaydate = new Date();
+        var dd = todaydate.getDate();
+        var mm = todaydate.getMonth()+1; //January is 0!
+        var yyyy = todaydate.getFullYear();
+
+        if(dd<10) {
+            dd='0'+dd
+        } 
+
+        if(mm<10) {
+            mm='0'+mm
+        } 
+
+           var todaydate = yyyy+'/'+mm+'/'+dd;
+           var value =  selyear+'/'+selmonth+'/'+selday;
+
+
+            var d1 = Date.parse(todaydate);
+            var d2 = Date.parse(value);
+           //var one = new Date(value).getTime();
+         // var second = new Date(todaydate).getTime();
+    //alert(one); alert(second);
+
+        if (d1 < d2){
+        
+           $(".dateerror").html("Date of birth always less than to today's date.");
+            
+            return false;
+         }else{
+
 
             if ((0 == selyear % 4) && (0 != selyear % 100) || (0 == selyear % 400))
             {
@@ -578,7 +609,7 @@
                         $(".dateerror").html("This month has only 30 days.");
                         return false;
                     }
-                } else if (selmonth == 2) {
+                } else if (selmonth == 2) { //alert("hii");
                     if (selday == 31 || selday == 30) {
                         $(".dateerror").html("This month has only 29 days.");
                         return false;
@@ -607,6 +638,7 @@
                 }
 
             }
+        }
 
 
             $.ajax({

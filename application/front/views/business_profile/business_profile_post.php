@@ -679,7 +679,7 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;" onclick="clearall();">
+                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
                                                     </div></div>
 
 
