@@ -337,13 +337,13 @@
                                                                             if ($status == 0 || $status == " ") {
                                                                                 ?>
                                                                                 <div id= "followdiv " class="user_btn">
-                                                                                    <button id="<?php echo "follow" . $p['business_profile_id']; ?>" onClick="followuser(<?php echo $p['business_profile_id']; ?>)">
+                                                                                    <button id="<?php echo "follow" . $p['business_profile_id']; ?>" onClick="followuser_two(<?php echo $p['business_profile_id']; ?>)">
                                                                                         Follow 
                                                                                     </button>
                                                                                 </div>
                                                                             <?php } elseif ($status == 1) { ?>
                                                                                 <div id= "unfollowdiv"  class="user_btn" > 
-                                                                                    <button class="bg_following" id="<?php echo "unfollow" . $p['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $p['business_profile_id']; ?>)">
+                                                                                    <button class="bg_following" id="<?php echo "unfollow" . $p['business_profile_id']; ?>" onClick="unfollowuser_two(<?php echo $p['business_profile_id']; ?>)">
                                                                                         Following 
                                                                                     </button>
                                                                                 </div>
@@ -2447,12 +2447,12 @@
 <!-- remove particular user post end -->
 <!-- follow user script start -->
 <script type="text/javascript">
-        function followuser(clicked_id)
+        function followuser_two(clicked_id)
     {
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "business_profile/follow" ?>',
+            url: '<?php echo base_url() . "business_profile/follow_two" ?>',
                             data: 'follow_to=' + clicked_id,
             success: function (data) {
 
@@ -2465,12 +2465,12 @@
 <!--follow like script end -->
 <!-- Unfollow user script start -->
 <script type="text/javascript">
-            function unfollowuser(clicked_id)
+            function unfollowuser_two(clicked_id)
     {
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url() . "business_profile/unfollow" ?>',
+            url: '<?php echo base_url() . "business_profile/unfollow_two" ?>',
                 data: 'follow_to=' + clicked_id,
                     success: function (data) {
 
