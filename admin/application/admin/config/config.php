@@ -24,8 +24,6 @@ if ($_SERVER['HTTP_HOST'] == "localhost") {
   $config['base_url'] = 'https://www.aileensoul.com/admin/';
 }
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Index File

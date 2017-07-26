@@ -8,6 +8,7 @@ class Blog extends CI_Controller {
         parent::__construct();
 
         include ('include.php'); 
+       
     }
      
     //MAIN INDEX PAGE START   
