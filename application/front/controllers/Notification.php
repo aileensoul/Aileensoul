@@ -672,27 +672,25 @@ class Notification extends MY_Controller {
         $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2, 'not_from' => $not_from);
         $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'not_from_id');
 
-        //      echo '<pre>'; print_r($result); 
+         //   echo '<pre>'; print_r($result); die();
         $count = count($result);
         echo $count;
     }
 
-    public function update_msg_noti() {
+    public function update_msg_noti($not_from = '') {
         $userid = $this->session->userdata('aileenuser');
         //echo "<pre>"; print_r($data); die();
 
-        $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2);
-        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'not_from_id');
-
+        $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type' => 2, 'not_from' => $not_from);
+        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //  echo '<pre>'; print_r($result); die();
         $data = array(
             'not_read' => 1
         );
-        // echo "<pre>"; print_r($result);die();
-
-        foreach ($result as $cnt) {
+                foreach ($result as $cnt) {
             $updatedata = $this->common->update_data($data, 'notification', 'not_id', $cnt['not_id']);
         }
-
+   
         //echo '<pre>'; print_r($result); 
         $count = count($updatedata);
         echo $count;
@@ -1046,11 +1044,16 @@ array(
         $i = 0;
         foreach ($totalnotification as $total) {
 //1     
-    $abc = $total['not_id'];
+   
             if ($total['not_from'] == 1) {
                 $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;
 
-                $notification .= '<li><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
+                $notification .= '<li class="'; 
+                if($total['not_active'] == 1){
+                    $notification .= 'active2'; 
+                }
+                $notification .= '"'; 
+                $notification .= '><a href="' . base_url('notification/recruiter_post/' . $total['post_id']) . '"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
 
@@ -1064,7 +1067,7 @@ array(
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' <span class="noti-msg-y"> Invited you for an interview. </span></h6>'; 
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
-                $notification .= '' . $abc . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
+                $notification .= ''  . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
             }
             //  }
@@ -2469,5 +2472,13 @@ array(
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
         $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
     }
-
+    
+   public function not_active(){
+       
+     $not_id = $this->input->post('not_id');
+          $data = array(
+            'not_active' => 2
+        );     
+            $updatedata = $this->common->update_data($data, 'notification', 'not_id', $not_id);
+        }
 }
