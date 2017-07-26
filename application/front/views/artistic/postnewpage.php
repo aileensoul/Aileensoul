@@ -1924,7 +1924,7 @@ $( "#searchplace1" ).autocomplete({
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                    data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
                                         $('textarea').each(function () {
@@ -1942,7 +1942,7 @@ $( "#searchplace1" ).autocomplete({
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                                    data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                    data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
                                         $('textarea').each(function () {
@@ -2066,7 +2066,7 @@ $( "#searchplace1" ).autocomplete({
                                         $.ajax({
                                             type: 'POST',
                                             url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                                            data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                            data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
                                                 $('textarea').each(function () {
@@ -2081,7 +2081,7 @@ $( "#searchplace1" ).autocomplete({
                                         $.ajax({
                                             type: 'POST',
                                             url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                                            data: 'post_id=' + clicked_id + '&comment=' + txt,
+                                            data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
                                                 $('textarea').each(function () {
@@ -2712,7 +2712,7 @@ $( "#searchplace1" ).autocomplete({
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                data: 'post_id=' + abc + '&comment=' + txt,
+                                data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                 success: function (data) {
                                     document.getElementById('editcomment' + abc).style.display = 'none';
                                     document.getElementById('showcomment' + abc).style.display = 'block';
@@ -2760,7 +2760,7 @@ $( "#searchplace1" ).autocomplete({
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                        data: 'post_id=' + abc + '&comment=' + txt,
+                                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                         success: function (data) {
                                             document.getElementById('editcomment' + abc).style.display = 'none';
                                             document.getElementById('showcomment' + abc).style.display = 'block';
@@ -2803,7 +2803,7 @@ $( "#searchplace1" ).autocomplete({
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                data: 'post_id=' + abc + '&comment=' + txt,
+                                data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                 success: function (data) {
                                     document.getElementById('editcommenttwo' + abc).style.display = 'none';
                                     document.getElementById('showcommenttwo' + abc).style.display = 'block';
@@ -2856,7 +2856,7 @@ $( "#searchplace1" ).autocomplete({
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                                        data: 'post_id=' + abc + '&comment=' + txt,
+                                        data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                         success: function (data) {
                                             document.getElementById('editcommenttwo' + abc).style.display = 'none';
                                             document.getElementById('showcommenttwo' + abc).style.display = 'block';
@@ -3051,7 +3051,7 @@ $( "#searchplace1" ).autocomplete({
                                         $.ajax({
                                             type: 'POST',
                                             url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
-                                            data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                            data: 'post_image_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
                                                 $('textarea').each(function () {
@@ -3069,7 +3069,7 @@ $( "#searchplace1" ).autocomplete({
                                         $.ajax({
                                             type: 'POST',
                                             url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
-                                            data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                            data: 'post_image_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
                                                 $('textarea').each(function () {
@@ -3495,7 +3495,7 @@ $( "#searchplace1" ).autocomplete({
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/insert_commentthreeimg" ?>',
-                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
                                         $('textarea').each(function () {
@@ -3513,7 +3513,7 @@ $( "#searchplace1" ).autocomplete({
                                 $.ajax({
                                     type: 'POST',
                                     url: '<?php echo base_url() . "artistic/insert_commentimg" ?>',
-                                    data: 'post_image_id=' + clicked_id + '&comment=' + txt,
+                                    data: 'post_image_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
                                         $('textarea').each(function () {
@@ -3551,7 +3551,7 @@ $( "#searchplace1" ).autocomplete({
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
-                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                data: 'post_image_comment_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                 success: function (data) {
                                     document.getElementById('editcommentimg' + abc).style.display = 'none';
                                     document.getElementById('showcommentimg' + abc).style.display = 'block';
@@ -3676,7 +3676,7 @@ $( "#searchplace1" ).autocomplete({
                             $.ajax({
                                 type: 'POST',
                                 url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
-                                data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                data: 'post_image_comment_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                 success: function (data) {
                                     document.getElementById('editcommentimgtwo' + abc).style.display = 'none';
                                     document.getElementById('showcommentimgtwo' + abc).style.display = 'block';
@@ -3746,7 +3746,7 @@ $( "#searchplace1" ).autocomplete({
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
-                                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                        data: 'post_image_comment_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                         success: function (data) {
                                             document.getElementById('editcommentimg' + abc).style.display = 'none';
                                             document.getElementById('showcommentimg' + abc).style.display = 'block';
@@ -3802,7 +3802,7 @@ $( "#searchplace1" ).autocomplete({
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() . "artistic/edit_comment_insertimg" ?>',
-                                        data: 'post_image_comment_id=' + abc + '&comment=' + txt,
+                                        data: 'post_image_comment_id=' + abc + '&comment=' + encodeURIComponent(txt),
                                         success: function (data) {
                                             document.getElementById('editcommentimgtwo' + abc).style.display = 'none';
                                             document.getElementById('showcommentimgtwo' + abc).style.display = 'block';

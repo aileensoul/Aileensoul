@@ -2156,7 +2156,7 @@
            $.ajax({
                type: 'POST',
                url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-               data: 'post_id=' + clicked_id + '&comment=' + txt,
+               data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                dataType: "json",
                success: function (data) {
                    $('textarea').each(function () {
@@ -2174,7 +2174,7 @@
            $.ajax({
                type: 'POST',
                url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-               data: 'post_id=' + clicked_id + '&comment=' + txt,
+               data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                dataType: "json",
                success: function (data) {
                    $('textarea').each(function () {
@@ -2299,7 +2299,7 @@
                    $.ajax({
                        type: 'POST',
                        url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                       data: 'post_id=' + clicked_id + '&comment=' + txt,
+                       data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                        dataType: "json",
                        success: function (data) { //alert(123); alert(data.commentcount);
                            $('textarea').each(function () {
@@ -2314,7 +2314,7 @@
                    $.ajax({
                        type: 'POST',
                        url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                       data: 'post_id=' + clicked_id + '&comment=' + txt,
+                       data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                        dataType: "json",
                        success: function (data) {
                            $('textarea').each(function () {
@@ -2491,7 +2491,7 @@
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-           data: 'post_id=' + abc + '&comment=' + txt,
+           data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
            success: function (data) {
                document.getElementById('editcomment' + abc).style.display = 'none';
                document.getElementById('showcomment' + abc).style.display = 'block';
@@ -2575,7 +2575,7 @@
                $.ajax({
                    type: 'POST',
                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                   data: 'post_id=' + abc + '&comment=' + txt,
+                   data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                    success: function (data) {
                        document.getElementById('editcomment' + abc).style.display = 'none';
                        document.getElementById('showcomment' + abc).style.display = 'block';
@@ -2646,7 +2646,7 @@
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-           data: 'post_id=' + abc + '&comment=' + txt,
+           data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
            success: function (data) {
                document.getElementById('editcommenttwo' + abc).style.display = 'none';
                document.getElementById('showcommenttwo' + abc).style.display = 'block';
@@ -2731,7 +2731,7 @@
                $.ajax({
                    type: 'POST',
                    url: '<?php echo base_url() . "artistic/edit_comment_insert" ?>',
-                   data: 'post_id=' + abc + '&comment=' + txt,
+                   data: 'post_id=' + abc + '&comment=' + encodeURIComponent(txt),
                    success: function (data) {
                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
@@ -3408,7 +3408,7 @@
                        $.ajax({
                            type: 'POST',
                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
-                           data: 'post_id=' + clicked_id + '&comment=' + txt,
+                           data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                            dataType: "json",
                            success: function (data) {
    
@@ -3424,7 +3424,7 @@
                        $.ajax({
                            type: 'POST',
                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
-                           data: 'post_id=' + clicked_id + '&comment=' + txt,
+                           data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                            // dataType: "json",
                            success: function (data) {
                                $('#' + 'fourcomment' + clicked_id).html(data);
