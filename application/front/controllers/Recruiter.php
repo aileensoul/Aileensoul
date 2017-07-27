@@ -539,7 +539,7 @@ class Recruiter extends MY_Controller {
                     're_comp_email' => $this->input->post('comp_email'),
                     're_comp_site' => $this->input->post('comp_site'),
                     're_comp_phone' => $this->input->post('comp_num'),
-                    're_comp_interview' => $this->input->post('interview'),
+                    're_comp_interview' => trim($this->input->post('interview')),
                     're_comp_project' => $this->input->post('comp_project'),
                     're_comp_activities' => $this->input->post('other_activities')
                 );
@@ -1189,7 +1189,7 @@ foreach ($citiesss as $key1) {
             //echo "hello"; die();
             $data = array(
                 'post_name' => $this->input->post('post_name'),
-                'post_description' => $this->input->post('post_desc'),
+                'post_description' => trim($this->input->post('post_desc')),
                 'post_skill' => implode(",", $skill),
                 'post_position' => $this->input->post('position_no'),
                  
@@ -1202,7 +1202,7 @@ foreach ($citiesss as $key1) {
                 'min_year' => $this->input->post('minyear'),
                 //'max_month' => $this->input->post('maxmonth'),
                 'max_year' => $this->input->post('maxyear'),
-                'interview_process' => $this->input->post('interview'),
+                'interview_process' => trim($this->input->post('interview')),
                 'fresher' => $this->input->post('fresher'),
                 'min_sal' => $this->input->post('minsal'),
                 'max_sal' => $this->input->post('maxsal'),
@@ -1761,9 +1761,24 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
   // <rash code 12-4 end>
         $contition_array1= array('save.from_id' => $userid, 'save.status' => 0, 'save.save_type' => 1);
-        $this->data['recdata'] = $this->common->select_data_by_condition('save', $contition_array1, $data = 'job_reg.*,job_reg.user_id as userid,job_add_edu.*,job_graduation.*,save.*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
+      $recdata1 =  $this->data['recdata1'] = $this->common->select_data_by_condition('save', $contition_array1, $data = 'job_reg.*,job_reg.user_id as userid,job_add_edu.*,job_graduation.*,save.*', $sortby = 'save_id', $orderby = 'desc', $limit = '', $offset = '', $join_str1, $groupby ='');
 
-     //   echo"<pre>"; print_r($this->data['recdata']); die();
+
+foreach ($recdata1 as $ke => $arr) {
+               // foreach ($arr as $va) {
+        
+    
+                    $recdata2[] = $arr;
+                //}
+            }
+//echo "<pre>";print_r($postdata);
+                $new = array();
+                foreach ($recdata2 as $value) {
+                    $new[$value['user_id']] = $value;
+                }
+     //echo"<pre>"; print_r($new); die();
+
+                 $this->data['recdata'] = $new;
 
 
         $contition_array = array('status' => '1', 'is_delete' => '0','job_step' => 10);
@@ -2029,6 +2044,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
         $postid = $_POST['post_id'];
         $data = array(
+            
             'is_delete' => 1,
             'modify_date' => date('y-m-d h:i:s')
         );

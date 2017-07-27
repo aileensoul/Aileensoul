@@ -175,7 +175,7 @@
                  $imageee= $this->config->item('job_profile_thumb_upload_path').$p['job_user_image'];
                 if(file_exists($imageee) && $p['job_user_image'] != '') { ?>
               
-               ?>
+               
            <a href="<?php echo base_url('job/job_printpreview/' . $p['iduser'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
            <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path')  . $p['job_user_image']); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>">
             </a>
