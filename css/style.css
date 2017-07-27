@@ -4270,6 +4270,9 @@ display: inline-block;
 li.active2 {
     background-color: #d2edf9 !important;
 }
+li.active2 .notification-database:hover {
+    background: #d2edf9 !important;
+}
 .notification-pic {
     height: 50px;
     width: 50px;
@@ -10648,7 +10651,7 @@ style chat css start*/
     margin-bottom: 30px;
     width: 62%;
     position: relative;
-    word-break: break-all;
+   /* word-break: break-all;*/
 }
 .chat .chat-history .message:after {
     bottom: 100%;
@@ -14615,6 +14618,7 @@ div .comment {
         width: 1280px;
     }
     /*.header2{margin-left: 16px; margin-right: 16px;}*/
+	#InboxContainer:before {right:27px;}
 }
 @media screen and (max-width: 1200px) {
     .post-design-top{float: left;}
