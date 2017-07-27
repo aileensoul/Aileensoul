@@ -1,5 +1,5 @@
 <!-- start head -->
-
+<!-- <?php //echo "<pre>"; print_r($userdata);//die(); ?> -->
 <?php echo $head; ?>
 
 <style type="text/css">
@@ -132,7 +132,7 @@ echo $freelancer_hire_header2_border;
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
-                <?php if ($userdata[0]['freelancer_hire_user_image'] != '') { ?>
+                <?php if ($freelancerpostdata[0]['freelancer_hire_user_image'] != '') { ?>
                     <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path').$userdata[0]['freelancer_hire_user_image']);?>" alt="" >
                 <?php } else { ?>
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
@@ -148,29 +148,29 @@ echo $freelancer_hire_header2_border;
         </div>
 
             <div class="job-menu-profile mob-block">
-       <a href="javascript:void(0);">  <h3> <?php echo ucwords($userdata[0]['fullname']) . ' ' . ucwords($userdata[0]['username']); ?></h3></a>
+       <a href="javascript:void(0);">  <h3> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h3></a>
 
 
             <div class="profile-text">
                 <?php
                     if($returnpage==''){
-                if ($userdata[0]['designation'] == '') {
+                if ($freelancerpostdata[0]['designation'] == '') {
                     ?>
                    <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
                     <a id="designation" class="designation" title="Designation">Designation</a>
 
                 <?php } else { ?> 
                     <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
-                    <a id="designation" class="designation" title="<?php echo ucwords($userdata[0]['designation']); ?>"><?php echo ucwords($userdata[0]['designation']); ?></a>
+                    <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
                     <?php } }else {
 
-                        if($userdata[0]['designation'] == ''){ ?>
+                        if($freelancerpostdata[0]['designation'] == ''){ ?>
 
                          Designation
 
                   <?php   }else{ ?>
 
-                             <?php echo ucwords($userdata[0]['designation']); ?>
+                             <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
 
                     <?php    }
                         }?></div>
@@ -183,7 +183,7 @@ echo $freelancer_hire_header2_border;
                 <div class=" right-side-menu art-side-menu padding_less_right  right-menu-jr">  
                                <?php 
                $userid = $this->session->userdata('aileenuser');
-               if($userdata[0]['user_id'] == $userid){
+               if($freelancerpostdata[0]['user_id'] == $userid){
                
                ?>     
                    <ul class="current-user pro-fw">
