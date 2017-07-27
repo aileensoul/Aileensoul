@@ -3547,20 +3547,46 @@ class Business_profile extends MY_Controller {
 
 
 
-             $contition_array = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6, 'not_img' => 2);
+            $contition_array = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6);
             $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                if ($busnotification[0]['not_read'] == 2) {
+            //echo "<pre>"; print_r($busnotification); die();
+                if ($busnotification[0]['not_read'] == 2) { //echo "hi"; die();
                     
-                } elseif ($busnotification[0]['not_read'] == 1) {
+                } elseif ($busnotification[0]['not_read'] == 1) { //echo "hddi"; die();
 
                     $datafollow = array(
                         'not_read' => 2
                     );
 
-                    $where = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6, 'not_img' => 2);
+                    $where = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6);
                     $this->db->where($where);
                     $updatdata = $this->db->update('notification', $datafollow);
-                } 
+                } else{
+                    $data = array(
+                'follow_type' => 2,
+                'follow_from' => $artdata[0]['business_profile_id'],
+                'follow_to' => $business_id,
+                'follow_status' => 1,
+            );
+            $insertdata = $this->common->insert_data($data, 'follow');
+
+           $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_to' => $business_id);
+           $follow_id = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            // insert notification
+
+            $data = array(
+                'not_type' => 8,
+                'not_from_id' => $userid,
+                'not_to_id' => $busdatatoid[0]['user_id'],
+                'not_read' => 2,
+                'not_product_id' => $follow_id[0]['follow_id'],
+                'not_from' => 6,
+                'not_created_date' => date('Y-m-d H:i:s'),
+                'not_active' => 1
+            );
+            $insert_id = $this->common->insert_data_getid($data, 'notification');
+
+                }
 
 
             // $data = array(
@@ -3596,15 +3622,11 @@ class Business_profile extends MY_Controller {
                             "count" => $datacount,
                 ));
             }
-        } else {
-            $data = array(
-                'follow_type' => 2,
-                'follow_from' => $artdata[0]['business_profile_id'],
-                'follow_to' => $business_id,
-                'follow_status' => 1,
-            );
-            $insert = $this->common->insert_data($data, 'follow');
+        } else {   //echo "hii"; die();
+           
 
+           $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_to' => $business_id);
+           $follow_id = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // insert notification
 
             $data = array(
@@ -3612,7 +3634,7 @@ class Business_profile extends MY_Controller {
                 'not_from_id' => $userid,
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
-                'not_product_id' => $insert,
+                'not_product_id' => $follow_id[0]['follow_id'],
                 'not_from' => 6,
                 'not_created_date' => date('Y-m-d H:i:s'),
                 'not_active' => 1
@@ -3623,7 +3645,7 @@ class Business_profile extends MY_Controller {
         $followcount = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // end notoification
-            if ($insert) {
+            if ($insertdata) {
                 $follow = '<div id="unfollowdiv" class="user_btn">';
                 $follow .= '<button class="bg_following" id="unfollow' . $business_id . '" onClick="unfollowuser(' . $business_id . ')">
                                Following
@@ -3737,6 +3759,24 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
+
+            $contition_array = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6);
+            $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            //echo "<pre>"; print_r($busnotification); die();
+                if ($busnotification[0]['not_read'] == 2) { //echo "hi"; die();
+                    
+                } elseif ($busnotification[0]['not_read'] == 1) { //echo "hddi"; die();
+
+                    $datafollow = array(
+                        'not_read' => 2
+                    );
+
+                    $where = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6);
+                    $this->db->where($where);
+                    $updatdata = $this->db->update('notification', $datafollow);
+                } else{
+                   
+
             $data = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
@@ -3749,6 +3789,7 @@ class Business_profile extends MY_Controller {
             );
 
             $insert_id = $this->common->insert_data_getid($data, 'notification');
+          } 
             // end notoification
 
             if ($update) {
@@ -3770,19 +3811,22 @@ class Business_profile extends MY_Controller {
             $insert = $this->common->insert_data($data, 'follow');
 
             // insert notification
+            $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_to' => $business_id);
+           $follow_id = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $data = array(
+
+            $datanoti = array(
                 'not_type' => 8,
                 'not_from_id' => $userid,
                 'not_to_id' => $busdatatoid[0]['user_id'],
                 'not_read' => 2,
-                'not_product_id' => $insert,
+                'not_product_id' => $follow_id[0]['follow_id'],
                 'not_from' => 6,
                 'not_created_date' => date('Y-m-d H:i:s'),
                 'not_active' => 1
             );
 
-            $insert_id = $this->common->insert_data_getid($data, 'notification');
+            $insert_id = $this->common->insert_data_getid($datanoti, 'notification');
             // end notoification
             if ($insert) {
                 $follow = '<div class="user_btn follow_btn_' . $business_id . '" id="unfollowdiv">';
