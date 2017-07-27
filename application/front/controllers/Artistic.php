@@ -4531,7 +4531,7 @@ public function followtwo() {
 
             // insert notification
 
-            if ($artdata[0]['user_id'] == $userid) {
+            if ($artdata[0]['user_id'] == $userid || $artdata[0]['is_delete'] == '1') {
                 
             } else {
 
@@ -4832,7 +4832,7 @@ public function followtwo() {
 
         // insert notification
 
-        if ($artdatacomment[0]['user_id'] == $userid) {
+        if ($artdatacomment[0]['user_id'] == $userid || $artdatacomment[0]['is_delete'] == '1') {
             
         } else {
             $data = array(
@@ -5040,7 +5040,7 @@ public function followtwo() {
 
         // insert notification
 
-        if ($artdatacomment[0]['user_id'] == $userid) {
+        if ($artdatacomment[0]['user_id'] == $userid || $artdatacomment[0]['is_delete'] == '1') {
             
         } else {
             $notificationdata = array(
