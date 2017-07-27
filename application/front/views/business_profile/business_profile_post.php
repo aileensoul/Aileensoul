@@ -920,10 +920,10 @@
                                                                     </li> 
                                                                 </ul> 
                                                             </div>  
-                                                            <div class="dropdown1">
-                                                                <a onClick="myFunction(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
+                                                            <div class="dropdown2">
+                                                                <a onClick="myFunction1(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v">
                                                                 </a>
-                                                                <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content1">
+                                                                <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
 
                                                                     <?php
                                                                     if ($row['posted_user_id'] != 0) {
@@ -2884,17 +2884,17 @@
 <script>
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
-    function myFunction(clicked_id) {
+    function myFunction1(clicked_id) {
 //        $('.dropdown-content1').removeClass('show');
 //        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
 
     var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
     dropDownClass = dropDownClass.split(" ").pop( - 1);
     if (dropDownClass != 'show') {
-    $('.dropdown-content1').removeClass('show');
+    $('.dropdown-content2').removeClass('show');
     $('#myDropdown' + clicked_id).addClass('show');
     } else {
-    $('.dropdown-content1').removeClass('show');
+    $('.dropdown-content2').removeClass('show');
     }
 
 
@@ -2902,7 +2902,7 @@
     if (e.keyCode === 27) {
 
     document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
-    $(".dropdown-content1").removeClass('show');
+    $(".dropdown-content2").removeClass('show');
     }
 
     });

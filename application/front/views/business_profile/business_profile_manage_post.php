@@ -1267,7 +1267,7 @@
 
                                                             if ($this->session->userdata('aileenuser') == $row['posted_user_id']) {
                                                                 ?>
-                                                                <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                                                                <a onclick="user_postdeleteone(<?php echo $row['business_profile_post_id']; ?>)">
                                                                     <span class="h4-img h2-srrt"></span> Delete Post
                                                                 </a>
                                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
@@ -1277,7 +1277,7 @@
             <?php } else {
                 ?>
 
-                                                                <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">
+                                                                <a onclick="user_postdeleteone(<?php echo $row['business_profile_post_id']; ?>)">
                                                                     <span class="h4-img h2-srrt"></span> Delete Post
                                                                 </a>
                                                                 <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['posted_user_id'] . ''); ?>">
@@ -1291,7 +1291,7 @@
             <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
 
 
-                                                                <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)"><span class="h4-img h2-srrt"></span> Delete Post</a>
+                                                                <a onclick="user_postdeleteone(<?php echo $row['business_profile_post_id']; ?>)"><span class="h4-img h2-srrt"></span> Delete Post</a>
 
                                                                 <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><span class="h3-img h2-srrt"></span>Edit</a>
 
@@ -3648,13 +3648,16 @@
             <!-- remove save post start -->
             <script type="text/javascript">
                 function remove_post(abc)
-                {
+                 { //alert(abc);
+
                 $.ajax({
                 type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/business_profile_delete" ?>',
-                        data: 'save_id=' + abc,
+                        url: '<?php echo base_url() . "business_profile/business_profile_deleteforpost" ?>',
+                        data: 'business_profile_post_id=' + abc,
+                        //alert(data);
                         success: function (data) {
-                        $('#' + 'removepostdata' + abc).html(data);
+                        $('#' + 'removepost' + abc).remove();
+
                         }
                 });
                 }
@@ -4304,6 +4307,14 @@
             <!-- post delete login user script start -->
             <script type="text/javascript">
                 function user_postdelete(clicked_id)
+                {
+                $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_post(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                $('#bidmodal').modal('show');
+                }
+            </script>
+
+             <script type="text/javascript">
+                function user_postdeleteone(clicked_id)
                 {
                 $('.biderror .mes').html("<div class='pop_content'> Do you want to delete this post?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='remove_ownpost(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                 $('#bidmodal').modal('show');
