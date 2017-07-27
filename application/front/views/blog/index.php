@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# thetestasdf: http://ogp.me/ns/fb/thetestasdf#">
 <head>
   <title></title>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<?php
+  foreach ($blog_detail as $blog) 
+      {
+?>
+ <!-- Open Graph data -->
+<meta property="og:title" content="<?php echo $blog['title']; ?>" />
+<meta  property="og:type" content="Blog" />
+<meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
+<meta  property="og:description" content="<?php echo $blog['description']; ?>" /> 
+<meta  property="og:url" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>" />
+<meta property="og:image:width" content="620" />
+<meta property="og:image:height" content="541" />
+<meta property="fb:app_id" content="825714887566997" />
+
+<!-- <meta property="og:site_name" content="Site Name, i.e. Moz" />
+<meta property="fb:admins" content="Facebook numeric ID" /> -->
+ 
+  <!-- for twitter -->
+ <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>">
+<meta name="twitter:title" content="<?php $blog['title']; ?>">
+<meta name="twitter:description" content="<?php $blog['description']; ?>">
+<meta name="twitter:creator" content="By Aileensoul">
+<meta name="twitter:image" content="http://placekitten.com/250/250">
+<meta name="twitter:domain" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>">
+<?php
+}
+?>
  
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
@@ -228,22 +257,34 @@ else
           <ul class="social_icon_bloag fl">
             <li>
             
-                <a href=""><span  class="social_fb"></span></a>
+<?php
+
+$title=urlencode('"'.$blog['title'].'"');
+$url=urlencode(base_url('blog/blogdetail/'.$blog['blog_slug']));
+$summary=urlencode('"'.$blog['description'].'"');
+$image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog['image']));
+?>
+               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
+                <span  class="social_fb"></span>
+                </a>
+
               
             </li>
             <li>
               
-                  <a href=""><span  class="social_gp"></span></a>
+                 <a href="https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                <span  class="social_gp"></span>
+                </a>
               
             </li>
             <li>
                 
-                <a href=""><span  class="social_lk"></span></a>
+                <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
               
             </li>
             <li>
             
-                <a href=""><span class="social_tw"></span></a>
+                <a href="https://twitter.com/intent/tweet?text="<?php echo  $blog['description'];?>" &url=<?php echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<?php echo  $blog['description'];?> &url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
             
             </li>
 
@@ -336,6 +377,7 @@ else
 </body>
 </html>
 
+
 <script type="text/javascript">
      
 function read_more(blog_id,slug) {
@@ -371,5 +413,37 @@ function read_more(blog_id,slug) {
    
 </script>
 <!-- FOR SEARCH VALIDATION FOR EMAPTY SEARCH END -->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE START-->
+<script type="text/javascript">
+ $(document).ready(function() {
+$(".fbk").on('click', function() {
+
+//alert($(this).attr('title'));
+      //  var url=$(this).attr('data');
+     
+
+       var url= $(this).attr('url');
+        var  url_encode= $(this).attr('url_encode');
+       var title=$(this).attr('title');
+       var summary= $(this).attr('summary');
+       var image=$(this).attr('image');
+
+        $.ajax({
+        type: 'POST',
+        url: 'https://graph.facebook.com?id='+url+'&scrape=true',
+            success: function(data){
+               console.log(data);
+           }
+
+    });
+         window.open('http://www.facebook.com/sharer.php?s=100&p[title]='+title+'&p[summary]='+summary+'&p[url]='+ url_encode+'&p[images][0]='+image+'', 'sharer', 'toolbar=0,status=0,width=620,height=280');
+});
+});
+
+</script>
+<!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE END-->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>

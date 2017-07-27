@@ -461,7 +461,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
 <script type="text/javascript">
      
 var url= window.location.href;
-//alert(url);
+
         $.ajax({
         type: 'POST',
         url: 'https://graph.facebook.com?id='+url+'&scrape=true',

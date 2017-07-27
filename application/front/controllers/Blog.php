@@ -47,6 +47,7 @@ class Blog extends CI_Controller {
        {
             $condition_array = array('status !=' => 'delete');
             $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+           // echo "<pre>";print_r( $this->data['blog_detail']);die();
        }
         //FOR GETTING ALL DATA START
 
