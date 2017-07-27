@@ -1530,12 +1530,14 @@
                                                                 <?php
                                                                 $userid = $this->session->userdata('aileenuser');
                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
+
+                                                                 $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
                                                                 ?>
                                                                 <?php if ($business_userimage) { ?>
                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                 <?php } else { ?>
                                                                      <?php 
-                                          $a = $businessdata[0]['company_name'];
+                                          $a = $business_user;
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
                                             <?php echo  ucwords($acr)?>
