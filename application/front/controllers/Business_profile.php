@@ -3625,6 +3625,15 @@ class Business_profile extends MY_Controller {
         } else {   //echo "hii"; die();
            
 
+            $data = array(
+                'follow_type' => 2,
+                'follow_from' => $artdata[0]['business_profile_id'],
+                'follow_to' => $business_id,
+                'follow_status' => 1,
+            );
+            $insertdata = $this->common->insert_data($data, 'follow');
+
+
            $contition_array = array('follow_type' => 2, 'follow_from' => $artdata[0]['business_profile_id'], 'follow_status' => 1, 'follow_to' => $business_id);
            $follow_id = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // insert notification
@@ -5115,7 +5124,7 @@ class Business_profile extends MY_Controller {
 
 
             // insert notification
-            if ($businessprofiledata[0]['user_id'] == $userid) {
+            if ($businessprofiledata[0]['user_id'] == $userid || $businessprofiledata[0]['is_delete'] == '1') {
                 
             } else {
 
@@ -5404,7 +5413,7 @@ class Business_profile extends MY_Controller {
 
         // insert notification
 
-        if ($busdatacomment[0]['user_id'] == $userid) {
+        if ($busdatacomment[0]['user_id'] == $userid || $busdatacomment[0]['is_delete'] == '1') {
             
         } else {
             $notificationdata = array(
@@ -5596,7 +5605,7 @@ class Business_profile extends MY_Controller {
         $insert_id = $this->common->insert_data_getid($data, 'business_profile_post_comment');
 
         // insert notification
-        if ($busdatacomment[0]['user_id'] == $userid) {
+        if ($busdatacomment[0]['user_id'] == $userid ||  $busdatacomment[0]['is_delete'] == '1') {
             
         } else {
             $notificationdata = array(
