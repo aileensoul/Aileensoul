@@ -1744,10 +1744,19 @@ $datacount = count($otherdata);
 
 
         if (count($otherdata) == 0) {
-                    $notfound = '<div class="contact-frnd-post bor_none">';
-                    $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No Post Found.</h4>';
-                    $notfound .= '</div></div>';
+                    $notfound = '<div class="art_no_post_avl">
+         <h3> Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="'.base_url('img/art-no.png').'">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+          </div>
+       </div>';
 
                     $notvideo = 'Video Not Available';
                     $notaudio = 'Audio Not Available';
@@ -1937,19 +1946,37 @@ $datacount = count($otherdata);
                     $datacount = "count";
 
 
-                    $notfound = '<div class="contact-frnd-post bor_none">';
-                    $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
-                    $notfound .= '</div></div>';
+                    $notfound = '<div class="art_no_post_avl">
+         <h3> Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="'.base_url('img/art-no.png').'">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+          </div>
+       </div>';
                 
             } }else{ 
 
                     $datacount = "count";
 
-                    $notfound = '<div class="contact-frnd-post bor_none">';
-                    $notfound .= '<div class="text-center rio">';
-                    $notfound .= '<h4 class="page-heading  product-listing">No post Found.</h4>';
-                    $notfound .= '</div></div>';
+                    $notfound = '<div class="art_no_post_avl">
+         <h3> Post</h3>
+          <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="'.base_url('img/art-no.png').'">
+        
+         </div>
+         <div class="art_no_post_text">
+           No Post Available.
+         </div>
+          </div>
+       </div>';
                 
             }
 
