@@ -41,9 +41,9 @@
                 </a>
                 <ul class="treeview-menu">     
 
-                    <li><a href="<?php echo base_url('Recruiter/user'); ?>"><i class="fa fa-users"></i>List Recruiter User</a></li>
+                    <li><a href="<?php echo base_url('recruiter/user'); ?>"><i class="fa fa-users"></i>List Recruiter User</a></li>
 
-                    <li><a href="<?php echo base_url('Recruiter/post'); ?>"><i class="fa fa-vcard"></i>Post Recruiter User</a></li>
+                    <li><a href="<?php echo base_url('recruiter/post'); ?>"><i class="fa fa-vcard"></i>Post Recruiter User</a></li>
                 </ul>
             </li>
             <!--End Recruiter Management-->
@@ -56,9 +56,9 @@
                 </a>
                 <ul class="treeview-menu">     
 
-                    <li><a href="<?php echo base_url('Blog_tag/list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
+                    <li><a href="<?php echo base_url('blog_tag/blog_list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
 
-                    <li><a href="<?php echo base_url('Blog/list'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Blog List</a></li>
+                    <li><a href="<?php echo base_url('blog/blog_list'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Blog List</a></li>
                 </ul>
             </li>
            <!--End Blog-->

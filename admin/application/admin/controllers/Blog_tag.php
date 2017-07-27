@@ -29,7 +29,7 @@ class Blog_tag extends CI_Controller {
         include('include.php');
     }
 
-    public function list() {
+    public function blog_list() {
 
         $this->load->view('blog_tag/list', $this->data);
     }
@@ -59,10 +59,10 @@ class Blog_tag extends CI_Controller {
                if ($insert_id) {
 
                     $this->session->set_flashdata('success', 'Tag name inserted successfully');
-                    redirect('blog_tag/list', refresh);
+                    redirect('blog_tag/blog_list', refresh);
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
-                    redirect('blog_tag', refresh);
+                    redirect('blog_tag/tag_add', refresh);
                 }
 
 

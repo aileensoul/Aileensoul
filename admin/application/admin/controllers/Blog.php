@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Blog extends CI_Controller {
+class Blog extends MY_Controller {
 
     public $data;
 
@@ -33,7 +33,7 @@ class Blog extends CI_Controller {
     }
 
 //LIST OF BLOG ADD BY ADMIN START
- public function list() 
+ public function blog_list() 
  {
          //FOR GETTING ALL DATA STARt
             $condition_array = array('status !=' => 'delete');
@@ -64,6 +64,7 @@ class Blog extends CI_Controller {
 //BLOG ADD INSERT START
  public function blog_insert()
      {
+
         //IMAGE UPLOAD IN FOLDER START
         if($_FILES['image']['name'] != '' )
         {
@@ -120,7 +121,9 @@ class Blog extends CI_Controller {
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'publish'
                 ); 
+             // echo "<pre>";print_r($data);die();
          $insert_id = $this->common->insert_data_getid($data, 'blog');
+
                
          //FOR INSERT BLOG DATA END
 
@@ -128,12 +131,12 @@ class Blog extends CI_Controller {
         {
 
             $this->session->set_flashdata('success', 'Blog inserted successfully');
-            redirect('Blog/list', refresh);
+            redirect('blog/blog_list', refresh);
         } 
         else 
         {
             $this->session->flashdata('error', 'Sorry!! Your data not inserted');
-            redirect('Blog/add', refresh);
+            redirect('blog/add', refresh);
         }
 
     }

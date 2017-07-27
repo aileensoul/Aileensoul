@@ -22,7 +22,7 @@ echo $leftmenu;
             <li class="active">Blog</li>
         </ol>
         <div class="fr">      
-                         <a name="Add" href="<?php echo base_url('Blog/add'); ?>" class="btn bg-orange btn-flat margin-r-5" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
+                         <a name="Add" href="<?php echo base_url('blog/add'); ?>" class="btn bg-orange btn-flat margin-r-5" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
         </div>
     </section>
 
