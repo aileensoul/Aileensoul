@@ -122,9 +122,10 @@
                                             <div class="notification-pic" id="noti_pc" >
                                             <?php   
                                                                                       
-                                             $filepath = base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']);
+                                         $filepath = FCPATH . $this->config->item('rec_profile_thumb_upload_path') . $total['user_image'];
                                         
-                                            if ($total['user_image']){ ?>
+                                          
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -154,7 +155,9 @@
                                         <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>"> 
                                         
                                             <div class="notification-pic" id="noti_pc">
-                                                <?php         if ($total['user_image']) { ?>
+                                             <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -185,7 +188,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                              
                                                 <div class="notification-pic" id="noti_pc">
-                   <?php         if ($total['user_image']) { ?>
+                             <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -218,7 +223,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                                 <div class="notification-pic" id="noti_pc" >
-                                                 <?php         if ($total['user_image']) { ?>
+                                               <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -253,7 +260,9 @@
                                                 <div class="notification-pic" id="noti_pc" >
                                                 
                                                     
-                                                    <?php         if ($total['user_image']) { ?>
+                                                     <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -282,7 +291,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>"> 
                                             
                                                 <div class="notification-pic"  id="noti_pc">
-                                        <?php         if ($total['user_image']) { ?>
+                                       <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -314,7 +325,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                        <?php         if ($total['user_image']) { ?>
+                                         <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -348,7 +361,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                             <div class="notification-pic" id="noti_pc">
-                                                <?php         if ($total['user_image']) { ?>
+                                                <?php    $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -384,7 +399,9 @@
                                         
                                             <div class="notification-pic" id="noti_pc" >
                                                 
-                                                <?php         if ($total['user_image']) { ?>
+                                              <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -421,7 +438,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                     <?php         if ($total['user_image']) { ?>
+                                    <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -455,7 +474,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                             <div class="notification-pic" id="noti_pc" >
-                                             <?php         if ($total['user_image']) { ?>
+                                           <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -491,7 +512,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                              
                                                 <div class="notification-pic" id="noti_pc" >
-                                                     <?php         if ($total['user_image']) { ?>
+                                               <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -523,7 +546,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                                 <div class="notification-pic" id="noti_pc" >
-                                           <?php         if ($total['user_image']) { ?>
+                                        <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                  <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
             <?php    } else { ?>
                    <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -557,7 +582,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                              
                                                 <div class="notification-pic" id="noti_pc" >
-                                                 <?php         if ($total['user_image']) { ?>
+                                             <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -590,7 +617,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                              
                                                 <div class="notification-pic" id="noti_pc" >
-                                                    <?php         if ($total['user_image']) { ?>
+                                                <?php    $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -623,7 +652,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                                 <div class="notification-pic" id="noti_pc" >
-                                                    <?php         if ($total['user_image']) { ?>
+                                                 <?php    $filepath = FCPATH . $this->config->item('job_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
@@ -658,7 +689,9 @@
                                             <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
                                             
                                                 <div class="notification-pic" id="noti_pc" >
-                                                    <?php         if ($total['user_image']) { ?>
+                                                  <?php    $filepath = FCPATH . $this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image'];
+                                        
+                                            if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >
