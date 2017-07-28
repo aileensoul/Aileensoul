@@ -979,8 +979,8 @@
 
         </div> <!-- End  bootstrap-touch-slider Slider -->
 </div>
-<div class="bottom_section fw">
-	<div class="fw">
+<div class="bottom_section fw" id="temp_btn">
+	<div class="fw" id="temp_btn1">
 
 	<div class="ld_sl"></div>
 	</div>
@@ -1079,13 +1079,22 @@ $( document ).on( 'keydown', function ( e ) {
 
 //THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON START
 $( document ).ready(function() {
-var slides = document.querySelectorAll('#inner .item');
+
+var slides = document.querySelectorAll('.main_box #inner .item');
+var slides1 = document.querySelectorAll('.main_box #temp_btn #temp_btn1 .ld_sl');
+
 var currentSlide = 0;
+var currentSlide_width=0;
+
  $('#img').click(function (event) {
  	event.preventDefault();
     slides[currentSlide].className = 'item';
     currentSlide = (currentSlide+1)%slides.length;
     slides[currentSlide].className = 'item active';
+
+    slides1[currentSlide_width].className = 'ld_sl';
+    currentSlide_width = (currentSlide_width+1)%slides1.length;
+    slides1[currentSlide_width].className = 'ld_sl sld-width-'+(currentSlide+1);
     });
 
 });

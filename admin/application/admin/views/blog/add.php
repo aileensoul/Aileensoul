@@ -62,17 +62,17 @@ echo $leftmenu;
                             <div class="form-group">
                                 <label>Tag*</label>
 
-                                <input type="text" class="form-control" name="tag" id="tag" value="">
-                                <!-- <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
+                               <input type="text" class="form-control" name="tag" id="tag" value="">
+                                 <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
                                     <option value="" selected option disabled="">Select Tag</option>
                                     <?php
-                                    //foreach ($blog_tag as $tag) {
+                                    foreach ($blog_tag as $tag) {
                                         ?>
-                                        <option value="<?php //echo $tag['id']; ?>"><?php //echo $tag['name']; ?></option>
+                                        <option value="<?php echo $tag['id']; ?>"><?php echo $tag['name']; ?></option>
                                         <?php
                                     }
                                     ?>
-                                </select> -->
+                                </select> 
                             </div>
                         </div>
                         <!-- TAG SELECTION END -->
