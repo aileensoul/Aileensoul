@@ -439,8 +439,8 @@ $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))
       <li><b>Pincode</b> <span>
              <?php echo PROFILENA;?></span></li><?php  }else{}?>               
           <?php }?>
-                                            <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
-                                            </li>
+                                            <!-- <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
+                                            </li> -->
 
                                         </ul>
                                     </div>
