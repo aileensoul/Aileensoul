@@ -187,7 +187,7 @@
                                                                 $a = $businessdata[0]['company_name'];
                                                                 $acr = substr($a, 0, 1);
                                                                 ?>
-                                                                <div class="post-img-div">
+                                                                <div class="post-img-profile">
                                                                     <?php echo ucwords($acr) ?>
                                                                 </div> 
                                                                 <?php
@@ -205,7 +205,7 @@
                                                             $a = $businessdata[0]['company_name'];
                                                             $acr = substr($a, 0, 1);
                                                             ?>
-                                                            <div class="post-img-div">
+                                                            <div class="post-img-profile">
                                                                 <?php echo ucwords($acr) ?>
                                                             </div>
 
