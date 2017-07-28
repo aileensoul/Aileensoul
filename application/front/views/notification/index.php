@@ -80,7 +80,7 @@
                                        <div class=" ">
                                           <img src="img/icon_notification_big.png">
                                           <div>
-                                             <div class="not_txt">There is no Notification are avalible</div>
+                                             <div class="not_txt"> No Notifications</div>
                                           </div>
                                        </div>
                                     </div>
