@@ -622,24 +622,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         update_chats();
     }, 1500);
 
+</script>
 
-
- $( document ).on( 'keydown', function ( e ) { 
-    if (e.keyCode  == 13 && !e.shiftKey) {
+<script type="text/javascript">
+    if (e.which == 13 && !e.shiftKey) {
         e.preventDefault();
         var $field = $('#message');
         var data = $('#message').html();
-       alert(data);
+       
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
         var data = data.replace(/<br><br><br><br>/, '');
-        var data = data.replace(/<br>/gi, '');
-       
+        var data = data.replace(/<br>/, '');
         if (data == '') {
-           return false;
+            return false;
         }
         $('#submit').trigger('click');
     }
-});
+
 </script>
 <script type="text/javascript">
     function delete_chat(from, message_id) {
