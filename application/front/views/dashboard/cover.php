@@ -1086,7 +1086,8 @@ var slides1 = document.querySelectorAll('.main_box #temp_btn #temp_btn1 .ld_sl')
 var currentSlide = 0;
 var currentSlide_width=0;
 
- $('#img').click(function (event) {
+ $('#img').click(function (event) 
+ {
  	event.preventDefault();
     slides[currentSlide].className = 'item';
     currentSlide = (currentSlide+1)%slides.length;
@@ -1095,8 +1096,12 @@ var currentSlide_width=0;
     slides1[currentSlide_width].className = 'ld_sl';
     currentSlide_width = (currentSlide_width+1)%slides1.length;
     slides1[currentSlide_width].className = 'ld_sl sld-width-'+(currentSlide+1);
-    });
 
+ 	if((currentSlide+1)==slides.length)
+ 	{
+ 		$('#img').remove();
+ 	}
+  });
 });
 //THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON END
 	
