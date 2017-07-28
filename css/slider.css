@@ -63,6 +63,20 @@ padding: 6px 20px;}
 #onload-Modal .imagesl .close:hover{background:none;}
 #onload-Modal .bottom_section{background:#fff;}
 #onload-Modal.modal{padding-top:0;}
+.sld-width-1{width:7%;}
+.sld-width-2{width:14%;}
+.sld-width-3{width:21%;}
+.sld-width-4{width:28%;}
+.sld-width-5{width:35%;}
+.sld-width-6{width:42%;}
+.sld-width-7{width:49%;}
+.sld-width-8{width:56%;}
+.sld-width-9{width:63%;}
+.sld-width-10{width:70%;}
+.sld-width-11{width:77%;}
+.sld-width-12{width:84%;}
+.sld-width-13{width:91%;}
+.sld-width-14{width:100%;}
 
 
 /***  bootstrap slider  ***/
