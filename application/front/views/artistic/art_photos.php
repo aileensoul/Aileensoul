@@ -373,6 +373,10 @@
          </div>
          <div class="clearfix"></div>
       </div>
+      </div><script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      </div>
+      </div>
+      </div>
       </div>
 
 
@@ -760,11 +764,7 @@
                                     <div>
                                     </div>
                                  </div>
-      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-      </div>
-      </div>
-      </div>
-      </div>
+      
 
 
    </section>
