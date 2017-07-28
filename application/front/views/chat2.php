@@ -590,9 +590,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var sel = $("#message");
             var txt = sel.html();
             txt = txt.replace(/&nbsp;/gi, " ");
-            txt = txt.replace(/<br>$/, '');
+            txt = txt.replace(/<br>/g, '');
             txt = txt.replace(/&gt;/gi, ">");
             txt = txt.replace(/div/gi, "p");
+            alert(txt);
             if (txt == '' || txt == '<br>') {
                 return false;
             }
