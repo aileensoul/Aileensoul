@@ -65,7 +65,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         echo "active";
                                     }
                                     ?>">
-                                            <?php if ($user['user_image']) { ?>
+                                          <?php    $filepath = FCPATH . $this->config->item('user_thumb_upload_path') . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ ?> 
+                                           
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
@@ -129,8 +132,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?>">
 
                                                 <?php
-                                                if ($message_from_profile == 2) {
-                                                    if ($user['user_image']) {
+                                              if ($message_from_profile == 2) {
+                                             $filepath = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){           
+                                                   
                                                         $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);
@@ -138,35 +144,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 }
 
                                                 if ($message_from_profile == 1) {
-                                                    if ($user['user_image']) {
+                                                     $filepath = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);
                                                     }
                                                 }
                                                 if ($message_from_profile == 4) {
-                                                    if ($user['user_image']) {
+                                                     $filepath = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);
                                                     }
                                                 }
                                                 if ($message_from_profile == 3) {
-                                                    if ($user['user_image']) {
+                                                   $filepath = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);
                                                     }
                                                 }
                                                 if ($message_from_profile == 5) {
-                                                    if ($user['user_image']) {
+                                                       $filepath = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ 
                                                         $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);
                                                     }
                                                 }
                                                 if ($message_from_profile == 6) {
-                                                    if ($user['user_image']) {
+                                                       $filepath = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                        
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ 
                                                         $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                                                     } else {
                                                         $user_image = base_url(NOIMAGE);

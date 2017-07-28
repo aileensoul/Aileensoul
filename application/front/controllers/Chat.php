@@ -1850,8 +1850,7 @@ class Chat extends MY_Controller {
                 foreach ($userlist as $user) {
                     $usrsrch = '<li class="clearfix">';
 
-                    if ($user['user_image']) {
-                        $usrsrch .= '    <div class="chat_heae_img">';
+                   
 
                         if ($message_from_profile == 2) {
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
@@ -1871,6 +1870,8 @@ class Chat extends MY_Controller {
                         if ($message_from_profile == 6) {
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                         }
+                         if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        $usrsrch .= '    <div class="chat_heae_img">';
 
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px" />';
                         $usrsrch .= '</div>';
@@ -2320,8 +2321,7 @@ class Chat extends MY_Controller {
                         $usrsrch .= 'active';
                     }
                     $usrsrch .= '">';
-                    if ($user['user_image']) {
-                        $usrsrch .= '<div class="chat_heae_img">';
+                   
                         if ($message_from_profile == 2) {
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                         }
@@ -2340,7 +2340,8 @@ class Chat extends MY_Controller {
                         if ($message_from_profile == 6) {
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                         }
-
+                      if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
                     } else {
