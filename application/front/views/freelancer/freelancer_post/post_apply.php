@@ -209,12 +209,12 @@
                                                                         <div class="profile-job-profile-button clearfix">
                                                                             <div class="profile-job-details col-md-12">
                                                                                 <ul>
-                                                                                    <li class="fr">
+                                                                                    <li class="fr created_date">
                                                                                         Created Date : <?php
                                         echo trim(date('d-M-Y', strtotime($post['created_date'])));
                                                     ?>
                                                                                     </li>
-                                                                                    <li>
+                                                                                    <li class="dot_free">
                                                                                         <a href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'] . '?page=freelancer_post'); ?>" title="<?php echo ucwords($post['post_name']); ?>" class="display_inline post_title">
                                                                                             <?php echo ucwords($post['post_name']); ?> </a>   </li>
 
@@ -222,7 +222,7 @@
 
                                                                                     <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                                                                                     <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                                                    <li> 
+                                                                                    <li class="created_date"> 
                                                                                         <?php if ($cityname || $countryname) { ?>  
                                                                                             <div class="fr lction">
 
