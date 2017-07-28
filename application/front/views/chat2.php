@@ -102,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
                                                     <?php       
-                                $username = substr($last_user_data['user_name'], 0, 15); ?>
+                                $username = substr($last_user_data['user_name'], 0, 25); ?>
                                                         <?php echo $username; 
                                                                 if (strlen($last_user_data['user_name']) > 15) {
                                                               echo " ...";
@@ -182,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <div class="about">
                                                     <div class="name"> 
                                                         <?php       
-                                $username = substr($user['first_name'], 0, 15); ?>
+                                $username = substr($user['first_name'], 0, 25); ?>
                                                         <?php echo $username; 
                                                                 if (strlen($user['first_name']) > 15) {
                                                               echo " ...";

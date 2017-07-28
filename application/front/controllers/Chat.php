@@ -1882,7 +1882,15 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $user['first_name'] .' '.$user['last_name']. '<br></a>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                    
+                       
+                                $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                                               $usrsrch .= '' .  $username . ''; 
+                                                                if (strlen($user['first_name'] . $user['last_name']) > 15) {
+                                                       $usrsrch .= ' ...';
+                                                                }
+                    $usrsrch .= '<br></a>';
                     $usrsrch .= '</div><div class="status" style=" width: 145px;
     color: #003;    max-height: 25px;
     white-space: nowrap;
@@ -2343,7 +2351,14 @@ class Chat extends MY_Controller {
                     }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $user['first_name'] . ' ' . $user['last_name'] . '<br></a> </div>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
+                             $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                                               $usrsrch .= '' .  $username . ''; 
+                                                                if (strlen($user['first_name'] . $user['last_name']) > 15) {
+                                                       $usrsrch .= ' ...';
+                                                                } 
+                            
+                     $usrsrch .= '<br></a> </div>';
                     $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
