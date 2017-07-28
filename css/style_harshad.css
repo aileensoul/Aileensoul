@@ -253,7 +253,7 @@ background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FCFC
 background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%, #d5ebfd 100%);
 }
 .banner-box{border-bottom:1px solid #d9d9d9;}
-#notification_inside h6{height:25px;}
+#notification_inside h6{height:auto;}
 .notification-data-inside .clockimg{display:none;}
 .notifications li .notification-data-inside div{padding-left:0;}
 .custom-row .user-pic:hover a{width:100%;}

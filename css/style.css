@@ -16223,7 +16223,11 @@ overflow: hidden;
     .cls-ve{top:35px;}
 }
 @media screen and (max-width: 360px) {
-    
+    .hout_noti{font-size: 11px;}
+    .job-saved-box .notification-box ul li{padding: 0;}
+    #notification_inside h6{font-size: 12px !important;}
+    #notification_inside{   padding: 5px 5px 9px 1px !important;
+margin-left: 7px !important;}
 .job_con #InboxContainer::before {
     right: 131px;
 }
