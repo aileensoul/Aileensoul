@@ -362,7 +362,22 @@
                               <div class="module_art_phtos">
                                  <!-- khyati changes start -->
                                  <!-- khyati changes end -->
-                                 <div id="myModal1" class="modal2">
+                                 
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+      </div>
+
+
+
+     <div id="myModal1" class="modal2">
                                     <div class="modal-content2">
                                        <span class="close2 cursor" onclick="closeModal()">&times;</span>
                                        <!-- khyati chnages start-->
@@ -745,22 +760,13 @@
                                     <div>
                                     </div>
                                  </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="clearfix"></div>
-      </div>
-      </div>
       <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       </div>
       </div>
       </div>
       </div>
+
+
    </section>
 </body>
 <!-- Bid-modal-2  -->
