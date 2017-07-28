@@ -348,11 +348,8 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
             <div class="post_latest_right">
             <div class="desc_post">
               <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
-            </div>
-          
-            <div class="desc_post">
-              <span class="rifght_desc"> <?php echo $blog['description'];?> </span>
-            </div>  
+            </div> 
+            
             </div>
 
           </div>

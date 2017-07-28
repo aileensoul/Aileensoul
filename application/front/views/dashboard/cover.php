@@ -681,7 +681,7 @@
 
 
             <!-- Wrapper For Slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" id="inner">
 
                 <!-- 1st Slide -->
                 <div class="item active">
@@ -972,10 +972,10 @@
             </a>
 
             <!-- Right Control -->
-            <a class="right carousel-control" >
+           <!--  <a class="right carousel-control" >
                 <span class="fa fa-angle-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
+            </a> -->
 
         </div> <!-- End  bootstrap-touch-slider Slider -->
 </div>
@@ -985,7 +985,7 @@
 	<div class="ld_sl"></div>
 	</div>
 	<div class="lfar_sl">
-		<a href="#bootstrap-touch-slider" role="button" data-slide="next" class="next-btn"><img src="slicing/img_arrow.png"></a>
+		<a href=""  class="next-btn"><img src="slicing/img_arrow.png" id="img"></a>
 	</div>
 </div>
 
@@ -1076,27 +1076,20 @@ $( document ).on( 'keydown', function ( e ) {
 
 
 <script>
-	$( document ).ready(function() {
-    
-		// hover
-		/*$(function(){
-		$(".dropdown").hover(            
-				function() {
-					$('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
-					$(this).toggleClass('open');
-					//$('b', this).toggleClass("caret caret-up");                
-				},
-				function() {
-					$('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
-					$(this).toggleClass('open');
-					//$('b', this).toggleClass("caret caret-up");                
-				});
-		});*/
 
-			
-			
-	
-	});
+//THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON START
+$( document ).ready(function() {
+var slides = document.querySelectorAll('#inner .item');
+var currentSlide = 0;
+ $('#img').click(function (event) {
+ 	event.preventDefault();
+    slides[currentSlide].className = 'item';
+    currentSlide = (currentSlide+1)%slides.length;
+    slides[currentSlide].className = 'item active';
+    });
+
+});
+//THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON END
 	
 	// scroll top
 	$(document).ready(function(){
