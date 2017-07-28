@@ -200,7 +200,7 @@
 									</fieldset>
 								
 
-									<fieldset class="full-width">
+									<!-- <fieldset class="full-width">
 									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
@@ -209,7 +209,7 @@
                                     <label id="address-error"></label>
 
                                 
-								</fieldset>
+								</fieldset> -->
 
                                  <fieldset class="hs-submit full-width">
                                     
@@ -242,13 +242,13 @@
 </body>
 </div>
 </html>
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
      var textarea = document.getElementById("textarea");
 
 textarea.onkeyup = function(evt) {
     this.scrollTop = this.scrollHeight;
 }
- </script>
+ </script> -->
 
   <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
   
@@ -605,13 +605,13 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                           
                         },
                       
-                        address: {
+                        // address: {
 
-                            required: true,
-                               regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                            //noSpace: true
+                        //     required: true,
+                        //        regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                        //     //noSpace: true
                             
-                        },
+                        // },
                         
                       
 
@@ -631,11 +631,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             
                         },
                        
-                        address: {
+                        // address: {
 
-                            required: "Address Is Required.",
+                        //     required: "Address Is Required.",
                             
-                        },
+                        // },
 
                        
                 },
