@@ -5714,7 +5714,7 @@ label.cameraButton i {
 }
 .upload-img {
     float: right;
-    z-index: 0;
+    z-index: 1;
     position: relative;
     margin-top: -135px;
     right: 50px;
