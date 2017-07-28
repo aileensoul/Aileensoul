@@ -835,11 +835,16 @@ if ($searchkeyword == "" && $searchplace == "") {
 
 
               $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'sum(experience_year),user_id,sum(experience_month)', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ='user_id');
+
+
+             // echo "<pre>"; print_r($recdata); die();
         
 
 foreach ($recdata as $rec) {
 
         $rec_search = str_replace(' ', '', $rec_search);
+
+      //  echo "<pre>"; print_r($rec_search);
 
 
     
@@ -859,6 +864,11 @@ foreach ($recdata as $rec) {
                                                    }
                                                       $rec['sum(experience_year)'] = $rec['sum(experience_year)'].'year';
                                                       $rec['sum(experience_month)'] = $rec['sum(experience_month)'].'month';
+
+
+                                                      // echo "<pre>"; print_r($rec['sum(experience_year)']);
+                                                      // echo "<pre>"; print_r($rec['sum(experience_month)']);
+
                             
                                                 
     if(($rec['sum(experience_year)'] == '0year') && (strcmp($rec['sum(experience_month)'],$rec_search) == 0))
@@ -892,7 +902,7 @@ foreach ($recdata as $rec) {
     {
 
 
-//echo "string11";
+
             $join_str = array(array(
                     'join_type' => '',
                     'table' => 'job_add_edu',
@@ -921,18 +931,36 @@ else
 
 }
 }
- foreach ($resul as $ke => $arr) {
+
+
+foreach ($resul as $key => $value) {
+
+
+    foreach ($value as $va) {
+
+
+        $result4[] = $va;
+
+  
+}
+}
      $new3 = array();
 
-            foreach ($arr as $ky => $valu) {
+
+ foreach ($result4 as $ke => $arr) {
+
+           /// foreach ($arr as $valu) {
    
         
     
 
-                $new3[$valu['user_id']] = $valu;
+                $new3[$arr['user_id']] = $arr;
                
-            }
+          //  }
         }
+
+
+    // echo "<pre>"; print_r($new3);  die();
 
   $join_str = array(array(
                     'join_type' => '',
@@ -1014,7 +1042,7 @@ else
                 'from_table_id' => 'job_graduation.user_id')
                 );
 
-                $contition_array = array('job_add_edu.stream' => $recsearch1, 'job_reg.user_id !=' => $userid ,'job_reg.job_step' => 10);
+                $contition_array = array('job_graduation.stream' => $recsearch1, 'job_reg.user_id !=' => $userid ,'job_reg.job_step' => 10,'job_reg.status' => '1');
 
 
                 $yeardata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
@@ -1024,6 +1052,8 @@ else
             // echo "<pre>"; print_r($streamdata); die();
 
             $recsearch = $this->db->get_where('degree', array('degree_name' => $rec_search))->row()->degree_id;
+
+            //echo "<pre>"; print_r($recsearch); 
 
             if ($recsearch != "") {
 
@@ -1040,16 +1070,15 @@ else
                 );
 
 
-
-
- $contition_array = array('status' => '1', 'is_deleted' => '0');
-
-                $contition_array = array('job_add_edu.degree' => $recsearch, 'job_reg.user_id !=' => $userid ,'job_reg.job_step' => 10);
-
-
+                $contition_array = array('job_graduation.degree' => $recsearch, 'job_reg.user_id !=' => $userid ,'job_reg.job_step' => 10,'job_reg.status' => '1');
 
                 $yeardata = $userdata['data'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_reg.*,job_reg.user_id as iduser,job_add_edu.*,job_graduation.*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             }
+
+           // echo "<pre>"; print_r($yeardata); 
+
+
+           // die();
             //echo "<pre>"; print_r($degreedata); 
 
 
@@ -1303,17 +1332,30 @@ else
 }
 }
 
- foreach ($resul as $ke => $arr) {
+foreach ($resul as $key => $value) {
+
+
+    foreach ($value as $va) {
+
+
+        $result4[] = $va;
+
+  
+}
+}
      $new3 = array();
 
-            foreach ($arr as $ky => $valu) {
+
+ foreach ($result4 as $ke => $arr) {
+
+           /// foreach ($arr as $valu) {
    
         
     
 
-                $new3[$valu['user_id']] = $valu;
+                $new3[$arr['user_id']] = $arr;
                
-            }
+          //  }
         }
 
 
