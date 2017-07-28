@@ -245,7 +245,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         ?>
                                                     </div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-            <?php echo str_replace('\\', '', $user['message']); ?>
+            <?php $message = $user['message'];
+                  $message =  str_replace('\\', '', $message); 
+                  $message =  str_replace('%26amp;', '&', $message); 
+                  echo $message;
+                  ?>
                                                     </div>
                                                 </div>
                                             </li></a> 

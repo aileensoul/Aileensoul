@@ -2357,6 +2357,8 @@ array(
             $message = str_replace('\\r', '', $msg['message']); 
              $message = str_replace('\\t', '', $message); 
                $message = str_replace('\\', '', $message);
+               $message = str_replace('%26amp;', '&', $message);
+              
         
             $notmsg .= '' . $message . '';
             $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
