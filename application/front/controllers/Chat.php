@@ -1882,7 +1882,7 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '">' . $user['first_name'] .' '.$user['last_name']. '<br></a>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $user['first_name'] .' '.$user['last_name']. '<br></a>';
                     $usrsrch .= '</div><div class="status" style=" width: 145px;
     color: #003;    max-height: 25px;
     white-space: nowrap;
