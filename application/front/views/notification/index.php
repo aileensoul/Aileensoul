@@ -120,7 +120,11 @@
                                         <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>"> 
                                         
                                             <div class="notification-pic" id="noti_pc" >
-                                            <?php         if ($total['user_image']) { ?>
+                                            <?php   
+                                                                                      
+                                             $filepath = base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']);
+                                        
+                                            if ($total['user_image']){ ?>
                                                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']); ?>" >
                                                 <?php    } else { ?>
                                                     <img src="<?php echo base_url(NOIMAGE); ?>" >

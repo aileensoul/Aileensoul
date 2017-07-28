@@ -100,7 +100,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="about">
                                             <div class="name"> 
-                                                <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>"><?php echo $last_user_data['user_name'] . "<br>"; ?></a> </div>
+                                                <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
+                                                    <?php       
+                                $username = substr($last_user_data['user_name'], 0, 15); ?>
+                                                        <?php echo $username; 
+                                                                if (strlen($last_user_data['user_name']) > 15) {
+                                                              echo " ...";
+                                                                }?>
+                                                </a> 
+                                            </div>
                                             <div class="<?php echo 'status' . $id; ?>" id="status_user">
                                             </div>
                                         </div>
@@ -173,7 +181,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 
                                                 <div class="about">
                                                     <div class="name"> 
-                                                        <?php echo $user['first_name'] . "<br>"; ?></div>
+                                                        <?php       
+                                $username = substr($user['first_name'], 0, 15); ?>
+                                                        <?php echo $username; 
+                                                                if (strlen($user['first_name']) > 15) {
+                                                              echo " ...";
+                                                                }?>
+                                                    </div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
                                                         <?php echo str_replace('\\', '', $user['message']); ?>
                                                     </div>
@@ -238,6 +252,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <div class="chat-about">
                                     <div class="chat-with">
+                                
                                         <span><?php echo $last_user_data['user_name']; ?></span>  
                                     </div>
                                     <div class="chat-num-messages"> <?php
