@@ -2339,9 +2339,15 @@ array(
 
             if ($msg['user_image']) {
                 $notmsg .= '<img src="' . $user_image . '" >';
-            } else {
-                $notmsg .= '<img src="' . base_url(NOIMAGE) . '" >';
-            }
+                } else { 
+                    $a = $msg['first_name'];
+                    $acr = substr($a, 0, 1);
+                                                               
+                    $notmsg .= '<div class="post-img-div">';
+                    $notmsg .= '' . ucwords($acr) . ''; 
+                    $notmsg .= '</div>';
+                                                   
+                                                    }
 
             $notmsg .= '</div><div class="notification-data-inside">';
 //            $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
