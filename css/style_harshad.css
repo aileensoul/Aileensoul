@@ -179,7 +179,6 @@ scrollbar[orient="vertical"] {
 /*.profile-text textarea{height:100px;}*/
 .modal.message-box span.mes{padding:10px 25px 0;}
 .cover .modal-close{line-height:32px !important;}
-input[type="submit"], input[type="button"], button {padding:10px 30px;}
 #popup-form input[type="submit"]{margin:15px 1px 10px 0;}
 .custom-c .middle-section{background:#f3f3f3;}
 .common-form1 h3{border: 1px solid rgba(0, 0, 0, 0.1);}
