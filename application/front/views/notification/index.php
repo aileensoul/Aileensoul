@@ -112,7 +112,7 @@
 
                                 <?php
                                 foreach ($totalnotification as $total) { 
-                                      $abc = $total['not_id'];
+                                 $abc = $total['not_id'];
                                //1 
                                     if ($total['not_from'] == 1) { 
                                       $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;  ?> 
@@ -127,8 +127,16 @@
                                           
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+                                                   
                                                 <?php     } ?>    
                                             </div>
                                            
@@ -159,10 +167,18 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
-                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
+                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
@@ -192,9 +208,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>                                 
+                                                <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>                               
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
@@ -227,9 +251,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>   
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>  
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
@@ -264,8 +296,16 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -295,9 +335,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>            
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>           
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
                                                 
@@ -329,9 +377,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>        
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>     
                                                 <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
@@ -365,8 +421,16 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                 <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
@@ -403,8 +467,15 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                               <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                     
 <!--                                                <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
@@ -442,9 +513,16 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>           
+                                                <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>        
                                                 <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
@@ -478,9 +556,16 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
-                                                <?php     } ?>   
+                                               <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>  
                                                 <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
@@ -516,8 +601,15 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                    
                                                 </div>
@@ -550,9 +642,16 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                  <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-            <?php    } else { ?>
-                   <img src="<?php echo base_url(NOIMAGE); ?>" >
-           <?php     } ?>
+              <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
+                                                <?php     } ?>
 
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -586,8 +685,15 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>   
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -621,8 +727,15 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                  <?php    } else { 
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -656,8 +769,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                               <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr); ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -693,8 +815,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                 <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr); ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
@@ -726,8 +857,17 @@
                                         
                                             if ($total['user_image'] && (file_exists($filepath)) == 1){ ?>
                                                     <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $total['user_image']); ?>" >
-                                                <?php    } else { ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" >
+                                                  <?php    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                    
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) . ucwords($bcr); ?>
+                                                                    </div>
+<!--                                                   
                                                 <?php     } ?>
                                                 <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>

@@ -339,7 +339,7 @@ class Notification extends MY_Controller {
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
         $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
 
-       // echo '<pre>'; print_r($totalnotification); die();
+   
         $this->load->view('notification/index', $this->data);
     }
 
@@ -1038,12 +1038,12 @@ array(
         //  $notification .= '<h6> Notification updates</h6>';
         // $notification .= '</div>';
         //   $notification .= '</div></div></li>';
-        //echo count($totalnotification); die();
-
+       
         $notification = '<ul class="">';
         $i = 0;
         foreach ($totalnotification as $total) {
 //1     
+
    
             if ($total['not_from'] == 1) {
                 $companyname = $this->db->get_where('recruiter', array('user_id' => $total['user_id']))->row()->re_comp_name;
@@ -1057,12 +1057,21 @@ array(
                 $notification .= '<div class="notification-pic">';
 
 
-                if ($total['user_image']) {
+               $filepath = FCPATH . $this->config->item('rec_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){ 
                     $notification .= '<img src="' . base_url($this->config->item('rec_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
-
+                    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><i> Recruiter</i></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b>  From ' . ucwords($companyname) . ' <span class="noti-msg-y"> Invited you for an interview. </span></h6>'; 
@@ -1084,12 +1093,21 @@ array(
                 $notification .= '<div class="notification-pic">';
 
 
-                if ($total['user_image']) {
+                $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
-
+                   } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Started following you in artistic.</span></h6>';
@@ -1112,13 +1130,21 @@ array(
                 $notification .= '><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
-                if ($total['user_image']) {
+                 $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
-
-
+                   } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 //$notification .= '';
                 $notification .= '<h6>';
@@ -1143,11 +1169,21 @@ array(
                 $notification .= '<div class="notification-pic">';
 
 
-                if ($total['user_image']) {
+                 $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
 
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your post in artistic.</sapn></h6>';
@@ -1166,11 +1202,21 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/art_post/' . $total['art_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
-                    if ($total['user_image']) {
+                     $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                       } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your post`s comment in artistic.</h6>';
@@ -1190,11 +1236,21 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/art_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '"><div class="notification-database"><div class="notification-pic">';
-                    if ($total['user_image']) {
+                   $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                       } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your photo in artistic. </sapn></h6>';
@@ -1215,11 +1271,21 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic">';
-                    if ($total['user_image']) {
+                 $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                       } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Commented on your photo in artistic.</sapn></h6>';
@@ -1240,11 +1306,21 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/art_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
-                  if ($total['user_image']) {
+                  $filepath = FCPATH . $this->config->item('art_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                  $acr = substr($a, 0, 1);
+                                                                  $bcr = substr($b, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your photo`s comment in artistic.</h6>';
@@ -1267,11 +1343,19 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                 if ($total['user_image']) {
+                $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b><span class="noti-msg-y"> Commented on your post in business profile. </span></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
@@ -1290,11 +1374,19 @@ array(
                 $notification .= '><a href="' . base_url('business_profile/business_resume/' . $busslug) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
 
-                if ($total['user_image']) {
+             $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
@@ -1313,11 +1405,19 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                if ($total['user_image']) {
+              $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+               } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><b>' . '  ' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
@@ -1335,11 +1435,19 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/business_post/' . $total['business_profile_post_id']) . '" onClick="not_active(' . $total['not_id'] . ')">
                     <div class="notification-database"> <div class="notification-pic" >';
-                    if ($total['user_image']) {
+                $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                   } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes your post`s comment in business profile.</h6>';
@@ -1360,11 +1468,19 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/bus_post_img/' . $total['post_id'] . '/' . $total['image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
-                    if ($total['user_image']) {
+               $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                    } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes your photo in business profile. </span></h6>';
@@ -1386,11 +1502,19 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
-                    if ($total['user_image']) {
+                  $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                    } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Commented on your photo in business profile. </span></h6>';
@@ -1412,11 +1536,19 @@ array(
                 }
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/bus_post_img/' . $postid . '/' . $total['post_image_id']) . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database"><div class="notification-pic" >';
-                    if ($total['user_image']) {
+              $filepath = FCPATH . $this->config->item('bus_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                         $notification .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                    } else {
-                        $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                    }
+                    } else { 
+                                                                    $a = $companyname;
+                                                                  $acr = substr($a, 0, 1);
+                                                                   
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
                     $notification .= '<h6><b>' . ucwords($companyname) . '</b> <span class="noti-msg-y"> Likes your photos comment in business profile.</h6>';
@@ -1437,11 +1569,20 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('job/job_printpreview/' . $total['not_from_id'] . '?page=recruiter') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                if ($total['user_image']) {
+               $filepath = FCPATH . $this->config->item('job_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('job_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y"> Job seeker</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your jobpost. </sapn></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
@@ -1458,11 +1599,20 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('freelancer/freelancer_post_profile/' . $total['not_from_id'] . '?page=freelancer_hire') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                if ($total['user_image']) {
+                $filepath = FCPATH . $this->config->item('free_post_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('free_post_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Freelancer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Applied on your post. </span></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
@@ -1479,11 +1629,20 @@ array(
                 $notification .= '"'; 
                 $notification .= '><a href="' . base_url('notification/freelancer_hire_post/' . $total['post_id'] . '?page=freelancer_post') . '" onClick="not_active(' . $total['not_id'] . ')"><div class="notification-database">';
                 $notification .= '<div class="notification-pic">';
-                if ($total['user_image']) {
+                   $filepath = FCPATH . $this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image'];
+                if ($total['user_image'] && (file_exists($filepath)) == 1){
                     $notification .= '<img src="' . base_url($this->config->item('free_hire_profile_thumb_upload_path') . $total['user_image']) . '" >';
-                } else {
-                    $notification .= '<img src="' . base_url(NOIMAGE) . '" >';
-                }
+                    } else { 
+                                                                    $a = $total['first_name'];
+                                                                    $b = $total['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                              
+                                                       $notification .= '<div class="post-img-div">';
+                                                       $notification .= '' . ucwords($acr) . ucwords($bcr) . ''; 
+                                                       $notification .= '</div>';
+                                                   
+                                                    }
                 $notification .= '</div><div class="notification-data-inside">';
                 $notification .= '<h6><font color="black"><b><span class="noti-msg-y">Employer</span></font></b><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Selected you for project. </span> </h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
