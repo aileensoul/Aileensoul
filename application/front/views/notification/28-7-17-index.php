@@ -520,7 +520,7 @@
                                     $companyname = $this->db->get_where('business_profile', array('user_id' => $total['not_from_id']))->row()->company_name;
                                             ?>
                                             <a href="<?php echo base_url('notification/business_post/' . $total['business_profile_post_id']); ?>">
-                                            <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>">
+                                            <li class="<?php if ($total['not_active'] == 1){ echo 'active2'; } ?>"
                                             
                                                 <div class="notification-pic" id="noti_pc" >
                                            <?php         if ($total['user_image']) { ?>
@@ -531,7 +531,7 @@
 
                                                     <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                                 </div>
-                                            
+                                                
                                                 <div class="notification-data-inside" id="notification_inside">
                                                     <h6><?php echo "<b>" . "  " . ucwords($companyname) .  "</b> Likes your post in business profile."; ?></h6>
                                                     <div ><i class="" aria-hidden="true" style="margin-right:8px;"></i>
