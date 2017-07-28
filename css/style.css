@@ -14679,7 +14679,7 @@ text-overflow: ellipsis;
 white-space: nowrap;
 overflow: hidden;
 }
-  
+  .prev, .next{top: 260px;}
     .common-form input[type="radio"], .common-form input[type="checkbox"]{margin: 6px 10px;}
     .comment-details{font-size: 15px;}
     .post-design-name_follow{width: 42%;    }
@@ -15082,6 +15082,7 @@ text-align: center;}
         width: 100%;
         position: absolute;
     }
+
     .all-list ul li .list-box{width: 157px;}
         .pt_mn{padding-top: 40px;}
         .pt1201     {padding-top: 120px;}
@@ -15988,6 +15989,7 @@ top: 8px;}
     .post-design-top {
         padding-left: 9px;
         padding-right: 9px;
+        width: 100%;
     }
     .post-design-mid {
         padding-left: 10px;
@@ -16234,7 +16236,7 @@ top: 8px;}
         margin-bottom: 11px;
         margin-top: 10px;
     }
-    
+    .prev, .next{top: 215px;}
     .folle_text {
         width: 43%;
         padding-left: 3px;
@@ -16360,7 +16362,7 @@ font-size: 12px;
 }
 /*** test for form ***/
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 320px) {
 
     .header2 ul li.active a{padding: 9px 0px 9px;}
     .created_date {

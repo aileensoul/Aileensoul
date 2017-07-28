@@ -55,7 +55,7 @@
                                     </li>
                                 <!-- Friend Request Start-->
 <!-- <h3>hello</h3> -->
-                                     <li id="Inbox_link">
+                                     <li id="Inbox_link job_con">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -149,7 +149,7 @@
                                 <!-- Friend Request Start-->
 <!-- <h3>hello</h3> -->                     
                         
-                                     <li id="Inbox_link">
+                                     <li id="Inbox_link job_con">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
