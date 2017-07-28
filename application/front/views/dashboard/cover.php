@@ -420,6 +420,8 @@
 			</div>
 		</div>
 	</footer> -->
+        
+        <?php if($userdata[0]['user_slider'] == 1){?>
 	<div id="onload-Modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 <div class="main_sl">
@@ -676,7 +678,7 @@
 </div>
 </div>
 </div>
-
+<?php } ?>
 
 	
 	<!--  how it work popup  -->

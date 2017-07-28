@@ -139,7 +139,8 @@ class Registration extends CI_Controller {
                  'created_date' => date('Y-m-d h:i:s',time()),
                  'edit_ip'=> $ip,
                  'user_last_login'=> date('Y-m-d h:i:s',time()),
-                 'user_verify'=> '0'
+                 'user_verify'=> '0',
+                 'user_slider'=> '1',
         ); 
              
             $insert_id = $this->common->insert_data_getid($data,'user'); 
