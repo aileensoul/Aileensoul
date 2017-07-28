@@ -334,6 +334,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
     padding: 20px 0;
     text-align: center;
 }
+#userlist{cursor: pointer;}
 .post-editor .popup-img .post-img-div{margin-top:5px;}
 .post-design-proo-img .post-img-div{height:37px; width:38px; font-size:15px; padding:12px 0;}
 .post-design-pro-comment-img .post-img-div{height:37px; width:38px; font-size:15px; padding:12px 0;}

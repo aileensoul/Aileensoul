@@ -10484,6 +10484,14 @@ style chat css start*/
     
     padding: 0px 40px 12px;
 }
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span pre{font-size: 13px;
+border: none;
+white-space: pre-line;
+background: transparent;
+padding-top: 2px;
+padding: 0px;
+font-family: arial;
+display: initial;}
 .people-list {
     border-right: 1px solid #ccc;
     width: 20%;
@@ -10559,6 +10567,7 @@ style chat css start*/
 }
 .people-list .about {
     float: left;
+    width: 78%;
 }
 .people-list .about {
     padding-left: 9px;
@@ -10771,8 +10780,12 @@ style chat css start*/
 }
 .name {
     font-weight: 600;
-    padding-bottom: 6px;
-    line-height: 14px;
+padding-bottom: 6px;
+line-height: 14px;
+width: 107%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 .panel-footer {
     background-color: #444753;
