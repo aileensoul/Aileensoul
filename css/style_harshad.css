@@ -427,5 +427,6 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 	#notificationLink span{margin-left:6px;}
 }
 @media screen and (max-width: 360px) {
+  .designation_rec_1{width: 75%;}
 	.bg-search .header2{margin-top:-2px;}
 }
