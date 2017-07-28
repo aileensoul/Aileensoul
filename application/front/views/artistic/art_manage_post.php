@@ -4873,6 +4873,9 @@ $('.modal-post').hide();
   
 
 </script>
-
-
+            <script type="text/javascript">
+                $('#file-1').on('click', function(e){
+                    document.getElementById("artpostform").reset(); 
+                });
+            </script>
 

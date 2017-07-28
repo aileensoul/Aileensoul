@@ -879,10 +879,10 @@
 
                                 ?>
 
-                            <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
+                            <input size=1 id="text_num" class="text_num" tabindex="-500" value="<?php echo (50 - $a);?>" name=text_num readonly>
 
                            <?php }else{?>
-                           <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+                           <input size=1 id="text_num" class="text_num" tabindex="-501" value=50 name=text_num readonly> 
 
                            <?php }?>
 
@@ -1607,7 +1607,7 @@
                         <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
  <textarea id= "test-upload_product" placeholder="Post Your Art...."   onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur="check_length(this.form)" name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;"></textarea>
                         <div class="fifty_val">                       
-                           <input size=1 class="text_num" tabindex="-80" value=50 name=text_num readonly> 
+                           <input size=1 class="text_num" tabindex="-500" value=50 name=text_num readonly> 
                         </div>
                    
                       <div class="padding-left padding_les_left camer_h">
@@ -3988,4 +3988,9 @@
 
 });
  </script>
+            <script type="text/javascript">
+                $('#file-1').on('click', function(e){
+                    document.getElementById("artpostform").reset(); 
+                });
+            </script>
 

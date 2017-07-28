@@ -54,8 +54,8 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row" id="row2">
+            <div class="">
+                <div class="" id="row2">
                     <?php
                     $userid = $this->session->userdata('aileenuser');
                     if ($this->uri->segment(3) == $userid) {

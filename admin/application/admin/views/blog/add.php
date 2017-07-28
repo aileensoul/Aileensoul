@@ -61,7 +61,9 @@ echo $leftmenu;
                         <div class="form-group col-sm-5">
                             <div class="form-group">
                                 <label>Tag*</label>
-                                <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
+
+                               <input type="text" class="form-control" name="tag" id="tag" value="">
+                                 <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
                                     <option value="" selected option disabled="">Select Tag</option>
                                     <?php
                                     foreach ($blog_tag as $tag) {
@@ -70,7 +72,7 @@ echo $leftmenu;
                                         <?php
                                     }
                                     ?>
-                                </select>
+                                </select> 
                             </div>
                         </div>
                         <!-- TAG SELECTION END -->

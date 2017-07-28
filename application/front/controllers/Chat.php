@@ -1850,8 +1850,7 @@ class Chat extends MY_Controller {
                 foreach ($userlist as $user) {
                     $usrsrch = '<li class="clearfix">';
 
-                    if ($user['user_image']) {
-                        $usrsrch .= '    <div class="chat_heae_img">';
+                   
 
                         if ($message_from_profile == 2) {
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
@@ -1871,6 +1870,8 @@ class Chat extends MY_Controller {
                         if ($message_from_profile == 6) {
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                         }
+                         if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        $usrsrch .= '    <div class="chat_heae_img">';
 
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px" />';
                         $usrsrch .= '</div>';
@@ -1882,7 +1883,15 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $user['first_name'] .' '.$user['last_name']. '<br></a>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                    
+                       
+                                $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                                               $usrsrch .= '' .  $username . ''; 
+                                                                if (strlen($user['first_name'] . $user['last_name']) > 15) {
+                                                       $usrsrch .= ' ...';
+                                                                }
+                    $usrsrch .= '<br></a>';
                     $usrsrch .= '</div><div class="status" style=" width: 145px;
     color: #003;    max-height: 25px;
     white-space: nowrap;
@@ -2312,8 +2321,7 @@ class Chat extends MY_Controller {
                         $usrsrch .= 'active';
                     }
                     $usrsrch .= '">';
-                    if ($user['user_image']) {
-                        $usrsrch .= '<div class="chat_heae_img">';
+                   
                         if ($message_from_profile == 2) {
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                         }
@@ -2332,7 +2340,8 @@ class Chat extends MY_Controller {
                         if ($message_from_profile == 6) {
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                         }
-
+                      if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
                     } else {
@@ -2343,7 +2352,14 @@ class Chat extends MY_Controller {
                     }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $user['first_name'] . ' ' . $user['last_name'] . '<br></a> </div>';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
+                             $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                                               $usrsrch .= '' .  $username . ''; 
+                                                                if (strlen($user['first_name'] . $user['last_name']) > 15) {
+                                                       $usrsrch .= ' ...';
+                                                                } 
+                            
+                     $usrsrch .= '<br></a> </div>';
                     $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;

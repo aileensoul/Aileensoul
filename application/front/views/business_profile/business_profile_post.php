@@ -182,23 +182,35 @@
                                                     if ($businessdata[0]['business_user_image']) {
                                                         ?>
                                                         <div class="left_iner_img_profile"> 
-                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                            <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                                $a = $businessdata[0]['company_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-profile">
+                                                                    <?php echo ucwords($acr) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </div>
                                                     <?php } else { ?>
                                                         <div class="left_iner_img_profile">
-
-
                                                             <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>"> -->
+                                                            <?php
+                                                            $a = $businessdata[0]['company_name'];
+                                                            $acr = substr($a, 0, 1);
+                                                            ?>
+                                                            <div class="post-img-profile">
+                                                                <?php echo ucwords($acr) ?>
+                                                            </div>
 
-                                                            <?php 
-                                          $a = $businessdata[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
-                                       
                                                         </div>  <?php } ?>                           
-                                                   
+
                                                 </a>
                                             </div>
                                             <div class="right_left_box_design ">
@@ -289,14 +301,15 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
+                                                                                                                                                        <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
 
-                                                                                     <?php 
-                                          $a = $userlist['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                                    <?php
+                                                                                    $a = $userlist['company_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    ?>
+                                                                                    <div class="post-img-div">
+                                                                                        <?php echo ucwords($acr) ?>
+                                                                                    </div>
                                                                                 </a>
                                                                             <?php } ?>
                                                                         </div>
@@ -312,7 +325,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);           ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);               ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
@@ -372,12 +385,13 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                   <?php 
-                                          $a = $userlist['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                                    <?php
+                                                                                    $a = $userlist['company_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    ?>
+                                                                                    <div class="post-img-div">
+                                                                                        <?php echo ucwords($acr) ?>
+                                                                                    </div>
                                                                                 </a>
                                                                             <?php } ?>                    
                                                                         </div>
@@ -452,12 +466,13 @@
                                                                                     <?php
                                                                                 } else {
                                                                                     ?>
-                                                                                    <?php 
-                                          $a = $userlist['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                                    <?php
+                                                                                    $a = $userlist['company_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    ?>
+                                                                                    <div class="post-img-div">
+                                                                                        <?php echo ucwords($acr) ?>
+                                                                                    </div>
                                                                                     <?php
                                                                                 }
                                                                                 ?>
@@ -533,12 +548,13 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucwords($userlist['company_name']); ?>">
 
-                                                                                    <?php 
-                                          $a = $userlist['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                                    <?php
+                                                                                    $a = $userlist['company_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    ?>
+                                                                                    <div class="post-img-div">
+                                                                                        <?php echo ucwords($acr) ?>
+                                                                                    </div>
                                                                                 </a>
                                                                             <?php } ?>
                                                                         </div>
@@ -630,12 +646,13 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                               <?php 
-                                          $a = $businessdata[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                <?php
+                                                $a = $businessdata[0]['company_name'];
+                                                $acr = substr($a, 0, 1);
+                                                ?>
+                                                <div class="post-img-div">
+                                                    <?php echo ucwords($acr) ?>
+                                                </div>
                                                 <?php
                                             }
                                             ?>
@@ -717,11 +734,12 @@
                                         <?php if ($businessdata[0]['business_user_image']) { ?>
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
                                         <?php } else { ?>
-                                             <?php 
-                                          $a = $businessdata[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
+                                            <?php
+                                            $a = $businessdata[0]['company_name'];
+                                            $acr = substr($a, 0, 1);
+                                            ?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                                <?php echo ucwords($acr) ?>
                                             </div>
                                         <?php } ?>
                                     </div>
@@ -749,7 +767,7 @@
                             </div>
                             <div class="business-all-post">
 
-                            
+
                                 <!--                                <div id="progress-div"><div id="progress-bar"></div></div>
                                                                 <div id="targetLayer"></div>-->
                                 <?php
@@ -788,11 +806,10 @@
 
 
                                                                 <?php
-
-                                                                 $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->company_name;
+                                                                $companyname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->company_name;
                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_user_image;
                                                                 $userimageposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->business_user_image;
-                                                                 $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
+                                                                $companynameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id']))->row()->company_name;
                                                                 ?>
                                                                 <?php
                                                                 $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
@@ -808,12 +825,13 @@
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                                             <?php 
-                                          $a = $companynameposted;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                            <?php
+                                                                            $a = $companynameposted;
+                                                                            $acr = substr($a, 0, 1);
+                                                                            ?>
+                                                                            <div class="post-img-div">
+                                                                                <?php echo ucwords($acr) ?>
+                                                                            </div>
                                                                         </a>
                                                                     <?php } ?>
 
@@ -824,12 +842,13 @@
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                                            <?php 
-                                          $a = $companyname;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                            <?php
+                                                                            $a = $companyname;
+                                                                            $acr = substr($a, 0, 1);
+                                                                            ?>
+                                                                            <div class="post-img-div">
+                                                                                <?php echo ucwords($acr) ?>
+                                                                            </div>
                                                                         </a>
                                                                         <?php
                                                                     }
@@ -839,12 +858,11 @@
                                                             <div class="post-design-name fl col-xs-8 col-md-10">
                                                                 <ul>
                                                                     <?php
-                                                                   
                                                                     $slugname = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->business_slug;
                                                                     $categoryid = $this->db->get_where('business_profile', array('user_id' => $row['user_id'], 'status' => 1))->row()->industriyal;
                                                                     $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
 
-                                                                   
+
 
                                                                     $slugnameposted = $this->db->get_where('business_profile', array('user_id' => $row['posted_user_id'], 'status' => 1))->row()->business_slug;
                                                                     ?>
@@ -952,17 +970,17 @@
                                                                     } else {
                                                                         ?>
                                                                         <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
-    <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">    <i class="fa fa-trash-o" aria-hidden="true">    </i> Delete Post           </a>
-     <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
-     <span class="h3-img h2-srrt"></span>Edit </a>
-                         <?php } else { ?>
-          <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
-     <span class="h4-img h2-srrt"></span> Delete Post
+                                                                            <a onclick="user_postdelete(<?php echo $row['business_profile_post_id']; ?>)">    <i class="fa fa-trash-o" aria-hidden="true">    </i> Delete Post           </a>
+                                                                            <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)">
+                                                                                <span class="h3-img h2-srrt"></span>Edit </a>
+                                                                        <?php } else { ?>
+                                                                            <a onclick="user_postdeleteparticular(<?php echo $row['business_profile_post_id']; ?>)">
+                                                                                <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
 
-                                                                            <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
-                                                                                <span class="h2-img h2-srrt"></span> Contact Person
-                                                                            </a> -->
+                                                                                                                                                                <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
+                                                                                                                                                                    <span class="h2-img h2-srrt"></span> Contact Person
+                                                                                                                                                                </a> -->
                                                                             <?php
                                                                         }
                                                                     }
@@ -1192,8 +1210,8 @@
                                                                             $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>               
-                                                                        <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                                                    </i>-->
+                                                                                        <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                                                                    </i>-->
                                                                                 <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                             <?php } else { ?> 
                         <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1389,12 +1407,13 @@
                                                                                     <?php } else { ?>
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
-                                                                                             <?php 
-                                          $a = $companyname;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                                            <?php
+                                                                                            $a = $companyname;
+                                                                                            $acr = substr($a, 0, 1);
+                                                                                            ?>
+                                                                                            <div class="post-img-div">
+                                                                                                <?php echo ucwords($acr) ?>
+                                                                                            </div>
                                                                                         </a>
                                                                                     <?php } ?>
                                                                                 </div>
@@ -1531,17 +1550,18 @@
                                                                 $userid = $this->session->userdata('aileenuser');
                                                                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
 
-                                                                 $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
+                                                                $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
                                                                 ?>
                                                                 <?php if ($business_userimage) { ?>
                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                                 <?php } else { ?>
-                                                                     <?php 
-                                          $a = $business_user;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
-                                            </div>
+                                                                    <?php
+                                                                    $a = $business_user;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr) ?>
+                                                                    </div>
                                                                 <?php } ?>
                                                             </div>
 
@@ -1691,39 +1711,39 @@
 
 <script>
 
-                                                        jQuery.noConflict();
-                                                        (function ($) {
+                                                                    jQuery.noConflict();
+                                                                    (function ($) {
 
 
-                                                        var data = <?php echo json_encode($demo);
+                                                                    var data = <?php echo json_encode($demo);
             ?>;
-                                                        //alert(data);
-                                                        $(function () {
-                                                        // alert('hi');
-                                                        $("#tags").autocomplete({
-                                                        source: function (request, response) {
-                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                        response($.grep(data, function (item) {
-                                                        return matcher.test(item.label);
-                                                        }));
-                                                        }
-                                                        ,
-                                                                minLength: 1,
-                                                                select: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                                $("#selected-tag").val(ui.item.label);
-                                                                // window.location.href = ui.item.value;
-                                                                }
-                                                        ,
-                                                                focus: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                                }
-                                                        });
-                                                        }
-                                                        );
-                                                        })(jQuery);</script>
+                                                                    //alert(data);
+                                                                    $(function () {
+                                                                    // alert('hi');
+                                                                    $("#tags").autocomplete({
+                                                                    source: function (request, response) {
+                                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                    response($.grep(data, function (item) {
+                                                                    return matcher.test(item.label);
+                                                                    }));
+                                                                    }
+                                                                    ,
+                                                                            minLength: 1,
+                                                                            select: function (event, ui) {
+                                                                            event.preventDefault();
+                                                                            $("#tags").val(ui.item.label);
+                                                                            $("#selected-tag").val(ui.item.label);
+                                                                            // window.location.href = ui.item.value;
+                                                                            }
+                                                                    ,
+                                                                            focus: function (event, ui) {
+                                                                            event.preventDefault();
+                                                                            $("#tags").val(ui.item.label);
+                                                                            }
+                                                                    });
+                                                                    }
+                                                                    );
+                                                                    })(jQuery);</script>
 
 
 <script>
@@ -1762,87 +1782,79 @@
     })(jQuery);</script>
 
 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tag1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
+    jQuery.noConflict();
+    (function ($) {
+
+    var data = <?php echo json_encode($demo); ?>;
+    //alert(data);
+
+
+    $(function () {
+    // alert('hi');
+    $("#tags1").autocomplete({
+    source: function (request, response) {
+    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+    response($.grep(data, function (item) {
+    return matcher.test(item.label);
+    }));
+    },
+            minLength: 1,
+            select: function (event, ui) {
+            event.preventDefault();
+            $("#tag1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+            }
+    ,
+            focus: function (event, ui) {
+            event.preventDefault();
+            $("#tags1").val(ui.item.label);
+            }
+    });
+    });
+    })(jQuery);</script>
 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($de); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
+    jQuery.noConflict();
+    (function ($) {
+
+    var data1 = <?php echo json_encode($de); ?>;
+    //alert(data);
+
+
+    $(function () {
+    // alert('hi');
+    $("#searchplace1").autocomplete({
+    source: function (request, response) {
+    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+    response($.grep(data1, function (item) {
+    return matcher.test(item.label);
+    }));
+    },
+            minLength: 1,
+            select: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+            }
+    ,
+            focus: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+            }
+    });
+    });
+    })(jQuery);</script>
 
 <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
+    function check() {
+    var keyword = $.trim(document.getElementById('tags1').value);
+    var place = $.trim(document.getElementById('searchplace1').value);
+    if (keyword == "" && place == "") {
+    return false;
+    }
+    }
+</script>
 
 <script>
     $('#content').on('change keyup keydown paste cut', 'textarea', function () {
@@ -1914,34 +1926,34 @@
             }
     });
     }
-//    $(document).ready(function(){
-//        $('.like_one_other').
-//    });
+    //    $(document).ready(function(){
+    //        $('.like_one_other').
+    //    });
 </script>
 <!--post like script end -->
 <!-- comment insert script start -->
 <script type="text/javascript">
-//    function insert_comment(clicked_id)
-//    {
-//        var post_comment = document.getElementById("post_comment" + clicked_id);
-//        var $field = $('#post_comment' + clicked_id);
-//        var post_comment = $('#post_comment' + clicked_id).html();
-//
-//        $('#post_comment' + clicked_id).html("");
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-//            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
-//            dataType: "json",
-//            success: function (data) {
-//                $('div').each(function () {
-//                    $(this).val('');
-//                });
-//                $('#' + 'insertcount' + clicked_id).html(data.count);
-//                $('.' + 'insertcomment' + clicked_id).html(data.comment);
-//            }
-//        });
-//    }
+    //    function insert_comment(clicked_id)
+    //    {
+    //        var post_comment = document.getElementById("post_comment" + clicked_id);
+    //        var $field = $('#post_comment' + clicked_id);
+    //        var post_comment = $('#post_comment' + clicked_id).html();
+    //
+    //        $('#post_comment' + clicked_id).html("");
+    //        $.ajax({
+    //            type: 'POST',
+    //            url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+    //            data: 'post_id=' + clicked_id + '&comment=' + post_comment,
+    //            dataType: "json",
+    //            success: function (data) {
+    //                $('div').each(function () {
+    //                    $(this).val('');
+    //                });
+    //                $('#' + 'insertcount' + clicked_id).html(data.count);
+    //                $('.' + 'insertcomment' + clicked_id).html(data.comment);
+    //            }
+    //        });
+    //    }
 
     function insert_comment(clicked_id)
     {
@@ -2002,61 +2014,61 @@
 </script>
 <!-- insert comment using enter -->
 <script type="text/javascript">
-//    function entercomment(clicked_id)
-//    {
-//        $(document).ready(function () {
-//            $('#post_comment' + clicked_id).keypress(function (e) {
-//                if (event.which == 13 && event.shiftKey != 1) {
-//                    var val = $('#post_comment' + clicked_id).val();
-//                    var $field = $('#post_comment' + clicked_id);
-//                    var post_comment = $('#post_comment' + clicked_id).html();
-//                    $('#post_comment' + clicked_id).html("");
-//                    e.preventDefault();
-//
-//                    if (window.preventDuplicateKeyPresses)
-//                        return;
-//                    window.preventDuplicateKeyPresses = true;
-//                    window.setTimeout(function () {
-//                        window.preventDuplicateKeyPresses = false;
-//                    }, 500);
-//                    var x = document.getElementById('threecomment' + clicked_id);
-//                    var y = document.getElementById('fourcomment' + clicked_id);
-//                    if (x.style.display === 'block' && y.style.display === 'none') {
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + val,
-//                            dataType: "json",
-//                            success: function (data) {
-//                                $('input').each(function () {
-//                                    $(this).val('');
-//                                });
-//                                $('#' + 'insertcount' + clicked_id).html(data.count);
-//                                $('.insertcomment' + clicked_id).html(data.comment);
-//                            }
-//                        });
-//                    } else {
-//                        $.ajax({
-//                            type: 'POST',
-//                            url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
-//                            data: 'post_id=' + clicked_id + '&comment=' + val,
-//                            success: function (data) {
-//                                $('input').each(function () {
-//                                    $(this).val('');
-//                                }
-//                                );
-//                                $('#' + 'fourcomment' + clicked_id).html(data);
-//                            }
-//                        });
-//                    }
-//                }
-//            });
-//        });
-//    }
+    //    function entercomment(clicked_id)
+    //    {
+    //        $(document).ready(function () {
+    //            $('#post_comment' + clicked_id).keypress(function (e) {
+    //                if (event.which == 13 && event.shiftKey != 1) {
+    //                    var val = $('#post_comment' + clicked_id).val();
+    //                    var $field = $('#post_comment' + clicked_id);
+    //                    var post_comment = $('#post_comment' + clicked_id).html();
+    //                    $('#post_comment' + clicked_id).html("");
+    //                    e.preventDefault();
+    //
+    //                    if (window.preventDuplicateKeyPresses)
+    //                        return;
+    //                    window.preventDuplicateKeyPresses = true;
+    //                    window.setTimeout(function () {
+    //                        window.preventDuplicateKeyPresses = false;
+    //                    }, 500);
+    //                    var x = document.getElementById('threecomment' + clicked_id);
+    //                    var y = document.getElementById('fourcomment' + clicked_id);
+    //                    if (x.style.display === 'block' && y.style.display === 'none') {
+    //                        $.ajax({
+    //                            type: 'POST',
+    //                            url: '<?php echo base_url() . "business_profile/insert_commentthree" ?>',
+    //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+    //                            dataType: "json",
+    //                            success: function (data) {
+    //                                $('input').each(function () {
+    //                                    $(this).val('');
+    //                                });
+    //                                $('#' + 'insertcount' + clicked_id).html(data.count);
+    //                                $('.insertcomment' + clicked_id).html(data.comment);
+    //                            }
+    //                        });
+    //                    } else {
+    //                        $.ajax({
+    //                            type: 'POST',
+    //                            url: '<?php echo base_url() . "business_profile/insert_comment" ?>',
+    //                            data: 'post_id=' + clicked_id + '&comment=' + val,
+    //                            success: function (data) {
+    //                                $('input').each(function () {
+    //                                    $(this).val('');
+    //                                }
+    //                                );
+    //                                $('#' + 'fourcomment' + clicked_id).html(data);
+    //                            }
+    //                        });
+    //                    }
+    //                }
+    //            });
+    //        });
+    //    }
 
     function entercomment(clicked_id)
     {
-//                    $(document).ready(function () {
+    //                    $(document).ready(function () {
 
     $("#post_comment" + clicked_id).click(function () {
     $(this).prop("contentEditable", true);
@@ -2165,7 +2177,7 @@
     //      z.style.display = 'block';
     //      $.ajax({ 
     //             type:'POST',
-    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                  ?>',
+    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                      ?>',
     //             data:'art_post_id='+clicked_id,
     //             //alert(data);
     //             success:function(data){
@@ -2343,25 +2355,25 @@
 <!--comment edit box end-->
 <!-- comment edit insert start -->
 <script type="text/javascript">
-//    function edit_comment(abc)
-//    {
-//        var post_comment_edit = document.getElementById("editcomment" + abc);
-//        var $field = $('#editcomment' + abc);
-//        var post_comment_edit = $('#editcomment' + abc).html();
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//            data: 'post_id=' + abc + '&comment=' + post_comment_edit,
-//            success: function (data) {
-//                document.getElementById('editcomment' + abc).style.display = 'none';
-//                document.getElementById('showcomment' + abc).style.display = 'block';
-//                document.getElementById('editsubmit' + abc).style.display = 'none';
-//                document.getElementById('editcommentbox' + abc).style.display = 'block';
-//                document.getElementById('editcancle' + abc).style.display = 'none';
-//                $('#' + 'showcomment' + abc).html(data);
-//            }
-//        });
-//    }
+    //    function edit_comment(abc)
+    //    {
+    //        var post_comment_edit = document.getElementById("editcomment" + abc);
+    //        var $field = $('#editcomment' + abc);
+    //        var post_comment_edit = $('#editcomment' + abc).html();
+    //        $.ajax({
+    //            type: 'POST',
+    //            url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+    //            data: 'post_id=' + abc + '&comment=' + post_comment_edit,
+    //            success: function (data) {
+    //                document.getElementById('editcomment' + abc).style.display = 'none';
+    //                document.getElementById('showcomment' + abc).style.display = 'block';
+    //                document.getElementById('editsubmit' + abc).style.display = 'none';
+    //                document.getElementById('editcommentbox' + abc).style.display = 'block';
+    //                document.getElementById('editcancle' + abc).style.display = 'none';
+    //                $('#' + 'showcomment' + abc).html(data);
+    //            }
+    //        });
+    //    }
 
     function edit_comment(abc)
     {
@@ -2385,8 +2397,8 @@
     return false;
     }
     txt = txt.replace(/&/g, "%26");
-//                    alert(txt);
-//                    return false;
+    //                    alert(txt);
+    //                    return false;
     $.ajax({
     type: 'POST',
             url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
@@ -2410,41 +2422,41 @@
 
 </script>
 <script type="text/javascript">
-//    function commentedit(abc)
-//    {
-//        $(document).ready(function () {
-//            $('#editcomment' + abc).keypress(function (e) {
-//                if (e.keyCode == 13 && !e.shiftKey) {
-//                    var val = $('#editcomment' + abc).val();
-//                    e.preventDefault();
-//                    if (window.preventDuplicateKeyPresses)
-//                        return;
-//                    window.preventDuplicateKeyPresses = true;
-//                    window.setTimeout(function () {
-//                        window.preventDuplicateKeyPresses = false;
-//                    }, 500);
-//                    $.ajax({
-//                        type: 'POST',
-//                        url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                        data: 'post_id=' + abc + '&comment=' + val,
-//                        success: function (data) {
-//                            document.getElementById('editcomment' + abc).style.display = 'none';
-//                            document.getElementById('showcomment' + abc).style.display = 'block';
-//                            document.getElementById('editsubmit' + abc).style.display = 'none';
-//                            document.getElementById('editcommentbox' + abc).style.display = 'block';
-//                            document.getElementById('editcancle' + abc).style.display = 'none';
-//                            $('#' + 'showcomment' + abc).html(data);
-//                        }
-//                    });
-//                }
-//            });
-//        });
-//    }
+    //    function commentedit(abc)
+    //    {
+    //        $(document).ready(function () {
+    //            $('#editcomment' + abc).keypress(function (e) {
+    //                if (e.keyCode == 13 && !e.shiftKey) {
+    //                    var val = $('#editcomment' + abc).val();
+    //                    e.preventDefault();
+    //                    if (window.preventDuplicateKeyPresses)
+    //                        return;
+    //                    window.preventDuplicateKeyPresses = true;
+    //                    window.setTimeout(function () {
+    //                        window.preventDuplicateKeyPresses = false;
+    //                    }, 500);
+    //                    $.ajax({
+    //                        type: 'POST',
+    //                        url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+    //                        data: 'post_id=' + abc + '&comment=' + val,
+    //                        success: function (data) {
+    //                            document.getElementById('editcomment' + abc).style.display = 'none';
+    //                            document.getElementById('showcomment' + abc).style.display = 'block';
+    //                            document.getElementById('editsubmit' + abc).style.display = 'none';
+    //                            document.getElementById('editcommentbox' + abc).style.display = 'block';
+    //                            document.getElementById('editcancle' + abc).style.display = 'none';
+    //                            $('#' + 'showcomment' + abc).html(data);
+    //                        }
+    //                    });
+    //                }
+    //            });
+    //        });
+    //    }
 
     function commentedit(abc)
     {
-//                    alert(1212121);
-//                    return false;
+    //                    alert(1212121);
+    //                    return false;
     //$(document).ready(function () {
 
     $("#editcomment" + abc).click(function () {
@@ -2501,23 +2513,23 @@
 
 </script>
 <script type="text/javascript">
-//    function edit_commenttwo(abc)
-//    {
-//        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
-//        $.ajax({
-//            type: 'POST',
-//            url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
-//            success: function (data) {
-//                document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//                document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-//                document.getElementById('editcancletwo' + abc).style.display = 'none';
-//                $('#' + 'showcommenttwo' + abc).html(data);
-//            }
-//        });
-//    }
+    //    function edit_commenttwo(abc)
+    //    {
+    //        var post_comment_edit = document.getElementById("editcommenttwo" + abc);
+    //        $.ajax({
+    //            type: 'POST',
+    //            url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+    //            data: 'post_id=' + abc + '&comment=' + post_comment_edit.value,
+    //            success: function (data) {
+    //                document.getElementById('editcommenttwo' + abc).style.display = 'none';
+    //                document.getElementById('showcommenttwo' + abc).style.display = 'block';
+    //                document.getElementById('editsubmittwo' + abc).style.display = 'none';
+    //                document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+    //                document.getElementById('editcancletwo' + abc).style.display = 'none';
+    //                $('#' + 'showcommenttwo' + abc).html(data);
+    //            }
+    //        });
+    //    }
 
 
     function edit_commenttwo(abc)
@@ -2566,48 +2578,48 @@
 
 <script type="text/javascript">
 
-//                function commentedittwo(abc)
-//                {
-//                    $(document).ready(function () {
-//                        $('#editcommenttwo' + abc).keypress(function (e) {
-//                            if (e.keyCode == 13 && !e.shiftKey) {
-//                                var val = $('#editcommenttwo' + abc).val();
-//                                e.preventDefault();
-//
-//                                if (window.preventDuplicateKeyPresses)
-//                                    return;
-//
-//                                window.preventDuplicateKeyPresses = true;
-//                                window.setTimeout(function () {
-//                                    window.preventDuplicateKeyPresses = false;
-//                                }, 500);
-//
-//                                $.ajax({
-//                                    type: 'POST',
-//                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
-//                                    data: 'post_id=' + abc + '&comment=' + val,
-//                                    success: function (data) { //alert('falguni');
-//
-//
-//                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
-//                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
-//                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
-//
-//                                        document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
-//                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
-//                                        //alert('.' + 'showcomment' + abc);
-//
-//                                        $('#' + 'showcommenttwo' + abc).html(data);
-//                                        $('.post-design-commnet-box').show();
-//
-//
-//                                    }
-//                                });
-//                            }
-//                        });
-//                    });
-//
-//                }
+    //                function commentedittwo(abc)
+    //                {
+    //                    $(document).ready(function () {
+    //                        $('#editcommenttwo' + abc).keypress(function (e) {
+    //                            if (e.keyCode == 13 && !e.shiftKey) {
+    //                                var val = $('#editcommenttwo' + abc).val();
+    //                                e.preventDefault();
+    //
+    //                                if (window.preventDuplicateKeyPresses)
+    //                                    return;
+    //
+    //                                window.preventDuplicateKeyPresses = true;
+    //                                window.setTimeout(function () {
+    //                                    window.preventDuplicateKeyPresses = false;
+    //                                }, 500);
+    //
+    //                                $.ajax({
+    //                                    type: 'POST',
+    //                                    url: '<?php echo base_url() . "business_profile/edit_comment_insert" ?>',
+    //                                    data: 'post_id=' + abc + '&comment=' + val,
+    //                                    success: function (data) { //alert('falguni');
+    //
+    //
+    //                                        document.getElementById('editcommenttwo' + abc).style.display = 'none';
+    //                                        document.getElementById('showcommenttwo' + abc).style.display = 'block';
+    //                                        document.getElementById('editsubmittwo' + abc).style.display = 'none';
+    //
+    //                                        document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
+    //                                        document.getElementById('editcancletwo' + abc).style.display = 'none';
+    //                                        //alert('.' + 'showcomment' + abc);
+    //
+    //                                        $('#' + 'showcommenttwo' + abc).html(data);
+    //                                        $('.post-design-commnet-box').show();
+    //
+    //
+    //                                    }
+    //                                });
+    //                            }
+    //                        });
+    //                    });
+    //
+    //                }
 
     function commentedittwo(abc)
     {
@@ -2885,8 +2897,8 @@
     /* When the user clicks on the button, 
      toggle between hiding and showing the dropdown content */
     function myFunction1(clicked_id) {
-//        $('.dropdown-content1').removeClass('show');
-//        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
+    //        $('.dropdown-content1').removeClass('show');
+    //        document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
 
     var dropDownClass = document.getElementById('myDropdown' + clicked_id).className;
     dropDownClass = dropDownClass.split(" ").pop( - 1);
@@ -2995,8 +3007,6 @@
     // Alert message if maximum limit is reached. 
     // If required Alert can be removed. 
     var msg = "You have reached your maximum limit of characters allowed";
-   
-
     $("#test-upload-product").prop("readonly", true);
     //alert(msg);
 
@@ -3077,19 +3087,19 @@
     $('#file-fr').fileinput({
     language: 'fr',
             uploadUrl: '#',
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp','mp4','mp3','pdf']
+            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
     });
     $('#file-es').fileinput({
     language: 'es',
             uploadUrl: '#',
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp','mp4','mp3','pdf']
+            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
     });
     $("#file-0").fileinput({
     'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
     });
     $("#file-1").fileinput({
     uploadUrl: '#', // you must set a valid URL here else you will get an error
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4','mp3','pdf'],
+            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
             overwriteInitial: false,
             maxFileSize: 1000000,
             maxFilesNum: 10,
@@ -3154,7 +3164,7 @@
     $(document).ready(function () {
     $("#test-upload").fileinput({
     'showPreview': false,
-            'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4','mp3','pdf'],
+            'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
             'elErrorContainer': '#errorBlock'
     });
     $("#kv-explorer").fileinput({
@@ -3203,6 +3213,7 @@
     var product_description = document.getElementById("test-upload-des").value;
     var des_trim = product_description.trim();
     var product_fileInput = document.getElementById("file-1").value;
+  
     if (product_fileInput == '' && product_trim == '' && des_trim == '')
     {
     $('#post .mes').html("<div class='pop_content'>This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post.");
@@ -3219,7 +3230,7 @@
     event.preventDefault();
     return false;
     } else {
-//            alert("hii");
+    //            alert("hii");
 
     for (var i = 0; i < fileInput.length; i++)
     {
@@ -3232,7 +3243,7 @@
     var allowesaudio = ['mp3'];
     var allowespdf = ['pdf'];
     var foundPresent = $.inArray(ext, allowedExtensions) > - 1;
-//                alert(foundPresent);
+    //                alert(foundPresent);
     var foundPresentvideo = $.inArray(ext, allowesvideo) > - 1;
     var foundPresentaudio = $.inArray(ext, allowesaudio) > - 1;
     var foundPresentpdf = $.inArray(ext, allowespdf) > - 1;
@@ -3280,7 +3291,7 @@
     var foundPresent1 = $.inArray(ext1, allowesaudio) > - 1;
     if (foundPresent1 == true && fileInput.length == 1) {
 
-        if (product_name == '') {
+    if (product_name == '') {
     $('.biderror .mes').html("<div class='pop_content'>You have to add audio title.");
     $('#bidmodal').modal('show');
     //setInterval('window.location.reload()', 10000);
@@ -3388,7 +3399,7 @@
     }
 </script>
 <script type="text/javascript">
-//This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
+    //This script is used for "This post appears to be blank. Please write or attach (photos, videos, audios, pdf) to post." comment click close then post add popup open start
     $(document).ready(function () {
     $('#post').on('click', function () {
 
@@ -3403,12 +3414,12 @@
 <!-- post insert developing code end  -->
 
 
-    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
 <script type="text/javascript">
     function contentedit(clicked_id) {
     //alert(clicked_id);
 
-//var $field = $('#post_comment' + clicked_id);
+    //var $field = $('#post_comment' + clicked_id);
     //var data = $field.val();
     // var post_comment = $('#post_comment' + clicked_id).html();
 
@@ -3645,9 +3656,9 @@
     }
     });</script>
 <script>
-// Get the modal
+    // Get the modal
     var modal = document.getElementById('myModal');
-// When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
     if (event.target == modal) {
     modal.style.display = "none";
@@ -3713,7 +3724,7 @@
     }
     });
     });
-// pop up open & close aarati code end
+    // pop up open & close aarati code end
 
 
 </script>
@@ -3783,16 +3794,16 @@
     {
     var editpostname = document.getElementById("editpostname" + abc);
     //var editpostdetails = document.getElementById("editpostdesc" + abc);
-// start khyati code
+    // start khyati code
     var $field = $('#editpostdesc' + abc);
     //var data = $field.val();
     var editpostdetails = $('#editpostdesc' + abc).html();
-//        editpostdetails = editpostdetails.replaceAll('&', '%26');
+    //        editpostdetails = editpostdetails.replaceAll('&', '%26');
     editpostdetails = editpostdetails.replace(/&/g, "%26");
     editpostdetails = editpostdetails.replace(/&gt;/gi, ">");
     editpostdetails = editpostdetails.replace(/&nbsp;/gi, " ");
     editpostdetails = editpostdetails.replace(/div/gi, "p");
-// end khyati code
+    // end khyati code
 
 
     // $('#editpostdesc' + abc).html("");
@@ -3834,20 +3845,19 @@
 <script>
     jQuery(document).ready(function ($) {
 
-        var bar = $('#bar');
-                var percent = $('#percent');
-
+    var bar = $('#bar');
+    var percent = $('#percent');
     var options = {
     beforeSend: function () {
     // Replace this with your loading gif image
     //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
 //                document.getElementById("progress-div").style.display = "block";
 //                $("#progress-bar").width('0%');
-                        document.getElementById("progress_div").style.display = "block";
-                        var percentVal = '0%';
-                        bar.width(percentVal)
-                        percent.html(percentVal);
-                        document.getElementById("myModal").style.display = "none";
+    document.getElementById("progress_div").style.display = "block";
+    var percentVal = '0%';
+    bar.width(percentVal)
+            percent.html(percentVal);
+    document.getElementById("myModal").style.display = "none";
     },
 //            uploadProgress: function (event, position, total, percentComplete) {
 //                $("#progress-bar").width(percentComplete + '%');
@@ -3855,31 +3865,26 @@
 //            },
 
             uploadProgress: function (event, position, total, percentComplete) {
-                        var percentVal = percentComplete + '%';
-                        bar.width(percentVal)
-                        percent.html(percentVal);
-                    },
-                    success: function () {
-                        var percentVal = '100%';
-                        bar.width(percentVal)
-                        percent.html(percentVal);
-
-                    },
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
+            success: function () {
+            var percentVal = '100%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
             complete: function (response) {
 
 
             document.getElementById('test-upload-product').value = '';
             document.getElementById('test-upload-des').value = '';
-             //clearFileInput(document.getElementById("file-1"));
+            //clearFileInput(document.getElementById("file-1"));
             document.getElementById('file-1').value = '';
             //document.getElementsByClassName('text_num').value = '50';
-             $("input[name='text_num']").val(50);
-
-
+            $("input[name='text_num']").val(50);
             $(".file-preview-frame").hide();
-
             $(".art_no_post_avl").hide();
-
             // Output AJAX response to the div container
             // console.log(response.responseText);
 //                    $(".upload-image-messages").html(response.responseText);
@@ -3949,20 +3954,12 @@
     //$('.modal-post').show();
 
     }
-    });
-
-
-</script>
+    });</script>
 
 <script type="text/javascript">
-    
-
-
-    $('#file-1').on('click', function(e){ 
-   $(".file-preview-thumbnails").html("");
-   clearFileInput(document.getElementById("file-1"));
-
-});
+    $('#file-1').on('click', function(e){
+        document.getElementById("artpostform").reset(); 
+    });
 </script>
 
 

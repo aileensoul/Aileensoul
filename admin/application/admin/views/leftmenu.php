@@ -56,8 +56,8 @@
                 </a>
                 <ul class="treeview-menu">     
 
-                    <li><a href="<?php echo base_url('blog_tag/blog_list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
-
+                 <!--    <li><a href="<?php //echo base_url('blog_tag/blog_list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
+ -->
                     <li><a href="<?php echo base_url('blog/blog_list'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Blog List</a></li>
                 </ul>
             </li>
