@@ -16247,10 +16247,12 @@ top: 8px;}
         padding-left: 3px;
     }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b {
-        width: 50%;
+       width: 52%;
+font-size: 12px;
     }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span {
         width: 48%;
+        font-size: 12px;
     }
     .profile-box-art .right-side-menu .pro-fw li a {
         padding-left: 1px !important;
@@ -16286,9 +16288,9 @@ top: 8px;}
         width: 140px;
     }
     .profile-job-details ul li p {
-        font-size: 10px;
+        font-size: 13px;
         padding-right: 8px;
-        line-height: 10px;
+        line-height: 10px;padding-left: 4px;
     }
     .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span p {
         font-size: 12px;
