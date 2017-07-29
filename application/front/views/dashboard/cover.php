@@ -636,8 +636,8 @@
 							<div class="ld_sl"></div>
 						</div>
 						<div class="lfar_sl">
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-left"><img src="slicing/img_arrow.png"></a>
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+							<a href="#carousel-example-generic" role="button" data-slide="prev"  class="next-btn pull-left"><img src="slicing/right-arrow.png"></a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"> </a>
 						</div>
 					</div>
 				</div>	
@@ -1017,7 +1017,7 @@ var currentSlide_width=0;
 
  	if((currentSlide+1)==slides.length)
  	{
- 		//$('#img').remove();
+ 		$('#img').addClass('abc');
  	}
   });
 });

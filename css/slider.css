@@ -20,7 +20,7 @@ background-size: 100%;
 .text_sl_doen h1{color: white; font-family: robotoregular;}
 .ld_sl{height: 5px; width: 7%; float: left; background-color: #1b8ab9;}
 
-.lfar_sl{float: left; width:100%; height: 36px; padding: 3px 20px;}
+.lfar_sl{float: left; width:100%; height: 36px; padding: 2px 20px;}
 .lfar_sl img{ height: 100%; }
 .img_2_sl{width: 83%; margin: 0 auto;}
 .main_4_sl{padding: 0px 73px; text-align: left;}
@@ -364,7 +364,7 @@ background-size: 100%;
 
 
 
-
+#img.abc{height:0;}
 
 /*------------------------------------------------------*/
 /* RESPONSIVE
@@ -462,6 +462,7 @@ background-size: 100%;
 }
 #onload-Modal .carousel-control{display:none;}
 .lfar_sl a{font-size:30px;}
+.lfar_sl a:hover{opacity:0.8;}
 
 
 /********************************/
