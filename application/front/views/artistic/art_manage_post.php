@@ -191,7 +191,9 @@
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
                         <a id="designation" class="designation" title="Designation">Current Work    </a>
 
-                    <?php } ?>
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
 
