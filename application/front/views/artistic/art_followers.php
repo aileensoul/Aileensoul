@@ -308,7 +308,10 @@
 
                                            <?php 
                                              $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
-                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
+                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname; 
+                                             $designation =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->designation;   
+
+                                             ?>
                                        <?php 
                                           $followerusername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_user_image; ?>
                                        <?php if($followerusername != ''){ ?>
@@ -348,9 +351,9 @@
                                          
                                           <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a>
                                        </div>
-                                          <?php  if ($user['designation']) { ?>
+                                          <?php  if ($designation) { ?>
                                                            <div>
-                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                            <a><?php echo ucwords($designation); ?></a>
                                                         </div>
                                                        <?php  
                                                         }

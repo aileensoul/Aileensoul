@@ -588,8 +588,10 @@
 													<span class="mian_4_hed"> Easily responsive in all device
 													</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
-													<img src="slicing/img_screen_13.png">
+												<div class="imh_logo">
+													<img class="img1" data-animation="animated fadeInUp" src="slicing/sld13-1.png">
+													<img class="img2" data-animation="animated fadeInRight" src="slicing/sld13-2.png">
+													<img class="img3" data-animation="animated fadeInLeft" src="slicing/sld13-3.png">
 												</div>
 											</div>
 										</div>
@@ -636,8 +638,8 @@
 							<div class="ld_sl"></div>
 						</div>
 						<div class="lfar_sl">
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-left"><img src="slicing/img_arrow.png"></a>
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+							<a href="#carousel-example-generic" role="button" data-slide="prev"  class="next-btn pull-left"><img src="slicing/right-arrow.png"></a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"> </a>
 						</div>
 					</div>
 				</div>	
@@ -1017,7 +1019,7 @@ var currentSlide_width=0;
 
  	if((currentSlide+1)==slides.length)
  	{
- 		//$('#img').remove();
+ 		$('#img').addClass('abc');
  	}
   });
 });

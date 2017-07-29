@@ -359,6 +359,8 @@ if($status == 0 || $status == " "){?>
                                 $art_id =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->user_id;
 
                                  $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_lastname;
+
+                                 $designation =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->designation;
                              ?>  
                                   <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
@@ -400,9 +402,9 @@ if($status == 0 || $status == " "){?>
                          <div class="follow-li-text ">
                                 <a title="<?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?>" href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>"><?php echo ucwords($art_name); echo "&nbsp;"; echo ucwords($art_lastname); ?></a></div>
                                   
-                                                        <?php  if ($user['designation']) { ?>
+                                                        <?php  if ($designation) { ?>
                                                            <div>
-                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                            <a><?php echo ucwords($designation); ?></a>
                                                         </div>
                                                        <?php  
                                                         }

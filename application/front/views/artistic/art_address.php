@@ -87,7 +87,7 @@
                             <?php
                              $country =  form_error('country');
                              $state =  form_error('state');
-                             $address =  form_error('address');
+                             //$address =  form_error('address');
                          ?>
                                 <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
 								<label>Country:<span style="color:red">*</span></label>
@@ -204,12 +204,12 @@
 									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
-                                <textarea id="textarea" name="address" tabindex="5" style="resize: none;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
-                                    <?php echo form_error('address'); ?>
+                                <textarea id="textarea" name="address" tabindex="5" style="resize: none;min-height: 18%;"><?php //if($address1){ echo $address1; } ?></textarea>
+                                    <?php //echo form_error('address'); ?>
                                     <label id="address-error"></label>
 
                                 
-								</fieldset> -->
+								</fieldset>  -->
 
                                  <fieldset class="hs-submit full-width">
                                     
@@ -572,18 +572,18 @@ $(document).ready(function(){
 //       return value == '' || value.trim().length != 0;  
 //     }, "No space please and don't leave it empty");
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    //return value == '' || value.trim().length != 0; 
-     if(!value) 
-            {
-                return true;
-            }
-            else
-            {
-                  return regexpr.test(value);
-            }
-     // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+// $.validator.addMethod("regx", function(value, element, regexpr) {          
+//     //return value == '' || value.trim().length != 0; 
+//      if(!value) 
+//             {
+//                 return true;
+//             }
+//             else
+//             {
+//                   return regexpr.test(value);
+//             }
+//      // return regexpr.test(value);
+// }, "Only space, only number and only special characters are not allow");
 
 
             $(document).ready(function () { 

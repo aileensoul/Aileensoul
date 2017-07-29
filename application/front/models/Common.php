@@ -5,6 +5,7 @@ class Common extends CI_Model {
         $this->db->select("user_id,first_name,last_name,user_email,user_password,status");
         $this->db->where("user_email", $user_name);
         $this->db->where("user_password", md5($user_password));
+        $this->db->where('is_delete','0');
         $this->db->from("user");
         $this->db->limit(1);
         $query = $this->db->get();

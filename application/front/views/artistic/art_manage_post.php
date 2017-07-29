@@ -4565,6 +4565,7 @@ $(document).ready(function(){
                     // Alert message if maximum limit is reached. 
                     // If required Alert can be removed. 
                     var msg = "You have reached your maximum limit of characters allowed";
+                    $("#test-upload-product").prop("readonly", true);
                     //    alert(msg);
                    // my_form.text_num.value = maxLen - my_form.my_text.value.length;
                     $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -4588,6 +4589,8 @@ $(document).ready(function(){
        if (product_name.length > maxLen) { 
            text_num = maxLen - product_name.length;
            var msg = "You have reached your maximum limit of characters allowed";
+
+           $("#editpostname" + abc).prop("readonly", true);
            
            $('#postedit .mes').html("<div class='pop_content'>" + msg + "</div>");
            $('#postedit').modal('show');
@@ -4855,16 +4858,13 @@ $('.modal-post').hide();
 
 
 
-    $('#postedit').on('click', function(){
-       // $('.my_text').attr('readonly', false);
-    });
-
+    
 
     $( document ).on( 'keydown', function ( e ) {
        if ( e.keyCode === 27 ) {
            //$( "#bidmodal" ).hide();
            $('#postedit').modal('hide');
-         // $('.my_text').attr('readonly', false);
+         $('.my_text').attr('readonly', false);
 
             //$('.modal-post').show();
 
@@ -4878,4 +4878,20 @@ $('.modal-post').hide();
                     document.getElementById("artpostform").reset(); 
                 });
             </script>
+
+
+            <script type="text/javascript">
+              
+              $('#common-limit').on('click', function () {
+    $('#myModal').modal('show');
+    $("#test-upload-product").prop("readonly", false);
+    });
+
+
+$('#postedit').on('click', function () {
+   // $('#myModal').modal('show');
+    $(".my_text").prop("readonly", false);
+    });
+            </script>
+
 
