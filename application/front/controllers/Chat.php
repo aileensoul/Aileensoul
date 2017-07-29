@@ -570,7 +570,7 @@ class Chat extends MY_Controller {
 
             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['fname'];
@@ -610,7 +610,7 @@ class Chat extends MY_Controller {
 
             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['freelancer_post_fullname'];
@@ -649,7 +649,7 @@ class Chat extends MY_Controller {
 
             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['fullname'];
@@ -683,7 +683,7 @@ class Chat extends MY_Controller {
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
             // last user detail start
             $contition_array = array('user_id' => $id, 'business_profile.is_deleted' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['company_name'];
@@ -716,7 +716,7 @@ class Chat extends MY_Controller {
 
             // last user detail start
             $contition_array = array('user_id' => $id, 'is_delete' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id,art_name,art_lastname,art_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id,art_name,art_lastname,art_user_image,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['art_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['art_name'];
@@ -731,6 +731,7 @@ class Chat extends MY_Controller {
                  $bcr = substr($b, 0, 1);
                 $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
+           
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
@@ -772,7 +773,7 @@ class Chat extends MY_Controller {
             $loginuser = $this->common->select_data_by_id('freelancer_post_reg', 'user_id', $userid, $data = 'freelancer_post_fullname as first_name,freelancer_post_username as last_name,user_id');
         }
 
-        if ($message_from_profile == 5) {
+        if ($message_from_profile == 5) {   
             $loginuser = $this->common->select_data_by_id('business_profile', 'user_id', $userid, $data = 'company_name as first_name,user_id');
         }
 
