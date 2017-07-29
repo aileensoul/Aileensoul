@@ -47,7 +47,7 @@ class Blog extends MY_Controller {
 //BLOG ADD BY ADMIN START
  public function add()
      {
-     
+        
         $this->load->view('blog/add');
         
     }
@@ -106,6 +106,7 @@ class Blog extends MY_Controller {
         $data = array(
                     'title' => $this->input->post('blog_title'),
                     'tag' => $this->input->post('tag'),
+                    'meta_description' => $this->input->post('metadescription'),
                     'description' => $this->input->post('description'),
                     'image' => $blog_image,
                     'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),

@@ -14,7 +14,7 @@
 <meta property="og:title" content="<?php echo $blog['title']; ?>" />
 <meta  property="og:type" content="Blog" />
 <meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
-<meta  property="og:description" content="<?php echo $blog['description']; ?>" /> 
+<meta  property="og:description" content="<?php echo $blog['meta_description']; ?>" /> 
 <meta  property="og:url" content="<?php base_url('blog/'.$blog['blog_slug']) ?>" />
 <meta property="og:image:width" content="620" />
 <meta property="og:image:height" content="541" />
@@ -27,7 +27,7 @@
  <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
 <meta name="twitter:title" content="<?php $blog['title']; ?>">
-<meta name="twitter:description" content="<?php $blog['description']; ?>">
+<meta name="twitter:description" content="<?php $blog['meta_description']; ?>">
 <meta name="twitter:creator" content="By Aileensoul">
 <meta name="twitter:image" content="http://placekitten.com/250/250">
 <meta name="twitter:domain" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
@@ -75,7 +75,7 @@
             <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo pl20">
-                        <?php if($this->input->get('q') || $this->uri->segment(3) == 'popular')
+                        <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular' || $this->uri->segment(2) == 'tag')
                         {
                         ?>
                            <a href="<?php echo base_url('blog/'); ?>"> <h3  style="color: #1b8ab9;">Blog</h3></a>
@@ -94,7 +94,7 @@
                         <div class="main-menu-right">
                             <ul class="">
                             <li>
-                                <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular')
+                                <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular' || $this->uri->segment(2) == 'tag')
                                 {
                                 ?>
                                     <a href="<?php echo base_url('blog/');?>">Recent Post </a>
@@ -159,11 +159,16 @@ if($this->input->get('q'))
           echo "Search results for '$search_keyword' ";
           
       }//if end  
+if($this->uri->segment(2) == 'tag')
+      {
+          echo "Tag: '$search_keyword'";
+          
+      }//if end  
 
 if(count($blog_detail) == 0 )
 {
   echo "<br>";
-  if($this->input->get('q'))
+  if($this->input->get('q') || $this->uri->segment(2) == 'tag')
   {
       echo "Oops No Data Found !";
   }
@@ -363,6 +368,49 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
     ?>
      
       </div><!--blog_latest_post end -->
+
+<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH START-->
+<?php if($this->uri->segment(2) == 'tag')
+      {
+?>
+      <div class="popular_tag">
+      <h4>Popular Tag</h4>
+
+       <?php 
+            
+          foreach($blog_all as $blog)
+          {
+
+                 $tag_all=explode(',', $blog['tag']);
+                  foreach($tag_all as $tag )
+                  {
+               
+        ?>
+      <div class="tag_name">
+      <span class="span_tag">
+      <a href="<?php echo base_url('blog/tag/'.$tag)?>">
+      <?php  
+                echo $tag;
+
+        ?>
+        </a>
+        </span>
+      </div>
+
+      <?php
+                  }//foreach($tag_all as $tag) loop end
+
+          }//foreach($blog_all as $blog) loop end
+
+      ?>
+
+       </div>
+ <?php
+        }//If loop end
+
+  ?>
+<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH END-->
+
      </div>
 
      </div>

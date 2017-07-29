@@ -67,8 +67,15 @@ echo $leftmenu;
 
                         <!-- BLOG DESCRIPTION START -->
                         <div class="form-group col-sm-10">
+                            <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
+                            <?php echo form_textarea(array('name' => 'meta_description', 'id' => 'meta_description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
+                        </div>
+                        <!-- BLOG DESCRIPTION END -->
+
+                        <!-- BLOG DESCRIPTION START -->
+                        <div class="form-group col-sm-10">
                             <label for="blogdescription" name="blogdescription" id="blogdescription">Description *</label>
-                            <?php echo form_textarea(array('name' => 'description', 'id' => 'description editor1', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
+                            <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
                         </div>
                         <!-- BLOG DESCRIPTION END -->
                        
@@ -114,6 +121,9 @@ echo $leftmenu;
                 manufacture_id: {
                     required: true,
                 },
+                meta_description: {
+                    required: true,
+                },
                 description: {
                     required: true,
                 },
@@ -129,6 +139,9 @@ echo $leftmenu;
                         },
                         tag: {
                             required: "Please select tag",
+                        },
+                        meta_description: {
+                            required: "Please enter meta description",
                         },
                         description: {
                             required: "Please enter blog description",

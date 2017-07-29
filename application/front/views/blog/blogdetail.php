@@ -10,7 +10,7 @@
 <meta property="og:title" content="<?php echo $blog_detail[0]['title']; ?>" />
 <meta  property="og:type" content="Blog" />
 <meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image'])?>" />
-<meta  property="og:description" content="<?php echo $blog_detail[0]['description']; ?>" /> 
+<meta  property="og:description" content="<?php echo $blog_detail[0]['meta_description']; ?>" /> 
 <meta  property="og:url" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>" />
 <meta property="fb:app_id" content="825714887566997" />
 
@@ -21,7 +21,7 @@
  <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>">
 <meta name="twitter:title" content="<?php $blog_detail[0]['title']; ?>">
-<meta name="twitter:description" content="<?php $blog_detail[0]['description']; ?>">
+<meta name="twitter:description" content="<?php $blog_detail[0]['meta_description']; ?>">
 <meta name="twitter:creator" content="By Aileensoul">
 <meta name="twitter:image" content="http://placekitten.com/250/250">
 <meta name="twitter:domain" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>">
@@ -364,7 +364,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
         ?>
       <div class="tag_name">
       <span class="span_tag">
-      <a href="<?php echo base_url('blog/tagsearch')?>">
+      <a href="<?php echo base_url('blog/tag/'.$tag)?>">
       <?php
                 echo $tag;
         ?>
