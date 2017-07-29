@@ -562,20 +562,15 @@ if ($artisticdata[0]['art_bestofmine']) {
 
 
     <?php
-    $allowed = array('gif', 'png', 'jpg');
+  
     $allowespdf = array('pdf');
-    $allowesvideo = array('mp4', '3gp');
-    $allowesaudio = array('mp3');
-
+    
     $filename = $artisticdata[0]['art_bestofmine'];
 
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 
-    if (in_array($ext, $allowed)) {
-        ?>
-              <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
-         <?php } elseif (in_array($ext, $allowespdf)) { ?>
+   if (in_array($ext, $allowespdf)) { ?>
         <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
          <?php
          } ?>  

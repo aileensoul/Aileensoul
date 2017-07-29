@@ -44,8 +44,8 @@ class Artistic extends MY_Controller {
                     redirect('artistic/art_address', refresh);
                 } else if ($artdata[0]['art_step'] == 2) {
                     redirect('artistic/art_information', refresh);
-                } else if ($artdata[0]['art_step'] == 3) {
-                    redirect('artistic/art_post', refresh);
+                } else if ($artdata[0]['art_step'] == 3) { //echo "123"; die();
+                    redirect('artistic/art_portfolio', refresh);
                 } else if ($artdata[0]['art_step'] == 4) {
                     redirect('artistic/art_post', refresh);
                 }
@@ -1021,7 +1021,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
     }
 
-    public function art_post() {
+    public function art_post() { //echo"ff"; die();
 
         $user_name = $this->session->userdata('user_name');
 
@@ -1324,11 +1324,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
-
-        if($this->data['artisticdata']){
+       // echo "<pre>"; print_r($this->data['artisticdata'][0]['art_step']); die();
+        if(!$this->data['artisticdata']){ //echo"mm"; die();
+        redirect('artistic/');
+       }else{ //echo "123456789"; die();
         $this->load->view('artistic/art_post', $this->data);
-       }else{
-       redirect('artistic/');
+       
        }
     }
 
@@ -1444,12 +1445,18 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
-        if($this->data['artisticdata']){
-
-        $this->load->view('artistic/art_manage_post', $this->data);
+       if(!$this->data['artisticdata'] && !$this->data['artsdata']){ //echo "22222222"; die();
+      
+      $this->load->view('artistic/notavalible');  
+             
+       }
+        else if($this->data['artisticdata'][0]['art_step'] != 4){   //echo "hii"; die();
+        
+       redirect('artistic/');
+         
        }
        else{
-       redirect('artistic/');
+      $this->load->view('artistic/art_manage_post', $this->data);
        }
     }
 
@@ -10110,5 +10117,7 @@ public function followtwo() {
 
         return $array = $ret;
     }
+
+    
 
 }
