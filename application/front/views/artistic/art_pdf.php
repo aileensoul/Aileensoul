@@ -1,6 +1,6 @@
 
 <!-- start head -->
-<?php  echo $head; ?>
+<?php echo $head; ?>
 
 <style type="text/css">
     #popup-form img{display: none;}
@@ -166,8 +166,11 @@
                    <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> 
                    <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
   </h4>
-<h4 class="profile-head-text_dg">                     <?php
-                if ($artisticdata[0]['designation'] == '') {
+<h4 class="profile-head-text_dg">                     
+<?php
+
+
+                if ($artisticdata[0]['designation'] == '') { //echo "hii"; die();
                     ?>
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
@@ -177,7 +180,7 @@
                     <a>Current Work </a>
                     <?php }?>
 
-                <?php } else { ?> 
+                <?php } else { //echo "123"; die(); ?> 
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
 
@@ -186,12 +189,12 @@
 
                         </a>
 
-                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                                       
                     <?php } else { ?>
                         <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
 
-                <?php } ?>
+                <?php }?>
 
                     </h4>
 </div>
