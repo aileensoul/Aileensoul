@@ -57,8 +57,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'main';
 $route['404_override'] = 'My404Page';
 //$route['translate_uri_dashes'] = FALSE;
+$route['blog/popular'] = "blog/popular";
+$route['blog/read_more'] = "blog/read_more";
+$route['blog/comment_insert'] = "blog/comment_insert";
+//$route['blog/tagsearch'] = "blog/tagsearch";
+
+$route['blog/tag/(:any)'] = "blog/tagsearch/$1";
+$route['blog/(:any)'] = "blog/index/$1";
 
 
-
+// $route['blog/blogdetail/(:any)'] = "blog";
 /* Report Route end */
 

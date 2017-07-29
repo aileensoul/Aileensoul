@@ -695,8 +695,22 @@ if ($returnpage == 'job') {
 <a href="javascript:void(0);" class="button" onclick="removepopup(<?php echo $post['post_id'] ?>)">Remove</a>
 <a href="<?php echo base_url('recruiter/edit_post/' . $post['post_id']); ?>" class="button">Edit</a>
 <!-- <a href="#popup1" class="button">Remove </a> -->
- 
-                                                        <a href="<?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo count($this->common->select_data_by_id('job_apply', 'post_id', $post['post_id'], $data = '*', $join_str = array())); ?></a>
+ <?php 
+
+
+            $join_str[0]['table'] = 'job_reg';
+            $join_str[0]['join_table_id'] = 'job_reg.user_id';
+            $join_str[0]['from_table_id'] = 'job_apply.user_id';
+            $join_str[0]['join_type'] = '';
+
+             $condition_array = array('post_id' => $post['post_id'], 'job_apply.status' => '1','job_reg.job_delete'=> '0','job_reg.is_delete'=> '0','job_reg.job_step' => 10);
+             $data= "job_apply.*,job_reg.job_id";
+            $apply_candida = $this->common->select_data_by_condition('job_apply', $condition_array, $data, $short_by='', $order_by='', $limit, $offset, $join_str,$groupby = '');
+
+            $countt = count($apply_candida);
+
+  ?>
+                                                        <a href="<?php echo base_url('recruiter/view_apply_list/' . $post['post_id']); ?>" class="button">Applied  Candidate : <?php echo $countt; ?></a>
                                                 </li>
                                         </div>
                                     </div>
@@ -1216,9 +1230,10 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
                             if (numItems == '0') {
                               
-                                var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Job Post.</h4></div>";
+                                var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src='<?php echo base_url('img/job-no.png')?>'></div><div class='art_no_post_text'> No Post Available.</div></div>";
                                 $('.contact-frnd-post').html(nodataHtml);
                             }
+
 
 
 

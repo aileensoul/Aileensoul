@@ -125,7 +125,7 @@
 <?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
-                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                          <!-- <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div> -->
                                 <?php
                                 $postname = form_error('postname');
                                 $skills = form_error('skills');
@@ -937,32 +937,44 @@ if(mm<10) {
     function leave_page(clicked_id)
 {
 
-//alert(clicked_id);
+
  
  var post_name = document.getElementById('post_name').value;
+ 
  var skills = document.getElementById('skills').value;
+ 
  var other_skill = document.getElementById('other_skill').value;
- var minyear = document.getElementById('minyear').value;
- var minmonth = document.getElementById('minmonth').value;
+
  var maxyear = document.getElementById('maxyear').value;
- var maxmonth = document.getElementById('maxmonth').value;
+
+
+ var minyear = document.getElementById('minyear').value;
+ 
  var post_desc = document.getElementById('post_desc').value;
+ 
  var interview = document.getElementById('interview').value;
+  
  var country = document.getElementById('country').value;
+  
  var state = document.getElementById('state').value;
+ 
  var city = document.getElementById('city').value;
+ 
  var datepicker = document.getElementById('example2').value;
+ 
  var minsal = document.getElementById('minsal').value;
+ 
  var maxsal = document.getElementById('maxsal').value;
+
  var currency = document.getElementById('currency').value;
  
     var searchkeyword =$.trim(document.getElementById('tags').value);
-        var searchplace =$.trim(document.getElementById('searchplace').value);
-        // alert(searchkeyword);
+    var searchplace =$.trim(document.getElementById('searchplace').value);
        
- if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
+       
+ if(post_name=="" && skills=="" && other_skill==""  && maxyear=="" && minyear=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
-    
+    //alert(11);
     if(clicked_id==1)
     {
             location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
@@ -1005,7 +1017,12 @@ if(mm<10) {
     }
      if(clicked_id==5)
     {
-            location.href = '<?php echo base_url('dashboard') ?>';
+
+    
+
+           //  location.href = 'javascript:void(0);'
+        document.getElementById('acon').style.display = 'block';
+
     }
        if(clicked_id==6)
     {
@@ -1035,6 +1052,9 @@ if(mm<10) {
  }
 
     }
+
+
+
       function home(clicked_id,searchkeyword,searchplace) {
   
                               
@@ -1043,9 +1063,12 @@ if(mm<10) {
 
  }
 
+
  function home_profile(clicked_id,searchkeyword,searchplace){
   
   var  url,data;
+
+ // alert(data);   
   
   
 if (clicked_id == 4) {
@@ -1099,8 +1122,10 @@ if (clicked_id == 4) {
                                 
                             }
                              else if(clicked_id==5)
-                            {
-                                window.location= "<?php echo base_url('dashboard') ?>"; 
+                            { 
+                              //  window.location= "<?php //echo base_url('dashboard') ?>"; 
+                             // $( "#acon" ).show();
+                               document.getElementById('acon').style.display = 'block';
                             }
                              else if(clicked_id==6)
                             {

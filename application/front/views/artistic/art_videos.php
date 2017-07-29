@@ -153,7 +153,7 @@ $(document).ready(function(){
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
                             <!-- <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
@@ -190,27 +190,37 @@ $(document).ready(function(){
 
                             <div class="profile-left">
                             <h4 class="profile-head-text">
-                            <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                            <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"><?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
                             </h4>
    <h4 class="profile-head-text_dg">
 
                     <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
+                if ($artisticdata[0]['designation'] == '') {
+                    ?>
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Current work</a>
-                        <?php } ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
 
-                    <?php } else { ?> 
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } ?>
+                <?php } else { ?> 
 
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+
+                        </a>
+
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                    <?php } else { ?>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
+                <?php } ?>
+
 </h4>
   </div>
               </div>
@@ -244,8 +254,8 @@ $(document).ready(function(){
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                        </li>
+                        <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                        </li> -->
                     <?php } ?>
 
                                   <?php

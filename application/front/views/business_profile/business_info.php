@@ -89,9 +89,9 @@
 
                                 <?php echo form_open(base_url('business_profile/business_information_insert'), array('id' => 'businessinfo', 'name' => 'businessinfo', 'class' => 'clearfix')); ?>
 
-                                <div>
+                             <!--    <div>
                                     <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
 
                                 <?php
                                 $companyname = form_error('companyname');

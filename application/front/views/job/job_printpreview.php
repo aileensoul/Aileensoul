@@ -109,17 +109,30 @@
                   <h5 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h5>
                </a>
                <!-- text head start -->
-               <div class="profile-text" >
-                  <?php
-                     if ($job[0]['designation'] == '') {
-                         ?>
-                  <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
-                  <a id="designation" class="designation" title="Designation">Current Work</a>
-                  <?php } else {
-                     ?> 
-                  <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
-                  <?php } ?>
-               </div>
+              <div class="profile-text" >
+               <?php if($returnpage == ''){
+                  if ($job[0]['designation'] == '') {
+                      ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+               <a id="designation" class="designation" title="Designation">Current Work</a>
+               <?php } else {
+                  ?> 
+               <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
+               <a id="designation" class="designation" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>
+               <?php }
+                  } else { 
+                  
+                  
+                      if ($job[0]['designation'] == '') { ?>
+               <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
+               <a id="designation"> <?php
+                  echo "Current Work"; ?> </a> 
+               <?php  } else { ?>
+               <a id="designation"> <?php
+                  echo ucwords($job[0]['designation']); ?> </a> <?php } 
+                  } ?>
+              
+            </div>
             </div>
             <?php echo $job_menubar; ?>   
          </div>
@@ -155,28 +168,7 @@
                <a id="designation"> <?php
                   echo ucwords($job[0]['designation']); ?> </a> <?php } 
                   } ?>
-               <!-- The Modal -->
-               <!--            <div id="myModal" class="modal">
-                  Modal content <div class="col-md-2"></div>
-                  <div class="modal-content col-md-8">
-                     <span class="close">&times;</span>
-                     <fieldset></fieldset>
-                  <?php // echo form_open(base_url('job/job_designation/'), array('id' => 'jobdesignation', 'name' => 'jobdesignation', 'class' => 'clearfix')); ?>
-                  
-                     <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $job[0]['designation']; ?>">
-                  <?php // echo form_error('designation'); ?>
-                     </fieldset>
-                     <input type="hidden" name="hitext" id="hitext" value="2">
-                     <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                  <?php // echo form_close(); ?>
-                  
-                  
-                  
-                  </div>
-                  
-                  <div class="col-md-2"></div>
-                  
-                  </div>-->
+              
             </div>
             <!-- text head end -->
          </div>

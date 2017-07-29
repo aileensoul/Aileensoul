@@ -135,7 +135,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -159,54 +159,38 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
                             <div class="profile-left">
                             <h4 class="profile-head-text">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>"><?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
 </h4>
         <!-- text head start -->
    <h4 class="profile-head-text_dg">
 
 <?php
-if ($artisticdata[0]['designation'] == '') {
-    ?>
+                if ($artisticdata[0]['designation'] == '') {
+                    ?>
 
-                   
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-                      
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
+
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+
+                        </a>
+
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
-                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
                 <?php } ?>
 
-
-                <!-- The Modal -->
-                <!-- <div id="myModal" class="modal"> -->
-                    <!-- Modal content -->
-                    <!-- <div class="col-md-2"></div> -->
-                    <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-<?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-
-                        <?php echo form_error('designation'); ?>
-                        </fieldset>
-
-                        <input type="hidden" name="hitext" id="hitext" value="3">
-                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                            <?php echo form_close(); ?>
-
-
-
-                    </div>
- -->
-                    <!-- <div class="col-md-2"></div> -->
                     </h4>
         
         </div>
@@ -245,8 +229,8 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
 
 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                        </li>
+                       <!--  <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                        </li> -->
 <?php } ?>      
 
 <?php
@@ -439,8 +423,8 @@ $this->db->get_where('cities', array('city_id' => $artisticdata[0]['art_city']))
       <li><b>Pincode</b> <span>
              <?php echo PROFILENA;?></span></li><?php  }else{}?>               
           <?php }?>
-                                            <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
-                                            </li>
+                                            <!-- <li> <b>Postal Address </b><span> <?php echo $artisticdata[0]['art_address']; ?></span>
+                                            </li> -->
 
                                         </ul>
                                     </div>
@@ -562,20 +546,15 @@ if ($artisticdata[0]['art_bestofmine']) {
 
 
     <?php
-    $allowed = array('gif', 'png', 'jpg');
+  
     $allowespdf = array('pdf');
-    $allowesvideo = array('mp4', '3gp');
-    $allowesaudio = array('mp3');
-
+    
     $filename = $artisticdata[0]['art_bestofmine'];
 
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 
-    if (in_array($ext, $allowed)) {
-        ?>
-              <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
-         <?php } elseif (in_array($ext, $allowespdf)) { ?>
+   if (in_array($ext, $allowespdf)) { ?>
         <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
          <?php
          } ?>  

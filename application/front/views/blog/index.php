@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# thetestasdf: http://ogp.me/ns/fb/thetestasdf#">
 <head>
   <title></title>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<?php
+  foreach ($blog_detail as $blog) 
+      {
+?>
+ <!-- Open Graph data -->
+<meta property="og:title" content="<?php echo $blog['title']; ?>" />
+<meta  property="og:type" content="Blog" />
+<meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
+<meta  property="og:description" content="<?php echo $blog['meta_description']; ?>" /> 
+<meta  property="og:url" content="<?php base_url('blog/'.$blog['blog_slug']) ?>" />
+<meta property="og:image:width" content="620" />
+<meta property="og:image:height" content="541" />
+<meta property="fb:app_id" content="825714887566997" />
+
+<!-- <meta property="og:site_name" content="Site Name, i.e. Moz" />
+<meta property="fb:admins" content="Facebook numeric ID" /> -->
+ 
+  <!-- for twitter -->
+ <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
+<meta name="twitter:title" content="<?php $blog['title']; ?>">
+<meta name="twitter:description" content="<?php $blog['meta_description']; ?>">
+<meta name="twitter:creator" content="By Aileensoul">
+<meta name="twitter:image" content="http://placekitten.com/250/250">
+<meta name="twitter:domain" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
+<?php
+}
+?>
  
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
@@ -46,7 +75,7 @@
             <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo pl20">
-                        <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                        <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular' || $this->uri->segment(2) == 'tag')
                         {
                         ?>
                            <a href="<?php echo base_url('blog/'); ?>"> <h3  style="color: #1b8ab9;">Blog</h3></a>
@@ -65,7 +94,7 @@
                         <div class="main-menu-right">
                             <ul class="">
                             <li>
-                                <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                                <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular' || $this->uri->segment(2) == 'tag')
                                 {
                                 ?>
                                     <a href="<?php echo base_url('blog/');?>">Recent Post </a>
@@ -89,7 +118,7 @@
                                 else
                                 {
                                 ?>
-                                     <a href="<?php echo base_url('blog/index/popular');?>">Most Popular</a>
+                                     <a href="<?php echo base_url('blog/popular');?>">Most Popular</a>
                               <?php
                                 }
                                 ?>
@@ -125,18 +154,44 @@
 <div class="blog_post_outer col-md-9 col-sm-8 pr0">
 <?php
 
-if($this->input->get('search_blog_post'))
+if($this->input->get('q'))
       {
-          echo "Search results for '$search_keyword' ";
+       //   echo "Search results for '$search_keyword' ";
+          
+      }//if end  
+if($this->uri->segment(2) == 'tag')
+      {
+          echo "Tag: '$search_keyword'";
           
       }//if end  
 
 if(count($blog_detail) == 0 )
 {
-  echo "<br>";
-  if($this->input->get('search_blog_post'))
-  {
-      echo "Oops No Data Found !";
+ 
+  if($this->input->get('q') || $this->uri->segment(2) == 'tag')
+  {?>
+<div class="job-saved-box">
+                            <h3>
+                              Search result of 
+                                  "<?php echo $search_keyword; ?>"                            </h3>
+                            <div class="contact-frnd-post">
+                                
+
+                                
+                                         <div class="text-center rio">
+                                                <h1 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">Oops No Data Found.</h1>
+                                                <p style="margin-left:4%;text-transform:none !important;border:0px;">We couldn't find what you were looking for.</p>
+                                                <ul>
+                                                    <li style="text-transform:none !important; list-style: none;">Make sure you used the right keywords.</li>
+                                                </ul>
+                                            </div>
+                                   
+                            </div>
+
+
+                        </div>
+<?php
+     
   }
   if($this->uri->segment(3) == 'popular')
   {
@@ -202,14 +257,14 @@ else
         <div class="blog_main_post_first_part">
         <div class="blog_main_post_img">
 
-         <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+         <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
         </div>
         </div>
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-             <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
+             <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
           </span>
         </div>
         <div class="blog_class_main_by">
@@ -228,22 +283,34 @@ else
           <ul class="social_icon_bloag fl">
             <li>
             
-                <a href=""><span  class="social_fb"></span></a>
+<?php
+
+$title=urlencode('"'.$blog['title'].'"');
+$url=urlencode(base_url('blog/'.$blog['blog_slug']));
+$summary=urlencode('"'.$blog['description'].'"');
+$image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog['image']));
+?>
+               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
+                <span  class="social_fb"></span>
+                </a>
+
               
             </li>
             <li>
               
-                  <a href=""><span  class="social_gp"></span></a>
+                 <a href="https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                <span  class="social_gp"></span>
+                </a>
               
             </li>
             <li>
                 
-                <a href=""><span  class="social_lk"></span></a>
+                <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
               
             </li>
             <li>
             
-                <a href=""><span class="social_tw"></span></a>
+                <a href="https://twitter.com/intent/tweet?text="<?php echo  $blog['description'];?>" &url=<?php echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<?php echo  $blog['description'];?> &url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
             
             </li>
 
@@ -279,7 +346,7 @@ else
 
  <!-- <?php //echo form_open(base_url('blog/index/search'), array('id' => 'blog_search', 'name' => 'blog_search', 'class' => 'clearfix')); ?>  -->
   <form action=<?php echo base_url('blog/')?> method="get" autocomplete="off"> 
-          <div class="searc_w"><input type="text" name="search_blog_post" id="search_blog_post" placeholder="Search Blog Post"></div>
+          <div class="searc_w"><input type="text" name="q" id="q" placeholder="Search Blog Post"></div>
          <button type="submit" class="butn_w" onclick="return checkvalue();"><i class="fa fa-search"></i></button> 
         <!-- <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
 </a></div> -->
@@ -300,18 +367,15 @@ else
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
-            </div>
-          
-            <div class="desc_post">
-              <span class="rifght_desc"> <?php echo $blog['description'];?> </span>
-            </div>  
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
+            </div> 
+            
             </div>
 
           </div>
@@ -325,6 +389,49 @@ else
     ?>
      
       </div><!--blog_latest_post end -->
+
+<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH START-->
+<?php if($this->uri->segment(2) == 'tag')
+      {
+?>
+      <div class="popular_tag">
+      <h4>Popular Tag</h4>
+
+       <?php 
+            
+          foreach($blog_all as $blog)
+          {
+
+                 $tag_all=explode(',', $blog['tag']);
+                  foreach($tag_all as $tag )
+                  {
+               
+        ?>
+      <div class="tag_name">
+      <span class="span_tag">
+      <a href="<?php echo base_url('blog/tag/'.$tag)?>">
+      <?php  
+                echo $tag;
+
+        ?>
+        </a>
+        </span>
+      </div>
+
+      <?php
+                  }//foreach($tag_all as $tag) loop end
+
+          }//foreach($blog_all as $blog) loop end
+
+      ?>
+
+       </div>
+ <?php
+        }//If loop end
+
+  ?>
+<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH END-->
+
      </div>
 
      </div>
@@ -336,9 +443,11 @@ else
 </body>
 </html>
 
+
 <script type="text/javascript">
      
 function read_more(blog_id,slug) {
+  
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url()."blog/read_more" ?>',
@@ -347,8 +456,8 @@ function read_more(blog_id,slug) {
            success: function (data) {
                if (data == 1) 
                {
-                  window.location= "<?php echo base_url() ?>blog/blogdetail/" + slug;
-                   //redirect('blog/blogdetail');
+                  window.location= "<?php echo base_url() ?>blog/" + slug;
+                   //redirect('blog');
                }
              
            }
@@ -361,7 +470,7 @@ function read_more(blog_id,slug) {
    function checkvalue() 
    {
      
-       var searchkeyword = $.trim(document.getElementById('search_blog_post').value);
+       var searchkeyword = $.trim(document.getElementById('q').value);
      
        if (searchkeyword == "") 
        {
@@ -371,5 +480,37 @@ function read_more(blog_id,slug) {
    
 </script>
 <!-- FOR SEARCH VALIDATION FOR EMAPTY SEARCH END -->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE START-->
+<script type="text/javascript">
+ $(document).ready(function() {
+$(".fbk").on('click', function() {
+
+//alert($(this).attr('title'));
+      //  var url=$(this).attr('data');
+     
+
+       var url= $(this).attr('url');
+        var  url_encode= $(this).attr('url_encode');
+       var title=$(this).attr('title');
+       var summary= $(this).attr('summary');
+       var image=$(this).attr('image');
+
+        $.ajax({
+        type: 'POST',
+        url: 'https://graph.facebook.com?id='+url+'&scrape=true',
+            success: function(data){
+               console.log(data);
+           }
+
+    });
+         window.open('http://www.facebook.com/sharer.php?s=100&p[title]='+title+'&p[summary]='+summary+'&p[url]='+ url_encode+'&p[images][0]='+image+'', 'sharer', 'toolbar=0,status=0,width=620,height=280');
+});
+});
+
+</script>
+<!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE END-->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>

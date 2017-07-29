@@ -40,18 +40,18 @@ height: 67px;}
     overflow: hidden;
     width: 96%;
     text-overflow: ellipsis;
-	 line-height: 25px;}
+	 line-height: 21px;}
 /*.blog_post_outer{padding-left: 37px;	}*/
 .blog .logo{padding-left: 0px;}
 .lateaqt_post_img img{ width: 100%; height: 100%; }
-.latest_post_posts{margin: 5px;	float: left; cursor: pointer;
+.latest_post_posts{margin: 5px 0;	float: left; cursor: pointer;
 	width: 100%;
 border: 1px solid #d9d9d9;}
 .latest_post_posts:hover{background-color: #e9f6fc;}
-.blog_latest_post h3 {padding:0px 6px; font-family: robotoregular;}
+.blog_latest_post h3 {padding:0px 6px; font-family: robotoregular; color:#787878;}
 .blog_post_main{background-color: white; float: left; border:1px solid #d9d9d9; width: 100%;}
 .blog_main_post_second_part{padding: 20px;}
-.blog_main_post_img{/*height: 350px;*/ width: 100%; border-bottom: 1px solid #d9d9d9; text-align: center; padding: 10px 0px;}
+.blog_main_post_img{/*height: 350px;*/ width: 100%; border-bottom: 1px solid #d9d9d9; text-align: center; /*padding: 10px 0px;*/}
 .blog_main_post_img img{ height: 100%;}
 .social_icon_bloag li{float: left; list-style: none; display: inline-block; margin: 0; padding: 0;}
 .social_icon_bloag li a{float: left; padding: 6px; font-size: 17px;}
@@ -76,7 +76,7 @@ height: 24px; width: 24px; float: left;}
 .social_gp:hover{opacity: 1}
 .social_lk:hover{opacity: 1}
 .social_tw:hover{opacity: 1}
-.blog_class_main_name{padding: 10px 0px;}
+.blog_class_main_name{/*padding: 10px 0px;*/}
 .blog_class_main_name span{color: #1b8ab9; font-size: 25px; font-family: robotoregular;}
 .blog_class_main_by { color: #707070; padding: 0px 0px; }
 .blog_class_main_by  span{padding-right: 20px; font-size: 15px;}
@@ -91,9 +91,8 @@ border-radius: 50%;}
 .blog_class_main_desc{padding: 6px 0px; word-break: break-all;}
 .blog_search h6{padding: 6px 0px; font-family: robotoregular;}
 .searc_w{width: 87%; float: left;}
-.butn_w{width: 13%;
-float: left;
-margin: 4px 0px 0px;}
+.butn_w{width: 13%; margin:0;float: left; padding:5px 8px 5px; background:none; color:#d9d9d9; }
+.butn_w:hover{background:none; color:#838383;}
 .searc_w input{padding: 4px 0px; border-radius: 0px; border: none;
 border-bottom: 1px solid #d9d9d9;}
 .butn_w a{
@@ -108,11 +107,11 @@ border-bottom: 1px solid #d9d9d9;}
 .rifght_desc{font-size: 13px; color: #707070;}
 .rifght_fname{font-size:15px;  font-weight: bold;}
 
-.blog-comment-count a{color: #2e2e2e; cursor: pointer;}
+.blog-comment-count a{color: #2e2e2e; cursor: pointer; cursor:text;}
 
 .blog-comment-count a:hover{color: #2e2e2e;}
 .blog-left-comment:hover{background-color: #d2edf9}
-.blog-comment a{color: #2e2e2e; cursor: pointer;}
+.blog-comment a{color: #2e2e2e; cursor: text;}
 .blog_monthd{
 font-size: 17px;
 padding: 11px 5px ;
@@ -136,7 +135,7 @@ margin-left: 3px;
 }
 .comment_foem input{padding: 6px 15px;}
 .comment_box h3{border-bottom: 1px solid #d9d9d9;
-padding: 7px 20px;
+padding: 7px 20px; color:#787878;
 font-size: 24px;}
 .comment_box{float: left;
 background: white;
@@ -151,15 +150,17 @@ background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%
 background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
 background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
 background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);}
-.tag_name{border:1px solid #d9d9d9; display: inline-block; padding: 3px;	font-size: 15px;}
+.tag_name{border:1px solid #d9d9d9; display: inline-block; padding: 3px 15px; border-radius:4px; font-size: 15px; margin-bottom:5px;}
 .popular_tag{padding: 11px 10px;
 float: left;}
-.popular_tag h4{padding: 6px 0px;
+.popular_tag h4{padding: 6px 0px 15px; color:#787878;
 font-family: robotoregular;}
 
 
 .blog_header{padding-top: 50px;}
-.post_latest_right{width: 70%; float: left; padding-left: 10px;}
+.post_latest_right{width: 70%; float: left; padding-left: 10px; height:67px; overflow:hidden;}
+.tag_name .span_tag a{color:#787878;}
+.tag_name:hover .span_tag a{color:#fff;}
 
 /***  comment design  ***/
 .all-comments{width:100%; float:left; border-top:1px solid #d9d9d9;}
@@ -173,6 +174,11 @@ font-family: robotoregular;}
 .all-comments ul li .c-user-comments p{font-size:15px; color:#a0a0a0; line-height:1.3;}
 .all-comments ul li .c-user-comments p .comment-time{font-size:12px; font-family:"robotoregular";}
 
+
+.blog_class_main_by{display:none;}
+/*.blog-detail .container{width:80%;}*/
+.blog-detail .logo{padding-left:0;}
+.desc_post a:hover{color:#1b8ab9;}
 
 @media screen and (max-width: 1280px) {
 	.all-comments ul li .c-user-comments{width:89%;}

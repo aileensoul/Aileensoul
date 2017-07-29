@@ -139,7 +139,8 @@ class Registration extends CI_Controller {
                  'created_date' => date('Y-m-d h:i:s',time()),
                  'edit_ip'=> $ip,
                  'user_last_login'=> date('Y-m-d h:i:s',time()),
-                 'user_verify'=> '0'
+                 'user_verify'=> '0',
+                 'user_slider'=> '1',
         ); 
              
             $insert_id = $this->common->insert_data_getid($data,'user'); 
@@ -596,34 +597,25 @@ public function check_login() {
         $email_login = $this->input->post('email_login');
         $password_login =  $this->input->post('password_login');
 
-
-
-        $contition_array = array('user_email' => $email_login);
+        $contition_array = array('user_email' => $email_login,'is_delete'=>'0');
         $result = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             
-
-
         $userinfo = $this->common->check_login($email_login, $password_login);
 
         if (count($userinfo) > 0) {
             if ($userinfo[0]['status'] == "2") {
                 echo 'Sorry, user is Inactive.';
             } else {
-               // $userinfo[0]['user_id'] = $this->input->post('user_id');
                 $this->session->set_userdata('aileenuser', $userinfo[0]['user_id']);
                $data =  'ok';
-                
             }
         } else if($email_login == $result[0]['user_email']) {
              $data = 'password';
              $id = $result[0]['user_id'];
         }else{
-
              $data = 'email';
-
-
         }
-         
+        
         echo json_encode(
                         array(
                             "data" => $data,

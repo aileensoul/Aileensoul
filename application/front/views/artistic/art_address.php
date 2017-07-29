@@ -78,16 +78,16 @@
                         </h3>
                        
                             <?php echo form_open(base_url('artistic/art_address_insert'), array('id' => 'address','name' => 'address', 'class' => 'clearfix')); ?>
-
+<!-- 
                             <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
 
 
                             <?php
                              $country =  form_error('country');
                              $state =  form_error('state');
-                             $address =  form_error('address');
+                             //$address =  form_error('address');
                          ?>
                                 <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
 								<label>Country:<span style="color:red">*</span></label>
@@ -200,16 +200,16 @@
 									</fieldset>
 								
 
-									<fieldset class="full-width">
+									<!-- <fieldset class="full-width">
 									<label>Postal Address:<span style="color:red">*</span></label>
 								
 
-                                <textarea id="textarea" name="address" tabindex="5" style="resize: none;min-height: 18%;"><?php if($address1){ echo $address1; } ?></textarea>
-                                    <?php echo form_error('address'); ?>
+                                <textarea id="textarea" name="address" tabindex="5" style="resize: none;min-height: 18%;"><?php //if($address1){ echo $address1; } ?></textarea>
+                                    <?php //echo form_error('address'); ?>
                                     <label id="address-error"></label>
 
                                 
-								</fieldset>
+								</fieldset>  -->
 
                                  <fieldset class="hs-submit full-width">
                                     
@@ -242,13 +242,13 @@
 </body>
 </div>
 </html>
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
      var textarea = document.getElementById("textarea");
 
 textarea.onkeyup = function(evt) {
     this.scrollTop = this.scrollHeight;
 }
- </script>
+ </script> -->
 
   <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
   
@@ -572,18 +572,18 @@ $(document).ready(function(){
 //       return value == '' || value.trim().length != 0;  
 //     }, "No space please and don't leave it empty");
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    //return value == '' || value.trim().length != 0; 
-     if(!value) 
-            {
-                return true;
-            }
-            else
-            {
-                  return regexpr.test(value);
-            }
-     // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+// $.validator.addMethod("regx", function(value, element, regexpr) {          
+//     //return value == '' || value.trim().length != 0; 
+//      if(!value) 
+//             {
+//                 return true;
+//             }
+//             else
+//             {
+//                   return regexpr.test(value);
+//             }
+//      // return regexpr.test(value);
+// }, "Only space, only number and only special characters are not allow");
 
 
             $(document).ready(function () { 
@@ -605,13 +605,13 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                           
                         },
                       
-                        address: {
+                        // address: {
 
-                            required: true,
-                               regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                            //noSpace: true
+                        //     required: true,
+                        //        regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                        //     //noSpace: true
                             
-                        },
+                        // },
                         
                       
 
@@ -631,11 +631,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             
                         },
                        
-                        address: {
+                        // address: {
 
-                            required: "Address Is Required.",
+                        //     required: "Address Is Required.",
                             
-                        },
+                        // },
 
                        
                 },

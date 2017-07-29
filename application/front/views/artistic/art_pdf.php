@@ -1,6 +1,6 @@
 
 <!-- start head -->
-<?php  echo $head; ?>
+<?php echo $head; ?>
 
 <style type="text/css">
     #popup-form img{display: none;}
@@ -137,7 +137,7 @@
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
                             <!-- <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
@@ -164,25 +164,38 @@
                             <div class="profile-left">
                    <h4 class="profile-head-text">
                    <a href="<?php echo base_url('artistic/art_manage_post/'.$artisticdata[0]['user_id'].''); ?>"> 
-                   <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                   <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
   </h4>
-<h4 class="profile-head-text_dg">                     <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
+<h4 class="profile-head-text_dg">                     
+<?php
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Current work</a>
-                        <?php } ?>
 
-                    <?php } else { ?> 
+                if ($artisticdata[0]['designation'] == '') { //echo "hii"; die();
+                    ?>
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
-                        <?php } ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
 
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
+
+                <?php } else { //echo "123"; die(); ?> 
+
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+
+                        </a>
+
+                                       
+                    <?php } else { ?>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
+                <?php }?>
+
                     </h4>
 </div>
               </div>
@@ -217,9 +230,9 @@
                 ?> 
 
                                     
-
+<!-- 
                                      <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                    </li>
+                                    </li> -->
                      <?php }?>
 
 
@@ -419,7 +432,7 @@ if ($status == 0 || $status == " ") {
               $contition_array = array('art_post_id' => $pdfv['post_id']);
              $artistictitle = $this->data['artistictitle'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
               ?>
-        <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucwords($artistictitle[0]['art_post']); ?></a> </div>
+        <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>"><?php echo ucfirst(strtolower($artistictitle[0]['art_post'])); ?></a> </div>
 </div>
 </li>
         <!-- <a href="<?php echo base_url('artistic/creat_pdf/'.$pdfv['image_id']) ?>">

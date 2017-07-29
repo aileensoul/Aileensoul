@@ -77,7 +77,7 @@
 
                             
 
-        <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+      <!--   <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
 
                                 
                     <fieldset>

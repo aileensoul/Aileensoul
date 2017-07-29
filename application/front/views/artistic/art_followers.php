@@ -125,7 +125,7 @@
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -147,25 +147,38 @@
                             <div class="profile-left">
                             <h4 class="profile-head-text">
             <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
-               <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+               <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
 
             <!-- text head start --></h4>
           <h4 class="profile-head-text_dg">
-                <?php
+                 <?php
                 if ($artisticdata[0]['designation'] == '') {
                     ?>
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
 
-                    
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
+
+                   <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
 
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
 
                         </a>
 
+                                        
+                    <?php } else { ?>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
+                <?php } ?>
+
+
 </h4>
 
             </div>
@@ -196,8 +209,8 @@
                      if($artisticdata[0]['user_id'] == $userid)
                      { 
                      ?>
-                  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                  </li>
+                 <!--  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                  </li> -->
                   <?php }?>
                   <?php
                      $userid = $this->session->userdata('aileenuser'); 
@@ -308,7 +321,10 @@
 
                                            <?php 
                                              $followername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_name;
-                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname;  ?>
+                                             $art_lastname =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_lastname; 
+                                             $designation =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->designation;   
+
+                                             ?>
                                        <?php 
                                           $followerusername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_user_image; ?>
                                        <?php if($followerusername != ''){ ?>
@@ -334,7 +350,7 @@
                             }?>
 
                             <div class="post-img-userlist">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -346,11 +362,11 @@
                                     <div class="">
                                        <div class="follow-li-text">
                                          
-                                          <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucwords($followername); echo "&nbsp;"; echo ucwords($art_lastname);?></a>
+                                          <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>"><?php echo ucfirst(strtolower($followername)); echo "&nbsp;"; echo ucfirst(strtolower($art_lastname));?></a>
                                        </div>
-                                          <?php  if ($user['designation']) { ?>
+                                          <?php  if ($designation) { ?>
                                                            <div>
-                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                            <a><?php echo ucfirst(strtolower($designation)); ?></a>
                                                         </div>
                                                        <?php  
                                                         }

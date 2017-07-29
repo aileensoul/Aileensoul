@@ -129,7 +129,7 @@ class Api extends CI_Controller {
 
         $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
          
-      
+      echo '<pre>'; print_r($messages); die();
             if (preg_match('/<img/', $messages[0]['message'])) {
                 $messages = str_replace("\\", "", $messages[0]['message']);
             } else {

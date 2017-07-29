@@ -23,6 +23,7 @@ echo $leftmenu;
         </ol>
         <div class="fr">      
                          <a name="Add" href="<?php echo base_url('blog/add'); ?>" class="btn bg-orange btn-flat margin-r-5" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>Add Blog</a>
+                         <!-- <a name="Add" href="<?php //echo base_url('blog/add'); ?>">Add Blog</a> -->
         </div>
     </section>
 
@@ -149,7 +150,7 @@ echo $leftmenu;
                     <td><?php echo $blog['title']; ?></td>
 
                      <td>
-                       <?php echo $this->db->get_where('blog_tag', array('id' => $blog['tag_id']))->row()->name; ?>
+                       <?php echo $blog['tag']; ?>
                      </td>
 
                     <td> 

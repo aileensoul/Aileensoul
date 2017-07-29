@@ -47,24 +47,15 @@ class Blog extends MY_Controller {
 //BLOG ADD BY ADMIN START
  public function add()
      {
-     
-        //FOR GET TAG NAME START
-        $condition_array = array('status !=' => 'delete');
-        $data="id,name";
-        $this->data['blog_tag']  = $this->common->select_data_by_condition('blog_tag', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
-        //FOR GET TAG NAME END
-
-        $this->load->view('blog/add',$this->data);
-
-
-        // print_r($this->data['art_list']);die();
+        
+        $this->load->view('blog/add');
+        
     }
  //BLOG ADD BY ADMIN END
 
 //BLOG ADD INSERT START
  public function blog_insert()
      {
-
         //IMAGE UPLOAD IN FOLDER START
         if($_FILES['image']['name'] != '' )
         {
@@ -114,14 +105,15 @@ class Blog extends MY_Controller {
         //FOR INSERT BLOG DATA START
         $data = array(
                     'title' => $this->input->post('blog_title'),
-                    'tag_id' => $this->input->post('tag'),
+                    'tag' => $this->input->post('tag'),
+                    'meta_description' => $this->input->post('meta_description'),
                     'description' => $this->input->post('description'),
                     'image' => $blog_image,
                     'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'publish'
                 ); 
-             // echo "<pre>";print_r($data);die();
+              //echo "<pre>";print_r($data);die();
          $insert_id = $this->common->insert_data_getid($data, 'blog');
 
                
