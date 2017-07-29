@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
 </head>
-<body class="blog">
+<body class="blog-detail">
  <header class="">
         <div class="header animated fadeInDownBig">
             <div class="container">

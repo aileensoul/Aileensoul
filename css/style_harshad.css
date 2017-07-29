@@ -270,6 +270,8 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li b{font-weight:normal;}
 .profile-job-post-detail .profile-job-post-title .button{}
 .profile-head-text{font-family: 'robotoregular';}
+.post-design-desc{font-size:13px;}
+.post-design-desc a{font-size:15px;}
 
 
 /*** 24-7-17  ***/
