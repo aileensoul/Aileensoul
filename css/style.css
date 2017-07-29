@@ -14645,6 +14645,8 @@ div .comment {
 #chat.chat{position:relative;}
 #set_input .input-group-btn .btn{border-radius:3px;}
 .chat .post-img-div{float:left;}
+.chat_nobcx .post-img-div{float:left;}
+.people-list .about{width:77%;}
 
 .ui-autocomplete {
     max-width: 300px!important;
