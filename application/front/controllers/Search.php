@@ -631,17 +631,13 @@ public function business_search() {
          // echo "hhh";die();
            $searchkeyword=$this->input->get('skills');
            $searchplace=$this->input->get('searchplace');
-         
         }
         else
         {
            // echo "kkk";die();
-               
-
                 if($this->uri->segment(3) =="0")
-
                 {
-                      
+                     
                         $searchplace= urldecode($searchplace);
                          $searchkeyword= "";
                      
