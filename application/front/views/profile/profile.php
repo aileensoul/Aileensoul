@@ -323,14 +323,15 @@ $('#datepicker').datetimepicker({
                  
                     },
                     
-                     submitHandler: submitRegisterForm
+                  //  submitHandler: submitRegisterForm
 
                 });
                 
-                  function submitRegisterForm()
-        {
-            
-            var selday = $("#selday").val();
+                   });
+                   
+                   $("#submit").click(function () {
+                   
+                      var selday = $("#selday").val();
             var selmonth = $("#selmonth").val();
             var selyear = $("#selyear").val();
            
@@ -416,10 +417,8 @@ $('#datepicker').datetimepicker({
 
             }
         }
-
-            return false;
-        }
-                   });
+         
+       });
 
 </script>
  <script type="text/javascript">
