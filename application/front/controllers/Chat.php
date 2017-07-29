@@ -534,13 +534,18 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id,rec_firstname,rec_lastname,recruiter_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['rec_firstname'] . ' ' . $last_user_data[0]['rec_lastname'];
-            if ($last_user_data[0]['recruiter_user_image'] != '') {
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['rec_firstname'];
+            $this->data['last_user_data']['last_name'] = $last_user_data[0]['rec_lastname'];
+           
+            $user_image = FCPATH . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
+            if ($last_user_data[0]['recruiter_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
-            } else {
+            } else {  
                  $a = $last_user_data[0]['rec_firstname'];
+                 $b = $last_user_data[0]['rec_lastname'];
                  $acr = substr($a, 0, 1);
-                $this->data['last_user_data']['user_image_char'] = $acr;
+                 $bcr = substr($b, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -569,13 +574,17 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,fname,lname,job_user_image,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fname'] . ' ' . $last_user_data[0]['lname'];
-            if ($last_user_data[0]['job_user_image'] != '') {
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['fname'];
+            $this->data['last_user_data']['last_name'] = $last_user_data[0]['lname'];
+            $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
+            if ($last_user_data[0]['job_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
                  $a = $last_user_data[0]['fname'];
+                 $b = $last_user_data[0]['lname'];
                  $acr = substr($a, 0, 1);
-                $this->data['last_user_data']['user_image_char'] = $acr;
+                 $bcr = substr($b, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -604,13 +613,17 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id,freelancer_post_username,freelancer_post_fullname,freelancer_post_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['freelancer_post_reg_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['freelancer_post_fullname'] . ' ' . $last_user_data[0]['freelancer_post_username'];
-            if ($last_user_data[0]['freelancer_post_user_image'] != '') {
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['freelancer_post_fullname'];
+            $this->data['last_user_data']['last_name'] = $last_user_data[0]['freelancer_post_username'];
+             $user_image = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
+            if ($last_user_data[0]['freelancer_post_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
                  $a = $last_user_data[0]['freelancer_post_fullname'];
+                 $b = $last_user_data[0]['freelancer_post_username'];
                  $acr = substr($a, 0, 1);
-                $this->data['last_user_data']['user_image_char'] = $acr;
+                 $bcr = substr($b, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -639,13 +652,17 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id,username,fullname,freelancer_hire_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['rec_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['fullname'] . ' ' . $last_user_data[0]['username'];
-            if ($last_user_data[0]['freelancer_hire_user_image'] != '') {
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['fullname'];
+            $this->data['last_user_data']['last_name'] = $last_user_data[0]['username'];
+              $user_image = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
+            if ($last_user_data[0]['freelancer_hire_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
                  $a = $last_user_data[0]['fullname'];
+                 $b = $last_user_data[0]['username'];
                  $acr = substr($a, 0, 1);
-                $this->data['last_user_data']['user_image_char'] = $acr;
+                 $bcr = substr($b, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -670,7 +687,8 @@ class Chat extends MY_Controller {
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['user_name'] = $last_user_data[0]['company_name'];
-            if ($last_user_data[0]['business_user_image'] != '') {
+             $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
+            if ($last_user_data[0]['business_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             } else {
                  $a = $last_user_data[0]['company_name'];
@@ -701,13 +719,17 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id,art_name,art_lastname,art_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['art_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['art_name'] . ' ' . $last_user_data[0]['art_lastname'];
-            if ($last_user_data[0]['art_user_image'] != '') {
-                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['art_user_image'];
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['art_name'];
+            $this->data['last_user_data']['last_name'] = $last_user_data[0]['art_lastname'];
+              $user_image = FCPATH . 'uploads/artistic_profile/thumbs/' . $last_user_data[0]['art_user_image'];
+            if ($last_user_data[0]['art_user_image'] && (file_exists($user_image)) == 1){
+                $this->data['last_user_data']['user_image'] = base_url() . 'uploads/artistic_profile/thumbs/' . $last_user_data[0]['art_user_image'];
             } else {
                  $a = $last_user_data[0]['art_name'];
+                 $b = $last_user_data[0]['art_lastname'];
                  $acr = substr($a, 0, 1);
-                $this->data['last_user_data']['user_image_char'] = $acr;
+                 $bcr = substr($b, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -931,7 +953,8 @@ class Chat extends MY_Controller {
             if ($sel_list['message_to']) {
                 if ($sel_list['message_to'] == $id) {
                     $return['user_id'] = $sel_list['message_to'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -944,7 +967,8 @@ class Chat extends MY_Controller {
             }else {
                 if ($sel_list['message_from'] == $id) {
                     $return['user_id'] = $sel_list['message_from'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -1030,7 +1054,8 @@ class Chat extends MY_Controller {
                 $return = $to_list;
 
                 $return['user_id'] = $to_list['message_to'];
-                $return['first_name'] = $to_list['first_name'] . ' ' . $to_list['last_name'];
+                $return['first_name'] = $to_list['first_name'];
+                $return['last_name'] = $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
 
@@ -1114,6 +1139,7 @@ class Chat extends MY_Controller {
 
                 $return['user_id'] = $from_list['message_from'];
                 $return['first_name'] = $from_list['first_name'];
+                $return['last_name'] = $from_list['last_name'];
                 $return['user_image'] = $from_list['user_image'];
                 $return['message'] = $from_list['message'];
 
@@ -1140,7 +1166,8 @@ class Chat extends MY_Controller {
             $return_arraysel = array();
         }
 
-
+//echo '<pre>';print_r($userlist);
+//echo '<pre>';print_r($return_arraysel); die();
         $this->data['userlist'] = array_merge($return_arraysel, $userlist);
 
 //echo '<pre>'; print_r($this->data['userlist']); die();
@@ -1628,7 +1655,7 @@ class Chat extends MY_Controller {
 
 
                 $search_condition = "((fname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-                $tolist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'message_to,fname as first_name,job_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'message_to,fname as first_name,lname as last_name,job_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR RECRUITER
@@ -1643,7 +1670,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((rec_firstname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-                $tolist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'message_to,rec_firstname as first_name,recruiter_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'message_to,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR FREELANCER HIRE POST 
@@ -1658,7 +1685,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'message_to,fullname as first_name,freelancer_hire_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'message_to,fullname as first_name,username as last_name,freelancer_hire_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR FREELANCER POST APPLY
@@ -1673,7 +1700,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((freelancer_post_fullname LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-                $tolist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'message_to,freelancer_post_fullname as first_name,freelancer_post_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'message_to,freelancer_post_fullname as first_name,freelancer_post_username as last_name,freelancer_post_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 
             // FOR BUSINESS
@@ -1703,7 +1730,7 @@ class Chat extends MY_Controller {
                 $join_str7[0]['join_type'] = '';
 
                 $search_condition = "((art_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-                $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'message_to,art_name as first_name,art_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
+                $tolist = $this->common->select_data_by_search('art_reg', $search_condition, $contition_array, $data = 'message_to,art_name as first_name,art_lastname as last_name,art_user_image as user_image,user_id,message', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
             }
 //echo '<pre>'; print_r($tolist); die();
 
@@ -1740,6 +1767,7 @@ class Chat extends MY_Controller {
 
                 $return['user_id'] = $to_list['message_to'];
                 $return['first_name'] = $to_list['first_name'];
+                $return['last_name'] = $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
 
@@ -1844,9 +1872,9 @@ class Chat extends MY_Controller {
                 array_push($return_arrayfrom, $return);
             }
 
+  
             
             $userlist = array_merge($return_arrayto, $return_arrayfrom);
-  
             // uniq array of fromlist  
             foreach ($userlist as $k => $v) {
                 foreach ($userlist as $key => $value) {
@@ -1889,10 +1917,12 @@ class Chat extends MY_Controller {
                         $usrsrch .= '</div>';
                     } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                  
                                                     $usrsrch .= '<div class="post-img-div">';
-                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '' . ucwords($acr) . ucwords($bcr) .'';
                                                     $usrsrch .= '</div>';
                                                 } 
 
@@ -1901,7 +1931,7 @@ class Chat extends MY_Controller {
                     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
                     
                        
-                                $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                                $username = substr($user['first_name'] . ' ' . $user['last_name'], 0, 25); 
                                                $usrsrch .= '' .  $username . ''; 
                                                                 if (strlen($user['first_name'] . $user['last_name']) > 15) {
                                                        $usrsrch .= ' ...';
@@ -2135,6 +2165,7 @@ class Chat extends MY_Controller {
 
                     $return['user_id'] = $sel_list['message_to'];
                     $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -2143,6 +2174,7 @@ class Chat extends MY_Controller {
 
                     $return['user_id'] = $sel_list['message_from'];
                     $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -2308,6 +2340,7 @@ class Chat extends MY_Controller {
 
                     $return['user_id'] = $from_list['message_from'];
                     $return['first_name'] = $from_list['first_name'];
+                    $return['last_name'] = $from_list['last_name'];
                     $return['user_image'] = $from_list['user_image'];
                     $return['message'] = $from_list['message'];
 
@@ -2361,18 +2394,20 @@ class Chat extends MY_Controller {
                         $usrsrch .= '</div>';
                     } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                  
                                                     $usrsrch .= '<div class="post-img-div">';
-                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '' . ucwords($acr) . ucwords($bcr) .'';
                                                     $usrsrch .= '</div>';
                                                 }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
                     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
-                             $username = substr($user['first_name'] . $user['last_name'], 0, 25); 
+                             $username = substr($user['first_name'] . ' ' . $user['last_name'], 0, 25); 
                                                $usrsrch .= '' .  $username . ''; 
-                                                                if (strlen($user['first_name'] . $user['last_name']) > 15) {
+                                                                if (strlen($user['first_name'] . ' ' . $user['last_name']) > 15) {
                                                        $usrsrch .= ' ...';
                                                                 } 
                             
@@ -2414,8 +2449,7 @@ class Chat extends MY_Controller {
                     if ($lstusrdata[0]['user_id'] == $toid) {
                         $usrsrch .= 'active';
                     } $usrsrch .= '">';
-                    if ($lstusrdata[0]['user_image']) {
-                        $usrsrch .= '<div class="chat_heae_img">';
+                   
                         if ($message_from_profile == 2) {
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
@@ -2434,14 +2468,18 @@ class Chat extends MY_Controller {
                         if ($message_from_profile == 6) {
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
+                         if ($user_image  && (file_exists($user_image)) == 1) {
+                        $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="'.$lstusrdata[0]['first_name'].'" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
                      } else { 
                                                                     $a = $lstusrdata[0]['first_name'];
+                                                                    $b = $lstusrdata[0]['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                  
                                                     $usrsrch .= '<div class="post-img-div">';
-                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '' . ucwords($acr) . ucwords($bcr) .'';
                                                     $usrsrch .= '</div>';
                                                 }
                     $usrsrch .= '<div class="about">';
@@ -2472,34 +2510,37 @@ class Chat extends MY_Controller {
                         if ($user['user_id'] == $toid) {
                             $usrsrch .= 'class ="active"';
                         }
-                        if ($user['user_image']) {
+                      
                             $usrsrch .= '<div class="chat_heae_img">';
                             if ($message_from_profile == 2) {
-                                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 1) {
-                                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 4) {
-                                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 3) {
-                                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 5) {
-                                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 6) {
-                                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                $user_image = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                             }
+                              if ($user_image && (file_exists($user_image)) == 1) {
                             $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
                             $usrsrch .= '</div>';
                        } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                  
                                                     $usrsrch .= '<div class="post-img-div">';
-                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '' . ucwords($acr) .  ucwords($bcr) .'';
                                                     $usrsrch .= '</div>';
                                                 }
                         $usrsrch .= '<div class="about">';
