@@ -60,8 +60,9 @@ $route['404_override'] = 'My404Page';
 $route['blog/popular'] = "blog/popular";
 $route['blog/read_more'] = "blog/read_more";
 $route['blog/comment_insert'] = "blog/comment_insert";
-$route['blog/tagsearch'] = "blog/tagsearch";
+//$route['blog/tagsearch'] = "blog/tagsearch";
 
+$route['blog/tag/(:any)'] = "blog/tagsearch/$1";
 $route['blog/(:any)'] = "blog/index/$1";
 
 

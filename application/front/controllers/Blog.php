@@ -44,7 +44,7 @@ class Blog extends CI_Controller {
             $search_condition = "(title LIKE '%$search_keyword%' OR   description LIKE '%$search_keyword%')";
             $contition_array = array('status' => 'publish');
             $this->data['blog_detail'] = $this->common->select_data_by_search('blog', $search_condition, $contition_array,$data='*', $sortby='id', $orderby='desc', $limit, $offset);
-            //echo "<pre>";print_r( $this->data['blog_detail']);die();
+            
        }
        //THIS IF IS USED FOR WHILE SEARCH FOR RETRIEVE SAME PAGE END
 
@@ -172,19 +172,20 @@ class Blog extends CI_Controller {
      //COMMENT INSERT BY USER END
 
 //SEARCH BY TAG START
-public function tagsearch()
+public function tagsearch($tag='')
 {
-        //echo "hi";die();
-            $join_str[0]['table'] = 'blog';
-            $join_str[0]['join_table_id'] = 'blog.id';
-            $join_str[0]['from_table_id'] = 'blog_visit.blog_id';
-            $join_str[0]['join_type'] = '';
+        //FOR SEARCH DATA WITH TAG,DETAIL AND DESCRIPTION IN BLOG TABLE
+        $this->data['search_keyword']=$search_keyword = trim($tag);
+        $search_condition = "(title LIKE '%$search_keyword%' OR   description LIKE '%$search_keyword%' OR  tag LIKE '%$search_keyword%')";
+        $contition_array = array('status' => 'publish');
+        $this->data['blog_detail'] = $this->common->select_data_by_search('blog', $search_condition, $contition_array,$data='*', $sortby='id', $orderby='desc', $limit, $offset);
 
-             $condition_array = array('blog.status !=' => 'delete');
-             $data= "blog.* ,count(blog_id) as count";
-            $this->data['blog_detail']  = $this->common->select_data_by_condition('blog_visit', $condition_array, $data, $short_by='count', $order_by='desc', $limit, $offset, $join_str,$groupby = 'blog_visit.blog_id');
+         //FOR GETTING ALL DATA
+        $condition_array = array('status !=' => 'delete');
+        $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+       // echo "<pre>";print_r($this->data['blog_all']);die();
 
-            //FOR GETTING 5 LAST DATA
+          //FOR GETTING 5 LAST DATA
           $condition_array = array('status !=' => 'delete');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
