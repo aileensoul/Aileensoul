@@ -686,7 +686,7 @@ class Chat extends MY_Controller {
             $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
-            $this->data['last_user_data']['user_name'] = $last_user_data[0]['company_name'];
+            $this->data['last_user_data']['first_name'] = $last_user_data[0]['company_name'];
              $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             if ($last_user_data[0]['business_user_image'] && (file_exists($user_image)) == 1){
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
