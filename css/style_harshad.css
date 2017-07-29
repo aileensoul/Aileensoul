@@ -400,14 +400,14 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
   50%{ opacity: .4;}
   100%{transform: scale(1.6); opacity: 0;}
 }
-@-webkit-keyframes pulse1 {
+/*@-webkit-keyframes pulse1 {
     0% {
         -webkit-transform: scale(.1);
     }
     100% {
         -webkit-transform: scale(1.6);
     }
-}
+}*/
 
 
 @media screen and (max-width: 1200px) {
