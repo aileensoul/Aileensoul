@@ -114,17 +114,17 @@
                         <div class="panel-body">
                         
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
-                           <div>
+                  <!--          <div>
                               <span style="color:#7f7f7e;">( </span><span  class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                           </div>
+                           </div> -->
                            <?php //echo $userdata[0]['experience']; die(); ?> 
                            <label for="Fresher">
                            <input type="checkbox" id="fresher" name="radio" value="Fresher" <?php echo ($userdata[0]['experience'] == 'Fresher') ? 'checked' : '' ?>>
                            Fresher&nbsp;&nbsp;
                            </label>
                            
-                          
-                           <fieldset class="hs-submit full-width left_nest">
+                    <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>    -->     
+                             <fieldset class="hs-submit full-width left_nest">
                               <input type="submit" id="next" tabindex="2" name="next" value="Next">
                            </fieldset>
                            <?php echo form_close(); ?>
@@ -148,9 +148,9 @@
                         <div class="panel-body">
                      
                            <?php echo form_open_multipart(base_url('job/job_work_exp_insert'), array('id' => 'jobseeker_regform1', 'name' => 'jobseeker_regform1', 'class' => 'clearfix')); ?>       
-                           <div>
+                           <!-- <div>
                               <span style="color:#7f7f7e;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                           </div>
+                           </div> -->
                            <!--UPDATE TIME-->
                            <?php
                               $clone_mathod_count = 1;
@@ -326,6 +326,7 @@
                            </div>
                            <!--                                     <input type="reset">
                               <input type="submit"  id="previous" name="previous" value="previous">-->
+
                                 <fieldset class="hs-submit full-width"> 
                            <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next"  >
                                  </fieldset>
@@ -444,6 +445,7 @@
                               <?php echo form_error('certificate'); ?>
                               <!--  </fieldset> -->
                            </div>
+                           <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                            <!--clone div End-->
                            <div class="hs-submit full-width fl" style="width: 100%; text-align: center;">
                               <input type="button" id="btnAdd" value=" + ">

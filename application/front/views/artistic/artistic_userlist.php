@@ -136,7 +136,7 @@
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -162,7 +162,7 @@
 
                             <div class="profile-left">
                             <h4 class="profile-head-text">
-        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">  <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>
+        <a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">  <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>
             </a></h4>
         <!-- text head start -->
      <h4 class="profile-head-text_dg">
@@ -171,7 +171,7 @@
                 ?>
                 <a id="designation" class="designation" title="Designation">Current Work</a>
             <?php } else { ?> 
-                <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>"><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
             <?php } ?>
 
 
@@ -289,7 +289,7 @@
                             }?>
 
                             <div class="post-img-userlist">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -300,14 +300,14 @@
                                                 <li class="folle_text">
                                                     <div class="">
                                                         <div class="follow-li-text ">
-                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucwords($user['art_name']);
+                                                            <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>"><?php echo ucfirst(strtolower($user['art_name']));
                                                     echo "&nbsp;";
-                                                    echo ucwords($user['art_lastname']); ?></a></div>
+                                                    echo ucfirst(strtolower($user['art_lastname'])); ?></a></div>
 
 
                                                       <?php  if ($user['designation']) { ?>
                                                            <div>
-                                                            <a><?php echo ucwords($user['designation']); ?></a>
+                                                            <a><?php echo ucfirst(strtolower($user['designation'])); ?></a>
                                                         </div>
                                                        <?php  
                                                         }

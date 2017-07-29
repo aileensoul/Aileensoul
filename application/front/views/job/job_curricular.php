@@ -115,6 +115,7 @@
                                            <textarea name ="curricular" tabindex="1" autofocus id="curricular" rows="4" cols="50" placeholder="Enter Curricular Activities" onpaste="OnPaste_StripFormatting(this, event);" style="resize: none;"><?php if($curricular1){ echo $curricular1; } ?></textarea>
                                          <?php echo form_error('curricular'); ?>
                           </fieldset>
+                                <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                  <fieldset class="hs-submit full-width">
 
 <!--                                     <input type="reset">

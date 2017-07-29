@@ -211,6 +211,7 @@
                                           <?php
                                                 }
                                           ?>
+                                         <!--  <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                           <div class="fr job_education_submitbox">
                                              <input type="hidden" name="image_hidden_primary" value="<?php
                                                 if ($edu_certificate_primary1) {
@@ -218,6 +219,7 @@
                                                      }
                                                      ?>">
                                              <br>
+
                                              <button class="submit_btn" tabindex="6">Submit</button>
                                              <fieldset class="hs-submit full-width" style="">
                                                 <!--input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="return next_page()"-->
@@ -335,7 +337,7 @@
                                           <?php
                                                 }
                                           ?>
-
+                                             <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden" name="image_hidden_secondary" value="<?php
                                              if ($edu_certificate_secondary1) {
@@ -468,6 +470,7 @@
                                           <?php
                                                 }
                                           ?>
+                                          <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
 
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden"  tabindex="8" name="image_hidden_higher_secondary" value="<?php
@@ -698,6 +701,7 @@
                                            <?php if($edu_certificate1)
                                                  {
                                           ?>
+
                                            <div style="float: left;" id="graduation_certi">
                                                 <div class="hs-submit full-width fl">
                                                    <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
@@ -724,11 +728,13 @@
                                              </div>
                                              <?php } ?>
                                           </div>
+                                         <!--  <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                           <hr>
                                        </div>
                                        <?php
                                           }
                                           ?>
+                                       
                                        <div class="fr img_remove">
                                           <input  style="font-size: 14px;" class="job_edu_graduation_submit_btn" tabindex="8" type="Submit"  id="next" name="next" value="Submit">
                                           <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
