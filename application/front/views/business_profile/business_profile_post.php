@@ -345,7 +345,7 @@
                                                                         </div>  
                                                                         <div class="follow_left_box_main_btn">
                                                                             <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
-                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
+                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser_two(<?php echo $userlist['business_profile_id']; ?>)">Follow
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -429,7 +429,7 @@
                                                                         </div>  
                                                                         <div class="follow_left_box_main_btn">
                                                                             <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
-                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
+                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser_two(<?php echo $userlist['business_profile_id']; ?>)">Follow
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -510,7 +510,7 @@
                                                                         </div>  
                                                                         <div class="follow_left_box_main_btn">
                                                                             <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
-                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
+                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser_two(<?php echo $userlist['business_profile_id']; ?>)">Follow
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -590,7 +590,7 @@
                                                                         </div>  
                                                                         <div class="follow_left_box_main_btn">
                                                                             <div class="<?php echo "fr" . $userlist['business_profile_id']; ?>">
-                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser(<?php echo $userlist['business_profile_id']; ?>)">Follow
+                                                                                <button id="<?php echo "followdiv" . $userlist['business_profile_id']; ?>" onClick="followuser_two(<?php echo $userlist['business_profile_id']; ?>)">Follow
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -3061,12 +3061,12 @@
 <!-- remove save post end -->
 <!-- follow user script start -->
 <script type="text/javascript">
-    function followuser(clicked_id)
+    function followuser_two(clicked_id)
     {
 
     $.ajax({
     type: 'POST',
-            url: '<?php echo base_url() . "business_profile/follow" ?>',
+            url: '<?php echo base_url() . "business_profile/follow_two" ?>',
             data: 'follow_to=' + clicked_id,
             success: function (data) {
             $('.' + 'fr' + clicked_id).html(data);
