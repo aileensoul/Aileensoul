@@ -100,10 +100,8 @@ echo $freelancer_post_header2_border;
     
 
 <div class="container tablate-container art-profile">    
-        <?php if($returnpage == ''){?>
+        <?php if($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid){?>
     <div class="upload-img">
-
-    
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
         </label>
@@ -122,7 +120,7 @@ echo $freelancer_post_header2_border;
                     <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                 <?php } ?>
                 <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
-                    <?php if($returnpage == ''){ ?>
+                    <?php if($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid){ ?>
                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                     <?php } ?>
 
@@ -144,7 +142,7 @@ echo $freelancer_post_header2_border;
             <div class="profile-text">
 
          <?php 
-                if($returnpage == ''){
+                if($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid){
                     
             if ($freelancerpostdata[0]['designation'] == "") {
                 
@@ -254,7 +252,7 @@ echo $freelancer_post_header2_border;
             <div class="profile-text">
 
          <?php 
-                if($returnpage == ''){
+                if($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid){
             if ($freelancerpostdata[0]['designation'] == "") {
                 
 

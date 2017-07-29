@@ -216,18 +216,21 @@ class Freelancer extends MY_Controller {
 
             if ($userdata) {
                 if ($userdata[0]['free_post_step'] == 7) {
+                    //echo "123";die();
                     $data = array(
                         'free_post_step' => 7
                     );
 
                     $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
                 } else if ($userdata[0]['free_post_step'] > 1) {
+                    //echo "456";die();
                     $data = array(
                         'free_post_step' => $userdata[0]['free_post_step']
                     );
 
                     $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
                 } else {
+                    //echo "789";die();
                     $data = array(
                         'free_post_step' => 1
                     );
