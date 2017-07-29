@@ -113,10 +113,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
-                                                    <?php $username = substr($last_user_data['user_name'], 0, 25); ?>
+                                                
+                                            <?php $fullname = $last_user_data['first_name'] . ' ' . $last_user_data['last_name'];
+                                            $username = substr($fullname, 0, 25); ?>
                                                     <?php
                                                     echo $username;
-                                                    if (strlen($last_user_data['user_name']) > 15) {
+                                                    if (strlen($fullname) > 15) {
                                                         echo " ...";
                                                     }
                                                     ?>
@@ -149,10 +151,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                                                         } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -164,10 +168,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                                                      } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -178,10 +184,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                                                     } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -192,10 +200,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                                                   } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -206,10 +216,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
                                                     } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -220,10 +232,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                                                    } else { 
                                                                     $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } 
                                                 }
@@ -236,10 +250,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                                 <div class="about">
                                                     <div class="name"> 
-                                                        <?php $username = substr($user['first_name'], 0, 25); ?>
+                                                        <?php $fullname = $user['first_name'] . ' ' . $user['last_name'];
+                                                        $username = substr($fullname, 0, 25); ?>
                                                         <?php
                                                         echo $username;
-                                                        if (strlen($user['first_name']) > 15) {
+                                                        if (strlen($fullname) > 15) {
                                                             echo " ...";
                                                         }
                                                         ?>
@@ -300,23 +315,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                             ?>
                             <a href="<?php echo $profile_url; ?>">
-    <?php if ($last_user_image) { ?>
+    <?php if ($last_user_image && (file_exists($last_user_image)) == 1){  ?>                             
+    
                                     <div class="chat_heae_img">
                                         <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">
                                     </div>
     <?php } else { 
-                                                                    $a = $last_user_data['user_name'];
+                                                                    $a = $last_user_data['first_name'];
+                                                                    $b = $last_user_data['last_name'];
                                                                     $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
+                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
                                                                     </div>
                                              <?php    } ?>
 
                                 <div class="chat-about">
                                     <div class="chat-with">
 
-                                        <span><?php echo $last_user_data['user_name']; ?></span>  
+                                        <span><?php echo $last_user_data['first_name'] . ' ' . $last_user_data['last_name']; ?></span>  
                                     </div>
                                     <div class="chat-num-messages"> <?php
                                         echo $last_user_data['designation'];

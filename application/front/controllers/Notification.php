@@ -2083,7 +2083,8 @@ array(
             if ($sel_list['message_to']) {
                 if ($sel_list['message_to'] == $id) {
                     $return['user_id'] = $sel_list['message_to'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -2096,7 +2097,8 @@ array(
             }else {
                 if ($sel_list['message_from'] == $id) {
                     $return['user_id'] = $sel_list['message_from'];
-                    $return['first_name'] = $sel_list['first_name'] . ' ' . $sel_list['last_name'];
+                    $return['first_name'] = $sel_list['first_name'];
+                    $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
 
@@ -2182,7 +2184,8 @@ array(
                 $return = $to_list;
 
                 $return['user_id'] = $to_list['message_to'];
-                $return['first_name'] = $to_list['first_name'] . ' ' . $to_list['last_name'];
+                $return['first_name'] = $to_list['first_name'];
+                $return['last_name'] = $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
 
@@ -2256,7 +2259,7 @@ array(
         }
 
 // replace name of message_to in user_id
-//echo '<pre>'; print_r($fromlist); die();
+// echo '<pre>'; print_r($fromlist); die();
         $return_arrayfrom = array();
 
         foreach ($fromlist as $from_list) {
@@ -2266,6 +2269,7 @@ array(
 
                 $return['user_id'] = $from_list['message_from'];
                 $return['first_name'] = $from_list['first_name'];
+                $return['last_name'] = $from_list['last_name'];
                 $return['user_image'] = $from_list['user_image'];
                 $return['message'] = $from_list['message'];
 
@@ -2273,7 +2277,7 @@ array(
                 array_push($return_arrayfrom, $return);
             }
         }
-        
+     
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
         // uniq array of fromlist  
@@ -2299,29 +2303,29 @@ array(
         foreach ($user_message as $msg) {
 
             if ($message_from_profile == 2) {
-                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
             }
 
             if ($message_from_profile == 1) {
-                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
             }
             if ($message_from_profile == 4) {
-                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'freelancer/freelancer_post_profile/' . $id . '?page=freelancer_hire';
             }
             if ($message_from_profile == 3) {
-                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'freelancer/freelancer_hire_profile/' . $id . '?page=freelancer_post';
             }
             if ($message_from_profile == 5) {
-                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $msg['user_image'];
                 $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $id, $data = 'business_slug');
                 $profile_url = base_url() . 'business_profile/business_profile_manage_post/' . $busdata[0]['business_slug'];
             }
             if ($message_from_profile == 6) {
-                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
+                $user_image = FCPATH . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'artistic/art_manage_post/' . $id;
             }
 
@@ -2337,14 +2341,17 @@ array(
             $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
-            if ($msg['user_image']) {
+                                        
+                 if ($user['user_image'] && (file_exists($user_image)) == 1){   
                 $notmsg .= '<img src="' . $user_image . '" >';
                 } else { 
                     $a = $msg['first_name'];
+                    $b = $msg['last_name'];
                     $acr = substr($a, 0, 1);
+                    $bcr = substr($b, 0, 1);
                                                                
                     $notmsg .= '<div class="post-img-div">';
-                    $notmsg .= '' . ucwords($acr) . ''; 
+                    $notmsg .= '' . ucwords($acr) . ucwords($bcr) .''; 
                     $notmsg .= '</div>';
                                                    
                                                     }

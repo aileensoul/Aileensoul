@@ -124,11 +124,54 @@
 
             <label>Birthday:</label>
 
-                        <input type="hidden" id="example2">
+                      <select tabindex="9" class="day" name="selday" id="selday">
+                                                <option value="" disabled selected value>Day</option>
+                                                <?php
+                                                for ($i = 1; $i <= 31; $i++) {
+                                                    ?>
+                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                            <select tabindex="10" class="month" name="selmonth" id="selmonth">
+                                                <option value="" disabled selected value>Month</option>
+                                                //<?php
+//                  for($i = 1; $i <= 12; $i++){
+//                  
+                                                ?>
+                                                <option value="1">Jan</option>
+                                                <option value="2">Feb</option>
+                                                <option value="3">Mar</option>
+                                                <option value="4">Apr</option>
+                                                <option value="5">May</option>
+                                                <option value="6">Jun</option>
+                                                <option value="7">Jul</option>
+                                                <option value="8">Aug</option>
+                                                <option value="9">Sep</option>
+                                                <option value="10">Oct</option>
+                                                <option value="11">Nov</option>
+                                                <option value="12">Dec</option>
+                                                //<?php
+//                  }
+//                  
+                                                ?>
+                                            </select>
+                                            <select tabindex="11" class="year" name="selyear" id="selyear">
+                                                <option value="" disabled selected value>Year</option>
+                                                <?php
+                                                for ($i = date('Y'); $i >= 1900; $i--) {
+                                                    ?>
+                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </select>
 
           <!-- <input name="dob"  type="date" id="date" class="form-control"  value="<?php //echo date('Y-m-d', strtotime($userdata[0]['user_dob']))?>"   onblur="return email_id();"/> <span id="email-error"></span> -->
           
-          <?php echo form_error('email'); ?>
+        <div class="dateerror" style="color:#f00; display: block;"></div>
           
           </fieldset>
 
@@ -227,11 +270,15 @@ $('#datepicker').datetimepicker({
                              
                          },
                            
-                        datepicker: {
-
-                            required: true,
-                            // date: true
-                        },
+                        selday: {
+                    required: true,
+                },
+                selmonth: {
+                    required: true,
+                },
+                selyear: {
+                    required: true,
+                },
                         gen: {
 
                             required: true,
@@ -260,21 +307,118 @@ $('#datepicker').datetimepicker({
                         },
                            
                         
-                         datepicker: {
-
-                            required: "Date of Birth Is Required."
-
+                        selday: {
+                            required: "Please enter your birthdate",
                         },
-                         
+                        selmonth: {
+                            required: "Please enter your birthdate",
+                        },
+                        selyear: {
+                            required: "Please enter your birthdate",
+                        },
                         gen: {
 
                             required: "Gender Is Required."
                         }
                  
                     },
+                    
+                  //  submitHandler: submitRegisterForm
 
                 });
+                
                    });
+                   
+                   $("#submit").click(function () {
+                   
+                      var selday = $("#selday").val();
+            var selmonth = $("#selmonth").val();
+            var selyear = $("#selyear").val();
+           
+
+            var post_data = {
+                
+                'selday': selday,
+                'selmonth': selmonth,
+                'selyear': selyear,
+               '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
+            }
+
+              
+        var todaydate = new Date();
+        var dd = todaydate.getDate();
+        var mm = todaydate.getMonth()+1; //January is 0!
+        var yyyy = todaydate.getFullYear();
+
+        if(dd<10) {
+            dd='0'+dd
+        } 
+
+        if(mm<10) {
+            mm='0'+mm
+        } 
+
+           var todaydate = yyyy+'/'+mm+'/'+dd;
+           var value =  selyear+'/'+selmonth+'/'+selday;
+
+
+            var d1 = Date.parse(todaydate);
+            var d2 = Date.parse(value);
+           //var one = new Date(value).getTime();
+         // var second = new Date(todaydate).getTime();
+    //alert(one); alert(second);
+
+        if (d1 < d2){
+        
+           $(".dateerror").html("Date of birth always less than to today's date.");
+            
+            return false;
+         }else{
+
+
+            if ((0 == selyear % 4) && (0 != selyear % 100) || (0 == selyear % 400))
+            {
+
+
+                if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
+
+                    if (selday == 31) {
+
+                        $(".dateerror").html("This month has only 30 days.");
+                        return false;
+                    }
+                } else if (selmonth == 2) { //alert("hii");
+                    if (selday == 31 || selday == 30) {
+                        $(".dateerror").html("This month has only 29 days.");
+                        return false;
+
+                    }
+
+                }
+
+            } else {
+
+
+                if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
+
+                    if (selday == 31) {
+
+                        $(".dateerror").html("This month has only 30 days.");
+                        return false;
+                    }
+                } else if (selmonth == 2) {
+                    if (selday == 31 || selday == 30 || selday == 29) {
+                        $(".dateerror").html("This month has only 28 days.");
+                        return false;
+
+                    }
+
+                }
+
+            }
+        }
+         
+       });
 
 </script>
  <script type="text/javascript">
@@ -304,7 +448,7 @@ $('#datepicker').datetimepicker({
 
 
 <script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
-<script>
+<!--<script>
 $(function() {
                 
 
@@ -354,7 +498,7 @@ if(date_picker){
      } 
                 
             });
-</script>
+</script>-->
 
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}

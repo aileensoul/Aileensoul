@@ -1540,7 +1540,7 @@
             <div class="modal fade message-box" id="post" role="dialog">
                 <div class="modal-dialog modal-lm">
                     <div class="modal-content">
-                        <button type="button" class="modal-close" id="post"data-dismiss="modal">&times;</button>       
+                        <button type="button" class="modal-close" id="post" data-dismiss="modal">&times;</button>       
                         <div class="modal-body">
                             <span class="mes">
                             </span>
@@ -1553,7 +1553,7 @@
             <div class="modal fade message-box" id="postedit" role="dialog">
                 <div class="modal-dialog modal-lm">
                     <div class="modal-content">
-                        <button type="button" class="modal-close" id="postedit"data-dismiss="modal">&times;</button>       
+                        <button type="button" class="modal-close" id="postedit" data-dismiss="modal">&times;</button>       
                         <div class="modal-body">
                             <span class="mes">
                             </span>
@@ -3522,6 +3522,7 @@
            // Alert message if maximum limit is reached. 
            // If required Alert can be removed. 
            var msg = "You have reached your maximum limit of characters allowed";
+           $("#test-upload_product").prop("readonly", true);
            //    alert(msg);
            //my_form.text_num.value = maxLen - my_form.my_text.value.length;
            $('#post .mes').html("<div class='pop_content'>" + msg + "</div>");
@@ -3536,44 +3537,36 @@
 
 
     function check_lengthedit(abc)
-   { //alert("hii");
+   { 
        maxLen = 50;
-   //alert(my_form.my_text.value.length);
-       // max number of characters allowed
+   
 
        var product_name = document.getElementById("editpostname" +abc).value;
-       //var edit_name = document.getElementById("editpostname" +abc);
-
       
-       //alert(product_name.length);
-       if (product_name.length > maxLen) { //alert("hii");
+ 
+       if (product_name.length > maxLen) { 
 
-           // Alert message if maximum limit is reached. 
-           // If required Alert can be removed. 
+           
            text_num = maxLen - product_name.length;
            var msg = "You have reached your maximum limit of characters allowed";
-              //alert(msg);
-          // text_num = maxLen - product_name.length;
+
+            $("#editpostname" + abc).prop("readonly", true);
+              
            $('#postedit .mes').html("<div class='pop_content'>" + msg + "</div>");
            $('#postedit').modal('show');
-           // Reached the Maximum length so trim the textarea
-           // return false;
-           //$('#editpostname' + abc).attr('readonly', true);
-           // alert(product_name.substring(0, maxLen));
-           // return false;
+           
            var substrval = product_name.substring(0, maxLen);
            $('#editpostname' + abc).val(substrval);
-         // product_name.length = product_name.length.substring(0, maxLen);
-       } else { //alert("1");
-           // Maximum length not reached so update the value of my_text counter
+         
+       } else { 
            text_num = maxLen - product_name.length;
 
            document.getElementById("text_num").value = text_num;
        }
    }
-   //-->
+  
 </script>
-<!--- khyati change end-->
+
 <script type="text/javascript">
    // all popup close close using esc start
       
@@ -3868,9 +3861,7 @@
         $('#myModal').modal('show');
     });
 
-    $('#postedit').on('click', function(){
-       // $('.my_text').attr('readonly', false);
-    });
+   
 
 
     $( document ).on( 'keydown', function ( e ) {
@@ -3916,7 +3907,7 @@
            //$( "#bidmodal" ).hide();
            $('#postedit').modal('hide');
          // $('.my_text').attr('readonly', false);
-
+          $(".my_text").prop("readonly", false);
             //$('.modal-post').show();
 
        }
@@ -3992,5 +3983,21 @@
                 $('#file-1').on('click', function(e){
                     document.getElementById("artpostform").reset(); 
                 });
+            </script>
+
+
+
+            <script type="text/javascript">
+              
+              $('#post').on('click', function () {
+    $('#myModal').modal('show');
+    $("#test-upload_product").prop("readonly", false);
+    });
+
+
+$('#postedit').on('click', function () {
+   // $('#myModal').modal('show');
+    $(".my_text").prop("readonly", false);
+    });
             </script>
 

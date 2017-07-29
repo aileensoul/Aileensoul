@@ -44,8 +44,8 @@ class Artistic extends MY_Controller {
                     redirect('artistic/art_address', refresh);
                 } else if ($artdata[0]['art_step'] == 2) {
                     redirect('artistic/art_information', refresh);
-                } else if ($artdata[0]['art_step'] == 3) {
-                    redirect('artistic/art_post', refresh);
+                } else if ($artdata[0]['art_step'] == 3) { //echo "123"; die();
+                    redirect('artistic/art_portfolio', refresh);
                 } else if ($artdata[0]['art_step'] == 4) {
                     redirect('artistic/art_post', refresh);
                 }
@@ -346,7 +346,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                 $this->data['state1'] = $userdata[0]['art_state'];
                 $this->data['city1'] = $userdata[0]['art_city'];
                 $this->data['pincode1'] = $userdata[0]['art_pincode'];
-                $this->data['address1'] = $userdata[0]['art_address'];
+                //$this->data['address1'] = $userdata[0]['art_address'];
             }
         }
         // code for search
@@ -483,7 +483,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
             $this->form_validation->set_rules('country', 'Country', 'required');
             $this->form_validation->set_rules('state', 'State', 'required');
-            $this->form_validation->set_rules('address', 'Address', 'required');
+            //$this->form_validation->set_rules('address', 'Address', 'required');
             $this->form_validation->set_rules('pincode', 'Pincode', 'numeric');
            // echo $this->input->post('pincode');die();
             if ($this->form_validation->run() == FALSE) {
@@ -499,7 +499,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                         'art_country' => $this->input->post('country'),
                         'art_state' => $this->input->post('state'),
                         'art_city' => $this->input->post('city'),
-                        'art_address' => $this->input->post('address'),
+                        //'art_address' => $this->input->post('address'),
                         'art_pincode' => $this->input->post('pincode'),
                         'modified_date' => date('Y-m-d', time())
                             //'art_step' => 2
@@ -510,7 +510,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                         'art_country' => $this->input->post('country'),
                         'art_state' => $this->input->post('state'),
                         'art_city' => $this->input->post('city'),
-                        'art_address' => $this->input->post('address'),
+                        //'art_address' => $this->input->post('address'),
                         'art_pincode' => $this->input->post('pincode'),
                         'modified_date' => date('Y-m-d', time()),
                         'art_step' => 2
@@ -1021,7 +1021,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
     }
 
-    public function art_post() {
+    public function art_post() { //echo"ff"; die();
 
         $user_name = $this->session->userdata('user_name');
 
@@ -1324,11 +1324,12 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
-
-        if($this->data['artisticdata']){
+       // echo "<pre>"; print_r($this->data['artisticdata'][0]['art_step']); die();
+        if(!$this->data['artisticdata']){ //echo"mm"; die();
+        redirect('artistic/');
+       }else{ //echo "123456789"; die();
         $this->load->view('artistic/art_post', $this->data);
-       }else{
-       redirect('artistic/');
+       
        }
     }
 
@@ -1444,12 +1445,18 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         
         $this->data['de'] = array_values($res);
 
-        if($this->data['artisticdata']){
-
-        $this->load->view('artistic/art_manage_post', $this->data);
+       if(!$this->data['artisticdata'] && !$this->data['artsdata']){ //echo "22222222"; die();
+      
+      $this->load->view('artistic/notavalible');  
+             
+       }
+        else if($this->data['artisticdata'][0]['art_step'] != 4){   //echo "hii"; die();
+        
+       redirect('artistic/');
+         
        }
        else{
-       redirect('artistic/');
+      $this->load->view('artistic/art_manage_post', $this->data);
        }
     }
 
@@ -2457,8 +2464,12 @@ $datacount = count($otherdata);
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/artistic_profile', $this->data);
+       }else if(!$this->data['artisticdata'] && $id != $userid){
+
+        $this->load->view('artistic/notavalible');  
+
        }
-        else{
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
        redirect('artistic/');
        }
     }
@@ -10110,5 +10121,7 @@ public function followtwo() {
 
         return $array = $ret;
     }
+
+    
 
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Find the Best Jobs, Hiring, Freelance for Free | Grow Business Network - Aileensoul.com</title>
@@ -31,21 +31,7 @@
           });
         </script>-->
 
-        <script type="application/ld+json">
-            {
-            "@context": "http://schema.org",
-            "@type": "Person",
-            "name": "Aileensoul",
-            "url": "https://www.aileensoul.com",
-            "sameAs": [
-            "https://www.facebook.com/aileensouldotcom/",
-            "https://twitter.com/aileen_soul"
-            "https://instagram.com/aileensoul_com",
-            "https://in.linkedin.com/in/aileensouldotcom",
-            "https://plus.google.com/+Aileensoul",
-            ]
-            }
-        </script>
+        
         <meta name="p:domain_verify" content="d0a13cf7576745459dc0ca6027df5513"/>
         <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <meta charset="utf-8">
@@ -60,6 +46,21 @@
     </head>
 
     <body>
+<script type="application/ld+json">
+            {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Aileensoul",
+            "url": "https://www.aileensoul.com",
+            "sameAs": [
+            "https://www.facebook.com/aileensouldotcom/",
+            "https://twitter.com/aileen_soul"
+            "https://instagram.com/aileensoul_com",
+            "https://in.linkedin.com/in/aileensouldotcom",
+            "https://plus.google.com/+Aileensoul",
+            ]
+            }
+        </script>
         <div class="main-login">
             <header>
                 <div class="container">
