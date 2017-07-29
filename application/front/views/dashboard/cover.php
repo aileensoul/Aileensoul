@@ -588,8 +588,10 @@
 													<span class="mian_4_hed"> Easily responsive in all device
 													</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
-													<img src="slicing/img_screen_13.png">
+												<div class="imh_logo">
+													<img class="img1" data-animation="animated fadeInUp" src="slicing/sld13-1.png">
+													<img class="img2" data-animation="animated fadeInRight" src="slicing/sld13-2.png">
+													<img class="img3" data-animation="animated fadeInLeft" src="slicing/sld13-3.png">
 												</div>
 											</div>
 										</div>
