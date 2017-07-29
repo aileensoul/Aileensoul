@@ -14644,7 +14644,7 @@ div .comment {
 .panel-footer{position:relative;}
 #chat.chat{position:relative;}
 #set_input .input-group-btn .btn{border-radius:3px;}
-
+.chat .post-img-div{float:left;}
 
 .ui-autocomplete {
     max-width: 300px!important;

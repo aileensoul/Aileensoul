@@ -637,7 +637,7 @@
 						</div>
 						<div class="lfar_sl">
 							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-left"><img src="slicing/img_arrow.png"></a>
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"></a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 						</div>
 					</div>
 				</div>	
@@ -913,9 +913,9 @@
     }); 
 	$(document).ready(function () {
         $("body").click(function (event) {
-            //$("#onload-Modal").modal.in('hide').fadeOut("slow");
-            $(".modal").css('display','none');
-            $("#onload-Modal").fadeOut("slow");
+            //$("#onload-Modal").modal('hide').fadeOut("slow");
+            //$(".modal").css('display','none');
+            //$("#onload-Modal").fadeOut("slow");
 
            // event.stopPropagation();
         });
