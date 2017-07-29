@@ -125,7 +125,7 @@ if ($this->session->flashdata('success')) {
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span><?php $skills = form_error('skills'); ?>
                                 </div> --> 
 
-      <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+      <!-- <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                 
 
 
@@ -204,7 +204,7 @@ if ($this->session->flashdata('success')) {
 ?>
                                     </fieldset>
                                 </div>
-
+                                <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                 <fieldset class="hs-submit full-width">
 <!--                                    <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->

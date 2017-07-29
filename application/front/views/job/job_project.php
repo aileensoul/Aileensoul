@@ -148,7 +148,7 @@
                                   </fieldset>
 
                                     
-
+                                <!--   <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                   <fieldset class="hs-submit full-width">
 
 <!--                                        <input type="reset">

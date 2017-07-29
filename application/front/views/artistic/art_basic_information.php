@@ -82,10 +82,10 @@
                         </h3>
                         
                             <?php echo form_open(base_url('artistic/art_basic_information_insert'), array('id' => 'artbasicinfo','name' => 'artbasicinfo', 'class' => 'clearfix')); ?>
-                              <div>
+                             <!--  <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div>
-
+ -->
 
                                 <?php
                                  $firstname =  form_error('firstname');

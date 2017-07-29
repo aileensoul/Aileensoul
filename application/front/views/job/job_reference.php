@@ -100,7 +100,7 @@
                                 </div> -->
 
                                 
-                <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+                <!-- <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
 
                                      <fieldset class="full-width">   <label>Interest:<span class="red">*</span></label>
                                          
@@ -118,6 +118,7 @@
                                          <?php echo form_error('reference'); ?>
 
                                      </fieldset>
+                        <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                 <fieldset class="hs-submit full-width">
 <!--                                <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
