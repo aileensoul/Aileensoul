@@ -364,9 +364,11 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
         ?>
       <div class="tag_name">
       <span class="span_tag">
+      <a href="<?php echo base_url('blog/tagsearch')?>">
       <?php
                 echo $tag;
         ?>
+        </a>
         </span>
       </div>
 
@@ -485,23 +487,23 @@ var url= window.location.href;
 
 <script type="text/javascript">
 
- $('.popular_tag .tag_name .span_tag').click(function (event) 
- {
-  alert("hi");
-   $.ajax({
-           type: 'POST',
-           url: '<?php echo base_url()."blog/tagsearch" ?>',
-           //data: 'blog_id=' + blog_id,         
-           // dataType: "html",
-           success: function (data) {
-               if (data == 1) 
-               {
-                  window.location= "<?php echo base_url() ?>blog/popular";
-                   //redirect('blog');
-               }
+ // $('.popular_tag .tag_name .span_tag').click(function (event) 
+ // {
+ // // alert("hi");
+ //   $.ajax({
+ //           type: 'POST',
+ //           url: '<?php //echo base_url()."blog/tagsearch" ?>',
+ //           //data: 'blog_id=' + blog_id,         
+ //           // dataType: "html",
+ //           success: function (data) {
+ //               if (data == 1) 
+ //               {
+ //                  window.location= "<?php //echo base_url() ?>blog/popular";
+ //                   //redirect('blog');
+ //               }
              
-           }
-       });
+ //           }
+ //       });
   // event.preventDefault();
   //   slides[currentSlide].className = 'item';
   //   currentSlide = (currentSlide+1)%slides.length;
@@ -515,7 +517,7 @@ var url= window.location.href;
   // {
   //   $('#img').remove();
   // }
-  });
+  //});
 </script>
 
 <!-- This Js is used for call popup -->
