@@ -6800,7 +6800,7 @@ padding: 8px 7px;
 }
 .post-design-name_follow ul li a p {
     color: #999999;
-    font-size: 13px;
+    font-size: 12px;
 }
 .full-box-module_follow {
     border: 1px solid #d9d9d9;
@@ -6927,7 +6927,9 @@ padding: 8px 7px;
     padding-bottom: 12px;
     word-wrap: break-word;
     word-wrap: break-word;
+    font-size: 14px;
 }
+.user_lst li .follow-li-text a:hover{color: #1b8ab9!important;}
 .post_img_mul {
     position: relative;
 }
@@ -9074,7 +9076,7 @@ fieldset .add_post_btns {
     color: #1b8ab9!important;
 }
 .user_lst li .follow-li-text a:hover {
-    color: #000!important;
+    color: #136386!important;
 }
 .logo a:focus {
     outline: none !important;

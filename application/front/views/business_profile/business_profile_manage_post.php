@@ -709,8 +709,8 @@
 
 
                                 <?php } else { ?>
-
-                                    <div class="not_available">  <p>     Photos Not Available </p></div>
+<!-- 
+                                    <div class="not_available">  <p>     Photos Not Available </p></div> -->
 
                                 <?php } ?>
 
@@ -826,7 +826,7 @@
                                     <?php } else { ?>
 
 
-                                        <div class="not_available">  <p>     Video Not Available </p></div>
+                                       <!--  <div class="not_available">  <p>     Video Not Available </p></div> -->
 
                                     <?php } ?>
 
@@ -939,7 +939,7 @@
                                     <?php } else { ?>
 
 
-                                        <div class="not_available">  <p>   Audio Not Available </p></div>
+                                       <!--  <div class="not_available">  <p>   Audio Not Available </p></div> -->
 
                                     <?php } ?>
 
@@ -1013,8 +1013,8 @@
 
 
                                 <?php } else { ?>
-
-                                    <div class="not_available">  <p> Pdf Not Available </p></div>
+<!-- 
+                                    <div class="not_available">  <p> Pdf Not Available </p></div> -->
 
                                 <?php } ?>
 
