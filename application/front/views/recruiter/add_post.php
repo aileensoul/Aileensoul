@@ -125,7 +125,7 @@
 <?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
-                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+                          <!-- <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div> -->
                                 <?php
                                 $postname = form_error('postname');
                                 $skills = form_error('skills');

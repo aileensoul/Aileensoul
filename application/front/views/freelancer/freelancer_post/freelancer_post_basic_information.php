@@ -93,9 +93,9 @@ if ($this->session->flashdata('success')) {
                             <h3>Basic Information</h3>
 
 <?php echo form_open(base_url('freelancer/freelancer_post_basic_information_insert'), array('id' => 'freelancer_post_basicinfo', 'name' => 'freelancer_post_basicinfo', 'class' => 'clearfix')); ?>
-                            <div>
+                           <!--  <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span class="red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
 
 <?php
 $fullname = form_error('fullname');

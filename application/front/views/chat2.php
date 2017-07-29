@@ -364,7 +364,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <span><?php echo $last_user_data['first_name'] . ' ' . $last_user_data['last_name']; ?></span>  
                                     </div>
                                     <div class="chat-num-messages"> <?php
-                                        echo $last_user_data['designation'];
+                                        echo $last_user_data['user_designation'];
                                         ?></div>
                                 </div>
                             </a>

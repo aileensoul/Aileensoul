@@ -181,7 +181,9 @@
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
                         <a id="designation" class="designation" title="Designation">Current Work    </a>
 
-                    <?php } ?>
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
 
@@ -194,10 +196,11 @@
 
                                         <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
-                        <a>Current Work </a>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
 
                 <?php } ?>
+
 </h4>
 
             </div>
@@ -231,8 +234,8 @@
                           ?>
 
                                   
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                    </li>
+                                     <!-- <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                    </li> -->
 
                                     <?php }?>
 

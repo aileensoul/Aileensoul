@@ -73,7 +73,7 @@
 				 <?php echo form_open(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
                                 
 
-				 	<div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+				 	<!-- <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
 
 
                     <?php

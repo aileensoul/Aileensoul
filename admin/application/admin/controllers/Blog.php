@@ -106,14 +106,14 @@ class Blog extends MY_Controller {
         $data = array(
                     'title' => $this->input->post('blog_title'),
                     'tag' => $this->input->post('tag'),
-                    'meta_description' => $this->input->post('metadescription'),
+                    'meta_description' => $this->input->post('meta_description'),
                     'description' => $this->input->post('description'),
                     'image' => $blog_image,
                     'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),
                     'created_date' => date('Y-m-d H:i:s'),
                     'status' => 'publish'
                 ); 
-             // echo "<pre>";print_r($data);die();
+              //echo "<pre>";print_r($data);die();
          $insert_id = $this->common->insert_data_getid($data, 'blog');
 
                

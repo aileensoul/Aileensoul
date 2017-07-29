@@ -143,10 +143,10 @@
 
                         <!-- <div><span style="color:red">Fields marked with asterisk (*) are mandatory</span></div> --> 
                             
-                          <div>
+                         <!--  <div>
                                    <span style="color:#7f7f7e;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> 
                                    <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
                           
 
                             <?php

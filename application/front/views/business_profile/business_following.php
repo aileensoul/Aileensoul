@@ -247,36 +247,103 @@
                                     <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
                                     <?php } ?>
 
-                                    <div class="">
-                                        <div class="add-contact">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                            <div><i class="fa fa-user-plus"  aria-hidden="true"></i></div>
-                                        </div>
-                                        <div class="addtocont">
-                                            <span class="ft-13"><i class="icon-user"></i>
                                                 <?php
                                                 //print_r($contactperson[0]['status']) ; die();
 
                                                 if ($contactperson[0]['status'] == 'cancel') {
                                                     ?>
-                                                    Add to contact
+                                                   <div>   
+                                                            <div class="add-contact">
+                                                             <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="addtocont">
+                                                    <span class="ft-13"><i class="icon-user"></i>
+                                                       Add to contact </span>
+                                                    </div> 
+
+                                                </div>
                                                 <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
-                                                    Cancel request  
+                                                    <div class="cance_req_main_box">   
+                                                            <div class="add-contact">
+                                                             <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div>
+                                                         <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png');?>"></span>
+                                                            </div>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="addtocont">
+                                                    <span class="ft-13 cl_haed_s">
+                                                      Cancel request </span>
+                                                    </div> 
+
+                                                </div>
                                                 <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
-                                                    In your contact
+                                                    <div class="fw in_mian_chng">   
+                                                            <div class="in_your_contact">
+                                                             
+                                                            <div class="in_your_contact_change">
+                                                            <span class="in_your_contct_img">
+                                                                <img src="<?php echo base_url('img/icon_contact_accept.png');?>">
+                                                            </span>
+                                                            </div>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="addtocont">
+                                                    <span class="ft-13 ai_text">
+                                                       In your contact </span>
+                                                    </div> 
+
+                                                </div>
                                                 <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
 
-                                                    Add to contact
+                                                    <div>   
+                                                            <div class="add-contact">
+                                                             <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="addtocont">
+                                                    <span class="ft-13"><i class="icon-user"></i>
+                                                       Add to contact </span>
+                                                    </div> 
+
+                                                </div>
                                                 <?php } else { ?>
 
-                                                    Add to contact
+                                                  <div>   
+                                                            <div class="add-contact">
+                                                             <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+
+                                                            </div>
+                                                            
+
+                                                            <div class="addtocont">
+                                                    <span class="ft-13"><i class="icon-user"></i>
+                                                       Add to contact </span>
+                                                    </div> 
+
+                                                </div>
                                                 <?php } ?>
 
-                                            </span>
-                                        </div>
-                                    </div>
                                 </a>
                         </div>
 
@@ -341,8 +408,8 @@
                                                                                                                           <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
                                                                                                                                                                                                 </li> -->
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                        </li>
+                                       <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                        </li> -->
 
 
                                     <?php } ?>

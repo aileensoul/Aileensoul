@@ -165,48 +165,32 @@ if ($artisticdata[0]['user_id'] == $userid) {
    <h4 class="profile-head-text_dg">
 
 <?php
-if ($artisticdata[0]['designation'] == '') {
-    ?>
+                if ($artisticdata[0]['designation'] == '') {
+                    ?>
 
-                   
-                        <a id="designation" class="designation" title="Designation">Current Work</a>
-                      
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
+
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
-                    <?php
-                    $userid = $this->session->userdata('aileenuser');
-                    if ($artisticdata[0]['user_id'] == $userid) {
-                        ?> 
-                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
+
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+
+                        </a>
+
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
                         <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
                 <?php } ?>
 
-
-                <!-- The Modal -->
-                <!-- <div id="myModal" class="modal"> -->
-                    <!-- Modal content -->
-                    <!-- <div class="col-md-2"></div> -->
-                    <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-<?php echo form_open(base_url('artistic/art_designation/'), array('id' => 'artdesignation', 'name' => 'artdesignation', 'class' => 'clearfix')); ?>
-
-                        <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php echo $artisticdata[0]['designation']; ?>">
-
-                        <?php echo form_error('designation'); ?>
-                        </fieldset>
-
-                        <input type="hidden" name="hitext" id="hitext" value="3">
-                        <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                            <?php echo form_close(); ?>
-
-
-
-                    </div>
- -->
-                    <!-- <div class="col-md-2"></div> -->
                     </h4>
         
         </div>
@@ -245,8 +229,8 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
 
 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                        </li>
+                       <!--  <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                        </li> -->
 <?php } ?>      
 
 <?php

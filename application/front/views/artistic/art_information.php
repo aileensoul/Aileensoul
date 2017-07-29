@@ -99,9 +99,9 @@
                         </h3>
                         
                             <?php echo form_open(base_url('artistic/art_information_insert'), array('id' => 'artinfo','name' => 'artinfo','class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
-                            <div>
+                            <!-- <div>
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
-                                </div>
+                                </div> -->
 
                                 <?php
                                  $artname =  form_error('artname');

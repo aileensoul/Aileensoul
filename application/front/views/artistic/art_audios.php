@@ -174,23 +174,33 @@
 
 <h4 class="profile-head-text_dg">
 
-                    <?php
-                    if ($artisticdata[0]['designation'] == '') {
-                        ?>
+                   <?php
+                if ($artisticdata[0]['designation'] == '') {
+                    ?>
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn">Current work</a>
-                        <?php } ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                        <a id="designation" class="designation" title="Designation">Current Work    </a>
 
-                    <?php } else { ?> 
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
-                        <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                            <a id="myBtn"><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
-                        <?php } else { ?>
-                            <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
-                        <?php } ?>
+                <?php } else { ?> 
 
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+
+                        </a>
+
+                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                    <?php } else { ?>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
+
+                <?php } ?>
+
 </h4>
 </div>
               </div>
@@ -226,8 +236,8 @@
 
                                   
 
-                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                    </li>
+                                    <!--  <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                    </li> -->
                      <?php }?>
 
 

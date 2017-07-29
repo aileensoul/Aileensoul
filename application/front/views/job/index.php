@@ -191,7 +191,7 @@
                                 <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field</span>
                                 </div> -->
 
-     <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
+    
 
 <?php
 $fname = form_error('fname');
@@ -321,7 +321,9 @@ if (count($nation) > 0) {
 <?php echo form_error('dob'); ?>
 
                                 </fieldset>
+                               
 
+                               
                                 <fieldset class="gender-custom" <?php if ($gender) { ?> class="error-msg" <?php } ?>>
                                     <label>Gender:<span class="red">*</span></label>
                                     <input type="radio" name="gender" value="male" id="gender" tabindex="9" <?php if($gender1){if($gender1 == 'male') { echo 'checked' ; }}
@@ -336,7 +338,10 @@ if (count($nation) > 0) {
 <?php echo form_error('gender'); ?>
                                 </fieldset>
 
+
+ <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                 <fieldset class="hs-submit full-width">
+                                    
 
                               <!--<input type="reset">-->
                                     <input type="submit"  id="next" name="next" value="Next" tabindex="10">

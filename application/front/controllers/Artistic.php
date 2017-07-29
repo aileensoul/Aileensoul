@@ -4239,7 +4239,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
 
 
@@ -4247,7 +4247,7 @@ public function followtwo() {
 
                   }
 
-                $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
+                $cmtinsert .= '<div class="comment-name"><b>' . ucfirst(strtolower($artname)) . '&nbsp;' . ucfirst(strtolower($artlastname)) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
                 $cmtinsert .= '<div class="comment-details" id="showcomment' . $art['artistic_post_comment_id'] . '" >';
@@ -4407,7 +4407,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
 
 
@@ -4415,7 +4415,7 @@ public function followtwo() {
 
                 }
 
-                $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
+                $cmtinsert .= '<div class="comment-name"><b>' . ucfirst(strtolower($artname)) . '&nbsp;' . ucfirst(strtolower($artlastname)) . '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
                 $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '" >';
@@ -4674,7 +4674,7 @@ public function followtwo() {
                 if ($userid == $likelistarray[0]) {
                     $cmtlikeuser .= 'You &nbsp';
                 } else {
-                    $cmtlikeuser .= '' . ucwords($art_fname) . '&nbsp;' . ucwords($art_lname) . '&nbsp;';
+                    $cmtlikeuser .= '' . ucfirst(strtolower($art_fname)) . '&nbsp;' . ucfirst(strtolower($art_lname)) . '&nbsp;';
                 }
              
 
@@ -4799,7 +4799,7 @@ public function followtwo() {
 
                 //$cmtlikeuser .= '<div class="fl" style=" padding-left: 22px;" >';
               
-                $cmtlikeuser .= '' . ucwords($art_fname12) . '&nbsp;' . ucwords($art_lname12) . '&nbsp;';
+                $cmtlikeuser .= '' . ucfirst(strtolower($art_fname12)) . '&nbsp;' . ucfirst(strtolower($art_lname12)) . '&nbsp;';
            
                 if (count($likelistarray) > 1) {
 
@@ -4930,7 +4930,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
 
 
@@ -4938,7 +4938,7 @@ public function followtwo() {
 
             }
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucfirst(strtolower($artname)) . '&nbsp;' . ucfirst(strtolower($artlastname)) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $art['artistic_post_comment_id'] . '" >';
@@ -5142,14 +5142,14 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
 
 
                     $cmtinsert .= '</div>'; 
             }
 
-            $cmtinsert .= '<div class="comment-name"><b>' . ucwords($artname) . '&nbsp;' . ucwords($artlastname) . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . ucfirst(strtolower($artname)) . '&nbsp;' . ucfirst(strtolower($artlastname)) . '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $art['artistic_post_comment_id'] . '" >';
@@ -6261,7 +6261,7 @@ public function followtwo() {
 
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-           // echo "<pre>"; print_r($artisticdata); die();
+           //echo "<pre>"; print_r($artisticdata); die();
             $contition_array = array('user_id' => $artisticdata[0]['user_id'], 'status' => 1, 'is_delete' => '0');
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -6460,9 +6460,9 @@ public function followtwo() {
 
                         $cmtlikeuser .= 'You &nbsp';
                     } else {
-                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_fname)) . '';
                         $cmtlikeuser .= '&nbsp;';
-                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_lname)) . '';
                         $cmtlikeuser .= '&nbsp;';
                     }
                     if (count($commnetcount) > 1) {
@@ -6549,9 +6549,9 @@ public function followtwo() {
 
                         $cmtlikeuser .= 'You &nbsp';
                     } else {
-                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_fname)) . '';
                         $cmtlikeuser .= '&nbsp;';
-                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_lname)) . '';
                         $cmtlikeuser .= '&nbsp;';
                     }
                     if (count($commnetcount) > 1) {
@@ -6677,9 +6677,9 @@ public function followtwo() {
                     if ($userid == $commnetcount[0]['user_id']) {
                         $cmtlikeuser .= 'You &nbsp';
                     } else {
-                        $cmtlikeuser .= '' . ucwords($art_fname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_fname)) . '';
                         $cmtlikeuser .= '&nbsp;';
-                        $cmtlikeuser .= '' . ucwords($art_lname) . '';
+                        $cmtlikeuser .= '' . ucfirst(strtolower($art_lname)) . '';
                         $cmtlikeuser .= '&nbsp;';
                     }
                     if (count($commnetcount) > 1) {
@@ -6817,7 +6817,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
 
 
@@ -7612,7 +7612,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .= ucfirst(strtolower($acronym)) .ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
                     $cmtinsert .= '</div>';
 
@@ -7800,7 +7800,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
                     $cmtinsert .= '</div>';
                }
@@ -7984,7 +7984,7 @@ public function followtwo() {
                             }
 
                     $fourdata .= '<div class="post-img-div">';
-                    $fourdata .=  ucwords($acronym) . ucwords($acronym1); 
+                    $fourdata .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $fourdata .=  '</div>';
 
 
@@ -7993,7 +7993,7 @@ public function followtwo() {
 
                 }
                 $fourdata .= '<div class="comment-name">';
-                $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
+                $fourdata .= '<b>' . ucfirst(strtolower($artname)) . '&nbsp' . ucfirst(strtolower($artlastname)) . '</b></br> </div>';
                 $fourdata .= '</a>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['artistic_post_comment_id'] . '">';
 
@@ -8142,13 +8142,13 @@ public function followtwo() {
                             }
 
                     $fourdata .= '<div class="post-img-div">';
-                    $fourdata .=  ucwords($acronym) . ucwords($acronym1); 
+                    $fourdata .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $fourdata .=  '</div>';
                     $fourdata .= '</div>';
             }
 
             $fourdata .= '<div class="comment-name">';
-            $fourdata .= '<b>' . ucwords($artname) . '&nbsp' . ucwords($artlastname) . '</b></br> </div>';
+            $fourdata .= '<b>' . ucfirst(strtolower($artname)) . '&nbsp' . ucfirst(strtolower($artlastname)) . '</b></br> </div>';
             $fourdata .= '</a>';  
             $fourdata .= '<div class="comment-details" id= "showcommentimgtwo' . $rowdata['post_image_comment_id'] . '">';
             $fourdata .= '' . $this->common->make_links($rowdata['comment']) . '</br></div>';
@@ -8305,7 +8305,7 @@ public function followtwo() {
                             }
 
                     $modal .= '<div class="post-img-div">';
-                    $modal .=  ucwords($acronym) . ucwords($acronym1); 
+                    $modal .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $modal .=  '</div>';
                     //$cmtinsert .= '</div>';
 
@@ -8314,7 +8314,7 @@ public function followtwo() {
        $modal .=  '</div>';
        $modal .=  '<div class="like_user_list_main_desc">';
        $modal .=  '<div class="like_user_list_main_name">';
-       $modal .=  '' . ucwords($art_name1) .' '.ucwords($art_lastname). '';
+       $modal .=  '' . ucfirst(strtolower($art_name1)) .' '.ucfirst(strtolower($art_lastname)). '';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
 
@@ -8407,7 +8407,7 @@ public function followtwo() {
                             }
 
                     $modal .= '<div class="post-img-div">';
-                    $modal .=  ucwords($acronym) . ucwords($acronym1); 
+                    $modal .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $modal .=  '</div>';
 
 
@@ -8417,7 +8417,7 @@ public function followtwo() {
        $modal .=  '</div>';
        $modal .=  '<div class="like_user_list_main_desc">';
        $modal .=  '<div class="like_user_list_main_name">';
-       $modal .=  '' . ucwords($art_name1) .' '.ucwords($art_lastname) .'';
+       $modal .=  '' . ucfirst(strtolower($art_name1)) .' '.ucfirst(strtolower($art_lastname)) .'';
        $modal .=  '</div></a>';
        $modal .=  '<div class="like_user_list_current_work">';
 
@@ -8556,7 +8556,7 @@ public function followtwo() {
                             }
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .=  ucwords($acronym) . ucwords($acronym1); 
+                    $cmtinsert .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $cmtinsert .=  '</div>';
                     $cmtinsert .= '</div>';
 
@@ -9276,7 +9276,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
 
 
@@ -9533,7 +9533,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
                     //$usrsrch .= '</div>';
 
@@ -9687,7 +9687,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
                    // $cmtinsert .= '</div>';
 
@@ -9963,7 +9963,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
                     //$cmtinsert .= '</div>';
 
@@ -10014,7 +10014,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
                     //$cmtinsert .= '</div>';
                        // $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
@@ -10072,7 +10072,7 @@ public function followtwo() {
                             }
 
                     $usrsrch .= '<div class="post-img-div">';
-                    $usrsrch .=  ucwords($acronym) . ucwords($acronym1); 
+                    $usrsrch .=  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); 
                     $usrsrch .=  '</div>';
 
                         $usrsrch .= '</div>';

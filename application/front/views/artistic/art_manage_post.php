@@ -191,7 +191,9 @@
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
                         <a id="designation" class="designation" title="Designation">Current Work    </a>
 
-                    <?php } ?>
+                    <?php } else{?>
+                    <a>Current Work </a>
+                    <?php }?>
 
                 <?php } else { ?> 
 
@@ -242,8 +244,8 @@
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?> 
 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                        </li>
+                        <!-- <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                        </li> -->
                     <?php } ?>
 
 
