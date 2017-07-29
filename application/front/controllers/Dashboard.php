@@ -32,24 +32,24 @@ class Dashboard extends MY_Controller {
 
             $updatdata = $this->common->update_data($data, 'user', 'user_id', $userid);   
          }
-         $contition_array = array('user_id' => $userid, 'status' => '1');
+         $contition_array = array('user_id' => $userid);
          $this->data['job'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-          $contition_array = array('user_id' => $userid, 're_status' => '1');
+          $contition_array = array('user_id' => $userid);
             $recrdata = $this->data['recrdata'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $contition_array = array('user_id' => $userid, 'status' => '1');
+            $contition_array = array('user_id' => $userid);
             $hiredata = $this->data['hiredata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $contition_array = array('user_id' => $userid, 'status' => '1');
+            $contition_array = array('user_id' => $userid);
             $workdata = $this->data['workdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            $contition_array = array('user_id' => $userid, 'is_deleted' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'is_deleted' => '0');
             $this->data['busdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 //echo '<pre>'; print_r($this->data['busdata'][0]); die();
-            $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+            $contition_array = array('user_id' => $userid, 'is_delete' => '0');
             $this->data['artdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 

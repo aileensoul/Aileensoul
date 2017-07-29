@@ -256,7 +256,14 @@
 
 										<?php if($job[0]['job_step'] != 10){?>
 										<a class="btn-1" href="<?php echo base_url('job'); ?>">Register</a>
-										<?php }else{?> 
+										<?php }
+											 elseif($job[0]['status'] == '0' && $job[0]['job_step'] == 10){?>
+
+										<a class="btn-1" href="<?php echo base_url('job'); ?>">Active</a>
+										<?php }
+
+
+										else{?> 
 
 										<a class="btn-4" href="<?php echo base_url('job'); ?>">Take me in</a> 
 
@@ -288,7 +295,13 @@
 										 <?php if($recrdata[0]['re_step'] != 3){?>
 
 										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Register</a>
-										<?php }else{?>
+										<?php }
+									 elseif($recrdata[0]['re_status'] == '0' && $recrdata[0]['re_step'] == 3){?>
+
+										<a class="btn-1" href="<?php echo base_url('recruiter'); ?>">Active</a>
+										<?php }
+
+										else{?>
 
 										<a class="btn-4" href="<?php echo base_url('recruiter'); ?>">Take me in</a>
 
@@ -317,7 +330,13 @@
 
 									<?php if($hiredata[0]['free_hire_step'] != 3 && $workdata[0]['free_post_step'] != 7){ ?>
 										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Register</a>
-										<?php }else{?>
+										<?php }
+										 elseif(($workdata[0]['status'] == '0' && $workdata[0]['free_post_step'] == 7) || ($hiredata[0]['free_hire_step'] == 3 && $hiredata[0]['status'] == '0')){?>
+
+										<a class="btn-1" href="<?php echo base_url('freelancer'); ?>">Active</a>
+										<?php }
+
+										else{?>
 
 										<a class="btn-4" href="<?php echo base_url('freelancer'); ?>">Take me in</a>
 
@@ -348,7 +367,13 @@
 
 										<?php if($busdata[0]['business_step'] != 4){ ?>
 										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Register</a> 
-										<?php }else{?>
+										<?php }
+										 elseif($busdata[0]['status'] == '0' && $busdata[0]['business_step'] == 4){?>
+
+										<a class="btn-1" href="<?php echo base_url('business_profile'); ?>">Active</a>
+										<?php }
+
+										else{?>
 										<a class="btn-4" href="<?php echo base_url('business_profile'); ?>">Take me in</a> 
 
 										<?php }?>
@@ -375,7 +400,13 @@
 
 										<?php if($artdata[0]['art_step'] != 4){?>
 										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Register</a> 
-										<?php }else{?>
+										<?php }
+										 elseif($artdata[0]['status'] == '0' && $artdata[0]['art_step'] == 4){?>
+
+										<a class="btn-1" href="<?php echo base_url('artistic'); ?>">Active</a>
+										<?php }
+
+										else{?>
 										<a class="btn-4" href="<?php echo base_url('artistic'); ?>">Take me in</a>
 										<?php }?>
 										<a data-fancybox data-src="#art-popup" href="javascript:;" class="pl20 ml20 hew">How it works?</a>
