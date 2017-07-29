@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
 <head>
@@ -12,7 +11,7 @@
 <meta  property="og:type" content="Blog" />
 <meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image'])?>" />
 <meta  property="og:description" content="<?php echo $blog_detail[0]['description']; ?>" /> 
-<meta  property="og:url" content="<?php base_url('blog/blogdetail/'.$blog_detail[0]['blog_slug']) ?>" />
+<meta  property="og:url" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>" />
 <meta property="fb:app_id" content="825714887566997" />
 
 <!-- <meta property="og:site_name" content="Site Name, i.e. Moz" />
@@ -20,12 +19,12 @@
  
   <!-- for twitter -->
  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<?php base_url('blog/blogdetail/'.$blog_detail[0]['blog_slug']) ?>">
+<meta name="twitter:site" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>">
 <meta name="twitter:title" content="<?php $blog_detail[0]['title']; ?>">
 <meta name="twitter:description" content="<?php $blog_detail[0]['description']; ?>">
 <meta name="twitter:creator" content="By Aileensoul">
 <meta name="twitter:image" content="http://placekitten.com/250/250">
-<meta name="twitter:domain" content="<?php base_url('blog/blogdetail/'.$blog_detail[0]['blog_slug']) ?>">
+<meta name="twitter:domain" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>">
 
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
@@ -77,7 +76,7 @@
                         <div class="main-menu-right">
                             <ul class="">
                             <li><a href="<?php echo base_url('blog/');?>">Recent Post </a></li>
-                            <li> <a href="<?php echo base_url('blog/index/popular');?>">Most Popular</a></li>
+                            <li> <a href="<?php echo base_url('blog/popular');?>">Most Popular</a></li>
                             </ul>
                          </div>
                      </div>
@@ -127,7 +126,7 @@
 <?php
 
 $title=urlencode('"'.$blog_detail[0]['title'].'"');
-$url=urlencode(base_url('blog/blogdetail/'.$blog_detail[0]['blog_slug']));
+$url=urlencode(base_url('blog/'.$blog_detail[0]['blog_slug']));
 $summary=urlencode('"'.$blog_detail[0]['description'].'"');
 $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image']));
 ?>
@@ -182,7 +181,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
                          
                      
                   ?>
-                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key-1]['blog_slug']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                         <a href="<?php echo base_url('blog/'.$blog_all[$key-1]['blog_slug']);?>"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 
                       
                   <?php
@@ -225,7 +224,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
                          
                      
                   ?>
-                         <a href="<?php echo base_url('blog/blogdetail/'.$blog_all[$key+1]['blog_slug']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                         <a href="<?php echo base_url('blog/'.$blog_all[$key+1]['blog_slug']);?>"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                   <?php
                       }
                 }
@@ -333,13 +332,13 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-             <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+             <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-               <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"><span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
+               <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"><span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div>
            
             </div>
@@ -357,9 +356,25 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
 
       <div class="popular_tag">
       <h4>Popular Tag</h4>
+
+       <?php 
+              $tag_all=explode(',', $blog_detail[0]['tag']);
+              foreach($tag_all as $tag)
+              {
+        ?>
       <div class="tag_name">
-        <span><?php echo $this->db->get_where('blog_tag', array('id' => $blog_detail[0]['tag_id']))->row()->name; ?></span>
+      <span class="span_tag">
+      <a href="<?php echo base_url('blog/tagsearch')?>">
+      <?php
+                echo $tag;
+        ?>
+        </a>
+        </span>
       </div>
+
+      <?php
+                }
+      ?>
 
 
        </div>
@@ -469,6 +484,41 @@ var url= window.location.href;
 
 </script>
 <!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE END-->
+
+<script type="text/javascript">
+
+ // $('.popular_tag .tag_name .span_tag').click(function (event) 
+ // {
+ // // alert("hi");
+ //   $.ajax({
+ //           type: 'POST',
+ //           url: '<?php //echo base_url()."blog/tagsearch" ?>',
+ //           //data: 'blog_id=' + blog_id,         
+ //           // dataType: "html",
+ //           success: function (data) {
+ //               if (data == 1) 
+ //               {
+ //                  window.location= "<?php //echo base_url() ?>blog/popular";
+ //                   //redirect('blog');
+ //               }
+             
+ //           }
+ //       });
+  // event.preventDefault();
+  //   slides[currentSlide].className = 'item';
+  //   currentSlide = (currentSlide+1)%slides.length;
+  //   slides[currentSlide].className = 'item active';
+
+  //   slides1[currentSlide_width].className = 'ld_sl';
+  //   currentSlide_width = (currentSlide_width+1)%slides1.length;
+  //   slides1[currentSlide_width].className = 'ld_sl sld-width-'+(currentSlide+1);
+
+  // if((currentSlide+1)==slides.length)
+  // {
+  //   $('#img').remove();
+  // }
+  //});
+</script>
 
 <!-- This Js is used for call popup -->
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>

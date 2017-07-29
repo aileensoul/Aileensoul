@@ -72,11 +72,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
-                                        <?php } else { ?>
-                                            <div class="chat_heae_img">
-                                                <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="30px" weight="30px">
-                                            </div>
-                                        <?php } ?>
+                                  <?php       } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php   
+                                                }
+                                                ?>
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
@@ -96,11 +101,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         echo "active  last" . $id;
                                     }
                                     ?>">
-
-                                        <div class="chat_heae_img">
+<?php if($last_user_data['user_image']){ ?>
+                                       <div class="chat_heae_img">
                                             <img src="<?php echo $last_user_data['user_image']; ?>" alt="" height="50px" weight="50px">
                                         </div>
-
+<?php }else{ ?>
+                                               <div class="post-img-div">
+                                                                        <?php echo ucwords($last_user_data['user_image_char']) ?>
+                                                                    </div>                        
+<?php } ?>
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
@@ -138,9 +147,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){           
                                                    
                                                         $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                        } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
 
                                                 if ($message_from_profile == 1) {
@@ -148,45 +162,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                     } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
                                                 if ($message_from_profile == 4) {
                                                      $filepath = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                    } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
                                                 if ($message_from_profile == 3) {
                                                    $filepath = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                  } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
                                                 if ($message_from_profile == 5) {
                                                        $filepath = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){ 
                                                         $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                    } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
                                                 if ($message_from_profile == 6) {
                                                        $filepath = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){ 
                                                         $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                                                    } else {
-                                                        $user_image = base_url(NOIMAGE);
-                                                    }
+                                                   } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } 
                                                 }
                                                 ?>
                                                 <?php if ($user_image) { ?>
@@ -206,7 +245,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         ?>
                                                     </div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-            <?php echo str_replace('\\', '', $user['message']); ?>
+            <?php $message = $user['message'];
+                  $message =  str_replace('\\', '', $message); 
+                  $message =  str_replace('%26amp;', '&', $message); 
+                  echo $message;
+                  ?>
                                                     </div>
                                                 </div>
                                             </li></a> 
@@ -261,11 +304,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="chat_heae_img">
                                         <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">
                                     </div>
-    <?php } else { ?>
-                                    <div class="chat_heae_img">
-                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="" height="50px" weight="50px">
-                                    </div>
-    <?php } ?>
+    <?php } else { 
+                                                                    $a = $last_user_data['user_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
+                                                                        <?php echo ucwords($acr)?>
+                                                                    </div>
+                                             <?php    } ?>
 
                                 <div class="chat-about">
                                     <div class="chat-with">

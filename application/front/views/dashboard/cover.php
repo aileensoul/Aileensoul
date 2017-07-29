@@ -386,6 +386,17 @@
 						</div>
 					</div>
 				</div>
+				
+				
+		 <!-- End  bootstrap-touch-slider Slider -->
+		 
+
+    <!-- Modal content-->
+
+      	 
+
+        
+          
 			</section>
 		
 	</div>
@@ -409,6 +420,232 @@
 			</div>
 		</div>
 	</footer> -->
+        
+<?php //if($userdata[0]['user_slider'] == 1){?>
+	<div id="onload-Modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="main_sl">
+				<div class="main_box">
+					<div class="imagesl">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<div id="first-slider">
+								<div id="carousel-example-generic" class="carousel slide carousel-fade" data-interval="false">
+									<div id="inner" class="carousel-inner" role="listbox">
+										<!-- Item 1 -->
+										<div class="item active slide1">
+											<div class="center_sl slider-1 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head"> 
+													<p> welcome to</p>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_logo.png">
+												</div>
+											</div>
+										 </div> 
+										<!-- Item 2 -->
+										<div class="item slide2">
+											<div class="center_sl main_cl_sl slider-2 slide-text">
+												<div data-animation="animated fadeInDown" class="imh_logo2">
+													<img src="slicing/img_logo.png">
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_2.png">
+												</div>
+											</div>
+										</div>
+										<!-- Item 3 -->
+										<div class="item slide3">
+											<div class="center_sl main_cl_sl slider-3 slide-text">
+												<div data-animation="animated fadeInDown">
+													<h3>Easy to Access</h3>
+													<p>You can easily access any profile from main page.</p>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_3.png">
+												</div>
+											</div>
+										</div>
+										<!-- Item 4 -->
+										<div class="item slide4">
+											<div class="center_sl main_cl_sl slider-4 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_4_sl"> 
+													<span class="mian_4_hed"> You can easily navigate to one profile to another profile</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_4.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 4 -->
+										<!-- Item 5 -->
+										<div class="item slide5">
+											<div class="center_sl main_cl_sl slider-5 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_5_sl"> 
+													<span class="mian_4_hed"> You can easily search location vise jobs, employees, freelance projects, business, artists etc.</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_5.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 5 -->
+										<!-- Item 6 -->
+										<div class="item slide6">
+											<div class="center_sl main_cl_sl slider-6 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_6_sl"> 
+													<span class="mian_4_hed"> Recruiters can post job as per their requirement and find desired employees </span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_6.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 6 -->
+										<!-- Item 7 -->
+										<div class="item slide7">
+											<div class="center_sl main_cl_sl slider-7 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_7_sl"> 
+													<span class="mian_4_hed"> Hire Freelancers and Also Find Freelance Work</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_7.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 7 -->
+										<!-- Item 8 -->
+										<div class="item slide8">
+											<div class="center_sl main_cl_sl slider-8 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_8_sl"> 
+													<span class="mian_4_hed"> Post your product in business profile with photo/audio/video/pdf</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_8.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 8 -->
+										<!-- Item 9 -->
+										<div class="item slide9">
+											<div class="center_sl main_cl_sl slider-9 slide-text">
+												<div  class=""> 
+													<div data-animation="animated fadeInDown" class="sld-9-top">
+														<p>You will get notifications related to any new update.</p>
+													</div>
+													<div data-animation="animated fadeInDown" class="sld-9-bottom">
+														<p>You can also send and receive contact request in business profile.</p>
+													</div>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_9.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 9 -->
+										<!-- Item 10 -->
+										<div class="item slide10">
+											<div class="center_sl main_cl_sl slider-10 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_10_sl"> 
+													<span class="mian_4_hed"> Post your artistic talent and crearivity with photo/audio/video/pdf </span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_10.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 10 -->
+										<!-- Item 11 -->
+										<div class="item slide11">
+											<div class="center_sl main_cl_sl slider-11 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_11_sl"> 
+													<span class="mian_4_hed"> You can also like, comment and follow in business and artistic profiles
+													</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_11.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 11 -->
+										<!-- Item 12 -->
+										<div class="item slide12">
+											<div class="center_sl main_cl_sl slider-12 slide-text">
+												<div class="text_sl_head main_12_sl"> 
+													<span data-animation="animated fadeInDown" class="mian_4_hed" >Recruiter and job seeker can send and receive messages.
+															Freelancer and employer, artist to artist and users within business 
+															network can also message each other. </span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_12.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 12 -->
+										<!-- Item 13 -->
+										<div class="item slide13">
+											<div class="center_sl main_cl_sl slider-13 slide-text">
+												<div data-animation="animated fadeInDown" class="text_sl_head main_13_sl"> 
+													<span class="mian_4_hed"> Easily responsive in all device
+													</span>
+												</div>
+												<div data-animation="animated fadeInUp" class="imh_logo">
+													<img src="slicing/img_screen_13.png">
+												</div>
+											</div>
+										</div>
+										<!-- End Item 13 -->
+										<!-- Item 14 -->
+										<div class="item slide14">
+											<div class="center_sl main_cl_sl slider-14 slide-text">
+												<div data-animation="animated fadeInDown" class="imh_logo">
+													<img src="slicing/latsgo.png">
+												</div>
+												<div data-animation="animated fadeInUp" class="text_sl_head main_6_sl"> 
+													<span class="mian_4_hed"> demo@gmail.com</span>
+													<p>Welcome In Aileensoul</p>
+													<p>
+														<a class="btn-go" href="">Let's Go</a>
+													</p>
+												</div>
+											</div>
+										</div>
+										<!-- End Item 14 -->
+    
+									</div>
+									<!-- End Wrapper for slides-->
+									<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+										<i class="fa fa-angle-left"></i><span class="sr-only">Previous</span>
+									</a>
+									<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+										<i class="fa fa-angle-right"></i><span class="sr-only">Next</span>
+									</a>
+								</div>
+							</div>
+					</div>
+					<!--div class="bottom_section fw">
+						<div class="fw">
+
+						<div class="ld_sl"></div>
+						</div>
+						<div class="lfar_sl">
+							<a href="#carousel-example-generic" role="button" data-slide="next" class="next-btn"><img src="slicing/img_arrow.png"></a>
+						</div>
+					</div-->
+					<div class="bottom_section fw" id="temp_btn">
+						<div class="fw" id="temp_btn1">
+							<div class="ld_sl"></div>
+						</div>
+						<div class="lfar_sl">
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-left"><img src="slicing/img_arrow.png"></a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"></a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+<?php //} ?>
+
 	
 	<!--  how it work popup  -->
 	<div style="display:none;" class="how-it-popup" id="jop-popup">
@@ -668,341 +905,22 @@
                     <!-- model for popup -->
 					
 <!--  onload popup  -->
-<div id="onload-Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-
-      	 
-<div class="main_sl">
-<div class="main_box">
-<div class="imagesl">
-	<button type="button" class="close" data-dismiss="modal">&times;</button>
-		<div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="false" >
-
-
-            <!-- Wrapper For Slides -->
-            <div class="carousel-inner" id="inner">
-
-                <!-- 1st Slide -->
-                <div class="item active">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl slider-1 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head"> 
-								<p> welcome to</p>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_logo.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of 1st Slide -->
-				<!-- 2st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-2 slide-text">
-							<div data-animation="animated fadeInDown" class="imh_logo2">
-								<img src="slicing/img_logo.png">
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="img/2_1.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 3st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-3 slide-text">
-							<div data-animation="animated fadeInDown">
-								<h3>Easy to Access</h3>
-								<p>You can easily access any profile from main page.</p>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_3.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 4st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-4 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_4_sl"> 
-								<span class="mian_4_hed"> You can easily navigate to one profile
-									to another profile</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_4.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 5st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-5 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_5_sl"> 
-								<span class="mian_4_hed"> You can easily search location vise jobs, employees,
-									freelance projects, business, artists etc.</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_5.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 6st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-6 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_6_sl"> 
-								<span class="mian_4_hed"> Recruiters can post job as per their requirement
-								and find desired employees </span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_6.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 7st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-7 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_7_sl"> 
-								<span class="mian_4_hed"> Hire Freelancers and Also Find Freelance Work</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_7.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 8st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-8 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_8_sl"> 
-								<span class="mian_4_hed"> Post your product in business profile with
-									photo/audio/video/pdf</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_8.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 9st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-9 slide-text">
-							<div  class=""> 
-								<div data-animation="animated fadeInDown" class="sld-9-top">
-									<p>You will get notifications related to any new update.</p>
-									
-								</div>
-								<div data-animation="animated fadeInDown" class="sld-9-bottom">
-									<p>You can also send and receive contact request in business profile.</p>
-									
-								</div>
-							</div>
-							
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_9.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 10st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-10 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_10_sl"> 
-								<span class="mian_4_hed"> Post your artistic talent and crearivity with
-									photo/audio/video/pdf </span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_10.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 11st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-11 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_11_sl"> 
-								<span class="mian_4_hed"> You can also like, comment and follow in
-									business and artistic profiles
-								</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_11.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 12st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-12 slide-text">
-							<div class="text_sl_head main_12_sl"> 
-								<span data-animation="animated fadeInDown" class="mian_4_hed" >Recruiter and job seeker can send and receive messages.
-								Freelancer and employer, artist to artist and users within business 
-								network can also message each other. </span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_12.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 13st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-13 slide-text">
-							<div data-animation="animated fadeInDown" class="text_sl_head main_13_sl"> 
-								<span class="mian_4_hed"> Easily responsive in all device
-								</span>
-							</div>
-							<div data-animation="animated fadeInUp" class="imh_logo">
-								<img src="slicing/img_screen_13.png">
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-				<!-- 14st Slide -->
-				<div class="item">
-
-                    <!-- Slide Background -->
-                    <img src="img/bg-2.png" alt="Bootstrap Touch Slider"  class="slide-image"/>
-						<div class="center_sl main_cl_sl slider-14 slide-text">
-						
-							<div data-animation="animated fadeInDown" class="imh_logo">
-								<img src="slicing/latsgo.png">
-							</div>
-							<div data-animation="animated fadeInUp" class="text_sl_head main_6_sl"> 
-								<span class="mian_4_hed"> demo@gmail.com</span>
-								<p>Welcome In Aileensoul</p>
-								<p>
-									<a class="btn-go" href="">Let's Go</a>
-								</p>
-							</div>
-							
-						</div>
-                   
-                    
-                </div>
-                <!-- End of Slide -->
-
-                
-
-
-            </div><!-- End of Wrapper For Slides -->
-
-            <!-- Left Control -->
-            <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
-                <span class="fa fa-angle-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-
-            <!-- Right Control -->
-           <!--  <a class="right carousel-control" >
-                <span class="fa fa-angle-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
-
-        </div> <!-- End  bootstrap-touch-slider Slider -->
-</div>
-<div class="bottom_section fw" id="temp_btn">
-	<div class="fw" id="temp_btn1">
-
-	<div class="ld_sl"></div>
-	</div>
-	<div class="lfar_sl">
-		<a href=""  class="next-btn"><img src="slicing/img_arrow.png" id="img"></a>
-	</div>
-</div>
-
-
-</div>	
-</div>
-
-    </div>
-
-  </div>
-	
 
 <!-- end onload popup  -->
 <script type="text/javascript">
     $(window).load(function(){        
-		$('#onload-Modal').modal('show');
+		$('#onload-Modal').modal('show').fadeIn("slow");
     }); 
+	$(document).ready(function () {
+        $("body").click(function (event) {
+            //$("#onload-Modal").modal.in('hide').fadeOut("slow");
+            $(".modal").css('display','none');
+            $("#onload-Modal").fadeOut("slow");
+
+           // event.stopPropagation();
+        });
+
+    });
 	  
 </script>
 
@@ -1089,9 +1007,9 @@ var currentSlide_width=0;
  $('#img').click(function (event) 
  {
  	event.preventDefault();
-    slides[currentSlide].className = 'item';
+    /*slides[currentSlide].className = 'item';*/
     currentSlide = (currentSlide+1)%slides.length;
-    slides[currentSlide].className = 'item active';
+    /*slides[currentSlide].className = 'item active';*/
 
     slides1[currentSlide_width].className = 'ld_sl';
     currentSlide_width = (currentSlide_width+1)%slides1.length;
@@ -1099,7 +1017,7 @@ var currentSlide_width=0;
 
  	if((currentSlide+1)==slides.length)
  	{
- 		$('#img').remove();
+ 		//$('#img').remove();
  	}
   });
 });
@@ -1514,6 +1432,52 @@ Credits: Bootstrap, jQuery, TouchSwipe, Animate.css, FontAwesome
 // Curently there are no option available.
 
 $('#bootstrap-touch-slider').bsTouchSlider();
+
+
+(function( $ ) {
+
+    //Function to animate slider captions 
+    function doAnimations( elems ) {
+		//Cache the animationend event in a variable
+		var animEndEv = 'webkitAnimationEnd animationend';
+		
+		elems.each(function () {
+			var $this = $(this),
+				$animationType = $this.data('animation');
+			$this.addClass($animationType).one(animEndEv, function () {
+				$this.removeClass($animationType);
+			});
+		});
+	}
+	
+	//Variables on page load 
+	var $myCarousel = $('#carousel-example-generic'),
+		$firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
+		
+	//Initialize carousel 
+	$myCarousel.carousel();
+	
+	//Animate captions in first slide on page load 
+	doAnimations($firstAnimatingElems);
+	
+	//Pause carousel  
+	$myCarousel.carousel('pause');
+	
+	
+	//Other slides to be animated on carousel slide event 
+	$myCarousel.on('slide.bs.carousel', function (e) {
+		var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+		doAnimations($animatingElems);
+	});  
+    $('#carousel-example-generic').carousel({
+        interval:3000,
+        pause: "false"
+    });
+	
+})(jQuery);	
+
+
+
 </script>
 
 </body>

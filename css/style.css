@@ -752,6 +752,21 @@ img.aligncenter {
     float: left;
     padding: 10px 10px 10px 10px;
 }
+.post-img-profile{color: #fff;
+width: 100%;
+height: 100%;
+background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
+font-size: 20px;
+padding: 16px 0;
+text-align: center;
+text-transform: uppercase;
+line-height: 2;}
 .left_side_box_img {
     float: left;
 }
@@ -835,7 +850,7 @@ img.aligncenter {
 .action-button #message_count {
 /*     height: 16px;*/
     position: absolute;
-    right: 10px;
+    right: 12px;
     top: 3px;
     line-height: 1;
     font-size: 10px;
@@ -10484,6 +10499,14 @@ style chat css start*/
     
     padding: 0px 40px 12px;
 }
+.profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span pre{font-size: 13px;
+border: none;
+white-space: pre-line;
+background: transparent;
+padding-top: 2px;
+padding: 0px;
+font-family: arial;
+display: initial;}
 .people-list {
     border-right: 1px solid #ccc;
     width: 20%;
@@ -10559,6 +10582,7 @@ style chat css start*/
 }
 .people-list .about {
     float: left;
+    width: 78%;
 }
 .people-list .about {
     padding-left: 9px;
@@ -10771,8 +10795,12 @@ style chat css start*/
 }
 .name {
     font-weight: 600;
-    padding-bottom: 6px;
-    line-height: 14px;
+padding-bottom: 6px;
+line-height: 14px;
+width: 107%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 .panel-footer {
     background-color: #444753;
@@ -15086,6 +15114,8 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
+
+    .action-button #message_count{right:175px;}
     .hidden-mob {
         display: none;
     }
@@ -15641,6 +15671,7 @@ text-align: center;}
         font-size: 16px;
         padding: 7px;
     }
+      .job_con #InboxContainer::before{right: 144px;}
     .profile-text1 .alert.alert-warning{width:100%; float:left;}
     .email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}
@@ -16220,6 +16251,14 @@ overflow: hidden;
     .cls-ve{top:35px;}
 }
 @media screen and (max-width: 360px) {
+    .hout_noti{font-size: 11px;}
+    .job-saved-box .notification-box ul li{padding: 0;}
+    #notification_inside h6{font-size: 12px !important;}
+    #notification_inside{   padding: 5px 5px 9px 1px !important;
+margin-left: 7px !important;}
+.job_con #InboxContainer::before {
+    right: 131px;
+}
     .profile-job-details .display_inline{font-size: 10px;}
     .created_date{font-size: 10px;}
     #acon::before{right: 125px!important;}

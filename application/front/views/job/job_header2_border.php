@@ -15,6 +15,7 @@
     left: -23px;
     border-radius: 4px;
  padding-bottom: 7px;}
+
 </style>
 
  <?php if(($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post')){?>
@@ -55,7 +56,7 @@
                                     </li>
                                 <!-- Friend Request Start-->
 <!-- <h3>hello</h3> -->
-                                     <li id="Inbox_link job_con">
+                                     <li id="Inbox_link " class="job_con">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -149,7 +150,7 @@
                                 <!-- Friend Request Start-->
 <!-- <h3>hello</h3> -->                     
                         
-                                     <li id="Inbox_link job_con">
+                                     <li id="Inbox_link " class="job_con">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>

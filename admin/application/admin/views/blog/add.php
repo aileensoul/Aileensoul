@@ -58,22 +58,10 @@ echo $leftmenu;
                         <!-- BLOG TITLE END -->
 
                         <!--  TAG SELECTION START -->
-                        <div class="form-group col-sm-5">
-                            <div class="form-group">
+                        <div class="form-group col-sm-10">
                                 <label>Tag*</label>
 
                                <input type="text" class="form-control" name="tag" id="tag" value="">
-                                 <select name="tag" id="tag" class="form-control select2" style="width: 100%;">
-                                    <option value="" selected option disabled="">Select Tag</option>
-                                    <?php
-                                    foreach ($blog_tag as $tag) {
-                                        ?>
-                                        <option value="<?php echo $tag['id']; ?>"><?php echo $tag['name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select> 
-                            </div>
                         </div>
                         <!-- TAG SELECTION END -->
 

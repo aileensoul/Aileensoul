@@ -538,7 +538,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['recruiter_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/recruiter_profile/thumbs/' . $last_user_data[0]['recruiter_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['rec_firstname'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -571,7 +573,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['job_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/job_profile/thumbs/' . $last_user_data[0]['job_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['fname'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -604,7 +608,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['freelancer_post_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $last_user_data[0]['freelancer_post_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['freelancer_post_fullname'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -637,7 +643,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['freelancer_hire_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $last_user_data[0]['freelancer_hire_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['fullname'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -665,7 +673,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['business_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['business_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['company_name'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -695,7 +705,9 @@ class Chat extends MY_Controller {
             if ($last_user_data[0]['art_user_image'] != '') {
                 $this->data['last_user_data']['user_image'] = base_url() . 'uploads/business_profile/thumbs/' . $last_user_data[0]['art_user_image'];
             } else {
-                $this->data['last_user_data']['user_image'] = base_url() . NOIMAGE;
+                 $a = $last_user_data[0]['art_name'];
+                 $acr = substr($a, 0, 1);
+                $this->data['last_user_data']['user_image_char'] = $acr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
@@ -1875,11 +1887,14 @@ class Chat extends MY_Controller {
 
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px" />';
                         $usrsrch .= '</div>';
-                    } else {
-                        $usrsrch .= '    <div class="chat_heae_img">';
-                        $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
-                        $usrsrch .= '</div>';
-                    }
+                    } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                 
+                                                    $usrsrch .= '<div class="post-img-div">';
+                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '</div>';
+                                                } 
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
@@ -2344,12 +2359,14 @@ class Chat extends MY_Controller {
                         $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
-                    } else {
-
-                        $usrsrch .= '<div class="chat_heae_img">';
-                        $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="30px" weight="30px">';
-                        $usrsrch .= '</div>';
-                    }
+                    } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                 
+                                                    $usrsrch .= '<div class="post-img-div">';
+                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '</div>';
+                                                }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
                     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
@@ -2419,11 +2436,14 @@ class Chat extends MY_Controller {
                         }
                         $usrsrch .= '<img src="' . $user_image . '" alt="'.$lstusrdata[0]['first_name'].'" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
-                    } else {
-                        $usrsrch .= '<div class="chat_heae_img">';
-                        $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="' . $lstusrdata[0]['first_name'] . '" height="50px" weight="50px">';
-                        $usrsrch .= '</div>';
-                    }
+                     } else { 
+                                                                    $a = $lstusrdata[0]['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                 
+                                                    $usrsrch .= '<div class="post-img-div">';
+                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '</div>';
+                                                }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
                     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . '<br></a> </div>';
@@ -2474,11 +2494,14 @@ class Chat extends MY_Controller {
                             }
                             $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
                             $usrsrch .= '</div>';
-                        } else {
-                            $usrsrch .= '<div class="chat_heae_img">';
-                            $usrsrch .= '<img src="' . base_url(NOIMAGE) . '" alt="" height="50px" weight="50px">';
-                            $usrsrch .= '</div>';
-                        }
+                       } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                 
+                                                    $usrsrch .= '<div class="post-img-div">';
+                                                    $usrsrch .= '' . ucwords($acr) . '';
+                                                    $usrsrch .= '</div>';
+                                                }
                         $usrsrch .= '<div class="about">';
                         $usrsrch .= '<div class="name">';
                         $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';

@@ -15,7 +15,7 @@
 <meta  property="og:type" content="Blog" />
 <meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
 <meta  property="og:description" content="<?php echo $blog['description']; ?>" /> 
-<meta  property="og:url" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>" />
+<meta  property="og:url" content="<?php base_url('blog/'.$blog['blog_slug']) ?>" />
 <meta property="og:image:width" content="620" />
 <meta property="og:image:height" content="541" />
 <meta property="fb:app_id" content="825714887566997" />
@@ -25,12 +25,12 @@
  
   <!-- for twitter -->
  <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>">
+<meta name="twitter:site" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
 <meta name="twitter:title" content="<?php $blog['title']; ?>">
 <meta name="twitter:description" content="<?php $blog['description']; ?>">
 <meta name="twitter:creator" content="By Aileensoul">
 <meta name="twitter:image" content="http://placekitten.com/250/250">
-<meta name="twitter:domain" content="<?php base_url('blog/blogdetail/'.$blog['blog_slug']) ?>">
+<meta name="twitter:domain" content="<?php base_url('blog/'.$blog['blog_slug']) ?>">
 <?php
 }
 ?>
@@ -75,7 +75,7 @@
             <div class="col-md-4 col-sm-5 col-xs-3 mob-zindex">
                         <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
                         <div class="logo pl20">
-                        <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                        <?php if($this->input->get('q') || $this->uri->segment(3) == 'popular')
                         {
                         ?>
                            <a href="<?php echo base_url('blog/'); ?>"> <h3  style="color: #1b8ab9;">Blog</h3></a>
@@ -94,7 +94,7 @@
                         <div class="main-menu-right">
                             <ul class="">
                             <li>
-                                <?php if($this->input->get('search_blog_post') || $this->uri->segment(3) == 'popular')
+                                <?php if($this->input->get('q') || $this->uri->segment(2) == 'popular')
                                 {
                                 ?>
                                     <a href="<?php echo base_url('blog/');?>">Recent Post </a>
@@ -118,7 +118,7 @@
                                 else
                                 {
                                 ?>
-                                     <a href="<?php echo base_url('blog/index/popular');?>">Most Popular</a>
+                                     <a href="<?php echo base_url('blog/popular');?>">Most Popular</a>
                               <?php
                                 }
                                 ?>
@@ -154,7 +154,7 @@
 <div class="blog_post_outer col-md-9 col-sm-8 pr0">
 <?php
 
-if($this->input->get('search_blog_post'))
+if($this->input->get('q'))
       {
           echo "Search results for '$search_keyword' ";
           
@@ -163,7 +163,7 @@ if($this->input->get('search_blog_post'))
 if(count($blog_detail) == 0 )
 {
   echo "<br>";
-  if($this->input->get('search_blog_post'))
+  if($this->input->get('q'))
   {
       echo "Oops No Data Found !";
   }
@@ -231,14 +231,14 @@ else
         <div class="blog_main_post_first_part">
         <div class="blog_main_post_img">
 
-         <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+         <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
         </div>
         </div>
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-             <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
+             <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
           </span>
         </div>
         <div class="blog_class_main_by">
@@ -260,11 +260,11 @@ else
 <?php
 
 $title=urlencode('"'.$blog['title'].'"');
-$url=urlencode(base_url('blog/blogdetail/'.$blog['blog_slug']));
+$url=urlencode(base_url('blog/'.$blog['blog_slug']));
 $summary=urlencode('"'.$blog['description'].'"');
 $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog['image']));
 ?>
-               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
+               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
                 <span  class="social_fb"></span>
                 </a>
 
@@ -320,7 +320,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
 
  <!-- <?php //echo form_open(base_url('blog/index/search'), array('id' => 'blog_search', 'name' => 'blog_search', 'class' => 'clearfix')); ?>  -->
   <form action=<?php echo base_url('blog/')?> method="get" autocomplete="off"> 
-          <div class="searc_w"><input type="text" name="search_blog_post" id="search_blog_post" placeholder="Search Blog Post"></div>
+          <div class="searc_w"><input type="text" name="q" id="q" placeholder="Search Blog Post"></div>
          <button type="submit" class="butn_w" onclick="return checkvalue();"><i class="fa fa-search"></i></button> 
         <!-- <div class="butn_w"><a href=""><i class="fa fa-search" aria-hidden="true"></i>
 </a></div> -->
@@ -341,13 +341,13 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
 
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
             <div class="post_latest_right">
             <div class="desc_post">
-              <a href="<?php echo base_url('blog/blogdetail/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <span class="rifght_fname"> <?php echo $blog['title'];?> </span></a>
             </div> 
             
             </div>
@@ -378,6 +378,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
 <script type="text/javascript">
      
 function read_more(blog_id,slug) {
+  
        $.ajax({
            type: 'POST',
            url: '<?php echo base_url()."blog/read_more" ?>',
@@ -386,8 +387,8 @@ function read_more(blog_id,slug) {
            success: function (data) {
                if (data == 1) 
                {
-                  window.location= "<?php echo base_url() ?>blog/blogdetail/" + slug;
-                   //redirect('blog/blogdetail');
+                  window.location= "<?php echo base_url() ?>blog/" + slug;
+                   //redirect('blog');
                }
              
            }
@@ -400,7 +401,7 @@ function read_more(blog_id,slug) {
    function checkvalue() 
    {
      
-       var searchkeyword = $.trim(document.getElementById('search_blog_post').value);
+       var searchkeyword = $.trim(document.getElementById('q').value);
      
        if (searchkeyword == "") 
        {
