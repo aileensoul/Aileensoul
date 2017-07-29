@@ -245,7 +245,7 @@
 						<div class="row">
 							<div class="col-md-4 col-sm-4">
 								<div class="left-box">
-									<a href="<?php echo base_url('job'); ?>"><img src="img/i1.jpg"></a>
+									<a href="<?php echo base_url('job'); ?>"><img src="img/i1.png"></a>
 								</div>
 							</div>
 							<div class="col-md-8 col-sm-8">
