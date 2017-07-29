@@ -116,24 +116,24 @@
          <div class="full-box-module">
             <div class="profile-boxProfileCard  module">
                <div class="profile-boxProfileCard-cover">
-                  <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>">
+                  <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo site_url('artistic/art_manage_post'); ?>" tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>">
                      <?php if ($artisticdata[0]['profile_background']) { ?>
-                     <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" class="bgImage"  >
+                     <div class="data_img"><img src="<?php echo base_url($this->config->item('art_bg_thumb_upload_path') . $artisticdata[0]['profile_background']); ?>" alt ="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>" class="bgImage"  >
                      </div>
                      <?php } else { ?>
                      <div class="data_img">
-                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"  >
+                        <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>"  >
                      </div>
                      <?php } ?>
                   </a>
                </div>
                <div class="profile-boxProfileCard-content clearfix">
                   <div class="left_side_box_img buisness-profile-txext">
-                     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                     <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                         <!-- box image start -->
                         <?php if ($artisticdata[0]['art_user_image']) { ?>
                         <div class="data_img_2">   
-                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>" >
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>" >
                         </div>
                         <?php } else { ?> 
                         <div class="data_img_2">
@@ -152,7 +152,7 @@
                             }?>
 
                             <div>
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                         </div>
                         <?php } ?>
@@ -161,14 +161,14 @@
                   </div>
                   <div class="right_left_box_design ">
                      <span class="profile-company-name ">
-                     <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                     <a   href="<?php echo site_url('artistic/art_manage_post'); ?>"> <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
                      </span>
                      <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                      <div class="profile-boxProfile-name">
                         <a  href="<?php echo site_url('artistic/art_manage_post'); ?>">
                         <?php
                            if ($artisticdata[0]['designation']) {
-                               echo ucwords($artisticdata[0]['designation']);
+                               echo ucfirst(strtolower($artisticdata[0]['designation']));
                            } else {
                                echo "Current Work";
                            }
@@ -218,15 +218,15 @@
                               <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">
                                  <div class="post-design-pro-img_follow">
                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>" > 
                                     <?php } else { ?>
 
@@ -250,7 +250,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
                             </div>
                        
                                     <?php } ?>
@@ -263,9 +263,9 @@
                                              <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
                                                 <h6>
                                                    <?php
-                                                      echo ucwords($userlist['art_name']);
+                                                      echo ucfirst(strtolower($userlist['art_name']));
                                                       echo"&nbsp;";
-                                                      echo ucwords($userlist['art_lastname']);
+                                                      echo ucfirst(strtolower($userlist['art_lastname']));
                                                       ?>
                                                 </h6>
                                              </a>
@@ -322,15 +322,15 @@
                               <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">
                                  <div class="post-design-pro-img_follow">
                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php } else { ?> 
 
@@ -348,7 +348,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
                             </div>
                                     <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
@@ -365,9 +365,9 @@
                                              <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
                                                 <h6>
                                                    <?php
-                                                      echo ucwords($userlist['art_name']);
+                                                      echo ucfirst(strtolower($userlist['art_name']));
                                                       echo"&nbsp;";
-                                                      echo ucwords($userlist['art_lastname']);
+                                                      echo ucfirst(strtolower($userlist['art_lastname']));
                                                       ?>
                                                 </h6>
                                              </a>
@@ -424,15 +424,15 @@
                               <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">
                                  <div class="post-design-pro-img_follow">
                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>"> <?php } else { ?>
                                     <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                        echo ucwords($userlist['art_name']);
@@ -454,7 +454,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
                             </div>
                                     <?php } ?></a>
                                  </div>
@@ -465,9 +465,9 @@
                                              <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
                                                 <h6>
                                                    <?php
-                                                      echo ucwords($userlist['art_name']);
+                                                      echo ucfirst(strtolower($userlist['art_name']));
                                                       echo"&nbsp;";
-                                                      echo ucwords($userlist['art_lastname']);
+                                                      echo ucfirst(strtolower($userlist['art_lastname']));
                                                       ?>
                                                 </h6>
                                              </a>
@@ -524,15 +524,15 @@
                               <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['art_id']; ?>">
                                  <div class="post-design-pro-img_follow">
                                     <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>" title="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
-                                       echo ucwords($userlist['art_name']);
+                                       echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
+                                       echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php } else { ?> 
                                     <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
@@ -555,7 +555,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acr) . ucwords($acr1); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
                             </div>
                                     <?php } ?></a>
                                  </div>
@@ -566,9 +566,9 @@
                                              <a href="<?php echo base_url('artistic/art_manage_post/' . $userlist['user_id'] . ''); ?>">
                                                 <h6>
                                                    <?php
-                                                      echo ucwords($userlist['art_name']);
+                                                      echo ucfirst(strtolower($userlist['art_name']));
                                                       echo"&nbsp;";
-                                                      echo ucwords($userlist['art_lastname']);
+                                                      echo ucfirst(strtolower($userlist['art_lastname']));
                                                       ?>
                                                 </h6>
                                              </a>
@@ -641,7 +641,7 @@
                                        
                           
                             <div class= "post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                         
                         
@@ -692,7 +692,7 @@
 
                         ?>
                      <?php if ($row['posted_user_id']) { ?>
-                     <a class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                     <a class="post_dot" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
 
                      <?php ?>
 
@@ -720,7 +720,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acrony) . ucwords($acrony1); ?>
+                            <?php echo  ucfirst(strtolower($acrony)) . ucfirst(strtolower($acrony1)); ?>
                             </div>
                        
 
@@ -749,7 +749,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($userf) . ucwords($userl); ?>
+                            <?php echo  ucfirst(strtolower($userf)) . ucfirst(strtolower($userl)); ?>
                             </div>
                        
 
@@ -790,9 +790,9 @@
                               <!-- other user post time name strat-->
                               <?php if ($row['posted_user_id']) { ?>
                               <div class="else_post_d">
-                                 <a style="max-width: 30%;" class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a>
+                                 <a style="max-width: 30%;" class="post_dot" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?> </a>
                                  <p class="posted_with" > Posted With </p>
-                                 <a  class="post_dot1 padding_less_left" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                                 <a  class="post_dot1 padding_less_left" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucfirst(strtolower($firstname)) . ' ' . ucfirst(strtolower($lastname)); ?></a>
                                  <span role="presentation" aria-hidden="true"> · </span>
                                  <span class="ctre_date"> 
                                  <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
@@ -801,13 +801,13 @@
                               <!-- other user post time name end-->
                               <?php } else { ?>
                               <a title="<?php
-                                 echo ucwords($firstname);
+                                 echo ucfirst(strtolower($firstname));
                                  print "&nbsp;&nbsp;";
-                                 echo ucwords($lastname);
+                                 echo ucfirst(strtolower($lastname));
                                  ?>" class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php
-                                 echo ucwords($firstname);
+                                 echo ucfirst(strtolower($firstname));
                                  print "&nbsp;&nbsp;";
-                                 echo ucwords($lastname);
+                                 echo ucfirst(strtolower($lastname));
                                  ?> </a>
                               <span role="presentation" aria-hidden="true"> · </span>
                               <div class="datespan">
@@ -1157,9 +1157,9 @@
                               
                                   echo "You";
                               } else {
-                                  echo ucwords($art_fname);
+                                  echo ucfirst(strtolower($art_fname));
                                   echo "&nbsp;";
-                                  echo ucwords($art_lname);
+                                  echo ucfirst(strtolower($art_lname));
                                   echo "&nbsp;";
                               }
                               ?>
@@ -1209,9 +1209,9 @@
                         <div class="like_one_other">
                         <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                            <?php
-                              echo ucwords($art_fname);
+                              echo ucfirst(strtolower($art_fname));
                               echo "&nbsp;";
-                              echo ucwords($art_lname);
+                              echo ucfirst(strtolower($art_lname));
                               echo "&nbsp;";
                               ?>
                            <?php
@@ -1271,7 +1271,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                               </a>
                               <?php
@@ -1280,14 +1280,14 @@
                               </div>
                               <div class="comment-name">
                                  <b title=" <?php
-                                    echo ucwords($artname);
+                                    echo ucfirst(strtolower($artname));
                                     echo "&nbsp;";
-                                    echo ucwords($artlastname);
+                                    echo ucfirst(strtolower($artlastname));
                                     ?>">
                                  <?php
-                                    echo ucwords($artname);
+                                    echo ucfirst(strtolower($artname));
                                     echo "&nbsp;";
-                                    echo ucwords($artlastname);
+                                    echo ucfirst(strtolower($artlastname));
                                     ?></b><?php echo '</br>'; ?>
                               </div>
                               </a>
@@ -1427,7 +1427,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
                         <?php
@@ -1596,7 +1596,7 @@
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 

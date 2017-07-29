@@ -154,7 +154,7 @@
                             }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -179,7 +179,7 @@
 
                             <div class="profile-left">
          <h4 class="profile-head-text"><a href="<?php echo site_url('artistic/art_manage_post/' . $artisticdata[0]['user_id']); ?>">
-                <?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?></a>
+                <?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?></a>
 </h4>
             <!-- text head start -->
               <h4 class="profile-head-text_dg">
@@ -197,14 +197,14 @@
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
 
-                        <a id="designation" class="designation" title="<?php echo ucwords($artisticdata[0]['designation']); ?>">
-                            <?php echo ucwords($artisticdata[0]['designation']); ?>
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
+                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
 
                         </a>
 
                                         <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
                     <?php } else { ?>
-                        <a><?php echo ucwords($artisticdata[0]['designation']); ?></a>
+                        <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
 
                 <?php } ?>
@@ -867,7 +867,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -919,7 +919,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -1007,7 +1007,7 @@ $loginuser = $userdata[0]['art_id'];
                                                     ?>
 
                                                     <?php if ($row['posted_user_id']) {  ?>
-                                                        <a  class="post_dot" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
+                                                        <a  class="post_dot" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>">
                                                        
                                                       <?php   if ($userimageposted) {    ?>
                                                         <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" /> </a>
@@ -1027,7 +1027,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -1061,7 +1061,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -1092,8 +1092,8 @@ $loginuser = $userdata[0]['art_id'];
                                                                 <div class="else_post_d">
                                                                 <div class="post-design-product">
 
-                                                                    <a  class="post_dot padding_less_left" style="max-width: 30%;" title="<?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucwords($firstnameposted) . ' ' . ucwords($lastnameposted); ?> </a><span class="posted_with" > Posted     With 
-                                                                    </span><a class="post_dot1 padding_less_left" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?></a>
+                                                                    <a  class="post_dot padding_less_left" style="max-width: 30%;" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $row['posted_user_id']); ?>"><?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?> </a><span class="posted_with" > Posted     With 
+                                                                    </span><a class="post_dot1 padding_less_left" title="<?php echo ucfirst(strtolower($firstname)) . ' ' . ucfirst(strtolower($lastname)); ?>"  href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>"><?php echo ucfirst(strtolower($firstname)) . ' ' . ucfirst(strtolower($lastname)); ?></a>
                                                                   <span role="presentation" aria-hidden="true"> · </span>  <span style="color: #91949d; font-size: 14px;"> 
                                                                         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
                                                                     </span>
@@ -1103,8 +1103,8 @@ $loginuser = $userdata[0]['art_id'];
                                                             <?php } else { ?>
                                                               <div class="post-design-product">
 
-                                                                <a  class="post_dot" title="<?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
-                                                                    <?php echo ucwords($firstname) . ' ' . ucwords($lastname); ?>
+                                                                <a  class="post_dot" title="<?php echo ucfirst(strtolower($firstname)) . ' ' . ucfirst(strtolower($lastname)); ?>"   href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
+                                                                    <?php echo ucfirst(strtolower($firstname)) . ' ' . ucfirst(strtolower($lastname)); ?>
 
                                                                 </a><span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">
@@ -1526,9 +1526,9 @@ $loginuser = $userdata[0]['art_id'];
                                                             if ($userid == $likelistarray[0]) {
                                                                 echo "You";
                                                             } else {
-                                                                echo ucwords($art_fname);
+                                                                echo ucfirst(strtolower($art_fname));
                                                                 echo "&nbsp; ";
-                                                                echo ucwords($art_lname);
+                                                                echo ucfirst(strtolower($art_lname));
                                                                 echo "&nbsp;";
                                                             }
                                                             ?>
@@ -1601,7 +1601,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -1612,9 +1612,9 @@ $loginuser = $userdata[0]['art_id'];
                                      </div>
                                      <div class="comment-name">
                                      <b><?php
-                                            echo ucwords($artname);
+                                            echo ucfirst(strtolower($artname));
                                              echo "&nbsp;";
-                                              echo ucwords($artlastname);
+                                              echo ucfirst(strtolower($artlastname));
                                               ?></b><?php echo '</br>'; ?>
                                     </div>
 
@@ -1772,7 +1772,7 @@ $loginuser = $userdata[0]['art_id'];
                             }?>
 
                             <div class="post-img-div">
-                            <?php echo  ucwords($acronym) . ucwords($acronym1); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
