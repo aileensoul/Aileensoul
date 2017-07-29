@@ -69,7 +69,7 @@
 } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_education'); ?>"> Education</a></li>		    
                                 <li class="custom-none <?php if ($freepostdata[0]['free_post_step'] < '6') {
                                 echo "khyati";
-                            } ?>"><a href="custom-none <?php echo base_url('freelancer/freelancer_post_portfolio'); ?>">Portfolio</a></li>
+                                } ?>"><a href="<?php echo base_url('freelancer/freelancer_post_portfolio'); ?>">Portfolio</a></li>
                             </ul>
                         </div>
                     </div>

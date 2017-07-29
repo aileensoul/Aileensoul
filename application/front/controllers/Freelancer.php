@@ -216,18 +216,21 @@ class Freelancer extends MY_Controller {
 
             if ($userdata) {
                 if ($userdata[0]['free_post_step'] == 7) {
+                    //echo "123";die();
                     $data = array(
                         'free_post_step' => 7
                     );
 
                     $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
                 } else if ($userdata[0]['free_post_step'] > 1) {
+                    //echo "456";die();
                     $data = array(
                         'free_post_step' => $userdata[0]['free_post_step']
                     );
 
                     $updatedata = $this->common->update_data($data, 'freelancer_post_reg', 'user_id', $userid);
                 } else {
+                    //echo "789";die();
                     $data = array(
                         'free_post_step' => 1
                     );
@@ -1573,10 +1576,11 @@ class Freelancer extends MY_Controller {
 
             $data = 'freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_est_time,freelancer_post.post_skill,freelancer_post.post_other_skill,freelancer_post.post_rate,freelancer_post.post_last_date,freelancer_post.post_description,freelancer_post.user_id,freelancer_post.created_date,freelancer_post.post_currency,freelancer_post.post_rating_type,freelancer_post.country,freelancer_post.city,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_hire_reg.designation,freelancer_hire_reg.freelancer_hire_user_image';
             $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+            
 
-//        echo '<pre>';
-//        print_r($postdata);
-//        exit;
+       // echo '<pre>';
+       // print_r($postdata);
+       // exit;
         } else {
             $userid = $id;
             //echo $userid; 
@@ -1593,8 +1597,8 @@ class Freelancer extends MY_Controller {
             // echo "<pre>";print_r($postdata);die();
         }
 
-        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->data['userdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'profile_background,freelancer_hire_user_image,fullname,username,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        // $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        // $userdata = $this->data['userdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'profile_background,freelancer_hire_user_image,fullname,username,designation,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
         // code end by pallavi 14-4-2017 
         // old code
