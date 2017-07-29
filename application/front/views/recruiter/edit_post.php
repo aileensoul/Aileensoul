@@ -108,7 +108,7 @@
                    
 
                  <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix ','onsubmit' => "return imgval()")); ?>
-                 <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
+               <!--   <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div> -->
                  <?php
                          $post_name =  form_error('post_name');
                          $skills =  form_error('skills');
