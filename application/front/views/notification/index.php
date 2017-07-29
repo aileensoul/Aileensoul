@@ -176,9 +176,9 @@
                                                                     <div class="post-img-div">
                                                                         <?php echo ucwords($acr) . ucwords($bcr) ?>
                                                                     </div>
-<!--                                                   
+                                                  
                                                 <?php     } ?>
-                                                <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >
+                                               <!--<img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $total['user_image']); ?>" >-->
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">

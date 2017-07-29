@@ -548,7 +548,6 @@ class Chat extends MY_Controller {
                 $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
-
             // last user detail end
         }
         if ($message_to_profile == 1) {
@@ -586,6 +585,7 @@ class Chat extends MY_Controller {
                  $bcr = substr($b, 0, 1);
                 $this->data['last_user_data']['user_image_char'] = $acr . $bcr;
             }
+            //echo $last_user_data[0]['designation']; die();
             $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
 
             // last user detail end
