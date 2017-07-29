@@ -149,7 +149,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){           
                                                    
                                                         $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
-                                                        } else { 
+                                                
+                                                        ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php  } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -166,7 +171,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                                     } else { 
+                                                 
+                                                        ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php  } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -182,7 +192,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
-                                                    } else { 
+                                               
+                                                        ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php  } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -198,7 +213,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){    
                                                         $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
-                                                  } else { 
+                                                 
+                                                        ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php  } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -210,11 +230,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                              <?php    } 
                                                 }
                                                 if ($message_from_profile == 5) {
-                                                       $filepath = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                                       $filepathdata = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
                                         
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ 
-                                                        $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
-                                                    } else { 
+                                            if ($user['user_image'] && (file_exists($filepathdata)) == 1){ 
+                                                        $user_image_data = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                                
+                                                        ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image_data; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php  } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -230,7 +255,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         
                                             if ($user['user_image'] && (file_exists($filepath)) == 1){ 
                                                         $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                                                   } else { 
+                                                 
+                                                     ?>     <div class="chat_heae_img">
+                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                    </div> 
+                                                        
+                                         <?php   } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
                                                                     $acr = substr($a, 0, 1);
@@ -241,12 +271,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                     </div>
                                              <?php    } 
                                                 }
-                                                ?>
-                                                <?php if ($user_image) { ?>
-                                                    <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div>
-                                                <?php } ?>
+                                             ?>
+                                               
+                                             
 
                                                 <div class="about">
                                                     <div class="name"> 
@@ -315,7 +342,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                             ?>
                             <a href="<?php echo $profile_url; ?>">
-    <?php if ($last_user_image && (file_exists($last_user_image)) == 1){  ?>                             
+    <?php if ($last_user_image){ ?>                             
     
                                     <div class="chat_heae_img">
                                         <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">

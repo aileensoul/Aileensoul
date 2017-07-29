@@ -2303,29 +2303,35 @@ array(
         foreach ($user_message as $msg) {
 
             if ($message_from_profile == 2) {
-                $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
             }
 
             if ($message_from_profile == 1) {
-                $user_image = FCPATH . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
             }
             if ($message_from_profile == 4) {
-                $user_image = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'freelancer/freelancer_post_profile/' . $id . '?page=freelancer_hire';
             }
             if ($message_from_profile == 3) {
-                $user_image = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'freelancer/freelancer_hire_profile/' . $id . '?page=freelancer_post';
             }
             if ($message_from_profile == 5) {
-                $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $msg['user_image'];
                 $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $id, $data = 'business_slug');
                 $profile_url = base_url() . 'business_profile/business_profile_manage_post/' . $busdata[0]['business_slug'];
             }
             if ($message_from_profile == 6) {
-                $user_image = FCPATH . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
+                $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
                 $profile_url = base_url() . 'artistic/art_manage_post/' . $id;
             }
 
@@ -2342,7 +2348,7 @@ array(
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
                                         
-                 if ($user['user_image'] && (file_exists($user_image)) == 1){   
+                 if ($msg['user_image'] && (file_exists($image_path)) == 1){   
                 $notmsg .= '<img src="' . $user_image . '" >';
                 } else { 
                     $a = $msg['first_name'];

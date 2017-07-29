@@ -1893,24 +1893,31 @@ class Chat extends MY_Controller {
                    
 
                         if ($message_from_profile == 2) {
-                            $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                            $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                            $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 1) {
+                            $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 4) {
+                            $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 3) {
+                            $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 5) {
+                            $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 6) {
+                            $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                         }
-                         if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        if ($user['user_image'] && (file_exists($image_path)) == 1) {
+                        
                         $usrsrch .= '    <div class="chat_heae_img">';
 
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px" />';
@@ -2371,24 +2378,31 @@ class Chat extends MY_Controller {
                     $usrsrch .= '">';
                    
                         if ($message_from_profile == 2) {
+                            $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 1) {
+                            $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 4) {
+                            $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 3) {
+                            $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 5) {
+                            $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
                         }
                         if ($message_from_profile == 6) {
+                            $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                        }
-                      if ($user['user_image'] && (file_exists($user_image)) == 1) {
+                        } 
+                      if ($user['user_image'] && (file_exists($image_path)) == 1) {
+                          
                         $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['first_name'] . '" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
@@ -2451,24 +2465,30 @@ class Chat extends MY_Controller {
                     } $usrsrch .= '">';
                    
                         if ($message_from_profile == 2) {
+                            $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/job_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
                         if ($message_from_profile == 1) {
+                            $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
                         if ($message_from_profile == 4) {
+                            $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
                         if ($message_from_profile == 3) {
+                            $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
                         if ($message_from_profile == 5) {
+                            $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/business_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
                         if ($message_from_profile == 6) {
+                            $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $lstusrdata[0]['user_image'];
                             $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $lstusrdata[0]['user_image'];
                         }
-                         if ($user_image  && (file_exists($user_image)) == 1) {
+                         if ($user_image  && (file_exists($image_path)) == 1) {
                         $usrsrch .= '<div class="chat_heae_img">';
                         $usrsrch .= '<img src="' . $user_image . '" alt="'.$lstusrdata[0]['first_name'].'" height="50px" weight="50px">';
                         $usrsrch .= '</div>';
@@ -2513,24 +2533,30 @@ class Chat extends MY_Controller {
                       
                             $usrsrch .= '<div class="chat_heae_img">';
                             if ($message_from_profile == 2) {
-                                $user_image = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 1) {
-                                $user_image = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 4) {
-                                $user_image = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 3) {
-                                $user_image = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 5) {
-                                $user_image = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
                             }
                             if ($message_from_profile == 6) {
-                                $user_image = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                             }
-                              if ($user_image && (file_exists($user_image)) == 1) {
+                              if ($user_image && (file_exists($image_path)) == 1) {
                             $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
                             $usrsrch .= '</div>';
                        } else { 
