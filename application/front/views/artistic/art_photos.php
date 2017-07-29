@@ -193,8 +193,8 @@
                         $userid = $this->session->userdata('aileenuser');
                         if ($artisticdata[0]['user_id'] == $userid) {
                             ?> 
-                     <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                     </li>
+                    <!--  <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/userlist'); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                     </li> -->
                      <?php } ?>
                      <?php
                         $userid = $this->session->userdata('aileenuser');
