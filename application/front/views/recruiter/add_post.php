@@ -694,7 +694,6 @@ if(mm<10) {
                          post_desc: {
 
                             required: true,
-                          // regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                           maxlength : 2500
                            
                         },
