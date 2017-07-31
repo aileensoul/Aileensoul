@@ -328,8 +328,8 @@
                      <?php
                        } else {
                           ?> 
-               <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
-
+               <!-- <a href="<?php //echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php ///echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
+ -->
                <?php
 
                  $a = $rec['fname'];
@@ -849,9 +849,16 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                          </div>
                            <?php  }
                         } else { ?>
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" >No Saved Candidate Found.</h4>
-                            </div>
+                            <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+          No Saved Candidate  Available.
+         </div>
+          </div>
                             <?php } ?>
                         </div>
 

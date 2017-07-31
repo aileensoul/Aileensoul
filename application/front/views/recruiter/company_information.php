@@ -393,7 +393,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         comp_num:{
                             
                              minlength: 8,
-                           maxlength:15
+                           maxlength:15,
                             number: true
                        },
 
