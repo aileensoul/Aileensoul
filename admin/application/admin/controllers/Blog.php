@@ -235,6 +235,38 @@ public function blogdetail($id)
 }
 //VIEW BLOG DETAIL END
 
+//APPROVE USER COMMENT START
+public function approve_comment() 
+{
+    $id = $_POST['comment_id'];
+
+    $data = array(
+            'status' => 'approve'
+        );
+
+        $update = $this->common->update_data($data, 'blog_comment', 'id', $id);
+        echo 1;
+        die();
+
+}
+//APPROVE USER COMMENT END
+
+//REJECT USER COMMENT START
+public function reject_comment() 
+{
+    $id = $_POST['comment_id'];
+
+    $data = array(
+            'status' => 'reject'
+        );
+
+        $update = $this->common->update_data($data, 'blog_comment', 'id', $id);
+        echo 1;
+        die();
+
+}
+//REJECT USER COMMENT END
+
 }
 
 ?>

@@ -4788,5 +4788,5 @@ label.error{
         float: left;
 
     }
-    .form-group div {text-align:left!important;width: 60%; }
+    .form-group div {text-align:left!important;width: 100%; }
     .nav-tabs-custom > ul{text-align: center!important;padding-top: 10px;padding-bottom: 15px;}

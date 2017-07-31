@@ -85,7 +85,7 @@ echo $leftmenu;
     foreach ($blog_comment as $comment) 
     {
   ?>  
-            <div class="box-footer box-comments">
+            <div class="box-footer box-comments" id="comment">
               <div class="box-comment">
                 <!-- User image -->
                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
@@ -107,22 +107,26 @@ echo $leftmenu;
                     echo $date->format('Y').PHP_EOL;
                     ?>
                         </span>
-                        <span>
-                        <div class="btn-group">
+
+          <?php if($comment['status'] == 'pending')
+                {
+          ?>
+                  <span id="action<?php echo $comment['id'];?>">
+                  <div class="btn-group">
                   <button type="button" class="btn btn-success btn-flat">Action</button>
                   <button type="button" class="btn btn-success btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <span class="caret"></span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a onclick="approve('<?php echo $comment['id'];?>')">Approve</a></li>
+                    <li><a onclick="reject('<?php echo $comment['id'];?>')">Reject</a></li>
                   </ul>
                 </div>
                 </span>
+            <?php
+                  }//if end
+              ?>
                       </span><!-- /.username -->
                  <?php echo $comment['message']; ?>
                 </div>
@@ -345,3 +349,44 @@ echo $leftmenu;
 
 </body>
 </html>
+
+<!-- THIS SCRIPT IS USED FOR APPROVE USER COMMENT START -->
+<script type="text/javascript">
+     
+function approve(comment_id) {
+       $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url()."blog/approve_comment" ?>',
+           data: 'comment_id=' + comment_id,         
+           // dataType: "html",
+           success: function (data) {
+               if (data == 1) 
+               {
+                   $('#action'+comment_id).remove();
+               }
+             
+           }
+       });
+   }
+</script>
+<!-- THIS SCRIPT IS USED FOR APPROVE USER COMMENT END -->
+
+<!-- THIS SCRIPT IS USED FOR REJECT USER COMMENT START -->
+<script type="text/javascript">
+     
+function reject(comment_id) {
+   $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url()."blog/reject_comment" ?>',
+           data: 'comment_id=' + comment_id,         
+           success: function (data) {
+               if (data == 1) 
+               {
+                   $('#action'+comment_id).remove();
+               }
+             
+           }
+       });
+   }
+</script>
+<!-- THIS SCRIPT IS USED FOR REJECT USER COMMENT END -->
