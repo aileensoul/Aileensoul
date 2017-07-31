@@ -70,7 +70,7 @@
                      <!--- middle section start -->
           <div class="common-form common-form_border">
                 <h3>Company Information</h3>
-         <?php echo form_open_multipart(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix')); ?>
+         <?php echo form_open_multipart(base_url('recruiter/company_info_store'), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix', 'onsubmit' => "comlogo(event)")); ?>
                                 
 
           <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
@@ -239,7 +239,10 @@
                     </fieldset>
                      <fieldset>
                                              <label>Company Logo:</label>
-                                             <input  type="file" name="comp_logo" tabindex="5" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" />
+                                             <input  type="file" name="comp_logo" tabindex="5" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
+
+                                             <div id="com_logo" class="com_logo" style="color:#f00; display: block;"></div>
+
                                              <div class="bestofmine_image_primary" style="color:#f00; display: block;"></div>
                                              <?php
                                                 if ($complogo1) {
@@ -632,4 +635,31 @@ $(window).load(function(){
   $('#preloader').fadeOut('slow',function(){$(this).remove();});
 });
 });
+</script>
+
+
+<script type="text/javascript">
+    
+    function comlogo(event){
+
+    var comp_logo = document.getElementById("comp_logo").value;
+
+    var complogo_ext = comp_logo.split('.').pop();
+      
+    var allowes = ['jpg', 'jpeg','png'];
+    var foundPresent = $.inArray(complogo_ext, allowes) > -1;
+
+    if(foundPresent == false)
+       { //alert("hh");
+                $(".com_logo").html("Please select only image file.");
+                document.getElementById('com_logo').style.display="block"
+                event.preventDefault();
+                return false;
+         
+      }else{
+
+        document.getElementById('com_logo').style.display="none"
+      }
+
+    }
 </script>
