@@ -30,11 +30,8 @@ padding: 0px;
  }
 .latest_post_posts ul li{ list-style: none; margin: 0; padding: 0;}
 .latest_post_posts ul li a{}
-.post_latest_left{width: 30%;
-float: left;}
-.lateaqt_post_img{float: left;
-
-width: 67px;
+.post_latest_left{width: 25%; float: left;}
+.lateaqt_post_img{float: left; width: 67px;
 height: 67px;}	
 .desc_post{    white-space: normal;
     overflow: hidden;
