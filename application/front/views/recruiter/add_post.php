@@ -694,9 +694,18 @@ if(mm<10) {
                          post_desc: {
 
                             required: true,
-                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                          // regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                          maxlength : 2500
                            
                         },
+
+                        interview: {
+
+                         
+                          maxlength : 2500
+                           
+                        },
+                        
                          country: {
 
                             required: true
@@ -726,6 +735,8 @@ if(mm<10) {
                           
                           
                         }, 
+
+
                         last_date: {
                             
                             required: true,

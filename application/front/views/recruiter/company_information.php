@@ -397,6 +397,25 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                             number: true
                        },
 
+                       comp_sector:{
+                            
+                             
+                           maxlength:2500
+                            
+                       },
+                       comp_profile:{
+                            
+                             
+                           maxlength:2500
+                            
+                       },
+
+                        other_activities:{
+                            
+                             
+                           maxlength:2500
+                            
+                       },
 
                       country: {
 
