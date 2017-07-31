@@ -355,7 +355,15 @@ if($status == 0 || $status == " "){?>
                                  <div class="contact-frnd-post">
                               
                               <?php if(count($userlist ) > 0){?>
-                        <?php foreach ($userlist as $user) { ?>
+                        <?php foreach ($userlist as $user) { 
+
+                  $contition_array = array('art_id' => $user['follow_to'], 'status' => '1');
+              $artaval = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if($artaval){
+
+
+
+                          ?>
 
                             <?php
                                 $art_name =  $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_name;
@@ -492,7 +500,7 @@ if($status == 0 || $status == " "){?>
                          </div>
                                                        
                                   </div>
-                                   <?php } ?>
+                                   <?php } } ?>
                                    <?php }else{?>
 
                             <div class="art-img-nn">

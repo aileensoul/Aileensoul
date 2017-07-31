@@ -307,7 +307,13 @@
             <h3>Followers</h3>
             <div class="contact-frnd-post">
                <?php if(count($userlist) > 0){ ?>
-               <?php foreach ($userlist as $user) { ?>
+               <?php foreach ($userlist as $user) { 
+
+              $contition_array = array('art_id' => $user['follow_from'], 'status' => '1');
+              $artaval = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                if($artaval){
+
+                ?>
                <div class="job-contact-frnd ">
                   <div class="profile-job-post-detail clearfix">
                      <div class="profile-job-post-title-inside clearfix">
@@ -409,7 +415,7 @@
                         </div>
                      </div>
                   </div>
-                  <?php }  ?>
+                  <?php } }  ?>
                   <?php }else{?>
                   
          
