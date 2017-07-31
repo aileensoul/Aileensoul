@@ -92,7 +92,7 @@ $(window).load(function(){
     {
 
         if (msg == 0)
-        {
+        {  
             $("#notification_count").html('');
             $('#notificationLink').removeClass('notification_available');
         } else

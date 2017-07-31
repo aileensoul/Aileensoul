@@ -683,7 +683,7 @@ class Chat extends MY_Controller {
             $this->data['message_from_profile'] = $this->data['message_to_profile'] = 5;
             // last user detail start
             $contition_array = array('user_id' => $id, 'business_profile.is_deleted' => '0', 'status' => '1');
-            $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $last_user_data = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id,company_name,business_user_image,user_id,industriyal,other_industrial', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $this->data['last_user_data']['user_profile_id'] = $last_user_data[0]['business_profile_id'];
             $this->data['last_user_data']['first_name'] = $last_user_data[0]['company_name'];
@@ -695,7 +695,9 @@ class Chat extends MY_Controller {
                  $acr = substr($a, 0, 1);
                 $this->data['last_user_data']['user_image_char'] = $acr;
             }
-            $this->data['last_user_data']['user_designation'] = $last_user_data[0]['designation'] == '' ? 'Current Work' : $last_user_data[0]['designation'];
+            
+           $category = $this->db->get_where('industry_type', array('industry_id' => $last_user_data[0]['industriyal'], 'status' => 1))->row()->industry_name; 
+         echo   $this->data['last_user_data']['user_designation'] = $category == '' ? $last_user_data[0]['other_industrial'] : $category;
 
             // last user detail end
         }
@@ -1059,8 +1061,7 @@ class Chat extends MY_Controller {
                 $return['last_name'] = $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
-
-
+              
                 unset($return['message_to']);
                 array_push($return_arrayto, $return);
             }
