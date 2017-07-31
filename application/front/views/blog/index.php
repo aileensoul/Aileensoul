@@ -157,13 +157,21 @@
 
 if($this->input->get('q'))
       {
-          echo "Search results for '$search_keyword' ";
+  ?>
+        <div class="blog-tag">
+        <div class="tag-line"><span>Search results for</span> <?php echo '$search_keyword'; ?></div>
+        </div>
+ 
+ <?php      
           
       }//if end  
 if($this->uri->segment(2) == 'tag')
       {
-          echo "Tag: '$search_keyword'";
-          
+    ?>
+        <div class="blog-tag">
+        <div class="tag-line"><span>Tag:</span> <?php echo '$search_keyword'; ?></div>
+        </div>
+    <?php      
       }//if end  
 
 if(count($blog_detail) == 0 )
@@ -173,8 +181,12 @@ if(count($blog_detail) == 0 )
   {?>
 <div class="job-saved-box">
                             <h3>
-                              Search result of 
-                                  "<?php echo $search_keyword; ?>"                            </h3>
+
+                            <div class="blog-tag">
+                            <div class="tag-line"><span>Search result of </span> <?php echo '$search_keyword'; ?></div>
+                            </div>
+                           </h3>
+                           
                             <div class="contact-frnd-post">
                                 
 
