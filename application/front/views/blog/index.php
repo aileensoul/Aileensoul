@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# thetestasdf: http://ogp.me/ns/fb/thetestasdf#">
-<head>
+
+<html>
+ <head>
   <title></title>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
@@ -156,7 +157,7 @@
 
 if($this->input->get('q'))
       {
-       //   echo "Search results for '$search_keyword' ";
+          echo "Search results for '$search_keyword' ";
           
       }//if end  
 if($this->uri->segment(2) == 'tag')
@@ -290,27 +291,37 @@ $url=urlencode(base_url('blog/'.$blog['blog_slug']));
 $summary=urlencode('"'.$blog['description'].'"');
 $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog['image']));
 ?>
+               <!-- <a class="fbk" url_encode="<?php //echo $url; ?>" url="<?php //echo base_url('blog/'.$blog['blog_slug']); ?>" title="<?php //echo $title; ?>" summary="<?php //echo $summary; ?>" image="<?php //echo $image; ?>"> 
+                <span  class="social_fb"></span>
+                </a> -->
+
                <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
                 <span  class="social_fb"></span>
                 </a>
-
               
             </li>
             <li>
               
-                 <a href="https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>&prefilltext=<?php echo  $blog['description'];?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                <!--  <a href="https://plus.google.com/share?url=<?php //echo $url; ?>&prefilltext=<?php //echo  $blog['description'];?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php //echo $url; ?>&prefilltext=<?php //echo  $blog['description'];?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                <span  class="social_gp"></span>
+                </a> -->
+                <a href="https://plus.google.com/share?url=<?php echo $url; ?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
                 <span  class="social_gp"></span>
                 </a>
               
             </li>
             <li>
                 
-                <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>&amp;title=<?php echo $blog['title'];?>&summary=<?php echo $blog['description']; ?>&image=<?php echo $image; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
+                <!-- <a href="https://www.linkedin.com/cws/share?url=<?php //echo $url; ?>&amp;title=<?php// echo $blog['title'];?>&summary=<?php //echo $blog['description']; ?>&image=<?php //echo $image; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php //echo $url; ?>&amp;title=<?php //echo $blog['title'];?>&summary=<?php //echo $blog['description']; ?>&image=<?php //echo $image; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a> -->
+
+                 <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
               
             </li>
             <li>
             
-                <a href="https://twitter.com/intent/tweet?text="<?php echo  $blog['description'];?>" &url=<?php echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<?php echo  $blog['description'];?> &url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
+               <!--  <a href="https://twitter.com/intent/tweet?text="<?php //echo  $blog['description'];?>" &url=<?php //echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<?php //echo  $blog['description'];?> &url=<?php //echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a> -->
+
+                 <a href="https://twitter.com/intent/tweet?url=<?php echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
             
             </li>
 
