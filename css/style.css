@@ -2810,7 +2810,7 @@ border-top: none;
     border-bottom-right-radius: 4px;
 }
 .profile-job-profile-button a {
-    margin-right: 10px;
+
 }
 .profile-job-details p {
     color: #5b5b5b;
@@ -6335,7 +6335,7 @@ word-break:break-word;
     width: 50px;
     margin-top: 5px;
     height: 50px;
-    margin-left: 20px;
+    margin-left:17px;
     margin-bottom: 6px;
     display: inline-block;
 }
