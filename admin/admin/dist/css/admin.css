@@ -49,3 +49,8 @@ table.table-bordered tbody th, table.table-bordered tbody td{font-size: 12px;}
     border: 1px solid #ccc;
     border-top: none;
 }
+.approve_action{
+width: 25%;
+float: right;
+margin-top: 23px;
+}
