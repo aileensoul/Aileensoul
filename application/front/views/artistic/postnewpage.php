@@ -287,7 +287,7 @@
                                                 <?php }?>
                                                  </a>
 
-                                        <?php } else if($art_data[0]['user_id'] == $userid){ ?>
+                                        <?php } else if($art_data[0]['user_id']){ ?>
 
                                          <a  class="post_dot" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>">
 

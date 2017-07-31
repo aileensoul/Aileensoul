@@ -697,7 +697,7 @@ class Chat extends MY_Controller {
             }
             
            $category = $this->db->get_where('industry_type', array('industry_id' => $last_user_data[0]['industriyal'], 'status' => 1))->row()->industry_name; 
-         echo   $this->data['last_user_data']['user_designation'] = $category == '' ? $last_user_data[0]['other_industrial'] : $category;
+         $this->data['last_user_data']['user_designation'] = $category == '' ? $last_user_data[0]['other_industrial'] : $category;
 
             // last user detail end
         }

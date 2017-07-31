@@ -83,17 +83,14 @@
                             -->
 
                             <?php 
-                          $a = $user['art_name'];
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
+
+                            $a = $user['art_name'];
+                            $acronym = substr($a, 0, 1)
+                          ?>
                           <?php 
                           $b = $user['art_lastname'];
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                          $acronym1 = substr($b, 0, 1)
+                           ?>
 
                             <div class="post-img-userlist">
                             <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
