@@ -4268,7 +4268,7 @@ display: inline-block;
     display: -webkit-box;
     max-width: 100%;
     margin: 0 auto;
-    line-height: 1;
+    line-height: 1.2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -10052,6 +10052,7 @@ fieldset .add_post_btns:hover {
     text-overflow: ellipsis;
     font-size: 14px;
     color: #777;
+	max-height:24px;
 }
 .data_noti_msg {
     font-size: 12px;
@@ -10856,6 +10857,7 @@ text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+	line-height:23px;
 }
 .main_btn {
     padding: 10px;
@@ -14674,11 +14676,16 @@ div .comment {
 #set_input .input-group-btn .btn{border-radius:3px;}
 .chat .post-img-div{float:left;}
 .chat_nobcx .post-img-div{float:left;}
-.people-list .about{width:77%;}
+.people-list .about{width:76%;}
 
 .ui-autocomplete {
     max-width: 300px!important;
 }
+
+
+#basicinfo .day{width:32%;}
+#basicinfo .month{width:32%;}
+#basicinfo .year{width:33%;}
 /***  media query  ***/
 
 @media (min-width: 1400px) {
