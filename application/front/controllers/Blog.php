@@ -175,8 +175,8 @@ class Blog extends CI_Controller {
 public function tagsearch($tag='')
 {
         //FOR SEARCH DATA WITH TAG,DETAIL AND DESCRIPTION IN BLOG TABLE
-	     //$tag = str_replace("-"," ",$tag);
-      $tag= urldecode($tag);
+	     $tag = str_replace("-"," ",$tag);
+      //$tag= urldecode($tag);
         $this->data['search_keyword']=$search_keyword = trim($tag);
         $search_condition = "(title LIKE '%$search_keyword%' OR   description LIKE '%$search_keyword%' OR  tag LIKE '%$search_keyword%')";
         $contition_array = array('status' => 'publish');
