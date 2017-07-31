@@ -77,7 +77,7 @@ height: 24px; width: 24px; float: left;}
 .blog_class_main_name span{color: #1b8ab9; font-size: 25px; font-family: robotoregular;}
 .blog_class_main_by { color: #707070; padding: 0px 0px; }
 .blog_class_main_by  span{padding-right: 20px; font-size: 15px;}
-.blog_class_main_desc span{font-size: 12px; color: #8e8e8e; line-height: 17px; word-break: break-all;}
+.blog_class_main_desc span{font-size: 12px; color: #8e8e8e; line-height: 17px; word-break: break-word;}
 .blog_view_link{padding: 6px; color: #707070;}
 .blog_view_link2{padding: 6px; color: #707070;}
 .blog_view_link2 a{padding: 6px 8px; color: #b3b3b3; background: #f1f1f1;
@@ -85,7 +85,7 @@ border-radius: 50%;}
 .blog_view_link:hover{text-decoration-line: underline; color: #136386;}
 .blog_view_link a:hover{text-decoration-line: underline; color: #136386;}
 .blog_main_o{ margin-bottom: 15px; float: left; width: 100%; }
-.blog_class_main_desc{padding: 6px 0px; word-break: break-all;}
+.blog_class_main_desc{padding: 6px 0px; /*word-break: break-all;*/}
 .blog_search h6{padding: 6px 0px; font-family: robotoregular;}
 .searc_w{width: 87%; float: left;}
 .butn_w{width: 13%; margin:0;float: left; padding:5px 8px 5px; background:none; color:#d9d9d9; }
@@ -176,6 +176,7 @@ font-family: robotoregular;}
 /*.blog-detail .container{width:80%;}*/
 .blog-detail .logo{padding-left:0;}
 .desc_post a:hover{color:#1b8ab9;}
+.blog-tag{padding-bottom:10px; margin-bottom:15px; border-bottom:1px solid #d9d9d9;}
 
 @media screen and (max-width: 1280px) {
 	.all-comments ul li .c-user-comments{width:89%;}
