@@ -65,23 +65,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         echo "active";
                                     }
                                     ?>">
-                                          <?php    $filepath = FCPATH . $this->config->item('user_thumb_upload_path') . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ ?> 
-                                           
+                                            <?php
+                                            $filepath = FCPATH . $this->config->item('user_thumb_upload_path') . $user['user_image'];
+
+                                            if ($user['user_image'] && (file_exists($filepath)) == 1) {
+                                                ?> 
+
                                             <div class="chat_heae_img">
                                                 <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $user['user_image']); ?>" alt="" height="50px" weight="50px">
                                             </div>
-                                  <?php       } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr)?>
-                                                                    </div>
-                                             <?php   
-                                                }
-                                                ?>
+                                            <?php
+                                        } else {
+                                            $a = $user['first_name'];
+                                            $acr = substr($a, 0, 1);
+                                            ?>
+                                            <div class="post-img-div">
+                                                <?php echo ucwords($acr) ?>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>"><?php echo $user['first_name'] . ' ' . $user['last_name'] . "<br>"; ?></a> </div>
@@ -101,21 +104,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         echo "active  last" . $id;
                                     }
                                     ?>">
-<?php if($last_user_data['user_image']){ ?>
-                                       <div class="chat_heae_img">
-                                            <img src="<?php echo $last_user_data['user_image']; ?>" alt="" height="50px" weight="50px">
-                                        </div>
-<?php }else{ ?>
-                                               <div class="post-img-div">
-                                                                        <?php echo ucwords($last_user_data['user_image_char']) ?>
-                                                                    </div>                        
-<?php } ?>
+                                            <?php if ($last_user_data['user_image']) { ?>
+                                            <div class="chat_heae_img">
+                                                <img src="<?php echo $last_user_data['user_image']; ?>" alt="" height="50px" weight="50px">
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="post-img-div">
+                                                <?php echo ucwords($last_user_data['user_image_char']) ?>
+                                            </div>                        
+                                        <?php } ?>
                                         <div class="about">
                                             <div class="name"> 
                                                 <a href="<?php echo base_url() . 'chat/abc/' . $id . '/' . $message_from_profile . '/' . $message_to_profile; ?>">
-                                                
-                                            <?php $fullname = $last_user_data['first_name'] . ' ' . $last_user_data['last_name'];
-                                            $username = substr($fullname, 0, 25); ?>
+
+                                                    <?php
+                                                    $fullname = $last_user_data['first_name'] . ' ' . $last_user_data['last_name'];
+                                                    $username = substr($fullname, 0, 25);
+                                                    ?>
                                                     <?php
                                                     echo $username;
                                                     if (strlen($fullname) > 15) {
@@ -143,142 +148,150 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?>">
 
                                                 <?php
-                                              if ($message_from_profile == 2) {
-                                             $filepath = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){           
-                                                   
+                                                if ($message_from_profile == 2) {
+                                                    $filepath = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepath)) == 1) {
+
                                                         $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
-                                                
                                                         ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php  } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                            <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
 
                                                 if ($message_from_profile == 1) {
-                                                     $filepath = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
+                                                    $filepath = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepath)) == 1) {
                                                         $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
-                                                 
                                                         ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php  } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                            <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
                                                 if ($message_from_profile == 4) {
-                                                     $filepath = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
+                                                    $filepath = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepath)) == 1) {
                                                         $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
-                                               
                                                         ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php  } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                            <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
                                                 if ($message_from_profile == 3) {
-                                                   $filepath = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){    
+                                                    $filepath = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepath)) == 1) {
                                                         $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
-                                                 
                                                         ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php  } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                            <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
                                                 if ($message_from_profile == 5) {
-                                                       $filepathdata = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepathdata)) == 1){ 
+                                                    $filepathdata = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepathdata)) == 1) {
                                                         $user_image_data = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
-                                                
                                                         ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image_data; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php  } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                            <img src="<?php echo $user_image_data; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
                                                 if ($message_from_profile == 6) {
-                                                       $filepath = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                                        
-                                            if ($user['user_image'] && (file_exists($filepath)) == 1){ 
+                                                    $filepath = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+
+                                                    if ($user['user_image'] && (file_exists($filepath)) == 1) {
                                                         $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
-                                                 
-                                                     ?>     <div class="chat_heae_img">
-                                                        <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
-                                                    </div> 
-                                                        
-                                         <?php   } else { 
-                                                                    $a = $user['first_name'];
-                                                                    $b = $user['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } 
+                                                        ?>     <div class="chat_heae_img">
+                                                            <img src="<?php echo $user_image; ?>" alt="" height="50px" weight="50px">
+                                                        </div> 
+
+                                                        <?php
+                                                    } else {
+                                                        $a = $user['first_name'];
+                                                        $b = $user['last_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $bcr = substr($b, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                                        </div>
+                                                        <?php
+                                                    }
                                                 }
-                                             ?>
-                                               
-                                             
+                                                ?>
+
+
 
                                                 <div class="about">
                                                     <div class="name"> 
-                                                        <?php $fullname = $user['first_name'] . ' ' . $user['last_name'];
-                                                        $username = substr($fullname, 0, 25); ?>
+                                                        <?php
+                                                        $fullname = $user['first_name'] . ' ' . $user['last_name'];
+                                                        $username = substr($fullname, 0, 25);
+                                                        ?>
                                                         <?php
                                                         echo $username;
                                                         if (strlen($fullname) > 15) {
@@ -287,11 +300,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         ?>
                                                     </div>
                                                     <div class="<?php echo 'status' . $user['user_id']; ?>" id="status_user">
-            <?php $message = $user['message'];
-                  $message =  str_replace('\\', '', $message); 
-                  $message =  str_replace('%26amp;', '&', $message); 
-                  echo $message;
-                  ?>
+                                                        <?php
+                                                        $message = $user['message'];
+                                                        $message = str_replace('\\', '', $message);
+                                                        $message = str_replace('%26amp;', '&', $message);
+                                                        echo $message;
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </li></a> 
@@ -342,21 +356,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                             ?>
                             <a href="<?php echo $profile_url; ?>">
-    <?php if ($last_user_image){ ?>                             
-    
+                                <?php if ($last_user_image) { ?>                             
+
                                     <div class="chat_heae_img">
                                         <img src="<?php echo $last_user_image; ?>" alt="" height="50px" weight="50px">
                                     </div>
-    <?php } else { 
-                                                                    $a = $last_user_data['first_name'];
-                                                                    $b = $last_user_data['last_name'];
-                                                                    $acr = substr($a, 0, 1);
-                                                                    $bcr = substr($b, 0, 1);
-                                                                    ?>
-                                                                    <div class="post-img-div">
-                                                                        <?php echo ucwords($acr) . ucwords($bcr)?>
-                                                                    </div>
-                                             <?php    } ?>
+                                    <?php
+                                } else {
+                                    $a = $last_user_data['first_name'];
+                                    $b = $last_user_data['last_name'];
+                                    $acr = substr($a, 0, 1);
+                                    $bcr = substr($b, 0, 1);
+                                    ?>
+                                    <div class="post-img-div">
+                                        <?php echo ucwords($acr) . ucwords($bcr) ?>
+                                    </div>
+                                <?php } ?>
 
                                 <div class="chat-about">
                                     <div class="chat-with">
@@ -386,7 +401,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             $i = 0;
                             foreach ($smiley_table as $key => $value) {
                                 ?>
-                                        <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                                    <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
                                 <?php
                                 $i++;
                             }
@@ -434,7 +449,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } else { ?>
+                <?php } else { ?>
 
                     <div class="chat" id="chat" style="display:block;">
                         <div class="chat-header clearfix ">
@@ -472,7 +487,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
-<?php } ?>
+                <?php } ?>
                 <!-- chat start -->
             </div>
 
@@ -552,7 +567,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return timeString;
     }
 
-    var sendChat = function (message, callback) { 
+    var sendChat = function (message, callback) {
 
         var fname = '<?php echo $logfname; ?>';
         var lname = '<?php echo $loglname; ?>';
@@ -565,29 +580,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-         
-        var id = <?php echo $toid ?>;
-        var message_from_profile = <?php echo $message_from_profile ?>;
-        var message_to_profile = <?php echo $message_to_profile ?>;
-        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
-        var message_to_profile_id = <?php echo $message_to_profile_id ?>; 
-        var message = str; 
-        var nickname = fname + ' ' + lname; 
-        var guid = getCookie('user_guid'); 
-           
-            var json_data = { "toid" : id , "message_from_profile" : message_from_profile, "message_to_profile" : message_to_profile, "message_from_profile_id" : message_from_profile_id, "message_to_profile_id" : message_to_profile_id, "message" : message, "nickname" : nickname, "guid" : guid};
-           $.ajax({
-    type: 'POST',
-    url: '<?php echo base_url() . "api/send_message" ?>',
-    data: {json: JSON.stringify(json_data)},
-    dataType: 'json',
-    success: function(r) { 
-      //   callback();
-    }
-});
- 
 
-//            $.getJSON('<?php// echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+            var id = <?php echo $toid ?>;
+            var message_from_profile = <?php echo $message_from_profile ?>;
+            var message_to_profile = <?php echo $message_to_profile ?>;
+            var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+            var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+            var message = str;
+            var nickname = fname + ' ' + lname;
+            var guid = getCookie('user_guid');
+
+            var json_data = {"toid": id, "message_from_profile": message_from_profile, "message_to_profile": message_to_profile, "message_from_profile_id": message_from_profile_id, "message_to_profile_id": message_to_profile_id, "message": message, "nickname": nickname, "guid": guid};
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "api/send_message" ?>',
+                data: {json: JSON.stringify(json_data)},
+                dataType: 'json',
+                success: function (r) {
+                    //   callback();
+                }
+            });
+
+
+//            $.getJSON('<?php // echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id    ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
 //                callback();
 //            });
         }
@@ -702,10 +717,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var $field = $('#message');
         var data = $('#message').html();
+        if (check_perticular(data) == true) {
+            return false;
+        }
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
-        data = data.replace(/<br><br>/g, '');
+       // data = data.replace(/<br><br>/g, '');
         data = data.replace(/<br>/, '');
-      
+
         if (data == '' || data == '<br>') {
             return false;
         }
@@ -725,8 +743,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             e.preventDefault();
             var sel = $("#message");
             var txt = sel.html();
+            if (check_perticular(txt) == true) {
+                return false;
+            }
             txt = txt.replace(/&nbsp;/gi, " ");
-            txt = txt.replace(/<br><br>/g, '');
+            //txt = txt.replace(/<br><br>/g, '');
             txt = txt.replace(/&gt;/gi, ">");
             txt = txt.replace(/div/gi, "p");
             if (txt == '' || txt == '<br>') {
@@ -759,7 +780,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }, 1500);
 
 </script>
-
+<script type="text/javascript">
+    function check_perticular(input) {
+        var testData = input.replace(/\s/g, '');
+        var regex = /^(<br>)*$/;
+        var isValid = regex.test(testData);
+        return isValid;
+    }
+</script>
 <script type="text/javascript">
     if (e.which == 13 && !e.shiftKey) {
         e.preventDefault();
