@@ -669,8 +669,8 @@
 							<div class="ld_sl"></div>
 						</div>
 						<div class="lfar_sl">
-							<a href="#carousel-example-generic" role="button" data-slide="prev"  class="next-btn pull-left"><img src="slicing/right-arrow.png"></a>
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="img"> </a>
+							<a href="#carousel-example-generic" role="button" data-slide="prev"  class="next-btn pull-left abc_left" id="right_img"><img src="slicing/right-arrow.png" ></a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="left_img"> </a>
 						</div>
 					</div>
 				</div>	
@@ -1037,9 +1037,12 @@ var slides1 = document.querySelectorAll('.main_box #temp_btn #temp_btn1 .ld_sl')
 var currentSlide = 0;
 var currentSlide_width=0;
 
- $('#img').click(function (event) 
+ $('#left_img').click(function (event) 
  {
  	event.preventDefault();
+ 	$('#right_img').removeClass('abc_left');
+ 	$('#right_img').addClass('abc_show');
+ 	
     /*slides[currentSlide].className = 'item';*/
     currentSlide = (currentSlide+1)%slides.length;
     /*slides[currentSlide].className = 'item active';*/
@@ -1050,8 +1053,23 @@ var currentSlide_width=0;
 
  	if((currentSlide+1)==slides.length)
  	{
- 		$('#img').addClass('abc');
+ 		$('#left_img').addClass('abc');
  	}
+  });
+
+  $('#right_img').click(function (event) 
+ {
+ 	event.preventDefault();
+ 	
+    /*slides[currentSlide].className = 'item';*/
+    currentSlide = (currentSlide-1)%slides.length;
+    /*slides[currentSlide].className = 'item active';*/
+
+    slides1[currentSlide_width].className = 'ld_sl';
+    currentSlide_width = (currentSlide_width-1)%slides1.length;
+    slides1[currentSlide_width].className = 'ld_sl sld-width-'+(currentSlide+1);
+	
+ 	
   });
 });
 //THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON END

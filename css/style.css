@@ -14686,6 +14686,7 @@ div .comment {
 #basicinfo .day{width:32%;}
 #basicinfo .month{width:32%;}
 #basicinfo .year{width:33%;}
+
 /***  media query  ***/
 
 @media (min-width: 1400px) {

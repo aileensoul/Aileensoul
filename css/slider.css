@@ -362,10 +362,25 @@ background-size: 100%;
 }
 
 
+#first-slider .carousel .item {
+  min-height: 550px; 
+  height: 100%;
+  width:100%;
+  overflow:hidden;
+}
+#onload-Modal .carousel-control{display:none;}
+.lfar_sl a{font-size:30px;}
+.lfar_sl a:hover{opacity:0.8;}
+.slider-13 .imh_logo{position:relative;}
+.slider-13 .imh_logo .img1{position:absolute; left:0;}
+.slider-13 .imh_logo .img2{position:absolute; right:0; top:50px;}
+.slider-13 .imh_logo .img3{position:absolute; left:0; top:50px;}
 
 
 #img.abc{height:0;}
 
+.abc_left img{height:0px;}
+.abc_show img{height: 30px !important;}
 /*------------------------------------------------------*/
 /* RESPONSIVE
 /*------------------------------------------------------*/
@@ -454,19 +469,6 @@ background-size: 100%;
 /**** new slider  ****/
 
 
-#first-slider .carousel .item {
-  min-height: 550px; 
-  height: 100%;
-  width:100%;
-  overflow:hidden;
-}
-#onload-Modal .carousel-control{display:none;}
-.lfar_sl a{font-size:30px;}
-.lfar_sl a:hover{opacity:0.8;}
-.slider-13 .imh_logo{position:relative;}
-.slider-13 .imh_logo .img1{position:absolute; left:0;}
-.slider-13 .imh_logo .img2{position:absolute; right:0; top:50px;}
-.slider-13 .imh_logo .img3{position:absolute; left:0; top:50px;}
 
 
 /********************************/
