@@ -100,6 +100,7 @@ class Blog extends MY_Controller {
         }
                 
         $blog_image = $imgdata['file_name'];
+        
         //IMAGE UPLOAD IN FOLDER START
 
         //FOR INSERT BLOG DATA START
@@ -283,6 +284,151 @@ public function reject_comment()
 
 }
 //REJECT USER COMMENT END
+
+//BLOG EDIT BY ADMIN START
+ public function edit($id)
+{
+    //FOR GETTING ALL DATA STARt
+    $condition_array = array('status !=' => 'delete','id'=> $id);
+    $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+    //FOR GETTING ALL DATA END 
+
+        $this->load->view('blog/edit',$this->data);
+        
+}
+ //BLOG EDIT BY ADMIN END
+
+//BLOG EDIT INSERT START
+ public function blog_edit($id)
+     {
+
+        //IMAGE UPLOAD IN FOLDER START
+        if($_FILES['image']['name'] != '' )
+        {
+
+            $blog['upload_path'] = $this->config->item('blog_main_upload_path');
+            $blog['allowed_types'] = $this->config->item('blog_main_allowed_types');
+            $blog['max_size'] = $this->config->item('blog_main_max_size');
+            $blog['max_width'] = $this->config->item('blog_main_max_width');
+            $blog['max_height'] = $this->config->item('blog_main_max_height');
+
+            $this->load->library('upload');
+            $this->upload->initialize($blog);
+            //Uploading Image
+            $this->upload->do_upload('image');
+           
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+            //print_r($imgerror);die();
+
+                //Configuring Thumbnail 
+                $blog_thumb['image_library'] = 'gd2';
+                $blog_thumb['source_image'] = $blog['upload_path'] . $imgdata['file_name'];
+                $blog_thumb['new_image'] = $this->config->item('blog_thumb_upload_path') . $imgdata['file_name'];
+                $blog_thumb['create_thumb'] = TRUE;
+                $blog_thumb['maintain_ratio'] = TRUE;
+                $blog_thumb['thumb_marker'] = '';
+                $blog_thumb['width'] = $this->config->item('blog_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $blog_thumb['height'] = 2;
+                $blog_thumb['master_dim'] = 'width';
+                $blog_thumb['quality'] = "100%";
+                $blog_thumb['x_axis'] = '0';
+                $blog_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $blog_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+
+
+
+        //FOR GETTING ALL DATA STARt
+    $condition_array = array('status !=' => 'delete','id'=> $id);
+    $blog_detail=$this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
+    //FOR GETTING ALL DATA END 
+
+        $blog_prev_image = $blog_detail[0]['image'];
+        $image = $_FILES['image']['name'];
+       
+
+        $hidden_image= $this->input->post('hidden_image');
+
+            if ($blog_prev_image != '') {
+            $blog_main_upload_path = $this->config->item('blog_main_upload_path');
+            $blog_full_image = $blog_main_upload_path . $blog_prev_image;
+            if (isset($blog_full_image)) 
+            {
+                //delete image from folder when user change image start
+                if($hidden_image==$blog_prev_image && $image != "")
+                {
+                   
+                    unlink($blog_full_image);
+                }
+                //delete image from folder when user change image End
+            }
+            
+            $blog_image_thumb_path = $this->config->item('blog_thumb_upload_path');
+            $blog_bg_thumb_image = $blog_image_thumb_path . $blog_prev_image;
+            if (isset($blog_bg_thumb_image)) 
+            {
+                  //delete image from folder when user change image Start
+                if($hidden_image==$blog_prev_image && $image!="")
+                {
+                    unlink($blog_bg_thumb_image);
+                }
+              //delete image from folder when user change image End
+            
+            }
+            
+        }
+    }
+             
+       // $blog_image = $imgdata['file_name'];
+        if($_FILES['image']['name'] != '')
+        {
+             $blog_image = $imgdata['file_name'];
+        }
+        else
+        {
+             $blog_image = $this->input->post('hidden_image');
+        }
+        //IMAGE UPLOAD IN FOLDER START
+
+        //FOR INSERT BLOG DATA START
+        $data = array(
+                    'title' => $this->input->post('blog_title'),
+                    'tag' => $this->input->post('tag'),
+                    'meta_description' => $this->input->post('meta_description'),
+                    'description' => $this->input->post('description'),
+                    'image' => $blog_image,
+                    'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),
+                    'modify_date' => date('Y-m-d H:i:s'),
+                    'status' => 'publish'
+                ); 
+            //  echo "<pre>";print_r($data);die();
+         //$insert_id = $this->common->insert_data_getid($data, 'blog');
+          $updatedata = $this->common->update_data($data, 'blog', 'id', $id);
+        
+         //FOR INSERT BLOG DATA END
+
+        if ($updatedata) 
+        {
+
+            $this->session->set_flashdata('success', 'Blog inserted successfully');
+            redirect('blog/blog_list', refresh);
+        } 
+        else 
+        {
+            $this->session->flashdata('error', 'Sorry!! Your data not inserted');
+            redirect('blog/edit', refresh);
+        }
+
+    }
+ //BLOG EDIT INSERT END
+
 
 }
 
