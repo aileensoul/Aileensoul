@@ -19,7 +19,7 @@
     <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2; ?>
+<?php echo $recruiter_header2_border; ?>
 
     <!-- END HEADER -->
   

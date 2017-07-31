@@ -108,7 +108,7 @@
 
           <fieldset>
             <label>Company Website:</span></label>        
-            <input name="comp_site"  type="text" id="comp_url" tabindex="4" placeholder="Enter Comapny Website" value="<?php if($compweb){ echo $compweb; } ?>" /><span ></span>
+            <input name="comp_site"  type="url" id="comp_url" tabindex="4" placeholder="Enter Comapny Website" value="<?php if($compweb){ echo $compweb; } ?>" /> <span class="website_hint" style="font-size: 13px; color: #1b8ab9;">Note : <i>Enter website url with http or https</i></span>  
           </fieldset>
            <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                         <label>Country:<span class="red">*</span></label>
@@ -265,7 +265,7 @@
                                                      <fieldset class="hs-submit full-width">
                                    
                                   
-                                    <input type="submit"  id="next" name="next" tabindex="7" value="Next">
+                                    <input type="submit"  id="next" name="next" tabindex="7" value="Submit">
                                  
                                     
                      </fieldset>
