@@ -120,7 +120,7 @@
                                           $a = $businessdata1[0]['company_name'];
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-user">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo  ucfirst(strtolower($acr))?>
                                             </div>
                             <?php } ?>
 
@@ -149,7 +149,7 @@
 
 
 							<div class="profile-left">
-                            <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucwords($businessdata1[0]['company_name']); ?></a></h4>
+                            <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucfirst(strtolower($businessdata1[0]['company_name'])); ?></a></h4>
 
                             <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> 
 
@@ -160,7 +160,7 @@
                                         $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
                                     }
                                     if ($businessdata1[0]['other_industrial']) {
-                                        echo ucwords($businessdata1[0]['other_industrial']);
+                                        echo ucfirst(strtolower($businessdata1[0]['other_industrial']));
                                     }
                                     ?>
 
@@ -587,7 +587,7 @@
                                                             $contition_array = array('business_profile_post_id' => $pdfv['post_id']);
                                                             $businesstitle = $this->data['businesstitle'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                             ?>
-                                                            <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('business_profile/creat_pdf/' . $pdfv['image_id']) ?>"><?php echo ucwords($businesstitle[0]['product_name']); ?></a> </div>
+                                                            <div class="pdf_name"><a title="Zalak infotech .in pdf" href="<?php echo base_url('business_profile/creat_pdf/' . $pdfv['image_id']) ?>"><?php echo ucfirst(strtolower($businesstitle[0]['product_name'])); ?></a> </div>
                                                         </div>
                                                     </li>
                                                 <?php }

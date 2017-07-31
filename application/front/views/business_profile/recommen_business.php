@@ -164,7 +164,7 @@
                                           $a = $businessdata[0]['company_name'];
                                           $acr = substr($a, 0, 1);?>
                                             <div>
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo   ucfirst(strtolower($acr))?>
                                             </div>
                                                     </div>  <?php } ?>                           
                                                 <!-- 
@@ -175,14 +175,14 @@
                                         </div>
                                         <div class="right_left_box_design ">
                                             <span class="profile-company-name ">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>"> 
-                                                    <?php echo ucwords($businessdata[0]['company_name']); ?>
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>"> 
+                                                    <?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>
                                                 </a> 
                                             </span>
 
                                             <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucwords($businessdata[0]['company_name']); ?>" >
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>" >
                                                     <?php
                                                     if ($category) {
                                                         echo $category;
@@ -267,7 +267,7 @@
                                           $a = $p['company_name'];
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo ucfirst(strtolower($acr)); ?>
                                             </div>
                                                                                 </a>
                                                                                 <?php
@@ -280,7 +280,7 @@
                                                                          padding-top: 10px; padding-bottom: 10px;">
                                                                         <ul>
                                                                             <li style="padding-top: 0px;">
-                                                                                <a  class="main_search_head" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo ucwords($p['company_name']); ?>"><?php echo ucwords($p['company_name']); ?></a>
+                                                                                <a  class="main_search_head" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $p['business_slug']); ?>" title="<?php echo  ucfirst(strtolower($p['company_name'])); ?>"><?php echo  ucfirst(strtolower($p['company_name'])); ?></a>
                                                                             </li>
                                                                             <li style="display: block;">
                                                                                 <a  class="color-search" s title="">
@@ -449,7 +449,7 @@
                                           $a = $p['company_name'];
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo   ucfirst(strtolower($acr))?>
                                             </div>
                                                                                         <?php } ?> </a>
                                                                                 <?php } else { ?>
@@ -462,7 +462,7 @@
                                           $a = $p['company_name'];
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo   ucfirst(strtolower($acr))?>
                                             </div>
                                              </a>
                                                                                         <?php
@@ -479,7 +479,7 @@
                                                                                     ?> -->
                                                                                     <li>
                                                                                         <div class="post-design-product">
-                                                                                            <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo ucwords($p['company_name']); ?>
+                                                                                            <a class="post_dot" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title=""><?php echo  ucfirst(strtolower($p['company_name'])); ?>
                                                                                             </a>
                                                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                                                             <div class="datespan"> 
@@ -522,7 +522,7 @@
                                                                                 <div>
                                                                                     <div id="editpostdata5" style="display:block;">
                                                                                         <a style="margin-bottom: 0px; font-size: 16px">
-                                                                                            <?php echo ucwords($p['product_name']); ?>
+                                                                                            <?php echo  ucfirst(strtolower($p['product_name'])); ?>
                                                                                         </a>
                                                                                     </div>
                                                                                     <div id="editpostbox5" style="display:none;">
@@ -530,7 +530,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div id="editpostdetails5" style="display:block;">
-                                                                                    <span class="showmore">  <?php echo ucwords($p['product_description']); ?>
+                                                                                    <span class="showmore">  <?php echo  ucfirst(strtolower($p['product_description'])); ?>
                                                                                     </span>
                                                                                 </div>
                                                                                 <div id="editpostdetailbox5" style="display:none;">
@@ -763,7 +763,7 @@
                                                                                     ?>
                                                                                     <div class="like_one_other">
                                                                                         <?php
-                                                                                        echo ucwords($business_fname1);
+                                                                                        echo  ucfirst(strtolower($business_fname1));
                                                                                         echo "&nbsp;";
                                                                                         ?>
                                                                                         <?php
@@ -806,7 +806,7 @@
                                                                                 ?>
                                                                                 <div class="like_one_other">
                                                                                     <?php
-                                                                                    echo ucwords($business_fname1);
+                                                                                    echo  ucfirst(strtolower($business_fname1));
                                                                                     echo "&nbsp;";
                                                                                     ?>
                                                                                     <?php
@@ -846,7 +846,7 @@
                                           $a = $companyname;
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo ucfirst(strtolower($acr)) ?>
                                             </div>
                                             <?php } ?>
                                         </div>
@@ -961,7 +961,7 @@
                                           $a = $business_user;
                                           $acr = substr($a, 0, 1);?>
                                             <div class="post-img-div">
-                                            <?php echo  ucwords($acr)?>
+                                            <?php echo   ucfirst(strtolower($acr))?>
                                             </div>
                                                                                 <?php } ?>
                                                                             </div>
