@@ -5,12 +5,15 @@
       <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+
+<link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
+
 
      <!-- This Css is used for call popup -->
-   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" /> 
 
     <!-- Calender Css Start-->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
    <!-- Calender Css End-->
 <!-- css for date picker start-->
 <style type="text/css">
@@ -89,8 +92,8 @@
         <div class="user-midd-section" id="paddingtop_fixed">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-3"> </div>
-                    <div class="col-md-7 col-sm-7 animated fadeInLeftBig">
+                  <div class="col-md-2"> </div>
+                    <div class="col-md-8 col-sm-8 animated fadeInLeftBig">
                      
                     <div class="common-form">
                     <h3 class="h3_edit">Edit Post</h3>
@@ -108,10 +111,10 @@
                    
 
                  <?php echo form_open(base_url('recruiter/update_post/' . $postdata[0]['post_id'] ), array('id' => 'basicinfo','name' => 'basicinfo','class' => 'clearfix ','onsubmit' => "return imgval()")); ?>
-               <!--   <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div> -->
+                 <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                  <?php
                          $post_name =  form_error('post_name');
-                         $skills =  form_error('skills');
+                         $skills_12 =  form_error('skills');
                          $month =  form_error('month');
                          //$interview =  form_error('interview');
                          $position =  form_error('position'); 
@@ -123,6 +126,9 @@
                          $city =  form_error('city');
                          $minsal = form_error('minsal');
                          $maxsal = form_error('maxsal');
+                         $emp_type =  form_error('emp_type');
+
+                         $salary_type =  form_error('salary_type');
 
 
                          ?>
@@ -133,12 +139,17 @@
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>
                     </fieldset>
+
+
                     <fieldset class="full-width">
                         <label class="control-label">Skills:<span style="color:red">*</span></label>
                         
 
                         <select  name="skills[]" id ="skils" multiple="multiple" tabindex="2"  style="width: 100%;" class="skill_other full-width ">
-                      <?php foreach ($skill as $ski) { ?>
+                        <option></option>
+                      <?php 
+
+                      foreach ($skill as $ski) { ?>
                          <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
                         <?php } ?>
                       </select>
@@ -147,6 +158,7 @@
                         <?php echo form_error('skills'); ?>
                    </fieldset>
 
+                 
                    <fieldset class="full-width">
                         <label class="control-label">Other skills:<!-- <span style="color:red">*</span> --></label>
                         <input name="other_skill" type="text" id="other_skill" tabindex="3" placeholder=" Enter Skill Name" class="skill_other" value="<?php echo $postdata[0]['other_skill']; ?>"/>
@@ -196,7 +208,7 @@
                                     <option value="20" <?php if($postdata[0]['min_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                     </select>
                                     
-                                   
+                                
                                      
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
@@ -238,14 +250,12 @@
                                     <option value="20" <?php if($postdata[0]['max_year']=="20") echo 'selected="selected"'; ?>>20 Year</option>
                                     </select>
 
-                                      
-
 
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
                         <fieldset class="form-group full-width" style="margin-top: 0px;
-    margin-bottom: 2px;">
+                         margin-bottom: 2px;">
                           <?php
                                 if($postdata[0]['fresher'])
                                 {
@@ -261,7 +271,79 @@
                         }
                         ?>
                         </fieldset>
-               
+
+                        <fieldset class=" half-width pad_right"> 
+                     <label>Add  Industry:<span style="color:red">*</span></label>
+                            <select name="industry" id="industry" tabindex="19">
+                               <option value="" selected option disabled>Select Industry</option>
+                                 
+                            <?php if(count($industry) > 0){
+                            foreach($industry as $indu){ 
+
+                                if($postdata[0]['industry_type'])
+                                            {?>
+
+                                         <option value="<?php echo $indu['industry_id']; ?>" <?php if($indu['industry_id'] == $postdata[0]['industry_type']) echo 'selected';?>><?php echo $indu['industry_name'];?></option>
+                                            <?php }else{
+                                ?>
+                             <option value="<?php echo $indu['industry_id']; ?>"><?php echo $indu['industry_name']; ?></option>
+                             <?php  } } }?>
+
+                              <option value="<?php echo $industry_otherdata[0]['industry_id']; ?> "><?php echo $industry_otherdata[0]['industry_name']; ?></option>   
+                             </select>
+
+          
+                             <?php echo form_error('industry'); ?>
+
+                    </fieldset>
+          
+
+                        <fieldset <?php if ($emp_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
+                                    <label class="control-label">Employment Type:<span style="color:red">*</span></label>
+
+
+                                    <select style="cursor:pointer;" tabindex="5" name="emp_type" id="emp_type" class="keyskil">
+                                       
+                                         <option value="" selected option disabled>Employment Type</option>
+                                    
+                                       <option value="Part Time" <?php if($postdata[0]['emp_type']=="Part Time") echo 'selected="selected"'; ?>>Part Time</option>
+                                       <option value="Full Time" <?php if($postdata[0]['emp_type']=="Full Time") echo 'selected="selected"'; ?>>Full Time</option>
+                                    <option value="Internship" <?php if($postdata[0]['emp_type']=="Internship") echo 'selected="selected"'; ?>>Internship</option>
+                                </select>
+                                    
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('emp_type'); ?> &nbsp;&nbsp; <?php echo form_error('emp_type'); ?>
+
+                                </fieldset>
+
+
+                    <fieldset class="half-width">
+                        <label class="control-label">Education:<span style="color:red">*</span></label>
+                        
+
+                        <select  name="degree[]" id ="degree2" multiple="multiple" tabindex="2"  style="width: 100%;" class="skill_other">
+                        <option></option>
+                      <?php foreach ($degree as $deg) { ?>
+                         <option value="<?php echo $deg['degree_id']; ?>"><?php echo $deg['degree_name']; ?></option>
+                        <?php } ?>
+                      </select>
+                              
+
+                        <?php echo form_error('skills'); ?>
+                   </fieldset>
+           
+
+
+                             <fieldset>
+                                    <label class="control-label">Other Education:</label>
+                                    <input name="other_education" type="text" id="other_education"  value="<?php echo $postdata[0]['other_education']; ?>" placeholder="Enter Other Education" /><span id="fullname-error"></span>
+                                <?php echo form_error('other_education'); ?>
+                                </fieldset>
+
+                                
+
+                     
+
                 
                 <fieldset  class="full-width">
                     <label >Job description:<span style="color:red">*</span></label>
@@ -406,24 +488,24 @@
                       <label>Last date for apply: <span style="color:red">*</span></label>
 
                       <input type="hidden" id="example2">
-                      <!-- <input style="cursor:pointer;" type="text" name="last_date" tabindex="16" placeholder="Enter last date for apply" id="datepicker" value="<?php echo date('d/m/Y',strtotime($postdata[0]['post_last_date'])); ?>" placeholder="Enter text"> -->
+                     
                       <?php echo form_error('last_date'); ?> 
                 </fieldset>
 
 
-                  <fieldset class="half-width col-md-4 pad_left" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
-                            <label class="control-label">Min salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
+                  <fieldset class="half-width  pad_left" <?php if($minsal) {  ?> class="error-msg" <?php } ?>>
+                            <label class="control-label">Min salary:<!-- <span style="color:red">*</span> --></label>
                             <input name="minsal" tabindex="17" type="text" id="minsal" value="<?php echo $postdata[0]['min_sal']; ?>"  placeholder="Enter Minimum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('minsal'); ?>
                         </fieldset>
 
-                         <fieldset class="half-width col-md-4" <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
-                            <label class="control-label">Max salary:(Per Year)<!-- <span style="color:red">*</span> --></label>
+                         <fieldset class="half-width " <?php if($maxsal) {  ?> class="error-msg" <?php } ?>>
+                            <label class="control-label">Max salary:<!-- <span style="color:red">*</span> --></label>
                             <input name="maxsal" type="text" tabindex="18" id="maxsal" value="<?php echo $postdata[0]['max_sal']; ?>"  placeholder="Enter Maximum Salary" /><span id="fullname-error"></span>
                             <?php echo form_error('maxsal'); ?>
                         </fieldset>
                 
-                                      <fieldset class=" col-md-4 pad_right"> 
+                        <fieldset class=" half-width pad_right"> 
                      <label>Currency:</label>
                             <select name="currency" id="currency" tabindex="19">
                                <option value="" selected option disabled>Select Currency</option>
@@ -445,6 +527,24 @@
                              <?php echo form_error('currency'); ?>
 
                     </fieldset>
+
+
+                    <fieldset <?php if ($salary_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
+                                    <label class="control-label">Salary Type:<span style="color:red">*</span></label>
+
+
+                                    <select style="cursor:pointer;" tabindex="5" name="salary_type" id="salary_type" class="keyskil">
+                                       
+                                         <option value="" selected option disabled>Salary Type</option>
+                                    
+                                       <option value="Per Year" <?php if($postdata[0]['salary_type']=="Per Year") echo 'selected="selected"'; ?>>Per Year</option>
+                                       <option value="Per Month" <?php if($postdata[0]['salary_type']=="Per Month") echo 'selected="selected"'; ?>>Per Month</option>
+                                    <option value="Per Week" <?php if($postdata[0]['salary_type']=="Per Week") echo 'selected="selected"'; ?>>Per Week</option>
+
+                                    <option value="Per Day" <?php if($postdata[0]['salary_type']=="Per Day") echo 'selected="selected"'; ?>>Per Day</option>
+                                </select>
+                                </fieldset>
+
                <fieldset class="hs-submit full-width">
                   <!--   <input type="reset"> -->
                     <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
@@ -486,18 +586,7 @@
                     <!-- Model Popup Close -->
     <?php echo $footer; ?>
   
-        
-
-  <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
-<!-- script for select2 box Script start-->
-
-
-<!-- script for select2 box Script End-->
-
-
-<!--  <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
-
-
+    
 
 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -506,21 +595,44 @@
           
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script> -->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
 
+<script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
+
+<script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script>
 <script type="text/javascript">
 //select2 autocomplete start for skill
+
 var complex = <?php echo json_encode($selectdata); ?>;
+
+//alert(complex);
+
 $('#skils').select2().select2('val', complex)
 //select2 autocomplete End for skill
 </script>
 
+<script type="text/javascript">
+//select2 autocomplete start for skill
+var complex1 = <?php echo json_encode($selectdata1); ?>;
 
+//alert(complex1);
+$('#degree2').select2().select2('val', complex1)
+//select2 autocomplete End for skill
+</script>
 
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 
 <script type="text/javascript">
   function checkvalue() {
@@ -698,16 +810,6 @@ checkvalue imgval(){
 </script>
 
 <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
-
-<script type="text/javascript">
 
 
 
@@ -800,14 +902,6 @@ else
 }, "Max month must be greater than Min month");
 
 
-
-// for date validtaion start
-
-
- 
-// var dateedit = echo date('Y-m-d',strtotime($postdata[0]['post_last_date']));
-// var lastDate = $("input[name=last_date]").val();
-// if(dateedit == lastDate){}else{ alert("hii");
 jQuery.validator.addMethod("isValid", function (value, element) {
 
 //var dateedit = echo date('Y-m-d',strtotime($postdata[0]['post_last_date']));
@@ -826,7 +920,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = yyyy+'-'+mm+'-'+dd;
+   var todaydate = year+'-'+month+'-'+day;
  
     var one = new Date(value).getTime();
     var second = new Date(todaydate).getTime();
@@ -835,14 +929,7 @@ if(mm<10) {
   //}
 }, "Last date should be grater than and equal to today date");
 
-//date validation end
 
-// $.validator.addMethod('le', function(value, element, param) {
-//       return this.optional(element) || value <= $(param).val();
-// }, 'Invalid value');
-// $.validator.addMethod('ge', function(value, element, param) {
-//       return this.optional(element) || value >= $(param).val();
-// }, 'Invalid value');
 //for min max value validator End
 jQuery.noConflict();
 
@@ -884,10 +971,22 @@ jQuery.noConflict();
 
                          minyear: {
                             
-                         
+                          
                           required:true 
                         }, 
-                       
+                        
+                          emp_type: {
+                            
+                          
+                          required:true 
+                        }, 
+                        
+                          industry: {
+                            
+                          
+                          required:true 
+                        }, 
+                        
                          post_desc: {
 
                             required: true,
@@ -906,12 +1005,12 @@ jQuery.noConflict();
                         },
                         maxyear: {
                             
-                          
-                          greaterThan1: "#minyear",
-                          required:true 
+                           required: true,
+                          greaterThan1: "#minyear"
+                          //required:true 
                         }, 
 
-                     
+                       
                         last_date: {
                             
                             required: true,
@@ -963,9 +1062,17 @@ jQuery.noConflict();
                         },
                         minyear: {
 
-                             required: "Minimum Experience Is Required"
+                             required: "Minimum Experience is Required"
                         },
-                       
+                        emp_type: {
+
+                             required: "Employment Type is Required"
+                        },
+                        industry: {
+
+                             required: "Industry is Required"
+                        },
+                         
                          post_desc: {
 
                             required: "Post Description Is Required"
@@ -983,12 +1090,12 @@ jQuery.noConflict();
                         },
                         maxyear: {
 
-                            required: "Maximum Experience Is Required"
+                            required: "Maximum Experience is Required"
                             // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
 
-                       
+                      
                         last_date: {
 
                             required: "Last date  Is Required."
@@ -1084,7 +1191,6 @@ jQuery.noConflict();
 
 </script>
 
-
 <script>
 jQuery.noConflict();
 
@@ -1155,7 +1261,6 @@ jQuery.noConflict();
 </script>
 
 
-
 <script type="text/javascript">
 $(document).ready(function(){
     $('#country').on('change',function(){ 
@@ -1224,26 +1329,54 @@ window.onclick = function(event) {
 }
 </script>
 
-<!-- Calender JS Start-->
-<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
- <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
-<script type="text/javascript">
-$('#datepicker').datetimepicker({
-  //yearOffset:222,
-  minDate: 0,
-  //startDate: "2013/02/14",
-  lang:'ch',
-  timepicker:false,
-  format:'d/m/Y',
-  formatDate:'Y/m/d',
-  scrollMonth : false,
-  scrollInput : false
-  
-});
-</script>
-<!-- Calender Js End
 
--->
+
+<script type="text/javascript">
+var $= jQuery.noConflict();
+//Click on University other option process Start 
+   $(document).on('change', '#industry', function (event) {
+
+    //alert(111);
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 288)
+      {
+
+            $.fancybox.open('<div class="message"><h2>Add Industry</h2><input type="text" name="other_indu" id="other_indu"><a id="indus" class="btn">OK</a></div>');
+   
+             $('.message #indus').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "recruiter/recruiter_other_industry" ?>',
+                          dataType: 'json',
+                          data: 'other_industry=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written industry already available in industry Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty industry is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('#industry').html(response.select1);
+                                   $('#industry').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+</script>
+
    
 
     <style type="text/css">
@@ -1256,9 +1389,8 @@ $('#datepicker').datetimepicker({
     </style>
 
   <!-- This Js is used for call popup -->
-
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-
+ <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+ 
 <script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
 <script>
 $(function() {
@@ -1294,3 +1426,28 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
 <style type="text/css">
     #example2-error{margin-top: 42px;}
 </style>
+<!-- Calender JS Start-->
+<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
+<script type="text/javascript">
+
+jQuery.noConflict();
+
+                (function ($) {
+$('#datepicker').datetimepicker({
+  //yearOffset:222,
+  minDate: 0,
+  //startDate: "2013/02/14",
+  lang:'ch',
+  timepicker:false,
+  format:'d/m/Y',
+  formatDate:'Y/m/d',
+  scrollMonth : false,
+  scrollInput : false
+  
+});
+})(jQuery);
+</script>
+<!-- Calender Js End
+
+-->

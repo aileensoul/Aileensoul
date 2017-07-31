@@ -27,7 +27,15 @@
 
 <?php echo $recruiter_header2_border; ?>
 
-
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 
 <script type="text/javascript">
     function checkvalue() {
@@ -42,18 +50,9 @@
         }
     }
 </script>
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 <!-- END HEADER -->
 
-<body   class="page-container-bg-solid page-boxed custom-border">
+<body   class="page-container-bg-solid page-boxed">
 
     <section class="custom-row">
         <div class="container mt-22" id="paddingtop_fixed">
@@ -138,13 +137,29 @@
         <div class="profile-pho">
 
             <div class="user-pic padd_img">
+
+            
                 <?php $imageee= $this->config->item('rec_profile_thumb_upload_path').$recruiterdata[0]['recruiter_user_image'];
            if(file_exists($imageee) && $recruiterdata[0]['recruiter_user_image'] != '')
             { ?>
                     <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata[0]['recruiter_user_image']); ?>" alt="" >
-                <?php } else { ?>
-                    <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                <?php } ?>
+                <?php } else { 
+
+
+                    $a = $recruiterdata[0]['rec_firstname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $recruiterdata[0]['rec_lastname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-user">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+
+                  <!--  <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE); ?>" alt="" />
+                    -->
+               <?php } ?>
               
                  <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
             </div>
@@ -170,7 +185,7 @@
                
                 ?> 
             
-                <a id="designation" class="designation" title="<?php echo ucwords($recruiterdata[0]['designation']); ?>"><?php echo ucwords($recruiterdata[0]['designation']); ?></a>
+                <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($recruiterdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($recruiterdata[0]['designation'])); ?></a>
             <?php } ?>
 
         </div>
@@ -250,7 +265,7 @@
                
                 ?> 
             
-                <a id="designation" class="designation" title="<?php echo ucwords($recruiterdata[0]['designation']); ?>"><?php echo ucwords($recruiterdata[0]['designation']); ?></a>
+                <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($recruiterdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($recruiterdata[0]['designation'])); ?></a>
             <?php } ?>
 
         </div>
@@ -269,7 +284,7 @@
         <!-- text head end -->
     </div>
 <!-- <?php //echo "<pre>"; print_r($recdata);die(); ?> -->
-    <div class="col-md-8 col-sm-12 mob-clear">
+    <div class="col-md-7 col-sm-12 mob-clear">
         <div class="common-form">
             <div class="job-saved-box">
                 <h3>Saved Candidate</h3>
@@ -302,17 +317,9 @@
                   <div class="profile-job-post-location-name-rec">
                  <div style="display: inline-block; float: left;">
 <div class="buisness-profile-pic-candidate" >
-                       
-
-
                                 <!-- <rash code 12-4 start> -->
 
-                              <!--   <?php 
-
-                              //  echo base_url().$this->config->item('job_profile_thumb_upload_path').$rec['job_user_image']; die();
-
-                                ?> -->
-                  <?php
+                   <?php
                 $imageee= $this->config->item('job_profile_thumb_upload_path').$rec['job_user_image'];
            if(file_exists($imageee) && $rec['job_user_image'] != '') {
                     ?>
@@ -322,7 +329,25 @@
                        } else {
                           ?> 
                <a href="<?php echo base_url('job/job_printpreview/' . $rec['userid'].'?page=recruiter'); ?>" title="<?php echo $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->fname . ' ' . $this->db->get_where('job_reg', array('user_id' => $rec['to_id']))->row()->lname; ?>"> 
-               <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"> </a>
+
+               <?php
+
+                 $a = $rec['fname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $rec['lname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+
+
+
+              <!--  <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $rec[0]['fname']. ' ' . $rec[0]['lname']; ?>"> </a>
+                 -->     
+
                        <?php
                       }
                    ?>
@@ -824,16 +849,9 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                          </div>
                            <?php  }
                         } else { ?>
-                             <div class="art-img-nn">
-         <div class="art_no_post_img">
-
-           <img src="<?php echo base_url('img/job-no1.png')?>">
-        
-         </div>
-         <div class="art_no_post_text">
-          No Saved Candidate  Available.
-         </div>
-          </div>
+                            <div class="text-center rio">
+                                <h4 class="page-heading  product-listing" >No Saved Candidate Found.</h4>
+                            </div>
                             <?php } ?>
                         </div>
 
@@ -958,6 +976,7 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
+
 <script>
 
 var data= <?php echo json_encode($demo); ?>;
@@ -1022,21 +1041,16 @@ $( "#searchplace1" ).autocomplete({
 </script>
 
 
-
  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
-
-
-
- <script>
-                    function removepopup(id) {
-                      
-                        $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_user(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                        $('#bidmodal').modal('show');
-                    }
-                    function updateprofilepopup(id) {
-                        $('#bidmodal-2').modal('show');
-                    }
-            </script>
+<script>
+    function removepopup(id) {
+        $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_user(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+    function updateprofilepopup(id) {
+        $('#bidmodal-2').modal('show');
+    }
+</script>
 
 <!-- <script>
 //select2 autocomplete start for skill
@@ -1294,6 +1308,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
                 }
 </script>
+
 
 <!-- remove save post end
 

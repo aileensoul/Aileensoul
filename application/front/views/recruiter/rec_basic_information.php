@@ -53,7 +53,7 @@
                             
                              <li  class="custom-none <?php if($recdata[0]['re_step'] < '1'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/company_info_form'); ?>">Company Information</a></li>
                             
-                             <li class="custom-none <?php if($recdata[0]['re_step'] < '2'){echo "khyati";}?>"><a href="<?php echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li>
+                             <!-- <li class="custom-none <?php //if($recdata[0]['re_step'] < '2'){//echo "khyati";}?>"><a href="<?php //echo base_url('recruiter/rec_comp_address'); ?>">Company Address</a></li> -->
                                 
                             </ul>
                         </div>
@@ -77,18 +77,18 @@
 
                             
 
-      <!--   <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
+        <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
 
                                 
                     <fieldset>
-                        <label>First Name:<span class="red">*</span></label>
+                        <label>First Name<span class="red">*</span>:</label>
                         <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error "></span>
                         <?php echo form_error('first_name'); ?>
                     </fieldset>
                     
 
                     <fieldset>
-                        <label>Last Name:<span class="red">*</span></label>
+                        <label>Last Name<span class="red">*</span> :</label>
                       <input name="last_name" type="text" tabindex="2" placeholder="Enter Last Name"
                       value="<?php if($lastname){ echo $lastname; } else{echo $userdata[0]['last_name'];} ?>" id="last_name" /><span id="fullname-error" ></span>
                       <?php echo form_error('last_name'); ?>
@@ -96,7 +96,7 @@
                     
 
                     <fieldset>
-                        <label>E-mail address:<span class="red">*</span></label>
+                        <label>Email address:<span class="red">*</span></label>
                         <input name="email"  type="text" id="email" tabindex="3" placeholder="Enter Email"  value="<?php if($email){ echo $email; } else{echo $userdata[0]['user_email'];}?>" /><span id="email-error" ></span>
                         <?php echo form_error('email'); ?>
                     </fieldset>
@@ -141,32 +141,7 @@
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
 <!-- Field Validation Js End -->
 
-<!-- <script>
-                        
-                        //select2 autocomplete start for Location
-                        $('#searchplace').select2({
-                            placeholder: 'Find Your Location',
-                            maximumSelectionLength: 1,
-                            ajax: {
-                                url: "<?php echo base_url(); ?>recruiter/location",
-                                dataType: 'json',
-                                delay: 250,
-                                processResults: function (data) {
-                                    return {
-                                        //alert(data);
-                                        results: data
-                                    };
-                                },
-                                cache: true
-                            }
-                        });
-                        //select2 autocomplete End for Location
 
-
-                    </script>
-
-
- --> 
 <!--  <script type="text/javascript">
 var jquery_validate = $.noConflict(true);
 </script>
@@ -329,7 +304,6 @@ var jquery_validate = $.noConflict(true);
                                         });
 
 </script>
-
 <script>
 
                                         var data1 = <?php echo json_encode($de); ?>;
@@ -388,7 +362,15 @@ var jquery_validate = $.noConflict(true);
                                         });
 
 </script>
-
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 <script type="text/javascript">
 function checkvalue(){
    //alert("hi");
@@ -403,16 +385,6 @@ function checkvalue(){
 }
   
 </script>
-
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 <script type="text/javascript">
   jQuery(document).ready(function($) {  
 

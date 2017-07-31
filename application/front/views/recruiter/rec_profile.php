@@ -82,7 +82,7 @@
             $contition_array = array( 'user_id' => $user_id, 'is_delete' => '0' , 're_status' => '1');
             $image = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'profile_background', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
           
-          $image_ori= $this->config->item('rec_bg_main_upload_path').$image[0]['profile_background'];
+           $image_ori= $this->config->item('rec_bg_main_upload_path').$image[0]['profile_background'];
            if(file_exists($image_ori) && $image[0]['profile_background'] != '')
            {
             ?>
@@ -120,14 +120,32 @@
               <div class="profile-pho">
 
                 <div class="user-pic padd_img">
-<?php
+
+                
+                               <?php
                  $imageee= $this->config->item('rec_profile_thumb_upload_path').$recdata[0]['recruiter_user_image'];
            if(file_exists($imageee) && $recdata[0]['recruiter_user_image'] != '')
                                  { ?>
                            <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']);?>" alt="" >
-                            <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                            <?php } ?>
+                            <?php } else { 
+
+
+                    $a = $recdata[0]['rec_firstname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $recdata[0]['rec_lastname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-user">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+
+             <?php } ?>
+                             <!-- <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  alt="" /> -->
+
+
+                          ?>
                             <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
  -->
                         <?php if($returnpage == ''){ ?>
@@ -142,7 +160,11 @@
                          <a href="javascript:void(0);" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>"><h3><?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?></h3></a>
                             <!-- text head start -->
                     <div class="profile-text" >
-                      <?php if($returnpage == ''){
+                   
+                    
+
+                   
+              <?php if($returnpage == ''){
                   if ($recdata[0]['designation'] == '') {
                       ?>
                <!--<center><a id="myBtn" title="Designation">Designation</a></center>-->
@@ -151,7 +173,7 @@
                <?php } else {
                   ?> 
                <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+               <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($recdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($recdata[0]['designation'])); ?></a>
                <?php }
                   } else { 
                   
@@ -161,28 +183,9 @@
                 <a id="designation" class="designation" title="Designation">Designation</a>
 
                <?php  } else { ?>
-               <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"> <?php
-                  echo ucwords($recdata[0]['designation']); ?></a> <?php } 
+               <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($recdata[0]['designation'])); ?>"> <?php
+                  echo ucfirst(strtolower($recdata[0]['designation'])); ?></a> <?php } 
                   } ?>
-                    <!-- The Modal -->
-            <!--         <div id="myModal" class="modal">
-                      <!-- Modal content --><!-- <div class="col-md-2"></div> -->
-                      <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                         <?php //echo form_open(base_url('recruiter/recruiter_designation/'), array('id' => 'recdesignation','name' => 'recdesignation', 'class' => 'clearfix')); ?>
-
-  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php //echo $recdata[0]['designation']; ?>"></fieldset> -->
-        <!--  <input type="hidden" name="hitext" id="hitext" value="2">
-  <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php// echo form_close();?>
-  
-                    
-                     
-                    </div>
-                    <div class="col-md-2"></div>
-              </div>
-             --> 
             </div>
       
   </div>
@@ -244,13 +247,15 @@
                     if($this->uri->segment(3) != "" && $this->uri->segment(3) != $userid){ ?>
                        <li>
                            <?php
-                          $returnpage= $_GET['page']; 
+                           $returnpage= $_GET['page'];
                            
-                           if($returnpage == "job"){ ?>
-                            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a>
+                           if($returnpage == "recruiter"){ ?>
+                               
+                           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a>
                       <?php     }else{ ?>
                            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/2/1'); ?>">Message</a>
-                                  <?php      }?>
+                               
+                     <?php      }?>
                      
 
                      
@@ -289,30 +294,11 @@
                
                 ?> 
                 <!--<a id="myBtn" title="<?php echo ucwords($job[0]['designation']); ?>"><?php echo ucwords($job[0]['designation']); ?></a>-->
-                <a id="designation" class="designation" title="<?php echo ucwords($recdata[0]['designation']); ?>"><?php echo ucwords($recdata[0]['designation']); ?></a>
+                <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($recdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($recdata[0]['designation'])); ?></a>
              <?php }
              
-             } else {  echo ucwords($recdata[0]['designation']);  }  ?>
+             } else {  echo ucfirst(strtolower($recdata[0]['designation']));  }  ?>
 
-                    <!-- The Modal -->
-            <!--         <div id="myModal" class="modal">
-                      <!-- Modal content --><!-- <div class="col-md-2"></div> -->
-                      <!-- <div class="modal-content col-md-8">
-                        <span class="close">&times;</span>
-                        <fieldset></fieldset>
-                         <?php //echo form_open(base_url('recruiter/recruiter_designation/'), array('id' => 'recdesignation','name' => 'recdesignation', 'class' => 'clearfix')); ?>
-
-  <fieldset class="col-md-8"> <input type="text" name="designation" id="designation" placeholder="Enter Your Designation" value="<?php //echo $recdata[0]['designation']; ?>"></fieldset> -->
-        <!--  <input type="hidden" name="hitext" id="hitext" value="2">
-  <fieldset class="col-md-2"><input type="submit"  id="submitdes" name="submitdes" value="Submit"></fieldset>
-                        <?php// echo form_close();?>
-  
-                    
-                     
-                    </div>
-                    <div class="col-md-2"></div>
-              </div>
-             --> 
             </div>
             
   <div  class="add-post-button">
@@ -321,11 +307,8 @@
         <?php } ?>
   </div>
   </div>
-
-
-            <!-- text head end -->
-                      
-            
+  <!-- text head end -->
+                
                       <div class="col-md-8 col-sm-12 mob-clear">
                         <div class="common-form">
                             <div class="job-saved-box">
@@ -342,61 +325,51 @@ function text2link($text){
   } 
 
 ?>  
-
-
-
-
-
-
-          
-                               
-                                <div class="contact-frnd-post">
-                                    <div class="job-contact-frnd ">
-                                        <div class="profile-job-post-detail clearfix">
-                                          
-                                            <div class="profile-job-post-title clearfix">
-                                                 <div class="profile-job-post-title clearfix">
-                                                <div class="profile-job-profile-button clearfix">
-                                                    <div class="profile-job-details">
-                                                        <ul>
-              <li> <p class="details_all_tital "> Basic Information</p></li>
-                                                          
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                        <li> <b> Name</b> <span> 
-                                                        <?php 
-                   if($recdata[0]['rec_firstname'] || $recdata[0]['rec_lastname'] )
-                    { 
-                    echo $recdata[0]['rec_firstname'] .'  '. $recdata[0]['rec_lastname'];
-                     } 
-                    else
-                    {
-                     echo PROFILENA;
-                   }
-                   ?> </span>
-                                                        </li>
+    <div class="contact-frnd-post">
+     <div class="job-contact-frnd ">
+         <div class="profile-job-post-detail clearfix">
+             <div class="profile-job-post-title clearfix">
+                  <div class="profile-job-post-title clearfix">
+                      <div class="profile-job-profile-button clearfix">
+                          <div class="profile-job-details">
+                          <ul>
+                          <li> <p class="details_all_tital "> Basic Information</p></li>
+                          </ul>
+                            </div>
+                             </div>
+                             <div class="profile-job-profile-menu">
+                             <ul class="clearfix">
+                              <li> <b> Name</b> <span> 
+                              <?php 
+                               if($recdata[0]['rec_firstname'] || $recdata[0]['rec_lastname'] )
+                               { 
+                                 echo $recdata[0]['rec_firstname'] .'  '. $recdata[0]['rec_lastname'];
+                                } 
+                                 else
+                                {
+                                  echo PROFILENA;
+                                 }
+                                 ?> </span>
+                                   </li>
                                                        
-                                                      <li> <b>Email </b><span> 
-                                                    <?php 
+                                    <li> <b>Email </b><span> 
+                                     <?php 
 
-                                                     if($recdata[0]['rec_email'])
-                                                      {
-                                                        echo $recdata[0]['rec_email'];
-                                                      }
-                                                      else
-                                                      {
-                                                     echo PROFILENA; 
-                                                      }
+                                     if($recdata[0]['rec_email'])
+                                     {
+                                     echo $recdata[0]['rec_email'];
+                                      }
+                                       else
+                                     {
+                                      echo PROFILENA; 
+                                       }
 
-                                                        ?> </span>
-                                                        </li>
+                                      ?> </span>
+                                       </li>
 
 
                                                       
-                                                            <?php
+                                           <?php
                                             if ($returnpage == 'job') {
                                                 
                                                if($recdata[0]['rec_phone'])
@@ -543,137 +516,8 @@ function text2link($text){
                                                    <?php 
                                                     }
                                                    } ?>
-                                            
-                                             <?php
-                                            if ($returnpage == 'job') {
-                                               if($recdata[0]['re_comp_interview'])
-                                                      {
-                                                      ?>
-                                                      <li> <b>Company Interview Process</b><span><pre><?php 
-                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?></pre> </span>
-                                                       </li>
-                                                         <?php   }
-                                                   else
-                                                   {
-                                                       echo "";
-                                                     }
-                                                 }
 
-                                                else
-                                                {
-                                               if($recdata[0]['re_comp_interview'])
-                                                      {
-                                                      ?>
-                                                      <li> <b>Company Interview Process</b><span><pre><?php 
-                                                       echo $this->common->make_links($recdata[0]['re_comp_interview']); ?></pre> </span>
-                                                       </li>
-                                                         <?php   }
-                                                  
-                                                   else
-                                                   {
-                                                     ?>
-                                                     <li><b>Company Interview Process</b><span><?php echo PROFILENA; ?></span>
-                                                        </li>
-                                                   <?php 
-                                                    }
-                                                   } ?>
-                                          
-
-                                             <?php
-                                            if ($returnpage == 'job') {
-                                                if($recdata[0]['re_comp_project'])
-                                               {
-                                                 ?>
-                                               <li><b> Company Best Project</b> <span><pre>
-                                               <?php 
-             
-                                                  echo $this->common->make_links($recdata[0]['re_comp_project']);
-                                                 ?></pre></span> </li>
-                                               <?php }
-
-                                                else
-                                                   {
-                                                       echo "";
-                                                     }
-                                                 }
-
-                                                else
-                                                {
-                                               if($recdata[0]['re_comp_project'])
-                                                {
-                                                    ?>
-                                                  <li><b> Company Best Project</b> <span><p>
-                                                <?php 
-             
-                                                 echo $this->common->make_links($recdata[0]['re_comp_project']);
-                                                   ?></pre></span> </li>
-                                                  <?php }                                                  
-                                                   else
-                                                   {
-                                                     ?>
-                                                     <li><b>Company Best Project</b> <span>
-                                                          <?php echo PROFILENA; ?></span>
-                                                        </li>
-                                                   <?php 
-                                                    }
-                                                   } ?>
-                                          
-                                                   <?php
-                                            if ($returnpage == 'job') {
-                                                if($recdata[0]['re_comp_activities'])
-                                                {
-                                                      ?>
-                                              <li><b> Other Activities</b> <span>
-                                             <pre> <?php 
-           
-                                              echo $this->common->make_links($recdata[0]['re_comp_activities']);
-
-                                          ?></pre> </span> </li>
-                                           <?php  }
-
-                                                else
-                                                   {
-                                                       echo "";
-                                                     }
-                                                 }
-
-                                                else
-                                                {
-                                               if($recdata[0]['re_comp_activities'])
-                                                {
-                                                 ?>
-                                                   <li><b> Other Activities</b> <span>
-                                                     <pre>  <?php 
-           
-                                                     echo $this->common->make_links($recdata[0]['re_comp_activities']);
-
-                                                     ?></pre> </span> </li>
-                                                   <?php  }                 
-                                                   else
-                                                   {
-                                                     ?>
-                                                     <li><b>Other Activities</b> <span>
-                                                          <?php echo PROFILENA; ?></span>
-                                                        </li>
-                                                   <?php 
-                                                    }
-                                                   } ?>
-                    
-
-      </ul>
-                                                </div>
-                                                      <div class="profile-job-profile-button clearfix">
-                                                    <div class="profile-job-details">
-                                                        <ul>
-            
-          <li><p class="details_all_tital ">Company Address</p></li>
-                                                          
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                           <li> <b> Country</b> <span><?php $cache_time = $this->db->get_where('countries',array('country_id' => $recdata[0]['re_comp_country']))->row()->country_name; 
+                                                    <li> <b> Country</b> <span><?php $cache_time = $this->db->get_where('countries',array('country_id' => $recdata[0]['re_comp_country']))->row()->country_name; 
 
                                                             if($cache_time)
                                                                     {
@@ -742,20 +586,161 @@ function text2link($text){
                                                     }
                                                    } ?>
                     
-                                                          <li> <b>Postal Address</b><span> <?php
-                                                          if($recdata[0]['re_comp_address'])
-                                                                    {
-                                                                          echo $recdata[0]['re_comp_address'];
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                       echo PROFILENA; 
-                                                                    }
-                                                            ?> </span>
-                                                        </li>
+                                            
+                                             <?php
+                                            if ($returnpage == 'job') {
+                                               if($recdata[0]['re_comp_sector'])
+                                                      {
+                                                      ?>
+                                                     <li><b>Skill/Sector I Hire For</b><span><pre><?php echo $this->common->make_links($recdata[0]['re_comp_sector']); ?></pre></span></li>
+                                                         <?php   }
+                                                   else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
 
-                                                    </ul>
+                                                else
+                                                {
+                                               if($recdata[0]['re_comp_sector'])
+                                                      {
+                                                      ?>
+                                                      <li><b>Skill/Sector I Hire For</b><span><pre><?php echo $this->common->make_links($recdata[0]['re_comp_sector']); ?></pre></span></li>
+                                                         <?php   }
+                                                  
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Skill/Sector I  Hire For</b> <span>
+                                               <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                          
+
+                                             <?php
+                                            if ($returnpage == 'job') {
+                                                if($recdata[0]['re_comp_profile'])
+                                               {
+                                                 ?>
+                                               <li><b>Company Profile</b> <span><pre>
+                                               <?php 
+             
+                                                  echo $this->common->make_links($recdata[0]['re_comp_profile']);
+                                                 ?></pre></span> </li>
+                                               <?php }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                               if($recdata[0]['re_comp_profile'])
+                                                {
+                                                    ?>
+                                                  <li><b>Company Profile</b> <span><pre>
+                                                <?php 
+             
+                                                 echo $this->common->make_links($recdata[0]['re_comp_profile']);
+                                                   ?></pre></span> </li>
+                                                  <?php }                                                  
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Company Profile</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                                          
+                                                   <?php
+                                            if ($returnpage == 'job') {
+                                                if($recdata[0]['re_comp_activities'])
+                                                {
+                                                      ?>
+                                              <li><b> Other Activities</b> <span>
+                                             <pre>  <?php 
+           
+                                              echo $this->common->make_links($recdata[0]['re_comp_activities']);
+
+                                          ?></pre> </span> </li>
+                                           <?php  }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                               if($recdata[0]['re_comp_activities'])
+                                                {
+                                                 ?>
+                                                   <li><b> Other Activities</b> <span>
+                                                     <pre>  <?php 
+           
+                                                     echo $this->common->make_links($recdata[0]['re_comp_activities']);
+
+                                                     ?></pre> </span> </li>
+                                                   <?php  }                 
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Other Activities</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+
+                                                    <?php
+                                            if ($returnpage == 'job') {
+                                                if($recdata[0]['comp_logo'])
+                                                {
+                                                      ?>
+                                              <li><b>Company Logo</b> <span>
+                                              <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path')  .$recdata[0]['comp_logo']) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
+                                               </span> </li>
+                                           <?php  }
+
+                                                else
+                                                   {
+                                                       echo "";
+                                                     }
+                                                 }
+
+                                                else
+                                                {
+                                               if($recdata[0]['comp_logo'])
+                                                {
+                                                 ?>
+                                                   <li><b>Company Logo</b> <span>
+                                                      <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path')  . $recdata[0]['comp_logo']) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
+
+                                                       </span> </li>
+                                                   <?php  }                 
+                                                   else
+                                                   {
+                                                     ?>
+                                                     <li><b>Company Logo</b> <span>
+                                                          <?php echo PROFILENA; ?></span>
+                                                        </li>
+                                                   <?php 
+                                                    }
+                                                   } ?>
+                    
+                    
+
+      </ul>
                                                 </div>
+                                                     
+                                                
 
                                         </div>
                                         </div>
@@ -888,6 +873,7 @@ $( "#searchplace" ).autocomplete({
   
 </script>
 
+
 <script>
 
 var data= <?php echo json_encode($demo); ?>;
@@ -954,7 +940,6 @@ $( "#searchplace1" ).autocomplete({
 
 
 
-
   <script type="text/javascript">
 function checkvalue(){
    //alert("hi");
@@ -969,7 +954,6 @@ function checkvalue(){
 }
   
 </script>
-
 <script type="text/javascript">
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
@@ -979,7 +963,6 @@ function checkvalue(){
                             }
                         }
                     </script>
-
 <!-- <script>
 //select2 autocomplete start for skill
 
