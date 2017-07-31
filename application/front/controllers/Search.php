@@ -118,7 +118,7 @@ class Search extends CI_Controller {
             $join_str[0]['from_table_id'] = 'art_post.user_id';
             $join_str[0]['join_type'] = '';
 
-             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg.art_step' => 4);
+             $contition_array = array('art_post.user_id !=' => $userid ,'art_reg.art_step' => 4, 'art_post.is_delete' => '0');
 
             $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
@@ -242,7 +242,7 @@ class Search extends CI_Controller {
           $search_condition = "(art_post.art_post LIKE '%$searchskill%' or art_post.art_description LIKE '%$searchskill%' or art_post.other_skill LIKE '%$searchskill%')";
 
 
-            $contition_array = array('art_reg.art_city' => $cache_time , 'art_reg.art_step' => 4);
+            $contition_array = array('art_reg.art_city' => $cache_time , 'art_reg.art_step' => 4, 'art_post.is_delete' =>'0');
             $artpost = $artpostdata['data'] = $this->common->select_data_by_search('art_post', $search_condition, $contition_array, $data = 'art_post.*,art_reg.art_name,art_reg.art_lastname,art_reg.art_user_image', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // echo "<pre>"; print_r($artpost);
 
