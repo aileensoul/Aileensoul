@@ -64,9 +64,18 @@
                                    <?php
                               } else {
                                
-                           ?>
+                           
+                                 $a = $recruiterdata1[0]['rec_firstname'];
+               $acr = substr($a, 0, 1);
 
-                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+                $b = $recruiterdata1[0]['rec_lastname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+                       <!-- // <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"> -->
                             <?php
                                    }
                              ?>
@@ -163,10 +172,24 @@
             </a>
              <?php
             } else {
+              
+
+
+              $a = $row['fname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $row['lname'];
+               $acr1 = substr($b, 0, 1);
               ?>
-              <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
-           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>"> </a>
-             <?php
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+
+              
+              <!-- <a href="<?php //echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php //echo $row['fname'] . ' ' . $row['lname']; ?>"> 
+           <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>"> </a>
+             --> <?php
                 }
                ?>
            </div>
