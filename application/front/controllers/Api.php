@@ -12,17 +12,32 @@ class Api extends CI_Controller {
     }
 
     public function send_message($id = '', $message_from_profile = '', $message_from_profile_id = '', $message_to_profile = '', $message_to_profile_id = '') {
+        $directions = json_decode($_POST['json'],true);
 
         $userid = $this->session->userdata('aileenuser');
 
-        $message = $this->input->get('message', null);
+      $message = $directions['message']; 
+        //$this->input->post('message', null);
         //$message = $this->common->make_links($message);
         $message = str_replace('"', '', $message);
-        $nickname = $this->input->get('nickname', '');
-        $guid = $this->input->get('guid', '');
+        //$message = str_replace('"', '', $message);
+        $nickname = $directions['nickname'];
+        //$nickname = $this->input->post('nickname', '');
+        $guid = $directions['guid'];
+        //$guid = $this->input->post('guid', '');
+        $id = $directions['toid'];
+        //$id = $this->input->post('toid');
+        $message_from_profile = $directions['message_from_profile'];
+        //$message_from_profile = $this->input->post('message_from_profile');
+        $message_to_profile = $directions['message_to_profile'];
+        //$message_to_profile = $this->input->post('message_to_profile');
+        $message_to_profile_id = $directions['message_to_profile_id'];
+        //$message_to_profile_id = $this->input->post('message_to_profile_id');
+        $message_from_profile_id = $directions['message_from_profile_id'];
+        //$message_from_profile_id = $this->input->post('message_from_profile_id');
 
         $this->Chat_model->add_message($message, $nickname, $guid, $userid, $id, $message_from_profile, $message_from_profile_id, $message_to_profile, $message_to_profile_id);
-        $this->_setOutput($message);
+       $this->_setOutput($message); 
     }
 
     public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {

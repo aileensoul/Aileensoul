@@ -552,7 +552,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         return timeString;
     }
 
-    var sendChat = function (message, callback) {
+    var sendChat = function (message, callback) { 
 
         var fname = '<?php echo $logfname; ?>';
         var lname = '<?php echo $loglname; ?>';
@@ -565,19 +565,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         {
             return false;
         } else {
-            
-            var data = { "user" : "me!" };
+         
+        var id = <?php echo $toid ?>;
+        var message_from_profile = <?php echo $message_from_profile ?>;
+        var message_to_profile = <?php echo $message_to_profile ?>;
+        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+        var message_to_profile_id = <?php echo $message_to_profile_id ?>; 
+        var message = str; 
+        var nickname = fname + ' ' + lname; 
+        var guid = getCookie('user_guid'); 
+           
+            var json_data = { "toid" : id , "message_from_profile" : message_from_profile, "message_to_profile" : message_to_profile, "message_from_profile_id" : message_from_profile_id, "message_to_profile_id" : message_to_profile_id, "message" : message, "nickname" : nickname, "guid" : guid};
            $.ajax({
-    type: "POST",
-    url: "/api/user/create",
-    processData: false,
-    contentType: 'application/json',
-    data: JSON.stringify(data),
-    success: function(r) {
+    type: 'POST',
+    url: '<?php echo base_url() . "api/send_message" ?>',
+    data: {json: JSON.stringify(json_data)},
+    dataType: 'json',
+    success: function(r) { 
+      //   callback();
     }
-        });
-        
-          
+});
+ 
 
 //            $.getJSON('<?php// echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
 //                callback();

@@ -82,7 +82,7 @@
                                 
                     <fieldset>
                         <label>First Name<span class="red">*</span>:</label>
-                        <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo $firstname; } else{ echo $userdata[0]['first_name']; } ?>" /><span id="fullname-error "></span>
+                        <input name="first_name" tabindex="1" autofocus type="text" id="first_name"  placeholder="Enter First Name" value="<?php if($firstname){ echo ucfirst(strtolower($firstname)); } else{ echo ucfirst(strtolower($userdata[0]['first_name'])); } ?>" /><span id="fullname-error "></span>
                         <?php echo form_error('first_name'); ?>
                     </fieldset>
                     
@@ -90,7 +90,7 @@
                     <fieldset>
                         <label>Last Name<span class="red">*</span> :</label>
                       <input name="last_name" type="text" tabindex="2" placeholder="Enter Last Name"
-                      value="<?php if($lastname){ echo $lastname; } else{echo $userdata[0]['last_name'];} ?>" id="last_name" /><span id="fullname-error" ></span>
+                      value="<?php if($lastname){ echo ucfirst(strtolower($lastname)); } else{echo ucfirst(strtolower($userdata[0]['last_name']));} ?>" id="last_name" /><span id="fullname-error" ></span>
                       <?php echo form_error('last_name'); ?>
                     </fieldset>
                     
