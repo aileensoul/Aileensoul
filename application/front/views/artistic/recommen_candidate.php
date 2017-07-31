@@ -54,7 +54,18 @@
                         </div>
                         <?php } else { ?> 
                         <div class="data_img_2">
-                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucfirst(strtolower($artdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artdata[0]['art_lastname'])); ?>">
+
+                          <?php 
+                                                    $a = $artdata[0]['art_name'];
+                                                    $acr = substr($a, 0, 1);
+
+                                                    $b = $artdata[0]['art_lastname'];
+                                                    $bcr = substr($b, 0, 1);
+                                                    ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div>
+
                         </div>
                         <?php } ?>
                         <!-- box image end -->
@@ -338,11 +349,20 @@ if($artuserdata1){
                                                    <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt="">
 
                                                    <?php }else{?>
-                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucfirst(strtolower($key['art_name']));
-                                       echo"&nbsp;";
-                                       echo ucfirst(strtolower($key['art_lastname']));
-                                       ?>">
+
+
+                                                   <?php 
+                                                    $a = $key['art_name'];
+                                                    $acr = substr($a, 0, 1);
+
+                                                    $b = $key['art_lastname'];
+                                                    $bcr = substr($b, 0, 1);
+                                                    ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div>
+
+                                       
                                           <?php }?>
 
 
@@ -356,7 +376,7 @@ if($artuserdata1){
                                                                                                             <li>
                                                             <div class="post-design-product">
                                                                 <a class="post_dot" href="<?php echo base_url('artistic/art_manage_post/' . $key['user_id'] . ''); ?>" title="<?php echo $key['art_name'].' '.$key['art_lastname'];?>" >
-                                                                    <?php echo $key['art_name'].' '.$key['art_lastname'];?>
+                                                                    <?php echo ucfirst(strtolower($key['art_name'])).' '.ucfirst(strtolower($key['art_lastname']));?>
                                                                       </a>
                                                                        <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="datespan">  <span style="font-weight: 400;
@@ -394,10 +414,10 @@ if($artuserdata1){
                                             
                                             <div class="post-design-desc ">
                                                 <div>
-                                                    <div id="editpostdata5" style="display:block;">
+                                                    <!-- <div id="editpostdata5" style="display:block;">
                                                         <a style="margin-bottom: 0px;     font-size: 16px">
                                                             <?php echo $key['art_description'];?>                                                        </a>
-                                                    </div>
+                                                    </div> -->
                                                     <div id="editpostbox5" style="display:none;">
                                                         <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
                                                     </div>
@@ -2261,7 +2281,11 @@ if($artuserdata1){
 
                    <script type="text/javascript">
     
-     function khdiv(abc) {
+     function khdiv(abc) { 
+
+
+      document.getElementById('khyati' + abc).style.display = 'none';
+      document.getElementById('khyatii' + abc).style.display = 'block';//alert(abc);
          
          $.ajax({
                type: 'POST',

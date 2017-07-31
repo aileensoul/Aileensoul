@@ -159,7 +159,7 @@ if($this->input->get('q'))
       {
   ?>
         <div class="blog-tag">
-        <div class="tag-line"><span>Search results for</span> <?php echo '$search_keyword'; ?></div>
+        <div class="tag-line"><span>Search results for</span> <?php echo $search_keyword; ?></div>
         </div>
  
  <?php      
@@ -169,7 +169,7 @@ if($this->uri->segment(2) == 'tag')
       {
     ?>
         <div class="blog-tag">
-        <div class="tag-line"><span>Tag:</span> <?php echo '$search_keyword'; ?></div>
+        <div class="tag-line"><span>Tag:</span> <?php echo $search_keyword; ?></div>
         </div>
     <?php      
       }//if end  
@@ -183,10 +183,9 @@ if(count($blog_detail) == 0 )
                             <h3>
 
                             <div class="blog-tag">
-                            <div class="tag-line"><span>Search result of </span> <?php echo '$search_keyword'; ?></div>
+                            <div class="tag-line"><span>Search result of </span> <?php echo $search_keyword; ?></div>
                             </div>
                            </h3>
-                           
                             <div class="contact-frnd-post">
                                 
 

@@ -470,17 +470,17 @@ public function business_search() {
 
             $searchbusiness = $this->db->get_where('business_type', array('business_name' => $search_business))->row()->type_id;
             $searchbusiness1 = $this->db->get_where('industry_type', array('industry_name' => $search_business))->row()->industry_id;
-            if ($searchbusiness1) {
+            if ($searchbusiness1) { 
                 $search_condition = "(industriyal LIKE '%$searchbusiness1%')";
-            } elseif ($searchbusiness) {
+            } elseif ($searchbusiness) {  
                 $search_condition = "(business_type LIKE '%$searchbusiness%')";
-            } else {
+            } else {  
                 $search_condition = "(company_name LIKE '%$search_business%' or contact_website LIKE '%$search_business%' or other_business_type LIKE '%$search_business%' or other_industrial LIKE '%$search_business%')";
             }
 
          //   echo $search_condition; 
             $business_profile = $this->data['results'] = $this->common->select_data_by_search('business_profile', $search_condition, $condition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-         // echo "<pre>"; print_r($business_profile);
+         // echo "<pre>"; print_r($business_profile); die();
 
 
             $join_str[0]['table'] = 'business_profile';

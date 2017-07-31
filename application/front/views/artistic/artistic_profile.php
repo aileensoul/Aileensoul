@@ -607,20 +607,20 @@ if ($artisticdata[0]['art_bestofmine']) {
 
                                 <div class="profile-job-profile-menu">
                                     <ul class="clearfix">
-                                      
+                                    <?php if ($artisticdata[0]['art_bestofmine']) {
+    ?>  
                                         <li><b>Attachment</b> 
 
                                             
                                         <span>
 
-                                         <?php
-if ($artisticdata[0]['art_bestofmine']) {
-    ?>
+                                        
+
                                                 <div class="buisness-profile-pic">
 
 
 
-    <?php
+    <?php 
     $allowed = array('gif', 'png', 'jpg');
     $allowespdf = array('pdf');
     $allowesvideo = array('mp4', '3gp');
@@ -640,13 +640,13 @@ if ($artisticdata[0]['art_bestofmine']) {
          } ?>
                     </div>
 
-                 <?php }?>
+                
                         </span>
 
                                              
                                            
                                         </li>
-                                        
+                               <?php }?>          
  
 
                  <li> <b>Details of Portfolio </b> 
