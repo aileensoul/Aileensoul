@@ -92,13 +92,16 @@ echo $leftmenu;
                                     if ($blog_detail[0]['image']) 
                                     {
                             ?>
-                               
-                                <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt=""  style="height: 100px; width: 100px;">
+                               <div class="thumbnail">
+                          <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt="" class="portrait">
+                              </div>
                             <?php
                                     }
                                              
                             ?>
-                            <input type="hidden" class="form-control" name="hidden_image" id="hidden_image" value="<?php echo $blog_detail[0]['image']; ?>" style="border: none;">
+                            
+                            <input type="hidden" class="form-control" name="hidden_image" id="hidden_image" value="<?php echo $blog_detail[0]['image']; ?>" style="border: none;" >
+                            </div>
                         </div>
                         <!-- BLOG IMAGE END -->
 
@@ -249,3 +252,26 @@ CKEDITOR.on('instanceReady', function(ev) {
 });     
 </script>
 <!-- SCRIPT FOR CKEDITOR END-->
+<style type="text/css">
+    .thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+</style>
