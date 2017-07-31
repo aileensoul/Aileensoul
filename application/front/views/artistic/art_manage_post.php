@@ -4013,7 +4013,7 @@ if (size > 10485760)
    
            document.getElementById('editpostdata' + abc).style.display = 'block';
            document.getElementById('editpostbox' + abc).style.display = 'none';
-         //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+            document.getElementById('khyati' + abc).style.display = 'block';
            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
    
            document.getElementById('editpostsubmit' + abc).style.display = 'none';

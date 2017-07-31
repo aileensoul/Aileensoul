@@ -289,12 +289,13 @@ else
           <span>
            <?php
                      $small = substr($blog['description'], 0, 180);
-                     echo $this->common->make_links($small);
+                     echo $small;
 
                      if (strlen($blog['description']) > 180) {
                           echo '....';
-                        }?>
-          <!--  <?php //echo $blog['description'];?> -->
+                        }
+                        ?>
+           <?php //echo $blog['description'];?> 
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -395,8 +396,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
           <div class="post_inside_data">
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
-
-              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_thumb_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  

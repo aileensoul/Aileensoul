@@ -3329,9 +3329,13 @@ public function followtwo() {
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_followers', $this->data);
-       }else{
-       redirect('artistic/');
+       }else if(!$this->data['artisticdata'] && $id != $userid){
 
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
+       redirect('artistic/');
        }
     }
 
@@ -3466,9 +3470,13 @@ public function followtwo() {
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_following', $this->data);
-       }else{
-       redirect('artistic/');
+       }else if(!$this->data['artisticdata'] && $id != $userid){
 
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
+       redirect('artistic/');
        }
     }
 
@@ -5989,9 +5997,13 @@ public function followtwo() {
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_photos', $this->data);
-       }else{
-       redirect('artistic/');
+       }else if(!$this->data['artisticdata'] && $id != $userid){
 
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
+       redirect('artistic/');
        }
     }
 
@@ -6109,7 +6121,12 @@ public function followtwo() {
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_videos', $this->data);
-         }else{
+         }else if(!$this->data['artisticdata'] && $id != $userid){
+
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
        redirect('artistic/');
        }
     }
@@ -6229,10 +6246,14 @@ public function followtwo() {
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_audios', $this->data);
-        }else{
-          redirect('artistic/');
+        }else if(!$this->data['artisticdata'] && $id != $userid){
 
-        }
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
+       redirect('artistic/');
+       }
     }
 
 //multiple audios for user end  
@@ -6350,9 +6371,13 @@ public function followtwo() {
 
         if($this->data['artisticdata']){ 
         $this->load->view('artistic/art_pdf', $this->data);
-       }else{
+       }else if(!$this->data['artisticdata'] && $id != $userid){
+
+        $this->load->view('artistic/notavalible');  
+
+       }
+        else if(!$this->data['artisticdata'] && ($id == $userid || $id == "")){
        redirect('artistic/');
-        
        }
     }
 

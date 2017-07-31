@@ -266,122 +266,195 @@
                </div>
                                         <div class="profile-job-profile-menu">
                                             <ul class="clearfix">
-                                                <li> <b> Skills</b> <span> 
-                    <?php
-                     $comma = ", ";
-                     $k = 0;
-                     $aud = $post['post_skill'];
-                     $aud_res = explode(',', $aud);
+                                               <li> <b> Skills</b> <span> 
+                                          <?php
+                                             $comma = ", ";
+                                             $k = 0;
+                                             $aud = $post['post_skill'];
+                                             $aud_res = explode(',', $aud);
+                                             
+                                             if(!$post['post_skill']){
+                                             
+                                              echo $post['other_skill'];
+                                             
+                                             }else if(!$post['other_skill']){
+                                             
+                                             
+                                              foreach ($aud_res as $skill) {
+                                               if ($k != 0) {
+                                                  echo $comma;
+                                              }
+                                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                             
+                                             echo $cache_time;
+                                             $k++;
+                                             }
+                                             
+                                             
+                                             }else if($post['post_skill'] && $post['other_skill']){
+                                              foreach ($aud_res as $skill) {
+                                               if ($k != 0) {
+                                                  echo $comma;
+                                              }
+                                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                             
+                                             echo $cache_time;
+                                             $k++;
+                                             }echo ',' . $post['other_skill'];}
+                                             ?>       
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <b>Job Description</b>
+                                          <span>
+                                             <p>
+                                                <?php if ($post['post_description']) { ?> <pre> <?php echo $this->common->make_links($post['post_description']);  ?> </pre> <?php }else{ echo PROFILENA; } ?> 
+                                             </p>
+                                          </span>
+                                       </li>
+                                       <li><b>Interview Process</b><span>
+                                          <?php if($post['interview_process']){ ?> <pre> <?php  echo $this->common->make_links($post['interview_process']);} else{echo PROFILENA;}?> </pre> </span>
+                                       </li>
 
-                     if(!$post['post_skill']){
-
-                        echo $post['other_skill'];
-
-                     }else if(!$post['other_skill']){
-
-                        foreach ($aud_res as $skill) {
-                        if ($k != 0) {
-                            echo $comma;
-                        }
-                     $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                         <li>
+                                                <b>Required Experience</b>
+                                                 <span>
+                                                   <p title="Min - Max">
+                                                       <?php 
 
 
-                        echo $cache_time;
-                        $k++;
-                    }
-
-                     }else if($post['post_skill'] && $post['other_skill']){
-                     foreach ($aud_res as $skill) {
-                        if ($k != 0) {
-                            echo $comma;
-                        }
-                     $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-
-
-                        echo $cache_time;
-                        $k++;
-                    } echo ','.$post['other_skill']; }
-             ?>       
-                                                    </span>
-                                                </li>
-
-
-                                                <!-- <?php if ($post['other_skill']) { ?>
-                                                    <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
-                                                    </li>
-                                                <?php } else { ?>
-                                                    <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
-
-                                                <li><b>Job Description</b><span><p>
-            <?php if($post['post_description']){ ?> <pre> <?php echo $this->common->make_links($post['post_description']); ?> </pre> <?php }else{echo PROFILENA;} ?> </p></span>
-                                                </li>
-                                                <li><b>Interview Process</b><span>
-            <?php if($post['interview_process']){ ?> <pre> <?php echo $this->common->make_links($post['interview_process']); ?> </pre> <?php }else{echo PROFILENA;} ?></span>
-                                                </li>
-                                                    <li>
-     <b>Required Experience</b>
-                       <span>
-     <p title=" <?php 
-
-
-  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
-     { 
+                                                            if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+                                                            { 
  
 
-      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
-     } 
-     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
-     {
-      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
-     }
-    else
-    {
-      echo "Fresher";
+                                                               echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ".   "Fresher can also apply.";
+                                                                 } 
+                                                             else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
+                                                                  {
+                                                               echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+                                                                    }
+                                                                  else
+                                                                {
+                                                                  echo "Fresher";
          
-    }
+                                                                  }
 
- ?> 
-">
-     <?php 
-
-
-  if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
-     { 
- 
-
-      echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ". "Fresher can also apply.";
-     } 
-     else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
-     {
-      echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
-     }
-    else
-    {
-      echo "Fresher";
-         
-    }
-
- ?> 
+                                                                  ?> 
     
-    </p>  
- </span>
-  </li>
+                                                                  </p>  
+                                                                  </span>
+                                                                  </li>
 
-<?php 
- $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
+                                                                    <li><b>Salary</b><span title="Min - Max" >
+                                         <?php
 
- ?>
 
-     <li><b>Salary</b><span title=" <?php echo $post['min_sal'];?> Min - <?php echo $post['max_sal'];?> Max  <?php echo "$currency" ; ?> Per Year" >
-     <?php 
- // $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
+            $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
 
-     if ($post['min_sal'] || $post['max_sal']){echo $post['min_sal']." - ".$post['max_sal'].' '. $currency ." Per Year"; } else {echo PROFILENA;}?></span>
+          if($post['min_sal'] || $post['max_sal']) {
+          echo $post['min_sal']." - ".$post['max_sal'].' '. $currency . ' '. $post['salary_type']; } 
+          else { echo PROFILENA;} ?></span>
+                                            </li>
+                                       
+                                       <li><b>No of Position</b><span><?php echo $post['post_position'].' '. 'Position'; ?></span>
+                                       </li>
+
+                                         <li><b>Industry Type</b> <span>
+                                                                  <?php
+                                                                      $cache_time = $this->db->get_where('job_industry', array('industry_id' => $post['industry_type']))->row()->industry_name;
+                                                                         echo $cache_time;
+                                                                       ?>
+                                                                         </span> 
+                                                                  </li>
+
+                                                                 
+
+<?php if ($post['degree_name'] != '' || $post['other_education'] != '') { ?>
+
+    <li> <b>Education Required</b> <span> 
+  
+
+                                                                 
+                             <?php
+                            $comma = ", ";
+                            $k = 0;
+                            $edu = $post['degree_name'];
+                            $edu_nm = explode(',', $edu);
+
+                            if(!$post['degree_name']){
+
+                                echo $post['other_education'];
+
+                            }else if(!$post['other_education']){
+
+
+                                foreach ($edu_nm as $edun) {
+                             if ($k != 0) {
+                                echo $comma;
+                            }
+                            $cache_time = $this->db->get_where('degree', array('degree_id' => $edun))->row()->degree_name;
+
+
+                            echo $cache_time;
+                                $k++;
+                            }
+
+
+                            }else if($post['degree_name'] && $post['other_education']){
+                            foreach ($edu_nm as $edun) {
+                             if ($k != 0) {
+                                echo $comma;
+                            }
+                            $cache_time = $this->db->get_where('degree', array('degree_id' => $edun))->row()->degree_name;
+
+
+                            echo $cache_time;
+                                $k++;
+                            } echo ",". $post['other_education']; }
+                        ?>     
+                                                
+                                                </span>
                                             </li>
 
-                                                <li><b>No of Position</b><span><?php echo $post['post_position']; ?></span>
-                                                </li>
+                                            <?php }
 
+                                            else
+                                            { ?>
+
+                                            <li><b>Education Required</b><span>
+                                            <?php
+                                              echo PROFILENA; ?>
+                                              </span>
+                                            </li>
+                                      <?php      }
+                                            ?>
+                                             <li><b>Employment Type</b><span>
+                                            
+
+                                            <?php if($post['emp_type'] != ''){?>
+                                            <pre>
+                                            <?php echo $this->common->make_links($post['emp_type']).'  Job'; ?></pre>
+                                               <?php }else{ echo PROFILENA; }?> 
+
+                                            </span>
+                                            </li>
+
+
+
+                                             <li><b>Company Profile</b><span>
+                                            
+
+                                            <?php 
+
+            $currency = $this->db->get_where('recruiter', array('user_id' => $post['user_id']))->row()->re_comp_profile;
+
+                                            if($currency != ''){?>
+                                            <pre>
+                                            <?php echo $this->common->make_links($currency); ?></pre>
+                                               <?php }else{ echo PROFILENA; }?> 
+
+                                            </span>
+                                            </li>
 
                                             </ul>
                                         </div>
@@ -914,12 +987,15 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src='<?php echo base_url('img/job-no.png')?>'></div><div class='art_no_post_text'>No  Saved Post Available.</div></div>";
                     $('.contact-frnd-post').html(nodataHtml);
                 }
             }
         });
     }
+
+
+    
     function apply_post(abc, xyz)
     {
 
@@ -939,8 +1015,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
                 $('#' + 'postdata' + appid).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
-                    $('.contact-frnd-post').html(nodataHtml);
+                    var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src='<?php echo base_url('img/job-no.png')?>'></div><div class='art_no_post_text'>No  Saved Post Available.</div></div>";
                 }
 
             }

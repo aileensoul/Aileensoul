@@ -287,7 +287,7 @@
                                                 <?php }?>
                                                  </a>
 
-                                        <?php } else if($art_data[0]['user_id'] == $userid){ ?>
+                                        <?php } else if($art_data[0]['user_id']){ ?>
 
                                          <a  class="post_dot" title="<?php echo ucfirst(strtolower($firstnameposted)) . ' ' . ucfirst(strtolower($lastnameposted)); ?>" href="<?php echo base_url('artistic/art_manage_post/' . $art_data[0]['user_id']); ?>">
 
@@ -2409,7 +2409,7 @@ $( "#searchplace1" ).autocomplete({
    
            document.getElementById('editpostdata' + abc).style.display = 'block';
            document.getElementById('editpostbox' + abc).style.display = 'none';
-         //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+           document.getElementById('khyati' + abc).style.display = 'block';
            document.getElementById('editpostdetailbox' + abc).style.display = 'none';
    
            document.getElementById('editpostsubmit' + abc).style.display = 'none';

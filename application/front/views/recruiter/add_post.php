@@ -694,9 +694,18 @@ if(mm<10) {
                          post_desc: {
 
                             required: true,
-                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                          // regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                          maxlength : 2500
                            
                         },
+
+                        interview: {
+
+                         
+                          maxlength : 2500
+                           
+                        },
+                        
                          country: {
 
                             required: true
@@ -726,6 +735,8 @@ if(mm<10) {
                           
                           
                         }, 
+
+
                         last_date: {
                             
                             required: true,
@@ -1005,9 +1016,9 @@ if(mm<10) {
  var skills = document.getElementById('skills').value;
  var other_skill = document.getElementById('other_skill').value;
  var minyear = document.getElementById('minyear').value;
- var minmonth = document.getElementById('minmonth').value;
+ //var minmonth = document.getElementById('minmonth').value;
  var maxyear = document.getElementById('maxyear').value;
- var maxmonth = document.getElementById('maxmonth').value;
+ //var maxmonth = document.getElementById('maxmonth').value;
  var post_desc = document.getElementById('post_desc').value;
  var interview = document.getElementById('interview').value;
  var country = document.getElementById('country').value;
@@ -1022,7 +1033,7 @@ if(mm<10) {
         var searchplace =$.trim(document.getElementById('searchplace').value);
         // alert(searchkeyword);
        
- if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
+ if(post_name=="" && skills=="" && other_skill=="" && minyear==""  && maxyear=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
     
     if(clicked_id==1)
