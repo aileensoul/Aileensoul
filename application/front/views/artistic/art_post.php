@@ -933,7 +933,7 @@
                             ?>
                      <!-- one image start -->
                      <div class="one-image">
-                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img  src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
+                        <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img  src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
                      </div>
                      <!-- one image end -->
                      <?php } elseif (in_array($ext, $allowespdf)) { ?>
