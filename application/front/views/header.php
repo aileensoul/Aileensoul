@@ -19,6 +19,15 @@
 </script>
 <!-- header -->
 
+<!-- IMAGE PRELOADER SCRIPT -->
+<script type="text/javascript">
+ function preload(arrayOfImages) {
+    $(arrayOfImages).each(function () {
+        $('<img />').attr('src',this).appendTo('body').css('display','none');
+    });
+}
+</script>
+<!-- IMAGE PRELOADER SCRIPT -->
 <!-- <script type="text/javascript">
 $(window).load(function(){
         $('#message_count').hide();
