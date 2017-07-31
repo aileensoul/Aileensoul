@@ -80,7 +80,7 @@
    <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 
 
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+<!-- <script src="<?php //echo base_url('js/fb_login.js'); ?>"></script> -->
  
 <?php echo $header; ?>
 
@@ -651,6 +651,19 @@ if(mm<10) {
 
 //date validation end
 
+//pattern validation at salary start//
+   $.validator.addMethod("pattern", function(value, element, param) {
+   if (this.optional(element)) {
+   return true;
+   }
+   if (typeof param === "string") {
+   param = new RegExp("^(?:" + param + ")$");
+   }
+   return param.test(value);
+   }, "Salary is not in correct format");
+   
+   //pattern validation at salary end//
+
             $(document).ready(function () { 
 
                 $("#artpost").validate({
@@ -743,8 +756,9 @@ if(mm<10) {
                             
                         },
                         minsal:{
-                            number:true,
-                            maxlength:11
+                            //number:true,
+                            maxlength:11,
+                             pattern: /^([1-9]\d*)(\\d+)?$/
 
                         },
                         maxsal:{
@@ -753,6 +767,7 @@ if(mm<10) {
                               min: 0,
                              greaterThan: "#minsal",
                             maxlength:11
+                          //  pattern: /^([1-9]\d*)(\\d+)?$/
                         },
                        
                      },
