@@ -19,7 +19,7 @@ class Chat_model extends CI_Model {
             'timestamp' => time() + 92,
         );
 
-        $this->db->insert('messages', $data1);
+        $this->db->insert('mkessages', $data1);
         $msg_insert_id = $this->db->insert_id();
 
         if ($message_from_profile == 1) {
