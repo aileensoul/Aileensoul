@@ -18,7 +18,7 @@
 <!-- css for date picker start-->
 <style type="text/css">
 
-.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 5%;}
+.date-dropdowns .day, .date-dropdowns .month, .date-dropdowns .year{width: 30%; float: left; margin-right: 1%;}
 .date-dropdowns .year{margin-right: 0;}
 .example {
     width: 33%;

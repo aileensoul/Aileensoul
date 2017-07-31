@@ -344,10 +344,7 @@
             }   ?>
 
                 
-              </span> </li> <?php } else{ ?> 
-              <li> <b> Total Experience </b>
-               <span> <?php echo $p['experience']; ?> </span> </li>
-              <?php }?>
+              </span> </li> <?php } ?>
 
       <?php
              $countryname = $this->db->get_where('countries', array('country_id' => $p['country_id']))->row()->country_name;
