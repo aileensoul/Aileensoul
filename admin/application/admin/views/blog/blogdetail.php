@@ -56,7 +56,7 @@ echo $leftmenu;
              <?php  if($blog_detail[0]['image']) 
                                 {
                         ?>
-                                <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt="" style="width: auto" >
+                                <img src="<?php echo SITEURL . $this->config->item('blog_view_thumb_upload_path') . $blog_detail[0]['image']; ?>" alt="" style="width: auto" >
                         <?php }else{
                         ?>
                                 <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(WHITEIMAGE); ?>" alt="" />
@@ -64,9 +64,9 @@ echo $leftmenu;
 
               <p><?php echo $blog_detail[0]['title']; ?></p>
 
-              <span class="pull-right text-muted">
+              <span class="pull-right text-muted" id="total_comment">
               <?php 
-                  $condition_array = array('blog_id'=>$blog_detail[0]['id']);
+                  $condition_array = array('blog_id'=>$blog_detail[0]['id'],'status !=' =>'reject');
                   $blog_comment = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
                   echo count($blog_comment);
                 ?>
@@ -76,6 +76,8 @@ echo $leftmenu;
             <!-- /.box-body -->
 
 <?php
+if($comment['status'] != 'reject')
+{
  //FOR GETTING USER COMMENT
   $condition_array = array('status !=' => 'reject','blog_id' => $blog_detail[0]['id']);
   $blog_comment  = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
@@ -85,7 +87,7 @@ echo $leftmenu;
     foreach ($blog_comment as $comment) 
     {
   ?>  
-            <div class="box-footer box-comments" id="comment">
+            <div class="box-footer box-comments" id="comment<?php echo $comment['id'];?>">
               <div class="box-comment">
                 <!-- User image -->
                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
@@ -108,26 +110,35 @@ echo $leftmenu;
                     ?>
                         </span>
 
-          <?php if($comment['status'] == 'pending')
-                {
-          ?>
-                  <span id="action<?php echo $comment['id'];?>">
-                  <div class="btn-group">
-                  <button type="button" class="btn btn-success btn-flat">Action</button>
-                  <button type="button" class="btn btn-success btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a onclick="approve('<?php echo $comment['id'];?>')">Approve</a></li>
-                    <li><a onclick="reject('<?php echo $comment['id'];?>')">Reject</a></li>
+          
+                  <span>
+
+                  <div class="input-group input-group-lg approve_action">
+                  <div class="input-group-btn">
+
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Action<span class="fa fa-caret-down"></span></button>
+                 
+                  <ul class="dropdown-menu">
+
+                   <?php if($comment['status'] == 'pending')
+                          {
+                    ?>
+                    <li id="action<?php echo $comment['id'];?>"><a onclick="approve('<?php echo $comment['id'];?>')">Approve</a></li>
+                    <?php 
+                            }//if($comment['status'] == 'pending') end
+                      ?>
+                   
+                    <li><a onclick="reject('<?php echo $comment['id'];?>','<?php echo $comment['blog_id']; ?>')">Reject</a></li>
                   </ul>
                 </div>
+                 <input type="text" id="status<?php echo $comment['id'];?>" class="form-control" value="<?php echo $comment['status']; ?>">
+                 </div>
                 </span>
-            <?php
-                  }//if end
-              ?>
-                      </span><!-- /.username -->
+
+                
+                 <!-- <a onclick="read_more('<?php //echo $blog['id']; ?>','<?php //echo $blog['blog_slug']; ?>')"> Read more <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+</a> -->
+                  </span><!-- /.username -->
                  <?php echo $comment['message']; ?>
                 </div>
                 <!-- /.comment-text -->
@@ -135,6 +146,8 @@ echo $leftmenu;
             </div>
 <?php
       }//for loop end
+    }//if($comment['status'] != 'reject') End
+
 ?>
           </div>
     </div>
@@ -151,202 +164,6 @@ echo $leftmenu;
 <?php echo $footer; ?>
 <!-- Footer End -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
 </body>
 </html>
 
@@ -359,11 +176,11 @@ function approve(comment_id) {
            url: '<?php echo base_url()."blog/approve_comment" ?>',
            data: 'comment_id=' + comment_id,         
            // dataType: "html",
-           success: function (data) {
-               if (data == 1) 
-               {
+           success: function (response) 
+           {
+               
                    $('#action'+comment_id).remove();
-               }
+                   $('#status'+comment_id).val(response);
              
            }
        });
@@ -374,17 +191,15 @@ function approve(comment_id) {
 <!-- THIS SCRIPT IS USED FOR REJECT USER COMMENT START -->
 <script type="text/javascript">
      
-function reject(comment_id) {
+function reject(comment_id,blog_id) {
    $.ajax({
            type: 'POST',
            url: '<?php echo base_url()."blog/reject_comment" ?>',
-           data: 'comment_id=' + comment_id,         
-           success: function (data) {
-               if (data == 1) 
-               {
-                   $('#action'+comment_id).remove();
-               }
-             
+           data: 'comment_id=' + comment_id + '&blog_id=' + blog_id ,         
+           success: function (response) 
+           {
+                   $('#total_comment').html(response);
+                   $('#comment'+comment_id).remove();     
            }
        });
    }

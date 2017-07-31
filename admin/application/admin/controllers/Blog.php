@@ -245,7 +245,14 @@ public function approve_comment()
         );
 
         $update = $this->common->update_data($data, 'blog_comment', 'id', $id);
-        echo 1;
+
+
+    //TO GET STATUS FROM TABLE
+    $condition_array = array('id'=>$id,'status !=' =>'reject');
+    $blog_comment = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
+    
+        $select = $blog_comment[0]['status'];      
+        echo $select;      
         die();
 
 }
@@ -255,13 +262,23 @@ public function approve_comment()
 public function reject_comment() 
 {
     $id = $_POST['comment_id'];
+    $blog_id=$_POST['blog_id'];
 
     $data = array(
             'status' => 'reject'
         );
 
         $update = $this->common->update_data($data, 'blog_comment', 'id', $id);
-        echo 1;
+
+
+    //TO GET TOTAL PENDING COMMENTS FROM TABLE
+    $condition_array = array('blog_id'=>$blog_id,'status !=' =>'reject');
+    $blog_comment = $this->common->select_data_by_condition('blog_comment', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
+                
+        $select = count($blog_comment);
+        $select.= ' comments';
+
+        echo $select;
         die();
 
 }
