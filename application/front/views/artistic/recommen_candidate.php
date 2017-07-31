@@ -138,7 +138,9 @@
   
                                        <div class="inner_search">
                                  
-                               <?php        
+                               <?php 
+
+                               //echo "<pre>"; print_r($artuserdata); die();       
                               foreach ($artuserdata as $key) {
                                 if($key['art_id']){
                               
@@ -153,11 +155,16 @@
                 <?php if($key['art_user_image']){?>
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $key['art_user_image']); ?>" alt=" ">
                <?php }else{?>
-                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucfirst(strtolower($key['art_name']));
-                                       echo"&nbsp;";
-                                       echo ucfirst(strtolower($key['art_lastname']));
-                                       ?>">
+                           
+                                                               <?php  $a = $key['art_name'];
+                                                                $acr = substr($a, 0, 1);
+
+                                                                 $b = $key['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-profile">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div>
                                        <?php }?>
                         </div>
        </div>
@@ -180,24 +187,40 @@
        </li>
        <li style="display: block;">
          <a  class="color-search" href="">
-           <?php
-                  $comma = ", ";
-                  $k = 0;
-                  $aud = $key['art_skill'];
-                  $aud_res = explode(',', $aud);
-                  foreach ($aud_res as $skill) {
-                 if ($k != 0) {
-                 echo $comma;
-                     }
-               $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-               if ($cache_time) {
-               echo $cache_time;
-             } else {
-                echo PROFILENA;
-                }
-                 $k++;
-                }
-               ?>
+           
+
+               <?php
+               //echo "<pre>"; print_r($key['art_skill']);
+$aud = $key['art_skill'];
+$aud_res = explode(',', $aud);
+//echo "<pre>"; print_r($aud_res);
+ $skill1 = array();
+foreach ($aud_res as $skdata) {
+
+    $cache_time = $this->db->get_where('skill', array('skill_id' => $skdata))->row()->skill;
+    $skill1[] = $cache_time;
+}
+
+//echo "<pre>"; print_r($skill1);
+$listFinal = implode(', ', $skill1);
+
+//echo "<pre>"; print_r($aud_res);
+//echo "<pre>"; print_r($key['other_skill']); 
+//echo $listFinal; 
+if($listFinal && $key['other_skill']){ 
+echo $listFinal . ',' . $key['other_skill'];
+}
+elseif(!$listFinal){ 
+
+  echo $key['other_skill'];  
+
+}else if(!$key['other_skill']){
+
+echo $listFinal;  
+}
+
+?>     
+              
          </a>
 
        </li>
@@ -818,7 +841,17 @@ if($artuserdata1){
                                                                         <?php
                                                                     } else {
                                                                         ?>
-                                                                        <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                                <?php 
+
+                                                                $a = $artname;
+                                                                $acr = substr($a, 0, 1);
+
+                                                                 $b = $artlastname;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-profile">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div>
                                                                         <?php
                                                                     }
                                                                     ?>
@@ -933,13 +966,26 @@ if($artuserdata1){
                                         <?php
                                             $userid = $this->session->userdata('aileenuser');
                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+
+                                            $art_name = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_name;
+                                            $art_lastname = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
                                             ?>
                                             <div class="post-design-proo-img">                                                                     <?php if ($art_userimage) { ?>
                                                     <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="No Image">
+                                                     <?php 
+
+                                                                $a = $art_name;
+                                                                $acr = substr($a, 0, 1);
+
+                                                                 $b = $art_lastname;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-profile">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div>
                                                     <?php
                                                 }
                                                 ?>
