@@ -577,7 +577,7 @@ input[type="date"]::-webkit-search-results-decoration {
 fieldset {
     width: 50%;
     float: left;
-    padding: 4px 8px;
+    padding: 6px 8px;
     position: relative;
 }
 fieldset.full-width ul.token-input-list {
@@ -1336,7 +1336,7 @@ ul.dropdown-menu li a i {
 }
 .panel-body label,
 .common-form fieldset label {
-    margin: 0 0 8px;
+    margin: 0 0 3px;
     padding: 0;
     display: block;
 }
@@ -13767,6 +13767,116 @@ bui_images_view_more a:hover {
     text-decoration: underline;
 }
 /***  eduction style  ***/
+/*jon new design*/
+
+.main_raio [type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+.main_raio [type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+.main_raio [type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+.job_reg_main{border: 1px solid #d9d9d9; border-radius: 3px;}
+.job_reg_main form{border-radius: 3px;}
+.job_reg_main h3{    border-bottom: 1px solid #d9d9d9;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 15px 0px;
+    font-size: 24px;
+}
+.job_reg{margin: 15px 0px;}
+.common-form fieldset label#other_skill{font-size: 13px; color: #808080;}
+.common-form fieldset label#other_skill .other_skill_clik{font-weight: 600; color: #1b8ab9;}
+.common-form  fieldset.main_select_data select {
+    
+ 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    background: url(../img/down-arrow.png) no-repeat;
+    background-position: right;
+}
+.login .form-group input, .login .form-group select, .login .form-group textarea {
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 15px;
+    color: #848484;
+    height: 35px;
+    padding-left: 6px;
+}
+.common-form fieldset label#other_skill:hover .other_skill_clik{text-decoration: underline; cursor: pointer; color: #1b8ab9; text-transform: inherit;}
+.job_reg input[type="submit"]{
+    font-size: 17px !important; 
+    height: auto;
+    font-weight: 600;
+    background: -moz-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3bb0ac), color-stop(56%, #1b8ab9), color-stop(100%, #1b8ab9));
+    background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );}
+
+.job_reg input[type="submit"]:hover{background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b8ab9), color-stop(56%, #3bb0ac), color-stop(100%, #3bb0ac)); 
+    background: -webkit-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%); 
+    background: -o-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%);
+    background: -ms-linear-gradient(96deg, #3bb0ac 0%, #3bb0ac 44%, #1b8ab9 100%); 
+    background: linear-gradient(354deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b8ab9', endColorstr='#3bb0ac',GradientType=0 ); 
+}
+.main_raio{display: inline-block;padding: 6px 5px 0px;}
+.main_raio [type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #1b8ab9;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.main_raio [type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.main_raio [type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.job_reg_main h3{background: white;
+    color: #1b8ab9;
+    text-align: center;}
+ .common-form fieldset.fresher_radio label{display: inline-block;}
+ .common-form fieldset.fresher_select select{overflow: hidden;}
 /***  notification hover effect  ***/
 
 .action-button #notification_count {
