@@ -17,7 +17,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+<style type="text/css">
+	.custom-disabled {
+   pointer-events: none;
+   cursor: default;
+}
+</style>
 </head>
 <body class="cover ">
 
@@ -670,7 +675,7 @@
 						</div>
 						<div class="lfar_sl">
 							<a href="#carousel-example-generic" role="button" data-slide="prev"  class="next-btn pull-left abc_left" id="right_img"><img src="slicing/right-arrow.png" ></a>
-							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right"><img src="slicing/img_arrow.png" id="left_img"> </a>
+							<a href="#carousel-example-generic" role="button" data-slide="next"  class="next-btn pull-right" id="left_img"><img src="slicing/img_arrow.png" > </a>
 						</div>
 					</div>
 				</div>	
@@ -1039,13 +1044,38 @@ var currentSlide_width=0;
 
  $('#left_img').click(function (event) 
  {
+
  	event.preventDefault();
+
+//set time out is used for disable and enable arrow for some time
+ 	setTimeout(function(){
+            $('#left_img').addClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 30);
+
+    	setTimeout(function(){
+            $('#left_img').removeClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 2000);
+
+    setTimeout(function(){
+            $('#right_img').addClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 30);
+
+    setTimeout(function(){
+            $('#right_img').removeClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 2000);
+
+
  	$('#right_img').removeClass('abc_left');
  	$('#right_img').addClass('abc_show');
  	
     /*slides[currentSlide].className = 'item';*/
     currentSlide = (currentSlide+1)%slides.length;
     /*slides[currentSlide].className = 'item active';*/
+    
 
     slides1[currentSlide_width].className = 'ld_sl';
     currentSlide_width = (currentSlide_width+1)%slides1.length;
@@ -1055,22 +1085,54 @@ var currentSlide_width=0;
  	{
  		$('#left_img').addClass('abc');
  	}
+
   });
 
   $('#right_img').click(function (event) 
  {
  	event.preventDefault();
  	
+ 	setTimeout(function(){
+            $('#left_img').addClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 30);
+
+    	setTimeout(function(){
+            $('#left_img').removeClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 2000);
+
+ 	setTimeout(function(){
+            $('#right_img').addClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 30);
+
+    setTimeout(function(){
+            $('#right_img').removeClass('custom-disabled');
+            //....and whatever else you need to do
+    }, 2000);
+
     /*slides[currentSlide].className = 'item';*/
     currentSlide = (currentSlide-1)%slides.length;
     /*slides[currentSlide].className = 'item active';*/
+    if(currentSlide == 0)
+    {
+    	$('#right_img').removeClass('abc_show');
+    	$('#right_img').addClass('abc_left');
+    }
 
+    if(currentSlide == 12)
+    {
+    	$('#left_img').removeClass('abc');
+    }
+    
     slides1[currentSlide_width].className = 'ld_sl';
     currentSlide_width = (currentSlide_width-1)%slides1.length;
     slides1[currentSlide_width].className = 'ld_sl sld-width-'+(currentSlide+1);
 	
  	
   });
+ 
 });
 //THIS SCRIPT IS USED FOR CHANGE SLIDE WHILE CLICK ON IMAGE BUTTON END
 	

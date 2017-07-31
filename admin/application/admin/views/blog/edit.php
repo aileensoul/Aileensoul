@@ -77,7 +77,7 @@ echo $leftmenu;
                         <!-- BLOG META DESCRIPTION START -->
                         <div class="form-group col-sm-10">
                             <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
-                             <textarea id="meta_description" name="meta_description" rows="10" cols="80"><?php echo $blog_detail[0]['meta_description'];?>
+                             <textarea id="meta_description" name="meta_description" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" ><?php echo $blog_detail[0]['meta_description'];?>
                              </textarea>
                          <br>
                         </div>
