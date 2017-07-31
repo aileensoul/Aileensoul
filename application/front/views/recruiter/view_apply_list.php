@@ -19,7 +19,7 @@
     <!-- start header -->
 <?php echo $header; ?>
 
-<?php echo $recruiter_header2_border; ?>
+<?php echo $recruiter_header2; ?>
 
     <!-- END HEADER -->
   
@@ -81,7 +81,8 @@ if ($user_data) {
                                                                 <div style="display: inline-block; float: left;">
                                                                      <div  class="buisness-profile-pic-candidate">
 
-                                              <?php
+
+                                                                     <?php
                                                $imageee= $this->config->item('job_profile_thumb_upload_path').$row['job_user_image'];
                                               if(file_exists($imageee) && $row['job_user_image'] != '') { ?>
 
@@ -91,13 +92,22 @@ if ($user_data) {
                                                         }
                                                         else
                                                         {
-                                                          ?>
-                                                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="">
+                                                          
+                                                            $a = $row['fname'];
+                                                             $acr = substr($a, 0, 1);
+
+                                                             $b = $row['lname'];
+                                                             $acr1 = substr($b, 0, 1);
+                                                               ?>
+                                                              <div class="post-img-profile">
+                                                          <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+                                                               </div>
+
+                                                           <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt=""> -->
 
                                                            <?php }
                                                            ?>
-
-
                                                                             </div>
 
                      </div>
@@ -106,7 +116,7 @@ if ($user_data) {
                          <li>
                              <a style="  font-size: 19px;
     font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $row['userid'].'?page=recruiter'); ?>">
-                <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
+                <?php echo ucfirst(strtolower($row['fname'])) . ' ' . ucfirst(strtolower($row['lname'])); ?></a>
                           </li>
                          <li class="show">
                    <a  style="font-size: 19px;" href="javascript: void(0)">
@@ -1057,6 +1067,16 @@ return false;
 
    
 </script>
+
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
 <script type="text/javascript">
 function checkvalue(){
    //alert("hi");
@@ -1071,16 +1091,6 @@ function checkvalue(){
 }
   
 </script>
-
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 <!-- comment like script end -->
 
 <!-- all popup close close using esc start -->

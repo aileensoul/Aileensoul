@@ -512,7 +512,7 @@
 
 
                         <?php } else { ?>
-                            <div class="not_available">  <p>Photos Not Available</p></div>
+                    <!--         <div class="not_available">  <p>Photos Not Available</p></div> -->
 
                         <?php } ?>
                         <div class="dataconphoto"></div>
@@ -620,7 +620,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                <div class="not_available">  <p> Video Not Available</p></div>
+                               <!--  <div class="not_available">  <p> Video Not Available</p></div> -->
                             <?php } ?>
                             <div class="dataconvideo"></div>
                         </table>
@@ -730,7 +730,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                <div class="not_available">  <p>  Audio Not Available</p> </div>
+                             <!--    <div class="not_available">  <p>  Audio Not Available</p> </div> -->
                             <?php } ?>
                             <div class="dataconaudio"></div>
                         </table>
@@ -800,8 +800,8 @@
                                 ?>
 
                             <?php }else { ?>
-                                <div class="not_available">  <p>    Pdf Not Available</p>
-                                </div>
+                               <!--  <div class="not_available">  <p>    Pdf Not Available</p>
+                                </div> -->
                             <?php } ?>
 
                             <div class="dataconpdf"></div>
@@ -1251,7 +1251,7 @@ $loginuser = $userdata[0]['art_id'];
 
                                                             <!-- one image start -->
                                                              <div class="one-image">
-                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_thumb_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
+                                                                <a href="<?php echo base_url('artistic/postnewpage/' . $row['art_post_id']) ?>"><img src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $artmultiimage[0]['image_name']) ?>" > </a>
 
                                            
                                                             </div>

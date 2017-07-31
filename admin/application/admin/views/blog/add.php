@@ -75,7 +75,9 @@ echo $leftmenu;
                         <!-- BLOG DESCRIPTION START -->
                         <div class="form-group col-sm-10">
                             <label for="blogdescription" name="blogdescription" id="blogdescription">Description *</label>
-                            <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
+                            <textarea id="description" name="description" rows="10" cols="80">
+                             </textarea>
+                          <!--   <?php //echo form_textarea(array('name' => 'description', 'id' => 'description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?> --><br>
                         </div>
                         <!-- BLOG DESCRIPTION END -->
                        
@@ -171,15 +173,6 @@ echo $leftmenu;
 
 </script>
 
-<script>
-    $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        //   CKEDITOR.replace('editor1');
-        //bootstrap WYSIHTML5 - text editor
-        $(".textarea1").wysihtml5();
-    });
-</script>
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
         $('.callout-danger').delay(3000).hide('700');
@@ -194,3 +187,55 @@ echo $leftmenu;
         pickerPosition: "bottom-left"
     });
 </script> 
+
+<!-- SCRIPT FOR CKEDITOR START-->
+<script type="text/javascript">   
+  var roxyFileman = '<?php echo SITEURL.'uploads/upload.php'; ?>' ; 
+   CKEDITOR.replace( 'description',{
+                                filebrowserBrowseUrl : roxyFileman,
+                                filebrowserUploadUrl : roxyFileman,
+                                filebrowserImageBrowseUrl : roxyFileman+'?type=image',
+                                filebrowserImageUploadUrl : roxyFileman,
+                                extraAllowedContent:  'img[alt,border,width,height,align,vspace,hspace,!src];' ,
+                                removeDialogTabs: 'link:upload;image:upload'}); 
+CKEDITOR.config.allowedContent = true;
+CKEDITOR.on('instanceReady', function(ev) {
+    // Ends self closing tags the HTML4 way, like <br>.
+    ev.editor.dataProcessor.htmlFilter.addRules({
+        elements: {
+            $: function(element) {
+                // Output dimensions of images as width and height
+                if (element.name == 'img') {
+                    var style = element.attributes.style;
+                    if (style) {
+                        // Get the width from the style.
+                        var match = /(?:^|\s)width\s*:\s*(\d+)px/i.exec(style),
+                            width = match && match[1];
+                        // Get the height from the style.
+                        match = /(?:^|\s)height\s*:\s*(\d+)px/i.exec(style);
+                        var height = match && match[1];
+                        // Get the float from the style.
+                        match = /(?:^|\s)float\s*:\s*(\w+)/i.exec(style);
+                        var float = match && match[1];
+                        if (width) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)width\s*:\s*(\d+)px;?/i, '');
+                            element.attributes.width = width;
+                        }
+                        if (height) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)height\s*:\s*(\d+)px;?/i, '');
+                            element.attributes.height = height;
+                        }
+                        if (float) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)float\s*:\s*(\w+)/i, '');
+                            element.attributes.align = float;
+                        }
+                    }
+                }
+                if (!element.attributes.style) delete element.attributes.style;
+                return element;
+            }
+        }
+    });
+});     
+</script>
+<!-- SCRIPT FOR CKEDITOR END-->

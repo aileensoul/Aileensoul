@@ -80,7 +80,7 @@
                                    <span style="color:#7f7f7e;padding-left: 8px;">( </span><span style="color:red">*</span><span style="color:#7f7f7e"> )</span> <span style="color:#7f7f7e">Indicates required field </span>
                                 </div> -->
 
-                   <!-- <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div> -->
+                   <div> <span class="required_field" >( <span class="red">*</span> ) Indicates required field</span></div>
                      
 
                     <?php
@@ -443,7 +443,7 @@ $(document).ready(function(){
 
 </script>
 
-<script>
+ <script>
 
                                         var data1 = <?php echo json_encode($city_data); ?>;
 
@@ -505,6 +505,16 @@ $(document).ready(function(){
 
 
 <script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
+
+<script type="text/javascript">
 function checkvalue(){
    //alert("hi");
   var searchkeyword=$.trim(document.getElementById('tags').value);
@@ -518,16 +528,6 @@ function checkvalue(){
 }
   
 </script>
-
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 <script type="text/javascript"> 
  $(".alert").delay(3200).fadeOut(300);
 </script>

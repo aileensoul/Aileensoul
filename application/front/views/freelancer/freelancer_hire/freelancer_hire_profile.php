@@ -106,7 +106,7 @@
 
     <div class="container tablate-container  art-profile">    
   
-      <?php if($returnpage == ''){ ?>
+      <?php if($returnpage == '' && $freelancerhiredata[0]['user_id'] == $userid){ ?>
         <div class="upload-img">
         <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
             <input type="file" id="upload" name="upload" accept="image/*;capture=camera" onclick="showDiv()">
@@ -126,7 +126,7 @@
                             <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
                             <?php } ?>
                             <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
-                            <?php if($returnpage == ''){ ?>
+                            <?php if($returnpage == ''&& $freelancerhiredata[0]['user_id'] == $userid){ ?>
                             <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                             <?php }?>
                         </div>
@@ -150,7 +150,7 @@
 
                      <?php
                      
-                     if($returnpage == ''){
+                     if($returnpage == '' && $freelancerhiredata[0]['user_id'] == $userid){
                      if($freelancerhiredata[0]['designation'] == '')
                      {
                      ?>
@@ -250,7 +250,7 @@
 
                      <?php
                      
-                     if($returnpage == ''){
+                     if($returnpage == ''&& $freelancerhiredata[0]['user_id'] == $userid){
                      if($freelancerhiredata[0]['designation'] == '')
                      {
                      ?>

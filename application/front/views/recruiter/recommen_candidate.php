@@ -32,13 +32,13 @@
                  aria-hidden="true" rel="noopener">
                
                 <?php
-
-                $image_ori = $this->config->item('rec_bg_thumb_upload_path').$recruiterdata1[0]['profile_background'];
+                  $image_ori = $this->config->item('rec_bg_thumb_upload_path').$recruiterdata1[0]['profile_background'];
                
                 if ($recruiterdata1[0]['profile_background'] != '' && file_exists($image_ori)) {
                                                                        ?>
+                                                                                              
                    <!-- box image start -->
-               <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path'). $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+               <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path') . $recruiterdata1[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
                     <!-- box image end -->
                          <?php
                    } else {
@@ -55,35 +55,43 @@
                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
 //echo "<pre>"; print_r($recruiterdata1); die();
-                                                  $image_profile = $this->config->item('rec_profile_thumb_upload_path').$recruiterdata1[0]['recruiter_user_image'];
+                                                $image_profile = $this->config->item('rec_profile_thumb_upload_path').$recruiterdata1[0]['recruiter_user_image'];
 
                                                 if ($recruiterdata1[0]['recruiter_user_image'] != '' && file_exists($image_profile)) {
-                                                   
                                                     ?>
                        <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recruiterdata1[0]['recruiter_user_image']); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>" >
                                    <?php
                               } else {
-                               
-                           ?>
+                           
 
-                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>">
+   $a = $recruiterdata1[0]['rec_firstname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $recruiterdata1[0]['rec_lastname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+                       
+                      <!--  <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $recruiterdata1[0]['rec_firstname'] . ' ' . $recruiterdata1[0]['rec_lastname']; ?>"> -->
                             <?php
                                    }
                              ?>
                                             </a>
                                     </div>
                                     <div class="right_left_box_design ">
-
                                      <span class="profile-company-name ">
-                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo ucwords($recruiterdata1['rec_firstname']) . ' ' . ucwords($recruiterdata1['rec_lastname']); ?>">   <?php echo ucwords($recruiterdata1[0]['rec_firstname']) . ' ' . ucwords($recruiterdata1[0]['rec_lastname']); ?></a>
+                                                <a href="<?php echo site_url('recruiter/rec_profile'); ?>" title="<?php echo ucfirst(strtolower($recruiterdata1['rec_firstname'])) . ' ' . ucfirst(strtolower($recruiterdata1['rec_lastname'])); ?>">   <?php echo ucfirst(strtolower($recruiterdata1[0]['rec_firstname'])) . ' ' . ucfirst(strtolower($recruiterdata1[0]['rec_lastname'])); ?></a>
                                             </span>
 
                                                   <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
+                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucfirst(strtolower($recruiterdata1[0]['designation'])); ?>">
                                                     <?php
-                                                    if (ucwords($recruiterdata1[0]['designation'])) {
-                                                        echo ucwords($recruiterdata1[0]['designation']);
+                                                    if (ucfirst(strtolower($recruiterdata1[0]['designation']))) {
+                                                        echo ucfirst(strtolower($recruiterdata1[0]['designation']));
                                                     } else {
                                                         echo "Designation";
                                                     }
@@ -104,7 +112,7 @@
     </div>
     <?php
 
-    if(($candidatejob != NULL) || ($recruiterdata != NULL))  { ?>
+     if (($candidatejob != NULL) || ($recruiterdata != NULL)) { ?>
                         <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div> <?php } ?>
@@ -118,9 +126,7 @@
                         <div class="common-form ">
                             <div class="job-saved-box">
 <?php
-
-    if(($candidatejob != NULL) || ($recruiterdata != NULL))  { ?>
-                             
+                             if (($candidatejob != NULL) || ($recruiterdata != NULL)) { ?>
                                 <h3>
                                    Recommended Candidate
                                 </h3>
@@ -152,10 +158,11 @@
           <div style="display: inline-block; float: left;">
              <div  class="buisness-profile-pic-candidate">
                <?php
+
                 $imagee = $this->config->item('job_profile_thumb_upload_path').$row['job_user_image'];
 
-
                if (file_exists($imagee) && $row['job_user_image'] != '') {
+                
                 
                ?>
            <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
@@ -163,9 +170,22 @@
             </a>
              <?php
             } else {
+            
+
+              $a = $row['fname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $row['lname'];
+               $acr1 = substr($b, 0, 1);
               ?>
-              <a href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>"> 
-           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>"> </a>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+           <!--    <a href="<?php //echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php //echo $row['fname'] . ' ' . $row['lname']; ?>"> 
+           <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $row[0]['fname'] . ' ' . $row[0]['lname']; ?>"> </a>
+
+            -->
              <?php
                 }
                ?>
@@ -176,7 +196,7 @@
           <ul>
        <li>
       <a  class="post_name" href="<?php echo base_url('job/job_printpreview/' . $row['iduser'].'?page=recruiter'); ?>" title=" <?php echo $row['fname'] . ' ' . $row['lname']; ?>">
-       <?php echo ucwords($row['fname']) . ' ' . ucwords($row['lname']); ?></a>
+       <?php echo ucfirst(strtolower($row['fname'])) . ' ' . ucfirst(strtolower($row['lname'])); ?></a>
       </li>
       
       <li style="display: block;">
@@ -312,29 +332,19 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                  $month = explode(' ', $total_work_year);
                                                 $year=$month[0];
 
-                                              $y=0;
-                                                for($i=0;$i<=$y;$i++)
-                                                {
-                                                   if($total_work_month >= 12)
-                                                   {
-                                                      $year=$year + 1;
-                                                      $total_work_month = $total_work_month - 12;
-                                                      $y++;
-                                               
-                                                   }
-                                                   else
-                                                   {
-                                                      $y=0;
-                                                   }
-                                                }  
-
-                                                   echo $year; echo "&nbsp"; echo "Year";
-                                                 echo "&nbsp";
-                                                 if($total_work_month != 0)
-                                                 {
-                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                $years=$year + 1;
+                                                $total_work_month = $total_work_month - 12;
+                                                if ($total_work_month == 0) {
+                                                echo $years." Years"; 
+                                                  
                                                 }
+                                                else
+                                                {
+                                               echo $years; echo "&nbsp"; echo "Year";
+            echo "&nbsp";
+            echo $total_work_month; echo "&nbsp"; echo "Month";
 
+                                                }
             }
             else{
                 echo $total_work_year; echo "&nbsp"; echo "Year";
@@ -693,7 +703,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                 </div>
                                                 <?php
                                             }
-                                       // } 
+                                        //} 
                                       }elseif($recruiterdata == NULL) {
                                             ?>
                                             <div class="text-center rio">
@@ -818,8 +828,8 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                                 });
                                                             });
                     </script>
-                    
-                                     <script>
+
+                     <script>
                                                             var data = <?php echo json_encode($demo); ?>;
 //alert(data);
                                                             $(function () {
@@ -874,6 +884,8 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                                                 });
                                                             });
                     </script>
+                   
+                    
                     <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");

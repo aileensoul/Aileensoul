@@ -766,7 +766,7 @@ font-size: 20px;
 padding: 16px 0;
 text-align: center;
 text-transform: uppercase;
-line-height: 2;}
+line-height: 1;}
 .left_side_box_img {
     float: left;
 }
@@ -4268,7 +4268,7 @@ display: inline-block;
     display: -webkit-box;
     max-width: 100%;
     margin: 0 auto;
-    line-height: 1;
+    line-height: 1.2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -6800,7 +6800,7 @@ padding: 8px 7px;
 }
 .post-design-name_follow ul li a p {
     color: #999999;
-    font-size: 13px;
+    font-size: 12px;
 }
 .full-box-module_follow {
     border: 1px solid #d9d9d9;
@@ -6927,7 +6927,9 @@ padding: 8px 7px;
     padding-bottom: 12px;
     word-wrap: break-word;
     word-wrap: break-word;
+    font-size: 14px;
 }
+.user_lst li .follow-li-text a:hover{color: #1b8ab9!important;}
 .post_img_mul {
     position: relative;
 }
@@ -9074,7 +9076,7 @@ fieldset .add_post_btns {
     color: #1b8ab9!important;
 }
 .user_lst li .follow-li-text a:hover {
-    color: #000!important;
+    color: #136386!important;
 }
 .logo a:focus {
     outline: none !important;
@@ -10050,6 +10052,7 @@ fieldset .add_post_btns:hover {
     text-overflow: ellipsis;
     font-size: 14px;
     color: #777;
+	max-height:24px;
 }
 .data_noti_msg {
     font-size: 12px;
@@ -10854,6 +10857,7 @@ text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+	line-height:23px;
 }
 .main_btn {
     padding: 10px;
@@ -14672,11 +14676,16 @@ div .comment {
 #set_input .input-group-btn .btn{border-radius:3px;}
 .chat .post-img-div{float:left;}
 .chat_nobcx .post-img-div{float:left;}
-.people-list .about{width:77%;}
+.people-list .about{width:76%;}
 
 .ui-autocomplete {
     max-width: 300px!important;
 }
+
+
+#basicinfo .day{width:32%;}
+#basicinfo .month{width:32%;}
+#basicinfo .year{width:33%;}
 /***  media query  ***/
 
 @media (min-width: 1400px) {

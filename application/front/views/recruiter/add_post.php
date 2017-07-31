@@ -68,13 +68,13 @@
 </style>
 <!-- css for date picker end-->
 
-
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+ <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
+
 
    <!-- This Css is used for call popup -->
    <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -87,13 +87,7 @@
 <!-- END HEADER -->
 <?php echo $recruiter_header2_border; ?>
 <!-- style for span id=notification_count start-->
-<body >
-<!--     <section class="buttonset">
-        <div id="nav_list"></div>
-    </section> -->
-
-    <!-- header end -->
-
+<body>
 
     <section>
 
@@ -122,44 +116,51 @@
                             <div class="job-saved-box">
                                 <h3>Add New Post</h3>
 
-<?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
+                               <?php echo form_open(base_url('recruiter/add_post_store'), array('id' => 'artpost', 'name' => 'artpost', 'class' => 'clearfix form_addedit', 'onsubmit' => "return imgval()")); ?>
 
 
-                          <!-- <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div> -->
+                          <div> <span class="required_field" >( <span style="color: red">*</span> ) Indicates required field</span></div>
                                 <?php
                                 $postname = form_error('postname');
-                                $skills = form_error('skills');
+                                $skills1 = form_error('skills1');
                                 $description = form_error('description');
                                 $postattach = form_error('postattach');
+                                $degree1 = form_error('education1');
+
+
                                 ?>
                                 <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
-                                    <label class="control-label">Post Title<span style="color:red">*</span>:</label>
+                                    <label class="control-label">Post Title:<span style="color:red">*</span></label>
                                     <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>
                                 </fieldset>
 
-                                <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
+                            
+                                  <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills<span style="color:red">*</span>:</label>
 
-                                    <select class="skill_other" name="skills[]" tabindex="2" id="skills" multiple="multiple">
+                                    <select class="skill_other full-width" name="skills[]" tabindex="2" id="skills" multiple="multiple">
+
+                                      <option></option>
+
+                                 <?php foreach ($skill as $ski) { ?>
+                                  <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
+                                 <?php } ?>
                                     </select> 
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
+                                 
                                 
-
-                               <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
+                                <fieldset class="full-width" <?php if ($other_skill) { ?> class="error-msg" <?php } ?> >
                                     <label class="control-label">Other Skill:<!-- <span style="color:red">*</span> --></label>
                                     <input name="other_skill" type="text" class="skill_other" tabindex="3" id="other_skill" placeholder="Enter Your Skill" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('other_skill'); ?>
                                 </fieldset>
-
-
-
-
+                                <!--  </div> -->
                                       <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">No of Position<span style="color:red">*</span> :</label>
+                                    <label class="control-label">No of Position:<span style="color:red">*</span> </label>
                                     <input name="position_no" type="text"  id="position" value="1" tabindex="4" placeholder="Enter No of Candidate"/>
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('position'); ?>        
@@ -168,13 +169,13 @@
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                 
-                                <label style="cursor:pointer;" class="control-label">Minimum experience<span style="color:red">*</span>:</label>
+                                <label style="cursor:pointer;" class="control-label">Minimum experience:<span style="color:red">*</span></label>
 
 
                             <select name="minyear" style="cursor:pointer;" class="keyskil" id="minyear" tabindex="5">
                                         <option value="" selected option disabled>Year</option>
                                         
-                                       <option value="0">0 Year</option>
+                                         <option value="0">0 Year</option>
                                         <option value="0.5">0.5 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="1.5">1.5 Year</option>
@@ -199,7 +200,7 @@
                                         <option value="19">19 Year</option>
                                         <option value="20">20 Year</option>
                                     </select>
-                                    
+                   
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
@@ -207,12 +208,12 @@
 
 
                                 <fieldset <?php if ($month) { ?> class="error-msg" <?php } ?> class="two-select-box1">
-                                    <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience<span style="color:red">*</span>:</label>
+                                    <label style="cursor:pointer;" class="control-label">&nbsp;Maximum experience:<span style="color:red">*</span></label>
 
 
                                       <select tabindex="7" name="maxyear" style="cursor:pointer;" class="keyskil1" id="maxyear">
                                         <option value="" selected option disabled>Year</option>
-                                       <option value="0">0 Year</option>
+                                         <option value="0">0 Year</option>
                                         <option value="0.5">0.5 Year</option>
                                         <option value="1">1 Year</option>
                                         <option value="1.5">1.5 Year</option>
@@ -238,10 +239,6 @@
                                         <option value="20">20 Year </option>
                                     </select>
 
-                                      
-
-
-
                                    <span id="fullname-error"></span>
                                     <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
@@ -250,38 +247,89 @@
                                     <input  type="checkbox" tabindex="9" name="fresher" value="1"> Fresher can also apply..!
                                 </fieldset>
 
-                          
-                                <fieldset class="form-group full-width">
-                                    <label class="control-label">Job description<span style="color:red">*</span>:</label>
+                                <fieldset class="" <?php if($industry) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                             <label>Industry:<span style="color:red">*</span></label>
+                            <select name="industry" id="industry" tabindex="18">
+
+                               <option value="" selected option disabled>Select Industry</option>
+                                 
+                            <?php foreach($industry as $indu){ ?>
+                             <option value="<?php echo $indu['industry_id']; ?>"><?php echo $indu['industry_name']; ?></option>
+                             <?php } ?>
+
+                           <option value="<?php echo $industry_otherdata[0]['industry_id']; ?> "><?php echo $industry_otherdata[0]['industry_name']; ?></option>    
+                             </select>
+
+          
+                             <?php echo form_error('industry'); ?>
+                             </fieldset>
 
 
-                                    <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
+                               <fieldset <?php if ($emp_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
+                                
+                                <label style="cursor:pointer;" class="control-label">Employment Type:</label>
 
 
-                                   <!--   <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="post_desc" id="post_desc" rows="4" cols="50" placeholder="Enter Job Description"></div>
- -->
+                                   <select name="emp_type" style="cursor:pointer;" class="keyskil" id="emp_type">
+                                        <option value="" selected option disabled>Emplyment Type</option>
+                                        <option value="Part Time">Part Time</option>
+                                        <option value="Full Time">Full Time</option>
+                                        <option value="Internship">Internship</option>
+                                    </select>
+                                    
+                         
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('emp_type'); ?> &nbsp;&nbsp; <?php echo form_error('emp_type'); ?>
 
-
-                                    <?php echo form_error('post_desc'); ?>
                                 </fieldset>
 
 
+                             <fieldset id="erroe_nn" <?php if ($degree1) { ?> class="error-msg" <?php } ?>>
+                                    <label>Education:</label> 
+
+                                  <select name="education[]" id ="education" multiple="multiple" style="width: 100%"  tabindex="8">
+                                  <option></option>
+
+                                 <?php foreach ($degree as $deg) { ?>
+                                  <option value="<?php echo $deg['degree_id']; ?>"><?php echo $deg['degree_name']; ?></option>
+                                 <?php } ?>
+                                 </select>
+                                <?php echo form_error('education'); ?>
+
+                                 </fieldset>
+
+
+                                <fieldset>
+                                    <label class="control-label">Other Education:</label>
+                                    <input name="other_education" type="text" id="other_education"  placeholder="Enter Other Education" /><span id="fullname-error"></span>
+                                <?php echo form_error('other_education'); ?>
+                                </fieldset>
+                                
+                       
+
+                            
+                          
+                                <fieldset class="form-group full-width">
+                                    <label class="control-label">Job description:<span style="color:red">*</span></label>
+
+
+                                 <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
+
+                                <?php echo form_error('post_desc'); ?>
+                                </fieldset>
 
                                 <fieldset class="form-group full-width">
                                     <label class="control-label">Interview process:<!-- <span style="color:red">*</span> --></label>
 
 
 
-                                    <textarea name="interview" id="interview" rows="4" tabindex="11" cols="50"  placeholder="Enter Interview Process" style="resize: none;"></textarea>
+                                <textarea name="interview" id="interview" rows="4" tabindex="11" cols="50"  placeholder="Enter Interview Process" style="resize: none;"></textarea>
 
-                                   <!--  <div tabindex="2" style="min-height: 100px;"  class="editable_text"  contenteditable="true" name ="interview" id="interview" rows="4" cols="50" placeholder="Interview process"></div> -->
-
-
-                                    <?php echo form_error('interview'); ?> 
+                                  <?php echo form_error('interview'); ?> 
                                 </fieldset>
 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
-                                    <label >Country<span style="color:red">*</span>:</label>
+                                    <label >Country:<span style="color:red">*</span></label>
                                     <select style="cursor:pointer;" name="country" id="country" tabindex="12">
                                        <option value="" selected option disabled>Select Country</option>
                                         <?php
@@ -293,15 +341,15 @@
                                         }
                                         ?>
                                     </select> 
-<?php echo form_error('country'); ?>
+                                    <?php echo form_error('country'); ?>
                                 </fieldset>
 
                                 <fieldset <?php if ($state) { ?> class="error-msg" <?php } ?>>
-                                    <label>State<span style="color:red">*</span>:</label>
+                                    <label>State:<span style="color:red">*</span></label>
                                     <select style="cursor:pointer;" name="state" id="state" tabindex="13">
                                         <option value="">Select country first</option>
                                     </select>
-<?php echo form_error('state'); ?> 
+                                    <?php echo form_error('state'); ?> 
                                 </fieldset>
 
                                 <fieldset <?php if ($city) { ?> class="error-msg" <?php } ?>>
@@ -313,29 +361,27 @@
                                 </fieldset>
 
                            <fieldset class="form-group">
-                                    <label class="control-label">Last date for apply<span style="color:red">*</span>:</label>
+                                    <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
 
                                     <input type="hidden" id="example2">
-
-                                    <!-- <input type="text" name="last_date"  id="datepicker" value=""  tabindex="15" placeholder="dd-mm-yyyy"  autocomplete="off"> -->
-                                      
+ 
                                     <?php echo form_error('last_date'); ?> 
                                 </fieldset>
 
-                                <fieldset class="col-md-4 pad_left" <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
-                                    <label class="control-label">Min salary:(Per Year) </label>
+                                <fieldset class=" " <?php if ($minsal) { ?> class="error-msg" <?php } ?>>
+                                    <label class="control-label">Min salary:</label>
                                     <input name="minsal" type="text" id="minsal" placeholder="Enter Minimum salary" tabindex="16" /><span id="fullname-error"></span>
-<?php echo form_error('minsal'); ?>
+                                    <?php echo form_error('minsal'); ?>
                                 </fieldset>
 
-                                <fieldset class="col-md-4" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
-                                    <label class="control-label">Max salary:(Per Year)</label>
+                                <fieldset class="" <?php if ($maxsal) { ?> class="error-msg " <?php } ?>>
+                                    <label class="control-label">Max salary:</label>
                                     <input name="maxsal" type="text" id="maxsal" tabindex="17" placeholder="Enter Maximum salary" /><span id="fullname-error"></span>
-<?php echo form_error('maxsal'); ?>
+                                    <?php echo form_error('maxsal'); ?>
                                 </fieldset>
 
-                                 <fieldset class="col-md-4 pad_right" <?php if($csurrency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
-                     <label>Currency:</label>
+                                 <fieldset class="" <?php if($currency) {  ?> class="error-msg" <?php } ?> class="two-select-box"> 
+                               <label>Currency:</label>
                             <select name="currency" id="currency" tabindex="18">
 
                                <option value="" selected option disabled>Select Currency</option>
@@ -347,7 +393,28 @@
 
           
                              <?php echo form_error('currency'); ?>
-</fieldset>
+                           </fieldset>
+
+
+                                <fieldset <?php if ($salary_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
+                                
+                                <label style="cursor:pointer;" class="control-label">Salary Type:</label>
+
+
+                                   <select name="salary_type" style="cursor:pointer;" class="keyskil" id="salary_type">
+                                        <option value="" selected option disabled>Salary Type</option>
+                                        <option value="Per Year"> Per Year</option>
+                                        <option value="Per Month">Per Month</option>
+                                        <option value="Per Week">Per Week</option>
+                                        <option value="Per Day">Per Day</option>
+
+                                    </select>
+                                    
+                         
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('salary_type'); ?> &nbsp;&nbsp; <?php echo form_error('salary_type'); ?>
+
+                                </fieldset>
 
                                 <input type="hidden" id="tagSelect" tabindex="19" value="brown,red,green" style="width:300px;" />
 
@@ -366,11 +433,7 @@
 
                                 
                                   <input type="submit" id="submit" class="add_post_btns" tabindex="20" name="submit" value="Post">
-                                    <!--<input type="reset" >-->
                                    
-                                    <!--<input type="submit" id="Cancel" name="cancel" value="Cancel">-->
-                                    
-
                                 </fieldset>
 
                             </div>      
@@ -408,10 +471,6 @@
 
 </html>
 
-
-
-
-
 <script>
 
 </script>
@@ -424,10 +483,11 @@
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+<script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 
 <script type="text/javascript">
   
@@ -441,8 +501,6 @@ function imgval(){
   
   $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
   }
-
- 
 
 </script>
 <script type="text/javascript">
@@ -556,21 +614,6 @@ else
 
 
 
-
-
-// function fnc(value, min, max) 
-// {
-//     if(parseInt(value) < 0 || isNaN(value)) 
-//         return 0; 
-//     else if(parseInt(value) > 100) 
-//         return "Number is greater than 100"; 
-//     else return value;
-// }
-
-
-
-
-
 // for date validtaion start
 
 jQuery.validator.addMethod("isValid", function (value, element) {
@@ -589,7 +632,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = dd+'/'+mm+'/'+yyyy;
+   var todaydate = day+'/'+month+'/'+year;
 
    var lastDate = $("input[name=last_date]").val();
     //alert(lastDate); alert(todaydate);
@@ -645,14 +688,13 @@ if(mm<10) {
 
                          minyear: {
                             
-                         
-                          required:true 
+                         required: true
                         }, 
-                        
+                       
                          post_desc: {
 
                             required: true,
-                          
+                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                            
                         },
                          country: {
@@ -667,12 +709,23 @@ if(mm<10) {
                         },
                         maxyear: {
                             
-                         
-                          greaterThan1: "#minyear",
-                          required:true 
+                          required: true,
+                          greaterThan1: "#minyear"
+                          //required:true 
                         }, 
 
-                     
+                         emp_type: {
+                            
+                          required: true
+                          
+                          
+                        }, 
+                        industry: {
+                            
+                          required: true
+                          
+                          
+                        }, 
                         last_date: {
                             
                             required: true,
@@ -683,24 +736,15 @@ if(mm<10) {
                             number:true,
                             maxlength:11
 
-
-                           // le:"#maxsal"
                         },
                         maxsal:{
-                            // required: function(element){
-                            // return $("#minsal").val().length > 0;
-                            // },
+                            
                              number:true,
                               min: 0,
                              greaterThan: "#minsal",
                             maxlength:11
                         },
-                        // position_no:{
-                        //     required:true
-                        // },
-                      
-
-
+                       
                      },
 
                     messages: {
@@ -724,9 +768,9 @@ if(mm<10) {
                         },
                         minyear: {
 
-                             required: "Minimum Experience Is Required"
+                             required:  "Minimum Experience is Required"
                         },
-                      
+                       
                          post_desc: {
 
                             required: "Post Description Is Required"
@@ -744,7 +788,21 @@ if(mm<10) {
                         },
                         maxyear: {
 
-                            required: "Maximum Experience Is Required"
+                            required: "Maximum Experience is Required"
+                            // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
+
+                        },
+
+                         industry: {
+
+                            required: "Industry is Required"
+                            // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
+
+                        },
+
+                        emp_type: {
+
+                            required: "Employment Type is Required"
                             // greaterThan1:"Maximum Year Experience should be grater than Minimum Year"
 
                         },
@@ -753,9 +811,7 @@ if(mm<10) {
 
                             required: "Last Date for apply required"
                         },
-                        // minsal:{
-                        //     le:"Minimum salary should be less than Maximum salary"
-                        // },
+                       
                         maxsal:{
                             greaterThan:"Maximum salary should be grater than Minimum salary"
                         },
@@ -771,9 +827,6 @@ if(mm<10) {
   </script>
 
    <!-- popup form edit start -->
-
-
-
 
 <script>
 
@@ -839,7 +892,6 @@ if(mm<10) {
 
 </script>
 
-
 <script>
 
    var data = <?php echo json_encode($demo); ?>;
@@ -904,6 +956,16 @@ if(mm<10) {
 
 </script>
 
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
+
 
 <script type="text/javascript">
     function checkvalue() {
@@ -937,44 +999,32 @@ if(mm<10) {
     function leave_page(clicked_id)
 {
 
-
+//alert(clicked_id);
  
  var post_name = document.getElementById('post_name').value;
- 
  var skills = document.getElementById('skills').value;
- 
  var other_skill = document.getElementById('other_skill').value;
-
- var maxyear = document.getElementById('maxyear').value;
-
-
  var minyear = document.getElementById('minyear').value;
- 
+ var minmonth = document.getElementById('minmonth').value;
+ var maxyear = document.getElementById('maxyear').value;
+ var maxmonth = document.getElementById('maxmonth').value;
  var post_desc = document.getElementById('post_desc').value;
- 
  var interview = document.getElementById('interview').value;
-  
  var country = document.getElementById('country').value;
-  
  var state = document.getElementById('state').value;
- 
  var city = document.getElementById('city').value;
- 
  var datepicker = document.getElementById('example2').value;
- 
  var minsal = document.getElementById('minsal').value;
- 
  var maxsal = document.getElementById('maxsal').value;
-
  var currency = document.getElementById('currency').value;
  
     var searchkeyword =$.trim(document.getElementById('tags').value);
-    var searchplace =$.trim(document.getElementById('searchplace').value);
+        var searchplace =$.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
        
-       
- if(post_name=="" && skills=="" && other_skill==""  && maxyear=="" && minyear=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
+ if(post_name=="" && skills=="" && other_skill=="" && minyear=="" && minmonth=="" && maxyear=="" && maxmonth=="" && post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
-    //alert(11);
+    
     if(clicked_id==1)
     {
             location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
@@ -1017,12 +1067,8 @@ if(mm<10) {
     }
      if(clicked_id==5)
     {
-
-    
-
-           //  location.href = 'javascript:void(0);'
         document.getElementById('acon').style.display = 'block';
-
+          
     }
        if(clicked_id==6)
     {
@@ -1052,9 +1098,6 @@ if(mm<10) {
  }
 
     }
-
-
-
       function home(clicked_id,searchkeyword,searchplace) {
   
                               
@@ -1063,12 +1106,9 @@ if(mm<10) {
 
  }
 
-
  function home_profile(clicked_id,searchkeyword,searchplace){
   
   var  url,data;
-
- // alert(data);   
   
   
 if (clicked_id == 4) {
@@ -1122,10 +1162,9 @@ if (clicked_id == 4) {
                                 
                             }
                              else if(clicked_id==5)
-                            { 
-                              //  window.location= "<?php //echo base_url('dashboard') ?>"; 
-                             // $( "#acon" ).show();
-                               document.getElementById('acon').style.display = 'block';
+                            {
+        document.getElementById('acon').style.display = 'block';
+                               
                             }
                              else if(clicked_id==6)
                             {
@@ -1156,18 +1195,6 @@ if (clicked_id == 4) {
  //Leave Page on add and edit post page End
 
 </script>
-
-
-
-                    <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 
 
 
@@ -1205,35 +1232,6 @@ if (clicked_id == 4) {
 <!-- popup form edit END -->
 <!-- auto search skills start -->
 <script>
-
-
-    $('#skills').select2({
-
-        placeholder: 'Enter the skills you want',
-
-        ajax: {
-
-            url: "<?php echo base_url(); ?>recruiter/keyskill",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-                    //alert(data);
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    }).select2('data', PRESELECTED_FRUITS);
-
-//select2 autocomplete End for skill
-
     function checkvalue(val)
     {
 
@@ -1252,12 +1250,7 @@ if (clicked_id == 4) {
 
     }
 
-
-
-
-
 </script>
-
 
 <!-- footer end
 
@@ -1372,68 +1365,6 @@ if (clicked_id == 4) {
 </script>
 
 
-<!-- <script type="text/javascript">
-//select2 autocomplete start for skill
-    $('#searchskills').select2({
-
-        placeholder: 'Find Your Skills',
-
-        ajax: {
-
-            url: "<?php echo base_url(); ?>recruiter/keyskill",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-                    //alert(data);
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-//select2 autocomplete End for skill
-
-//select2 autocomplete start for Location
-    $('#searchplace').select2({
-
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax: {
-
-            url: "<?php echo base_url(); ?>recruiter/location",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-                    //alert(data);
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-//select2 autocomplete End for Location
-</script>
- -->
-<script type="text/javascript">
-
-
- </script>
-
-
 <style type="text/css">
  
 .keyskill_border_active {
@@ -1443,19 +1374,63 @@ if (clicked_id == 4) {
 #skills-error{margin-top: 40px !important;}
 
 #minmonth-error{    margin-top: 40px; margin-right: 9px;}
-#minyear-error{margin-top: 42px !important;margin-right: 0px;}
+#minyear-error{margin-top: 42px !important;margin-right: 9px;}
 #maxmonth-error{margin-top: 42px !important;margin-right: 9px;}
-#maxyear-error{margin-top: 42px !important;margin-right: 0px;}
+#maxyear-error{margin-top: 42px !important;margin-right: 9px;}
 
 #minmonth-error{margin-top: 39px !important;}
-#minyear-error{margin-top: 0px !important;}
+#minyear-error{margin-top: auto !important;}
 #maxmonth-error{margin-top: 39px !important;}
-#maxyear-error{margin-top: 0px !important;}
+#maxyear-error{margin-top: auto !important;}
 #example2-error{margin-top: 40px !important}
 
 
 </style>
 
+<script type="text/javascript">
+
+//Click on University other option process Start 
+   $(document).on('change', '#industry', function (event) {
+
+    //alert(111);
+      var item=$(this);
+      var uni=(item.val());
+      if(uni == 288)
+      {
+            $.fancybox.open('<div class="message"><h2>Add Industry</h2><input type="text" name="other_indu" id="other_indu"><a id="indus" class="btn">OK</a></div>');
+   
+             $('.message #indus').on('click', function () {
+      var $textbox = $('.message').find('input[type="text"]'),
+      textVal  = $textbox.val();
+      $.ajax({
+                          type: 'POST',
+                          url: '<?php echo base_url() . "recruiter/recruiter_other_industry" ?>',
+                          dataType: 'json',
+                          data: 'other_industry=' + textVal,
+                          success: function (response) {
+                       
+                               if(response.select == 0)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Written industry already available in industry Selection</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }
+                              else if(response.select == 1)
+                              {
+                                $.fancybox.open('<div class="message"><h2>Empty industry is not valid</h2><button data-fancybox-close="" class="btn">OK</button></div>');
+                              }  
+                              else
+                              {
+                                   $.fancybox.close();
+                                   $('#industry').html(response.select1);
+                                   $('#industry').html(response.select);
+                              }
+                          }
+                      });
+      
+                  });
+      }
+     
+   });
+</script>
 
 <!-- script for date start -->
 
@@ -1493,4 +1468,23 @@ var today = yyyy;
             });
 </script>
 
-<!-- script for date end -->
+<!-- script for date end -->.
+<script type="text/javascript">
+$(document).ready(function () {
+   
+         $("#education").select2({
+         placeholder: "Select a Education",
+ 
+        });
+
+          $("#skills").select2({
+         placeholder: "Find Your Skills",
+ 
+        });
+ 
+ 
+
+});
+
+
+</script>

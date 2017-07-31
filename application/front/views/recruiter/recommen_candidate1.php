@@ -40,13 +40,12 @@
                                               <a class="profile-boxProfileCard-bg u-bgUserColor a-block" href="<?php echo base_url('recruiter/rec_profile'); ?>" tabindex="-1" 
                  aria-hidden="true" rel="noopener">
                
-                <?php
+               <?php
 
                 $imageee= $this->config->item('rec_bg_thumb_upload_path').$recdata[0]['profile_background'];
            if(file_exists($imageee) && $recdata[0]['profile_background'] != '')
                  {
                    ?>
-                   <!-- box image start -->
                <img src="<?php echo base_url($this->config->item('rec_bg_thumb_upload_path') . $recdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
                     <!-- box image end -->
                          <?php
@@ -63,17 +62,29 @@
                                         
                                               <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock"  href="<?php echo base_url('recruiter/rec_profile/' . $recdata[0]['user_id']); ?>" title="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                 <?php
-
-                                                 $imageee= $this->config->item('rec_profile_thumb_upload_path').$recdata[0]['recruiter_user_image'];
+ $imageee= $this->config->item('rec_profile_thumb_upload_path').$recdata[0]['recruiter_user_image'];
                                               if(file_exists($imageee) && $recdata[0]['recruiter_user_image'] != '') { 
-
-                                               
-                                                    ?>
+                                            ?>
                        <img src="<?php echo base_url($this->config->item('rec_profile_thumb_upload_path') . $recdata[0]['recruiter_user_image']); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>" >
                                    <?php
                               } else {
-                           ?>
-                       <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
+
+
+
+                                 $a = $recdata[0]['rec_firstname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $recdata[0]['rec_lastname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+                           
+                       <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $recdata[0]['rec_firstname'] . ' ' . $recdata[0]['rec_lastname']; ?>">
+                        --> 
+
                             <?php
                                    }
                              ?>
@@ -86,10 +97,10 @@
 
                                                  
                                             <div class="profile-boxProfile-name">
-                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucwords($recruiterdata1[0]['designation']); ?>">
+                                                <a href="<?php echo site_url('recruiter/rec_profile/' . $recruiterdata1[0]['user_id']); ?>" title="<?php echo ucfirst(strtolower($recruiterdata1[0]['designation'])); ?>">
                                                     <?php
-                                                    if (ucwords($recruiterdata1[0]['designation'])) {
-                                                        echo ucwords($recruiterdata1[0]['designation']);
+                                                    if (ucfirst(strtolower($recruiterdata1[0]['designation']))) {
+                                                        echo ucfirst(strtolower($recruiterdata1[0]['designation']));
                                                     } else {
                                                         echo "Designation";
                                                     }
@@ -181,9 +192,24 @@
             </a>
              <?php
             } else {
-              ?>
+            ?>
               <a href="<?php echo base_url('job/job_printpreview/' . $p['iduser'].'?page=recruiter'); ?>" title=" <?php echo $p['fname'] . ' ' . $p['lname']; ?>"> 
-           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>"> </a>
+
+              <?php
+
+              $a = $p['fname'];
+               $acr = substr($a, 0, 1);
+
+                $b = $p['lname'];
+               $acr1 = substr($b, 0, 1);
+              ?>
+              <div class="post-img-profile">
+             <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+              
+             </div>
+
+           <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php //echo $p[0]['fname'] . ' ' . $p[0]['lname']; ?>"> </a> -->
+
              <?php
                 }
                ?>                      </div>
@@ -197,7 +223,7 @@
                      <li>
                    <a style=" font-size: 19px;
          font-weight: 600;" href="<?php echo base_url('job/job_printpreview/' . $p['iduser'].'?page=recruiter'); ?>">
-                   <?php echo ucwords($p['fname']) . ' ' . ucwords($p['lname']); 
+                   <?php echo ucfirst(strtolower($p['fname'])) . ' ' . ucfirst(strtolower($p['lname'])); 
                   
                    ?>
                      
@@ -281,37 +307,12 @@
               if($total_work_month == '12 month' && $total_work_year =='0 year'){
                 echo "1 year";
             }
-             elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
+            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
                  $month = explode(' ', $total_work_year);
-                 //print_r($month);
                                                 $year=$month[0];
-                                                $y=0;
-                                                for($i=0;$i<=$y;$i++)
-                                                {
-                                                   if($total_work_month >= 12)
-                                                   {
-                                                      $year=$year + 1;
-                                                      $total_work_month = $total_work_month - 12;
-                                                      $y++;
-                                               
-                                                   }
-                                                   else
-                                                   {
-                                                      $y=0;
-                                                   }
-                                                }
-
-                                                
-                                                 echo $year; echo "&nbsp"; echo "Year";
-                                                 echo "&nbsp";
-                                                 if($total_work_month != 0)
-                                                 {
-                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
-                                                }
-
-            
+                                                $years=$year + 1;
+                                                echo $years." Years";
             }
-           
             else{
                 echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
@@ -657,7 +658,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
  if (!$data) {
      ?> 
                      
-    <a href="<?php echo base_url('chat/abc/' . $p['iduser'] .'/2/1'); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $p['iduser'].'/2/1'); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
@@ -668,7 +669,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 <?php
             } else {
                  ?>
-    <a href="<?php echo base_url('chat/abc/' . $p['iduser']. '/2/1'); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/' . $p['iduser'].'/2/1'); ?>">Message</a> 
 <!--    <a href="#">Invite</a>   -->
     <a class="saved">Saved </a> 
                                                         <?php } }
@@ -808,6 +809,8 @@ $( "#searchplace" ).autocomplete({
 });
   
 </script>
+
+
 <script>
 
 var data= <?php echo json_encode($demo); ?>;
@@ -872,6 +875,16 @@ $( "#searchplace1" ).autocomplete({
 </script>
 
 
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
+
 
 <script type="text/javascript">
     function checkvalue() {
@@ -901,16 +914,6 @@ $( "#searchplace1" ).autocomplete({
     }
 
 </script>
-
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
 
 
   
