@@ -276,7 +276,14 @@ else
         </div>
         <div class="blog_class_main_desc">
           <span>
-           <?php echo $blog['description'];?>
+           <?php
+                     $small = substr($blog['description'], 0, 180);
+                     echo $this->common->make_links($small);
+
+                     if (strlen($blog['description']) > 180) {
+                          echo '....';
+                        }?>
+          <!--  <?php //echo $blog['description'];?> -->
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -402,7 +409,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
       </div><!--blog_latest_post end -->
 
 <!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH START-->
-<?php if($this->uri->segment(2) == 'tag')
+<!-- <?php //if($this->uri->segment(2) == 'tag')
       {
 ?>
       <div class="popular_tag">
@@ -410,19 +417,19 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
 
        <?php 
             
-          foreach($blog_all as $blog)
+          //foreach($blog_all as $blog)
           {
 
-                 $tag_all=explode(',', $blog['tag']);
-                  foreach($tag_all as $tag )
+                // $tag_all=explode(',', $blog['tag']);
+                  //foreach($tag_all as $tag )
                   {
                
         ?>
       <div class="tag_name">
       <span class="span_tag">
-      <a href="<?php echo base_url('blog/tag/'.$tag)?>">
+      <a href="<?php// echo base_url('blog/tag/'.$tag)?>">
       <?php  
-                echo $tag;
+               // echo $tag;
 
         ?>
         </a>
@@ -440,7 +447,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
  <?php
         }//If loop end
 
-  ?>
+  ?> -->
 <!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH END-->
 
      </div>
@@ -525,3 +532,10 @@ $(".fbk").on('click', function() {
 <!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE END-->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+
+<style type="text/css">
+  #name-error{margin-top: 36px;margin-right: 12px;}
+  #email-error{margin-top: 36px;margin-right: 12px;}
+  #message-error{margin-top: 73px;margin-right: 12px;
+}
+</style>
