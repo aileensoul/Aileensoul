@@ -188,17 +188,9 @@
 						<?php }else{?>
 
 						<div class="profile-photo no-image-upload">
-
-					
-                    
-
-                    <img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
-             
-
-						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-								<img src="img/u1.png">Update Profile Picture</a>
-	
-
+							<img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
+							<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
+							<img src="img/u1.png">Update Profile Picture</a>
 						</div>
 
 						  <?php } ?>
@@ -238,7 +230,7 @@
 				<li><a href="#art-scroll" class="right-menu-box art-r" onclick="return tabindexart();"></a></li>
 			</ul>
 		</div-->
-			<section class="all-profile-custom">
+		<section class="all-profile-custom">
 				<div id="job-scroll" class="custom-box odd">
 					<div class="custom-width">
 						<div class="row">
@@ -422,12 +414,7 @@
 		 
 
     <!-- Modal content-->
-
-      	 
-
-        
-          
-			</section>
+		</section>
 		
 	</div>
 
@@ -451,7 +438,7 @@
 		</div>
 	</footer> -->
         
-<?php if($userdata[0]['user_slider'] == 1){?>
+<?php //if($userdata[0]['user_slider'] == 1){?>
 	<div id="onload-Modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="main_sl">
@@ -464,10 +451,10 @@
 										<!-- Item 1 -->
 										<div class="item active slide1">
 											<div class="center_sl slider-1 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head"> 
 													<p> welcome to</p>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_logo.png">
 												</div>
 											</div>
@@ -475,10 +462,10 @@
 										<!-- Item 2 -->
 										<div class="item slide2">
 											<div class="center_sl main_cl_sl slider-2 slide-text">
-												<div data-animation="animated fadeInDown" class="imh_logo2">
+												<div data-animation="animated fadeInDownBig" class="imh_logo2">
 													<img src="slicing/img_logo.png">
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_2.png">
 												</div>
 											</div>
@@ -486,11 +473,11 @@
 										<!-- Item 3 -->
 										<div class="item slide3">
 											<div class="center_sl main_cl_sl slider-3 slide-text">
-												<div data-animation="animated fadeInDown">
+												<div data-animation="animated fadeInDownBig">
 													<h3>Easy to Access</h3>
 													<p>You can easily access any profile from main page.</p>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_3.png">
 												</div>
 											</div>
@@ -498,10 +485,10 @@
 										<!-- Item 4 -->
 										<div class="item slide4">
 											<div class="center_sl main_cl_sl slider-4 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_4_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_4_sl"> 
 													<span class="mian_4_hed"> You can easily navigate to one profile to another profile</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_4.png">
 												</div>
 											</div>
@@ -510,10 +497,10 @@
 										<!-- Item 5 -->
 										<div class="item slide5">
 											<div class="center_sl main_cl_sl slider-5 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_5_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_5_sl"> 
 													<span class="mian_4_hed"> You can easily search location vise jobs, employees, freelance projects, business, artists etc.</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_5.png">
 												</div>
 											</div>
@@ -522,10 +509,10 @@
 										<!-- Item 6 -->
 										<div class="item slide6">
 											<div class="center_sl main_cl_sl slider-6 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_6_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_6_sl"> 
 													<span class="mian_4_hed"> Recruiters can post job as per their requirement and find desired employees </span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_6.png">
 												</div>
 											</div>
@@ -534,10 +521,10 @@
 										<!-- Item 7 -->
 										<div class="item slide7">
 											<div class="center_sl main_cl_sl slider-7 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_7_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_7_sl"> 
 													<span class="mian_4_hed"> Hire Freelancers and Also Find Freelance Work</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_7.png">
 												</div>
 											</div>
@@ -546,10 +533,10 @@
 										<!-- Item 8 -->
 										<div class="item slide8">
 											<div class="center_sl main_cl_sl slider-8 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_8_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_8_sl"> 
 													<span class="mian_4_hed"> Post your product in business profile with photo/audio/video/pdf</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_8.png">
 												</div>
 											</div>
@@ -559,14 +546,14 @@
 										<div class="item slide9">
 											<div class="center_sl main_cl_sl slider-9 slide-text">
 												<div  class=""> 
-													<div data-animation="animated fadeInDown" class="sld-9-top">
+													<div data-animation="animated fadeInDownBig" class="sld-9-top">
 														<p>You will get notifications related to any new update.</p>
 													</div>
-													<div data-animation="animated fadeInDown" class="sld-9-bottom">
+													<div data-animation="animated fadeInDownBig" class="sld-9-bottom">
 														<p>You can also send and receive contact request in business profile.</p>
 													</div>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_9.png">
 												</div>
 											</div>
@@ -575,10 +562,10 @@
 										<!-- Item 10 -->
 										<div class="item slide10">
 											<div class="center_sl main_cl_sl slider-10 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_10_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_10_sl"> 
 													<span class="mian_4_hed"> Post your artistic talent and crearivity with photo/audio/video/pdf </span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_10.png">
 												</div>
 											</div>
@@ -587,11 +574,11 @@
 										<!-- Item 11 -->
 										<div class="item slide11">
 											<div class="center_sl main_cl_sl slider-11 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_11_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_11_sl"> 
 													<span class="mian_4_hed"> You can also like, comment and follow in business and artistic profiles
 													</span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_11.png">
 												</div>
 											</div>
@@ -601,11 +588,11 @@
 										<div class="item slide12">
 											<div class="center_sl main_cl_sl slider-12 slide-text">
 												<div class="text_sl_head main_12_sl"> 
-													<span data-animation="animated fadeInDown" class="mian_4_hed" >Recruiter and job seeker can send and receive messages.
+													<span data-animation="animated fadeInDownBig" class="mian_4_hed" >Recruiter and job seeker can send and receive messages.
 															Freelancer and employer, artist to artist and users within business 
 															network can also message each other. </span>
 												</div>
-												<div data-animation="animated fadeInUp" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo">
 													<img src="slicing/img_screen_12.png">
 												</div>
 											</div>
@@ -614,14 +601,14 @@
 										<!-- Item 13 -->
 										<div class="item slide13">
 											<div class="center_sl main_cl_sl slider-13 slide-text">
-												<div data-animation="animated fadeInDown" class="text_sl_head main_13_sl"> 
+												<div data-animation="animated fadeInDownBig" class="text_sl_head main_13_sl"> 
 													<span class="mian_4_hed"> Easily responsive in all device
 													</span>
 												</div>
 												<div class="imh_logo">
-													<img class="img1" data-animation="animated fadeInUp" src="slicing/sld13-1.png">
-													<img class="img2" data-animation="animated fadeInRight" src="slicing/sld13-2.png">
-													<img class="img3" data-animation="animated fadeInLeft" src="slicing/sld13-3.png">
+													<img class="img1" data-animation="animated fadeInUpBig" src="slicing/sld13-1.png">
+													<img class="img2" data-animation="animated fadeInRightBig" src="slicing/sld13-2.png">
+													<img class="img3" data-animation="animated fadeInLeftBig" src="slicing/sld13-3.png">
 												</div>
 											</div>
 										</div>
@@ -629,10 +616,10 @@
 										<!-- Item 14 -->
 										<div class="item slide14">
 											<div class="center_sl main_cl_sl slider-14 slide-text">
-												<div data-animation="animated fadeInDown" class="imh_logo">
+												<div data-animation="animated fadeInDownBig" class="imh_logo">
 													<img src="slicing/latsgo.png">
 												</div>
-												<div data-animation="animated fadeInUp" class="text_sl_head main_6_sl"> 
+												<div data-animation="animated fadeInUpBig" class="text_sl_head main_6_sl"> 
 													<span class="mian_4_hed"> demo@gmail.com</span>
 													<p>Welcome In Aileensoul</p>
 													<p>
@@ -676,7 +663,7 @@
 			</div>
 		</div>
 	</div>
-<?php } ?>
+<?php //} ?>
 
 	
 	<!--  how it work popup  -->

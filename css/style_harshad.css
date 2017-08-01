@@ -460,6 +460,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	#notificationLink span{margin-left:6px;}
 }
 @media screen and (max-width: 360px) {
-  .designation_rec_1{width: 75%;}
+	.designation_rec_1{width: 75%;}
 	.bg-search .header2{margin-top:-2px;}
 }

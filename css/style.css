@@ -10496,10 +10496,7 @@ style chat css start*/
     width: 100%;
     border-radius: 5px;
     float: left;
-    /*
-   padding:0 40px 50px;*/
-    
-    padding: 0px 40px 12px;
+    padding: 0px 50px 12px;
 }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul li span pre{font-size: 13px;
 border: none;

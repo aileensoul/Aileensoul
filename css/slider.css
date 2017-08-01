@@ -379,7 +379,7 @@
 
 .imagesl .close{font-weight:normal; opacity:0.7;}
 
-
+#left_img.abc{height:0;}
 .abc_left img{height:0px;}
 .abc_show img{height: 30px !important;}
 /*------------------------------------------------------*/
