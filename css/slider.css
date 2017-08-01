@@ -1,16 +1,16 @@
-.imagesl {background: url("../img/bg-2.png") no-repeat;
-height: 550px;
-width: 810px;
-background-size: 100%;
-margin: 0px auto;
-position:relative;
-overflow:hidden;
+.imagesl {
+	background: url("../img/bg-2.png") no-repeat;
+	height: 550px;
+	width: 810px;
+	background-size: 100%;
+	margin: 0px auto;
+	position:relative;
+	overflow:hidden;
 }
-.img_as
-{
-height: 130px;
-width: 130px;
-background-size: 100%;
+.img_as{
+	height: 130px;
+	width: 130px;
+	background-size: 100%;
 }
 .main_box{display: inline-block;  box-shadow: 0 15px 25px -7px rgba(0,0,0,0.09), 0 -12px 10px -10px rgba(0,0,0,0.04); /*margin: 20px;*/}
 .center_sl{text-align: center; padding: 35px 15px;}
