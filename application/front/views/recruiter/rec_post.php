@@ -993,6 +993,9 @@ if ($returnpage == 'job') {
             <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
             <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+			<link rel="stylesheet" href="css/jquery.fancybox.css">
+			<script type="text/javascript" src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
+			
             <script>
 
                     var data = <?php echo json_encode($demo); ?>;
@@ -1126,11 +1129,22 @@ if ($returnpage == 'job') {
             <script>
                     function removepopup(id) {
                         $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                        $('#bidmodal').modal('show');
+                        $('#bidmodal').modal('show').fadeIn();
                     }
+					/*function removepopup(id) {
+                        $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                        $('#bidmodal').modal('show').fadeIn();
+                    }*/
                     function updateprofilepopup(id) {
-                        $('#bidmodal-2').modal('show');
+                        $('#bidmodal-2').modal('show').fadeIn("slow");
                     }
+					
+					$(document).ready(function () {
+						$("body").click(function (event) {
+							//$('#bidmodal').modal('hide').fadeOut();
+						});
+
+					});
             </script>
 
             <script type="text/javascript">
