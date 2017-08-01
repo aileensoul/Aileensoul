@@ -502,7 +502,7 @@
                         }
                         ?>
                         <?php
-                        $allowed = array('gif', 'png', 'jpg');
+                        $allowed = array('gif', 'PNG', 'jpg','png');
 
                         foreach ($multipleimage as $mke => $mval) {
 

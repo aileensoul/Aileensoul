@@ -922,7 +922,7 @@
                         ?>
                      <?php if (count($artmultiimage) == 1) { ?>
                      <?php
-                        $allowed = array('gif', 'PNG', 'jpg');
+                        $allowed = array('gif', 'PNG', 'jpg','png');
                         $allowespdf = array('pdf');
                         $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
                         $allowesaudio = array('mp3');
