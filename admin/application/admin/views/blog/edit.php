@@ -57,6 +57,13 @@ echo $leftmenu;
                         </div>
                         <!-- BLOG TITLE END -->
 
+                         <!-- BLOG SLUG START -->
+                        <div class="form-group col-sm-10">
+                            <label for="blogslug" name="blogslug" id="blogslug">Blog Slug*</label>
+                            <input type="text" class="form-control" name="blog_slug" id="blog_slug" value="<?php echo $blog_detail[0]['blog_slug'];?>">
+                        </div>
+                        <!-- BLOG SLUG END -->
+
                         <!--  TAG SELECTION START -->
                         <div class="form-group col-sm-10">
                                 <label>Tag*</label>
@@ -129,9 +136,12 @@ echo $leftmenu;
     $(document).ready(function () {
 
 
-        $("#add_blog_frm").validate({
+        $("#edit_blog_frm").validate({
             rules: {
                 blog_title: {
+                    required: true,
+                },
+                blog_slug: {
                     required: true,
                 },
                 tag: {
@@ -153,6 +163,9 @@ echo $leftmenu;
                     {
                         blog_title: {
                             required: "Please enter blog title",
+                        },
+                        blog_slug: {
+                            required: "Please enter blog slug",
                         },
                         tag: {
                             required: "Please select tag",

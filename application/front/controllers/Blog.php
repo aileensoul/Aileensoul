@@ -18,15 +18,15 @@ class Blog extends CI_Controller {
         if($slug!=''){
 
             //FOR GETTING ALL DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
         //FOR GETTING BLOG
-        $condition_array = array('status !=' => 'delete','blog_slug' => $slug);
+        $condition_array = array('status' => 'publish','blog_slug' => $slug);
         $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
          //FOR GETTING 5 LAST DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
         
@@ -51,14 +51,14 @@ class Blog extends CI_Controller {
        //FOR GETTING ALL DATA START
        else
        {
-            $condition_array = array('status !=' => 'delete');
+            $condition_array = array('status' => 'publish');
             $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
            // echo "<pre>";print_r( $this->data['blog_detail']);die();
        }
         //FOR GETTING ALL DATA START
 
         //FOR GETTING 5 LAST DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
        // echo $this->uri->segment(1);die();
@@ -77,12 +77,12 @@ class Blog extends CI_Controller {
             $join_str[0]['from_table_id'] = 'blog_visit.blog_id';
             $join_str[0]['join_type'] = '';
 
-             $condition_array = array('blog.status !=' => 'delete');
+             $condition_array = array('blog.status' => 'publish');
              $data= "blog.* ,count(blog_id) as count";
             $this->data['blog_detail']  = $this->common->select_data_by_condition('blog_visit', $condition_array, $data, $short_by='count', $order_by='desc', $limit, $offset, $join_str,$groupby = 'blog_visit.blog_id');
 
             //FOR GETTING 5 LAST DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
        // echo $this->uri->segment(1);die();
@@ -121,15 +121,15 @@ class Blog extends CI_Controller {
     public function blogdetail($slug='')
     { 
          //FOR GETTING ALL DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
         //FOR GETTING BLOG
-        $condition_array = array('status !=' => 'delete','blog_slug' => $slug);
+        $condition_array = array('status' => 'publish','blog_slug' => $slug);
         $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
       
          //FOR GETTING 5 LAST DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
         
@@ -183,12 +183,12 @@ public function tagsearch($tag='')
         $this->data['blog_detail'] = $this->common->select_data_by_search('blog', $search_condition, $contition_array,$data='*', $sortby='id', $orderby='desc', $limit, $offset);
 
          //FOR GETTING ALL DATA
-        $condition_array = array('status !=' => 'delete');
+        $condition_array = array('status' => 'publish');
         $this->data['blog_all']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
        // echo "<pre>";print_r($this->data['blog_all']);die();
 
           //FOR GETTING 5 LAST DATA
-          $condition_array = array('status !=' => 'delete');
+          $condition_array = array('status' => 'publish');
         $this->data['blog_last']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit=5, $offset, $join_str = array());
 
        // echo $this->uri->segment(1);die();

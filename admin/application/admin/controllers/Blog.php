@@ -32,7 +32,6 @@ class Blog extends MY_Controller {
         include('include.php');
         $adminid =  $this->session->userdata('aileen_admin');
    
-         $this->load->library('profile');
        // echo $this->profile->thumb();
     }
 
@@ -203,7 +202,7 @@ public function draft()
         $update = $this->common->update_data($data, 'blog', 'id', $id);
 
         $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="publish(' .  $id . ')">
-                              Publish
+                              Published
                       </button>';
 
         echo $select;
@@ -410,7 +409,7 @@ public function reject_comment()
                     'meta_description' => $this->input->post('meta_description'),
                     'description' => $this->input->post('description'),
                     'image' => $blog_image,
-                    'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),
+                    'blog_slug' => $this->input->post('blog_slug'),
                     'modify_date' => date('Y-m-d H:i:s'),
                     'status' => 'publish'
                 ); 

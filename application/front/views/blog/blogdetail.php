@@ -370,7 +370,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
               $tag_all=explode(',', $blog_detail[0]['tag']);
               foreach($tag_all as $tag)
               {
-               $tag1 = strtolower(preg_replace( array('/[^a-z0-9\- ]/i', '/[ \-]+/'), array('', '-'), $tag));
+               $tag1 = strtolower(preg_replace( array('/[^a-z0-9\- ]/i', '/[ \-]+/'), array('', '-'), trim($tag)));
         ?>
       <div class="tag_name">
       <span class="span_tag">

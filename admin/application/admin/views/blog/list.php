@@ -168,7 +168,7 @@ echo $leftmenu;
                         <?php if ($blog['status'] == 'publish') 
                               {
                         ?>
-                                    <button class="btn btn-block  btn-primary btn-sm"  onclick="publish(<?php echo $blog['id'];?>);">Publish</button>
+                                    <button class="btn btn-block  btn-primary btn-sm"  onclick="publish(<?php echo $blog['id'];?>);">Published</button>
                         <?php 
                             }else{ ?>
 
