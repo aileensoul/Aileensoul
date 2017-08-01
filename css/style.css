@@ -13847,6 +13847,7 @@ bui_images_view_more a:hover {
     background: linear-gradient(354deg, #3bb0ac 0%, #1b8ab9 44%, #1b8ab9 100%); 
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b8ab9', endColorstr='#3bb0ac',GradientType=0 ); 
 }
+.text_center{text-align: center;}
 .main_raio{display: inline-block;padding: 6px 5px 0px;}
 .main_raio [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
@@ -14760,7 +14761,10 @@ height: 100%;}
   color: #ccc;
   line-height:1;
 }
-
+    .sory_image{margin: 15px;}
+    .not_founde_head{color: #1b8ab9;
+    font-size: 32px;
+    margin: 25px;}
 div .comment {
  
     border: none;
@@ -14777,6 +14781,7 @@ div .comment {
     overflow-y: scroll;
     overflow-y: auto;
 }
+.not_founde_head2{font-size: 30px; color: #1B8AB9; margin: 10PX;}
 #set_input form{/*padding: 20px 20px 16px;*/}
 #msg_block{padding:0;}
 #msg_block .input-group{background:#fff; border-top:1px solid #d9d9d9;}
@@ -15421,6 +15426,7 @@ text-align: center;}
     .user-midd-section .padd_set {
         padding: 50px 0px 25px;
     }
+
     .main_form {
         padding-top: 0px;
     }
