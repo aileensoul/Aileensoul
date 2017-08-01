@@ -767,6 +767,9 @@ padding: 16px 0;
 text-align: center;
 text-transform: uppercase;
 line-height: 1;}
+.a-inlineBlock .post-img-profile{line-height: 2;}
+.search_img .post-img-profile{line-height: 4;}
+.a-inlineBlock .data_img_2 .post-img-profile{line-height: 1;}
 .left_side_box_img {
     float: left;
 }
@@ -14441,7 +14444,7 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 .message-data .message-data-time {
-    width: 105px;
+    width: 110px;
     display: block;
     margin: 0 auto;
 }
@@ -16571,7 +16574,7 @@ font-size: 12px;
 /*** test for form ***/
 
 @media screen and (max-width: 320px) {
-
+.how-it-popup{width: 97%;}
     .header2 ul li.active a{padding: 9px 0px 9px;}
     .created_date {
     font-size: 8px;

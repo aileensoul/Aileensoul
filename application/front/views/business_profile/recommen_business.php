@@ -155,11 +155,11 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <div class="left_iner_img_profile"> 
+                                                    <div class="post-img-profile"> 
                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
                                                     </div>
                                                 <?php } else { ?>
-                                                    <div class="left_iner_img_profile">  
+                                                    <div class="post-img-profile">  
                                                          <?php 
                                           $a = $businessdata[0]['company_name'];
                                           $acr = substr($a, 0, 1);?>
@@ -266,7 +266,7 @@
                                                                                  <?php 
                                           $a = $p['company_name'];
                                           $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
+                                            <div class="post-img-profile">
                                             <?php echo ucfirst(strtolower($acr)); ?>
                                             </div>
                                                                                 </a>
