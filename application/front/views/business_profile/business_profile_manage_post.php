@@ -38,7 +38,7 @@
 <?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');        ?>">
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');           ?>">
 --><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
@@ -46,7 +46,37 @@
 
 <!-- END HEAD -->
 
-
+<style type="text/css">
+    .progress 
+    {
+        display:none; 
+        position:relative; 
+        width:100%; 
+        border: 1px solid #ddd; 
+        padding: 1px; 
+        border-radius: 3px; 
+        height: 23px;
+    }
+    .bar 
+    { 
+        background-color: #1b8ab9; 
+        width:0%; 
+        height:20px; 
+        border-radius: 3px; 
+    }
+    .percent 
+    { 
+        position:absolute; 
+        display:inline-block; 
+        top:3px; 
+        left:48%; 
+    }
+    .bs-example .sr-only{
+        position: inherit;
+        width:45px;
+        height: 20px;
+    }
+</style>
 
 <body   class="page-container-bg-solid page-boxed">
 
@@ -149,7 +179,7 @@
                                 $acr = substr($a, 0, 1);
                                 ?>
                                 <div class="post-img-user">
-                                <?php echo ucfirst(strtolower($acr)) ?>
+                                    <?php echo ucfirst(strtolower($acr)) ?>
                                 </div>
                             <?php } ?>
 
@@ -160,16 +190,16 @@
 
                                 <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
-<?php } ?>
+                            <?php } ?>
                         </div>
 
                         <!-- <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                         <input type="hidden" name="hitext" id="hitext" value="5">
                         <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php echo form_close(); ?>
+                        <?php echo form_close(); ?>
                 </div> -->
 
                     </div>
@@ -220,7 +250,7 @@
                                                                                                                                                                                                                 </div>
                                 <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                                                                                                                                                                                 </div>
-    <?php } ?>
+                                <?php } ?>
                                           </div> 
                                           <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
                                       </div>
@@ -229,7 +259,7 @@
             
             
                                   </div> -->
-<?php } ?>
+                            <?php } ?>
 
 
                             <?php
@@ -254,29 +284,29 @@
                                     ?>
 
 
-    <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
+                                    <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
                                         <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
 
-                                            <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
+                                        <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
                                             <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
-    <?php } ?>
+                                            <?php } ?>
 
-                                           
-                                                   <?php  if ($contactperson[0]['status'] == 'cancel') {
-                                                            ?>
-                                                         <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
 
-                                                            </div>
-                                                            
+                                            <?php if ($contactperson[0]['status'] == 'cancel') {
+                                                ?>
+                                                <div>   
+                                                    <div class="add-contact">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
+                                                    </div>
+
+
+                                                    <div class="addtocont">
+                                                        <span class="ft-13"><i class="icon-user"></i>
+                                                            Add to contact </span>
                                                     </div> 
 
                                                 </div>
@@ -284,91 +314,91 @@
                                             <?php } elseif ($contactperson[0]['status'] == 'pending') { ?> 
 
 
-                                                 <div class="cance_req_main_box">   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div>
-                                                         <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png');?>"></span>
-                                                            </div>
+                                                <div class="cance_req_main_box">   
+                                                    <div class="add-contact">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div>
+                                                            <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png'); ?>"></span>
+                                                        </div>
 
-                                                            </div>
-                                                            
+                                                    </div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13 cl_haed_s">
-                                                      Cancel request </span>
+
+                                                    <div class="addtocont">
+                                                        <span class="ft-13 cl_haed_s">
+                                                            Cancel request </span>
                                                     </div> 
 
                                                 </div>
 
-                                        <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
+                                            <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
 
-                                        <div class="fw in_mian_chng">   
-                                                            <div class="in_your_contact">
-                                                             
-                                                            <div class="in_your_contact_change">
+                                                <div class="fw in_mian_chng">   
+                                                    <div class="in_your_contact">
+
+                                                        <div class="in_your_contact_change">
                                                             <span class="in_your_contct_img">
-                                                                <img src="<?php echo base_url('img/icon_contact_accept.png');?>">
+                                                                <img src="<?php echo base_url('img/icon_contact_accept.png'); ?>">
                                                             </span>
-                                                            </div>
+                                                        </div>
 
-                                                            </div>
-                                                            
+                                                    </div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13 ai_text">
-                                                       In your contact </span>
+
+                                                    <div class="addtocont">
+                                                        <span class="ft-13 ai_text">
+                                                            In your contact </span>
                                                     </div> 
 
                                                 </div>
 
 
-                                        <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
+                                            <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
 
-                                        <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+                                                <div>   
+                                                    <div class="add-contact">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
-                                                            </div>
-                                                            
+                                                    </div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                        Add to contact </span>
+
+                                                    <div class="addtocont">
+                                                        <span class="ft-13"><i class="icon-user"></i>
+                                                            Add to contact </span>
                                                     </div> 
 
                                                 </div>
 
-                                    <?php } else { ?>
+                                            <?php } else { ?>
 
-                                                    <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                           <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+                                                <div>   
+                                                    <div class="add-contact">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
-                                                            </div>
-                                                            
+                                                    </div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                        Add to contact </span>
+
+                                                    <div class="addtocont">
+                                                        <span class="ft-13"><i class="icon-user"></i>
+                                                            Add to contact </span>
                                                     </div> 
 
                                                 </div>
 
 
-                                                <?php } ?>
+                                            <?php } ?>
                                         </a>
                                 </div>
 
-<?php } ?>
+                            <?php } ?>
                         </div>
                         <!-- PICKUP -->
                         <!-- menubar -->
@@ -381,9 +411,9 @@
                                     ?>     
                                     <ul class="current-user bpro-fw6">
 
-                                        <?php } else { ?>
+                                    <?php } else { ?>
                                         <ul class="bpro-fw">
-<?php } ?>
+                                        <?php } ?>
 
 
 
@@ -403,7 +433,7 @@
                                             </li>
 
 
-                                        <?php
+                                            <?php
                                         } else {
 
                                             $userid = $businessdata1[0]['user_id'];
@@ -422,11 +452,11 @@
                                         $userid = $this->session->userdata('aileenuser');
                                         if ($businessdata1[0]['user_id'] == $userid) {
                                             ?> 
-                                                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                                                    </li> -->
+                                                                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                                                                </li> -->
 
-                                           <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                            </li> -->
+                                                       <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                                        </li> -->
 
 
                                         <?php } ?>
@@ -653,7 +683,7 @@
                             <div class="profile-boxProfileCard  module buisness_he_module" >
 
                                 <div class="head_details">
-                                    <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug'])       ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
+                                    <!-- <a href="<?php //echo base_url('business_profile/business_photos/' . $businessdata1[0]['business_slug'])          ?>"> -->   <h5><i class="fa fa-camera" aria-hidden="true"></i>   Photos</h5><!-- </a> -->
                                 </div>
 
                                 <?php
@@ -709,8 +739,8 @@
 
 
                                 <?php } else { ?>
-<!-- 
-                                    <div class="not_available">  <p>     Photos Not Available </p></div> -->
+                                    <!-- 
+                                                                        <div class="not_available">  <p>     Photos Not Available </p></div> -->
 
                                 <?php } ?>
 
@@ -826,7 +856,7 @@
                                     <?php } else { ?>
 
 
-                                       <!--  <div class="not_available">  <p>     Video Not Available </p></div> -->
+                                                   <!--  <div class="not_available">  <p>     Video Not Available </p></div> -->
 
                                     <?php } ?>
 
@@ -939,7 +969,7 @@
                                     <?php } else { ?>
 
 
-                                       <!--  <div class="not_available">  <p>   Audio Not Available </p></div> -->
+                                                   <!--  <div class="not_available">  <p>   Audio Not Available </p></div> -->
 
                                     <?php } ?>
 
@@ -1013,8 +1043,8 @@
 
 
                                 <?php } else { ?>
-<!-- 
-                                    <div class="not_available">  <p> Pdf Not Available </p></div> -->
+                                    <!-- 
+                                                                        <div class="not_available">  <p> Pdf Not Available </p></div> -->
 
                                 <?php } ?>
 
@@ -1070,9 +1100,9 @@
                                         $acr = substr($a, 0, 1);
                                         ?>
                                         <div class="post-img-div">
-                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                            <?php echo ucfirst(strtolower($acr)) ?>
                                         </div>
-    <?php } ?>
+                                    <?php } ?>
                                 </div>
                                 <div id="myBtn1"  class="editor-content popup-text">
                                     <span>Post Your Product....</span>
@@ -1086,7 +1116,7 @@
 
                         </div>
 
-<?php } ?>
+                    <?php } ?>
                     <!-- The Modal -->
                     <div id="myModal3" class="modal-post">
 
@@ -1096,7 +1126,7 @@
 
                             <div class="post-editor post-edit-popup" id="close">
 
-<?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
+                                <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/' . 'manage/' . $businessdata1[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
 
                                 <div class="main-text-area col-md-12"  >
                                     <div class="popup-img-in"> 
@@ -1112,7 +1142,7 @@
                                             $acr = substr($a, 0, 1);
                                             ?>
                                             <div class="post-img-div">
-                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                <?php echo ucfirst(strtolower($acr)) ?>
                                             </div>
                                             <?php
                                         }
@@ -1177,7 +1207,7 @@
                                 </div>
                                 <div class="fr margin_btm">
                                     <button type="submit"  value="Submit">Post</button>    </div>
-<?php echo form_close(); ?>
+                                <?php echo form_close(); ?>
                             </div>
                         </div>
                     </div>
@@ -1247,7 +1277,7 @@
                                                                 $acr = substr($a, 0, 1);
                                                                 ?>
                                                                 <div class="post-img-div">
-                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
                                                                 </div>
                                                             <?php } ?>
 
@@ -1256,17 +1286,17 @@
                                                             <?php if ($userimage) { ?>
                                                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimage); ?>" name="image_src" id="image_src" />
                                                             <?php } else { ?>
-                                                                    <?php
-                                                                    $a = $companyname;
-                                                                    $acr = substr($a, 0, 1);
-                                                                    ?>
+                                                                <?php
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
                                                                 <div class="post-img-div">
-                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
                                                                 </div>
-                <?php
-            }
-        }
-        ?>
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
                                                     </div>
 
 
@@ -1289,7 +1319,7 @@
 
 
 
-        <?php if ($row['posted_user_id']) { ?>
+                                                            <?php if ($row['posted_user_id']) { ?>
                                                                 <li>
                                                                     <div class="else_post_d">
                                                                         <div class="post-design-product">
@@ -1300,7 +1330,7 @@
                                                                         </div></div></li>
 
 
-        <?php } else { ?>
+                                                            <?php } else { ?>
                                                                 <li><div class="post-design-product"><a class="post_dot" title="<?php echo ucfirst(strtolower($companyname)); ?> " href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucfirst(strtolower($companyname)); ?> </a>
                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                         <div class="datespan"> 
@@ -1310,7 +1340,7 @@
                                                                     </div></li>
                                                             <?php } ?>
 
-                                                                        <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
 
                                                             <li><div class="post-design-product">   <a class="buuis_desc_a"  title="Category" > 
                                                                         <?php
@@ -1348,8 +1378,8 @@
                                                                         <span class="h3-img h2-srrt"></span>Edit
                                                                     </a>
 
-            <?php } else {
-                ?>
+                                                                <?php } else {
+                                                                    ?>
 
                                                                     <a onclick="user_postdeleteone(<?php echo $row['business_profile_post_id']; ?>)">
                                                                         <span class="h4-img h2-srrt"></span> Delete Post
@@ -1362,17 +1392,17 @@
                                                                 }
                                                             } else {
                                                                 ?>
-            <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
+                                                                <?php if ($this->session->userdata('aileenuser') == $row['user_id']) { ?> 
 
 
                                                                     <a onclick="user_postdeleteone(<?php echo $row['business_profile_post_id']; ?>)"><span class="h4-img h2-srrt"></span> Delete Post</a>
 
                                                                     <a id="<?php echo $row['business_profile_post_id']; ?>" onClick="editpost(this.id)"><span class="h3-img h2-srrt"></span>Edit</a>
 
-            <?php } else { ?>
+                                                                <?php } else { ?>
 
 
-                                                                                <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
+                                                                                                                                <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>"><span class="h2-img h2-srrt"></span> Contact Person</a> -->
                                                                     <?php
                                                                 }
                                                             }
@@ -1381,10 +1411,10 @@
                                                     </div>
 
 
-                                                        <?php if ($row['product_name'] || $row['product_description']) { ?>
+                                                    <?php if ($row['product_name'] || $row['product_description']) { ?>
 
                                                         <div class="post-design-desc ">
-        <?php } ?>                          
+                                                        <?php } ?>                          
                                                         <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                 <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
@@ -1404,7 +1434,7 @@
                                                                 <?php } else { ?>
                                                                     <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
 
-        <?php } ?>
+                                                                <?php } ?>
 
 
                                                             </div>
@@ -1427,8 +1457,8 @@
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
-                                                                                                                                                                                                                                                                                            <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                                                                                            </textarea> 
+                                                                                                                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
+                                                                                                                                                                                                                                                                                                                    </textarea> 
                                                             -->
                                                             <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
 
@@ -1442,9 +1472,9 @@
 
 
                                                     </div> 
-                                                <?php if ($row['product_name'] || $row['product_description']) { ?>
+                                                    <?php if ($row['product_name'] || $row['product_description']) { ?>
                                                     </div>
-        <?php } ?>
+                                                <?php } ?>
 
 
 
@@ -1478,7 +1508,7 @@
                                                                 </div>
                                                                 <!-- one image end -->
 
-            <?php } elseif (in_array($ext, $allowespdf)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowespdf)) { ?>
 
                                                                 <!-- one pdf start -->
                                                                 <div>
@@ -1488,7 +1518,7 @@
                                                                 </div>
                                                                 <!-- one pdf end -->
 
-            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowesvideo)) { ?>
 
                                                                 <!-- one video start -->
                                                                 <div>
@@ -1500,7 +1530,7 @@
                                                                 </div>
                                                                 <!-- one video end -->
 
-            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
+                                                            <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                                 <!-- one audio start -->
                                                                 <div class="audio_main_div">
@@ -1538,7 +1568,7 @@
                                                                 <!-- two image end -->
                                                             <?php } ?>
 
-        <?php } elseif (count($businessmultiimage) == 3) { ?>
+                                                        <?php } elseif (count($businessmultiimage) == 3) { ?>
 
 
 
@@ -1574,7 +1604,7 @@
                                                             <?php } ?>
 
 
-        <?php } elseif (count($businessmultiimage) > 4) { ?>
+                                                        <?php } elseif (count($businessmultiimage) > 4) { ?>
 
 
 
@@ -1619,7 +1649,7 @@
                                                             <!-- this div view all image end -->
 
 
-        <?php } ?>
+                                                        <?php } ?>
                                                         <div>
 
 
@@ -1649,13 +1679,13 @@
                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                         ?>               
 
-                                                                                                                                                                <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
+                                                                                                                                                                                                    <!--<i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>-->
                                                                         <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
 
                                                                     <?php } else { ?> 
-                                                                                                                                                                <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+                                                                                                                                                                                                    <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
                                                                         <i class="fa fa-thumbs-up main_color fa-1x" aria-hidden="true"></i>
-                                                                        <?php } ?>
+                                                                    <?php } ?>
 
                                                                     <span class="like_As_count">
                                                                         <?php
@@ -1694,8 +1724,8 @@
                                                                             echo count($commnetcount);
                                                                             ?>
                                                                             <span> Comment</span>
-        <?php }
-        ?> 
+                                                                        <?php }
+                                                                        ?> 
                                                                     </span> 
 
                                                                 </div>
@@ -1709,7 +1739,7 @@
                                                                             echo $row['business_likes_count'];
                                                                             ?>
                                                                             <span> Like</span>
-        <?php } ?>
+                                                                        <?php } ?>
                                                                     </span> 
 
                                                                 </div>
@@ -1766,7 +1796,7 @@
                                                                     echo "&nbsp;";
                                                                     echo "others";
                                                                     ?> 
-            <?php } ?>
+                                                                <?php } ?>
                                                             </div>
                                                         </a>
                                                     </div>
@@ -1811,7 +1841,7 @@
                                                                 echo "&nbsp;";
                                                                 echo "others";
                                                                 ?> 
-        <?php } ?>
+                                                            <?php } ?>
                                                         </div>
                                                     </a>
                                                 </div>
@@ -1857,17 +1887,17 @@
                                                                                 $acr = substr($a, 0, 1);
                                                                                 ?>
                                                                                 <div class="post-img-div">
-                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
                                                                                 </div>
-                <?php } ?>
+                                                                            <?php } ?>
 
                                                                         </div>
                                                                         <div class="comment-name">
 
                                                                             <b>  <?php
-                echo ucfirst(strtolower($companyname));
-                echo '</br>';
-                ?>
+                                                                                echo ucfirst(strtolower($companyname));
+                                                                                echo '</br>';
+                                                                                ?>
                                                                             </b>
                                                                         </div>
                                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
@@ -1915,12 +1945,12 @@
                                                                                     $likeuserarray = explode(',', $businesscommentlike[0]['business_comment_like_user']);
                                                                                     if (!in_array($userid, $likeuserarray)) {
                                                                                         ?>
-                                                                                                                   <!-- <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>  -->
+                                                                                                                               <!-- <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i>  -->
                                                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                                     <?php } else { ?>
                                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
 
-                                                                                        <?php } ?>
+                                                                                    <?php } ?>
                                                                                     <span>
                                                                                         <?php
                                                                                         if ($rowdata['business_comment_likes_count']) {
@@ -1973,7 +2003,7 @@
                                                                                     </a>
                                                                                 </div>
 
-                                                                                    <?php } ?>                                   
+                                                                            <?php } ?>                                   
                                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                                             <div class="comment-details-menu">
                                                                                 <p><?php
@@ -2009,14 +2039,14 @@
                                                         <?php if ($business_userimage) { ?>
                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
                                                         <?php } else { ?>
-                                                                <?php
-                                                                $a = $businessdata1[0]['company_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
+                                                            <?php
+                                                            $a = $businessdata1[0]['company_name'];
+                                                            $acr = substr($a, 0, 1);
+                                                            ?>
                                                             <div class="post-img-div">
-            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                <?php echo ucfirst(strtolower($acr)) ?>
                                                             </div>
-        <?php } ?>
+                                                        <?php } ?>
                                                     </div>
 
 
@@ -2026,7 +2056,7 @@
 
                                                         <div contenteditable="true" class="editable_text edt_2" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment... " onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
                                                     </div>
-        <?php echo form_error('post_comment'); ?> 
+                                                    <?php echo form_error('post_comment'); ?> 
                                                     <div class="comment-edit-butn">       
                                                         <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button></div>
 
@@ -2054,7 +2084,7 @@
                                     </div>
                                 </div>
                             </div>        
-<?php } ?>
+                        <?php } ?>
                         <!--  <div class="nofoundpost">
                          </div> -->
 
@@ -2071,7 +2101,7 @@
 
             <footer>
 
-<?php echo $footer; ?>
+                <?php echo $footer; ?>
             </footer>
 
 
@@ -2089,7 +2119,7 @@
                         <div class="modal-body">
                             <span class="mes">
                                 <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="5">
                                     <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
@@ -2097,7 +2127,7 @@
                                     <div class="popup_previred">
                                         <img id="preview" src="#" alt="your image" />
                                     </div>
-<?php echo form_close(); ?>
+                                    <?php echo form_close(); ?>
                                 </div>
                             </span>
                         </div>
@@ -4667,24 +4697,13 @@
 
             </script>
             <!-- edit post start -->
-
-
-<!--<script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>-->
             <script type = "text/javascript" src = "//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.js"></script>
-            <!--<script type = "text/javascript" src = "<?php echo base_url() ?>js/jquery.form.min.js"></script>-->
-
             <script>
                 jQuery(document).ready(function ($) {
-
-
                 var bar = $('#bar');
                 var percent = $('#percent');
                 var options = {
                 beforeSend: function () {
-                // Replace this with your loading gif image
-                //$('.business-all-post').prepend("<progress id='bar' value='0' max='100'></progress>").show();
-                //                document.getElementById("progress-div").style.display = "block";
-                //                $("#progress-bar").width('0%');
                 document.getElementById("myModal3").style.display = "none";
                 document.getElementById("progress_div").style.display = "block";
                 var percentVal = '0%';
@@ -4703,17 +4722,27 @@
                         },
                         complete: function (response) { //alert(response.responseText);
 
-
                         document.getElementById('test-upload_product').value = '';
                         document.getElementById('test-upload_des').value = '';
                         document.getElementById('file-1').value = '';
-                        //clearFileInput(document.getElementById("file-1"));
                         $("input[name='text_num']").val(50);
                         $(".file-preview-frame").hide();
-                        $(".art_no_post_avl").hide();
                         // Output AJAX response to the div container
-                        $('#progress_div').fadeOut('5000').remove();
-                        $(".job-contact-frnd").prepend(response.responseText);
+
+//                    $('#progress_div').fadeOut('5000').remove();
+                        document.getElementById("progress_div").style.display = "none";
+                        $(".business-all-post").prepend(response.responseText);
+                        GetBusPhotos();
+                        GetBusVideos();
+                        GetBusAudios();
+                        GetBusPdf();
+                        // second header class add for scroll
+                        var nb = $('.post-design-box').length;
+                        if (nb == 0) {
+                        $("#dropdownclass").addClass("no-post-h2");
+                        } else {
+                        $("#dropdownclass").removeClass("no-post-h2");
+                        }
                         $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
                         }
                 };
@@ -4770,7 +4799,7 @@
 
             <script type="text/javascript">
                 $('#file-1').on('click', function(e){
-                    document.getElementById("artpostform").reset(); 
+                document.getElementById("artpostform").reset();
                 });
             </script>
 
