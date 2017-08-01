@@ -253,7 +253,7 @@
                     $userid = $this->session->userdata('aileenuser');
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo (count($followerdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers'); ?>">Followers <br> (<?php echo ($flucount); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -261,15 +261,29 @@
                         $artregid = $artisticdata[0]['art_id'];
                         $contition_array = array('follow_to' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+                        foreach ($followerotherdata as $followkey) {
+
+                      $contition_array = array('art_id' => $followkey['follow_from'], 'status' => '1');
+                      $artaval = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                      if($artaval){
+
+                      $countdata[] =  $artaval;
+                         }
+                     }
+                       $count = count($countdata);
+
+
                         ?> 
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a  title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo ($count); ?>)</a>
                         </li>
 
                     <?php } ?> 
                     <?php
                     if ($artisticdata[0]['user_id'] == $userid) {
                         ?>        
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo (count($followingdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following'); ?>">Following <br> (<?php echo ($countfr); ?>)</a>
                         </li>
                         <?php
                     } else {
@@ -277,8 +291,21 @@
                         $artregid = $artisticdata[0]['art_id'];
                         $contition_array = array('follow_from' => $artregid, 'follow_status' => '1', 'follow_type' => '1');
                         $followingotherdata = $this->data['followingotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                         foreach ($followingotherdata as $followkey) {
+
+                      $contition_array = array('art_id' => $followkey['follow_to'], 'status' => '1');
+                      $artaval = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                      if($artaval){
+
+                      $countfo[] =  $artaval;
+                         }
+                     }
+                       $countfo = count($countfo);
+
+                       
                         ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo (count($followingotherdata)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('artistic/following/' . $artisticdata[0]['user_id']); ?>">Following <br>  (<?php echo ($countfo); ?>)</a>
                         </li> 
                     <?php } ?>  
 
@@ -512,7 +539,7 @@
 
 
                         <?php } else { ?>
-                    <!--         <div class="not_available">  <p>Photos Not Available</p></div> -->
+                            <div class="not_available">  <p>Photos Not Available</p></div>
 
                         <?php } ?>
                         <div class="dataconphoto"></div>
@@ -620,7 +647,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                               <!--  <div class="not_available">  <p> Video Not Available</p></div> -->
+                                <div class="not_available">  <p> Video Not Available</p></div>
                             <?php } ?>
                             <div class="dataconvideo"></div>
                         </table>
@@ -730,7 +757,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                             <!--    <div class="not_available">  <p>  Audio Not Available</p> </div> -->
+                                <div class="not_available">  <p>  Audio Not Available</p> </div>
                             <?php } ?>
                             <div class="dataconaudio"></div>
                         </table>
@@ -800,8 +827,8 @@
                                 ?>
 
                             <?php }else { ?>
-                               <!--  <div class="not_available">  <p>    Pdf Not Available</p>
-                                </div> -->
+                                <div class="not_available">  <p>    Pdf Not Available</p>
+                                </div>
                             <?php } ?>
 
                             <div class="dataconpdf"></div>

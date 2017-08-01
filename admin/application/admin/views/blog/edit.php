@@ -6,6 +6,7 @@ echo $leftmenu;
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
+              <i class="fa fa-rss" aria-hidden="true"></i>
             <?php echo $module_name; ?>
             <small>Control panel</small>
         </h1>
@@ -44,187 +45,63 @@ echo $leftmenu;
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <?php
-                    $form_attr = array('id' => 'edit_product_frm', 'enctype' => 'multipart/form-data');
-                    echo form_open_multipart('product/edit', $form_attr);
+                    $form_attr = array('id' => 'edit_blog_frm', 'enctype' => 'multipart/form-data');
+                    echo form_open_multipart('blog/blog_edit/'.$blog_detail[0]['id'], $form_attr);
                     ?>
-                    <input type="hidden" name="product_id" value="<?php echo $product_detail[0]['id'] ?>">
-                    <input type="hidden" name="create_date" value="<?php echo $product_detail[0]['create_date'] ?>">
                     <div class="box-body">
-                        <!-- product name start -->
+                    
+                        <!-- BLOG TITLE START -->
                         <div class="form-group col-sm-10">
-                            <label for="productname" name="product_name" id="page_title">Product Name*</label>
-                            <input type="text" class="form-control" name="name" id="name" value="<?php echo $product_detail[0]['name'] ?>">
+                            <label for="blogtitle" name="blogtitle" id="blogtitle">Blog Title*</label>
+                            <input type="text" class="form-control" name="blog_title" id="blog_title" value="<?php echo $blog_detail[0]['title'];?>">
                         </div>
-                        <!-- product name end -->
-                        <!-- product name start -->
-                        <div class="form-group col-sm-10">
-                            <label for="product_shortdescription" name="product_shortdescription" id="page_title">Product Short Description*</label>
-                            <input type="text" class="form-control" name="short_description" id="short_description" value="<?php echo $product_detail[0]['short_description'] ?>">
-                        </div>
-                        <!-- product name end -->
-                        <!-- product category start -->
-                        <div class="form-group col-sm-5">
-                            <div class="form-group">
-                                <label>Product Category*</label>
-                                <select name="category_id" id="category_id" class="form-control select2" style="width: 100%;">
-                                    <option value="">Select Category</option>
-                                    <?php
-                                    foreach ($category_list as $category) {
-                                        if ($product_detail[0]['category_id'] == $category['id']) {
-                                            $seleced = 'selected="selected"';
-                                        } else {
-                                            $seleced = '';
-                                        }
-                                        ?>
-                                        <option value="<?php echo $category['id']; ?>" <?php echo $seleced; ?>><?php echo $category['name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- product category end -->
+                        <!-- BLOG TITLE END -->
 
-                        <!-- product Manufacture start -->
-                        <div class="form-group col-sm-5">
-                            <div class="form-group">
-                                <label>Product Manufacture*</label>
-                                <select name="manufacture_id" id="manufacture_id" class="form-control select2" style="width: 100%;">
-                                    <option value="">Select Manufacture</option>
-                                    <?php
-                                    foreach ($manufacturer_list as $manufacturer) {
-                                        if ($product_detail[0]['manufacture_id'] == $manufacturer['id']) {
-                                            $seleced = 'selected="selected"';
-                                        } else {
-                                            $seleced = '';
-                                        }
-                                        ?>
-                                        <option value="<?php echo $manufacturer['id']; ?>" <?php echo $seleced; ?>><?php echo $manufacturer['name']; ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- product Manufacture end -->
-                        <!-- product price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productprice" name="product_price" id="product_price">Product Price*</label>
-                            <input type="text" class="form-control" name="cost_price" id="cost_price" value="<?php echo $product_detail[0]['cost_price'] ?>">
-                        </div>
-                        <!-- product price end -->
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productsellingprice" name="product_selling_price" id="product_selling_price">Product Selling Price*</label>
-                            <input type="text" class="form-control" name="sell_price" id="sell_price" value="<?php echo $product_detail[0]['sell_price'] ?>">
-                        </div>
-                        <!-- product selling price end -->
-                        
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productavailablefor" name="product_availablefor" id="product_availablefor">Product Available For*</label>
-                            <!--<input type="text" class="form-control" name="name" id="name" value="">-->
-                            <div class="form-group">
-                                <label>
-                                    <input type="radio" name="available_for" value="buy" id="buy" class="available_for minimal" <?php
-                                    if ($product_detail[0]['available_for'] == 'buy') {
-                                        echo 'checked';
-                                    }
-                                    ?> >
-                                    Buy
-                                </label>
-                                <label>
-                                    <input type="radio" name="available_for" value="bid" id="bid" class="available_for minimal" <?php
-                                    if ($product_detail[0]['available_for'] == 'bid') {
-                                        echo 'checked';
-                                    }
-                                    ?>>
-                                    Bid
-                                </label>
-                            </div>
-                        </div>
-                        <!-- product selling price end -->
-                        <!-- product stock start -->
-                        <div class="form-group col-sm-5 stock">
-                            <label for="productstock" name="product_stock" id="product_stock">Product Stock*</label>
-                            <input type="number" class="form-control" name="stock" id="stock" value="<?php echo $product_detail[0]['stock'] ?>" min="1">
-                        </div>
-                        <!-- product stock end -->
-                        <!-- product bid time start -->
-                      <!--  <div class="form-group col-sm-3 pull-center bidding clockpicker" data-placement="right" data-align="top" data-autoclose="true">
-                            <label for="productbiddingtime" name="product_bidding_time" id="product_bidding_time">Product Bidding Time*</label>
-                            <input type="text" class="form-control input-small" name="bid_time" id="bid_time timepicker2" value="<?php echo $product_detail[0]['bid_time']; ?>">
-                        </div>
-                        <script type="text/javascript">
-                            $('.clockpicker').clockpicker();
-                        </script> -->
-                        <!-- product bid time end -->
-                        
-                        <!-- product description start -->
+                        <!--  TAG SELECTION START -->
                         <div class="form-group col-sm-10">
-                            <label for="productdescription" name="product_description" id="product_description">Description *</label>
-                            <?php
-                            echo form_textarea(array('name' => 'description', 'id' => 'description editor1', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;',
-                                'value' => $product_detail[0]['description']));
-                            ?><br>
+                                <label>Tag*</label>
+
+                               <input type="text" class="form-control" name="tag" id="tag" value="<?php echo $blog_detail[0]['tag'];?>">
                         </div>
-                        <!-- product description end -->
-                        <!-- product price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productprice" name="product_price" id="product_price">Estimated delivery day*</label>
-                            <input type="number" class="form-control" name="delivery_day" id="delivery_day" value="<?php echo $product_detail[0]['delivery_day'] ?>" min="1">
-                        </div>
-                        <!-- product price end -->
-                        <!-- product selling price start -->
-                        <div class="form-group col-sm-5">
-                            <label for="productcondition" name="product_condition" id="product_condition">Product Condition*</label>
-                            <select name="condition" id="condition" class="form-control">
-                                <option value="New" <?php if($product_detail[0]['condition'] == "New") { echo 'selected="selected"'; } ?>>New</option>
-                                <option value="Old" <?php if($product_detail[0]['condition'] == "Old") { echo 'selected="selected"'; } ?>>Old</option>
-                            </select>
-                        </div>
-                        <!-- product selling price end -->
-                        <!-- product available date -->
-                        <div class="form-group col-sm-5 date form_datetime" style="float:left">
-                            <label for="productavailabledate" name="product_available_date" id="product_available_date">Availble Date*</label>
-                            <input type="text" class="form-control" name="available_date" id="available_date" value="<?php echo $product_detail[0]['available_date'] ?>">
-                            <span class="add-on"><i class="icon-th"></i></span>
-                        </div>
-                        <!-- product available date -->
-                        <!-- product image start -->
+                        <!-- TAG SELECTION END -->
+
+                         <!-- BLOG DESCRIPTION START -->
                         <div class="form-group col-sm-10">
-                            <label for="productimage" name="productimage" id="productimage">Image *</label>
+                            <label for="blogdescription" name="blogdescription" id="blogdescription">Description *</label>
+                            <textarea id="description" name="description" rows="10" cols="80"><?php echo $blog_detail[0]['description'];?>
+                             </textarea>
+                          <!--   <?php //echo form_textarea(array('name' => 'description', 'id' => 'description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?> --><br>
+                        </div>
+                        <!-- BLOG DESCRIPTION END -->
+
+                        <!-- BLOG META DESCRIPTION START -->
+                        <div class="form-group col-sm-10">
+                            <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
+                             <textarea id="meta_description" name="meta_description" rows="10" cols="80"><?php echo $blog_detail[0]['meta_description'];?>
+                             </textarea>
+                         <br>
+                        </div>
+                        <!-- BLOG META DESCRIPTION END -->
+
+                       
+                        <!-- BLOG IMAGE START -->
+                        <div class="form-group col-sm-10">
+                            <label for="blogimage" name="blogimage" id="blogimage">Image *</label>
                             <input type="file" class="form-control" name="image" id="image" value="" style="border: none;">
-                        </div>
-                        <div class="form-group col-sm-10">
-                            <label for="productimage" name="productimage" id="productimage"></label>
-                            <img src="<?php echo base_url() . '../uploads/product/thumbs/' . $product_detail[0]['image'] ?>" alt="<?php echo $product_detail[0]['name'] ?>" width="180">
-                            <input type="hidden" name="old_image" value="<?php echo $product_detail[0]['image']; ?>" />
-                        </div>
-                        <!-- product image end -->
-                        <!-- product sub image start -->
-                        <div class="form-group col-sm-10">
-                            <label for="productsubimage" name="productsubimage" id="productsubimage">Sub Image</label>
-                            <input type="file" class="form-control" name="sub_image[]" multiple="5" id="sub_image" value="" style="border: none;">
-                        </div>
-                        <div class="form-group col-sm-10">
-                            <label for="productsubimage" name="productsubimage" id="productsubimage"></label>
                             <?php
-                            if ($image_list != '') {
-                                foreach ($image_list as $image) {
-                                    ?>
-                                    <div class="image-box" style="border:1px solid #eee; padding:10px; width: 120px; float: left; margin: 5px;">
-                                        <img src="<?php echo base_url() . '../uploads/product/thumbs/' . $image['image'] ?>" width="100" height="100">
-                                        <input type="hidden" name="old_sub_image[]" value="<?php echo $image['image'] ?>" />
-                                        <a href="<?php echo base_url('product/delete_image/' . $product_detail[0]['id'] . '/' . $image['id']) ?>" title="Delete" style="margin: 0 auto; width: 120px;" >Delete</a>
-                                    </div>
-
-                                    <?php
-                                }
-                            }
+                                    if ($blog_detail[0]['image']) 
+                                    {
                             ?>
+                               
+                                <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt=""  style="height: 100px; width: 100px;">
+                            <?php
+                                    }
+                                             
+                            ?>
+                            <input type="hidden" class="form-control" name="hidden_image" id="hidden_image" value="<?php echo $blog_detail[0]['image']; ?>" style="border: none;">
                         </div>
-                        <!-- product sub image end -->
+                        <!-- BLOG IMAGE END -->
+
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <?php
@@ -249,98 +126,45 @@ echo $leftmenu;
     $(document).ready(function () {
 
 
-        $("#edit_product_frm").validate({
+        $("#add_blog_frm").validate({
             rules: {
-                name: {
+                blog_title: {
                     required: true,
                 },
-                category_id: {
+                tag: {
                     required: true,
                 },
                 manufacture_id: {
                     required: true,
                 },
-                cost_price: {
-                    required: true,
-                    digits: true,
-                },
-                sell_price: {
-                    required: true,
-                    digits: true,
-                },
-                stock: {
-                    required: true,
-                },
-                available_for: {
-                    required: true,
-                },
-                bid_time: {
-                    required: true,
-                },
-                available_date: {
-                    required: true,
-                },
-                short_description: {
+                meta_description: {
                     required: true,
                 },
                 description: {
                     required: true,
-                }
+                },
+               
+                
             },
             messages:
                     {
-                        name: {
-                            required: "Please enter product name",
+                        blog_title: {
+                            required: "Please enter blog title",
                         },
-                        category_id: {
-                            required: "Please enter category",
+                        tag: {
+                            required: "Please select tag",
                         },
-                        manufacture_id: {
-                            required: "Please enter manufacturers",
-                        },
-                        cost_price: {
-                            required: "Please enter product price",
-                            digits: "Product cost price should be numeric",
-                        },
-                        sell_price: {
-                            required: "Please enter product selling price",
-                            digits: "Product sell price should be numeric",
-                        },
-                        stock: {
-                            required: "Please enter product stock",
-                        },
-                        available_for: {
-                            required: "Please enter product available for",
-                        },
-                        bid_time: {
-                            required: "Please enter product bidding time",
-                        },
-                        available_date: {
-                            required: "Please enter available date",
-                        },
-                        short_description: {
-                            required: "Please enter product short description",
+                        meta_description: {
+                            required: "Please enter meta description",
                         },
                         description: {
-                            required: "Please enter product description",
-                        }
+                            required: "Please enter blog description",
+                        },
+                       
+                       
                     },
         });
-
-
-        //var available_for = document.getElementsByName("available_for");
-        //alert(available_for);
-        var available = $('input[name=available_for]:checked').val();
-        if (available== 'buy')
-        {
-            $(".bidding").hide();
-            $(".stock").show();
-        }
-        if (available == 'bid')
-        {
-            $(".bidding").show();
-            $(".stock").hide();
-        }
+        $(".bidding").hide();
         $(".available_for").click(function () {
             var available_for = this.value;
             if (available_for == 'buy')
@@ -359,22 +183,12 @@ echo $leftmenu;
 
 </script>
 
-<script>
-    $(function () {
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        //   CKEDITOR.replace('editor1');
-        //bootstrap WYSIHTML5 - text editor
-        $(".textarea1").wysihtml5();
-    });
-</script>
 <script language="javascript" type="text/javascript">
     $(document).ready(function () {
         $('.callout-danger').delay(3000).hide('700');
         $('.callout-success').delay(3000).hide('700');
     });
 </script>
-
 <script type="text/javascript">
     $(".form_datetime").datetimepicker({
         format: "yyyy-mm-dd hh:ii:ss",
@@ -383,3 +197,55 @@ echo $leftmenu;
         pickerPosition: "bottom-left"
     });
 </script> 
+
+<!-- SCRIPT FOR CKEDITOR START-->
+<script type="text/javascript">   
+  var roxyFileman = '<?php echo SITEURL.'uploads/upload.php'; ?>' ; 
+   CKEDITOR.replace( 'description',{
+                                filebrowserBrowseUrl : roxyFileman,
+                                filebrowserUploadUrl : roxyFileman,
+                                filebrowserImageBrowseUrl : roxyFileman+'?type=image',
+                                filebrowserImageUploadUrl : roxyFileman,
+                                extraAllowedContent:  'img[alt,border,width,height,align,vspace,hspace,!src];' ,
+                                removeDialogTabs: 'link:upload;image:upload'}); 
+CKEDITOR.config.allowedContent = true;
+CKEDITOR.on('instanceReady', function(ev) {
+    // Ends self closing tags the HTML4 way, like <br>.
+    ev.editor.dataProcessor.htmlFilter.addRules({
+        elements: {
+            $: function(element) {
+                // Output dimensions of images as width and height
+                if (element.name == 'img') {
+                    var style = element.attributes.style;
+                    if (style) {
+                        // Get the width from the style.
+                        var match = /(?:^|\s)width\s*:\s*(\d+)px/i.exec(style),
+                            width = match && match[1];
+                        // Get the height from the style.
+                        match = /(?:^|\s)height\s*:\s*(\d+)px/i.exec(style);
+                        var height = match && match[1];
+                        // Get the float from the style.
+                        match = /(?:^|\s)float\s*:\s*(\w+)/i.exec(style);
+                        var float = match && match[1];
+                        if (width) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)width\s*:\s*(\d+)px;?/i, '');
+                            element.attributes.width = width;
+                        }
+                        if (height) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)height\s*:\s*(\d+)px;?/i, '');
+                            element.attributes.height = height;
+                        }
+                        if (float) {
+                            element.attributes.style = element.attributes.style.replace(/(?:^|\s)float\s*:\s*(\w+)/i, '');
+                            element.attributes.align = float;
+                        }
+                    }
+                }
+                if (!element.attributes.style) delete element.attributes.style;
+                return element;
+            }
+        }
+    });
+});     
+</script>
+<!-- SCRIPT FOR CKEDITOR END-->

@@ -5845,4 +5845,9 @@ public function temp(){
         echo '<pre>'; print_r($_POST); die();
     }
     
+
+     public function temp4(){
+
+    $this->load->view('job/temo4');
+    }
 }

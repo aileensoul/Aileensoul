@@ -145,23 +145,24 @@
                                                         $sub_fname = substr($fname, 0, 1);
                                                         $sub_lname = substr($lname, 0, 1);
                                                         ?>
-                                                        <div class="post-img-div"> 
+                                                        <div class="post-img-profile"> 
                                                             <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
-                                                        </div> <?php
+                                                        </div> 
+                                                        <?php
                                                     }
                                                     ?>
                                                 </a>
                                             </div>
                                             <div class="right_left_box_design ">
                                                 <span class="profile-company-name ">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($freelancerdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerdata[0]['freelancer_post_username']); ?></a>
                                                 </span>
 
 
                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                                 <div class="profile-boxProfile-name">
                                                     <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
-                                                        if ($freepostdata[0]['designation']) {
+                                                        if ($freelancerdata[0]['designation']) {
                                                             echo ucwords($freepostdata[0]['designation']);
                                                         } else {
                                                             echo "Current Work";
@@ -237,18 +238,18 @@
                                                                                                         echo $cityname . ",";
                                                                                                     }
                                                                                                     ?><?php
-                                                                                    if ($countryname) {
-                                                                                        echo $countryname;
-                                                                                    }
+                                                                                                    if ($countryname) {
+                                                                                                        echo $countryname;
+                                                                                                    }
                                                                                                     ?>
                                                                                                 </a>
                                                                                             </div>
                                                                                         <?php } ?>
 
-            <?php
-            $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
-            $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
-            ?>
+                                                                                        <?php
+                                                                                        $firstname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->fullname;
+                                                                                        $lastname = $this->db->get_where('freelancer_hire_reg', array('user_id' => $post['user_id']))->row()->username;
+                                                                                        ?>
                                                                                     </li>
                                                                                     <li><a class="display_inline" title="<?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>" href="<?php echo base_url('freelancer/freelancer_hire_profile/' . $post['user_id'] . '?page=freelancer_post'); ?>"><?php echo ucwords($firstname); ?>&nbsp;<?php echo ucwords($lastname); ?>
                                                                                         </a></li>
@@ -299,10 +300,10 @@
 
 
                                                                                 <!--  <?php if ($post['other_skill']) { ?>
-                                                                                                 <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
-                                                                                                 </li>
-                                                                                            <?php } else { ?>
-                                                                                                 <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
+                                                                                                     <li><b>Other Skill</b><span><?php echo $post['other_skill']; ?></span>
+                                                                                                     </li>
+                                                                                <?php } else { ?>
+                                                                                                     <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                                                 <li><b>Post Description</b><span><p>
                                                                                             <?php
@@ -400,9 +401,9 @@
                                                                                         if ($freelancerapply1) {
                                                                                             ?>
                                                                                             <a href="javascript:void(0);" class="button applied">Applied</a>
-                <?php
-            } else {
-                ?>
+                                                                                            <?php
+                                                                                        } else {
+                                                                                            ?>
 
                                                                                             <a href="javascript:void(0);"  class= "<?php echo 'applypost' . $post['post_id']; ?>  button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['user_id'] ?>)">Apply</a>
                                                                                         </li> 
@@ -419,8 +420,8 @@
 
                                                                                                 <a id="<?php echo $post['post_id']; ?>" onClick="savepopup(<?php echo $post['post_id']; ?>)" href="javascript:void(0);" class="<?php echo 'savedpost' . $post['post_id']; ?> button">Save</a>
 
-                <?php } ?>
-            <?php } ?>
+                                                                                            <?php } ?>
+                                                                                        <?php } ?>
 
                                                                                     </li>                        
                                                                                 </ul>
@@ -453,8 +454,8 @@
                                                     No Recommended Post Available.
                                                 </div>
                                             </div>
-<?php }
-?> 
+                                        <?php }
+                                        ?> 
                                         <!-- <div class="col-md-1">
                                         </div> -->
                                     </div>
@@ -466,7 +467,7 @@
 
                     </section>
                     <footer>
-<?php echo $footer; ?>
+                        <?php echo $footer; ?>
                     </footer>
                     <!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -491,32 +492,32 @@
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
                     <script>
-                                                                                var data = <?php echo json_encode($demo); ?>;
-                                                                                //alert(data);
+                                                                                                    var data = <?php echo json_encode($demo); ?>;
+                                                                                                    //alert(data);
 
-                                                                                $(function () {
-                                                                                    // alert('hi');
-                                                                                    $("#tags").autocomplete({
-                                                                                        source: function (request, response) {
-                                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                            response($.grep(data, function (item) {
-                                                                                                return matcher.test(item.label);
-                                                                                            }));
-                                                                                        },
-                                                                                        minLength: 1,
-                                                                                        select: function (event, ui) {
-                                                                                            event.preventDefault();
-                                                                                            $("#tags").val(ui.item.label);
-                                                                                            $("#selected-tag").val(ui.item.label);
-                                                                                            // window.location.href = ui.item.value;
-                                                                                        }
-                                                                                        ,
-                                                                                        focus: function (event, ui) {
-                                                                                            event.preventDefault();
-                                                                                            $("#tags").val(ui.item.label);
-                                                                                        }
-                                                                                    });
-                                                                                });
+                                                                                                    $(function () {
+                                                                                                        // alert('hi');
+                                                                                                        $("#tags").autocomplete({
+                                                                                                            source: function (request, response) {
+                                                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                                                response($.grep(data, function (item) {
+                                                                                                                    return matcher.test(item.label);
+                                                                                                                }));
+                                                                                                            },
+                                                                                                            minLength: 1,
+                                                                                                            select: function (event, ui) {
+                                                                                                                event.preventDefault();
+                                                                                                                $("#tags").val(ui.item.label);
+                                                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                                                // window.location.href = ui.item.value;
+                                                                                                            }
+                                                                                                            ,
+                                                                                                            focus: function (event, ui) {
+                                                                                                                event.preventDefault();
+                                                                                                                $("#tags").val(ui.item.label);
+                                                                                                            }
+                                                                                                        });
+                                                                                                    });
 
                     </script>
                     <script>

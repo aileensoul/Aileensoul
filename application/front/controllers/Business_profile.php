@@ -1468,11 +1468,20 @@ class Business_profile extends MY_Controller {
         // echo '<pre>'; print_r($result1); die();
         //echo "<pre>"; print_r($this->data['business_profile_data']); die();
 
-        if($this->data['businessdata1']){
-        $this->load->view('business_profile/business_profile_manage_post', $this->data);
-      }else{
-            redirect('business_profile/');
-      }
+    
+      if(!$this->data['businessdata1'] && ! $this->data['business_profile_data']){ //echo "22222222"; die();
+      
+      $this->load->view('business_profile/notavalible');  
+             
+       }
+        else if($this->data['businessdata1'][0]['business_step'] != 4){   //echo "hii"; die();
+        
+       redirect('business_profile/');
+         
+       }
+       else{
+      $this->load->view('business_profile/business_profile_manage_post', $this->data);
+       }
 
         // save post end       
     }
@@ -3257,11 +3266,20 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
 
-        if($this->data['businessdata1']){
+        
+
+
+       if($this->data['businessdata1']){
         $this->load->view('business_profile/business_resume', $this->data);
-       }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
+
+        $this->load->view('business_profile/notavalible');  
+
        }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
     }
 
     public function business_user_post($id) {
@@ -4085,12 +4103,16 @@ class Business_profile extends MY_Controller {
         $this->data['demo'] = array_values($result1);
 
         //echo "<pre>"; print_r($this->data['userlist']); die();
-        if($this->data['artisticdata']){
 
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_followers', $this->data);
-       }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slugid ){
 
+        $this->load->view('business_profile/notavalible');  
+
+       }
+        else if(!$this->data['businessdata1'] && ($id == $slugid  || $id == "")){
+       redirect('business_profile/');
        }
     }
 
@@ -4207,11 +4229,15 @@ class Business_profile extends MY_Controller {
 
 
 
-        if($this->data['artisticdata']){
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_following', $this->data);
-       }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slugid ){
 
+        $this->load->view('business_profile/notavalible');  
+
+       }
+        else if(!$this->data['businessdata1'] && ($id == $slugid  || $id == "")){
+       redirect('business_profile/');
        }
     }
 
@@ -6317,12 +6343,19 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
-        if($this->data['businessdata1']){
 
+        if($this->data['businessdata1']){
         $this->load->view('business_profile/business_photos', $this->data);
-         }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
+
+        $this->load->view('business_profile/notavalible');  
+
        }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
+
     }
 
 //multiple iamge for manage user end   
@@ -6422,11 +6455,18 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
-        if($this->data['businessdata1']){
+        
+       if($this->data['businessdata1']){
         $this->load->view('business_profile/business_videos', $this->data);
-        }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
+
+        $this->load->view('business_profile/notavalible');  
+
        }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
     }
 
 //multiple video for manage user end 
@@ -6530,12 +6570,20 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = array_values($result1);
 
-        if($this->data['businessdata1']){
 
+
+       if($this->data['businessdata1']){
         $this->load->view('business_profile/business_audios', $this->data);
-       }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
+
+        $this->load->view('business_profile/notavalible');  
+
        }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
+
     }
 
 //multiple audio for manage user end   
@@ -6637,12 +6685,18 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
         $this->data['demo'] = $result1;
 
+
         if($this->data['businessdata1']){
         $this->load->view('business_profile/business_pdf', $this->data);
-        }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
 
-        }
+        $this->load->view('business_profile/notavalible');  
+
+       }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
     }
 
 //multiple pdf for manage user end 
@@ -10842,11 +10896,20 @@ class Business_profile extends MY_Controller {
 
 
         //echo "<pre>"; print_r($unique_user); die();
-        if($this->data['businessdata1']){
+    
+
+       if($this->data['businessdata1']){
         $this->load->view('business_profile/bus_contact', $this->data);
-       }else{
-            redirect('business_profile/');
+       }else if(!$this->data['businessdata1'] && $id != $slug_id ){
+
+        $this->load->view('business_profile/notavalible');  
+
        }
+        else if(!$this->data['businessdata1'] && ($id == $slug_id  || $id == "")){
+       redirect('business_profile/');
+       }
+
+
     }
 
     public function removecontactuser() {

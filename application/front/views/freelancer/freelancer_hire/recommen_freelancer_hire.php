@@ -140,10 +140,12 @@
                                                 <!-- box image end -->
                                                 <?php
                                             } else {
+                                                
                                                 ?>
                                                 <div class="data_img">
                                                     <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>"  >
                                                 </div>
+                                                
                                                 <?php
                                             }
                                             ?>
@@ -167,7 +169,7 @@
                                                     $sub_fname = substr($fname, 0, 1);
                                                     $sub_lname = substr($lname, 0, 1);
                                                     ?>
-                                                    <div>
+                                                    <div class="post-img-profile">
                                                         <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
                                                     </div>
                                                     <?php

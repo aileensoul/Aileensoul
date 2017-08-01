@@ -143,7 +143,7 @@
                                                     $sub_fname = substr($fname, 0, 1);
                                                     $sub_lname = substr($lname, 0, 1);
                                                     ?>
-                                                    <div class="post-img-div">
+                                                    <div class="post-img-profile">
                                                         <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
                                                     </div>
                                                     <!--<img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">-->

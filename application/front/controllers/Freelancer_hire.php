@@ -338,7 +338,7 @@ class Freelancer_hire extends MY_Controller {
                 $this->data['state1'] = $userdata[0]['state'];
                 $this->data['city1'] = $userdata[0]['city'];
                 $this->data['pincode1'] = $userdata[0]['pincode'];
-                $this->data['address1'] = $userdata[0]['address'];
+//                $this->data['address1'] = $userdata[0]['address'];
             }
         }
 
@@ -516,7 +516,7 @@ class Freelancer_hire extends MY_Controller {
             $this->form_validation->set_rules('country', 'Please Enter Your country', 'required');
             $this->form_validation->set_rules('state', 'Please Enter Your state', 'required');
 
-            $this->form_validation->set_rules('address', ' Please Enter Your address', 'required');
+//            $this->form_validation->set_rules('address', ' Please Enter Your address', 'required');
 
 
 
@@ -533,7 +533,7 @@ class Freelancer_hire extends MY_Controller {
                         'state' => trim($this->input->post('state')),
                         'city' => trim($this->input->post('city')),
                         'pincode' => trim($this->input->post('pincode')),
-                        'address' => trim($this->input->post('address')),
+//                        'address' => trim($this->input->post('address')),
                         'modified_date' => date('Y-m-d h:i:s')
                     );
                     $updatdata = $this->common->update_data($data, 'freelancer_hire_reg', 'user_id', $userid);
@@ -557,7 +557,7 @@ class Freelancer_hire extends MY_Controller {
                     'state' => trim($this->input->post('state')),
                     'city' => trim($this->input->post('city')),
                     'pincode' => trim($this->input->post('pincode')),
-                    'address' => trim($this->input->post('address')),
+//                    'address' => trim($this->input->post('address')),
                     'modified_date' => date('Y-m-d h:i:s'),
                     'user_id' => $userid,
                     'free_hire_step' => 2

@@ -182,9 +182,9 @@ echo $leftmenu;
                     <td><?php echo $blog['modify_date']; ?></td>
 
                     <td>
-                        <!-- <button class="btn btn-primary btn-xs">
+                        <button class="btn btn-primary btn-xs" onclick="location.href='<?php echo base_url();?>blog/edit/<?php echo $blog['id']; ?>'" >
                          <i class="fa fa-pencil"></i>
-                        </button> -->
+                        </button>
 
                         <button class="btn btn-danger btn-xs" onclick="delete_blog(<?php echo $blog['id']; ?>);">
                         <i class="fa fa-trash-o"></i>

@@ -65,14 +65,7 @@ echo $leftmenu;
                         </div>
                         <!-- TAG SELECTION END -->
 
-                        <!-- BLOG DESCRIPTION START -->
-                        <div class="form-group col-sm-10">
-                            <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
-                            <?php echo form_textarea(array('name' => 'meta_description', 'id' => 'meta_description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
-                        </div>
-                        <!-- BLOG DESCRIPTION END -->
-
-                        <!-- BLOG DESCRIPTION START -->
+                         <!-- BLOG DESCRIPTION START -->
                         <div class="form-group col-sm-10">
                             <label for="blogdescription" name="blogdescription" id="blogdescription">Description *</label>
                             <textarea id="description" name="description" rows="10" cols="80">
@@ -80,7 +73,14 @@ echo $leftmenu;
                           <!--   <?php //echo form_textarea(array('name' => 'description', 'id' => 'description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?> --><br>
                         </div>
                         <!-- BLOG DESCRIPTION END -->
-                       
+
+                        <!-- BLOG META DESCRIPTION START -->
+                        <div class="form-group col-sm-10">
+                            <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
+                            <?php echo form_textarea(array('name' => 'meta_description', 'id' => 'meta_description', 'class' => "textarea", 'style' => 'width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
+                        </div>
+                        <!-- BLOG META DESCRIPTION END -->
+
                         <!-- BLOG IMAGE START -->
                         <div class="form-group col-sm-10">
                             <label for="blogimage" name="blogimage" id="blogimage">Image *</label>

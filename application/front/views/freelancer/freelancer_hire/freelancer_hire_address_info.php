@@ -212,11 +212,11 @@
                  <?php  ?>
 
                 
-                <fieldset class="full-width">
+<!--                <fieldset class="full-width">
                   <label>Postal Address:<span class="red">*</span></label>
                    <textarea name="address" id="address" tabindex="5" placeholder="Enter Address" rows="5" cols="40" style="resize:none"/><?php if($address1){ echo $address1; } ?></textarea>
                                      <?php echo form_error('address'); ?>
-                </fieldset>
+                </fieldset>-->
                  
 
                 
@@ -530,13 +530,13 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                         },
                        
                      
-                       address: {
-
-                            required: true,
-                            //noSpace: true
-                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
-                           
-                        },
+//                       address: {
+//
+//                            required: true,
+//                            //noSpace: true
+//                            regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
+//                           
+//                        },
                         pincode:{
                             regx1:/^.{0,12}$/
                             
@@ -559,12 +559,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                         },
 
                        
-                        address: {
 
-                            required: "Address Is Required.",
-                            
-                        },
-                       
                         
                     },
 
