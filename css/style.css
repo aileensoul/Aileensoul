@@ -14444,7 +14444,7 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 .message-data .message-data-time {
-    width: 105px;
+    width: 110px;
     display: block;
     margin: 0 auto;
 }
