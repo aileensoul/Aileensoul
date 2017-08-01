@@ -769,6 +769,7 @@ text-transform: uppercase;
 line-height: 1;}
 .a-inlineBlock .post-img-profile{line-height: 2;}
 .search_img .post-img-profile{line-height: 4;}
+.a-inlineBlock .data_img_2 .post-img-profile{line-height: 1;}
 .left_side_box_img {
     float: left;
 }
