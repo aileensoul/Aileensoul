@@ -62,7 +62,7 @@
                                                     $b = $artdata[0]['art_lastname'];
                                                     $bcr = substr($b, 0, 1);
                                                     ?>
-                                                                <div class="post-img-div">
+                                                                <div class="post-img-profile">
                                                                     <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
                                                                 </div>
 
