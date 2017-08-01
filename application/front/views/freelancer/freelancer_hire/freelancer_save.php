@@ -120,8 +120,15 @@
                     <div class="user-pic padd_img">
                         <?php if ($freehiredata[0]['freelancer_hire_user_image'] != '') { ?>
                             <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="" >
-                        <?php } else { ?>
-                            <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
+                        <?php } else {
+                            $fname = $freelancerhiredata[0]['fullname'];
+                            $lname = $freelancerhiredata[0]['username'];
+                            $sub_fname = substr($fname, 0, 1);
+                            $sub_lname = substr($lname, 0, 1);
+                            ?>
+                            <div class="post-img-user">
+                                <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
+                            </div>
                         <?php } ?>
             <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
