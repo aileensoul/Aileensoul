@@ -417,7 +417,7 @@ class Freelancer extends MY_Controller {
                 $this->data['state1'] = $userdata[0]['freelancer_post_state'];
                 $this->data['city1'] = $userdata[0]['freelancer_post_city'];
                 $this->data['pincode1'] = $userdata[0]['freelancer_post_pincode'];
-                $this->data['address1'] = $userdata[0]['freelancer_post_address'];
+               // $this->data['address1'] = $userdata[0]['freelancer_post_address'];
             }
         }
 
@@ -558,7 +558,7 @@ class Freelancer extends MY_Controller {
             $this->form_validation->set_rules('country', 'Country', 'required');
             $this->form_validation->set_rules('state', 'State', 'required');
 
-            $this->form_validation->set_rules('postaladdress', 'Address', 'required');
+           // $this->form_validation->set_rules('postaladdress', 'Address', 'required');
 
 
             if ($this->form_validation->run() == FALSE) {
@@ -594,7 +594,7 @@ class Freelancer extends MY_Controller {
                     'freelancer_post_country' => trim($this->input->post('country')),
                     'freelancer_post_state' => trim($this->input->post('state')),
                     'freelancer_post_city' => trim($this->input->post('city')),
-                    'freelancer_post_address' => trim($this->input->post('postaladdress')),
+                    //'freelancer_post_address' => trim($this->input->post('postaladdress')),
                     'freelancer_post_pincode' => trim($this->input->post('pincode')),
                     'modify_date' => date('Y-m-d', time())
                 );
@@ -658,7 +658,7 @@ class Freelancer extends MY_Controller {
 
 
         $contition_array = array('status' => 1, 'type' => 1);
-        $this->data['skill1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $this->data['skill1'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
         if ($userdata) {

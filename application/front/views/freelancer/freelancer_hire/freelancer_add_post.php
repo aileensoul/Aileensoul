@@ -8,7 +8,7 @@
     <!-- END HEADER -->
 
     <!--  <rash code 7-4 start> -->
-   <?php echo $freelancer_hire_header2; ?>
+   <?php echo $freelancer_hire_header2_border; ?>
    <!--  <rash code 7-4 end> -->
 
    <!DOCTYPE html>

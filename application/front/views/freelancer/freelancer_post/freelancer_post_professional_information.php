@@ -440,14 +440,14 @@ $( "#searchplace1" ).autocomplete({
     { 
         //alert(789);
          $("#skill1").select2({
-         placeholder: "Select a Language",
+         placeholder: "Select your skill",
          }).select2('val', complex);
     }
    if(complex == '')
     {
         //alert(123);
          $("#skill1").select2({
-         placeholder: "Select a Language",
+         placeholder: "Select your skill",
  
         });
     }

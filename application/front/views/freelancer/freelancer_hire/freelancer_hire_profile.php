@@ -494,9 +494,9 @@ if ($returnpage == 'freelancer_post') {
 ?>
 
 
-                                                        <li> <b>Postal Address </b><span><p> <?php echo $freelancerhiredata[0]['address']; ?> 
+<!--                                                        <li> <b>Postal Address </b><span><p> <?php //echo $freelancerhiredata[0]['address']; ?> 
                                                                 </p></span>
-                                                        </li>
+                                                        </li>-->
 
                                                     </ul>
                                                 </div>

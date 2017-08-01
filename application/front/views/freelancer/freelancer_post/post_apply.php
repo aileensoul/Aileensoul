@@ -155,14 +155,14 @@
                                             </div>
                                             <div class="right_left_box_design ">
                                                 <span class="profile-company-name ">
-                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                                    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($freelancerdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freelancerdata[0]['freelancer_post_username']); ?></a>
                                                 </span>
 
 
                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                                 <div class="profile-boxProfile-name">
                                                     <a  href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php
-                                                        if ($freepostdata[0]['designation']) {
+                                                        if ($freelancerdata[0]['designation']) {
                                                             echo ucwords($freepostdata[0]['designation']);
                                                         } else {
                                                             echo "Current Work";

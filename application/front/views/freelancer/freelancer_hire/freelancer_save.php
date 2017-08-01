@@ -121,8 +121,8 @@
                         <?php if ($freehiredata[0]['freelancer_hire_user_image'] != '') { ?>
                             <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $freehiredata[0]['freelancer_hire_user_image']); ?>" alt="" >
                         <?php } else {
-                            $fname = $freelancerhiredata[0]['fullname'];
-                            $lname = $freelancerhiredata[0]['username'];
+                            $fname = $freehiredata[0]['fullname'];
+                            $lname = $freehiredata[0]['username'];
                             $sub_fname = substr($fname, 0, 1);
                             $sub_lname = substr($lname, 0, 1);
                             ?>

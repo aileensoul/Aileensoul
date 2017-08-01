@@ -194,15 +194,15 @@ $pincode = form_error('pincode');
                                     } ?>">
 
                             </fieldset>
-
+<!--
                             <fieldset class="full-width">
                                 <label>Postal address:<span class="red">*</span></label>
 
                                 <textarea name ="postaladdress" id="postaladdress" tabindex="5" rows="4" cols="50" placeholder="Enter postal address" style="resize: none;"><?php if ($address1) {
-                                        echo $address1;
+                                       // echo $address1;
                                     } ?></textarea>
-<?php echo form_error('postaladdress'); ?>
-                            </fieldset>
+<?php// echo form_error('postaladdress'); ?>
+                            </fieldset>-->
 
                             <fieldset class="hs-submit full-width">
 <!-- @nk!y 07-04-2017 start -->
@@ -463,13 +463,13 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 
                     },
 
-                    postaladdress: {
-
-                        required: true,
-                        regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
-                        //noSpace: true
-
-                    },
+//                    postaladdress: {
+//
+//                        required: true,
+//                        regx:/^[a-zA-Z0-9\s]*[a-zA-Z][a-zA-Z0-9]*[-@./#&+,\w\s]*$/,
+//                        //noSpace: true
+//
+//                    },
                     pincode:{
                         regx1:/^.{0,12}$/
                     }
@@ -487,9 +487,9 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                         required: "State is required.",
                     },
 
-                    postaladdress: {
-                        required: "Postal address is required.",
-                    },
+//                    postaladdress: {
+//                        required: "Postal address is required.",
+//                    },
 
                 },
 
