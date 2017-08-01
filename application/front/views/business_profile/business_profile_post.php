@@ -292,14 +292,33 @@
                                                                 ?>                             
                                                                 <div class="profile-job-post-title-inside clearfix">
                                                                     <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
-                                                                        <div class="post-design-pro-img_follow">
-                                                                            <?php if ($userlist['business_user_image']) { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                             <div class="post-design-pro-img_follow">
+                                    <?php if ($userlist['business_user_image']) { ?>
+                                     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
-                                                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
-                                                                                </a>
-                                                                            <?php } else { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                        <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image'])) {
+                                                            
+                                                                    $a = $userlist['company_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                     <div class="post-img-div">
+                                                                     <?php echo ucfirst(strtolower($acr)) ?>
+                                                                     </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
+
+                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+
+                                        <?php
+                                                }
+                                         ?>
+
+                                        </a>
+                                                    <?php } else { ?>
+     <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
                                                                                                                                                         <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
 
@@ -377,11 +396,31 @@
                                                                         <div class="post-design-pro-img_follow">
 
 
-                                                                            <?php if ($userlist['business_user_image']) { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                    <?php if ($userlist['business_user_image']) { ?>
+                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
-                                                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
-                                                                                </a>
+
+                                                            <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image'])) {
+                                                            
+                                                                    $a = $userlist['company_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                     <div class="post-img-div">
+                                                                     <?php echo ucfirst(strtolower($acr)) ?>
+                                                                     </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
+                                                 <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+
+                                                 <?php
+                                                            }
+                                                            ?>
+
+
+                                                             </a>
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
@@ -459,10 +498,32 @@
                                                                     <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                         <div class="post-design-pro-img_follow">
                                                                             <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>">
-                                                                                <?php
-                                                                                if ($userlist['business_user_image'] != '') {
-                                                                                    ?>
-                                                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+                                                                                
+                                            <?php if ($userlist['business_user_image']) { ?>
+                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+
+
+                                                            <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image'])) {
+                                                            
+                                                                    $a = $userlist['company_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                     <div class="post-img-div">
+                                                                     <?php echo ucfirst(strtolower($acr)) ?>
+                                                                     </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
+
+                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+
+                                        
+                                        <?php
+                                                            }
+                                                            ?></a>
+
                                                                                     <?php
                                                                                 } else {
                                                                                     ?>
@@ -542,9 +603,26 @@
 
                                                                             <?php if ($userlist['business_user_image']) { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                        <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image'])) {
+                                                            
+                                                                    $a = $userlist['company_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                     <div class="post-img-div">
+                                                                     <?php echo ucfirst(strtolower($acr)) ?>
+                                                                     </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
 
-                                                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
-                                                                                </a>
+                                                        
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image']); ?>"  alt="">
+
+
+                                                        <?php }?>
+
+                                                             </a>
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
@@ -642,7 +720,28 @@
                                             <?php
                                             if ($businessdata[0]['business_user_image'] != '') {
                                                 ?>
+
+                                                <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                            
+                                                                    $a = $businessdata[0]['company_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                     <div class="post-img-div">
+                                                                     <?php echo ucfirst(strtolower($acr)) ?>
+                                                                     </div>
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
+
+
+
                                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
+
+
+
+                                                <?php }?>
                                                 <?php
                                             } else {
                                                 ?>
@@ -732,7 +831,24 @@
                                 <div class="main-text-area col-md-12">
                                     <div class="popup-img"> 
                                         <?php if ($businessdata[0]['business_user_image']) { ?>
+
+
+                                        <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                                $a = $businessdata[0]['company_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
+
+
+                                            <?php }?>
                                         <?php } else { ?>
                                             <?php
                                             $a = $businessdata[0]['company_name'];
@@ -821,7 +937,22 @@
 
                                                                     <?php if ($userimageposted) { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                                    <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userimageposted)) {
+                                                                $a = $companynameposted;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
+                                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                            <?php }?>
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
@@ -838,7 +969,22 @@
                                                                 <?php } else { ?>
                                                                     <?php if ($business_userimage) { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
+
+
+<?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
                                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+
+                                                                            <?php }?>
                                                                         </a>
                                                                     <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
@@ -1403,7 +1549,23 @@
                                                                                     <?php if ($business_userimage) { ?>
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
-                                                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt=""> </a>
+
+                                            <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') .  $business_userimage)) {
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                
+                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt=""> 
+                                                <?php }?>
+
+                                                </a>
                                                                                     <?php } else { ?>
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
 
@@ -1553,7 +1715,22 @@
                                                                 $business_user = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->company_name;
                                                                 ?>
                                                                 <?php if ($business_userimage) { ?>
+
+                                                        <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $business_user;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+
+                                                                    <?php }?>
                                                                 <?php } else { ?>
                                                                     <?php
                                                                     $a = $business_user;
