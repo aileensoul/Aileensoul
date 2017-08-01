@@ -5799,4 +5799,9 @@ public function temp(){
     $this->load->view('job/temp3');
     }
     
+
+     public function temp4(){
+
+    $this->load->view('job/temo4');
+    }
 }
