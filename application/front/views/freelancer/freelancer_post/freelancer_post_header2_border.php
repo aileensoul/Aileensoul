@@ -163,7 +163,7 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Mwessages</div>
+                                                <div id="notificationTitle">Messages</div>
 
                                                 <div id="notificationsmsgBody" class="notificationsmsg">
                                                 </div>
