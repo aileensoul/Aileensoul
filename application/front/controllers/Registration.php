@@ -454,7 +454,7 @@ public function check_email() { //echo "hello"; die();
               <td style="text-align:center; padding:10px 0 30px; font-size:15px;">';
                 $msg .= '<p style="margin:0;">Hi,' . ucwords($firstname) .  ucwords($lastname) .'</p>
                 <p style="padding:25px 0 ; margin:0;">Aileensoul has send you verification mail for verify your account successfully.</p>
-                <p><a class="btn" href="'.base_url().'"/registration/verify/" '. $userid .'">verify account</a></p>
+                <p><a class="btn" href="'.base_url().'registration/verify/'.$userid.'">verify account</a></p>
               </td>
             </tr>';
             
@@ -464,7 +464,7 @@ public function check_email() { //echo "hello"; die();
             // $msg .= "<br>"; 
             // $msg .= "<a href='".base_url()."/registration/verify/" . $userid . "'>click here</a>"; 
            
-          // echo $msg; die();
+        //echo $msg; die();
             $subject = "Aileensoul account verification link";
           
             $mail = $this->email_model->sendEmail($app_name = '', $app_email = '', $to_email , $subject, $msg);
