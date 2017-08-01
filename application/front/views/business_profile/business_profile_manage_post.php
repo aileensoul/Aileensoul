@@ -705,7 +705,7 @@
 
                                 <?php
                                 $contition_array = array('user_id' => $businessdata1[0]['user_id']);
-                                $businessimage = $this->data['businessimage'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                $businessimage = $this->data['businessimage'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = 'business_profile_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
                                 foreach ($businessimage as $val) {
@@ -4910,8 +4910,13 @@
 
 
             <script type="text/javascript">
-                $('#file-1').on('click', function(e){
-                document.getElementById("artpostform").reset();
-                });
+               $('#file-1').on('click', function(e){
+
+var a = document.getElementById('test-upload-product').value;
+var b = document.getElementById('test-upload-des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload-product').value = a;
+    document.getElementById('test-upload-des').value = b;
+    });
             </script>
 

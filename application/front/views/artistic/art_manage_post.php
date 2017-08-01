@@ -4904,8 +4904,13 @@ $('.modal-post').hide();
 </script>
             <script type="text/javascript">
                 $('#file-1').on('click', function(e){
-                    document.getElementById("artpostform").reset(); 
-                });
+
+var a = document.getElementById('test-upload-product').value;
+var b = document.getElementById('test-upload-des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload-product').value = a;
+    document.getElementById('test-upload-des').value = b;
+    });
             </script>
 
 

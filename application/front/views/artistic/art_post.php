@@ -3981,8 +3981,12 @@
  </script>
             <script type="text/javascript">
                 $('#file-1').on('click', function(e){
-                    document.getElementById("artpostform").reset(); 
-                });
+                   var a = document.getElementById('test-upload_product').value;
+var b = document.getElementById('test-upload_des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload_product').value = a;
+    document.getElementById('test-upload_des').value = b;
+    });
             </script>
 
 
