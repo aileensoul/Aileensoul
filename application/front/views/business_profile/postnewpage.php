@@ -207,8 +207,23 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <div class="left_iner_img_profile"> 
+                                                    <div class="left_iner_img_profile">
+
+<?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                                $a = $businessdata[0]['company_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div>
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+
+                                                        <?php }?>
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="left_iner_img_profile">  
@@ -314,7 +329,22 @@
                                             ?>
                                             <?php if ($userimageposted) { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
+
+                                                  <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userimageposted)) {
+                                                                $a = $companynameposted;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                                     <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+                                                    <?php }?>
                                                 </a>
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
@@ -329,7 +359,23 @@
                                         <?php } else { ?>
                                             <?php if ($business_userimage) { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
+
+
+                                                  <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+
+                                                    <?php }?>
                                                 </a>
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
@@ -860,7 +906,23 @@
                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                             if ($business_userimage != '') {
                                                                 ?>
+
+
+                              <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+                                                                                                  
                                                                 <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+
+                                                                <?php }?>
                                                                 <?php
                                                             } else {
                                                                 ?>
@@ -1004,7 +1066,21 @@
 
                                         if ($business_userimage) {
                                             ?>
+
+<?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $business_user;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+
+                                            <?php }?>
                                             <?php
                                         } else {
                                             ?>
@@ -1252,7 +1328,22 @@
                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                         if ($business_userimage != '') {
                                                             ?>
+
+                                                            <?php
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                $a = $companyname;
+                                                                $acr = substr($a, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else {
+                                                                ?>
+
                                                             <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                            <?php }?>
+
                                                             <?php
                                                         } else {
                                                             ?>
