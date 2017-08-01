@@ -649,6 +649,10 @@ $(window).load(function(){
     var allowes = ['jpg', 'jpeg','png'];
     var foundPresent = $.inArray(complogo_ext, allowes) > -1;
 
+    if(comp_logo  == ''){
+
+    }else{
+
     if(foundPresent == false)
        { //alert("hh");
                 $(".com_logo").html("Please select only image file.");
@@ -660,6 +664,7 @@ $(window).load(function(){
 
         document.getElementById('com_logo').style.display="none"
       }
+    }
 
     }
 </script>
