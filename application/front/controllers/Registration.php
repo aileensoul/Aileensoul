@@ -464,7 +464,7 @@ public function check_email() { //echo "hello"; die();
             // $msg .= "<br>"; 
             // $msg .= "<a href='".base_url()."/registration/verify/" . $userid . "'>click here</a>"; 
            
-        //echo $msg; die();
+          // echo $msg; die();
             $subject = "Aileensoul account verification link";
           
             $mail = $this->email_model->sendEmail($app_name = '', $app_email = '', $to_email , $subject, $msg);
