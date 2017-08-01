@@ -1608,6 +1608,9 @@ class Freelancer extends MY_Controller {
             // code for display page start
             $this->freelancer_hire_check();
             // code for display page end
+             $contition_array = array('is_delete' => '0', 'user_id' => $userid, 'status' => '1', 'free_hire_step' => 3);
+            $data = 'username,fullname,designation,freelancer_hire_user_image,user_id';
+             $this->data['freelancr_user_data'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             // code change by pallavi 14-4-2017
             $join_str[0]['table'] = 'freelancer_hire_reg';
             $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
@@ -1627,6 +1630,9 @@ class Freelancer extends MY_Controller {
         } else {
             $userid = $id;
             //echo $userid; 
+             $contition_array = array('is_delete' => '0', 'user_id' => $userid, 'status' => '1', 'free_hire_step' => 3);
+            $data = 'username,fullname,designation,freelancer_hire_user_image,user_id';
+             $this->data['freelancr_user_data'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             $join_str[0]['table'] = 'freelancer_hire_reg';
             $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
@@ -2350,7 +2356,7 @@ class Freelancer extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-            //echo "<pre>"; print_r($freelancerdata);
+           // echo "<pre>"; print_r($freelancerdata); die();
             $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
 
 

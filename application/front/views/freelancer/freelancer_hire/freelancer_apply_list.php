@@ -62,6 +62,7 @@
                                             foreach ($postdata as $row) {
 
                                                 // echo "<pre>"; print_r($row);die();
+                                                
                                                 ?> 
                                                 <div class="profile-job-post-detail clearfix">
 
@@ -78,8 +79,8 @@
                                                                             <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'] . '?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $row['freelancer_post_user_image']); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> </a>
                                                                             <?php
                                                                         } else {
-                                                                            $fname = $row[0]['fullname'];
-                                                                            $lname = $row[0]['username'];
+                                                                            $fname = $row['freelancer_post_fullname'];
+                                                                            $lname = $row['freelancer_post_username'];
                                                                             $sub_fname = substr($fname, 0, 1);
                                                                             $sub_lname = substr($lname, 0, 1);
                                                                             ?>
