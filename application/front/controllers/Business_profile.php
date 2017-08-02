@@ -10026,7 +10026,7 @@ class Business_profile extends MY_Controller {
         //     $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
         $modal .= '<h4 class="modal-title">';
 
-        $modal .= '' . count($likelistarray) . ' Like';
+        $modal .= '' . count($likelistarray) . ' Likes';
 
         $modal .= '</h4></div>';
         $modal .= '<div class="modal-body padding_less_right">';
@@ -10104,7 +10104,7 @@ class Business_profile extends MY_Controller {
         $modal .= '<button type="button" class="close" data-dismiss="modal">&times;</button>';
         $modal .= '<h4 class="modal-title">';
 
-        $modal .= '' . count($commneteduser) . ' Like';
+        $modal .= '' . count($commneteduser) . ' Likes';
 
         $modal .= '</h4></div>';
         $modal .= '<div class="modal-body padding_less_right">';
