@@ -1415,7 +1415,7 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
 
                 $("#example2").dateDropdowns({
                     submitFieldName: 'last_date',
-                    submitFormat: "yyyy-mm-dd",
+                    submitFormat: "dd/mm/yyyy",
                     minYear: today,
                     maxYear: today + 1,
                     defaultDate: date_picker,
