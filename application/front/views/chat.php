@@ -36,7 +36,7 @@
     </head>
     <body>
 
-        <div class="container_chat " id="paddingtop_fixed">
+        <div class="container " id="paddingtop_fixed">
         
 
         </div> 

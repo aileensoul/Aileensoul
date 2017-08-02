@@ -44,8 +44,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo $art_header2_border;
         }
         ?>
-
-        <div class="container_chat" id="paddingtop_fixed">
+<div class="container">
+        <div class="" id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
                     <div class="search border_btm">
@@ -383,9 +383,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?></div>
                                 </div>
                             </a>
-                            <a href="javascript:void(0);" onClick="delete_history()" style="float:right; margin: 7px 10px 0px 0px;">
-                                Delete history
+                           
+                                <div class="chat_drop">
+<a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png')?>"></a>
+  <div id="mychat_dropdown" class="chatdropdown-content">
+     <a href="javascript:void(0);" onClick="delete_history()">
+                              <span class="h4-img h2-srrt"></span>  Delete 
                             </a>
+  </div>
+</div>
+
                         </div>
                         <div class="chat-history" id="chat-history">
                             <ul  id="received" class="padding_less_right">
@@ -1079,4 +1086,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         document.getElementById('notificationContainer1').style.display = 'none';
     });
 
+</script>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("mychat_dropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.chatdropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("chatdropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 </script>
