@@ -7,6 +7,10 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
+
+<!-- This Css is used for call popup -->
+<link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
+
     <!-- start header -->
 <?php echo $header; ?>
     <?php if($recdata[0]['re_step'] == 3){?>
@@ -237,7 +241,7 @@
                         <textarea name ="other_activities" tabindex="6" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
                        
                     </fieldset>
-                     <fieldset>
+                     <fieldset id="logo_remove">
                                              <label>Company Logo:</label>
                                              <input  type="file" name="comp_logo" tabindex="5" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
 
@@ -252,6 +256,19 @@
                                                 }
                                                  ?>
                                           </fieldset>
+
+                                          <?php if($complogo1)
+                                                 {
+                                          ?>
+                                           <div style="float: left;" id="logo">
+                                                <div class="hs-submit full-width fl">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_logo('<?php echo $rec_id; ?>','<?php echo $complogo1; ?>')">
+                                                </div>
+                                             </div>
+
+                                          <?php
+                                                }
+                                          ?>
 
            <fieldset>
 
@@ -301,7 +318,8 @@
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
 <!-- Field Validation Js End -->
 
-
+<!-- This Js is used for call popup -->
+<script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
  <!-- <script type="text/javascript">
 var jquery_validate_min = $.noConflict(true);
@@ -667,4 +685,34 @@ $(window).load(function(){
     }
 
     }
+</script>
+
+<script type="text/javascript">
+
+ //DELETE LOGO START
+function delete_logo(id,logo) {
+    
+$.fancybox.open('<div class="message"><h2>Are you sure you want to Remove this Logo?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
+ 
+      $('.message #delete').on('click', function () {
+         $.ajax({
+           type: 'POST',
+           url: '<?php echo base_url() . "recruiter/delete_logo" ?>',
+           data: 'id=' + id+ '&logo=' + logo,
+           success: function (data) {
+
+               if (data == 1) 
+               {
+                  $.fancybox.close();      
+                  $('#logo_remove a').remove();
+                  $('#logo_remove img').remove();
+                  $('#logo').remove();
+               }
+             
+           }
+       });
+
+             });
+          }
+   //DELETE LOGO END
 </script>
