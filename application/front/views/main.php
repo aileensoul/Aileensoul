@@ -467,13 +467,25 @@
         }, "Email Should be in Small Character");
 
 
+        jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+$.validator.addMethod("regx", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
+
         $("#register_form").validate({
             rules: {
                 first_name: {
                     required: true,
+                    regx:/^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                 },
                 last_name: {
                     required: true,
+                    regx:/^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                 },
                 email_reg: {
                     required: true,
