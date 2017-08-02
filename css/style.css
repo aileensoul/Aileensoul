@@ -14824,7 +14824,6 @@ height: 100%;}
   content: attr(placeholder);
   display: block; /* For Firefox */
   color: #ccc;
-  line-height:1;
 }
     .sory_image{margin: 15px;}
     .not_founde_head{color: #1b8ab9;
