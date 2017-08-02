@@ -5638,6 +5638,7 @@ form {
     text-decoration: none;
     cursor: pointer;
 }
+.editor-content.popup-textarea{width: 100%;padding: 10px;}
 .popup-textarea textarea {
     border: none;
     width: 100%;
@@ -10588,6 +10589,7 @@ display: initial;}
     font-size: 14px;
     height: 31px;
 }
+
 .people-list .fa-search {
     position: relative;
     color: #d9d9d9;
