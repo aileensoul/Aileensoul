@@ -11,11 +11,10 @@
     font-family: arial;
 
 }
+.cont_req button{font-size: 12px; width: 96px;}
 .action-button #message_count{line-height: 10px;}
 .cancel_req_busi{margin:5px 4px;}
 .user_btn button{margin-top: 10px;}
-.profile-job-post-location-name ul li.folle_text{padding-left: 10px;}
-.profile-job-post-location-name ul li{padding-left: 0px;}
 .select2-container--open .select2-dropdown--below{z-index: 900;}
 .header2 ul li a#addcontactLink{padding: 6px 11px;}
 .header2 ul li a.bus-h{padding: 8px 12px;}
