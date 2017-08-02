@@ -167,6 +167,7 @@ $(window).load(function(){
         {
             $('#addcontact_count').html(msg);
             $('#addcontact_count').css({"background-color": "#FF4500" , "height": "16px" ,"width": "16px" , "padding" : "3px 4px"});
+            document.getElementById('addcontact_count').style.display = 'block';
             $('#addcontactLink').addClass('contact_notification_available');
 
         }
