@@ -857,13 +857,16 @@ function (value, element, param) {
       $(element).valid();
     });
   }
+ 
    if(!value) 
             {
                 return true;
             }
             else
             {
-                    return parseInt(value) > parseInt($min.val());
+              
+                    // return parseInt(value) > parseInt($min.val());
+                      return (value) > ($min.val());
             }
 }, "Max must be greater than min");
 

@@ -574,7 +574,8 @@ function (value, element, param) {
             }
             else
             {
-                    return parseInt(value) > parseInt($min.val());
+                    //return parseInt(value) > parseInt($min.val());
+                     return (value) > ($min.val());
             }
 }, "Max must be greater than min");
 
