@@ -396,7 +396,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
           <div class="post_inside_data">
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
-              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_thumb_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
 
             </div>
           </div>  
