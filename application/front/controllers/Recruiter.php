@@ -18,6 +18,7 @@ class Recruiter extends MY_Controller {
     public function index() {
 
 
+         $this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -54,6 +55,8 @@ class Recruiter extends MY_Controller {
     }
 
     public function rec_basic_information() {
+
+        // $this->recruiter_apply_check(); 
         // echo "hello";Die();
         $userid = $this->session->userdata('aileenuser');
 
@@ -151,7 +154,7 @@ class Recruiter extends MY_Controller {
 
     public function basic_information() {  
 
-
+         //$this->recruiter_apply_check(); 
         //echo "hi"; die();
 
         //echo '<pre>'; print_r($_POST); die();
@@ -219,9 +222,14 @@ class Recruiter extends MY_Controller {
                     'rec_firstname' => $this->input->post('first_name'),
                     'rec_lastname' => $this->input->post('last_name'),
                     'rec_email' => $this->input->post('email'),
-                    'rec_phone' => $this->input->post('phoneno')
+                    'rec_phone' => $this->input->post('phoneno'),
+                     're_status' => 1,
+                    'is_delete' => 0,
+                    'modify_date' => date('y-m-d h:i:s'),
+                    'user_id' => $userid,
+                    're_step' => 1
                 );
-           // echo "<pre>"; print_r($data); die(); 
+           //echo "<pre>"; print_r($data); die(); 
                 $insert_id = $this->common->update_data($data, 'recruiter', 'rec_id', $userdata[0]['rec_id']);
                 // echo $insert_id; die();
                 if ($insert_id) {
@@ -269,6 +277,9 @@ class Recruiter extends MY_Controller {
 
     public function check_email() { //echo "hello"; die();
         // if ($this->input->is_ajax_request() && $this->input->post('email')) {
+
+         //$this->recruiter_apply_check(); 
+
         $email = $this->input->post('email');
 
         $userid = $this->session->userdata('aileenuser');
@@ -321,6 +332,9 @@ class Recruiter extends MY_Controller {
 
     public function check_email_com() { //echo "hello"; die();
         // if ($this->input->is_ajax_request() && $this->input->post('email')) {
+
+        //$this->recruiter_apply_check(); 
+
         $email = $this->input->post('comp_email');
 
         $userid = $this->session->userdata('aileenuser');
@@ -377,6 +391,7 @@ class Recruiter extends MY_Controller {
     public function company_info_form() {
 
 
+       //  $this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -509,6 +524,7 @@ class Recruiter extends MY_Controller {
 // echo "<pre>"; print_r($_FILES);
 // die();
  
+         //$this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -917,6 +933,7 @@ class Recruiter extends MY_Controller {
 
     public function ajax_data() {
 
+
         if (isset($_POST["country_id"]) && !empty($_POST["country_id"])) {
             //Get all state data
             $contition_array = array('country_id' => $_POST["country_id"], 'status' => '1');
@@ -1032,6 +1049,7 @@ class Recruiter extends MY_Controller {
     // }
 
     public function rec_post($id="") { 
+         $this->recruiter_apply_check(); 
         //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -1141,6 +1159,7 @@ class Recruiter extends MY_Controller {
     }
 
     public function add_post() {
+        $this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1269,6 +1288,7 @@ class Recruiter extends MY_Controller {
 
     public function add_post_store() {
 
+         $this->recruiter_apply_check(); 
         //echo "string"; die();
 //echo '<pre>'; print_r($_POST); die();
         $userid = $this->session->userdata('aileenuser');
@@ -1295,18 +1315,18 @@ class Recruiter extends MY_Controller {
 
        
          // echo  date('Y-m-d h:i:s', strtotime($dob)); die();
-        $this->form_validation->set_rules('post_name', 'Post Name', 'required');
-        $this->form_validation->set_rules('post_desc', ' Description', 'required');
-        //$this->form_validation->set_rules('other_skill', ' Other skill', 'required');
-        $this->form_validation->set_rules('last_date', 'Last date', 'required');
-        //$this->form_validation->set_rules('location', 'location', 'required|alpha');
-        $this->form_validation->set_rules('country', 'Country', 'required');
-        $this->form_validation->set_rules('state', 'State', 'required');
+        // $this->form_validation->set_rules('post_name', 'Post Name', 'required');
+        // $this->form_validation->set_rules('post_desc', ' Description', 'required');
+        // //$this->form_validation->set_rules('other_skill', ' Other skill', 'required');
+        // $this->form_validation->set_rules('last_date', 'Last date', 'required');
+        // //$this->form_validation->set_rules('location', 'location', 'required|alpha');
+        // $this->form_validation->set_rules('country', 'Country', 'required');
+        // $this->form_validation->set_rules('state', 'State', 'required');
        
 
        
 
-        if ($this->form_validation->run() == FALSE) {
+       // if ($this->form_validation->run() == FALSE) {
             $contition_array = array('status' => '1');
         $this->data['countries'] = $this->common->select_data_by_condition('countries', $contition_array, $data = '*', $sortby = 'country_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1405,7 +1425,7 @@ class Recruiter extends MY_Controller {
 
              // echo "hi"; die();
             $this->load->view('recruiter/add_post',$this->data);
-        } else {
+       // } else {
 
 
             //echo "hello"; die();
@@ -1518,11 +1538,13 @@ if ($othereducation) {
                 $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                 redirect('recruiter', 'refresh');
             }
-        }
+        //}
     }
 
 
      public function recruiter_other_industry(){
+         $this->recruiter_apply_check(); 
+
         $other_industry = $_POST['other_industry'];
          $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
  
@@ -1599,7 +1621,8 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
 
     public function view_apply_list($id = "") {
 
-      
+       $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
       
      
@@ -1714,6 +1737,8 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
 
 //invite user  at home page click on applied person controller Start
     public function save_user($appid = " ", $status = "", $postid = ""){
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -1775,6 +1800,8 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
 //invite user  at home page click on applied person controller Start
 
     public function edit_post($id = "") {
+
+         $this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -1936,6 +1963,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
     }
 
     public function update_post($id = "") { //echo '<pre>'; print_r($_POST); die();
+     $this->recruiter_apply_check(); 
+
         $skill = $this->input->post('skills');
 //echo $skill; die();
           $bod = $this->input->post('last_date');
@@ -2167,6 +2196,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 
     public function rec_profile($id="") {
 
+         $this->recruiter_apply_check(); 
+
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -2271,6 +2302,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
 //Save Candidate at seach save controller Start
 
     public function save_candidate() { //echo"hii";die();
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -2410,6 +2443,8 @@ foreach ($recdata1 as $ke => $arr) {
 
     public function user_image_insert() {
      //echo "hii";die();
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -2568,6 +2603,8 @@ foreach ($recdata1 as $ke => $arr) {
 
     public function remove_post() {
 
+         $this->recruiter_apply_check(); 
+
         $postid = $_POST['post_id'];
         $data = array(
             'is_delete' => 1,
@@ -2579,7 +2616,9 @@ foreach ($recdata1 as $ke => $arr) {
 
 //Remove Save candidate by search controller start
     public function remove_candidate($saveid) {
+         $this->recruiter_apply_check(); 
 //echo $saveid;die();
+         $this->recruiter_apply_check(); 
 
         $saveid = $_POST['save_id'];
 
@@ -2608,6 +2647,9 @@ foreach ($recdata1 as $ke => $arr) {
 //Remove Save candidate by search controller End
 //keyskill automatic retrieve cobtroller start
     public function keyskill() {
+
+         $this->recruiter_apply_check(); 
+
         $json = [];
         $where = "status='1'";
 
@@ -2649,6 +2691,8 @@ foreach ($recdata1 as $ke => $arr) {
 //keyskill automatic retrieve cobtroller End
 //location automatic retrieve cobtroller start
     public function location() {
+         $this->recruiter_apply_check(); 
+
         $json = [];
 
         //$this->load->database('aileensoul');
@@ -2669,6 +2713,7 @@ foreach ($recdata1 as $ke => $arr) {
 //location automatic retrieve cobtroller End
 //deactivate user start
     public function deactivate() {
+         $this->recruiter_apply_check(); 
         //echo "hii";die();
 
         $id = $_POST['id'];
@@ -2695,6 +2740,8 @@ foreach ($recdata1 as $ke => $arr) {
 
 //save search user controller start
     public function save_search_user($id, $save_id) { //echo $id; echo $save_id; die();
+         $this->recruiter_apply_check(); 
+
         $id = $_POST['user_id'];
 
        // echo $id; die();
@@ -2768,6 +2815,8 @@ foreach ($recdata1 as $ke => $arr) {
 
     public function image_upload_ajax() {
 
+         $this->recruiter_apply_check(); 
+
         include 'db.php';
 
         session_start();
@@ -2838,6 +2887,8 @@ foreach ($recdata1 as $ke => $arr) {
 
     public function image_saveBG_ajax() {
 
+         $this->recruiter_apply_check(); 
+
         // include 'db.php';
 
         session_start();
@@ -2869,6 +2920,7 @@ foreach ($recdata1 as $ke => $arr) {
 //enter designation start
 
     public function recruiter_designation() {  //echo "hello"; die();
+         $this->recruiter_apply_check(); 
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -2928,6 +2980,8 @@ foreach ($recdata1 as $ke => $arr) {
 
 
     public function recommen_candidate() {
+
+         $this->recruiter_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -3187,6 +3241,9 @@ foreach ($recdata1 as $ke => $arr) {
 // cover pic controller
 
     public function ajaxpro() {
+
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -3255,6 +3312,9 @@ foreach ($recdata1 as $ke => $arr) {
     }
 
     public function image() {
+
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to recruiter/index untill active profile start
@@ -3308,6 +3368,8 @@ foreach ($recdata1 as $ke => $arr) {
 
     public function reactivate() {
 
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
        
@@ -3328,6 +3390,9 @@ foreach ($recdata1 as $ke => $arr) {
 
 
 public function ajax_designation() {
+
+         $this->recruiter_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
          //if user deactive profile then redirect to recruiter/index untill active profile start
          $contition_array = array('user_id'=> $userid,'re_status' => '0','is_delete'=> '0');
@@ -3351,6 +3416,8 @@ public function ajax_designation() {
     }
 
     public function invite_user() {
+
+         $this->recruiter_apply_check(); 
         
          $postid = $_POST['post_id'];
          $invite_user = $_POST['invited_user']; 
@@ -3398,6 +3465,39 @@ public function ajax_designation() {
     }
 //reactivate accont end    
 
+//THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE START
+ public function recruiter_apply_check() 
+ {
+
+
+        $userid = $this->session->userdata('aileenuser');
+
+        $contition_array = array('user_id' => $userid, 're_status' => '1', 'is_delete' => '0');
+        $apply_step = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
+        if (count($apply_step) >= 0) 
+        {
+            if ($apply_step[0]['re_step'] == 1) 
+            {
+               
+                  redirect('recruiter/company_info_form');
+                
+            } 
+            if ($apply_step[0]['re_step'] == 0) 
+            {
+              
+                  redirect('recruiter/rec_basic_information');
+                
+            } 
+
+        } 
+        else 
+        {
+             echo "hi";die();
+            redirect('recruiter/rec_basic_information');
+        }
+    }
+//THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE END
 
    
 }
