@@ -875,6 +875,7 @@
 <script type="text/javascript">
    function divClicked() {
        var divHtml = $(this).html();
+        divHtml = divHtml.trim();
        var editableText = $("<textarea />");
        editableText.val(divHtml);
        $(this).replaceWith(editableText);
