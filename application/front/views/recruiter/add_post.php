@@ -478,7 +478,7 @@
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<!-- <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> -->
 
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
@@ -489,6 +489,24 @@
 <!-- This Js is used for call popup -->
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 
+<script type="text/javascript">
+$(document).ready(function () {
+   
+         $("#education").select2({
+         placeholder: "Select a Education",
+ 
+        });
+
+          $("#skills").select2({
+         placeholder: "Find Your Skills",
+ 
+        });
+ 
+ 
+
+});
+
+</script>
 <script type="text/javascript">
   
 function imgval(){ 
@@ -1495,22 +1513,3 @@ var today = yyyy;
 </script>
 
 <!-- script for date end -->.
-<script type="text/javascript">
-$(document).ready(function () {
-   
-         $("#education").select2({
-         placeholder: "Select a Education",
- 
-        });
-
-          $("#skills").select2({
-         placeholder: "Find Your Skills",
- 
-        });
- 
- 
-
-});
-
-
-</script>
