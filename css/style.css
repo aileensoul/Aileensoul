@@ -14863,11 +14863,11 @@ div .comment {
 }
 
 .msg_right{max-width: 80%;
-float: right; position:relativ;}
+float: right; position:relative;}
 #basicinfo .day{width:32%;}
 #basicinfo .month{width:32%;}
 #basicinfo .year{width:33%;}
-.msg_right .messagedelete a{font-size:25px; padding-right:10px;}
+.msg_right .messagedelete a{font-size:18px; padding-right:10px;}
 
 /***  media query  ***/
 
