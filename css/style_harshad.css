@@ -1,3 +1,9 @@
+.header2 #InboxFooter a {
+    color: #000;
+    font-weight: 500;
+    font-size: 13px;
+}
+.select2-container--open .select2-dropdown--below{z-index: 900;}
 .header2 ul li a#addcontactLink{padding: 6px 11px;}
 .header2 ul li a.bus-h{padding: 8px 12px;}
 .header2 ul li{float: left;}
