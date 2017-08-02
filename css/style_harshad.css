@@ -3,6 +3,14 @@
     font-weight: 500;
     font-size: 13px;
 }
+.profile-job-details ul li p {
+    margin-bottom: 0;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500 !important;
+    font-family: arial;
+
+}
 .select2-container--open .select2-dropdown--below{z-index: 900;}
 .header2 ul li a#addcontactLink{padding: 6px 11px;}
 .header2 ul li a.bus-h{padding: 8px 12px;}

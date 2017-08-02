@@ -586,7 +586,7 @@ $contition_array = array('user_id' => $row['userid']);
 
      ?>
 
-            <a href="<?php echo base_url('chat/abc/' . $row['userid'].'/2/1'); ?>">Message</a>
+            <a  class="button invite_border" href="<?php echo base_url('chat/abc/' . $row['userid'].'/2/1'); ?>">Message</a>
 
             <?php  $contition_array = array('invite_user_id' => $row['userid'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -607,7 +607,7 @@ $contition_array = array('user_id' => $row['userid']);
        
      <?php } else { ?>
        <input type="hidden" id="<?php echo 'hideenuser' . $row['userid']; ?>" value= "<?php echo $data[0]['save_id']; ?>"> 
-       <a  id="<?php echo $row['userid']; ?>" onClick="savepopup(<?php echo $row['userid']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['userid']; ?>">Save</a>
+       <a class="button invite_border"  id="<?php echo $row['userid']; ?>" onClick="savepopup(<?php echo $row['userid']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['userid']; ?>">Save</a>
         <?php }
          
        
