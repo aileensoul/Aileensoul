@@ -21,10 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
         <style type="text/css">
-            .chat .chat-history .message:hover .messagedelete{ visibility: visible;
+            .msg_right:hover .messagedelete{ visibility: visible;
                                                                opacity: 1;
             }
-            .chat .chat-history .message .messagedelete{ visibility: hidden;  cursor: pointer;}
+            .msg_right .messagedelete{ visibility: hidden;  cursor: pointer;}
         </style>
     <body>
         <?php
@@ -653,7 +653,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
                 html += ' </div>';
                 //html += ' <div class="chat-body clearfix">';
-                html += '   <div class="msg_right">  <div class="message other-message float-right"><div class="messagedelete fl"> <a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div></div>';
+                html += '   <div class="msg_right"> <div class="messagedelete fl"><a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> <div class="message other-message float-right">' + print_message + '</div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + touser).html(print_message);
