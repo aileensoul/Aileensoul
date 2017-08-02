@@ -1377,8 +1377,7 @@ class Recruiter extends MY_Controller {
         $contition_array = array('status' => '1', 'type' => '1');
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
+         
 
         $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
         //   echo count($unique);
@@ -1434,7 +1433,7 @@ class Recruiter extends MY_Controller {
             $data = array(
                 'post_name' => trim($this->input->post('post_name')),
                 'post_description' => trim($this->input->post('post_desc')),
-                'post_skill' => implode(",", $skill),
+                'post_skill' => implode(",", $this->input->post('skills')),
                 'post_position' => $this->input->post('position_no'),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
