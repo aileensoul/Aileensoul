@@ -21,10 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
         <style type="text/css">
-            .msg_right:hover .messagedelete{ visibility: visible;
-                                                               opacity: 1;
-            }
+            .msg_right:hover .messagedelete{ visibility: visible;opacity: 1;}
             .msg_right .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
+			.msg_left_data:hover .messagedelete{ visibility: visible;opacity: 1;}
+            .msg_left_data .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
     <body>
         <?php
@@ -686,10 +686,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var print_message = print_message.replace(/\\t/gi, "");
 
                 var html = '<li id="message_li_' + data.id + '" class="recive-data"> <div class="message-data">';
-                html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 html += '<span class="message-data-time">' + formattedDate + ' </span>';
+				html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
+                
                 html += ' </div>';
-                html += '    <div class="msg_left_data">   <div class="message my-message">' + data.message + '</div><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></div>';
+                html += '    <div class="msg_left_data">   <div class="message my-message">' + data.message + '</div><div class="messagedelete"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + curuser).html(print_message);

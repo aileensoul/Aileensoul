@@ -1,5 +1,13 @@
 <!-- <Don't Remove this Script SEO> -->
 <script>
+    $(function () {
+        var input = $(".common-form input");
+        var len = input.val().length;
+        input[0].focus();
+        input[0].setSelectionRange(len, len);
+    });
+</script>
+<script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
@@ -1320,11 +1328,3 @@ for (i = 0; i < dropdowns.length; i++) {
 
 </script>
 
-<script>
-    $(function () {
-        var input = $(".common-form input");
-        var len = input.val().length;
-        input[0].focus();
-        input[0].setSelectionRange(len, len);
-    });
-</script>

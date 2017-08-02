@@ -333,7 +333,7 @@
                                                                                         $a = $userlist['company_name'];
                                                                                         $acr = substr($a, 0, 1);
                                                                                         ?>
-                                                                                        <div class="post-img-div">
+                                                                                        <div class="post-img-profile">
                                                                                             <?php echo ucfirst(strtolower($acr)) ?>
                                                                                         </div>
                                                                                         <?php
@@ -357,7 +357,7 @@
                                                                                     $a = $userlist['company_name'];
                                                                                     $acr = substr($a, 0, 1);
                                                                                     ?>
-                                                                                    <div class="post-img-div">
+                                                                                    <div class="post-img-profile">
                                                                                         <?php echo ucfirst(strtolower($acr)) ?>
                                                                                     </div>
                                                                                 </a>

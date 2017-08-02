@@ -7,6 +7,11 @@
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
+<style type="text/css">
+  footer > .container{border:1px solid transparent!important;}
+  .footer{border:1px solid #d9d9d9;}
+</style>
+
 <?php
   foreach ($blog_detail as $blog) 
       {
@@ -39,37 +44,27 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
  
 </head>
 <body class="blog">
- <header class="">
-        <div class="header animated fadeInDownBig">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-5 col-xs-5 mob-zindex">
-                        <!-- <div class="logo"><a href="<?php echo base_url('dashboard') ?>"><img src="<?php echo base_url('images/logo-white.png'); ?>"></a></div> -->
-                        <div class="logo">
-                            <a tabindex="-200" href="<?php echo base_url(); ?>"> <h2  style="color: white;">Aileensoul</h2></a>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-7 col-xs-7 header-left-menu">
-                        <div class="main-menu-right">
-                            <ul class="">
-                          <!--   <li><a class=" action-button shadow animate" href="<?php echo base_url('dashboard') ?>"><img class="h-img" src="img/header_icon_menu.png"></a></li>
-                            <li> <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><img class="h-img" src="img/header_icon_notification.png">
-                                        <span id="message_count"></span>
-                                    </a></li>
-                            <li> </li> -->
-                            </ul>
-                         </div>
-                     </div>
-               </div>
-           </div>
-       </div>
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-3">
+          <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
+        </div>
+        <div class="col-md-8 col-sm-9">
+            <div class="btn-right pull-right pt10">
+              <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
+              <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
+            </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-
-  <header >
          <div class="blog_header">
           <div class="container">
             <div class="row"> 
@@ -133,7 +128,7 @@
           </div>
           
          </div>
-  </header>
+
 <section>
 <div class="col-md-12 hidden-md hidden-lg pt20">
       <div class="blog_search">
@@ -288,10 +283,10 @@ else
         <div class="blog_class_main_desc">
           <span>
            <?php
-                     $small = substr($blog['description'], 0, 180);
+                     $small = substr($blog['description'], 0, 350);
                      echo $small;
 
-                     if (strlen($blog['description']) > 180) {
+                     if (strlen($blog['description']) > 350) {
                           echo '....';
                         }
                         ?>
@@ -468,7 +463,24 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
 </div>  
 </section>
 
+<footer class="footer">
+                <div class="container pt20">
+                    <div class="row">
 
+                        <div class="col-md-6 col-sm-8 pull-right col-xs-12">
+                            <ul>
+                                <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
+                                <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
+                <li><a href="<?php echo base_url('blog');      ?>">Blog</a>|</li>
+                                <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-sm-4 col-xs-12">
+                            © 2017 | by Aileensoul
+                        </div>
+                    </div>
+                </div>
+            </footer>
 </body>
 </html>
 

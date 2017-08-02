@@ -442,6 +442,8 @@ class Recruiter extends MY_Controller {
             $step = $userdata[0]['re_step'];
 
             if ($step == 3 || $step > 3 || ($step >= 1 && $step <= 3)) {
+
+                $this->data['rec_id'] = $userdata[0]['rec_id'];
                 $this->data['compname'] = $userdata[0]['re_comp_name'];
                 $this->data['compemail'] = $userdata[0]['re_comp_email'];
                 $this->data['compnum'] = $userdata[0]['re_comp_phone'];
@@ -1375,8 +1377,7 @@ class Recruiter extends MY_Controller {
         $contition_array = array('status' => '1', 'type' => '1');
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
+         
 
         $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
         //   echo count($unique);
@@ -1432,7 +1433,7 @@ class Recruiter extends MY_Controller {
             $data = array(
                 'post_name' => trim($this->input->post('post_name')),
                 'post_description' => trim($this->input->post('post_desc')),
-                'post_skill' => implode(",", $skill),
+                'post_skill' => implode(",", $this->input->post('skills')),
                 'post_position' => $this->input->post('position_no'),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
@@ -3493,11 +3494,34 @@ public function ajax_designation() {
         } 
         else 
         {
-             echo "hi";die();
             redirect('recruiter/rec_basic_information');
         }
     }
 //THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE END
 
+//DELETE LOGO START
+public function delete_logo()
+{
+        $id=$_POST['id'];
+        $logo= $_POST['logo'];
+        
+           $data = array(
+                'comp_logo' => ''
+                
+            );
+
+           $updatedata = $this->common->update_data($data, 'recruiter','rec_id',$id);
+    
+        //FOR DELETE IMAGE AND PDF IN FOLDER START
+            $path='uploads/recruiter_profile/main/'.$logo;
+            $path1='uploads/recruiter_profile/thumbs/'.$logo;
+           
+            unlink($path); 
+            unlink($path1); 
+        //FOR DELETE IMAGE AND PDF IN FOLDER END
+            echo 1;             
+            die();
+}
+//DELETE LOGO END
    
 }
