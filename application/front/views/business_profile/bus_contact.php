@@ -304,7 +304,7 @@
 
                                                             <div class="addtocont">
                                                     <span class="ft-13 ai_text">
-                                                       In contact </span>
+                                                       In contacts </span>
                                                     </div> 
 
                                                 </div>
@@ -658,7 +658,7 @@
 
                                                                         <div class="user_btn cont_req" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
                                                                             <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?>, 'confirm')">
-                                                                                In  contacts
+                                                                                In contacts
                                                                             </button> 
                                                                         </div>        
 

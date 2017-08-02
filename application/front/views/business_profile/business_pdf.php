@@ -304,7 +304,7 @@
 
                                                             <div class="addtocont">
                                                     <span class="ft-13 ai_text">
-                                                       In contact </span>
+                                                       In contacts </span>
                                                     </div> 
 
                                                 </div>
