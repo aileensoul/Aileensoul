@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Blog extends MY_Controller {
 
     public $data;
+ 
 
     public function __construct() {
 
@@ -26,15 +27,18 @@ class Blog extends MY_Controller {
          $this->config->load('paging', TRUE);
          $this->paging = $this->config->item('paging');
 
+
+
         include('include.php');
         $adminid =  $this->session->userdata('aileen_admin');
-
-
+   
+       // echo $this->profile->thumb();
     }
 
 //LIST OF BLOG ADD BY ADMIN START
  public function blog_list() 
  {
+
          //FOR GETTING ALL DATA STARt
             $condition_array = array('status !=' => 'delete');
             $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
@@ -80,7 +84,7 @@ class Blog extends MY_Controller {
                 $blog_thumb['source_image'] = $blog['upload_path'] . $imgdata['file_name'];
                 $blog_thumb['new_image'] = $this->config->item('blog_thumb_upload_path') . $imgdata['file_name'];
                 $blog_thumb['create_thumb'] = TRUE;
-                $blog_thumb['maintain_ratio'] = TRUE;
+               $blog_thumb['maintain_ratio'] = TRUE;
                 $blog_thumb['thumb_marker'] = '';
                 $blog_thumb['width'] = $this->config->item('blog_thumb_width');
                 //$user_thumb['height'] = $this->config->item('user_thumb_height');
@@ -198,7 +202,7 @@ public function draft()
         $update = $this->common->update_data($data, 'blog', 'id', $id);
 
         $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="publish(' .  $id . ')">
-                              Publish
+                              Published
                       </button>';
 
         echo $select;
@@ -292,6 +296,7 @@ public function reject_comment()
     $condition_array = array('status !=' => 'delete','id'=> $id);
     $this->data['blog_detail']  = $this->common->select_data_by_condition('blog', $condition_array, $data='*', $short_by='id', $order_by='desc', $limit, $offset, $join_str = array());
     //FOR GETTING ALL DATA END 
+
 
         $this->load->view('blog/edit',$this->data);
         
@@ -404,7 +409,7 @@ public function reject_comment()
                     'meta_description' => $this->input->post('meta_description'),
                     'description' => $this->input->post('description'),
                     'image' => $blog_image,
-                    'blog_slug' => $this->setcategory_slug($this->input->post('blog_title'), 'blog_slug', 'blog'),
+                    'blog_slug' => $this->input->post('blog_slug'),
                     'modify_date' => date('Y-m-d H:i:s'),
                     'status' => 'publish'
                 ); 

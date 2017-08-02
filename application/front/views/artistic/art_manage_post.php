@@ -502,7 +502,7 @@
                         }
                         ?>
                         <?php
-                        $allowed = array('gif', 'png', 'jpg');
+                        $allowed = array('gif', 'PNG', 'jpg','png');
 
                         foreach ($multipleimage as $mke => $mval) {
 
@@ -539,7 +539,7 @@
 
 
                         <?php } else { ?>
-                            <div class="not_available">  <p>Photos Not Available</p></div>
+                            <!-- <div class="not_available">  <p>Photos Not Available</p></div> -->
 
                         <?php } ?>
                         <div class="dataconphoto"></div>
@@ -647,7 +647,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                <div class="not_available">  <p> Video Not Available</p></div>
+                                <!-- <div class="not_available">  <p> Video Not Available</p></div> -->
                             <?php } ?>
                             <div class="dataconvideo"></div>
                         </table>
@@ -757,7 +757,7 @@
                                     <?php } ?>
                                 </tr>
                             <?php } else { ?>
-                                <div class="not_available">  <p>  Audio Not Available</p> </div>
+                               <!--  <div class="not_available">  <p>  Audio Not Available</p> </div> -->
                             <?php } ?>
                             <div class="dataconaudio"></div>
                         </table>
@@ -827,7 +827,7 @@
                                 ?>
 
                             <?php }else { ?>
-                                <div class="not_available">  <p>    Pdf Not Available</p>
+                                <!-- <div class="not_available">  <p>    Pdf Not Available</p> -->
                                 </div>
                             <?php } ?>
 
@@ -958,7 +958,7 @@ $loginuser = $userdata[0]['art_id'];
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form);  onkeyup=check_length(this.form); onblur=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                <div class="fifty_val">  
-                                    <input size=1 class="text_num" value=50 name=text_num readonly> 
+                                    <input size=1 class="text_num" tabindex="-500" value=50 name=text_num readonly> 
                                 </div>
 
                             
@@ -1217,10 +1217,10 @@ $loginuser = $userdata[0]['art_id'];
 
                                 ?>
 
-                            <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
+                            <input size=1 id="text_num" class="text_num" tabindex="-501" value="<?php echo (50 - $a);?>" name=text_num readonly>
 
                            <?php }else{?>
-                           <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+                           <input size=1 id="text_num" tabindex="-502" class="text_num" value=50 name=text_num readonly> 
 
                             <?php }?>
             </div>
@@ -2431,6 +2431,7 @@ if (size > 10485760)
 
             function editableTextBlurred() {
                 var html = $(this).val();
+                 html = html.trim();
                 var viewableText = $("<a>");
                 if (html.match(/^\s*$/) || html == '') {
                     html = "Current Work";
@@ -4904,8 +4905,13 @@ $('.modal-post').hide();
 </script>
             <script type="text/javascript">
                 $('#file-1').on('click', function(e){
-                    document.getElementById("artpostform").reset(); 
-                });
+
+var a = document.getElementById('test-upload-product').value;
+var b = document.getElementById('test-upload-des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload-product').value = a;
+    document.getElementById('test-upload-des').value = b;
+    });
             </script>
 
 

@@ -57,6 +57,13 @@ echo $leftmenu;
                         </div>
                         <!-- BLOG TITLE END -->
 
+                         <!-- BLOG SLUG START -->
+                        <div class="form-group col-sm-10">
+                            <label for="blogslug" name="blogslug" id="blogslug">Blog Slug*</label>
+                            <input type="text" class="form-control" name="blog_slug" id="blog_slug" value="<?php echo $blog_detail[0]['blog_slug'];?>">
+                        </div>
+                        <!-- BLOG SLUG END -->
+
                         <!--  TAG SELECTION START -->
                         <div class="form-group col-sm-10">
                                 <label>Tag*</label>
@@ -77,7 +84,7 @@ echo $leftmenu;
                         <!-- BLOG META DESCRIPTION START -->
                         <div class="form-group col-sm-10">
                             <label for="blogmetadescription" name="blogmetadescription" id="blogmetadescription">Meta Description *</label>
-                             <textarea id="meta_description" name="meta_description" rows="10" cols="80"><?php echo $blog_detail[0]['meta_description'];?>
+                             <textarea id="meta_description" name="meta_description" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" ><?php echo $blog_detail[0]['meta_description'];?>
                              </textarea>
                          <br>
                         </div>
@@ -92,13 +99,16 @@ echo $leftmenu;
                                     if ($blog_detail[0]['image']) 
                                     {
                             ?>
-                               
-                                <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt=""  style="height: 100px; width: 100px;">
+                               <div class="thumbnail">
+                          <img src="<?php echo SITEURL . $this->config->item('blog_view_main_upload_path') . $blog_detail[0]['image']; ?>" alt="" class="portrait">
+                              </div>
                             <?php
                                     }
                                              
                             ?>
-                            <input type="hidden" class="form-control" name="hidden_image" id="hidden_image" value="<?php echo $blog_detail[0]['image']; ?>" style="border: none;">
+                            
+                            <input type="hidden" class="form-control" name="hidden_image" id="hidden_image" value="<?php echo $blog_detail[0]['image']; ?>" style="border: none;" >
+                            </div>
                         </div>
                         <!-- BLOG IMAGE END -->
 
@@ -126,9 +136,12 @@ echo $leftmenu;
     $(document).ready(function () {
 
 
-        $("#add_blog_frm").validate({
+        $("#edit_blog_frm").validate({
             rules: {
                 blog_title: {
+                    required: true,
+                },
+                blog_slug: {
                     required: true,
                 },
                 tag: {
@@ -150,6 +163,9 @@ echo $leftmenu;
                     {
                         blog_title: {
                             required: "Please enter blog title",
+                        },
+                        blog_slug: {
+                            required: "Please enter blog slug",
                         },
                         tag: {
                             required: "Please select tag",
@@ -249,3 +265,26 @@ CKEDITOR.on('instanceReady', function(ev) {
 });     
 </script>
 <!-- SCRIPT FOR CKEDITOR END-->
+<style type="text/css">
+    .thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+</style>

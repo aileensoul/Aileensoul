@@ -144,18 +144,18 @@
                                         <div class="left_side_box_img buisness-profile-txext">
 
                                             <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" 
-                                               href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freelancerdata[0]['user_id']); ?>" title="<?php echo $freelancerdata[0]['freelancer_post_fullname'] . ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
+                                               href="<?php echo base_url('freelancer/freelancer_post_profile/' . $freepostdata[0]['user_id']); ?>" title="<?php echo $freepostdata[0]['freelancer_post_fullname'] . ' ' . $freepostdata[0]['freelancer_post_username']; ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                                                    <?php
-                                                   if ($freelancerdata[0]['freelancer_post_user_image']) {
+                                                   if ($freepostdata[0]['freelancer_post_user_image']) {
                                                        ?>
 
                                                     <div class="data_img_2">
-                                                        <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freelancerdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname'] . ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
+                                                        <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $freepostdata[0]['freelancer_post_user_image']); ?>" alt="<?php echo $freelancerdata[0]['freelancer_post_fullname'] . ' ' . $freelancerdata[0]['freelancer_post_username']; ?>" >
                                                     </div>
                                                     <?php
                                                 } else {
-                                                    $fname = $freelancerdata[0]['freelancer_post_fullname'];
-                                                    $lname = $freelancerdata[0]['freelancer_post_username'];
+                                                    $fname = $freepostdata[0]['freelancer_post_fullname'];
+                                                    $lname = $freepostdata[0]['freelancer_post_username'];
                                                     $sub_fname = substr($fname, 0, 1);
                                                     $sub_lname = substr($lname, 0, 1);
                                                     ?>
@@ -169,7 +169,7 @@
                                         </div>
                                         <div class="right_left_box_design ">
                                             <span class="profile-company-name ">
-                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($userdata[0]['first_name']) . ' ' . ucwords($userdata[0]['last_name']); ?></a>
+                                                <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><?php echo ucwords($freepostdata[0]['freelancer_post_fullname']) . ' ' . ucwords($freepostdata[0]['freelancer_post_username']); ?></a>
                                             </span>
 
 

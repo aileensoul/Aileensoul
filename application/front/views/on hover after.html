@@ -1,0 +1,24 @@
+<div id="myDiv"></div>
+
+<style type="text/css">
+	#myDiv{
+   position:relative;
+   width:50px;
+   height:50px;
+   border-style:solid;
+   background-color:red;
+}
+#myDiv:before{
+   position:absolute;
+   content:"";
+   display:none;
+   width:50px;
+   height:50px;
+   left:50px;
+   border-style:solid;
+   background-color:blue;
+}
+#myDiv:hover:before{
+    display:block;
+}
+</style>

@@ -680,8 +680,8 @@ $config['blog_main_max_height'] = '5000';
 // BLOG THUMB THUMB
 $config['blog_thumb_upload_path'] = '../uploads/blog/thumbs/';
 $config['blog_view_thumb_upload_path'] = 'uploads/blog/thumbs/';
-$config['blog_thumb_width'] = '150';
-$config['blog_thumb_height'] = '150';
+$config['blog_thumb_width'] = '350';
+$config['blog_thumb_height'] = '350';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

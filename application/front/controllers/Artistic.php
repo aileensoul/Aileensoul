@@ -8292,7 +8292,7 @@ public function followtwo() {
        $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
        $modal .=   '<h4 class="modal-title">';
        
-       $modal .=    '' . count($commnetcount) . ' Like';
+       $modal .=    '' . count($commnetcount) . ' Likes';
        
        $modal .= '</h4></div>';
        $modal .= '<div class="modal-body padding_less_right">';
@@ -8393,7 +8393,7 @@ public function followtwo() {
     //   $modal .=   '<button type="button" class="close" data-dismiss="modal">&times;</button>';
        $modal .=   '<h4 class="modal-title">';
        
-       $modal .=    '' . count($likelistarray) . ' Like';
+       $modal .=    '' . count($likelistarray) . ' Likes';
        
        $modal .= '</h4></div>';
        $modal .= '<div class="modal-body padding_less_right">';

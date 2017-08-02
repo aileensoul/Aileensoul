@@ -21,10 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
         <style type="text/css">
-            .chat .chat-history .message:hover .messagedelete{ visibility: visible;
+            .msg_right:hover .messagedelete{ visibility: visible;
                                                                opacity: 1;
             }
-            .chat .chat-history .message .messagedelete{ visibility: hidden;  cursor: pointer;}
+            .msg_right .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
     <body>
         <?php
@@ -44,8 +44,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             echo $art_header2_border;
         }
         ?>
-
-        <div class="container_chat" id="paddingtop_fixed">
+<div class="container">
+        <div class="" id="paddingtop_fixed">
             <div class="chat_nobcx">
                 <div class="people-list" id="people-list">
                     <div class="search border_btm">
@@ -383,9 +383,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?></div>
                                 </div>
                             </a>
-                            <a href="javascript:void(0);" onClick="delete_history()" style="float:right; margin: 7px 10px 0px 0px;">
-                                Delete history
+                           
+                                <div class="chat_drop">
+<a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png')?>"></a>
+  <div id="mychat_dropdown" class="chatdropdown-content">
+     <a href="javascript:void(0);" onClick="delete_history()">
+                              <span class="h4-img h2-srrt"></span>  Delete 
                             </a>
+  </div>
+</div>
+
                         </div>
                         <div class="chat-history" id="chat-history">
                             <ul  id="received" class="padding_less_right">
@@ -646,7 +653,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
                 html += ' </div>';
                 //html += ' <div class="chat-body clearfix">';
-                html += '     <div class="message other-message float-right"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
+                html += '   <div class="msg_right"> <div class="messagedelete fl"><a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div> <div class="message other-message float-right">' + print_message + '</div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + touser).html(print_message);
@@ -682,7 +689,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 html += '<span class="message-data-time">' + formattedDate + ' </span>';
                 html += ' </div>';
-                html += '     <div class="message my-message"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + data.message + '</div>';
+                html += '    <div class="msg_left_data">   <div class="message my-message"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + data.message + '</div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + curuser).html(print_message);
@@ -1079,4 +1086,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         document.getElementById('notificationContainer1').style.display = 'none';
     });
 
+</script>
+
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("mychat_dropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.chatdropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("chatdropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 </script>

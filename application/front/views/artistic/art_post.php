@@ -922,7 +922,7 @@
                         ?>
                      <?php if (count($artmultiimage) == 1) { ?>
                      <?php
-                        $allowed = array('gif', 'PNG', 'jpg');
+                        $allowed = array('gif', 'PNG', 'jpg','png');
                         $allowespdf = array('pdf');
                         $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
                         $allowesaudio = array('mp3');
@@ -3981,8 +3981,12 @@
  </script>
             <script type="text/javascript">
                 $('#file-1').on('click', function(e){
-                    document.getElementById("artpostform").reset(); 
-                });
+                   var a = document.getElementById('test-upload_product').value;
+var b = document.getElementById('test-upload_des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload_product').value = a;
+    document.getElementById('test-upload_des').value = b;
+    });
             </script>
 
 

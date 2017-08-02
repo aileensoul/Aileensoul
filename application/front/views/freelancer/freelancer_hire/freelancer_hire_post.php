@@ -100,7 +100,7 @@ if ($returnpage == 'freelancer_post') {
                     } else {
                         ?>
 
-                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" / >
+                             <img src="<?php echo base_url(WHITEIMAGE); ?>" name="image_src" id="image_src" />
                          <?php }
                          ?>
 
@@ -111,7 +111,7 @@ if ($returnpage == 'freelancer_post') {
 
         <div class="container tablate-container art-profile">    
 
-            <?php if ($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid) { ?>
+            <?php if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) { ?>
                 <div class="upload-img">
 
                     <label class="cameraButton"><span class="tooltiptext">Upload Cover Photo</span><i class="fa fa-camera" aria-hidden="true"></i>
@@ -131,12 +131,12 @@ if ($returnpage == 'freelancer_post') {
                 <div class="profile-pho">
 
                     <div class="user-pic padd_img">
-                        <?php if ($freelancerpostdata[0]['freelancer_hire_user_image'] != '') { ?>
-                            <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $userdata[0]['freelancer_hire_user_image']); ?>" alt="" >
+                        <?php if ($freelancr_user_data[0]['freelancer_hire_user_image'] != '') { ?>
+                            <img src="<?php echo base_url($this->config->item('free_hire_profile_thumb_upload_path') . $freelancr_user_data[0]['freelancer_hire_user_image']); ?>" alt="" >
                         <?php
                         } else {
-                            $fname = $freelancerpostdata[0]['fullname'];
-                            $lname = $freelancerpostdata[0]['username'];
+                            $fname = $freelancr_user_data[0]['fullname'];
+                            $lname = $freelancr_user_data[0]['username'];
                             $sub_fname = substr($fname, 0, 1);
                             $sub_lname = substr($lname, 0, 1);
                             ?>
@@ -146,7 +146,7 @@ if ($returnpage == 'freelancer_post') {
     <!--                            <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE); ?>" alt="" />-->
                         <?php } ?>
 <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
-                        <?php if ($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid) { ?>
+                        <?php if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) { ?>
                             <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 <?php } ?>
                     </div>
@@ -156,32 +156,32 @@ if ($returnpage == 'freelancer_post') {
                 </div>
 
                 <div class="job-menu-profile mob-block">
-                    <a href="javascript:void(0);">  <h3> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h3></a>
+                    <a href="javascript:void(0);">  <h3> <?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?></h3></a>
 
 
                     <div class="profile-text">
                         <?php
-                        if ($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid) {
-                            if ($freelancerpostdata[0]['designation'] == '') {
+                        if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
+                            if ($freelancr_user_data[0]['designation'] == '') {
                                 ?>
-                                           <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
+                                           <!--  <a id="myBtn" title="<?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?>">Designation</a> -->
                                 <a id="designation" class="designation" title="Designation">Designation</a>
 
     <?php } else { ?> 
-                                    <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
-                                <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                                    <!-- <a id="myBtn" title="<?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?>"><?php echo ucwords($freelancr_user_data[0]['designation']); ?></a> -->
+                                <a id="designation" class="designation" title="<?php echo ucwords($freelancr_user_data[0]['designation']); ?>"><?php echo ucwords($freelancr_user_data[0]['designation']); ?></a>
                             <?php
                             }
                         } else {
 
-                            if ($freelancerpostdata[0]['designation'] == '') {
+                            if ($freelancr_user_data[0]['designation'] == '') {
                                 ?>
 
                                 Designation
 
                             <?php } else { ?>
 
-                                <?php echo ucwords($freelancerpostdata[0]['designation']); ?>
+                                <?php echo ucwords($freelancr_user_data[0]['designation']); ?>
 
                             <?php
                             }
@@ -196,7 +196,7 @@ if ($returnpage == 'freelancer_post') {
                     <div class=" right-side-menu art-side-menu padding_less_right  right-menu-jr">  
                         <?php
                         $userid = $this->session->userdata('aileenuser');
-                        if ($freelancerpostdata[0]['user_id'] == $userid) {
+                        if ($freelancr_user_data[0]['user_id'] == $userid) {
                             ?>     
                             <ul class="current-user pro-fw">
 
@@ -232,7 +232,7 @@ if ($returnpage == 'freelancer_post') {
                                 <ul>
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
-                                    if ($userid != $freelancerpostdata[0]['user_id']) {
+                                    if ($userid != $freelancr_user_data[0]['user_id']) {
                                         ?>
                                         <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3) . '/3/4'); ?>">Message</a> </li>
 <?php } ?>
@@ -252,29 +252,29 @@ if ($returnpage == 'freelancer_post') {
 
         <div class="middle-part container">
             <div class="job-menu-profile mob-none pt20">
-                <a href="javascript:void(0);">  <h5> <?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5></a>
+                <a href="javascript:void(0);">  <h5> <?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5></a>
 
 
                 <div class="profile-text">
 <?php
-if ($returnpage == '' && $freelancerpostdata[0]['user_id'] == $userid) {
-    if ($freelancerpostdata[0]['designation'] == '') {
+if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
+    if ($freelancr_user_data[0]['designation'] == '') {
         ?>
-                                       <!--  <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>">Designation</a> -->
+                                       <!--  <a id="myBtn" title="<?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?>">Designation</a> -->
                             <a id="designation" class="designation" title="Designation">Designation</a>
 
                         <?php } else { ?> 
-                                    <!-- <a id="myBtn" title="<?php echo ucwords($freelancerpostdata[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a> -->
-                            <a id="designation" class="designation" title="<?php echo ucwords($freelancerpostdata[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
+                                    <!-- <a id="myBtn" title="<?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?>"><?php echo ucwords($freelancr_user_data[0]['designation']); ?></a> -->
+                            <a id="designation" class="designation" title="<?php echo ucwords($freelancr_user_data[0]['designation']); ?>"><?php echo ucwords($freelancerpostdata[0]['designation']); ?></a>
                         <?php
                         }
                     } else {
-                        if ($freelancerpostdata[0]['designation'] == '') {
+                        if ($freelancr_user_data[0]['designation'] == '') {
                             ?>
                             Designation
                             <?php
                         } else {
-                            echo ucwords($freelancerpostdata[0]['designation']);
+                            echo ucwords($freelancr_user_data[0]['designation']);
                         }
                     }
                     ?></div>

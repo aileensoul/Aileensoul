@@ -164,8 +164,8 @@
 
                                                     <?php
                                                 } else {
-                                                    $fname = $freehiredata[0]['fullname'];
-                                                    $lname = $freehiredata[0]['username'];
+                                                    $fname = $freehiredata['fullname'];
+                                                    $lname = $freehiredata['username'];
                                                     $sub_fname = substr($fname, 0, 1);
                                                     $sub_lname = substr($lname, 0, 1);
                                                     ?>

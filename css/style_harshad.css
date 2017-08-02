@@ -1,3 +1,17 @@
+.header2 #InboxFooter a {
+    color: #000;
+    font-weight: 500;
+    font-size: 13px;
+}
+.profile-job-details ul li p {
+    margin-bottom: 0;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500 !important;
+    font-family: arial;
+
+}
+.select2-container--open .select2-dropdown--below{z-index: 900;}
 .header2 ul li a#addcontactLink{padding: 6px 11px;}
 .header2 ul li a.bus-h{padding: 8px 12px;}
 .header2 ul li{float: left;}
@@ -226,7 +240,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 /*.job-saved-box{width:100%; float:left; border:1px solid #d9d9d9; margin-bottom:50px; border-radius:4px;}*/
 .contact-frnd-post{ border-bottom-left-radius: 4px;  border-bottom-right-radius: 4px; /*border-top:none;*/}
 #row2{border:1px solid #d9d9d9; border-top:0;}
-.chat_nobcx{margin-top:15px;}
+.chat_nobcx{margin-top:15px; margin-bottom:15px;}
 
 #search .new-search-input{height:215px;}
 #search .new-search-input .btn.btn-primary{width:auto;}
@@ -460,6 +474,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	#notificationLink span{margin-left:6px;}
 }
 @media screen and (max-width: 360px) {
-  .designation_rec_1{width: 75%;}
+	.designation_rec_1{width: 75%;}
 	.bg-search .header2{margin-top:-2px;}
 }
