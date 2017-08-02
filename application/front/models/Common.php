@@ -747,5 +747,6 @@ class Common extends CI_Model {
         return preg_replace('!((http\:\/\/|ftp\:\/\/|https\:\/\/)|www\.)([-a-zA-Zа-яА-Я0-9\~\!\@\#\$\%\^\&\*\(\)_\-\=\+\\\/\?\.\:\;\'\,]*)?!ism','<a href="//$1$3" class="' . $class . '" target="'.$target.'">$1$3</a>', 
             $text);
     }
-
+    
+   
 }

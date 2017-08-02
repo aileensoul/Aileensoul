@@ -2010,7 +2010,11 @@ class Job extends MY_Controller {
              redirect('job/');
         }
      //if user deactive profile then redirect to job/index untill active profile End
-
+        
+         $contition_array = array('is_delete' => '0','industry_name !=' => "Other");
+          $search_condition = "((status = '1'))";
+           $university_data = $this->data['industry'] = $this->common->select_data_by_search('job_industry', $search_condition, $contition_array, $data = 'industry_id,industry_name', $sortby = 'industry_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+           
         $contition_array = array('status' => '1', 'type' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -2032,24 +2036,39 @@ class Job extends MY_Controller {
         }
 
         $contition_array = array('status' => '1', 'is_delete' => 0, 'user_id' => $userid);
-       $post = $this->data['postdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      // echo "<pre>"; print_r($this->data['postdata']); die();
+       $post = $this->data['postdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id,work_job_title,work_job_industry,work_job_city,keyskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  //   echo '<pre>';     print_r($post); die();
+        $contition_array = array('status' => 'publish','title_id' => $post[0]['work_job_title']);
+        $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        $this->data['work_title'] = $jobtitle[0]['name'];
+       $this->data['work_industry'] = $post[0]['work_job_industry'];
+   //   echo $post[0]['keyskill'];
+        $work_skill = explode(',', $post[0]['keyskill']); 
+        $work_city = explode(',', $post[0]['work_job_city']); 
+    
+        foreach($work_skill as $skill){
+     $contition_array = array('skill_id' => $skill);
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     $detailes[] = $skilldata[0]['skill'];
+  } 
 
-        // $this->data['postdata'] = $this->common->select_data_by_id('job_reg','user_id', $userid, $data = '*', $join_str = array());
-         $skildata = explode(',', $this->data['postdata'][0]['keyskill']);
-     // echo "<pre>"; print_r($skildata); die();
+   $this->data['work_skill'] = implode(',', $detailes); 
+   
+    foreach($work_city as $city){
+      $contition_array = array('city_id' => $city);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $citydata = $this->common->select_data_by_condition('cities',$contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+ if($citydata){
+       $cities[] = $citydata[0]['city_name'];
+ }
+        }
 
-
-        $this->data['selectdata'] = $skildata;
-
-
-       //  $skildata = explode(',',$post[0]['keyskill']);
-       // // echo $skildata; die();
-       //  $this->data['selectdata'] = $skildata;
-
-       // echo "<pre>"; print_r( $this->data['selectdata']); die();
-
-        // code for search
+   $this->data['work_skill'] = implode(',', $detailes); 
+   $this->data['work_city'] = implode(',', $cities); 
+  
+   
+    // code for search
         $contition_array = array('re_status' => '1','re_step' => 3);
 
         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5819,6 +5838,11 @@ public function temp(){
          $this->data['citydata'] =   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
    
 
+         foreach ($location_list as $key => $value) {
+              $ciit[$key]['id'] =$value['city_id'];
+              $ciit[$key]['text'] =$value['city_name'];
+          }
+          $this->data['ciit']= array_values($ciit);
           foreach ($location_list as $key1 => $value1) {
               foreach ($value1 as $ke1 => $val1) {
                  $location[] = $val1;
@@ -5829,8 +5853,10 @@ public function temp(){
               $loc[$key]['label'] =$value;
               $loc[$key]['value'] =$value;
           }
+          
+           
          
- //echo "<pre>"; print_r($loc);die();
+ 
 
         $this->data['city_data']= array_values($loc);
         
@@ -5842,7 +5868,110 @@ public function temp(){
     }
     
     public function job_insert(){
-        echo '<pre>'; print_r($_POST); die();
+    //  echo '<pre>'; print_r($_POST); die();
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        
+        $firstname = $this->input->post('first_name');
+        $lastname = $this->input->post('last_name');
+        $email = $this->input->post('email');
+        $fresher = $this->input->post('fresher');
+        $industry = $this->input->post('industry');
+     
+        $jobtitle = $this->input->post('job_title'); 
+      
+      $skills = $this->input->post('skills');
+      $skills = explode(',',$skills); 
+   
+      $cities = $this->input->post('cities');
+      $cities = explode(',',$cities); 
+    
+        // job title start   
+        if($jobtitle != " "){ 
+     $contition_array = array('name' => $jobtitle);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $jobdata = $this->common->select_data_by_condition('job_title',$contition_array, $data = 'title_id,name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($jobdata){
+         $jobtitle = $jobdata[0]['title_id'];
+           }else{
+                 $data = array(
+                    'name' => ucfirst($this->input->post('job_title')),
+                    'status' => 'publish',
+                 );
+      $jobtitle = $this->common->insert_data_getid($data, 'job_title');
+           }
+      }
+      
+      // skills  start   
+      
+      if(count($skills) > 0){ 
+          
+          foreach($skills as $ski){
+     $contition_array = array('skill' => $ski);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($skilldata){
+         $skill[] = $skilldata[0]['skill_id'];
+           }else{
+                 $data = array(
+                    'skill' => $ski,
+                    'status' => '1',
+                    'type' => 3,
+                    'user_id' => $userid,
+                 );
+      $skill[] = $this->common->insert_data_getid($data, 'skill');
+           }
+          }
+          
+          $skills = implode(',',$skill); 
+      }
+      
+      // city  start   
+      
+      if(count($cities) > 0){ 
+          
+          foreach($cities as $cit){
+     $contition_array = array('city_name' => $cit);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $citydata = $this->common->select_data_by_condition('cities',$contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($citydata){
+       $city[] = $citydata[0]['city_id'];
+           }else{
+                 $data = array(
+                    'city_name' => $cit,
+                    'status' => '1',
+                 );
+      $city[] = $this->common->insert_data_getid($data, 'cities');
+           }
+          }
+          
+          $city = implode(',',$city); 
+      }
+      
+         $data = array(
+                    'fname' => ucfirst($this->input->post('first_name')),
+                    'lname' => ucfirst($this->input->post('last_name')),
+                    'email' => $this->input->post('email'),
+                    'keyskill' => $skills,
+                    'work_job_title' => $jobtitle,
+                    'work_job_industry' => $this->input->post('industry'),
+                    'work_job_city' => $city,
+                    'experience' => $this->input->post('fresher'),
+                    'status' => 1,
+                    'is_delete' => 0,
+                    'created_date' => date('Y-m-d h:i:s', time()),
+                    'user_id' => $userid,
+                    'job_step' => 10
+                );
+         
+                $insert_id = $this->common->insert_data_getid($data, 'job_reg');
+                if ($insert_id) {
+                    $this->session->set_flashdata('success', 'Basic information updated successfully');
+                    redirect('job/job_all_post');
+                } else {
+                    $this->session->flashdata('error', 'Sorry!! Your data not inserted');
+                    redirect('job/temp3', 'refresh');
+                }
+       
     }
     
 
