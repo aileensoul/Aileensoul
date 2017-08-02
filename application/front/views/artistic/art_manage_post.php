@@ -2431,6 +2431,7 @@ if (size > 10485760)
 
             function editableTextBlurred() {
                 var html = $(this).val();
+                 html = html.trim();
                 var viewableText = $("<a>");
                 if (html.match(/^\s*$/) || html == '') {
                     html = "Current Work";
