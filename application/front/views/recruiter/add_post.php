@@ -632,7 +632,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = day+'/'+month+'/'+year;
+   var todaydate = dd+'/'+mm+'/'+yyyy;
 
    var lastDate = $("input[name=last_date]").val();
     //alert(lastDate); alert(todaydate);
@@ -752,7 +752,7 @@ if(mm<10) {
                         last_date: {
                             
                             required: true,
-                            isValid: 'Last date should be grater than and equal to today date'
+                           isValid: 'Last date should be grater than and equal to today date'
                             
                         },
                         minsal:{

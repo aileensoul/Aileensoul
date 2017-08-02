@@ -623,9 +623,16 @@ $contition_array = array('user_id' => $row['userid']);
 
                             <?php }   } else {
                             ?>
-                            <div class="text-center rio">
-                                <h4 class="page-heading  product-listing" style="border:0px;margin-bottom: 11px;">No Applied Candidate Found.</h4>
-                            </div>
+                              <div class="art-img-nn">
+         <div class="art_no_post_img">
+
+           <img src="<?php echo base_url('img/job-no1.png')?>">
+        
+         </div>
+         <div class="art_no_post_text">
+          No Applied Candidate  Available.
+         </div>
+          </div>
                             <?php
                         }
                         ?>      
