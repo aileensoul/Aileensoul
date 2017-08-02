@@ -11,6 +11,7 @@
     font-family: arial;
 
 }
+.action-button #message_count{line-height: 10px;}
 .cancel_req_busi{margin:5px 4px;}
 .user_btn button{margin-top: 10px;}
 .profile-job-post-location-name ul li.folle_text{padding-left: 10px;}
