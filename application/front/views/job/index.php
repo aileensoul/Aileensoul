@@ -936,11 +936,11 @@ else if(date_picker=="1970-01-01"){
             });
 			
 			$(function() {
-      var input = $("#fname");
-    var len = input.val().length;
-    input[0].focus();
-    input[0].setSelectionRange(len, len);
-    });
+				  var input = $(".common-form input");
+				var len = input.val().length;
+				input[0].focus();
+				input[0].setSelectionRange(len, len);
+				});
 </script>
 
 
