@@ -14,11 +14,12 @@ class Job extends CI_Controller {
 
 public function __construct()
 {
-
+  
         parent::__construct();
 
         if (!$this->session->userdata('aileen_admin')) 
         {
+           
             redirect('login', 'refresh');
         }
    
@@ -329,6 +330,7 @@ public function clear_search()
 //view function is used for view profile of user Start
 public function profile($id) 
 {
+  
     $userid = $this->db->get_where('job_reg', array('job_id' => $id))->row()->user_id;
 
     //FOR GETTING ALL DATA OF JOB_REG
