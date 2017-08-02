@@ -173,12 +173,12 @@ $(window).load(function(){
         } else
         {
             $('#addcontact_count').html(msg);
-<<<<<<< HEAD
+
             $('#addcontact_count').css({"background-color": "#FF4500" , "height": "16px" ,"width": "16px" , "padding" : "3px 4px"});
             document.getElementById('addcontact_count').style.display = 'block';
-=======
+
             $('#addcontact_count').css({"background-color": "#FF4500", "height": "16px", "width": "16px", "padding": "3px 4px"});
->>>>>>> e62cae3e0ea7c6f65b575025122f6d073cc335cb
+
             $('#addcontactLink').addClass('contact_notification_available');
 
         }
