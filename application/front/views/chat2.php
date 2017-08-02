@@ -685,11 +685,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var print_message = print_message.replace(/\\r/gi, "");
                 var print_message = print_message.replace(/\\t/gi, "");
 
-                var html = '<li id="message_li_' + data.id + '"> <div class="message-data">';
+                var html = '<li id="message_li_' + data.id + '" class="recive-data"> <div class="message-data">';
                 html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 html += '<span class="message-data-time">' + formattedDate + ' </span>';
                 html += ' </div>';
-                html += '    <div class="msg_left_data">   <div class="message my-message"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + data.message + '</div></div>';
+                html += '    <div class="msg_left_data">   <div class="message my-message">' + data.message + '</div><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + curuser).html(print_message);

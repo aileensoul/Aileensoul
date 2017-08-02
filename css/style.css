@@ -10768,7 +10768,7 @@ display: initial;}
     padding-top: 6px;
     background: #d8eff6;
     color: #000033;
-	/*width:93%;*/
+	max-width:96%;
 	float:left;
 }
 /*.chat .chat-history .other-message:after {
