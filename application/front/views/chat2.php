@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             .msg_right:hover .messagedelete{ visibility: visible;
                                                                opacity: 1;
             }
-            .msg_right .messagedelete{ visibility: hidden;  cursor: pointer;}
+            .msg_right .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
     <body>
         <?php
