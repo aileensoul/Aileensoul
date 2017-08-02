@@ -94,5 +94,26 @@ class User_manage extends CI_Controller {
         
         $this->load->view('users/index', $this->data);
     }
+    //activate user with ajax Start
+public function active_user() 
+{
+     $user_id = $_POST['user_id'];
+      $data = array(
+            'status' => '1'
+        );
+      
+        $update = $this->common->update_data($data, 'user', 'user_id', $user_id);
+
+        $select = '<td id= "active(' . $user_id . ')">';
+        $select = '<button class="btn btn-block btn-primary btn-sm"   onClick="deactive_user(' .  $user_id . ')">
+                              Active
+                      </button>';
+        $select .= '</td>';
+
+        echo $select;
+
+        die();
+}
+//activate user with ajax End
 
 }

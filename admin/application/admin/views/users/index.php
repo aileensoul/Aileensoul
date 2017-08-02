@@ -217,7 +217,7 @@ echo $leftmenu;
                                 <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
                     </td>
-
+                    
                     <td id="active<?php echo $user['user_id']?>">
                         <?php if ($user['status'] == 1) 
                               {
@@ -225,10 +225,10 @@ echo $leftmenu;
                                     <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['user_id']; ?>);">Active</button>
                         <?php 
                             }else{ ?>
-
+                                    
                                         <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['user_id']; ?>);">Deactive</button>
 
-                         <?php }?></button>
+                         <?php }?>
                     </td>
 
                     <td><?php echo $user['created_date']; ?></td>
@@ -245,7 +245,7 @@ echo $leftmenu;
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('user_manage/profile/'.$user['user_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['user_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -359,9 +359,9 @@ echo $leftmenu;
 
 <script>
 //deactive user Start
-   function deactive_user(job_id) 
+   function deactive_user(user_id) 
    {
-   
+      
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #activate').on('click', function () 
@@ -381,21 +381,21 @@ echo $leftmenu;
 //deactive user End
 
 //active user Start
-   function active_user(job_id) 
+   function active_user(user_id) 
    {
-   
+    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #deactivate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/active_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "user_manage/active_user" ?>',
+                          data: 'user_id=' + user_id,
                           success: function (response) 
                           {        
                                   $.fancybox.close();  
-                                  $('#' + 'active' + job_id).html(response);
+                                  $('#' + 'active' + user_id).html(response);
                           }
             });   
         });
