@@ -10735,20 +10735,21 @@ display: initial;}
     font-size: 15px;
     border-radius: 7px;
     margin-bottom: 30px;
-    width: 62%;
+  /*  width: 62%;*/
     position: relative;
    /* word-break: break-all;*/
 }
-.chat .chat-history .message:after {
+.msg_right{position: relative;}
+.chat .chat-history .msg_right:after {
     bottom: 100%;
-    left: 3%;
+    right:5px;
     border: solid transparent;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: #eddfed;
+    border-bottom-color: #d8eff6;
     border-width: 10px;
     margin-left: -10px;
 }
@@ -10762,10 +10763,10 @@ display: initial;}
     background: #d8eff6;
     color: #000033;
 }
-.chat .chat-history .other-message:after {
+/*.chat .chat-history .other-message:after {
     border-bottom-color: #d8eff6;
     left: 97%;
-}
+}*/
 .chat .chat-message {
     padding: 30px;
 }
@@ -10832,6 +10833,7 @@ display: initial;}
 .message-data-name {
     font-size: 16px;
     font-weight: 600;
+    margin-right: 6px;
 }
 .name {
     font-weight: 600;
@@ -14836,7 +14838,8 @@ div .comment {
     max-width: 300px!important;
 }
 
-
+.msg_right{max-width: 80%;
+float: right;}
 #basicinfo .day{width:32%;}
 #basicinfo .month{width:32%;}
 #basicinfo .year{width:33%;}

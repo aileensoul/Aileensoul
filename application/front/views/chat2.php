@@ -653,7 +653,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 html += '    <span  class="message-data-name fr"  >' + data.nickname + ' <i class="fa fa-circle me"></i></span>';
                 html += ' </div>';
                 //html += ' <div class="chat-body clearfix">';
-                html += '     <div class="message other-message float-right"><div class="messagedelete fr"> <a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div>';
+                html += '   <div class="msg_right">  <div class="message other-message float-right"><div class="messagedelete fl"> <a href="javascript:void(0);" onclick="delete_chat(1,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>' + print_message + '</div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + touser).html(print_message);
