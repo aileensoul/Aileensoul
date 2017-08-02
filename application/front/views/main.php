@@ -49,7 +49,7 @@
 <script type="application/ld+json">
             {
             "@context": "http://schema.org",
-            "@type": "Person",
+            "@type": "Organization",
             "name": "Aileensoul",
             "url": "https://www.aileensoul.com",
             "sameAs": [

@@ -169,7 +169,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
                     ?>
 
                     <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
-                        <a id="designation" class="designation" title="Designation">Current Work    </a>
+                        <a id="designation" class="designation" title="Designation">Current Work</a>
 
                     <?php } else{?>
                     <a>Current Work </a>
@@ -177,14 +177,13 @@ if ($artisticdata[0]['user_id'] == $userid) {
 
                 <?php } else { ?> 
 
-                    <?php if ($artisticdata[0]['user_id'] == $userid) { ?>
+                    <?php if ($artisticdata[0]['user_id'] == $userid) { 
 
-                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>">
-                            <?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>
+                        ?>
 
-                        </a>
+                        <a id="designation" class="designation" title="<?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?>"><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
 
-                                        <!-- <a id="myBtn"><?php echo ucwords($artisticdata[0]['designation']); ?></a> -->
+                                       
                     <?php } else { ?>
                         <a><?php echo ucfirst(strtolower($artisticdata[0]['designation'])); ?></a>
                     <?php } ?>
@@ -769,41 +768,41 @@ if ($artisticdata[0]['art_bestofmine']) {
 <!-- designation script start -->
 <script type="text/javascript">
                             function divClicked() {
-                                var divHtml = $(this).html();
-                                var editableText = $("<textarea />");
-                                editableText.val(divHtml);
-                                $(this).replaceWith(editableText);
-                                editableText.focus();
-                                // setup the blur event for this new textarea
-                                editableText.blur(editableTextBlurred);
-                            }
+                            var divHtml = $(this).html();
+                            var editableText = $("<textarea />");
+                            editableText.val(divHtml);
+                            $(this).replaceWith(editableText);
+                            editableText.focus();
+                            // setup the blur event for this new textarea
+                            editableText.blur(editableTextBlurred);
+                        }
 
                             function editableTextBlurred() {
-                                var html = $(this).val();
-                                var viewableText = $("<a>");
-
-                                     if (html.match(/^\s*$/) || html == '') { 
+                            var html = $(this).val();
+                            html = html.trim();
+                            //alert(html);
+                            var viewableText = $("<a>");
+                            if (html.match(/^\s*$/) || html == '') {
                                 html = "Current Work";
-                                }
-                                viewableText.html(html);
-                                $(this).replaceWith(viewableText);
-                                // setup the click event for this new div
-                                viewableText.click(divClicked);
-
-                                $.ajax({
-                                    url: "<?php echo base_url(); ?>artistic/art_designation",
-                                    type: "POST",
-                                    data: {"designation": html},
-                                    success: function (response) {
-
-                                    }
-                                });
                             }
+                            viewableText.html(html);
+                            $(this).replaceWith(viewableText);
+                            // setup the click event for this new div
+                            viewableText.click(divClicked);
 
-                            $(document).ready(function () {
-                            // alert("hi");
-                                $("a.designation").click(divClicked);
+                            $.ajax({
+                                url: "<?php echo base_url(); ?>artistic/art_designation",
+                                type: "POST",
+                                data: {"designation": html},
+                                success: function (response) {
+
+                                }
                             });
+                        }
+
+                        $(document).ready(function () {
+                            $("a.designation").click(divClicked);
+                        });
                         </script>
 
 <!-- designation script end -->
