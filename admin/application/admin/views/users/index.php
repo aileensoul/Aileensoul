@@ -52,7 +52,7 @@ echo $leftmenu;
                         <h3 class="box-title">Job User</h3>      
                     
                     <div class="box-tools">
-                       <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       <?php echo form_open('user_manage/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
 
@@ -60,14 +60,14 @@ echo $leftmenu;
 
                         <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default" id="search_btn"><i class="fa fa-search"></i></button>          
-                        </div><!--input-group-btn-->
+                        </div>
                 <?php echo form_close(); ?>
                      
                      <?php if ($this->session->userdata('user_search_keyword')) 
                             { 
                     ?>
 
-                            <a href="<?php echo base_url('job/clear_search') ?>">Clear Search</a>
+                            <a href="<?php echo base_url('user_manage/clear_search') ?>">Clear Search</a>
 
                         <?php 
                                 } 
@@ -102,11 +102,11 @@ echo $leftmenu;
                     <a href="javascript:void(0);">ID.</a></th>
 
                     <th><i class="fa fa-user"></i>
-                    <a href="<?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/ASC/' . $offset); ?>"> 
+                    <a href="<?php echo ( $this->uri->segment(3) == 'first_name' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/first_name/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/first_name/ASC/' . $offset); ?>"> 
                      Name
                      </a>
 
-                     <?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
+                     <?php echo ( $this->uri->segment(3) == 'first_name' && $this->uri->segment(4) == 'ASC' ) ? '<i class="glyphicon glyphicon-arrow-up">' : (( $this->uri->segment(3) == 'first_name' && $this->uri->segment(4) == 'DESC' ) ? '<i class="glyphicon glyphicon-arrow-down">' : '' ); ?>
 
                     </th>
 
@@ -162,17 +162,6 @@ echo $leftmenu;
 
                     <td><?php echo $user['user_email']; ?></td>
 
-<!--                    <td><?php //if($user['phnno'])
-                              {
-                                //echo $user['phnno']; 
-                              }
-                              //else
-                              {
-                                //echo PROFILENA;
-                              }
-                            ?>
-                      </td>-->
-
                     <td><?php echo $user['user_gender']; ?>
                         <?php if($user['user_gender']=="F")
                         {
@@ -188,33 +177,14 @@ echo $leftmenu;
                         }
                         ?>
                     </td>
-
-
-<!--                    <td> 
-                        //<?php 
-//
-//                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
-//
-//                            echo $cityname; if( $cityname){echo ",<br>";}
-//
-//                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
-//
-//                            echo $statename;if( $statename){echo ",<br>";}
-//
-//                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
-//                                            
-//                            echo $countryname;
-//                        ?>
-                    </td>-->
-
                     <td> 
                         <?php  if($user['user_image']) 
                                 {
                         ?>
-                                <img src="<?php echo SITEURL . $this->config->item('user_thumb_upload_path') . $user['user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
+                                <img src="<?php echo SITEURL . $this->config->item('user_thumb_upload_path') . $user['user_image']; ?>" alt=""  style="height: 50px; width: 50px;">
                         <?php }else{
                         ?>
-                                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
+                                <img alt="" style="height: 50px; width: 50px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
                     </td>
                     
@@ -245,9 +215,9 @@ echo $leftmenu;
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['user_id'] ); ?>">
+<!--                        <a class="btn btn-success btn-xs" href="<?php //echo base_url('job/profile/'.$user['user_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
-                        </a>
+                        </a>-->
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
                         <i class="fa fa-fw fa-eye"></i>
                         </button> -->
@@ -286,7 +256,6 @@ echo $leftmenu;
                         <?php
                             if ($total_rows > 0) 
                             {
-
                                 if ($this->pagination->create_links())
                                 {
                                             $rec1 = $offset + 1;
@@ -306,32 +275,24 @@ echo $leftmenu;
                             }
                             else 
                             {
-
                     ?>
 
                 <div style="margin-left: 20px;">
-
                         <?php echo "Records 1 - $total_rows of $total_rows"; ?>
-
                 </div>
-
                         <?php
 
                             }   }      
-
                         ?>
 </div><!-- dta_left col-md-6--> 
-
 <!-- /pagination Start-->
 
 <?php
                         if ($this->pagination->create_links()) 
                         {
-
                             $tot_client = ceil($total_rows / $limit);
                             $cur_client = ceil($offset / $limit) + 1;
                         ?>
-
                             <div class="text-right data_right col-md-6">
                                 <div id="example2_paginate" class="dataTables_paginate paging_simple_numbers">
                                     <?php echo $this->pagination->create_links(); ?> 
@@ -339,10 +300,7 @@ echo $leftmenu;
                             </div>
                         <?php } ?>
 <!-- /pagination End-->
-
 </div><!-- /.row -->
-
-
 </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 
@@ -361,19 +319,17 @@ echo $leftmenu;
 //deactive user Start
    function deactive_user(user_id) 
    {
-      
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
-
         $('.message #activate').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/deactive_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "user_manage/deactive_user" ?>',
+                          data: 'user_id=' + user_id,
                           success: function (response) 
                           {    
                                  $.fancybox.close();
-                                $('#' + 'active' + job_id).html(response);
+                                $('#' + 'active' + user_id).html(response);
                           }
             });   
         });
@@ -403,17 +359,17 @@ echo $leftmenu;
 //active user End\
 
 //Delete user Start
-   function delete_user(job_id) 
+   function delete_user(user_id) 
    {
-   
+   alert(123);
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #delete').on('click', function () 
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/delete_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "user_manage/delete_user" ?>',
+                          data: 'user_id=' + user_id,
                           success: function (response) 
                           {          
                                 window.location.reload();

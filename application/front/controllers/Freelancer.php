@@ -2033,7 +2033,7 @@ class Freelancer extends MY_Controller {
                 //  echo "<pre>"; print_r($value);
 
 
-                $contition_array = array('status' => '1', 'is_delete' => '0', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",freelancer_post_area)!=' => '0');
+                $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7, 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",freelancer_post_area)!=' => '0');
                 // echo "<pre>"; print_r($contition_array1); 
 
 
