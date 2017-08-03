@@ -457,6 +457,8 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
 .post-design-desc [contenteditable=true]:empty:before {
   content: attr(placeholder);
+  color:#cacaca;
+  font-size:15px;
 }
 #paddingtop_fixed{overflow:hidden;}
 
