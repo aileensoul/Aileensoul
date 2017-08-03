@@ -225,6 +225,7 @@ if ($returnpage == 'recruiter') {
                                                     </li>
                                                     <li> <b>Email </b><span> <?php echo $job[0]['email']; ?> </span>
                                                     </li>
+
                                                     <?php
                                                     if ($returnpage == 'recruiter') {
 
@@ -250,8 +251,23 @@ if ($returnpage == 'recruiter') {
                                                             ?>
                                                         </span>
                                                     </li>
+
+                                                    <?php
+                                                    if ($job[0]['marital_status']) 
+                                                    {
+                                                    ?>
                                                     <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
                                                     </li>
+                                                    <?php
+                                                        } else {
+                                                            echo "";
+                                                        }
+                                                        ?>
+
+                                                     <?php
+                                                    if ($job[0]['nationality']) 
+                                                    {
+                                                    ?>
                                                     <li> <b>Nationality </b><span>
                                                             <?php
                                                             $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
@@ -259,6 +275,17 @@ if ($returnpage == 'recruiter') {
                                                             ?>
                                                         </span>
                                                     </li>
+
+                                                    <?php
+                                                        } else {
+                                                            echo "";
+                                                        }
+                                                        ?>
+
+                                                    <?php
+                                                    if ($job[0]['language']) 
+                                                    {
+                                                    ?> 
                                                     <li> <b>Language </b><span>
                                                             <?php
                                                             $aud = $job[0]['language'];
@@ -274,14 +301,44 @@ if ($returnpage == 'recruiter') {
                                                             ?>     
                                                         </span>
                                                     </li>
+                                                     <?php
+                                                        } else {
+                                                            echo "";
+                                                        }
+                                                        ?>
+
+                                                    <?php
+                                                    if ($job[0]['dob'] != '0000-00-00') 
+                                                    {
+                                                    ?>   
                                                     <li> <b>Date Of Birth </b><span>
                                                             <?php echo date('d/m/Y', strtotime($job[0]['dob'])); ?>
                                                         </span>
                                                     </li>
+                                                    <?php
+                                                        } else {
+                                                            echo "";
+                                                        }
+                                                        ?>
+
+                                                     <?php
+                                                    if ($job[0]['gender']) 
+                                                    {
+                                                    ?>  
                                                     <li> <b>Gender </b><span><?php echo $job[0]['gender']; ?></span>
                                                     </li>
+                                                     <?php
+                                                        } else {
+                                                            echo "";
+                                                        }
+                                                        ?>
+
                                                 </ul>
                                             </div>
+
+        <?php if($job[0]['country_id'])
+                {
+        ?>
                                             <div class="profile-job-post-title-inside clearfix">
                                             </div>
                                             <div class="profile-job-post-title clearfix">
@@ -445,6 +502,11 @@ if ($returnpage == 'recruiter') {
                                                         </li>
                                                     </ul>
                                                 </div>
+                    <?php
+                            }
+                            if ($job_edu || $job_graduation) 
+                            {
+                    ?>
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
@@ -710,6 +772,7 @@ if ($returnpage == 'recruiter') {
                                                         </div>
                                                                         <?php
                                                                         }
+                                                                    }
                                                                         // <!--khyati 22-5 chanegs end-->
                                                                         ?>
                                                                         <?php
@@ -957,15 +1020,32 @@ if ($returnpage == 'recruiter') {
 <?php } ?>
                                                                     <?php
                                                                     if ($job[0]['keyskill']) {
-                                                                        $work_skill = explode(',', $job[0]['keyskill']);
-                                                                        foreach ($work_skill as $skill) {
-                                                                            $contition_array = array('skill_id' => $skill);
-                                                                            $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-                                                                            $detailes[] = $skilldata[0]['skill'];
-                                                                        }
+                                                                    
                                                                         ?>
                                                                             <li> <b> Skills</b> <span>
-                                                                        <?php echo implode(',', $detailes); ?>
+                                                                       
+                                                                <?php
+
+                                                            $comma = ", ";
+                                                            $k = 0;
+                                                            $aud = $job[0]['keyskill'];
+                                                            $aud_res = explode(',', $aud);
+                                                            foreach ($aud_res as $skill) {
+                                                                if ($k != 0) 
+                                                                {
+                                                                         echo $comma;
+
+                                                                }
+
+                                                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                                                                 
+                                                                  echo $cache_time;
+                                                                  $k++;
+                                                               
+                                                            }
+
+                                                            ?>
+
                                                                                 </span>
                                                                             </li>
                                                                             <?php } ?>
@@ -982,51 +1062,50 @@ if ($returnpage == 'recruiter') {
                                                                     <?php } ?>
                                                                     <?php
                                                                     if ($job[0]['work_job_city']) {
-                                                                        $work_city = explode(',', $job[0]['work_job_city']);
-                                                                        foreach ($work_city as $city) {
-                                                                            $contition_array = array('city_id' => $city);
-                                                                            $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-                                                                            if ($citydata) {
-                                                                                $cities[] = $citydata[0]['city_name'];
-                                                                            }
-                                                                        }
+                                                                        // $work_city = explode(',', $job[0]['work_job_city']);
+                                                                        // foreach ($work_city as $city) {
+                                                                        //     $contition_array = array('city_id' => $city);
+                                                                        //     $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                                                        //     if ($citydata) {
+                                                                        //         $cities[] = $citydata[0]['city_name'];
+                                                                        //     }
+                                                                        // }
                                                                         ?>
                                                                             <li> <b> Preferred Cites</b> <span>
-    <?php echo implode(',', $cities); ?>                                                        
+    <?php //echo implode(',', $cities); ?>                                         
+     <?php
+
+                    $comma = ", ";
+                    $k = 0;
+                    $aud = $job[0]['work_job_city'];
+                    $aud_res = explode(',', $aud);
+                    $count= 0;
+                  
+                    foreach ($aud_res as $city) 
+                    {
+                        
+                    if ($k != 0 && $count != count($aud_res)) 
+                    {
+                            echo $comma;
+                             //echo $k;
+                    }
+
+                $cache_time = $this->db->get_where('cities', array('city_id' => $city))->row()->city_name;
+                                                                 
+                echo $cache_time;
+                $count=  $k++; 
+                $k++;      
+                                                    
+                }
+
+    ?>               
                                                                                 </span>
                                                                             </li>
                                                                     <?php } ?> 
                                                                     </ul>
                                                                 </div>
                                                             </div>
-                                                            <!-- 
-                                                               <div class="profile-job-post-title clearfix">
-                                                                   <div class="profile-job-profile-button clearfix">
-                                                                       <div class="profile-job-details">
-                                                                           <ul>
-                                                               
-                                                               <li><p class="details_all_tital"> Apply For</p></li>
-                                                               
-                                                                           </ul>
-                                                                       </div>
-                                                                   </div>
-                                                                   <div class="profile-job-profile-menu">
-                                                                       <ul class="clearfix">
-                                                                           <li> <b> Skill</b> <span>
-                                                            <?php
-                                                            $aud = $job[0]['ApplyFor'];
-                                                            $aud_res = explode(',', $aud);
-                                                            foreach ($aud_res as $skill) {
-
-                                                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                                                                echo $cache_time;
-                                                            }
-                                                            ?></span>
-                                                                           </li>
-                                                               
-                                                                       </ul>
-                                                                   </div>
-                                                               </div> -->
+                                                           
                                                                         <?php if ($job_work) { ?>    
                                                                 <div class="profile-job-post-title clearfix">
                                                                     <div class="profile-job-profile-button clearfix">
@@ -1262,6 +1341,8 @@ if ($returnpage == 'recruiter') {
                                                         </div>
                                                                             <?php
                                                                             } else {
+                                                                                if($job[0]['experience'] == 'Fresher')
+                                                                                {
                                                                                 ?>
                                                         <div class="profile-job-post-title clearfix">
                                                             <div class="profile-job-profile-button clearfix">
@@ -1282,6 +1363,7 @@ if ($returnpage == 'recruiter') {
                                                         </div>
                                                                                         <?php
                                                                                     }
+                                                                                }
                                                                                     if ($returnpage == 'recruiter') {
 
                                                                                         if ($job[0]['curricular']) {
@@ -1345,6 +1427,8 @@ if ($returnpage == 'recruiter') {
                                                             </div>
                                                         </div>
                                                             <?php }
+                                                            if($job[0]['interest'])
+                                                            {
                                                             ?>
                                                     <div class="profile-job-post-title clearfix">
                                                         <div class="profile-job-profile-button clearfix">
@@ -1388,6 +1472,9 @@ if ($returnpage == 'recruiter') {
                                                                     </span></li>
                                                             </ul>
                                                         </div>
+                                    <?php
+                                }
+                                ?>
                                                     <?php
                                                     if ($returnpage == 'recruiter') {
                                                         if ($job[0]['carrier']) {
