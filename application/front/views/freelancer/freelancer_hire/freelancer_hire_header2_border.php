@@ -186,7 +186,7 @@ $(document).ready(function() {
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css({"background-color": "#FF4500", "padding": "3px"});
+            $('#message_count').css({"background-color": "#FF4500", "padding": "3px 6px"});
             $('#InboxLink').addClass('msg_notification_available');
             //alert("welcome");
         }
