@@ -5651,8 +5651,8 @@ public function creat_pdf_graduation($id,$seg) {
         { 
             if($seg == 'graduation')
             {
-
-                $select = '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
                 echo $select;

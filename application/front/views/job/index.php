@@ -864,9 +864,26 @@ var today = yyyy;
 var date_picker ='<?php echo date('Y-m-d',strtotime($job[0]['user_dob']));?>';
 var  date_picker_edit='<?php echo date('Y-m-d',strtotime($dob1));?>';
 
-if(date_picker_edit=="1970-01-01"){
- 
+
+if(date_picker_edit != "1970-01-01"){
      $("#datepicker").dateDropdowns({
+                    submitFieldName: 'dob',
+                    submitFormat: "yyyy-mm-dd",
+                    minYear: 1821,
+                    maxYear: today,
+                    defaultDate: date_picker_edit,
+                    daySuffixes: false,
+                    monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
+                    //startDate: today,
+ 
+                });   
+}
+else
+{ 
+                 $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
                     submitFormat: "yyyy-mm-dd",
                     minYear: 1821,
@@ -881,39 +898,57 @@ if(date_picker_edit=="1970-01-01"){
  
                 });   
 }
-else if(date_picker=="1970-01-01"){
 
-                $("#datepicker").dateDropdowns({
-                    submitFieldName: 'dob',
-                    submitFormat: "yyyy-mm-dd",
-                    minYear: 1821,
-                    maxYear: today,
-                    defaultDate: date_picker_edit,
-                    daySuffixes: false,
-                    monthFormat: "short",
-                    dayLabel: 'DD',
-                    monthLabel: 'MM',
-                    yearLabel: 'YYYY',
-                    //startDate: today,
+// if(date_picker_edit=="1970-01-01"){
+ 
+//      $("#datepicker").dateDropdowns({
+//                     submitFieldName: 'dob',
+//                     submitFormat: "yyyy-mm-dd",
+//                     minYear: 1821,
+//                     maxYear: today,
+//                     defaultDate: date_picker,
+//                     daySuffixes: false,
+//                     monthFormat: "short",
+//                     dayLabel: 'DD',
+//                     monthLabel: 'MM',
+//                     yearLabel: 'YYYY',
+//                     //startDate: today,
+ 
+//                 });   
+// }
+// else if(date_picker=="1970-01-01"){
 
-                });   
-}else if(!date_picker){
+//                 $("#datepicker").dateDropdowns({
+//                     submitFieldName: 'dob',
+//                     submitFormat: "yyyy-mm-dd",
+//                     minYear: 1821,
+//                     maxYear: today,
+//                     defaultDate: date_picker_edit,
+//                     daySuffixes: false,
+//                     monthFormat: "short",
+//                     dayLabel: 'DD',
+//                     monthLabel: 'MM',
+//                     yearLabel: 'YYYY',
+//                     //startDate: today,
 
-                $("#datepicker").dateDropdowns({
-                    submitFieldName: 'dob',
-                    submitFormat: "yyyy-mm-dd",
-                    minYear: 1821,
-                    maxYear: today,
-                    daySuffixes: false,
-                    monthFormat: "short",
-                    dayLabel: 'DD',
-                    monthLabel: 'MM',
-                    yearLabel: 'YYYY',
-                    //defaultDate: date_picker
-                    //startDate: today,
+//                 });   
+// }else if(!date_picker){
 
-                });  
-     } 
+//                 $("#datepicker").dateDropdowns({
+//                     submitFieldName: 'dob',
+//                     submitFormat: "yyyy-mm-dd",
+//                     minYear: 1821,
+//                     maxYear: today,
+//                     daySuffixes: false,
+//                     monthFormat: "short",
+//                     dayLabel: 'DD',
+//                     monthLabel: 'MM',
+//                     yearLabel: 'YYYY',
+//                     //defaultDate: date_picker
+//                     //startDate: today,
+
+//                 });  
+//      } 
                 
             });
 			
