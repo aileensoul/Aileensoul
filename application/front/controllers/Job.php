@@ -5841,12 +5841,6 @@ public function delete_workexp()
     
       //Retrieve Data from main user registartion table end
 
-<<<<<<< HEAD
-    //skill data fetch
-        $contition_array = array('status' => '1', 'type' => '1');
-        $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-=======
->>>>>>> dbc4aed4d5ab83d80b2927286995e06d60d1e18b
 
          //skill data fetch
         $contition_array = array('status' => 'publish');
@@ -5863,37 +5857,7 @@ public function delete_workexp()
         }
       $this->data['jobtitle'] = array_values($result1);
       
-<<<<<<< HEAD
-      //city data 
-          $contition_array = array('status' => '1');
-         $this->data['citydata'] =   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-   
-
-         foreach ($location_list as $key => $value) {
-              $ciit[$key]['id'] =$value['city_id'];
-              $ciit[$key]['text'] =$value['city_name'];
-          }
-          $this->data['ciit']= array_values($ciit);
-          foreach ($location_list as $key1 => $value1) {
-              foreach ($value1 as $ke1 => $val1) {
-                 $location[] = $val1;
-              }
-          }
-          //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
-          }
-          
-           
-         
- 
-
-        $this->data['city_data']= array_values($loc);
-        
-=======
        
->>>>>>> dbc4aed4d5ab83d80b2927286995e06d60d1e18b
          $contition_array = array('is_delete' => '0','industry_name !=' => "Other");
           $search_condition = "((status = '1'))";
            $university_data = $this->data['industry'] = $this->common->select_data_by_search('job_industry', $search_condition, $contition_array, $data = 'industry_id,industry_name', $sortby = 'industry_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
