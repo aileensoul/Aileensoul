@@ -342,7 +342,13 @@ public function clear_search()
 //clear search is used for unset session End
 
 
-
+public function edit(){
+    
+    
+   $this->load->view('users/edit', $this->data); 
+    
+    
+}
 
 
 

@@ -215,9 +215,9 @@ echo $leftmenu;
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-<!--                        <a class="btn btn-success btn-xs" href="<?php //echo base_url('job/profile/'.$user['user_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('user_manage/edit/'.$user['user_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
-                        </a>-->
+                        </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
                         <i class="fa fa-fw fa-eye"></i>
                         </button> -->
