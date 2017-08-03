@@ -132,12 +132,30 @@
                      <a class="profile-boxProfilebuisness-avatarLink2 a-inlineBlock" href="<?php echo site_url('artistic/art_manage_post'); ?>" title="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>" tabindex="-1" aria-hidden="true" rel="noopener">
                         <!-- box image start -->
                         <?php if ($artisticdata[0]['art_user_image']) { ?>
-                        <div class="data_img_2">   
+                        <div class="data_img_2"> 
+
+
+<?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image'])) {
+                                                                $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div>
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>" class="bgImage"  alt="<?php echo ucfirst(strtolower($artisticdata[0]['art_name'])) . ' ' . ucfirst(strtolower($artisticdata[0]['art_lastname'])); ?>" >
+
+                              <?php } ?>
                         </div>
                         <?php } else { ?> 
                         <div class="data_img_2">
-                           <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($artisticdata[0]['art_name']) . ' ' . ucwords($artisticdata[0]['art_lastname']); ?>"> -->
+                           
                           <?php 
                           $a = $artisticdata[0]['art_name'];
                           $words = explode(" ", $a);
@@ -223,18 +241,32 @@
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
+
+
+                                    <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image'])) {
+                                                                $a = $userlist['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userlist['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
                                        echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>" > 
-                                    <?php } else { ?>
 
-                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($userlist['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
-                                       ?>"> -->
+
+                                       <?php }?>
+
+                                    <?php } else { ?>   
 
                                        <?php 
                           $a = $userlist['art_name'];
@@ -327,11 +359,28 @@
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
+
+                                     <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image'])) {
+                                                                $a = $userlist['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userlist['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
                                        echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
+
+                                       <?php }?>
                                     <?php } else { ?> 
 
                                     <?php 
@@ -429,16 +478,32 @@
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
+
+
+                                     <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image'])) {
+                                                                $a = $userlist['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userlist['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
                                        echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
                                        echo ucfirst(strtolower($userlist['art_lastname']));
-                                       ?>"> <?php } else { ?>
-                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($userlist['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
-                                       ?>"> -->
+                                       ?>">
+
+                                       <?php }?>
+
+                                        <?php } else { ?>
+                                   
 
                                        <?php 
                           $a = $userlist['art_name'];
@@ -529,17 +594,30 @@
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
                                     <?php if ($userlist['art_user_image']) { ?>
+
+                                     <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image'])) {
+                                                                $a = $userlist['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userlist['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userlist['art_user_image']); ?>"  alt="<?php
                                        echo ucfirst(strtolower($userlist['art_name']));
                                        echo"&nbsp;";
                                        echo ucfirst(strtolower($userlist['art_lastname']));
                                        ?>">
+
+                                       <?php }?>
                                     <?php } else { ?> 
-                                    <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($userlist['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($userlist['art_lastname']);
-                                       ?>"> -->
+                                   
 
                                        <?php 
                           $a = $userlist['art_name'];
@@ -627,19 +705,27 @@
                      ?>
 
                      <?php if($artisticdata[0]['art_user_image']){?>
+
+                      <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image'])) {
+                                                                $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class= "post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                   <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+                  <?php }?>
 
                   <?php }else{?>
 
-
-                   <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php
-                                      // echo ucwords($artisticdata[0]['art_name']);
-                                       //echo"&nbsp;";
-                                       //echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>"> -->
-
-                                       
-                          
+   
                             <div class= "post-img-div">
                             <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
@@ -697,14 +783,30 @@
                      <?php ?>
 
                      <?php if(!$userimageposted){?>
+
+                      <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userimageposted)) {
+                                                                $a = $userimagefn;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userimageln;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
+
                      <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+
+
+                     <?php }?>
+
                      <?php }else{  ?>
 
-                      <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php
-                                       //echo ucwords($artisticdata[0]['art_name']);
-                                       //echo"&nbsp;";
-                                       //echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>"> -->
+                      
                                        <?php 
 
                           $a = $userimagefn;
@@ -731,7 +833,24 @@
                      <a  class="post_dot" title="" href="<?php echo base_url('artistic/art_manage_post/' . $row['user_id']); ?>">
 
                      <?php if($art_userimage){?>
+
+                      <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                                                                $a = $userfn;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $userln;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                      <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+
+                     <?php }?>
                      <?php }else{  ?>
 
                       <?php 
@@ -1249,14 +1368,31 @@
                                        $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                                        ?>
                                     <?php if ($art_userimage[0]['art_user_image']) { ?>
+
+                                     <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                                                                $a = $artname;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artlastname;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>"  alt="">
+
+                                    <?php }?>
                                     <?php
                                        } else {
                                            ?>
                               <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
 
 
-                             <!--  <img src="<?php //echo base_url(NOIMAGE); ?>" alt=""> -->
+                            
                               <?php 
                           $a = $artname;
                           $words = explode(" ", $a);
@@ -1407,11 +1543,29 @@
                         ?>
                      <div class="post-design-proo-img hidden-mob">
                         <?php if ($art_userimage[0]['art_user_image']) { ?>
+
+                         <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                                                                $a = $art_fn;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $art_ln;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                         <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
+
+                        <?php }?>
+
                         <?php
                            } else {
                                ?>
-                        <!-- <img src="<?php //echo base_url(NOIMAGE); ?>" alt="No Image"> -->
+                        
 
                         <?php 
                           $a = $art_fn;
@@ -1573,14 +1727,27 @@
                      <div class="popup-img-in "> 
 
                      <?php if($artisticdata[0]['art_user_image']){?>
-                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
-                     <?php }else{?>
 
-                      <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
-                                       echo ucwords($artisticdata[0]['art_name']);
-                                       echo"&nbsp;";
-                                       echo ucwords($artisticdata[0]['art_lastname']);
-                                       ?>"> -->
+
+                      <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image'])) {
+                                                                $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-div">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
+                     <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
+
+                     <?php }?>
+
+                     <?php }else{?>
 
                                        <?php 
                           $a = $artisticdata[0]['art_name'];

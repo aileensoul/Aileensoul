@@ -105,11 +105,25 @@
 
                         <div class="user-pic">
                <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
+
+                <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image'])) {
+                                                                $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-user">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
                <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
+
+               <?php }?>
+
                <?php } else { ?>
-
-
-               <!-- <img alt="" class="img-circle" src="<?php echo base_url(NOIMAGE); ?>" alt="" /> -->
 
                <?php 
                           $a = $artisticdata[0]['art_name'];
@@ -362,12 +376,30 @@
                                           $followerusername =  $this->db->get_where('art_reg',array('art_id' => $user['follow_from']))->row()->art_user_image; ?>
                                        <?php if($followerusername != ''){ ?>
                                        <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
-                                       <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > </a>
+
+                                         <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $followerusername)) {
+                                                                $a = $followername;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $art_lastname;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-userlist">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
+                                       <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $followerusername);?>" height="50px" width="50px" alt="" > 
+
+                                       <?php }?>
+
+                                       </a>
                                        <?php } else { ?>
                                        <a href="<?php echo base_url('artistic/art_manage_post/'.$followerid); ?>">
 
 
-                                       <!-- <img alt=""  src="<?php echo base_url(NOIMAGE); ?>" alt="" />-->
 
                                        <?php 
                           $a = $followername;

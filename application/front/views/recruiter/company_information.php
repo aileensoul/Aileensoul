@@ -117,7 +117,7 @@
            <fieldset <?php if($country) {  ?> class="error-msg" <?php } ?>>
                         <label>Country:<span class="red">*</span></label>
                                 
-                                        <select tabindex="1" autofocus name="country" id="country">
+                                        <select tabindex="5" autofocus name="country" id="country">
                                         <option value="">Select Country</option>
                                          <?php
                                             if(count($countries) > 0){
@@ -146,7 +146,7 @@
 
                    <fieldset <?php if($state) {  ?> class="error-msg" <?php } ?>>
                         <label>State:<span class="red">*</span> </label>
-                        <select name="state" id="state" tabindex="2">
+                        <select name="state" id="state" tabindex="6">
                          <?php
                                            if($state1){
                                             foreach($states as $cnt)
@@ -176,7 +176,7 @@
 
                       <fieldset <?php if($city) {  ?> class="error-msg" <?php } ?> class="full-width">
                         <label> City:</label>
-                                    <select name="city" id="city" tabindex="3">
+                                    <select name="city" id="city" tabindex="7">
                                      <?php
                                     
                                                 if($city1)
@@ -221,14 +221,14 @@
             <label for="country-suggestions">Sector/Skill You hire for:</span></label>
                       
 
-                         <textarea name ="comp_sector" id="comp_sector" rows="4" cols="50" tabindex="5" placeholder=" Ex.php, java, information technology ,automobile ,construction" style="resize: none;"><?php if($compsector){ echo $compsector; } ?></textarea>
+                         <textarea name ="comp_sector" id="comp_sector" rows="4" cols="50" tabindex="8" placeholder=" Ex.php, java, information technology ,automobile ,construction" style="resize: none;"><?php if($compsector){ echo $compsector; } ?></textarea>
                                     
           </fieldset>
           
                     <fieldset <?php if($comp_profile) {  ?> class="error-msg" <?php } ?> class="full-width">
                         <label>Company Profile:<!-- <span style="color:red">*</span> -->
 
-                        <textarea tabindex="5" name ="comp_profile" id="comp_profile" rows="4" cols="50" placeholder="Enter Company Profile" style="resize: none;"><?php if($comp_profile1){ echo $comp_profile1; } ?></textarea>
+                        <textarea tabindex="9" name ="comp_profile" id="comp_profile" rows="4" cols="50" placeholder="Enter Company Profile" style="resize: none;"><?php if($comp_profile1){ echo $comp_profile1; } ?></textarea>
                         <?php ?> 
                     </fieldset>
 
@@ -238,12 +238,12 @@
                         <label>Other activities:<!-- <span style="color:red">*</span> --></label>
                        
 
-                        <textarea name ="other_activities" tabindex="6" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
+                        <textarea name ="other_activities" tabindex="10" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
                        
                     </fieldset>
                      <fieldset id="logo_remove">
                                              <label>Company Logo:</label>
-                                             <input  type="file" name="comp_logo" tabindex="5" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
+                                             <input  type="file" name="comp_logo" tabindex="11" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
 
                                              <div id="com_logo" class="com_logo" style="color:#f00; display: block;"></div>
 
@@ -262,7 +262,7 @@
                                           ?>
                                            <div style="float: left;" id="logo">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_logo('<?php echo $rec_id; ?>','<?php echo $complogo1; ?>')">
+                                                   <input  tabindex="" type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_logo('<?php echo $rec_id; ?>','<?php echo $complogo1; ?>')">
                                                 </div>
                                              </div>
 
@@ -282,7 +282,7 @@
                                                      <fieldset class="hs-submit full-width">
                                    
                                   
-                                    <input type="submit"  id="next" name="next" tabindex="7" value="Submit">
+                                    <input type="submit"  id="next" name="next" tabindex="12" value="Submit">
                                  
                                     
                      </fieldset>
@@ -715,4 +715,9 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Remove this L
              });
           }
    //DELETE LOGO END
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $(".country").select2();
+});
 </script>

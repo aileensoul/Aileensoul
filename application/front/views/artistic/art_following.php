@@ -123,7 +123,25 @@
 
                         <div class="user-pic">
                         <?php if($artisticdata[0]['art_user_image'] != ''){ ?>
+
+                         <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image'])) {
+                                                                $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-user">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']);?>" alt="" >
+
+                           <?php }?>
+
                             <?php } else { ?>
 
 
@@ -407,7 +425,28 @@ if($status == 0 || $status == " "){?>
                             <div class="follow-img">
                                  <?php if($this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image != ''){ ?>
                                  <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
-                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image);?>" height="50px" width="50px" alt="" > </a>
+
+                                   <?php 
+
+                                   $uimage = $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image;
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)) {
+                                                                $a = $art_name;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $art_lastname;
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-userlist">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+
+                           <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $this->db->get_where('art_reg',array('art_id' => $user['follow_to']))->row()->art_user_image);?>" height="50px" width="50px" alt="" >
+
+                           <?php }?>
+
+                            </a>
                             <?php } else { ?>
                               <a href="<?php echo base_url('artistic/art_manage_post/'.$art_id); ?>">
 

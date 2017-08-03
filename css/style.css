@@ -13824,7 +13824,7 @@ bui_images_view_more a:hover {
     border-bottom: 1px solid #156f95;
 }
 /*.like_cmnt_count{padding-top: 7px !important;}*/
-
+.common-form fieldset input[type="file"]{height: auto;}
 .bui_images_view_more span {
     bottom: 5px;
     left: 0;
@@ -13838,12 +13838,12 @@ bui_images_view_more a:hover {
 /*jon new design*/
 
 .main_raio [type="radio"]:checked,
-[type="radio"]:not(:checked) {
+.main_raio [type="radio"]:not(:checked) {
     position: absolute;
     left: -9999px;
 }
 .main_raio [type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
+.main_raio [type="radio"]:not(:checked) + label
 {
     position: relative;
     padding-left: 28px;
@@ -13853,7 +13853,7 @@ bui_images_view_more a:hover {
     color: #666;
 }
 .main_raio [type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
+.main_raio [type="radio"]:not(:checked) + label:before {
     content: '';
     position: absolute;
     left: 0;
