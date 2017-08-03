@@ -76,8 +76,9 @@ class Job extends MY_Controller {
                 redirect('job/job_carrier_update', refresh);
             } else if ($jobdata[0]['job_step'] == 10) {
                 redirect('job/job_all_post', refresh);
-            } else {
-                redirect('job/temp3', refresh);
+            } else { 
+                  redirect('job/temp3', refresh);
+                //$this->load->view('job/temp3', $this->data);
             }
         }
     }
@@ -5809,19 +5810,24 @@ public function temp(){
     $this->load->view('job/temp');
     }
     public function temp3(){
+        
     //skill data fetch
         $contition_array = array('status' => '1', 'type' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+        
          //skill data fetch
         $contition_array = array('status' => 'publish');
         $jobtitle= $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+
         
         foreach ($jobtitle as $key1 => $value1) {
               foreach ($value1 as $ke1 => $val1) {
                  $title[] = $val1;
               }
           }
+        
+
         foreach ($title as $key => $value) {
             $result1[$key]['label'] = $value;
             $result1[$key]['value'] = $value;
@@ -5829,36 +5835,35 @@ public function temp(){
       $this->data['jobtitle'] = array_values($result1);
       
       //city data 
-          $contition_array = array('status' => '1');
-         $this->data['citydata'] =   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-   
+//          $contition_array = array('status' => '1');
+//         $this->data['citydata'] =   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+//   
 
-         foreach ($location_list as $key => $value) {
-              $ciit[$key]['id'] =$value['city_id'];
-              $ciit[$key]['text'] =$value['city_name'];
-          }
-          $this->data['ciit']= array_values($ciit);
-          foreach ($location_list as $key1 => $value1) {
-              foreach ($value1 as $ke1 => $val1) {
-                 $location[] = $val1;
-              }
-          }
+//         foreach ($location_list as $key => $value) {
+//              $ciit[$key]['id'] =$value['city_id'];
+//              $ciit[$key]['text'] =$value['city_name'];
+//          }
+//          $this->data['ciit']= array_values($ciit);
+//          foreach ($location_list as $key1 => $value1) {
+//              foreach ($value1 as $ke1 => $val1) {
+//                 $location[] = $val1;
+//              }
+//          }
           //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
-          }
-          
-           
-         
- 
-
+//          foreach ($location as $key => $value) {
+//              $loc[$key]['label'] =$value;
+//              $loc[$key]['value'] =$value;
+//          }
+            
+      
         $this->data['city_data']= array_values($loc);
         
          $contition_array = array('is_delete' => '0','industry_name !=' => "Other");
           $search_condition = "((status = '1'))";
            $university_data = $this->data['industry'] = $this->common->select_data_by_search('job_industry', $search_condition, $contition_array, $data = 'industry_id,industry_name', $sortby = 'industry_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+           
+          
     $this->load->view('job/temp3',$this->data);
     }
     
