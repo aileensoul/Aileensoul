@@ -3,8 +3,8 @@
 <?php echo $head; ?>
 <!-- END HEAD -->
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />--> 
+<!--<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />-->
 
 <!-- start header -->
 <?php echo $header; ?> 
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <?php if($jobdata[0]['job_step'] == 10){ ?>
-<?php echo $job_header2_border; ?>
+<?php //echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
 <div class="js">
@@ -123,12 +123,12 @@ if ($this->session->flashdata('success')) {
 
                    <fieldset class="full-width">
                                     <label >Job Title :</label>
-                                     <input type="search" id="job_title" name="job_title" value="<?php echo $work_title . ','; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager">
+                                     <input type="search" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills: </label>
-    <input id="skills2" value="<?php echo $work_skill.','; ?>" name="skills" id="cities" size="90">
+    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills" id="cities" size="90">
   </fieldset>
 
 
@@ -145,7 +145,8 @@ if ($this->session->flashdata('success')) {
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites: </label>
-    <input id="cities2"  value="<?php echo $work_city.','; ?>" name="cities" id="cities" size="90">
+    <!--<input id="cities2"  value="<?php// echo $work_city.','; ?>" name="cities" id="cities" size="90">-->
+    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities" id="cities" size="90">
   </fieldset>
           
 
@@ -180,6 +181,7 @@ if ($this->session->flashdata('success')) {
 </html>
 
 <style type="text/css">
+    
     .keyskil, #other_keyskill1, #other_keyskill{
         width:93% !important;
         
@@ -187,7 +189,136 @@ if ($this->session->flashdata('success')) {
 .common-form .edit_other_skill1{width: 93% !important;margin-top: 6px;}
 </style>
 
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+   
+    <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+  <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+ 
+<script>
+    // job title script start
+   var jobdata = <?php echo json_encode($jobtitle); ?>;
+   
+   $(function () {
+    
+       $("#job_title").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(jobdata, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#job_title").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#job_title").val(ui.item.label);
+           }
+       });
+   });
+   
+</script>
+
+<script>
+
+   $.validator.addMethod("regx", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+// validation js
+
+ $("#jobseeker_regform").validate({
+
+        
+         rules: {
+
+                industry: {
+
+                    required: true,
+                 
+                },
+
+                job_title: {
+
+                    required: true,
+                 
+                },
+                
+                
+                skills: {
+
+                    required: true,
+
+                },
+                
+                 cities: {
+
+                    required: true,
+                  
+                 },
+                 
+            },
+
+            messages: {
+
+                industry: {
+
+                    required: "First name Is Required.",
+
+                },
+
+                job_title: {
+
+                    required: "Job Title Is Required.",
+
+                },
+
+                skills: {
+
+                    required: "Skill Is Required.",
+                   
+                },
+               
+                cities: {
+
+                    required: "City Is Required.",
+
+                },
+                
+               
+            },
+
+        });
+    
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+// site preloader -- also uncomment the div in the header and the css style for #preloader
+        $(window).load(function () {
+            $('#preloader').fadeOut('slow', function () {
+                $(this).remove();
+            });
+        });
+    });
+</script>
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -222,7 +353,7 @@ if ($this->session->flashdata('success')) {
                 alert(ui.item.id);
                 alert();
                 var terms = split( this.value );
-                if(terms.length <= 3) {
+                if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
                     // add the selected item
@@ -277,7 +408,7 @@ if ($this->session->flashdata('success')) {
                 alert(ui.item.id);
                 alert();
                 var terms = split( this.value );
-                if(terms.length <= 3) {
+                if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
                     // add the selected item

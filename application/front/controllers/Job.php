@@ -77,7 +77,7 @@ class Job extends MY_Controller {
             } else if ($jobdata[0]['job_step'] == 10) {
                 redirect('job/job_all_post', refresh);
             } else {
-                $this->load->view('job/index', $this->data);
+                redirect('job/temp3', refresh);
             }
         }
     }
@@ -2146,13 +2146,12 @@ class Job extends MY_Controller {
         $this->load->view('job/job_skill', $this->data);
     }
 
-    public function job_skill_insert() {
+    public function job_skill_insert() {  //echo '<pre>'; print_r($_POST); die();
 
         $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
-
+        $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
         $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         if($job_deactive)
@@ -2160,10 +2159,18 @@ class Job extends MY_Controller {
              redirect('job/');
         }
      //if user deactive profile then redirect to job/index untill active profile End
-        $keyskill = $this->input->post('skills');
-        $keyskill1=$this->input->post('skills1');
-        $otherskill = $this->input->post('other_skill');
-        $otherskill1 = $this->input->post('other_skill1');
+       
+       
+      $industry = $this->input->post('industry');
+     
+      $jobtitle = $this->input->post('job_title'); 
+      
+      $skills = $this->input->post('skills');
+      $skills = explode(',',$skills); 
+   
+      $cities = $this->input->post('cities');
+      $cities = explode(',',$cities); 
+       
 
         //echo $otherskill; die();
 
@@ -2171,98 +2178,86 @@ class Job extends MY_Controller {
             redirect('job/job_project_update', refresh);
         }
         if ($this->input->post('next')) {
-            $this->form_validation->set_rules('skills', 'Keyskill', 'required');
-
-
-         $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3');
-        $skill_other=$this->data['skill_other'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        if($skill_other)
-        {
-            //echo "hi";die();
-             $data = array(
-                'keyskill' => implode(",", $keyskill1),
-                //'other_skill' => $this->input->post('other_skill'),
-                'modified_date' => date('Y-m-d h:i:s', time())
-            );
-            // echo "<pre>";print_r($data);die();
-            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-        }
-       
-        else
-        {
-             // echo "hi1";die();
-            $data = array(
-                'keyskill' => implode(",", $keyskill),
-                //'other_skill' => $this->input->post('other_skill'),
-                'modified_date' => date('Y-m-d h:i:s', time())
-            );
-           // echo "<pre>";print_r($data);die();
-        }
-
-
-            $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
-            $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
-            $userjobdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'keyskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-//echo "<pre>"; print_r($userjobdata); die();
-
-            $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3');
-            $skill_other = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            //echo "<pre>"; print_r($skill_other); die();
-            $count = count($skill_other);
-            //echo"<pre>"; print_r($userjobdata[0]['keyskill']); die();
-            // check skill is already in inserted while click on next button
-   //          $contition_array = array('user_id' => $userid, 'status' => '1', 'type' => '3', 'skill' => $otherskill1);
-   //          $skill_data = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-   // echo "<pre>"; print_r($skill_data); die();
-
-            if ($count> 0) {//echo "falguni"; die();
-//echo "<pre>";print_r($skill_other);die();
-                for ($x = 0; $x < $count; $x++) {
-
-
-                    $data1 = array(
-                        'skill' => $this->input->post("other_skill" . $skill_other[$x]['skill_id']),
-                    );
-
-                    //echo "<pre>";print_r($data1);die();
-                    $updatedata = $this->common->update_data($data1, 'skill', 'skill_id', $skill_other[$x]['skill_id']);
-                }
-
-                if (count($skill_data) == 0) {
-                    if ($otherskill1 != "") {
-                        $data1 = array(
-                            'skill' => $this->input->post('other_skill1'),
-                            'type' => 3,
-                            'status' => 1,
-                            'user_id' => $userid
-                        );
-                        //echo "<pre>";print_r($data1);die();
-                        $insertid = $this->common->insert_data_getid($data1, 'skill');
-                    }
-                }
-            } else {
-
-               // echo "hhhhhhh"; die();
-                if ($count == 0) {
-                  
-                    if ($otherskill != "") {
-                        $data1 = array(
-                            'skill' => $otherskill,
-                            'type' => 3,
-                            'status' => 1,
-                            'user_id' => $userid
-                        );
-
-                        $insertid = $this->common->insert_data_getid($data1, 'skill');
-                    }
-                }
-            }
-
-
-            $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
-            $userstepdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+            
+             // job title start   
+        if($jobtitle != " "){ 
+     $contition_array = array('name' => $jobtitle);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $jobdata = $this->common->select_data_by_condition('job_title',$contition_array, $data = 'title_id,name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($jobdata){
+         $jobtitle = $jobdata[0]['title_id'];
+           }else{
+                 $data = array(
+                    'name' => ucfirst($this->input->post('job_title')),
+                    'status' => 'publish',
+                 );
+      $jobtitle = $this->common->insert_data_getid($data, 'job_title');
+           }
+      }
+      
+      // skills  start   
+      
+      if(count($skills) > 0){ 
+          
+          foreach($skills as $ski){
+     $contition_array = array('skill' => $ski);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($skilldata){
+         $skill[] = $skilldata[0]['skill_id'];
+           }else{
+                 $data = array(
+                    'skill' => $ski,
+                    'status' => '1',
+                    'type' => 3,
+                    'user_id' => $userid,
+                 );
+      $skill[] = $this->common->insert_data_getid($data, 'skill');
+           }
+          }
+          
+          $skills = implode(',',$skill); 
+      }
+      
+      // city  start   
+      
+      if(count($cities) > 0){ 
+          
+          foreach($cities as $cit){
+     $contition_array = array('city_name' => $cit);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $citydata = $this->common->select_data_by_condition('cities',$contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($citydata){
+       $city[] = $citydata[0]['city_id'];
+           }else{
+                 $data = array(
+                    'city_name' => $cit,
+                    'status' => '1',
+                 );
+      $city[] = $this->common->insert_data_getid($data, 'cities');
+           }
+          }
+          
+          $city = implode(',',$city); 
+      }
+      
+      //update data in table start
+      
+      $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
+      $userstepdata = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+      $data = array(
+                    
+                    'keyskill' => $skills,
+                    'work_job_title' => $jobtitle,
+                    'work_job_industry' => $this->input->post('industry'),
+                    'work_job_city' => $city,
+                    
+                );
+         
+                $updatdata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
+      
+      //update data in table end
 
             if ($userstepdata[0]['job_step'] == 10) {
                 $data = array(

@@ -135,7 +135,7 @@
                                     <div class="job-contact-frnd ">
                                         <!-- khyati start -->
                                         <?php
-                                       // echo "<pre>"; print_r($candidatejob);die();
+//                                       echo "<pre>"; print_r($candidatejob);die();
                                         if ($candidatejob) {
                                             foreach ($candidatejob as $row) {
 
@@ -230,82 +230,60 @@
              <div class="profile-job-profile-menu">
                 <ul class="clearfix">
                      
-                <li><b>Skills</b>
-                       <span>
-                      <?php
-                        
-                         $aud = $row['keyskill'];
-                         $aud_res = explode(',', $aud);
-                         
+                          <?php
+                                                                            if ($row[0]['work_job_title']) {
+                                                                                $contition_array = array('status' => 'publish', 'title_id' => $row[0]['work_job_title']);
+                                                                                $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                ?>
+                                                                            <li> <b> Job Title</b> <span>
+    <?php echo $jobtitle[0]['name']; ?>
+                                                                                </span>
+                                                                            </li>
 
-                         if(!$row['keyskill']){
-                          //echo "otherskill";
-
-                          foreach ($other_skill as $sk) {
-                         $sk2[] = $sk['skill']; 
-                         
-                          }
-                       $otherfinal = implode(', ', $sk2);
-                       echo $otherfinal;
-                       
-                        unset($sk2);
-
-                         }else if(!$other_skill){
-                          //echo "skill";
-
-
-                          foreach ($aud_res as $skill) {
-
-                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                        $skillsss[] = $cache_time;
-                    }
-
-                    $listskill = implode(', ', $skillsss);
-
-                    echo $listskill;
-                     unset($skillsss);
-                         }else if($row['keyskill'] && $other_skill){
-
-                         // echo "helll000";
-                          foreach ($aud_res as $skillboth) {
-
-                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skillboth))->row()->skill;
-                        $skilldddd[] = $cache_time;
-                    }
-                    $listFinal = implode(', ', $skilldddd);
-                   // echo $listFinal;
-
-                                  foreach ($other_skill as $osil) {
-                         $skill2[] = $osil['skill']; 
-                         
-                          }
-                       $listFinalother = implode(', ', $skill2);
-                      // echo $listFinalother;
-
-
-                    echo $listFinal .',' . $listFinalother; 
-                    //$listFinal==null;
-                   // $listFinalother==null;
-                     unset($skill2);
-                     unset($skilldddd);
-                  }
-                 // var_dump($otherskill);
-                 //$otherskill=null;
-                                   ?>       
-                    </span>
-                                                                    </li>
-                                                                    
-                                                               <!--  <?php
-                                                                if ($row['other_skill']) {
-                                                                    ?>
-                                                                    <li><b>Other Skill</b><span>
-                                                                            <?php echo $row['other_skill']; ?>
-                                                                        </span></li>
+<?php } ?>
                                                                     <?php
-                                                                }
-                
+                                                                    if ($row[0]['keyskill']) {
+                                                                        $work_skill = explode(',', $row[0]['keyskill']);
+                                                                        foreach ($work_skill as $skill) {
+                                                                            $contition_array = array('skill_id' => $skill);
+                                                                            $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                                                            $detailes[] = $skilldata[0]['skill'];
+                                                                        }
+                                                                        ?>
+                                                                            <li> <b> Skills</b> <span>
+                                                                        <?php echo implode(',', $detailes); ?>
+                                                                                </span>
+                                                                            </li>
+                                                                            <?php } ?>
 
-                                                                ?> -->
+                                                                            <?php
+                                                                            if ($row[0]['work_job_industry']) {
+                                                                                $contition_array = array('industry_id' => $row[0]['work_job_industry']);
+                                                                                $industry = $this->common->select_data_by_condition('job_industry', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                ?>
+                                                                            <li> <b> Industry</b> <span>
+    <?php echo $industry[0]['industry_name']; ?>
+                                                                                </span>
+                                                                            </li>
+                                                                    <?php } ?>
+                                                                    <?php
+                                                                    if ($row[0]['work_job_city']) {
+                                                                        $work_city = explode(',', $row[0]['work_job_city']);
+                                                                        foreach ($work_city as $city) {
+                                                                            $contition_array = array('city_id' => $city);
+                                                                            $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                                                            if ($citydata) {
+                                                                                $cities[] = $citydata[0]['city_name'];
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                            <li> <b> Preferred Cites</b> <span>
+    <?php echo implode(',', $cities); ?>                                                        
+                                                                                </span>
+                                                                            </li>
+                                                                    <?php } ?> 
+                                                                    
+                                                               
 <?php if($row['experience'] != 'Fresher'){ ?>
   <?php 
 $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience', 'status' => '1');
