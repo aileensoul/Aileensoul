@@ -13,26 +13,26 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
-	<style type="text/css">
+  <style type="text/css">
 
 /* Layout helpers
 ----------------------------------*/
 .ui-helper-hidden {
-	display: none;
+  display: none;
 }
 .ui-helper-hidden-accessible {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 .ui-front {
-	z-index: 100;
+  z-index: 100;
 }
 
 
@@ -42,83 +42,83 @@
 
 /* Overlays */
 .ui-widget-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .ui-autocomplete {
-	position: absolute;
-	top: 0;
-	left: 0;
-	cursor: default;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
 }
 
 .ui-menu {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: block;
-	outline: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
 }
 .ui-menu .ui-menu {
-	position: absolute;
+  position: absolute;
 }
 .ui-menu .ui-menu-item {
-	position: relative;
-	margin: 0;
-	padding: 3px 1em 3px .4em;
-	cursor: pointer;
-	min-height: 0; /* support: IE7 */
-	/* support: IE10, see #8844 */
-	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 }
 .ui-menu .ui-menu-divider {
-	margin: 5px 0;
-	height: 0;
-	font-size: 0;
-	line-height: 0;
-	border-width: 1px 0 0 0;
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
 }
 .ui-menu .ui-state-focus,
 .ui-menu .ui-state-active {
-	margin: -1px;
+  margin: -1px;
 }
 
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1.1em;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
 }
 .ui-widget .ui-widget {
-	font-size: 1em;
+  font-size: 1em;
 }
 .ui-widget input,
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 1em;
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
 }
 .ui-widget-content {
-	border: 1px solid #aaaaaa;
-	background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
-	color: #222222;
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+  color: #222222;
 }
 .ui-widget-content a {
-	color: #222222;
+  color: #222222;
 }
 .ui-widget-header {
-	border: 1px solid #aaaaaa;
-	background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
-	color: #222222;
-	font-weight: bold;
+  border: 1px solid #aaaaaa;
+  background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
 }
 .ui-widget-header a {
-	color: #222222;
+  color: #222222;
 }
 
 /* Interaction states
@@ -126,10 +126,10 @@
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #d3d3d3;
-	background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
-	font-weight: normal;
-	color: #555555;
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
 }
 
 .ui-state-hover,
@@ -138,22 +138,22 @@
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #999999;
-	background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
-	font-weight: normal;
-	color: #212121;
+  border: 1px solid #999999;
+  background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
 }
 
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #aaaaaa;
-	background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
-	font-weight: normal;
-	color: #212121;
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
 }
 
-	</style>
+  </style>
 <!-- start header -->
 <?php echo $header; ?>
 
@@ -175,15 +175,15 @@
                                 <?php echo form_open(base_url('job/job_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                 <fieldset>
                                     <label >First Name <font  color="red">*</font> :</label>
-                                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name">
+                                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>">
                                 </fieldset>
                                 <fieldset>
                                     <label >Last Name <font  color="red">*</font>:</label>
-                                    <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name">
+                                    <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['last_name'];?>">
                                 </fieldset>
                                 <fieldset class="full-width">
                                     <label >Email Address <font  color="red">*</font> :</label>
-                                    <input type="text" name="email" id="email" placeholder="Enter your Email Address">
+                                    <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>">
                                 </fieldset>
 
                                 <fieldset class="fresher_radio" >
@@ -297,7 +297,12 @@
 
 <script>
 
-   $.validator.addMethod("regx", function(value, element, regexpr) {          
+$.validator.addMethod("lowercase", function(value, element, regexpr) {          
+    return regexpr.test(value);
+}, "Email Should be in Small Character");
+
+
+  $.validator.addMethod("regx2", function(value, element, regexpr) {          
     //return value == '' || value.trim().length != 0; 
      if(!value) 
             {
@@ -308,7 +313,7 @@
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+},"character & letters are not allow & space are not allow in the begining");
 // validation js
 
  $("#jobseeker_regform").validate({
@@ -320,7 +325,7 @@
                 first_name: {
 
                     required: true,
-                 //  regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                     //noSpace: true
 
                 },
@@ -328,7 +333,7 @@
                 last_name: {
 
                     required: true,
-                 //   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                     //noSpace: true
 
                 },
@@ -336,7 +341,7 @@
                 cities: {
 
                     required: true,
-                 //   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                  //  regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                     //noSpace: true
 
                 },
@@ -345,18 +350,18 @@
 
                     required: true,
                     email: true,
-                   // lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
-//                    remote: {
-//                        url: "<?php echo site_url() . 'job/check_email' ?>",
-//                        type: "post",
-//                        data: {
-//                            email: function () {
-//
-//                                return $("#email").val();
-//                            },
-//                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-//                        },
-//                    },
+                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
+                   remote: {
+                       url: "<?php echo site_url() . 'job/check_email' ?>",
+                       type: "post",
+                       data: {
+                           email: function () {
+
+                               return $("#email").val();
+                           },
+                           '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                       },
+                   },
                 },
 
                 fresher: {
@@ -368,22 +373,22 @@
                  job_title: {
 
                     required: true,
-                  //  regx2:/^[^-\s][a-zA-Z_\s-]+$/,
-                    //noSpace: true
+                //    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                 //   noSpace: true
                  },
                  
                  industry: {
 
                     required: true,
-                  //  regx2:/^[^-\s][a-zA-Z_\s-]+$/,
-                    //noSpace: true
+                   // regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                   // noSpace: true
                  },
                  
                  cities: {
 
                     required: true,
-                  //  regx2:/^[^-\s][a-zA-Z_\s-]+$/,
-                    //noSpace: true
+                //    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                  //  noSpace: true
                  },
                  
                  'skills1[]': {
@@ -494,11 +499,9 @@
                 return false;
             },
             select: function( event, ui ) {
-                alert(ui.item.value);
-                alert(ui.item.id);
-                alert();
+               
                 var terms = split( this.value );
-                if(terms.length <= 3) {
+                if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
                     // add the selected item
@@ -549,11 +552,9 @@
                 return false;
             },
             select: function( event, ui ) {
-                alert(ui.item.value);
-                alert(ui.item.id);
-                alert();
+               
                 var terms = split( this.value );
-                if(terms.length <= 3) {
+                if(terms.length <= 20) {
                     // remove the current input
                     terms.pop();
                     // add the selected item

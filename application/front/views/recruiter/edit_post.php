@@ -857,13 +857,16 @@ function (value, element, param) {
       $(element).valid();
     });
   }
+ 
    if(!value) 
             {
                 return true;
             }
             else
             {
-                    return parseInt(value) > parseInt($min.val());
+              
+                    // return parseInt(value) > parseInt($min.val());
+                      return (value) > ($min.val());
             }
 }, "Max must be greater than min");
 
@@ -1415,7 +1418,7 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($postdata[0]['post_last_date
 
                 $("#example2").dateDropdowns({
                     submitFieldName: 'last_date',
-                    submitFormat: "yyyy-mm-dd",
+                    submitFormat: "dd/mm/yyyy",
                     minYear: today,
                     maxYear: today + 1,
                     defaultDate: date_picker,

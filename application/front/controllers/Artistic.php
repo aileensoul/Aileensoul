@@ -4228,11 +4228,30 @@ public function followtwo() {
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
                 if($art_userimage){
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+
+
+
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                    }
+
+                  $cmtinsert .= '</div>';
                   }else{
-
-
-                    //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">';
 
                           $a = $artname;
                           $words = explode(" ", $a);
@@ -4394,12 +4413,27 @@ public function followtwo() {
                 $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
                 if($art_userimage){
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+                    if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                    }
+
+                  $cmtinsert .= '</div>';
                 }else{
-
-
-
-             //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
 
 
                           $a = $artname;
@@ -4918,11 +4952,26 @@ public function followtwo() {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
             if($art_userimage){
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                }
+
+              $cmtinsert .=  '</div>';
             }else{
-
-
-            //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
 
 
                           $a = $artname;
@@ -5132,11 +5181,30 @@ public function followtwo() {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
             if($art_userimage){
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                  }
+              $cmtinsert .= '</div>';
+
+
             }else{
 
-               //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>'; 
-
+             
                           $a = $artname;
                           $words = explode(" ", $a);
                           foreach ($words as $w) {
@@ -6823,7 +6891,25 @@ public function followtwo() {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
             if($art_userimage){
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $art_name;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">'; 
+
+                }
+
+              $cmtinsert .=  '</div>';
              }else{
 
                //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';  
@@ -7618,7 +7704,23 @@ public function followtwo() {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
             if($art_userimage){
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $art_name;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                   }
+            $cmtinsert .= '</div>';
 
            }else{
 
@@ -7807,7 +7909,24 @@ public function followtwo() {
 
                 if($art_userimage){
 
-                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+                    if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $art_name;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+
+                $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                     }
+                $cmtinsert .= '</div>';
+
                }else{
 
                 //$cmtinsert .= '<img  src="' . base_url(NOIMAGE) . '" alt="">  </div>';
@@ -7991,7 +8110,24 @@ public function followtwo() {
                 
                 $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
                 if ($art_userimage) {
-                    $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
+
+                    
+                    if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $fourdata .= '<div class="post-img-div">';
+                                $fourdata .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $fourdata .=  '</div>';
+
+
+                        } else {
+                    $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt="">';
+                    }
+
+                    $fourdata .= '</div>';
                 } else {
 
 
@@ -8149,10 +8285,28 @@ public function followtwo() {
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->art_user_image;
 
             if($art_userimage){
-            $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt=""></div>';
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $artname;
+                            $acr = substr($a, 0, 1);
+                            $b = $artlastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $fourdata .= '<div class="post-img-div">';
+                                $fourdata .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $fourdata .=  '</div>';
+
+
+                        } else {
+
+            $fourdata .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '"  alt="">';
+
+                }
+
+            $fourdata .=  '</div>';
             }else{
 
-               // $fourdata .= '<img  src="' . base_url(NOIMAGE) . '"  alt=""></div>'; 
+             
 
                           $a = $artname;
                           $words = explode(" ", $a);
@@ -8314,7 +8468,23 @@ public function followtwo() {
        
        
          if ($art_image) {
+
+            if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_image)) {
+                            $a = $art_name1;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $modal .= '<div class="post-img-div">';
+                                $modal .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $modal .=  '</div>';
+
+
+                        } else {
+
                     $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
+                       }
+
                 } else {
 
                           $a = $art_name1;
@@ -8413,7 +8583,23 @@ public function followtwo() {
        
        
          if ($art_image) {
+
+            if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_image)) {
+                            $a = $art_name1;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $modal .= '<div class="post-img-div">';
+                                $modal .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $modal .=  '</div>';
+
+
+                        } else {
+
                     $modal .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_image) . '"  alt="">';
+
+                     }
                 } else {
 
 
@@ -8561,7 +8747,23 @@ public function followtwo() {
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
 
             if($art_userimage){
-            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
+
+                if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
+                            $a = $art_name;
+                            $acr = substr($a, 0, 1);
+                            $b = $art_lastname;
+                            $bcr = substr($b, 0, 1);
+
+                                $cmtinsert .= '<div class="post-img-div">';
+                                $cmtinsert .= ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); 
+                                $cmtinsert .=  '</div>';
+
+
+                        } else {
+            $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">';
+
+                    }
+             $cmtinsert .= '</div>';
             }else{
 
 

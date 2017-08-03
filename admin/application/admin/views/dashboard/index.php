@@ -41,6 +41,21 @@ echo $leftmenu;
         <!-- Small boxes (Stat box) -->
         <div class="row">
 
+             <!-- start  User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo count($user_list)?></h3>
+                        <p>ALL User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php echo base_url('user_manage/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end  User List box -->
             <!-- start Job User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->

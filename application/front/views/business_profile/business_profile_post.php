@@ -333,7 +333,7 @@
                                                                                         $a = $userlist['company_name'];
                                                                                         $acr = substr($a, 0, 1);
                                                                                         ?>
-                                                                                        <div class="post-img-div">
+                                                                                        <div class="post-img-profile">
                                                                                             <?php echo ucfirst(strtolower($acr)) ?>
                                                                                         </div>
                                                                                         <?php
@@ -357,7 +357,7 @@
                                                                                     $a = $userlist['company_name'];
                                                                                     $acr = substr($a, 0, 1);
                                                                                     ?>
-                                                                                    <div class="post-img-div">
+                                                                                    <div class="post-img-profile">
                                                                                         <?php echo ucfirst(strtolower($acr)) ?>
                                                                                     </div>
                                                                                 </a>
@@ -4027,9 +4027,10 @@
     $('#bidmodal').modal('show');
     document.getElementById('editpostdata' + abc).style.display = 'block';
     document.getElementById('editpostbox' + abc).style.display = 'none';
-    //   document.getElementById('editpostdetails' + abc).style.display = 'block';
+    //document.getElementById('editpostdetails' + abc).style.display = 'block';
     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
     document.getElementById('editpostsubmit' + abc).style.display = 'none';
+     document.getElementById('khyati' + abc).style.display = 'block';
     } else {
     $.ajax({
     type: 'POST',

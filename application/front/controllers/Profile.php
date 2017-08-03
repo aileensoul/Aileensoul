@@ -21,11 +21,15 @@ class Profile extends CI_Controller {
       $this->data['userdata'] =  $this->common->select_data_by_id('user', 'user_id', $userid, $data = '*', $join_str = array());
 
       
+      $this->data['usry'] = date('Y',strtotime($this->data['userdata'][0][user_dob]));
+      $this->data['usrm'] = date('m',strtotime($this->data['userdata'][0][user_dob]));
+      $this->data['usrd'] = date('d',strtotime($this->data['userdata'][0][user_dob]));
+  
         $this->load->view('profile/profile', $this->data);
     }
 
     public function edit_profile() { 
-        //echo '<pre>'; echo $id; print_r($_POST); 
+      //  echo '<pre>'; echo $id; print_r($_POST); die();
 
        // echo $_FILES['profileimg']['name']; die();
     $id = $this->session->userdata('aileenuser');
@@ -39,7 +43,7 @@ class Profile extends CI_Controller {
       $this->form_validation->set_rules('first_name', 'first Name', 'required');
         $this->form_validation->set_rules('last_name', 'last Name', 'required');
         $this->form_validation->set_rules('email', ' EmailId', 'required|valid_email');
-         $this->form_validation->set_rules('datepicker', ' datepicker', 'required');
+       //  $this->form_validation->set_rules('datepicker', ' datepicker', 'required');
      
       $this->form_validation->set_rules('gender', ' gender', 'required');
      
@@ -75,8 +79,13 @@ class Profile extends CI_Controller {
 
             $post_data = $this->input->post();
            // echo "<pre>"; print_r($post_data);
-            $dob = str_replace('/', '-', $post_data['datepicker']);
+           // $dob = str_replace('/', '-', $post_data['datepicker']);
            // echo $dob;die();
+      $date = $this->input->post('selday');
+      $month = $this->input->post('selmonth');
+      $year = $this->input->post('selyear');
+            
+      $dob = $year . '-' . $month . '-' . $date;
             
             $data = array(
                 'first_name' => $this->input->post('first_name'),

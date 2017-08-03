@@ -249,7 +249,7 @@
                            <?php
                            $returnpage= $_GET['page'];
                            
-                           if($returnpage == "recruiter"){ ?>
+                           if($returnpage == "job"){ ?>
                                
                            <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a>
                       <?php     }else{ ?>

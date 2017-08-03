@@ -452,9 +452,9 @@
 										<div class="item active slide1">
 											<div class="center_sl slider-1 slide-text">
 												<div data-animation="animated fadeInDownBig" class="text_sl_head"> 
-													<p> welcome to</p>
+													<p> Welcome To</p>
 												</div>
-												<div data-animation="animated fadeInUpBig" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo f-logo">
 													<img src="slicing/img_logo.png">
 												</div>
 											</div>
@@ -465,7 +465,7 @@
 												<div data-animation="animated fadeInDownBig" class="imh_logo2">
 													<img src="slicing/img_logo.png">
 												</div>
-												<div data-animation="animated fadeInUpBig" class="imh_logo">
+												<div data-animation="animated fadeInUpBig" class="imh_logo3">
 													<img src="slicing/img_screen_2.png">
 												</div>
 											</div>
@@ -473,7 +473,7 @@
 										<!-- Item 3 -->
 										<div class="item slide3">
 											<div class="center_sl main_cl_sl slider-3 slide-text">
-												<div data-animation="animated fadeInDownBig">
+												<div data-animation="animated fadeInDownBig" class="t_3">
 													<h3>Easy to Access</h3>
 													<p>You can easily access any profile from main page.</p>
 												</div>

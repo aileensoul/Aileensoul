@@ -12,7 +12,7 @@
 
 }
 .cont_req button{font-size: 12px; width: 96px;}
-.action-button #message_count{line-height: 10px;}
+.action-button #message_count{/*line-height: 10px;*/}
 .cancel_req_busi{margin:5px 4px;}
 .user_btn button{margin-top: 10px;}
 .select2-container--open .select2-dropdown--below{z-index: 900;}
@@ -95,11 +95,11 @@ width: 25px; }
 .header ul li #abody ul li{ float: left; display: block; width: 100%; border-bottom: 1px solid #d9d9d9; border-right: none!important;}
 .header ul li #abody ul li a{color: black; padding: 5px 13px !important;}
 .header ul li #abody ul li a .all-img{height: 50px;
-width: 50px;
-float: left;
-display: inline-block;
-border: 1px solid #d9d9d9;
- margin: 4px 0px;
+	width: 50px;
+	float: left;
+	display: inline-block;
+	border: 1px solid #d9d9d9;
+	margin: 4px 0px;
 }
 
 
@@ -406,7 +406,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
   height: 38px;
   
 }
-.add-contact div i{color:#fff; padding:7px 6px;}
+.add-contact div i{color:#fff; padding:7px 6px; }
 #contact_per .addtocont{
     display: block;
     left: 0;
@@ -431,9 +431,36 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
 }
 
+.msg_left_data{/*width:100%;*/ float:left;}
+.recive-data .my-message{float:left;}
+.recive-data .message-data{width:100%; float:left;}
+#received li{width:100%; float:left;}
+.recive-data .msg_left_data::after{}
+.recive-data .messagedelete{padding-left:10px; position:absolute; right:-25px; bottom:0;}
+.recive-data .messagedelete a{font-size:18px;}
+.msg_right .messagedelete{position:absolute; left:-25px; bottom:0;}
+.chat .chat-history .other-message{max-width:100%;}
+
+/***  header 2 new changes  ***/
+.header2{width:1250px; margin:0 auto;}
+.header2 .container{width:100%; padding-right:4px;}
+.header2 ul{padding-right:0;}
+.header2 .job-search-box1 fieldset{padding-top:3px; padding-bottom:3px;}
+.chat .chat-header .chat_drop img{height:auto;}
+.backdiv-mob{padding:15px 0 0; width:100%; float:left; display:none;}
+.backdiv-mob .pull-right{float:right; display:none;}
+.backdiv-mob .pull-left{float:left;}
+.backdiv-mob a{opacity:0.8;}
+.backdiv-mob a:hover{opacity:1;}
+.chat-header .chatdropdown-content a:hover{color:#fff;}
 
 
-
+.post-design-desc [contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color:#cacaca;
+  font-size:15px;
+}
+#paddingtop_fixed{overflow:hidden;}
 
 @keyframes pulse1 {
   0%{transform:scale(.1);opacity: 0;}
@@ -466,9 +493,10 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.common-form1 h3{margin:20px 0;}
 	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
 	.experience_year{margin-right:33px;}
-	header .header{padding-top:5px;}
+	header .header{/*padding-top:5px;*/}
 	.header ul li a{padding-top:11px !important;}
 	#notificationLink span{top:7px !important;}
+	.backdiv-mob{display:block;}
 	
 }
 @media screen and (max-width: 540px) {}

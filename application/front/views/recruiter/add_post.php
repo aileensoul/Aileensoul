@@ -477,11 +477,13 @@
 
 </script>
 
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
+<!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
+ -->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
@@ -489,7 +491,65 @@
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+
+<script type="text/javascript">
+$(document).ready(function () {
+   
+         $("#education").select2({
+         placeholder: "Select a Education",
+ 
+        });
+
+          $("#skills").select2({
+         placeholder: "Find Your Skills",
+ 
+        });
+ 
+ 
+
+});
+
+</script>
+
+<!-- script for date start -->
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+
+
+<script>
+$(function() {
+                
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
+
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'last_date',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: today,
+                    maxYear: today + 1,
+                    daySuffixes: false,
+                    monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
+
+
+                    //startDate: today,
+
+                });   
+                
+            });
+
+
+</script>
+
+<!-- script for date end -->.
 
 <script type="text/javascript">
   
@@ -503,7 +563,7 @@ function imgval(){
   
   $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
   }
-
+  }
 </script>
 <script type="text/javascript">
 
@@ -576,7 +636,8 @@ function (value, element, param) {
             }
             else
             {
-                    return parseInt(value) > parseInt($min.val());
+                    //return parseInt(value) > parseInt($min.val());
+                     return (value) > ($min.val());
             }
 }, "Max must be greater than min");
 
@@ -1238,9 +1299,9 @@ if (clicked_id == 4) {
     var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
+//    btn.onclick = function () {
+//        modal.style.display = "block";
+//    }
 
 // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
@@ -1286,7 +1347,7 @@ if (clicked_id == 4) {
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#country').on('change', function () {
+        $('#country').on('change', function () { 
             var countryID = $(this).val();
 
             if (countryID) {
@@ -1459,59 +1520,3 @@ if (clicked_id == 4) {
    });
 </script>
 
-<!-- script for date start -->
-
-<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
-
-
-<script>
-$(function() {
-                
-
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-var today = yyyy;
-
-
-                $("#example2").dateDropdowns({
-                    submitFieldName: 'last_date',
-                    submitFormat: "dd/mm/yyyy",
-                    minYear: today,
-                    maxYear: today + 1,
-                    daySuffixes: false,
-                    monthFormat: "short",
-                    dayLabel: 'DD',
-                    monthLabel: 'MM',
-                    yearLabel: 'YYYY',
-
-
-                    //startDate: today,
-
-                });   
-                
-            });
-</script>
-
-<!-- script for date end -->.
-<script type="text/javascript">
-$(document).ready(function () {
-   
-         $("#education").select2({
-         placeholder: "Select a Education",
- 
-        });
-
-          $("#skills").select2({
-         placeholder: "Find Your Skills",
- 
-        });
- 
- 
-
-});
-
-
-</script>

@@ -6,7 +6,7 @@
 	$config['num_links'] = 10;
 
 	//Number of Result per Page
-	$config['per_page'] = 6;
+	$config['per_page'] = 10;
 	
 	//By default, the URI segment will use the starting index for the items you are paginating. If you prefer to show the the actual page number, set this to TRUE.
 	$config['use_page_numbers'] = false;
