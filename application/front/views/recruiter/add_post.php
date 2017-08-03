@@ -475,9 +475,11 @@
 
 </script>
 
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
  -->
 
@@ -487,7 +489,6 @@
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -560,7 +561,7 @@ function imgval(){
   
   $('#artpost .select2-selection').addClass("keyskill_border_active").style('border','1px solid #f00');
   }
-
+  }
 </script>
 <script type="text/javascript">
 
@@ -1296,9 +1297,9 @@ if (clicked_id == 4) {
     var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
+//    btn.onclick = function () {
+//        modal.style.display = "block";
+//    }
 
 // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
@@ -1344,7 +1345,7 @@ if (clicked_id == 4) {
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#country').on('change', function () {
+        $('#country').on('change', function () { 
             var countryID = $(this).val();
 
             if (countryID) {
