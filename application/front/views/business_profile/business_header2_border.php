@@ -459,8 +459,10 @@
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css({"background-color": "#FF4500" , "padding" : "3px 6px"});
+           // $('#message_count').css({"background": "#FF4500" , "padding" : "4px 6px 4px 5.5px"});
             $('#InboxLink').addClass('msg_notification_available');
+            $('#message_count').addClass('count_add');
+            
             //alert("welcome");
         }
     }

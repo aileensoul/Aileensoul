@@ -55,25 +55,25 @@ $(window).load(function(){
 <style>
 
     /*style for span id=notification_count start*/
-    .msg_dot{padding: 0!important;}
+  /*  .msg_dot{padding: 0!important;}
     #notification_count
     {   padding: 3px;
         background: #1b8ab9;
         color: #ffffff;
         font-weight: bold;
         margin-left: 7px;
-        /* border-radius: 80%; */
+ 
         -moz-border-radius: 9px;
         -webkit-border-radius: 2px;
         position: absolute;
 
 
-    }
+    }*/
     /*style for span id=notification_count End*/
 
     /*style for span id=message_count start*/
 
-
+/*
     #message_count
     {
         padding: 3px;
@@ -81,7 +81,7 @@ $(window).load(function(){
         color: #ffffff;
         font-weight: bold;
         margin-left: 7px;
-        /* border-radius: 80%; */
+     
         -moz-border-radius: 9px;
         -webkit-border-radius: 2px;
         position: absolute;
@@ -90,7 +90,7 @@ $(window).load(function(){
         top: 3px;
         line-height: normal;
         right: 1px;
-    }
+    }*/
     /*style for span id=message_count End*/
 
 </style>
