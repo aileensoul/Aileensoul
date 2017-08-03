@@ -283,10 +283,10 @@ else
         <div class="blog_class_main_desc">
           <span>
            <?php
-                     $small = substr($blog['description'], 0, 350);
+                     $small = substr($blog['description'], 0, 560);
                      echo $small;
 
-                     if (strlen($blog['description']) > 350) {
+                     if (strlen($blog['description']) > 560) {
                           echo '....';
                         }
                         ?>
