@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html class="blog_cl">
  <head>
   <title>Aileensoul Blog</title>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
