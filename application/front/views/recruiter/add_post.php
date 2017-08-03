@@ -507,6 +507,47 @@ $(document).ready(function () {
 });
 
 </script>
+
+<!-- script for date start -->
+
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+
+
+<script>
+$(function() {
+                
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+var today = yyyy;
+
+
+                $("#example2").dateDropdowns({
+                    submitFieldName: 'last_date',
+                    submitFormat: "dd/mm/yyyy",
+                    minYear: today,
+                    maxYear: today + 1,
+                    daySuffixes: false,
+                    monthFormat: "short",
+                    dayLabel: 'DD',
+                    monthLabel: 'MM',
+                    yearLabel: 'YYYY',
+
+
+                    //startDate: today,
+
+                });   
+                
+            });
+
+
+</script>
+
+<!-- script for date end -->.
+
 <script type="text/javascript">
   
 function imgval(){ 
@@ -1476,40 +1517,3 @@ if (clicked_id == 4) {
    });
 </script>
 
-<!-- script for date start -->
-
-<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
-
-
-<script>
-$(function() {
-                
-
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-var today = yyyy;
-
-
-                $("#example2").dateDropdowns({
-                    submitFieldName: 'last_date',
-                    submitFormat: "dd/mm/yyyy",
-                    minYear: today,
-                    maxYear: today + 1,
-                    daySuffixes: false,
-                    monthFormat: "short",
-                    dayLabel: 'DD',
-                    monthLabel: 'MM',
-                    yearLabel: 'YYYY',
-
-
-                    //startDate: today,
-
-                });   
-                
-            });
-</script>
-
-<!-- script for date end -->.

@@ -5652,7 +5652,6 @@ public function creat_pdf_graduation($id,$seg) {
             if($seg == 'graduation')
             {
                 $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
-                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
                 $select .= '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
@@ -5661,10 +5660,7 @@ public function creat_pdf_graduation($id,$seg) {
             }
             else
             {
-                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
-                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
-                $select .= '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
-                 echo $select;
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
                 
             }
            
@@ -5677,13 +5673,10 @@ public function creat_pdf_workexp($id) {
         $contition_array = array('work_id' => $id);
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data='work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                $select = '<title>'.$pdf[0]['work_certificate'].'</title>';
-                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
           
-                 $select .= '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
            
-             $select .= '<embed src="' .base_url().$this->config->item('job_work_main_upload_path').$pdf[0]['work_certificate'].'"width="100%" height="100%">';
-               echo $select;
+            echo '<embed src="' .base_url().$this->config->item('job_work_main_upload_path').$pdf[0]['work_certificate'].'"width="100%" height="100%">';
        
 }
 //create pdf end 
@@ -5830,9 +5823,12 @@ public function delete_workexp()
     
       //Retrieve Data from main user registartion table end
 
+<<<<<<< HEAD
     //skill data fetch
         $contition_array = array('status' => '1', 'type' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+=======
+>>>>>>> dbc4aed4d5ab83d80b2927286995e06d60d1e18b
 
          //skill data fetch
         $contition_array = array('status' => 'publish');
@@ -5849,6 +5845,7 @@ public function delete_workexp()
         }
       $this->data['jobtitle'] = array_values($result1);
       
+<<<<<<< HEAD
       //city data 
           $contition_array = array('status' => '1');
          $this->data['citydata'] =   $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -5876,6 +5873,9 @@ public function delete_workexp()
 
         $this->data['city_data']= array_values($loc);
         
+=======
+       
+>>>>>>> dbc4aed4d5ab83d80b2927286995e06d60d1e18b
          $contition_array = array('is_delete' => '0','industry_name !=' => "Other");
           $search_condition = "((status = '1'))";
            $university_data = $this->data['industry'] = $this->common->select_data_by_search('job_industry', $search_condition, $contition_array, $data = 'industry_id,industry_name', $sortby = 'industry_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
