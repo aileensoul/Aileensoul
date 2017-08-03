@@ -179,6 +179,104 @@ if ($contactwebsite1) {
 </div>
 </html>
 
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+
+<script type="text/javascript">
+
+jQuery.validator.addMethod("noSpace", function(value, element) { 
+      return value == '' || value.trim().length != 0;  
+    }, "No space please and don't leave it empty");
+
+
+    $.validator.addMethod("regx1", function (value, element, regexpr) {
+        return regexpr.test(value);
+    }, "Only numbers are allowed");
+
+   
+ $.validator.addMethod("regxtwo", function(value, element, regexpr) { 
+
+  if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }         
+   // return regexpr.test(value);
+}, "Number, space and special character are not allowed");
+
+    $(document).ready(function () {
+
+        $("#contactinfo").validate({
+
+            rules: {
+
+                contactname: {
+
+                    required: true,
+                    regxtwo:/^[^-\s][a-zA-Z_\s-]+$/,
+                            //noSpace: true
+
+
+                },
+
+                contactmobile: {
+
+                    //regx1:/^\d+(\.\d+)?$/
+                    number: true,
+                    minlength: 8,
+                    maxlength: 15
+
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+                        url: "<?php echo site_url() . 'business_profile/check_email' ?>",
+                        type: "post",
+                        data: {
+                            email: function () {
+                                return $("#email").val();
+                            },
+                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                        },
+                    },
+                },
+
+            },
+
+            messages: {
+
+                contactname: {
+
+                    required: "Company name Is Required.",
+
+                },
+
+                contactmobile: {
+
+                    required: "Mobile number Is Required.",
+
+                },
+                email: {
+                    required: "Email id is required",
+                    email: "Please enter valid email id",
+                    remote: "Email already exists"
+                },
+
+            },
+
+        });
+    });
+</script>
+
+
+
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -386,93 +484,6 @@ $('#searchplace').select2({
 
 
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-
-<script type="text/javascript">
-
-    //validation for edit email formate form
-
-
-// jQuery.validator.addMethod("noSpace", function(value, element) { 
-//       return value == '' || value.trim().length != 0;  
-//     }, "No space please and don't leave it empty");
-
-
-    $.validator.addMethod("regx1", function (value, element, regexpr) {
-        return regexpr.test(value);
-    }, "Only numbers are allowed");
-
-    $.validator.addMethod("regx", function (value, element, regexpr) {
-        return regexpr.test(value);
-    }, "Only space and only number  are not allow");
-
-    $(document).ready(function () {
-
-        $("#contactinfo").validate({
-
-            rules: {
-
-                contactname: {
-
-                    required: true,
-                    regx: /^[a-zA-Z\s]*[a-zA-Z]/
-                            //noSpace: true
-
-
-                },
-
-                contactmobile: {
-
-                    //regx1:/^\d+(\.\d+)?$/
-                    number: true,
-                    minlength: 8,
-                    maxlength: 15
-
-                },
-                email: {
-                    required: true,
-                    email: true,
-                    remote: {
-                        url: "<?php echo site_url() . 'business_profile/check_email' ?>",
-                        type: "post",
-                        data: {
-                            email: function () {
-                                return $("#email").val();
-                            },
-                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-                        },
-                    },
-                },
-
-            },
-
-            messages: {
-
-                contactname: {
-
-                    required: "Company name Is Required.",
-
-                },
-
-                contactmobile: {
-
-                    required: "Mobile number Is Required.",
-
-                },
-                email: {
-                    required: "Email id is required",
-                    email: "Please enter valid email id",
-                    remote: "Email already exists"
-                },
-
-            },
-
-        });
-    });
-</script>
 
 
 
@@ -492,3 +503,4 @@ $('#searchplace').select2({
         });
     });
 </script>
+
