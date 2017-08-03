@@ -360,6 +360,26 @@
 
                                 </fieldset>
 
+                                 <fieldset <?php if ($salary_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
+                                
+                                <label style="cursor:pointer;" class="control-label">Salary Type:</label>
+
+
+                                   <select name="salary_type" style="cursor:pointer;" class="keyskil" id="salary_type">
+                                        <option value="" selected option disabled>Salary Type</option>
+                                        <option value="Per Year"> Per Year</option>
+                                        <option value="Per Month">Per Month</option>
+                                        <option value="Per Week">Per Week</option>
+                                        <option value="Per Day">Per Day</option>
+
+                                    </select>
+                                    
+                         
+                                    <span id="fullname-error"></span>
+                                    <?php echo form_error('salary_type'); ?> &nbsp;&nbsp; <?php echo form_error('salary_type'); ?>
+
+                                </fieldset>
+
                            <fieldset class="form-group">
                                     <label class="control-label">Last date for apply:<span style="color:red">*</span></label>
 
@@ -396,25 +416,7 @@
                            </fieldset>
 
 
-                                <fieldset <?php if ($salary_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
-                                
-                                <label style="cursor:pointer;" class="control-label">Salary Type:</label>
-
-
-                                   <select name="salary_type" style="cursor:pointer;" class="keyskil" id="salary_type">
-                                        <option value="" selected option disabled>Salary Type</option>
-                                        <option value="Per Year"> Per Year</option>
-                                        <option value="Per Month">Per Month</option>
-                                        <option value="Per Week">Per Week</option>
-                                        <option value="Per Day">Per Day</option>
-
-                                    </select>
-                                    
-                         
-                                    <span id="fullname-error"></span>
-                                    <?php echo form_error('salary_type'); ?> &nbsp;&nbsp; <?php echo form_error('salary_type'); ?>
-
-                                </fieldset>
+                               
 
                                 <input type="hidden" id="tagSelect" tabindex="19" value="brown,red,green" style="width:300px;" />
 
