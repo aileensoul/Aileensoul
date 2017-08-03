@@ -2195,9 +2195,9 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         $this->load->view('recruiter/edit_post', $this->data);
     }
 
-    public function rec_profile($id="") {
+    public function rec_profile($id="") { 
 
-         $this->recruiter_apply_check(); 
+         
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -2213,6 +2213,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
         if ($id == $userid || $id == '') {
+            $this->recruiter_apply_check(); 
             $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
         } else {
             $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $id, $data = '*', $join_str = array());
@@ -2288,12 +2289,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         }
         
         $this->data['de'] = array_values($res);
-
-
-
-
-
-
 
 
 
