@@ -238,12 +238,12 @@
                         <label>Other activities:<!-- <span style="color:red">*</span> --></label>
                        
 
-                        <textarea name ="other_activities" tabindex="6" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
+                        <textarea name ="other_activities" tabindex="10" id="other_activities" rows="4" cols="50" placeholder="Enter Other Activities" style="resize: none;"><?php if($other_activities1){ echo $other_activities1; } ?></textarea>
                        
                     </fieldset>
                      <fieldset id="logo_remove">
                                              <label>Company Logo:</label>
-                                             <input  type="file" name="comp_logo" tabindex="10" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
+                                             <input  type="file" name="comp_logo" tabindex="11" id="comp_logo" class="comp_logo" placeholder="Company Logo" multiple="" onchange=" return comlogo();" />
 
                                              <div id="com_logo" class="com_logo" style="color:#f00; display: block;"></div>
 
@@ -282,7 +282,7 @@
                                                      <fieldset class="hs-submit full-width">
                                    
                                   
-                                    <input type="submit"  id="next" name="next" tabindex="7" value="Submit">
+                                    <input type="submit"  id="next" name="next" tabindex="12" value="Submit">
                                  
                                     
                      </fieldset>
@@ -715,4 +715,9 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Remove this L
              });
           }
    //DELETE LOGO END
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+  $(".country").select2();
+});
 </script>
