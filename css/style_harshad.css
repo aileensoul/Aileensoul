@@ -475,7 +475,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.common-form1 h3{margin:20px 0;}
 	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
 	.experience_year{margin-right:33px;}
-	header .header{padding-top:5px;}
+	header .header{/*padding-top:5px;*/}
 	.header ul li a{padding-top:11px !important;}
 	#notificationLink span{top:7px !important;}
 	

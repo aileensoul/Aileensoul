@@ -15369,6 +15369,7 @@ padding-top: 7px !important;}
 	#people-list{width:35%;}
 	#chat{width:65%;}
 	.chat .chat-history{padding:25px 15px 20px;}
+	.chat .chat-header{padding-left:15px;}
 }
 @media screen and (max-width: 900px) {
     .custom-right {
@@ -15956,7 +15957,10 @@ text-align: center;}
     #contact_per{width:30%;}
     .art-side-menu .flw_msg_btn{padding:0;}
     .art-side-menu .flw_msg_btn ul li{padding:10px 0;}
-    
+    #people-list{width:100%;}
+    #chat{width:100%;}
+	.people-list .search input{width:96%;}
+	.people-list ul{height:auto;}
 }
 @media screen and (max-width: 640px) {
      .pt_mn2{padding-top: 20px !important;}
@@ -16144,7 +16148,7 @@ overflow: hidden;
     .post-editor{padding-left: 7px; padding-right: 7px;}
     .header2 ul li.active a{padding:9px 10px 10px}
     .camer_h i{font-size: 19px;}
-    
+    .people-list .search input{width:95%;}
 }
 @media screen and (max-width: 479px) {
     .padd_set .change-password{padding: 0;}
@@ -16526,6 +16530,7 @@ overflow: hidden;
     .text-center.tab-block a{margin:0 10px;}
     .details_all_tital{font-size:18px;}
     .cls-ve{top:35px;}
+	.people-list .search input{width:93%;}
 }
 @media screen and (max-width: 360px) {
     .hout_noti{font-size: 11px;}
@@ -16693,6 +16698,7 @@ font-size: 12px;
         font-weight: 500;
     }
     .cls-ve{top:23px;}
+	.people-list .search input{width:92%;}
 
 }
 /*** test for form ***/
