@@ -174,8 +174,7 @@ public function search()
     
         $this->data['user_search_keyword'] = $this->session->userdata('user_search_keyword');
       
-         // echo "<pre>";print_r($this->data['user_search_keyword']);die();
-
+       
              // This is userd for pagination offset and limoi start
           $limit = $this->paging['per_page'];
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
