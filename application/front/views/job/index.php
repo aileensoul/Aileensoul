@@ -384,24 +384,6 @@ if (count($nation) > 0) {
  
 
 
-
-<script src="<?php echo base_url('js/jquery.datetimepicker.full.js'); ?>"></script>
-
-<script type="text/javascript">
-    $('#datepicker').datetimepicker({
-        //yearOffset:222,
-       
-        startDate: "2013/02/14",
-        lang: 'ch',
-        timepicker: false,
-        format: 'd/m/Y',
-        formatDate: 'Y/m/d'
-                //minDate:'-1970/01/02', // yesterday is minimum date
-                //maxDate:'+1970/01/02' // and tommorow is maximum date calendar
-    });
-
-</script>
-<!-- Calender Js End-->
 <!-- script for skill textbox automatic end -->
 <script>
 
@@ -821,7 +803,8 @@ if(mm<10) {
 $(document).ready(function () {
    
     var complex = <?php echo json_encode($selectdata); ?>;
-    if(complex)
+   
+    if(complex != "" )
     {
          $("#lan").select2({
          placeholder: "Select a Language",
@@ -870,8 +853,7 @@ $(window).load(function(){
 <script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
 <script>
 $(function() {
-                
-
+   
 var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!

@@ -349,9 +349,7 @@ if ($this->session->flashdata('success')) {
                 return false;
             },
             select: function( event, ui ) {
-                alert(ui.item.value);
-                alert(ui.item.id);
-                alert();
+             
                 var terms = split( this.value );
                 if(terms.length <= 10) {
                     // remove the current input
@@ -404,9 +402,7 @@ if ($this->session->flashdata('success')) {
                 return false;
             },
             select: function( event, ui ) {
-                alert(ui.item.value);
-                alert(ui.item.id);
-                alert();
+               
                 var terms = split( this.value );
                 if(terms.length <= 10) {
                     // remove the current input

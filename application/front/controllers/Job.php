@@ -77,7 +77,7 @@ class Job extends MY_Controller {
             } else if ($jobdata[0]['job_step'] == 10) {
                 redirect('job/job_all_post', refresh);
             } else {
-                redirect('job/temp3', refresh);
+                redirect('job/job_reg', refresh);
             }
         }
     }
@@ -95,6 +95,12 @@ class Job extends MY_Controller {
              redirect('job/');
         }
      //if user deactive profile then redirect to job/index untill active profile End
+
+    //Retrieve Data from main user registartion table start
+    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');           
+    $this->data['job'] = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+      //Retrieve Data from main user registartion table end
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata= $this->data['userdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5804,11 +5810,19 @@ public function delete_workexp()
 }
 
 //DELETE WORK EXPERIENCE CERIFICATE & PDF END
-public function temp(){
 
-    $this->load->view('job/temp');
-    }
-    public function temp3(){
+
+//THIS JOB REGISTRATION IS USED FOR FIRST TIME REGISTARTION VIEW START
+
+    public function job_reg(){
+
+    $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+    //Retrieve Data from main user registartion table start
+    $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');           
+    $this->data['job'] = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+      //Retrieve Data from main user registartion table end
+
     //skill data fetch
         $contition_array = array('status' => '1', 'type' => '1');
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5859,7 +5873,7 @@ public function temp(){
           $search_condition = "((status = '1'))";
            $university_data = $this->data['industry'] = $this->common->select_data_by_search('job_industry', $search_condition, $contition_array, $data = 'industry_id,industry_name', $sortby = 'industry_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-    $this->load->view('job/temp3',$this->data);
+    $this->load->view('job/job_reg',$this->data);
     }
     
     public function job_insert(){
@@ -5964,12 +5978,17 @@ public function temp(){
                     redirect('job/job_all_post');
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
-                    redirect('job/temp3', 'refresh');
+                    redirect('job/job_reg', 'refresh');
                 }
        
     }
     
+//THIS JOB REGISTRATION IS USED FOR FIRST TIME REGISTARTION VIEW END
 
+public function temp(){
+
+    $this->load->view('job/temp');
+    }
      public function temp4(){
 
     $this->load->view('job/temo4');
