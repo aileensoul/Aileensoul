@@ -11,6 +11,18 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/roboto-light-webfont.eot');
+    src: url('../fonts/roboto-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-light-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-light-webfont.woff') format('woff'),
+         url('../fonts/roboto-light-webfont.svg#robotolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 @font-face {
  font-family: 'Gotham Book';
  src: url('../fonts/font/Gotham-Book.eot');
@@ -851,17 +863,21 @@ line-height: 1;}
     transform: translate(-50%, -50%);
 }
 .action-button #message_count {
-/*     height: 16px;*/
     position: absolute;
     right: 12px;
     top: 3px;
-    line-height: 1;
-    font-size: 10px;
-    border-radius: 50%;/*
-    width: 16px;
-    padding: 3px 4px;*/
+    text-align: center;
+    border-radius: 50%;
 }
 /*latest end*/
+.action-button .count_add{   
+    line-height: 9px!important;
+    background-color:#FF4500;
+    padding:4px 6px 4px 5.5px!important;
+    font-family: robotolight!important;
+font-size: 10px!important;
+font-weight: bold;
+border-radius: 100% !important;}
 
 .header {
     padding: 0;
@@ -14828,10 +14844,9 @@ height: 100%;}
   content: attr(placeholder);
   display: block; /* For Firefox */
   color: #ccc;
-<<<<<<< HEAD
+
   /*line-height:1;*/
-=======
->>>>>>> 67fcdeb615b1fca83cfaf304302200b9afa32e43
+
 }
     .sory_image{margin: 15px;}
     .not_founde_head{color: #1b8ab9;

@@ -87,7 +87,7 @@
                </div>
             </div>
          </div>
-         <div class="col-md-8 col-sm-8">
+         <div class="col-md-6 col-sm-8">
             <div>
                <?php
                   if ($this->session->flashdata('error')) {
