@@ -5656,6 +5656,7 @@ form {
     font-size: 16px;
     resize: none;
 }
+#msg_block .input-group .comment{line-height: 1;}
 .close-popup {
     color: #000000;
     background-color: #ffffff;

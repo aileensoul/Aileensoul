@@ -113,7 +113,7 @@ $(window).load(function(){
         } else
         {
             $('#notification_count').html(msg);
-            $('#notification_count').css({"background-color": "#FF4500", "height": "18px", "width": "18px", "padding": "5px 6px"});
+            $('#notification_count').css({"background-color": "#FF4500" , "padding": "5px 6px"});
             document.getElementById('notification_count').style.display = 'block';
             $('#notificationLink').addClass('notification_available');
         }
