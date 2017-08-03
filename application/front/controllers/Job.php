@@ -5573,8 +5573,9 @@ public function creat_pdf_primary($id,$seg) {
         { 
             if($seg == 'primary')
             {
-
-                $select = '<form action="'.base_url().'/job/job_education_update/primary" method="post">';
+                 $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .= '<form action="'.base_url().'/job/job_education_update/primary" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
                 echo $select;
@@ -5582,7 +5583,10 @@ public function creat_pdf_primary($id,$seg) {
             }
             else
             {
-                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .='<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                 echo $select;
                 
             }
            
@@ -5599,8 +5603,9 @@ public function creat_pdf_secondary($id,$seg) {
         { 
              if($seg == 'secondary')
             {
-
-                $select = '<form action="'.base_url().'/job/job_education_update/secondary" method="post">';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .= '<form action="'.base_url().'/job/job_education_update/secondary" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
                 echo $select;
@@ -5608,7 +5613,10 @@ public function creat_pdf_secondary($id,$seg) {
             }
             else
             {
-                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                 $select .= '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                 echo $select;
                 
             }
            
@@ -5625,8 +5633,9 @@ public function creat_pdf_higher_secondary($id,$seg) {
         { 
             if($seg == 'higher-secondary')
             {
-
-                $select = '<form action="'.base_url().'/job/job_education_update/higher-secondary" method="post">';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .= '<form action="'.base_url().'/job/job_education_update/higher-secondary" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
                 echo $select;
@@ -5634,7 +5643,10 @@ public function creat_pdf_higher_secondary($id,$seg) {
             }
             else
             {
-                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .= '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                echo $select;
                 
             }
            
@@ -5652,6 +5664,7 @@ public function creat_pdf_graduation($id,$seg) {
             if($seg == 'graduation')
             {
                 $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
                 $select .= '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
                 $select .= '<button type="submit">Back</button>';
                 $select .= '</form>';
@@ -5660,7 +5673,10 @@ public function creat_pdf_graduation($id,$seg) {
             }
             else
             {
-                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
+                $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+                $select .=  '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+                 echo $select;
                 
             }
            
@@ -5673,10 +5689,12 @@ public function creat_pdf_workexp($id) {
         $contition_array = array('work_id' => $id);
         $pdf=$this->data['pdf'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data='work_certificate', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-          
-                echo '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
+            $select = '<title>'.$pdf[0]['work_certificate'].'</title>';
+            $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
+            $select .= '<input action="action" type="button" value="Back" onclick="history.back();" /> <br/><br/>';
            
-            echo '<embed src="' .base_url().$this->config->item('job_work_main_upload_path').$pdf[0]['work_certificate'].'"width="100%" height="100%">';
+             $select .= '<embed src="' .base_url().$this->config->item('job_work_main_upload_path').$pdf[0]['work_certificate'].'"width="100%" height="100%">';
+               echo $select;
        
 }
 //create pdf end 
