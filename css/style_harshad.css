@@ -406,7 +406,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
   height: 38px;
   
 }
-.add-contact div i{color:#fff; padding:7px 6px;}
+.add-contact div i{color:#fff; padding:7px 6px; }
 #contact_per .addtocont{
     display: block;
     left: 0;
@@ -441,8 +441,17 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .msg_right .messagedelete{position:absolute; left:-25px; bottom:0;}
 .chat .chat-history .other-message{max-width:100%;}
 
-
-
+/***  header 2 new changes  ***/
+.header2{width:1250px; margin:0 auto;}
+.header2 .container{width:100%; padding-right:4px;}
+.header2 ul{padding-right:0;}
+.header2 .job-search-box1 fieldset{padding-top:3px; padding-bottom:3px;}
+.chat .chat-header .chat_drop img{height:auto;}
+.backdiv-mob{padding:15px 0 0; width:100%; float:left; display:none;}
+.backdiv-mob .pull-right{float:right; display:none;}
+.backdiv-mob .pull-left{float:left;}
+.backdiv-mob a{opacity:0.8;}
+.backdiv-mob a:hover{opacity:1;}
 
 @keyframes pulse1 {
   0%{transform:scale(.1);opacity: 0;}
@@ -478,6 +487,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	header .header{/*padding-top:5px;*/}
 	.header ul li a{padding-top:11px !important;}
 	#notificationLink span{top:7px !important;}
+	.backdiv-mob{display:block;}
 	
 }
 @media screen and (max-width: 540px) {}
