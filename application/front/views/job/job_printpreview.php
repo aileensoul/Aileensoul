@@ -253,41 +253,83 @@ if ($returnpage == 'recruiter') {
                                                     </li>
 
                                                     <?php
-                                                    if ($job[0]['marital_status']) 
-                                                    {
+                                                    if ($returnpage == 'recruiter') {
+
+                                                        if ($job[0]['marital_status']) 
+                                                        {
                                                     ?>
                                                     <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
                                                     </li>
                                                     <?php
-                                                        } else {
+                                                        }else {
                                                             echo "";
                                                         }
+                                                    } 
+
+                                                    else
+                                                    {
+                                                   
+                                                    ?>
+                                                    <li> <b>Marital Status </b>
+                                                    <span> 
+                                                    <?php 
+                                                        if($job[0]['marital_status'])
+                                                        {
+                                                    echo $job[0]['marital_status'];
+                                                        }
+                                                        else
+                                                         echo PROFILENA;
+                                                      
+                                                        }
                                                         ?>
+                                                    </span>                                               </li>
 
                                                      <?php
-                                                    if ($job[0]['nationality']) 
-                                                    {
-                                                    ?>
-                                                    <li> <b>Nationality </b><span>
-                                                            <?php
-                                                            $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
-                                                            echo $cache_time;
-                                                            ?>
-                                                        </span>
-                                                    </li>
+                                                    if ($returnpage == 'recruiter') {
 
+                                                        if ($job[0]['nationality']) 
+                                                        {
+                                                    ?>
+                                                    <li> <b>Nationality </b><span>  
                                                     <?php
-                                                        } else {
+                                                    $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
+                                                            echo $cache_time;
+                                                            ?></span>
+                                                    </li>
+                                                    <?php
+                                                        }else {
                                                             echo "";
                                                         }
-                                                        ?>
+                                                    } 
 
-                                                    <?php
-                                                    if ($job[0]['language']) 
+                                                    else
                                                     {
-                                                    ?> 
-                                                    <li> <b>Language </b><span>
-                                                            <?php
+                                                   
+                                                    ?>
+                                                    <li> <b>Nationality </b>
+                                                    <span> 
+                                                    <?php 
+                                                        if($job[0]['nationality'])
+                                                        {
+                                                            $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
+                                                            echo $cache_time;
+                                                        }
+                                                        else
+                                                         echo PROFILENA;
+                                                      
+                                                        }
+                                                        ?>
+                                                    </span>                                               </li>
+
+                                                     
+                                                     <?php
+                                                    if ($returnpage == 'recruiter') {
+
+                                                        if ($job[0]['language']) 
+                                                        {
+                                                    ?>
+                                                    <li> <b>Language </b><span>  
+                                                    <?php
                                                             $aud = $job[0]['language'];
 
                                                             $aud_res = explode(',', $aud);
@@ -298,45 +340,132 @@ if ($returnpage == 'recruiter') {
                                                             }
                                                             $listFinal = implode(', ', $language1);
                                                             echo $listFinal;
-                                                            ?>     
-                                                        </span>
-                                                    </li>
-                                                     <?php
-                                                        } else {
-                                                            echo "";
-                                                        }
-                                                        ?>
-
-                                                    <?php
-                                                    if ($job[0]['dob'] != '0000-00-00') 
-                                                    {
-                                                    ?>   
-                                                    <li> <b>Date Of Birth </b><span>
-                                                            <?php echo date('d/m/Y', strtotime($job[0]['dob'])); ?>
-                                                        </span>
+                                                            ?>
+                                                                
+                                                    </span>
                                                     </li>
                                                     <?php
-                                                        } else {
+                                                        }else {
                                                             echo "";
                                                         }
+                                                    } 
+
+                                                    else
+                                                    {
+                                                   
+                                                    ?>
+                                                    <li> <b>Language</b>
+                                                    <span> 
+                                                    <?php 
+                                                        if($job[0]['language'])
+                                                        {
+                                                            $aud = $job[0]['language'];
+
+                                                            $aud_res = explode(',', $aud);
+                                                            foreach ($aud_res as $lan) {
+
+                                                                $cache_time = $this->db->get_where('language', array('language_id' => $lan))->row()->language_name;
+                                                                $language1[] = $cache_time;
+                                                            }
+                                                            $listFinal = implode(', ', $language1);
+                                                            echo $listFinal;
+                                                        }
+                                                        else
+                                                         echo PROFILENA;
+                                                      
+                                                        }
                                                         ?>
+                                                    </span>                                               </li>
 
                                                      <?php
-                                                    if ($job[0]['gender']) 
-                                                    {
-                                                    ?>  
-                                                    <li> <b>Gender </b><span><?php echo $job[0]['gender']; ?></span>
+                                                    if ($returnpage == 'recruiter') {
+
+                                                        if ($job[0]['dob'] != '0000-00-00') 
+                                                        {
+                                                    ?>
+                                                    <li> <b>Date Of Birth</b><span>  
+                                              
+                                                           <?php echo date('d/m/Y', strtotime($job[0]['dob'])); 
+                                                           ?>
+                                                          
+                                                                
+                                                    </span>
                                                     </li>
-                                                     <?php
-                                                        } else {
+                                                    <?php
+                                                        }else {
                                                             echo "";
                                                         }
+                                                    } 
+
+                                                    else
+                                                    {
+                                                   
+                                                    ?>
+                                                    <li> <b>Date Of Birth</b>
+                                                    <span> 
+                                                    <?php 
+                                                        if($job[0]['dob'] != '0000-00-00')
+                                                        {
+                                                             echo date('d/m/Y', strtotime($job[0]['dob'])); 
+                                                        }
+                                                        else
+                                                         echo PROFILENA;
+                                                      
+                                                        }
                                                         ?>
+                                                    </span>                                               </li>
+
+                                                    <?php
+                                                    if ($returnpage == 'recruiter') {
+
+                                                        if ($job[0]['gender']) 
+                                                        {
+                                                    ?>
+                                                    <li> <b>Gender</b><span>  
+                                              
+                                                           <?php echo $job[0]['gender']; ?>
+                                                          
+                                                                
+                                                    </span>
+                                                    </li>
+                                                    <?php
+                                                        }else {
+                                                            echo "";
+                                                        }
+                                                    } 
+
+                                                    else
+                                                    {
+                                                   
+                                                    ?>
+                                                    <li> <b>Gender</b>
+                                                    <span> 
+                                                    <?php 
+                                                        if($job[0]['gender'])
+                                                        {
+                                                              echo $job[0]['gender']; 
+                                                        }
+                                                        else
+                                                         echo PROFILENA;
+                                                      
+                                                        }
+                                                        ?>
+                                                    </span>                                               </li>
+
+
 
                                                 </ul>
                                             </div>
 
-        <?php if($job[0]['country_id'])
+        <?php if($returnpage != 'recruiter' && ($job[0]['country_id'] == ""))
+        {
+            ?>
+            dfgdf
+            <?php 
+        }
+            else
+            {
+                if($job[0]['country_id'] || ($returnpage == 'recruiter'&& $job[0]['country_id']))
                 {
         ?>
                                             <div class="profile-job-post-title-inside clearfix">
@@ -504,6 +633,7 @@ if ($returnpage == 'recruiter') {
                                                 </div>
                     <?php
                             }
+                        }
                             if ($job_edu || $job_graduation) 
                             {
                     ?>

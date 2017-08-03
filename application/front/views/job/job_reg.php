@@ -391,9 +391,9 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                   //  noSpace: true
                  },
                  
-                 'skills1[]': {
+                 skills: {
 
-                    require_from_group: [1, ".keyskil"],
+                    required: true,
                             //required:true 
                 },
 
@@ -453,9 +453,9 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
 
                 },
                 
-                'skills1[]': {
+                 skills: {
 
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
+                     required: "Skill Selection Is Required.",
 
                 },
 
