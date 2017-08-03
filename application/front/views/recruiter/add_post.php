@@ -1152,8 +1152,9 @@ if(mm<10) {
         }   
     }
      if(clicked_id==5)
-    {
+    { alert(22);
         document.getElementById('acon').style.display = 'block';
+        
           
     }
        if(clicked_id==6)
@@ -1248,7 +1249,7 @@ if (clicked_id == 4) {
                                 
                             }
                              else if(clicked_id==5)
-                            {
+                            { 
         document.getElementById('acon').style.display = 'block';
                                
                             }
