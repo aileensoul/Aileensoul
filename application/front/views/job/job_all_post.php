@@ -49,8 +49,27 @@
                               <img src="<?php echo base_url($this->config->item('job_profile_thumb_upload_path') . $jobdata[0]['job_user_image']); ?>" alt="<?php echo $jobdata[0]['fname']; ?> " >
                               <?php
                                  } else {
-                                     ?>
-                              <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $jobdata[0]['fname']; ?>">
+                               
+                                  ?>
+                  <div class="data_img_2">
+                          
+                          <?php 
+                          $a = $jobdata[0]['fname'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym .= $w[0];
+                            }?>
+                          <?php 
+                          $b = $jobdata[0]['lname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 .= $w[0];
+                            }?>
+
+                            <div>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            </div>
+                        </div>
                               <?php
                                  }
                                  ?>

@@ -478,8 +478,8 @@
 <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
  <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
+<!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
+ -->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
@@ -489,6 +489,24 @@
 <!-- This Js is used for call popup -->
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 
+<script type="text/javascript">
+$(document).ready(function () {
+   
+         $("#education").select2({
+         placeholder: "Select a Education",
+ 
+        });
+
+          $("#skills").select2({
+         placeholder: "Find Your Skills",
+ 
+        });
+ 
+ 
+
+});
+
+</script>
 <script type="text/javascript">
   
 function imgval(){ 
@@ -574,7 +592,8 @@ function (value, element, param) {
             }
             else
             {
-                    return parseInt(value) > parseInt($min.val());
+                    //return parseInt(value) > parseInt($min.val());
+                     return (value) > ($min.val());
             }
 }, "Max must be greater than min");
 
@@ -632,7 +651,7 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = day+'/'+month+'/'+year;
+   var todaydate = dd+'/'+mm+'/'+yyyy;
 
    var lastDate = $("input[name=last_date]").val();
     //alert(lastDate); alert(todaydate);
@@ -752,7 +771,7 @@ if(mm<10) {
                         last_date: {
                             
                             required: true,
-                            isValid: 'Last date should be grater than and equal to today date'
+                           isValid: 'Last date should be grater than and equal to today date'
                             
                         },
                         minsal:{
@@ -1494,22 +1513,3 @@ var today = yyyy;
 </script>
 
 <!-- script for date end -->.
-<script type="text/javascript">
-$(document).ready(function () {
-   
-         $("#education").select2({
-         placeholder: "Select a Education",
- 
-        });
-
-          $("#skills").select2({
-         placeholder: "Find Your Skills",
- 
-        });
- 
- 
-
-});
-
-
-</script>

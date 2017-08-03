@@ -303,7 +303,7 @@
 
                                                             <div class="addtocont">
                                                     <span class="ft-13 ai_text">
-                                                       In your contact </span>
+                                                       In Contacts </span>
                                                     </div> 
 
                                                 </div>

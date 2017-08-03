@@ -94,7 +94,7 @@
                     <div class="row">
 
                         <?php echo $business_search; ?>
-                        <div class="col-sm-5 col-md-6 col-xs-12  h2-smladd mob-width">
+                        <div class="col-sm-6 col-md-6 col-xs-12  h2-smladd mob-width">
                             <div class="search-mob-block">
                                 <div class="">
                                     <a href="#search">
@@ -203,7 +203,7 @@
                     <div class="row">
 
                         <?php echo $business_search; ?>
-                        <div class="col-sm-5 col-md-6 col-xs-12  h2-smladd mob-width">
+                        <div class="col-sm-6 col-md-6 col-xs-12  h2-smladd mob-width">
                             <div class="search-mob-block">
                                 <div class="">
                                     <a href="#search">
@@ -215,7 +215,7 @@
                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
                                             <input type="text" id="tags1" name="skills" placeholder="Find Your Business">
-                                             <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -459,7 +459,7 @@
         } else
         {
             $('#message_count').html(msg);
-            $('#message_count').css({"background-color": "#FF4500" , "height": "16px" ,"width": "16px" , "padding" : "3px 4px"});
+            $('#message_count').css({"background-color": "#FF4500" , "padding" : "3px 6px"});
             $('#InboxLink').addClass('msg_notification_available');
             //alert("welcome");
         }

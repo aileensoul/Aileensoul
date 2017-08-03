@@ -706,7 +706,7 @@ class Notification extends MY_Controller {
 
         $postdata = $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby = 'freelancer_post.created_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
         //  echo "<pre>"; print_r($postdata); die();
-        $this->load->view('Notification/freelancer_hire_post', $this->data);
+        $this->load->view('notification/freelancer_hire_post', $this->data);
     }
 
     public function not_header($id = "") {

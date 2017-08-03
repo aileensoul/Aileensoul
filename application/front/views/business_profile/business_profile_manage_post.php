@@ -366,7 +366,7 @@
 
                                                     <div class="addtocont">
                                                         <span class="ft-13 ai_text">
-                                                            In your contact </span>
+                                                            In Contacts </span>
                                                     </div> 
 
                                                 </div>
@@ -3827,6 +3827,7 @@
 //                        document.getElementById('editpostdetails' + abc).style.display = 'block';
                 document.getElementById('editpostdetailbox' + abc).style.display = 'none';
                 document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                document.getElementById('khyati' + abc).style.display = 'block';
                 } else {
 
                 $.ajax({
