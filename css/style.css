@@ -14828,10 +14828,9 @@ height: 100%;}
   content: attr(placeholder);
   display: block; /* For Firefox */
   color: #ccc;
-<<<<<<< HEAD
+
   /*line-height:1;*/
-=======
->>>>>>> 67fcdeb615b1fca83cfaf304302200b9afa32e43
+
 }
     .sory_image{margin: 15px;}
     .not_founde_head{color: #1b8ab9;
