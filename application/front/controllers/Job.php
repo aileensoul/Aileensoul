@@ -3794,14 +3794,14 @@ $files[] = $_FILES;
             $data = '*';
 
             $this->data['job'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-          // echo "<pre>";print_r( $this->data['job']);die();
+          //echo "<pre>";print_r( $this->data['job']);die();
             //for getting data job_add_edu table
             $contition_array = array('user_id' => $userid, 'status' => '1');
 
             $data = '*';
 
             $this->data['job_edu'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-
+            //echo "<pre>";print_r( $this->data['job_edu']);
             //for getting data of graduation table
               $contition_array = array('user_id' => $userid);
 
@@ -3809,7 +3809,7 @@ $files[] = $_FILES;
 
             $this->data['job_graduation'] = $this->common->select_data_by_condition('job_graduation', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
 
-          //  echo "<pre>"; print_r($this->data['job_graduation']); die();
+           // echo "<pre>"; print_r($this->data['job_graduation']); die();
             //for getting data job_add_workexp table
             $contition_array = array('user_id' => $userid, 'status' => '1');
 

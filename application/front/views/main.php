@@ -54,10 +54,10 @@
             "url": "https://www.aileensoul.com",
             "sameAs": [
             "https://www.facebook.com/aileensouldotcom/",
-            "https://twitter.com/aileen_soul"
+            "https://twitter.com/aileen_soul",
             "https://instagram.com/aileensoul_com",
             "https://in.linkedin.com/in/aileensouldotcom",
-            "https://plus.google.com/+Aileensoul",
+            "https://plus.google.com/+Aileensoul"
             ]
             }
         </script>

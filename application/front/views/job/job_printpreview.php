@@ -457,10 +457,31 @@ if ($returnpage == 'recruiter') {
                                                 </ul>
                                             </div>
 
-        <?php if($returnpage != 'recruiter' && ($job[0]['country_id'] == ""))
+        <?php if($returnpage != 'recruiter' && ($job[0]['country_id'] == "0" || $job[0]['country_id'] == ""))
         {
             ?>
-            dfgdf
+            <div class="profile-job-post-title-inside clearfix">
+                </div>
+                                            <div class="profile-job-post-title clearfix">
+                                                <div class="profile-job-profile-button clearfix">
+                                                    <div class="profile-job-details">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="details_all_tital"> Address
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <div class="profile-job-profile-menu">
+                                                    <ul class="clearfix">
+                                                        <div class="text-center">
+                                                            <a href="<?php echo base_url('job/job_address_update');?>">Click Here To fill Up Address Detail</a>
+                                                        </div>
+                                                        </ul>
+                                                </div>
+                                            </div>
+           
             <?php 
         }
             else
@@ -634,9 +655,40 @@ if ($returnpage == 'recruiter') {
                     <?php
                             }
                         }
-                            if ($job_edu || $job_graduation) 
-                            {
-                    ?>
+                  if($returnpage != 'recruiter' && ($job_edu[0]['board_primary'] == "" && $job_edu[0]['board_secondary'] == "" && $job_edu[0]['board_higher_secondary'] == "" && $job_graduation[0]['degree'] == "" ))
+                 
+        {
+            ?>
+            <div class="profile-job-post-title-inside clearfix">
+                </div>
+                                            <div class="profile-job-post-title clearfix">
+                                                <div class="profile-job-profile-button clearfix">
+                                                    <div class="profile-job-details">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="details_all_tital"> Education
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <div class="profile-job-profile-menu">
+                                                    <ul class="clearfix">
+                                                        <div class="text-center">
+                                                            <a href="<?php echo base_url('job/job_education_update');?>">Click Here To fill Up Education Detail</a>
+                                                        </div>
+                                                        </ul>
+                                                </div>
+                                            </div>
+           
+            <?php 
+        }
+            else
+            {
+                if(($job_edu || $job_graduation) || ($returnpage == 'recruiter'&& ($job_edu || $job_graduation)))
+                {
+        ?>
+                           
                                                 <div class="profile-job-post-title clearfix">
                                                     <div class="profile-job-profile-button clearfix">
                                                         <div class="profile-job-details">
@@ -903,8 +955,43 @@ if ($returnpage == 'recruiter') {
                                                                         <?php
                                                                         }
                                                                     }
-                                                                        // <!--khyati 22-5 chanegs end-->
-                                                                        ?>
+                                                                }
+
+        if($returnpage != 'recruiter' && ($job[0]['project_name'] == "" && $job[0]['project_duration'] == "" && $job[0]['project_description'] == "" && $job[0]['training_as'] == "" && $job[0]['training_duration'] == "" && $job[0]['training_organization'] == "" ))
+                 
+        {
+            ?>
+            <div class="profile-job-post-title-inside clearfix">
+                </div>
+                                            <div class="profile-job-post-title clearfix">
+                                                <div class="profile-job-profile-button clearfix">
+                                                    <div class="profile-job-details">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="details_all_tital"> Project And Training / Internship
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <div class="profile-job-profile-menu">
+                                                    <ul class="clearfix">
+                                                        <div class="text-center">
+                                                            <a href="<?php echo base_url('job/job_project_update');?>">Click Here To fill Up Project And Training / Internship Detail</a>
+                                                        </div>
+                                                        </ul>
+                                                </div>
+                                            </div>
+           
+            <?php 
+        }
+            else
+            {
+                if(($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "" || $job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "") || ($returnpage == 'recruiter'&& ($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "" || $job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "")))
+                {
+        ?>
+                                                                 <!--khyati 22-5 chanegs end-->
+                                                                        
                                                                         <?php
                                                                         if ($returnpage == 'recruiter') {
 
@@ -914,11 +1001,20 @@ if ($returnpage == 'recruiter') {
                                                             <div class="profile-job-post-title clearfix">
                                                                 <div class="profile-job-profile-button clearfix">
                                                                     <div class="profile-job-details">
+
+                                                                     <?php if($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "")
+                                                                    {
+                                                                ?>
                                                                         <ul>
+                                                                    
                                                                             <li>
                                                                                 <p class="details_all_tital">Project And Training / Internship</p>
                                                                             </li>
                                                                         </ul>
+                                                                <?php
+                                                            }
+                                                            ?>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-job-profile-menu">
@@ -960,11 +1056,16 @@ if ($returnpage == 'recruiter') {
                                                             }
                                                             ?><br>
 
+                                                             <?php if($job[0]['training_as'] != "" || $job[0]['training_duration'] != "" || $job[0]['training_organization'] != "")
+                                                                    {
+                                                                ?>
                                                                         <li>
+
                                                                             <div class="text-center">
                                                                                 <h5 class="head_title">Training / Internship</h5>
                                                                             </div>
                                                                         </li>
+                                                                    <?php } ?>
 
         <?php
         if ($job[0]['training_as']) {
@@ -1124,6 +1225,8 @@ if ($returnpage == 'recruiter') {
                                                                                     <?php
                                                                                 }
                                                                             }
+                                                                        }
+                                                                    }//else end
                                                                             ?>
                                                             <div class="profile-job-post-title clearfix">
                                                                 <div class="profile-job-profile-button clearfix">
