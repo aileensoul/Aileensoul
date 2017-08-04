@@ -174,27 +174,27 @@
                                 <?php echo form_open(base_url('job/job_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                 <fieldset>
                                     <label >First Name <font  color="red">*</font> :</label>
-                                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>" maxlength="35">
+                                    <input type="text" name="first_name" id="first_name" tabindex="1" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>" maxlength="35">
                                 </fieldset>
                                 <fieldset>
                                     <label >Last Name <font  color="red">*</font>:</label>
-                                    <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['last_name'];?>" maxlength="35">
+                                    <input type="text" name="last_name" id="last_name" tabindex="2" placeholder="Enter your Last Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['last_name'];?>" maxlength="35">
                                 </fieldset>
                                 <fieldset class="full-width">
                                     <label >Email Address <font  color="red">*</font> :</label>
-                                    <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>" maxlength="255">
+                                    <input type="text" name="email" id="email" tabindex="3" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>" maxlength="255">
                                 </fieldset>
 
                                 <fieldset class="fresher_radio col-xs-12" >
                                     <label>Fresher ? <font  color="red">*</font> : </label>
                                     <div class="main_raio">
-                                        <input type="radio" value="Fresher" id="test1" name="fresher" id="fresher">
+                                        <input type="radio" value="Fresher" tabindex="4" id="test1" name="fresher" class="radio_job" id="fresher">
                                         <label for="test1">Yes</label>
                                     </div>
 
 
                                     <div class="main_raio">
-                                        <input type="radio" value="Experience" id="test2" name="fresher" id="fresher">
+                                        <input type="radio" tabindex="5" value="Experience" id="test2" class="radio_job" name="fresher" id="fresher">
                                         <label for="test2">No</label>
                                     </div>
 
@@ -202,18 +202,18 @@
                                 </fieldset>
                                 <fieldset class="full-width">
                                     <label >Job Title<font  color="red">*</font> :</label>
-                                     <input type="search" id="job_title" name="job_title" value="" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" style="text-transform: capitalize;" onfocus="this.value = this.value;" maxlength="255">
+                                     <input type="search" tabindex="6" id="job_title" name="job_title" value="" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" style="text-transform: capitalize;" onfocus="this.value = this.value;" maxlength="255">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills<font  color="red">*</font> : </label>
-    <input id="skills2" name="skills" id="cities" size="90" placeholder="Enter SKills">
+    <input id="skills2" name="skills" tabindex="7" id="cities" size="90" placeholder="Enter SKills">
   </fieldset>
 
 
                                 <fieldset class="full-width main_select_data">
                                     <label>Industry <font  color="red">*</font> :</label>
-                                    <select name="industry" id="industry">
+                                    <select name="industry" id="industry" tabindex="8">
                                         <option value="">Select industry</option>
                                         <?php foreach ($industry as $indu) { ?>
                                             <option value="<?php echo $indu['industry_id']; ?>"><?php echo $indu['industry_name']; ?></option>
@@ -224,7 +224,7 @@
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites<font  color="red">*</font> : </label>
-    <input id="cities2" name="cities" id="cities" size="90" placeholder="Enter Preferred Cites">
+    <input id="cities2" name="cities" id="cities" size="90" tabindex="9" placeholder="Enter Preferred Cites">
   </fieldset>
 
  
@@ -234,7 +234,7 @@
 
                                     <div class="job_reg">
                               <!--<input type="reset">-->
-                                        <input type="submit"  id="submit" name="" value="Register" tabindex="10">
+                                        <input type="submit" tabindex="10"  id="submit" name="" value="Register" tabindex="10">
 
                                     </div>
                                 </fieldset>

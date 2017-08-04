@@ -1697,10 +1697,13 @@ margin-bottom: 15px;
     color: #1b8ab9!important;}
     #industry:focus{   border: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
-#test1:focus{   border: 1px solid #1b8ab9 !important;
+
+.radio_job:focus + label:before{   border: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
+#jobseeker_regform input[type="submit"]:focus{color: white!important;}
     .message .btn:focus{color: white;}
         .message .btn:hover{color: white;}
+}
 .cv-form input[type=submit],
 .cv-form input[type=button],
 .cv-form button {
