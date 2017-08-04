@@ -1856,8 +1856,12 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                </div>
             </div>
          </div>
-   </body>
-</html>
+   
+
+<footer>
+<?php echo $footer; ?>
+</footer>
+
 <script>
    $(document).ready(function () {
        $('video').mediaelementplayer({
@@ -4275,4 +4279,5 @@ $('#postedit').on('click', function () {
 
  <!-- post upload using javascript end -->
 
-
+</body>
+</html>

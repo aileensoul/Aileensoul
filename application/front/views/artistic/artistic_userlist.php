@@ -216,10 +216,10 @@
 </div>
 <!-- Model Popup Close -->
 
+<footer>
+<?php echo $footer; ?>
+        </footer>
 
-</body>
-
-</html>
 
 
 <!-- script for skill textbox automatic start (option 2)-->
@@ -838,3 +838,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
  </script>
  <!-- all popup close close using esc end -->
+
+ </body>
+
+</html>

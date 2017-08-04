@@ -2139,9 +2139,10 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                 </div>
             </div>
             <!-- Bid-modal for this modal appear or not  Popup Close -->
-        </body>
-        </html>
-
+       
+<footer>
+<?php echo $footer; ?>
+</footer>
 
 
  <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
@@ -5155,7 +5156,7 @@ $('#postedit').on('click', function () {
 
  <!-- post upload using javascript end -->
 
-
-
+ </body>
+</html>
 
 

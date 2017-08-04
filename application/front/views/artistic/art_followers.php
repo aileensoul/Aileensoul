@@ -499,9 +499,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $followe
       </div>
            </div>
    </section>
-   <footer>
-      <?php echo $footer;  ?>
-   </footer>
+   
      <!-- Bid-modal-2  -->
    <div class="modal fade message-box" id="bidmodal-2" role="dialog">
       <div class="modal-dialog modal-lm">
@@ -540,8 +538,9 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $followe
    </div>
    <!-- Model Popup Close -->
 
-</body>
-</html>
+<footer>
+      <?php echo $footer;  ?>
+   </footer>
 <!-- script for skill textbox automatic start (option 2)-->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 
@@ -1196,4 +1195,8 @@ $( "#searchplace1" ).autocomplete({
    });  
    
 </script>
-<!-- all popup close close using esc end
+<!-- all popup close close using esc end -->
+
+</body>
+
+</html>

@@ -724,10 +724,7 @@ if ($artisticdata[0]['art_bestofmine']) {
     </div>
 
 </section>
-<footer>
 
-<?php echo $footer; ?>
-</footer>
 
  <!-- Bid-modal  -->
             <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -767,11 +764,12 @@ if ($artisticdata[0]['art_bestofmine']) {
     </div>
 </div>
 <!-- Model Popup Close -->
+<footer>
+
+<?php echo $footer; ?>
+</footer>
 
 
-</body>
-
-</html>
 
 <!-- script for skill textbox automatic start (option 2)-->
 
@@ -1380,3 +1378,7 @@ $('#bidmodal-2').modal('show');
 
  </script>
  <!-- all popup close close using esc end -->
+
+ </body>
+
+</html>
