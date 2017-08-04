@@ -1693,6 +1693,11 @@ margin-bottom: 15px;
     color: #fff;
     padding: 8px 20px;
 }
+#jobseeker_regform input:focus{   border: 1px solid #1b8ab9 !important;
+    color: #1b8ab9!important;}
+    #industry:focus{   border: 1px solid #1b8ab9 !important;
+    color: #1b8ab9!important;}
+
     .message .btn:focus{color: white;}
         .message .btn:hover{color: white;}
 .cv-form input[type=submit],
@@ -14946,6 +14951,10 @@ text-align: center;}
 .messagedelete:hover .fa{color:#1b8ab9;}
 .chat-header a:hover{color:#156f95;}
 
+
+
+
+
 /***  media query  ***/
 
 @media (min-width: 1400px) {
@@ -15793,7 +15802,7 @@ text-align: center;}
         font-size: 14px;
     }
        .common-form.job_reg_main h3 {
-        font-size: 20px;
+        font-size: 22px;
     }
     .right-side-menu {
         padding-left: 20%;
@@ -16735,6 +16744,7 @@ font-size: 12px;
 /*** test for form ***/
 
 @media screen and (max-width: 320px) {
+    .main_raio [type="radio"]:checked + label, .main_raio [type="radio"]:not(:checked) + label{padding-left: 20px;}
 .how-it-popup{width: 97%;}
     .header2 ul li.active a{padding: 9px 0px 9px;}
     .created_date {
