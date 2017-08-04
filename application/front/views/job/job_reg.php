@@ -174,15 +174,15 @@
                                 <?php echo form_open(base_url('job/job_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                 <fieldset>
                                     <label >First Name <font  color="red">*</font> :</label>
-                                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>">
+                                    <input type="text" name="first_name" id="first_name" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>" maxlength="35">
                                 </fieldset>
                                 <fieldset>
                                     <label >Last Name <font  color="red">*</font>:</label>
-                                    <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['last_name'];?>">
+                                    <input type="text" name="last_name" id="last_name" placeholder="Enter your Last Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['last_name'];?>" maxlength="35">
                                 </fieldset>
                                 <fieldset class="full-width">
                                     <label >Email Address <font  color="red">*</font> :</label>
-                                    <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>">
+                                    <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>" maxlength="255">
                                 </fieldset>
 
                                 <fieldset class="fresher_radio col-xs-12" >
@@ -201,18 +201,18 @@
 
                                 </fieldset>
                                 <fieldset class="full-width">
-                                    <label >Job Title :</label>
-                                     <input type="search" id="job_title" name="job_title" value="" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager">
+                                    <label >Job Title<font  color="red">*</font> :</label>
+                                     <input type="search" id="job_title" name="job_title" value="" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" style="text-transform: capitalize;" onfocus="this.value = this.value;" maxlength="255">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
-    <label for="skills"> Skills: </label>
+    <label for="skills"> Skills<font  color="red">*</font> : </label>
     <input id="skills2" name="skills" id="cities" size="90" placeholder="Enter SKills">
   </fieldset>
 
 
                                 <fieldset class="full-width main_select_data">
-                                    <label>Industry <font  color="red">*</font>:</label>
+                                    <label>Industry <font  color="red">*</font> :</label>
                                     <select name="industry" id="industry">
                                         <option value="">Select industry</option>
                                         <?php foreach ($industry as $indu) { ?>
@@ -223,7 +223,7 @@
 
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
-    <label for="cities">Preferred Cites: </label>
+    <label for="cities">Preferred Cites<font  color="red">*</font> : </label>
     <input id="cities2" name="cities" id="cities" size="90" placeholder="Enter Preferred Cites">
   </fieldset>
 
@@ -400,50 +400,50 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
 
                 first_name: {
 
-                    required: "First name Is Required.",
+                    required: "first name Is Required.",
 
                 },
 
                 last_name: {
 
-                    required: "Last name Is Required.",
+                    required: "last name Is Required.",
 
                 },
 
                 email: {
 
-                    required: "Email Address Is Required.",
-                    email: "Please Enter Valid Email Id.",
-                    remote: "Email already exists"
+                    required: "email Address Is Required.",
+                    email: "please Enter Valid Email Id.",
+                    remote: "email already exists"
                 },
                
                 fresher: {
 
-                    required: "Fresher Is Required.",
+                    required: "fresher Is Required.",
 
                 },
                 
                 industry: {
 
-                    required: "Industry Is Required.",
+                    required: "industry Is Required.",
 
                 },
                 
                 cities: {
 
-                    required: "City Is Required.",
+                    required: "city Is Required.",
 
                 },
                 
                 job_title: {
 
-                    required: "Job title Is Required.",
+                    required: "job title Is Required.",
 
                 },
                 
                  skills: {
 
-                     required: "Skill Is Required.",
+                     required: "skill Is Required.",
 
                 }
 
