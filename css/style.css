@@ -800,6 +800,7 @@ line-height: 1;}
     margin: 0px;
     width: 32.33%;
 }
+.job_reg_page_fprm{width: 640px; margin: 0 auto;}
 .left_box_menubar li a {
     padding: 10px;
     display: inline-block;
@@ -15752,7 +15753,7 @@ text-align: center;}
         padding-right: 0;
     }
     .bg-search .header2 {
-        margin-top: -1px;
+        margin-top: -6px;
     }
     .custom-none {
         display: none;
@@ -15790,6 +15791,9 @@ text-align: center;}
     }
     .common-form h3 {
         font-size: 14px;
+    }
+       .common-form.job_reg_main h3 {
+        font-size: 20px;
     }
     .right-side-menu {
         padding-left: 20%;
@@ -15988,7 +15992,9 @@ text-align: center;}
 	.people-list ul{height:auto;}
 }
 @media screen and (max-width: 640px) {
+    .job_reg_page_fprm{width: 90%;}
      .pt_mn2{padding-top: 20px !important;}
+    }
     .profile-text1{width: 100%; /*top:40px;*/}
     .profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }
     .post-design-box .post-design-desc .fr{right: 0; padding: 6px 16px;}

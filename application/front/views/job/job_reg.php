@@ -168,7 +168,7 @@
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="clearfix">
-                        <div class="col-md-6">
+                        <div class="job_reg_page_fprm">
                             <div class="common-form job_reg_main">
                                 <h3>Welcome In Job Profile</h3>
 
