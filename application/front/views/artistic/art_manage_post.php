@@ -5004,11 +5004,11 @@ $( document ).on( 'keydown', function ( e ) {
     if ( e.keyCode === 27 ) {
         //$( "#bidmodal" ).hide();
 
-if(document.getElementById('bidmodal-limit').style.display === "block"){ //alert("hii");
+if(document.getElementById('bidmodal-limit').style.display === "block"){ 
         $('#bidmodal-limit').modal('hide');
         $('#myModal3').model('show');
  }else if(document.getElementById('myModal3').style.display === "block"){ 
-        $('#myModal3').hide();
+        document.getElementById('myModal3').style.display === "none";
 
  }
 
@@ -5016,13 +5016,24 @@ if(document.getElementById('bidmodal-limit').style.display === "block"){ //alert
 });  
 
 
-// $( document ).on( 'keydown', function ( e ) {
-//     if ( e.keyCode === 27 ) {
-//         //$( "#bidmodal" ).hide();
-//         $('#myModal3').hide();
-         
-//     }
-// }); 
+$(document).on('keydown', function (e) { 
+       if (e.keyCode === 27) {
+           if($('.modal-post').show()){
+   
+             $( document ).on( 'keydown', function ( e ) {
+             if ( e.keyCode === 27 ) {
+           //$( "#bidmodal" ).hide();
+          $('.modal-post').hide();
+
+           }
+          });  
+        
+   
+           }
+            document.getElementById('myModal3').style.display = "none";
+            }
+    });
+
 
  $( document ).on( 'keydown', function (e) {
     if ( e.keyCode === 27 ) {
