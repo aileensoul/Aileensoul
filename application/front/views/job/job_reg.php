@@ -186,7 +186,7 @@
                                     <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>">
                                 </fieldset>
 
-                                <fieldset class="fresher_radio col-xs-10" >
+                                <fieldset class="fresher_radio col-xs-12" >
                                     <label>Fresher ? <font  color="red">*</font> : </label>
                                     <div class="main_raio">
                                         <input type="radio" value="Fresher" id="test1" name="fresher" id="fresher">
@@ -208,7 +208,7 @@
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills: </label>
-    <input id="skills2" name="skills" id="cities" size="90">
+    <input id="skills2" name="skills" id="cities" size="90" placeholder="Enter SKills">
   </fieldset>
 
 
@@ -225,7 +225,7 @@
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites: </label>
-    <input id="cities2" name="cities" id="cities" size="90">
+    <input id="cities2" name="cities" id="cities" size="90" placeholder="Enter Preferred Cites">
   </fieldset>
 
  
