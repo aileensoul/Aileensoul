@@ -673,7 +673,7 @@ if(mm<10) {
                 fname: {
 
                     required: true,
-                   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                   regx2:/^[^-\s][a-zA-Z_\s-,.']+$/,
                     //noSpace: true
 
                 },
@@ -681,7 +681,7 @@ if(mm<10) {
                 lname: {
 
                     required: true,
-                    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                    regx2:/^[^-\s][a-zA-Z_\s-,.']+$/,
                     //noSpace: true
 
                 },

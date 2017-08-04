@@ -2,7 +2,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 <!-- Calender Css Start-->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
@@ -260,9 +259,7 @@
      <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
-   
-    <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+  
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
  
 <script>
@@ -396,15 +393,6 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                     required: true,
                             //required:true 
                 },
-
-                other_skill: {
-
-                    require_from_group: [1, ".keyskil"],
-                  //   regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                    //regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                    //noSpace: true
-                            // required:true 
-                },
                
             },
 
@@ -455,14 +443,10 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                 
                  skills: {
 
-                     required: "Skill Selection Is Required.",
+                     required: "Skill Is Required.",
 
-                },
-
-                other_skill: {
-
-                    require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'",
                 }
+
 
 
             },
