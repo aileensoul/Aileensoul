@@ -475,6 +475,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
         -webkit-transform: scale(1.6);
     }
 }*/
+.edit_profile_progress{display:none;}
 
 
 @media screen and (max-width: 1200px) {
