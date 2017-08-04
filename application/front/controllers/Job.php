@@ -5856,6 +5856,7 @@ public function delete_workexp()
             $result1[$key]['value'] = $value;
         }
       $this->data['jobtitle'] = array_values($result1);
+     // echo "<pre>";print_r( $this->data['jobtitle']);die();
       
        
          $contition_array = array('is_delete' => '0','industry_name !=' => "Other");

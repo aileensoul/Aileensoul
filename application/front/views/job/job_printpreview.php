@@ -1021,7 +1021,6 @@ if ($returnpage == 'recruiter') {
                                                                         ?>
                                                                         <li>
                                                                         
-                                                                            ?>
 
                                                                             <div class="text-center">
                                                                                 <h5 class="head_title">Project</h5>
