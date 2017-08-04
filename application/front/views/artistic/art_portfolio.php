@@ -140,10 +140,7 @@
    <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- footer start -->
-    <footer>
-        
-        <?php echo $footer;  ?>
-    </footer>
+   
     
 
     <!-- Bid-modal  -->
@@ -160,9 +157,14 @@
                 </div>
                 <!-- Model Popup Close -->
 
-</body>
+
 </div>
-</html>
+
+ <footer>
+        
+        <?php echo $footer;  ?>
+    </footer>
+
 
 
 
@@ -562,3 +564,6 @@ $(window).load(function(){
 });
 });
 </script>
+
+</body>
+</html>

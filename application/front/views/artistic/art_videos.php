@@ -569,9 +569,9 @@ if ($status == 0 || $status == " ") {
                             </div>
                         </div>
                         <!-- Model Popup Close -->
-</body>
-
-</html>
+<footer>
+<?php echo $footer; ?>
+</footer>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -1127,5 +1127,9 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
 
  </script>
  <!-- all popup close close using esc end -->
+
+ </body>
+
+</html>
 
 

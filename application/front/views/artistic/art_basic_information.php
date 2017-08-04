@@ -141,14 +141,14 @@
    <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- footer start -->
-    <footer>
+   
+
+</div>
+ <footer>
         
         <?php echo $footer;  ?>
     </footer>
     
-</body>
-</div>
-</html>
 
   <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
   
@@ -475,3 +475,6 @@ $(window).load(function(){
 });
 });
 </script>
+
+</body>
+</html>

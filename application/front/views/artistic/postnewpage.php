@@ -1451,7 +1451,7 @@
             <?php }?>
                     </div>
                     </section>
-                    <footer>
+                    
                         <!-- Bid-modal  -->
                         <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                             <div class="modal-dialog modal-lm">
@@ -1467,8 +1467,7 @@
                             </div>
                         </div>
                         <!-- Model Popup Close -->
-                    </footer>
-                    </body>
+                    
                     <!-- Model Popup Close -->
                     <!-- Bid-modal-2  -->
                     <div class="modal fade message-box" id="likeusermodal" role="dialog">
@@ -1495,7 +1494,9 @@
                 </div>
             </div>
                     <!-- Model Popup Close -->
-                    </html>
+<footer>
+<?php echo $footer; ?>
+</footer>
                     <!-- script for skill textbox automatic start (option 2)-->
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
@@ -3959,3 +3960,6 @@ $( "#searchplace1" ).autocomplete({
        }
    }
 </script>
+
+</body>
+</html>
