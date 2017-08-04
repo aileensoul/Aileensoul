@@ -18,7 +18,37 @@
 <!-- END HEADER -->
 <!--<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
    <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>-->
-   
+ <style type="text/css">
+    .progress 
+    {
+        display:none; 
+        position:relative; 
+        width:100%; 
+        border: 1px solid #ddd; 
+        padding: 1px; 
+        border-radius: 3px; 
+        height: 23px;
+    }
+    .bar 
+    { 
+        background-color: #1b8ab9; 
+        width:0%; 
+        height:20px; 
+        border-radius: 3px; 
+    }
+    .percent 
+    { 
+        position:absolute; 
+        display:inline-block; 
+        top:3px; 
+        left:48%; 
+    }
+    .bs-example .sr-only{
+        position: inherit;
+        width:45px;
+        height: 20px;
+    }
+</style>  
 <?php echo $art_header2_border; ?>
 <!DOCTYPE html>
 <html>
@@ -743,7 +773,17 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                </div>
             </div>
          </div>
-         
+
+
+          <div class="bs-example">
+                                <div class="progress progress-striped" id="progress_div">
+                                    <div class="progress-bar" style="width: 0%;">
+                                        <span class="sr-only">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="art-all-post">
     
       <?php
 
@@ -949,9 +989,9 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                         </li>
                      </ul>
                   </div>
-                  <div class="dropdown1">
-                     <a onClick="myFunction(<?php echo $row['art_post_id']; ?>)" class="dropbtn1 dropbtn1 fa fa-ellipsis-v"></a>
-                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content1">
+                  <div class="dropdown2">
+                     <a onClick="myFunction1(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
+                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
                         <?php
                            if ($row['posted_user_id'] != 0) {
                            
@@ -1616,9 +1656,11 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
 
 
-       } 
+       } ?>
 
-     }   
+       </div>
+
+    <?php }   
 
      //echo count($finalsorting);
      //echo count($count);
@@ -1722,7 +1764,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
             <div class="modal-content-post">
                <span class="close1">&times;</span>
                   <div class="post-editor col-md-12 post-edit-popup" id="close">
-                  <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "imgval(event)")); ?>
+                  <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
                   <div class="main-text-area " >
                      <div class="popup-img-in "> 
 
@@ -2993,7 +3035,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 <script>
    /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
-   function myFunction(clicked_id) {
+   function myFunction1(clicked_id) {
    
         document.getElementById('myDropdown' + clicked_id).classList.toggle("show");
     
@@ -3001,7 +3043,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                    if ( e.keyCode === 27 ) { 
    
                    document.getElementById('myDropdown' + clicked_id).classList.toggle("hide");
-                    $(".dropdown-content1").removeClass('show');
+                    $(".dropdown-content2").removeClass('show');
    
        }
       
@@ -3013,7 +3055,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
    window.onclick = function (event) {
        if (!event.target.matches('.dropbtn1')) {
    
-           var dropdowns = document.getElementsByClassName("dropdown-content1");
+           var dropdowns = document.getElementsByClassName("dropdown-content2");
            var i;
            for (i = 0; i < dropdowns.length; i++) {
                var openDropdown = dropdowns[i];
@@ -4171,4 +4213,66 @@ $('#postedit').on('click', function () {
     $(".my_text").prop("readonly", false);
     });
             </script>
+
+
+            <!-- post upload using javascript start -->
+
+
+   <script type = "text/javascript" src="<?php echo base_url() ?>js/jquery.form.3.51.js"></script>
+        <script type="text/javascript">
+
+    jQuery(document).ready(function ($) {
+//  var bar = $('#bar');
+//  var percent = $('#percent');
+
+    var bar = $('.progress-bar');
+    var percent = $('.sr-only');
+    var options = {
+    beforeSend: function () { 
+    // Replace this with your loading gif image
+    document.getElementById("progress_div").style.display = "block";
+    var percentVal = '0%';
+    bar.width(percentVal)
+            percent.html(percentVal);
+    document.getElementById("myModal").style.display = "none";
+    },
+            uploadProgress: function (event, position, total, percentComplete) { 
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
+            success: function () {
+            var percentVal = '100%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
+            complete: function (response) {
+            // Output AJAX response to the div container
+            document.getElementById('test-upload_product').value = '';
+           document.getElementById('test-upload_des').value = '';
+           document.getElementById('file-1').value = '';
+            $("input[name='my_text']").val(50);
+            $(".file-preview-frame").hide();
+//            $('#progress_div').fadeOut('5000').remove();
+            document.getElementById("progress_div").style.display = "none";
+            $('.art-all-post div:first').remove();
+            $(".art-all-post").prepend(response.responseText);
+            // second header class add for scroll
+            var nb = $('.post-design-box').length;
+            if (nb == 0) {
+            $("#dropdownclass").addClass("no-post-h2");
+            } else {
+            $("#dropdownclass").removeClass("no-post-h2");
+            }
+            $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
+            }
+    };
+    // Submit the form
+    $(".upload-image-form").ajaxForm(options);
+    return false;
+    });
+</script>
+
+ <!-- post upload using javascript end -->
+
 

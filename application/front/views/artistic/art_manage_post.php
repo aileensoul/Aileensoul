@@ -39,6 +39,39 @@
 <script src="<?php echo base_url('dragdrop/themes/explorer/theme.js'); ?>"></script>
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+
+<style type="text/css">
+    .progress 
+    {
+        display:none; 
+        position:relative; 
+        width:100%; 
+        border: 1px solid #ddd; 
+        padding: 1px; 
+        border-radius: 3px; 
+        height: 23px;
+    }
+    .bar 
+    { 
+        background-color: #1b8ab9; 
+        width:0%; 
+        height:20px; 
+        border-radius: 3px; 
+    }
+    .percent 
+    { 
+        position:absolute; 
+        display:inline-block; 
+        top:3px; 
+        left:48%; 
+    }
+    .bs-example .sr-only{
+        position: inherit;
+        width:45px;
+        height: 20px;
+    }
+</style>  
+
 <?php echo $art_header2_border; ?>
 
 <style type="text/css">
@@ -960,7 +993,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                     <span class="close3">&times;</span>
 
                     <div class="post-editor col-md-12 post-edit-popup" id="close">
-                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event);")); ?>
+                        <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "return imgval(event);")); ?>
 
                         <div class="main-text-area col-md-12" >
                             <div class="popup-img-in "> 
@@ -1059,6 +1092,15 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
             <!-- popup end -->
             
           
+            <div class="bs-example">
+                                <div class="progress progress-striped" id="progress_div">
+                                    <div class="progress-bar" style="width: 0%;">
+                                        <span class="sr-only">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="art-all-post">
                 <div class="job-contact-frnd ">
 
 
@@ -1973,6 +2015,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
 <!-- for no post found msg show using ajax end -->
 
+             </div>
              </div>
             </div>
             
@@ -5049,5 +5092,70 @@ $('#postedit').on('click', function () {
     $(".my_text").prop("readonly", false);
     });
             </script>
+
+
+
+             <!-- post upload using javascript start -->
+
+
+   <script type = "text/javascript" src="<?php echo base_url() ?>js/jquery.form.3.51.js"></script>
+        <script type="text/javascript">
+
+    jQuery(document).ready(function ($) {
+//  var bar = $('#bar');
+//  var percent = $('#percent');
+
+    var bar = $('.progress-bar');
+    var percent = $('.sr-only');
+    var options = {
+    beforeSend: function () { 
+    // Replace this with your loading gif image
+    document.getElementById("progress_div").style.display = "block";
+    var percentVal = '0%';
+    bar.width(percentVal)
+            percent.html(percentVal);
+    document.getElementById("myModal3").style.display = "none";
+    },
+            uploadProgress: function (event, position, total, percentComplete) { 
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
+            success: function () {
+            var percentVal = '100%';
+            bar.width(percentVal)
+                    percent.html(percentVal);
+            },
+            complete: function (response) {
+            // Output AJAX response to the div container
+            document.getElementById('test-upload-product').value = '';
+           document.getElementById('test-upload-des').value = '';
+           document.getElementById('file-1').value = '';
+            $("input[name='text_num']").val(50);
+            $(".file-preview-frame").hide();
+//            $('#progress_div').fadeOut('5000').remove();
+            document.getElementById("progress_div").style.display = "none";
+            //$('.job-contact-frnd div:first').remove();
+            $(".art-all-post").prepend(response.responseText);
+            // second header class add for scroll
+            var nb = $('.post-design-box').length;
+            if (nb == 0) {
+            $("#dropdownclass").addClass("no-post-h2");
+            } else {
+            $("#dropdownclass").removeClass("no-post-h2");
+            }
+            $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
+            }
+    };
+    // Submit the form
+    $(".upload-image-form").ajaxForm(options);
+    return false;
+    });
+</script>
+
+ <!-- post upload using javascript end -->
+
+
+
 
 
