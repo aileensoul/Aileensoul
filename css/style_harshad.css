@@ -233,11 +233,11 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .modal.in .modal-dialog{
 	position:absolute;
 	top: 50%; left: 50%;
-		-ms-transform: translate(-50%,-50%) !important;
-		-webkit-transform: translate(-50%,-50%) !important;
-		-moz-transform: translate(-50%,-50%) !important;
-		-o-transform: translate(-50%,-50%) !important;
-		transform: translate(-50%,-50%) !important;
+	-ms-transform: translate(-50%,-50%) !important;
+	-webkit-transform: translate(-50%,-50%) !important;
+	-moz-transform: translate(-50%,-50%) !important;
+	-o-transform: translate(-50%,-50%) !important;
+	transform: translate(-50%,-50%) !important;
 }
 .modal.in .modal-dialog .mes .pop_content{padding-bottom:5px;}
 .job-saved-box{margin-bottom:50px; width:100%; float:left;}
@@ -457,7 +457,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
 .post-design-desc [contenteditable=true]:empty:before {
   content: attr(placeholder);
-  color:#cacaca;
+  color:#acacac;
   font-size:15px;
 }
 #paddingtop_fixed{overflow:hidden;}
@@ -479,7 +479,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
-	
 }
 @media screen and (max-width: 1024px) {
 	#notificationLink span{top:5px;}
@@ -497,7 +496,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.header ul li a{padding-top:11px !important;}
 	#notificationLink span{top:7px !important;}
 	.backdiv-mob{display:block;}
-	
 }
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 479px) {
