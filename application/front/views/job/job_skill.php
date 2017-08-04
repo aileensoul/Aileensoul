@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <?php if($jobdata[0]['job_step'] == 10){ ?>
-<?php //echo $job_header2_border; ?>
+<?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
 <div class="js">

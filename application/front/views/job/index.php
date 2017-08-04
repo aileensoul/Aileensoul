@@ -141,7 +141,7 @@
 
                                 <li class="custom-none <?php if ($jobdata[0]['job_step'] < '4') {
     echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
+} ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Work Area</a></li>
 
                               <!--   <li class="<?php if ($jobdata[0]['job_step'] < '1') {
    // echo "khyati";
