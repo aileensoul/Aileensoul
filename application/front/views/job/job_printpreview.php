@@ -1609,7 +1609,7 @@ if ($returnpage == 'recruiter') {
                                                                 </ul>
                                                             </div>
                                                             <!--khyati 22-5 chanegs end--> 
-                                                        </div>
+                                                      
                                                                             <?php
                                                                             } 
                                                                         else {

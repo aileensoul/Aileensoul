@@ -134,7 +134,7 @@
                          ?>
 
                     <fieldset class="full-width">
-                        <label>Post Title:<span style="color:red">*</span></label>
+                        <label>Job Title:<span style="color:red">*</span></label>
                         <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder=" Position [Ex:- Sr. Engineer, Jr. Engineer]" value="<?php echo $postdata[0]['post_name']; ?>"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>

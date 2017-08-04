@@ -130,7 +130,7 @@
 
                                 ?>
                                 <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
-                                    <label class="control-label">Post Title:<span style="color:red">*</span></label>
+                                    <label class="control-label">Job Title:<span style="color:red">*</span></label>
                                     <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" />
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>

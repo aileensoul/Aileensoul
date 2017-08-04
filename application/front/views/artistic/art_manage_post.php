@@ -539,7 +539,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
                         <?php
                         $contition_array = array('user_id' => $artisticdata[0]['user_id']);
-                        $artimage = $this->data['artimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        $artimage = $this->data['artimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
                         foreach ($artimage as $val) {
@@ -1287,6 +1287,14 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                     </ul> 
                                                 </div>
 
+                                                <?php 
+
+                                                $userid = $this->session->userdata('aileenuser');
+
+
+                                                if($userid == $row['posted_user_id'] || $row['user_id'] == $userid){
+
+                                                ?>
                                                 <div class="dropdown2">
                                                     <a onClick="myFunction1(<?php echo $row['art_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                                     <div id="<?php echo "myDropdown" . $row['art_post_id']; ?>" class="dropdown-content2">
@@ -1303,7 +1311,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                             <?php } else {
                                                                 ?>
 
-                                                                <!--<a id="<?php //echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>-->
+                                                                <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
 
                                                                 <!-- <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a> -->
 
@@ -1320,15 +1328,17 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                                 <a id="<?php echo $row['art_post_id']; ?>" onClick="deleteownpostmodel(this.id)"><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Post</a>
                                                                 <a id="<?php echo $row['art_post_id']; ?>" onClick="editpost(this.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
 
-                <?php } else { ?>
-                                                                <!--<a href="<?php echo "#popup5" . $row['art_post_id']; ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Post</a>-->
-                                                              <!--  <a href="<?php echo base_url('artistic/artistic_contactperson/' . $row['user_id'] . ''); ?>"><i class="fa fa-user" aria-hidden="true"></i> Contact Person</a> -->
-                                                            <?php }
+                                                     <?php }  ?>
+                                                               
+                                                            <?php 
                                                         }
                                                         ?>
 
                                                     </div>
                                                 </div>
+
+                                                <?php }?>
+
 
                                                 <div class="post-design-desc ">
                                                     <span> 
