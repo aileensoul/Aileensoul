@@ -75,13 +75,29 @@
                                                     <div class="follow-img">
                                                         <?php if ($user['art_user_image'] != '') { ?>
                                                         <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
-                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $user['art_user_image']); ?>" height="50px" width="50px" alt="" > </a>
+
+
+                                                             <?php 
+
+if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $user['art_user_image'])) {
+                                                                $a = $user['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $user['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
+                                                                <div class="post-img-userlist">
+                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
+                                                                </div> 
+                                                                <?php
+                                                            } else { ?>
+                                                            <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $user['art_user_image']); ?>" height="50px" width="50px" alt="" >
+                                                            <?php  } ?>
+
+                                                            </a>
                                                         <?php } else { ?>
                                 <a href="<?php echo base_url('artistic/art_manage_post/' . $user['user_id']); ?>">
 
-                           <!--  <img alt="" src="<?php echo base_url(NOIMAGE); ?>" alt="" />
-                            -->
-
+                           
                             <?php 
 
                             $a = $user['art_name'];
