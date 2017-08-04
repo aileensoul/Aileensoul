@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <?php if($jobdata[0]['job_step'] == 10){ ?>
-<?php //echo $job_header2_border; ?>
+<?php echo $job_header2_border; ?>
 <?php } ?>
 <!-- END HEADER -->
 <div class="js">
@@ -117,7 +117,7 @@ if ($this->session->flashdata('success')) {
                         <div class="clearfix">
 
                             <div class="common-form common-form_border">
-                                <h3>Keyskills</h3>
+                                <h3>Work Area</h3>
 <?php echo form_open(base_url('job/job_skill_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix', 'onsubmit' => "imgval()")); ?>
 
 

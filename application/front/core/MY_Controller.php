@@ -8,9 +8,22 @@ class MY_Controller extends CI_Controller {
     function __construct() {
         parent::__construct();
         // echo $this->session->userdata('aileenuser');  echo "hello"; die();
-        if (!$this->session->userdata('aileenuser')) {
+
+        $userid = $this->session->userdata('aileenuser');
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0');
+        $deleteuser = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        //echo  count($deleteuser); "<pre>"; print_r($deleteuser); die();
+
+        if (!$this->session->userdata('aileenuser')) { 
             redirect('login', 'refresh');
-        } else {
+        }else if($this->session->userdata('aileenuser') && count($deleteuser) == 0){  
+           
+             $this->session->unset_userdata('aileenuser');
+
+              redirect('login', 'refresh');
+                 
+
+        } else { //echo "f1"; die();
             $this->data['userid'] = $this->session->userdata('aileenuser');
         }
 

@@ -106,7 +106,7 @@
                                                                                 if ($row['designation']) {
                                                                                     echo $row['designation'];
                                                                                 } else {
-                                                                                    echo PROFILENA;
+                                                                                    echo "Designation";
                                                                                 }
                                                                                 ?> </a></li>
                                                                     </ul>

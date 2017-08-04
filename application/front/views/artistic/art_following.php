@@ -589,15 +589,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)
         </div>
         
     </section>
-    <footer>
- <?php echo $footer;  ?>
-  </footer>      
+          
   
 
 
   <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
  
-</body>
+
 
  <!-- Bid-modal  -->
             <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -635,8 +633,10 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)
     </div>
 </div>
 <!-- Model Popup Close -->
+<footer>
+ <?php echo $footer;  ?>
+  </footer>
 
-</html>
 
 
 
@@ -1323,3 +1323,7 @@ function unfollowuser_list(clicked_id)
 
  </script>
  <!-- all popup close close using esc end -->
+
+ </body>
+
+</html>

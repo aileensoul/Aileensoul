@@ -235,7 +235,7 @@
 
                                     <div class="job_reg">
                               <!--<input type="reset">-->
-                                        <input type="submit"  id="" name="" value="Register" tabindex="10">
+                                        <input type="submit"  id="submit" name="" value="Register" tabindex="10">
 
                                     </div>
                                 </fieldset>
@@ -372,7 +372,7 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                 
                  job_title: {
 
-                    required: true,
+                    required: "#test2:checked",
                 //    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                  //   noSpace: true
                  },
@@ -468,7 +468,7 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
             },
 
         });
-    
+       
 </script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

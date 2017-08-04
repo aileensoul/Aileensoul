@@ -1065,9 +1065,9 @@ if($artuserdata1){
                     </div>
                     <!-- Model Popup Close -->
 
-                    </body>
-
-                    </html>
+                    <footer>
+<?php echo $footer; ?>
+        </footer>
 
 
 <script type="text/javascript">
@@ -2835,3 +2835,4 @@ if($artuserdata1){
  
  </script>
  <!-- all popup close close using esc end-->
+ 

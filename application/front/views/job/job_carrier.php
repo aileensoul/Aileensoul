@@ -58,7 +58,7 @@
 
                                   <li class="custom-none"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
 
-                                <li class="custom-none"><a href="<?php echo base_url('job/job_skill_update'); ?>">Professional Skills</a></li>
+                                <li class="custom-none"><a href="<?php echo base_url('job/job_skill_update'); ?>">Work Area</a></li>
                                 <!-- <li class="custom-none"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
                               
                                 <li class="custom-none"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>

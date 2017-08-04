@@ -825,7 +825,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
 
    </section>
-</body>
+
 <!-- Bid-modal-2  -->
 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
    <div class="modal-dialog modal-lm">
@@ -876,7 +876,11 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
    </div>
 </div>
 <!-- Model Popup Close -->
-</html>
+<footer>
+<?php echo $footer; ?>
+        </footer>
+
+        
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
@@ -2508,4 +2512,8 @@ $( "#searchplace1" ).autocomplete({
    
 </script>
 <!-- all popup close close using esc end -->
+
+</body>
+
+</html>
 

@@ -234,14 +234,15 @@
    <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- footer start -->
-    <footer>
+    
+
+</div>
+
+<footer>
         
         <?php echo $footer;  ?>
     </footer>
-    
-</body>
-</div>
-</html>
+
  <!-- <script type="text/javascript">
      var textarea = document.getElementById("textarea");
 
@@ -656,4 +657,7 @@ $(window).load(function(){
 });
 });
 </script>
+
+</body>
+</html>
 

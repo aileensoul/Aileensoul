@@ -20,7 +20,7 @@ class Login extends CI_Controller {
          
     }
 
-    public function index() { 
+    public function index() {
 
     if($_SERVER['HTTP_REFERER'] == base_url()){
            $this->data['error_msg'] = $error_msg = $_GET['error_msg']; 
