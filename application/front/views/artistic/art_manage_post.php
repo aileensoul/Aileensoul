@@ -539,7 +539,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
                         <?php
                         $contition_array = array('user_id' => $artisticdata[0]['user_id']);
-                        $artimage = $this->data['artimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                        $artimage = $this->data['artimage'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
                         foreach ($artimage as $val) {
