@@ -4218,12 +4218,18 @@
 <script type="text/javascript">
     $('#file-1').on('click', function(e){
 
-var a = document.getElementById('test-upload-product').value;
-var b = document.getElementById('test-upload-des').value;
-    document.getElementById("artpostform").reset();
-    document.getElementById('test-upload-product').value = a;
-    document.getElementById('test-upload-des').value = b;
+		var a = document.getElementById('test-upload-product').value;
+		var b = document.getElementById('test-upload-des').value;
+		document.getElementById("artpostform").reset();
+		document.getElementById('test-upload-product').value = a;
+		document.getElementById('test-upload-des').value = b;
     });
+	
+	/*$(document).ready(function(){
+        $(".upload_icon").click(function(){
+          $("#file-1").trigger('click');
+        });
+	});*/
 </script>
 
 
