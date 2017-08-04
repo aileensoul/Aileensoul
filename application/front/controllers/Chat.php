@@ -1643,7 +1643,7 @@ class Chat extends MY_Controller {
             $this->data['message_to_profile_id'] = $message_to_profile_id[0]['art_id'];
         }
 
-        if ($usrsearchdata != "") {
+        if ($usrsearchdata != "") {  
             // FOR JOB 
 
             if ($message_from_profile == 2) {

@@ -230,9 +230,9 @@
              <div class="profile-job-profile-menu">
                 <ul class="clearfix">
                      
-                          <?php
-                                                                            if ($row[0]['work_job_title']) {
-                                                                                $contition_array = array('status' => 'publish', 'title_id' => $row[0]['work_job_title']);
+                          <?php 
+                                                                            if ($row['work_job_title']) {
+                                                                                $contition_array = array('status' => 'publish', 'title_id' => $row['work_job_title']);
                                                                                 $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                                 ?>
                                                                             <li> <b> Job Title</b> <span>
@@ -242,8 +242,8 @@
 
 <?php } ?>
                                                                     <?php
-                                                                    if ($row[0]['keyskill']) {
-                                                                        $work_skill = explode(',', $row[0]['keyskill']);
+                                                                    if ($row['keyskill']) {$detailes = array();
+                                                                        $work_skill = explode(',', $row['keyskill']);
                                                                         foreach ($work_skill as $skill) {
                                                                             $contition_array = array('skill_id' => $skill);
                                                                             $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
@@ -257,8 +257,8 @@
                                                                             <?php } ?>
 
                                                                             <?php
-                                                                            if ($row[0]['work_job_industry']) {
-                                                                                $contition_array = array('industry_id' => $row[0]['work_job_industry']);
+                                                                            if ($row['work_job_industry']) {
+                                                                                $contition_array = array('industry_id' => $row['work_job_industry']);
                                                                                 $industry = $this->common->select_data_by_condition('job_industry', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                                                                 ?>
                                                                             <li> <b> Industry</b> <span>
@@ -267,12 +267,12 @@
                                                                             </li>
                                                                     <?php } ?>
                                                                     <?php
-                                                                    if ($row[0]['work_job_city']) {
-                                                                        $work_city = explode(',', $row[0]['work_job_city']);
+                                                                    if ($row['work_job_city']) { $cities = array();
+                                                                        $work_city = explode(',', $row['work_job_city']);
                                                                         foreach ($work_city as $city) {
                                                                             $contition_array = array('city_id' => $city);
                                                                             $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-                                                                            if ($citydata) {
+                                                                            if ($citydata) { 
                                                                                 $cities[] = $citydata[0]['city_name'];
                                                                             }
                                                                         }
