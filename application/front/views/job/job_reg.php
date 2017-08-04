@@ -186,7 +186,7 @@
                                     <input type="text" name="email" id="email" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>">
                                 </fieldset>
 
-                                <fieldset class="fresher_radio" >
+                                <fieldset class="fresher_radio col-xs-10" >
                                     <label>Fresher ? <font  color="red">*</font> : </label>
                                     <div class="main_raio">
                                         <input type="radio" value="Fresher" id="test1" name="fresher" id="fresher">
