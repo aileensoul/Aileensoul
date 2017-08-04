@@ -203,9 +203,9 @@ you can find better job and Recruiter
 can easy to find you.</p>
         </div>
         <div class="count_main_progress">
-            <div style="width:250px;height:250px;margin:18px auto;">
-    <div class="percent" style="width:250px;height:250px;">
-        <p style="display:none;">40%</p>
+            <div style="width:175px;height:175px;margin:18px auto;">
+    <div class="percent" style="width:175px;height:175px;">
+        <p style="display:none;">60%</p>
     </div>
 </div>
          </div>
@@ -1185,7 +1185,7 @@ $(document).ready(function(){
 $(function () {
     $('.percent').percentageLoader({
         valElement: 'p',
-        strokeWidth: 30,
+        strokeWidth: 10,
         bgColor: '#d9d9d9',
         ringColor: '#1b8ab9',
         textColor: '#2C3E50',
@@ -1307,16 +1307,6 @@ $(function () {
 
         });
 
-    };
-    //默认值
-    $.fn.percentageLoader.defaultConfig = {
-        valElement: 'p',
-        strokeWidth: 20,
-        bgColor: '#d9d9d9',
-        ringColor: '#d53f3f',
-        textColor: '#9a9a9a',
-        fontSize: '12px',
-        fontWeight: 'normal'
     };
 
 })(jQuery);
