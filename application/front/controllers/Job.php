@@ -3816,7 +3816,7 @@ $files[] = $_FILES;
             $data = '*';
 
             $this->data['job_work'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
-            // echo "<pre>";print_r( $this->data['job_work']);die();
+            //echo "<pre>";print_r( $this->data['job_work']);die();
             //for getting other skill data
             $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
 

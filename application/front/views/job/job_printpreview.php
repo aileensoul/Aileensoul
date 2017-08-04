@@ -1002,29 +1002,34 @@ if ($returnpage == 'recruiter') {
                                                                 <div class="profile-job-profile-button clearfix">
                                                                     <div class="profile-job-details">
 
-                                                                     <?php if($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "")
-                                                                    {
-                                                                ?>
+                                                                     
                                                                         <ul>
                                                                     
                                                                             <li>
                                                                                 <p class="details_all_tital">Project And Training / Internship</p>
                                                                             </li>
                                                                         </ul>
-                                                                <?php
-                                                            }
-                                                            ?>
+                                                               
 
                                                                     </div>
                                                                 </div>
                                                                 <div class="profile-job-profile-menu">
                                                                     <ul class="clearfix">
 
+                                                                        <?php if($job[0]['project_name'] != "" || $job[0]['project_duration'] != "" || $job[0]['project_description'] != "")
+                                                                        {
+                                                                        ?>
                                                                         <li>
+                                                                        
+                                                                            ?>
+
                                                                             <div class="text-center">
                                                                                 <h5 class="head_title">Project</h5>
                                                                             </div>
                                                                         </li>
+                                                                         <?php
+                                                                         }
+                                                                         ?>
 
                                                                         <?php
                                                                         if ($job[0]['project_name']) {
@@ -1338,10 +1343,50 @@ if ($returnpage == 'recruiter') {
                                                                     </ul>
                                                                 </div>
                                                             </div>
-                                                           
-                                                                        <?php if ($job_work) { ?>    
+
+      
+                                                                        <?php if ($job[0]['experience'] == "Experience" ) { 
+                                                                         ?>
+
                                                                 <div class="profile-job-post-title clearfix">
-                                                                    <div class="profile-job-profile-button clearfix">
+                                                                   
+                                                                           <?php
+
+                                                                                if($job[0]['experience'] == "Experience" && $job_work[0]['jobtitle'] == "" && $returnpage != 'recruiter')
+                                                                                {
+                                                                            ?>
+                                                                     <div class="profile-job-post-title-inside clearfix">
+                                                                    </div>
+                                            <div class="profile-job-post-title clearfix">
+                                                <div class="profile-job-profile-button clearfix">
+                                                    <div class="profile-job-details">
+                                                        <ul>
+                                                            <li>
+                                                                <p class="details_all_tital">Work Experience
+                                                                </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                 <div class="profile-job-profile-menu">
+                                                    <ul class="clearfix">
+                                                        <div class="text-center">
+                                                            <a href="<?php echo base_url('job/job_work_exp_update');?>">Click Here To fill Up Work Experience Detail</a>
+                                                        </div>
+                                                        </ul>
+                                                </div>
+                                            </div>
+
+                                                                            <?php
+                                                                                }
+                                                                                else
+                                                                                {
+
+
+                                                                                ?>
+
+                                                            <?php if ($job_work) { ?>
+                                                             <div class="profile-job-profile-button clearfix">
                                                                         <div class="profile-job-details">
                                                                             <ul>
                                                                                 <li>
@@ -1350,14 +1395,6 @@ if ($returnpage == 'recruiter') {
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-                                                                            <?php if ($job_work[0]['experience'] == "Fresher") { ?>
-                                                                        <div class="profile-job-profile-menu">
-                                                                            <ul class="clearfix">
-                                                                                <li> <b> Work Experience</b><span>Fresher</span>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                            <?php } else { ?>
                                                                         <div class="profile-job-profile-menu" id="job_workexp">
                                                                             <ul>
                                                                                 <li>
@@ -1418,6 +1455,7 @@ if ($returnpage == 'recruiter') {
                                                                         </ul>
                                                                     </div>
     <?php
+}
     $total_work_year = 0;
     $total_work_month = 0;
     $i = 6;
@@ -1573,7 +1611,9 @@ if ($returnpage == 'recruiter') {
                                                             <!--khyati 22-5 chanegs end--> 
                                                         </div>
                                                                             <?php
-                                                                            } else {
+                                                                            } 
+                                                                        else {
+
                                                                                 if($job[0]['experience'] == 'Fresher')
                                                                                 {
                                                                                 ?>
@@ -1659,8 +1699,9 @@ if ($returnpage == 'recruiter') {
                                                                 </ul>
                                                             </div>
                                                         </div>
+
                                                             <?php }
-                                                            if($job[0]['interest'])
+                                                            if(($returnpage == 'recruiter' && $job[0]['interest'])|| ($returnpage != 'recruiter'))
                                                             {
                                                             ?>
                                                     <div class="profile-job-post-title clearfix">
@@ -1675,7 +1716,21 @@ if ($returnpage == 'recruiter') {
                                                         </div>
                                                         <div class="profile-job-profile-menu">
                                                             <ul class="clearfix">
-                                                                <li> <b> Interest </b> <span><pre><?php echo $this->common->make_links($job[0]['interest']); ?></pre></span>
+                                                                <li> <b> Interest </b> <span><pre><?php 
+
+                                                                if ( $job[0]['interest'] ) 
+                                                                {
+
+                                                                echo $this->common->make_links($job[0]['interest']); 
+                                                            }
+                                                                else
+                                                                {
+                                                                     echo PROFILENA;
+                                                                }
+                                                                ?>
+                                                                    
+
+                                                                </pre></span>
                                                                 </li>
 <?php
 if ($returnpage == 'recruiter') {
