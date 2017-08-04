@@ -14931,7 +14931,16 @@ float: right; position:relative;}
   font-family:'arial';
 }
 
+/*progressbar*/
+.edit_profile_progress{width: 100%; background-color: white; border:1px solid #1b8ab9; border-radius: 3px; margin: 10px 0px; padding: 10px;}
+.progre_bar_text p{color: #1b8ab9;
+font-size: 13px;
+font-weight: 600;
+text-align: center;}
+.progre_bar_text{padding: 0px 9px;}
+.count_main_progress{margin: 20px 0px;}
 
+/*end progres*/
 .messagedelete .fa{color:#777;}
 .messagedelete:hover .fa{color:#1b8ab9;}
 .chat-header a:hover{color:#156f95;}
