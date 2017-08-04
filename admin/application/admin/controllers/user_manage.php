@@ -342,10 +342,113 @@ public function clear_search()
 //clear search is used for unset session End
 
 
-public function edit(){
+public function edit($user_id){
+   
+   $data='user_id,first_name ,last_name ,user_email ,user_dob ,user_gender,user_image'; 
+    $contition_array = array('is_delete' => '0','user_id' => $user_id);
+     $user_data=$this->data['users'] = $this->common->select_data_by_condition('user', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+     $dob=$user_data[0]['user_dob'];
+     $dob_final=explode('-',$dob);
+     $this->data['year']=$dob_final[0];
+     $this->data['month']=$dob_final[1];
+     $day = $this->data['day'] = $dob_final[2];
+    $this->load->view('users/edit', $this->data); 
     
+}
+public function edit_insert($id){
     
-   $this->load->view('users/edit', $this->data); 
+     $date = $this->input->post('select_day');
+      $month = $this->input->post('select_month');
+      $year = $this->input->post('select_year');
+      $dob = $year . '-' . $month . '-' . $date;
+      
+      
+       if (empty($_FILES['profilepic']['name'])) {
+         
+           $user_image= $this->input->post('image_name');
+          // echo $userimage;die();
+           
+        } else {
+         
+            $user_image = '';
+            $user['upload_path'] = $this->config->item('user_main_upload_path');
+            $user['allowed_types'] = $this->config->item('user_main_allowed_types');
+            $user['max_size'] = $this->config->item('user_main_max_size');
+            $user['max_width'] = $this->config->item('user_main_max_width');
+            $user['max_height'] = $this->config->item('user_main_max_height');
+            $this->load->library('upload');
+            $this->upload->initialize($user);
+            //Uploading Image
+            $this->upload->do_upload('profilepic');
+            //Getting Uploaded Image File Data
+            $imgdata = $this->upload->data();
+            $imgerror = $this->upload->display_errors();
+           
+            if ($imgerror == '') {
+                //Configuring Thumbnail 
+                $user_thumb['image_library'] = 'gd2';
+                $user_thumb['source_image'] = $user['upload_path'] . $imgdata['file_name'];
+                $user_thumb['new_image'] = $this->config->item('user_thumb_insert_upload_path') . $imgdata['file_name'];
+                $user_thumb['create_thumb'] = TRUE;
+                $user_thumb['maintain_ratio'] = TRUE;
+                $user_thumb['thumb_marker'] = '';
+                $user_thumb['width'] = $this->config->item('user_thumb_width');
+                //$user_thumb['height'] = $this->config->item('user_thumb_height');
+                $user_thumb['height'] = 2;
+                $user_thumb['master_dim'] = 'width';
+                $user_thumb['quality'] = "100%";
+                $user_thumb['x_axis'] = '0';
+                $user_thumb['y_axis'] = '0';
+                //Loading Image Library
+                $this->load->library('image_lib', $user_thumb);
+                $dataimage = $imgdata['file_name'];
+                //Creating Thumbnail
+                $this->image_lib->resize();
+                $thumberror = $this->image_lib->display_errors();
+            } else {
+                $thumberror = '';
+            }
+            if ($imgerror != '' || $thumberror != '') {
+                $error[0] = $imgerror;
+                $error[1] = $thumberror;
+            } else {
+                $error = array();
+            }
+            if ($error) {
+                $this->session->set_flashdata('error', $error[0]);
+                $redirect_url = site_url('user_manage/edit/'.$id);
+                redirect($redirect_url, 'refresh');
+            } else {
+                $user_image = $imgdata['file_name'];
+            }
+
+            $data = array(
+            'first_name' => trim($this->input->post('first_name')),
+            'last_name' => trim($this->input->post('last_name')),
+            'user_email' => trim($this->input->post('user_email')),
+            'user_dob' => $dob,
+            'user_gender' => $this->input->post('gender'),
+            'user_image' => $user_image,
+            'modified_date' => date('Y-m-d', time()),
+        );
+
+          //  echo "<pre>"; print_r($data);die();
+            $updatdata = $this->common->update_data($data, 'user', 'user_id', $id);
+
+            if ($updatdata) {
+               
+                 redirect('user_manage/user', refresh);
+               
+            } else {
+               
+                $this->session->flashdata('error', 'Your data not inserted');
+                redirect('user_manage/edit/'.$id, refresh);
+            }
+        
+      
+    
+         
+    
     
     
 }
@@ -356,7 +459,7 @@ public function edit(){
 
 
 
-
+}
 
 
 
