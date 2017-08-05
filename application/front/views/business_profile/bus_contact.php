@@ -393,10 +393,28 @@
                                     $search_condition = "((contact_from_id = ' $userid') OR (contact_to_id = '$userid'))";
                                     $businesscontacts1 = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
+                                    foreach ($businesscontacts1 as $keval => $ke) {
+                                       //echo "<pre>"; print_r($ke); die();
+                                      if($ke['contact_from_id'] == $userid){
+
+                                    $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }else{
+
+                                        $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition= array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }
+                                      if($contavl1){
+                                        $countconval[] = $contavl1;
+                                      }
+                                      
+                                    }
 
                                             ?>
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($businesscontacts1)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
                                         </li>
 
 
@@ -546,25 +564,41 @@
 
                                     if ($busuid == $user['contact_from_id']) {
 
+                                        $contition_array = array('user_id' => $user['contact_to_id'], 'is_delete' => '0');
+
+                                        $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                       
+
                                         $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
 
                                         $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
 
                                         $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                      
 
                                         //echo "<pre>"; print_r($clistuser); 
                                     } else {
+
+                                        $contition_array = array('user_id' => $user['contact_from_id'], 'is_delete' => '0');
+
+                                        $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        
+
                                         $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
 
                                         $contition_array = array('contact_to_id' => $login, 'contact_from_id' => $user['contact_from_id'], 'contact_type' => 2);
 
                                         $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                      
 
                                         //   echo '<pre>'; print_r($clistuser);
                                     }
+
+                                    
                                     ?>
                                     <div class="job-contact-frnd">
 
+                                    <?php if($uservalid){?>
                                         <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" . $cdata[0]['user_id']; ?>">
                                             <div class="profile-job-post-title-inside clearfix">
                                                 <div class="profile-job-post-location-name">
@@ -691,11 +725,11 @@
 
 
                                         </div>
-    <?php } ?>
+    <?php } }?>
                                 </div>
 
 
-<?php } else { ?>
+<?php }  else { ?>
 
                                 
                                
