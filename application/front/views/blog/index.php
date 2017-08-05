@@ -177,12 +177,12 @@ if(count($blog_detail) == 0 )
   if($this->input->get('q') || $this->uri->segment(2) == 'tag')
   {?>
 <div class="job-saved-box">
-                            <h3>
+                            
 
-                            <div class="blog-tag">
-                            <div class="tag-line"><span>Search result of </span> <?php echo $search_keyword; ?></div>
-                            </div>
-                           </h3>
+                            <div class="blog-tag" style="margin-bottom: 0px;">
+                           <!--  <div class="tag-line"><span>Search result of </span> <?php echo $search_keyword; ?></div>
+                           -->  </div>
+                         
                             <div class="contact-frnd-post">
                                 
 
