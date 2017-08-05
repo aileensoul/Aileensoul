@@ -92,6 +92,7 @@ height: 24px; width: 24px; float: left;}
 .blog_class_main_by { color: #707070; padding: 0px 0px; }
 .blog_class_main_by  span{padding-right: 20px; font-size: 15px;}
 .blog_class_main_desc span{font-size: 14px; color: #272222!important; line-height: 17px; word-break: break-word;}
+.blog_class_main_desc a:hover{color: #136386; text-decoration: underline;;}
 .blog_view_link{padding: 6px; color: #707070;}
 .blog_view_link2{padding: 6px; color: #707070;}
 .blog_view_link2 a{padding: 6px 8px; color: #b3b3b3; background: #f1f1f1;
@@ -166,7 +167,7 @@ background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%
 background: -o-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
 background: -ms-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
 background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);}
-.tag_name{border:1px solid #d9d9d9; display: inline-block; padding: 3px 15px; border-radius:4px; font-size: 15px; margin-bottom:5px;}
+.tag_name{border:1px solid #d9d9d9; display: inline-block; padding: 3px 10px; margin-right: 1px;  border-radius:4px; font-size: 12px; margin-bottom:5px;}
 .popular_tag{padding: 11px 10px;
 float: left;}
 .popular_tag h4{padding: 6px 0px 15px; color:#787878;
@@ -199,8 +200,35 @@ font-family: robotoregular;}
 .blog-tag .tag-line{font-size:25px;}
 .blog-tag .tag-line span{font-weight:bold;   color:#1b8ab9;}
 
+input:focus, textarea:focus, select:focus{border: 1px solid #1b8ab9;}
+input::-webkit-input-placeholder {
+    color: #1b8ab9;
+}
+input:focus::-webkit-input-placeholder {
+    color: #1b8ab9;
+}
 
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #1b8ab9;
+}
+input:focus:-moz-placeholder {
+    color: #1b8ab9;
+}
 
+/* Firefox > 19 */
+
+input:focus::-moz-placeholder {
+    color: #1b8ab9;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #1b8ab9;
+}
+input:focus:-ms-input-placeholder {
+    color: #1b8ab9;
+}
 @media screen and (max-width: 1280px) {
 	.all-comments ul li .c-user-comments{width:89%;}
 }
@@ -230,6 +258,10 @@ font-family: robotoregular;}
 	.all-comments ul li .c-user-comments{width:82%;}
 }
 @media screen and (max-width: 767px) {
+	.blog_header {
+    padding-top: 84px;
+}
+.btn-right{padding-top: 4px !important; padding-right: 0px!important}
 	.term_desc{padding: 20px 0px 80px !important;}
 	.main-inner .middle-main{padding: 10px 0}
 	.date_blog_left{position: absolute; width: 80px; top: 10px; left: 25px;}
@@ -238,18 +270,21 @@ font-family: robotoregular;}
 	.common-form1 h3{margin:20px 0;}
 	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
 	.blog_post_outer{padding-right: 15px; }
-	.blog_header  {padding-top: 35px;}
 	.logo a h3{font-size: 22px;}
 	.user-midd-section{margin-top: 6px;}
 	.comment_foem button{padding: 7px 15px;}
 	.blog_post_outer.pr0{padding-right:15px;} 
 	.all-comments ul li .c-user-comments{width:80%;}
+	.btn2 , .btn3{padding: 8px 10px!important;}
 }
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 479px) {
 	.blog_header ul li{padding: 1px 6px; font-size: 11px;}
-	.blog_header{padding-top: 32px;}
-	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;	}
+	.blog_header{padding-top: 118px;}
+	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;
+		}
+	/*	.loh_blog{width: 100%!important;
+			text-align: center;}*/
 }
 
 

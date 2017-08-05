@@ -39,10 +39,10 @@
    <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-3">
+        <div class="col-md-4 col-sm-3 loh_blog">
           <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-8 col-sm-9">
+        <div class="col-md-8 col-sm-9  loh_blog">
             <div class="btn-right pull-right pt10">
               <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
               <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
@@ -401,7 +401,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-4 col-xs-12">
-                            © 2017 | by Aileensoul
+                          <span style="font-weight: normal;">  © 2017 | by Aileensoul</span>
                         </div>
                     </div>
                 </div>
