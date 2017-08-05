@@ -1,36 +1,81 @@
- <div class="col-md-3 col-sm-3">
-                        <div class="job-profile-left-side-bar">
-                            <div class="left-side-bar">
-                                <ul>
+ <div class="col-lg-3 col-md-4 col-sm-4">
+                        <div class="left-side-bar">
+                            <ul class="left-form-each">
 
+                                <?php if($this->uri->segment(2) == 'job_basicinfo_update')
+                                        {
+                                ?>
+                                     <li class="active init"><a href="javascript:void(0)">Basic Information</a></li>
                                 <?php
-                                    if(($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '')) { ?>
+                                        }
+                                        else
+                                        {
+                                ?>
+                                <li><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
+                                <?php
+                                        }
+                                ?>
 
 
-                                  <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>">Home</a>
-                                    </li>
 
-                                    <?php }?>
+                                 <?php if($this->uri->segment(2) == 'job_education_update')
+                                        {
+                                ?>
+                                     <li class="active init"><a href="javascript:void(0)">Educational Qualification</a></li>
+                                <?php
+                                        }
+                                        else
+                                        {
+                                ?>
+                                <li><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
+                                <?php
+                                        }
+                                ?>
 
-                                    <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_printpreview'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_printpreview'); ?>">Job Profile</a>
-                                    </li>
+
+                                 <?php if($this->uri->segment(2) == 'job_project_update')
+                                        {
+                                ?>
+                                     <li class="active init"><a href="javascript:void(0)">Project And Training / Internship</a></li>
+                                <?php
+                                        }
+                                        else
+                                        {
+                                ?>
+                                <li><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
+                                <?php
+                                        }
+                                ?>
 
 
-                                     <?php
-                                    if(($this->uri->segment(1) == 'job') && ($this->uri->segment(2) == 'job_all_post' || $this->uri->segment(2) == 'job_printpreview' || $this->uri->segment(2) == 'job_resume' || $this->uri->segment(2) == 'job_save_post' || $this->uri->segment(2) == 'job_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser')|| $this->uri->segment(3) == '')) { ?>
+                                 <?php if($this->uri->segment(2) == 'job_skill_update')
+                                        {
+                                ?>
+                                     <li class="active init"><a href="javascript:void(0)">Work Area</a></li>
+                                <?php
+                                        }
+                                        else
+                                        {
+                                ?>
+                                <li><a href="<?php echo base_url('job/job_skill_update'); ?>">Work Area</a></li>
+                                <?php
+                                        }
+                                ?>
 
-                                    <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_resume'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_resume'); ?>">Resume</a>
-                                    </li>
-
-                                     <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_save_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_save_post'); ?>">Saved Job</a>
-                                    </li>
-
-                                    <li <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_applied_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_applied_post'); ?>">Applied Job</a>
-                                    </li>
-
-                                    <?php }?>
-
-                                </ul>
-                            </div>
+                                 <?php if($this->uri->segment(2) == 'job_work_exp_update')
+                                        {
+                                ?>
+                                     <li class="active init"><a href="javascript:void(0)">Work Experience</a></li>
+                                <?php
+                                        }
+                                        else
+                                        {
+                                ?>
+                                <li><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
+                                <?php
+                                        }
+                                ?>
+                            
+                            </ul>
                         </div>
                     </div>

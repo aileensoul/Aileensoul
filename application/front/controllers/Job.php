@@ -119,8 +119,6 @@ class Job extends MY_Controller {
                 $this->data['lname1'] = $userdata[0]['lname'];
                 $this->data['email1'] = $userdata[0]['email'];
                 $this->data['phnno1'] = $userdata[0]['phnno'];
-                $this->data['marital_status1'] = $userdata[0]['marital_status'];
-                $this->data['nationality1'] = $userdata[0]['nationality'];
                 $this->data['language2'] = $userdata[0]['language'];
                 $this->data['dob1'] = $userdata[0]['dob'];
                 $this->data['gender1'] = $userdata[0]['gender'];
@@ -221,8 +219,6 @@ class Job extends MY_Controller {
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
-        $this->form_validation->set_rules('marital_status', 'Marital Status', 'required');
-        $this->form_validation->set_rules('nationality', 'Nationality', 'required');
         $this->form_validation->set_rules('language[]', 'Language', 'required');
         $this->form_validation->set_rules('dob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
@@ -264,8 +260,6 @@ class Job extends MY_Controller {
                     'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
-                    'marital_status' => $this->input->post('marital_status'),
-                    'nationality' => $this->input->post('nationality'),
                     'language' => implode(",", $language),
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
@@ -278,7 +272,7 @@ class Job extends MY_Controller {
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 if ($updatedata) {
                     $this->session->set_flashdata('success', 'Basic information updated successfully');
-                    redirect('job/job_address_update', refresh);
+                    redirect('job/job_education_update', refresh);
                 } else {
                     $this->session->flashdata('error', 'Your data not inserted');
                     redirect('job/job_basicinfo_update', refresh);
@@ -290,8 +284,6 @@ class Job extends MY_Controller {
                     'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
-                    'marital_status' => $this->input->post('marital_status'),
-                    'nationality' => $this->input->post('nationality'),
                     'language' => implode(",", $language),
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
@@ -307,7 +299,7 @@ class Job extends MY_Controller {
                 $insert_id = $this->common->insert_data_getid($data, 'job_reg');
                 if ($insert_id) {
                     $this->session->set_flashdata('success', 'Basic information updated successfully');
-                    redirect('job/job_address_update');
+                    redirect('job/job_education_update');
                 } else {
                     $this->session->flashdata('error', 'Sorry!! Your data not inserted');
                     redirect('job/job_basicinfo_update', 'refresh');
@@ -2811,7 +2803,7 @@ class Job extends MY_Controller {
 
                 if ($updatedata && $updatedata1 || $updatedata && $insertid) {
                     $this->session->set_flashdata('success', 'Work Experience updated successfully');
-                    redirect('job/job_curricular_update');
+                    redirect('job/job_all_post');
                 } else {
                     $this->session->flashdata('error', 'Your data not inserted');
                     redirect('job/job_work_exp_update', 'refresh');
@@ -3121,7 +3113,7 @@ $files[] = $_FILES;
                 if ($insert_id && $updatedata || $updatedata1 && $updatedata) {
                    // echo "hhhh";
                     $this->session->set_flashdata('success', 'Work Experience updated successfully');
-                    redirect('job/job_curricular_update');
+                    redirect('job/job_all_post');
                 } else {
                    // echo "bbbb";
                     $this->session->flashdata('error', 'Your data not inserted');

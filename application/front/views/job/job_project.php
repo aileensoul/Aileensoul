@@ -49,32 +49,8 @@
 
             <div class="container">
                 <div class="row row4">
-                    <div class="col-md-3 col-sm-4">
-                        <div class="left-side-bar">
-                            <ul class="left-form-each">
-                                <li class="custom-none"><a href="<?php echo base_url('job/job_basicinfo_update'); ?>">Basic Information</a></li>
-
-                                <li class="custom-none"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
-
-                                <li class="custom-none"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
-
-                                   <li <?php if($this->uri->segment(1) == 'job'){?> class="active init" <?php } ?>><a href="#">Project And Training / Internship</a></li>
-
-                              
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '4'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Work Area</a></li>
-<!-- 
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '5'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
-                               
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '5'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
-
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '7'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
-
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '8'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
-
-                                <li class="custom-none <?php if($jobdata[0]['job_step'] < '9'){echo "khyati";}?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Career Objectives</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                
+                     <?php echo $job_left; ?>
 
                     <!-- middle section start -->
                     <div class="col-md-6 col-sm-8">

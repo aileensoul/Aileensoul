@@ -2,7 +2,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
 <!-- Calender Css Start-->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
@@ -122,49 +121,8 @@
            
             <div class="container">
                 <div class="row row4">
-                    <div class="col-lg-3 col-md-4 col-sm-4">
-                        <div class="left-side-bar">
-                            <ul class="left-form-each">
-                                <li  <?php if ($this->uri->segment(1) == 'job') { ?> class="active init" <?php } ?> ><a href="#">Basic Information</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '1') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_address_update'); ?>">Address</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '2') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_education_update'); ?>">Educational Qualification</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '3') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_project_update'); ?>">Project And Training / Internship</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '4') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_skill_update'); ?>">Work Area</a></li>
-
-                              <!--   <li class="<?php if ($jobdata[0]['job_step'] < '1') {
-   // echo "khyati";
-} ?>"><a href="<?php //echo base_url('job/job_apply_for_update'); ?>">Apply For</a></li> -->
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '5') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_work_exp_update'); ?>">Work Experience</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '7') {
-    echo "khyati";
-} ?>"><a href="<?php echo base_url('job/job_curricular_update'); ?>">Extra Curricular Activities</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '8') {
-                                echo "khyati";
-                            } ?>"><a href="<?php echo base_url('job/job_reference_update'); ?>">Interest & Reference</a></li>
-
-                                <li class="custom-none <?php if ($jobdata[0]['job_step'] < '9') {
-                                echo "khyati";
-                            } ?>"><a href="<?php echo base_url('job/job_carrier_update'); ?>">Career Objectives</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                   
+                        <?php echo $job_left; ?>
 
                     <!-- middle section start -->
                     <div class="col-lg-6 col-md-6 col-sm-8">
@@ -198,8 +156,6 @@ $fname = form_error('fname');
 $lname = form_error('lname');
 $email = form_error('email');
 $phnno = form_error('phnno');
-$marital_status = form_error('marital_status');
-$nationality = form_error('nationality');
 $language = form_error('lan');
 $dob = form_error('dob');
 $gender = form_error('gender');
@@ -245,67 +201,9 @@ $gender = form_error('gender');
                                         <?php echo form_error('phnno'); ?>
                                 </fieldset>
 
-                                <fieldset class="marital-status" <?php if ($marital_status) { ?> class="error-msg" <?php } ?>>
-                                    <label>Marital Status :<span class="red">*</span> </label>
-                                    <input type="radio" name="marital_status" tabindex="5" value="married" id="marital_status"  <?php echo ($marital_status1 == 'married') ? 'checked' : '' ?>>
-                    <span class="radio_check_text">Married</span>
-                                    
-                                    <input type="radio" name="marital_status" tabindex="6" value="unmarried" id="marital_status" <?php echo ($marital_status1 == 'unmarried') ? 'checked' : '' ?>  > 
-                    <span class="radio_check_text">Unmarried</span>
+                               
 
-                                    <span id="marital_status-error"> </span>
-                                        <?php echo form_error('marital_status'); ?>
-                                </fieldset>
-
-                                <fieldset <?php if ($nationality) { ?> class="error-msg" <?php } ?>>
-                                    <label>Nationality:<span class="red">*</span></label>
-
-                                    <select name="nationality" id="nationality" tabindex="7">
-
-                                        <option value="" selected option disabled>--Select--</option>
-<?php
-if (count($nation) > 0) {
-    foreach ($nation as $cnt) {
-
-        if ($nationality1) {
-            ?>
-
-                                                    <option value="<?php echo $cnt['nation_id']; ?>" <?php if ($cnt['nation_id'] == $nationality1) echo 'selected'; ?>><?php echo $cnt['nation_name']; ?></option>
-
-                                                <?php
-                                            }
-                                            else {
-                                                ?>
-
-                                                    <option value="<?php echo $cnt['nation_id']; ?>"><?php echo $cnt['nation_name']; ?></option>
-
-                                                <?php
-                                            }
-                                        }
-                                    }
-                                    ?>
-                                    </select>
-
-                                    <?php echo form_error('nationality'); ?>
-                                </fieldset>
-
-                                <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
-                                    <label>Languages Known:<span class="red">*</span></label> 
-
-             <select name="language[]" id ="lan" multiple="multiple" style="width: 100%"  tabindex="8">
-                     <option></option>
-
-<?php foreach ($language1 as $language) { ?>
-                         <option value="<?php echo $language['language_id']; ?>"><?php echo $language['language_name']; ?></option>
-<?php } ?>
-
-                                    </select>
-
-
-<?php echo form_error('lan'); ?>
-
-        
-                                </fieldset>
+                               
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth:<span class="red">*</span></label>
                                 
@@ -336,6 +234,20 @@ if (count($nation) > 0) {
                                     ?> ><span class="radio_check_text pl5">Female</span>
                                     <span id="gender-error"> </span>
 <?php echo form_error('gender'); ?>
+                                </fieldset>
+
+
+                                 <fieldset id="erroe_nn" <?php if ($language) { ?> class="error-msg" <?php } ?>>
+
+
+   
+                                    <label>Languages Known:<span class="red">*</span></label> 
+                                     <input id="lan" name="language" placeholder="Select a Language" style="width: 100%"  tabindex="8">
+
+
+<?php echo form_error('lan'); ?>
+
+        
                                 </fieldset>
 
 
@@ -519,6 +431,63 @@ $( "#searchplace" ).autocomplete({
    });
      
 </script>
+
+
+
+
+<!--new script for language start-->
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#lan" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 10) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( ", " );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+
+  
+ 
+        });
+    });
+</script>
+<!--new script for language end-->
 <script type="text/javascript">
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
@@ -588,8 +557,7 @@ $( "#searchplace" ).autocomplete({
 <!-- Field Validation Js Start -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 
-<!-- Field Validation Js End -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+
 
 
 <!-- javascript validation start -->
@@ -714,16 +682,8 @@ if(mm<10) {
                             
                         },
                         
-                marital_status: {
-
-                    required: true,
-
-                },
-                nationality: {
-
-                    required: true,
-
-                },
+               
+               
                 'language[]': {
 
                     required: true,
@@ -765,16 +725,8 @@ if(mm<10) {
                              required:"Phone Number Is Required.",
                     },
 
-                marital_status: {
-
-                    required: "Marital Status Is Required.",
-
-                },
-                nationality: {
-
-                    required: "Nationality Is Required.",
-
-                },
+              
+               
                 'language[]': {
 
                     required: "Language  Is Required.",
@@ -799,37 +751,10 @@ if(mm<10) {
 <!-- javascript validation End -->
 
 <!-- script for Language textbox automatic end (option 2)-->
-<script type="text/javascript">
-$(document).ready(function () {
-   
-    var complex = <?php echo json_encode($selectdata); ?>;
-   
-    if(complex != "" )
-    {
-         $("#lan").select2({
-         placeholder: "Select a Language",
-         }).select2('val', complex);
-    }
-    else
-    {
-         $("#lan").select2({
-         placeholder: "Select a Language",
- 
-        });
-    }
 
-//     $("#lan").select2({
-//         placeholder: "Select a Language",
-//     }).select2('val', complex);
-
-});
-
-
-</script>
 <!-- <script>
 
-   // var complex = <?php echo json_encode($selectdata); ?>;
-    $("#lan").select2().select2('val', complex)
+   
 
 </script> -->
 <!-- script for Language textbox automatic end (option 2)-->
