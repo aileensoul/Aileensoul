@@ -13872,8 +13872,8 @@ bui_images_view_more a:hover {
     position: absolute;
     left: -9999px;
 }
-.main_raio [type="radio"]:checked + label,
-.main_raio [type="radio"]:not(:checked) + label
+.main_raio [type="radio"]:checked + .point_radio,
+.main_raio [type="radio"]:not(:checked) + .point_radio
 {
     position: relative;
     padding-left: 28px;
@@ -13882,8 +13882,8 @@ bui_images_view_more a:hover {
     display: inline-block;
     color: #666;
 }
-.main_raio [type="radio"]:checked + label:before,
-.main_raio [type="radio"]:not(:checked) + label:before {
+.main_raio [type="radio"]:checked + .point_radio:before,
+.main_raio [type="radio"]:not(:checked) + .point_radio:before {
     content: '';
     position: absolute;
     left: 0;
@@ -13947,8 +13947,8 @@ bui_images_view_more a:hover {
 }
 .text_center{text-align: center;}
 .main_raio{display: inline-block;padding: 6px 5px 0px;}
-.main_raio [type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
+.main_raio [type="radio"]:checked + .point_radio:after,
+[type="radio"]:not(:checked) + .point_radio:after {
     content: '';
     width: 12px;
     height: 12px;
@@ -13960,12 +13960,12 @@ bui_images_view_more a:hover {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-.main_raio [type="radio"]:not(:checked) + label:after {
+.main_raio [type="radio"]:not(:checked) + .point_radio:after {
     opacity: 0;
     -webkit-transform: scale(0);
     transform: scale(0);
 }
-.main_raio [type="radio"]:checked + label:after {
+.main_raio [type="radio"]:checked + .point_radio:after {
     opacity: 1;
     -webkit-transform: scale(1);
     transform: scale(1);
@@ -16794,7 +16794,7 @@ font-size: 12px;
 /*** test for form ***/
 
 @media screen and (max-width: 320px) {
-    .main_raio [type="radio"]:checked + label, .main_raio [type="radio"]:not(:checked) + label{padding-left: 20px;}
+    .main_raio [type="radio"]:checked + .point_radio, .main_raio [type="radio"]:not(:checked) + .point_radio{padding-left: 20px;}
 .how-it-popup{width: 97%;}
     .header2 ul li.active a{padding: 9px 0px 9px;}
     .created_date {
