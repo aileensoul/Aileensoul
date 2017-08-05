@@ -609,7 +609,7 @@
                                                                     <div class="post-img-div">
                                                                         <?php echo ucwords($acr) ?>
                                                                     </div>
-<!--                                                   
+                                                   
                                                 <?php     } ?>
                                                    
                                                 </div>
@@ -621,7 +621,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                            </li>
+                                           </li>
                                             </a> 
                                             <?php
                                         }
