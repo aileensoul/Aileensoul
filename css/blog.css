@@ -125,7 +125,7 @@ border-bottom: 1px solid #d9d9d9;}
 .blog_class_main_desc span p{font-style: 14px;color: #272222; cursor: default;}
 .butn_w a:hover i{ color: #838383; }
 .blog_header ul li a:hover{color:#136386}
-.searc_w input:focus{   border-bottom: 1px solid #1b8ab9 !important;
+.searc_w input:focus{ border:none;  border-bottom: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
 .rifght_desc{font-size: 13px; color: #707070;}
 .rifght_fname{font-size:15px;  font-weight: bold;}
