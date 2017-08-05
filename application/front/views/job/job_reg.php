@@ -189,13 +189,13 @@
                                     <label>Fresher ? <font  color="red">*</font> : </label>
                                     <div class="main_raio">
                                         <input type="radio" value="Fresher" tabindex="4" id="test1" name="fresher" class="radio_job" id="fresher">
-                                        <label for="test1">Yes</label>
+                                        <label for="test1" class="point_radio" >Yes</label>
                                     </div>
 
 
                                     <div class="main_raio">
                                         <input type="radio" tabindex="5" value="Experience" id="test2" class="radio_job" name="fresher" id="fresher">
-                                        <label for="test2">No</label>
+                                        <label for="test2" class="point_radio">No</label>
                                     </div>
 
 

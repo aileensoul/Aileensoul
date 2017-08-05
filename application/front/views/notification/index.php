@@ -608,7 +608,12 @@
                                                                     ?>
                                                                     <div class="post-img-div">
                                                                         <?php echo ucwords($acr) ?>
+<<<<<<< HEAD
                                                                     </div>                                                
+=======
+                                                                    </div>
+                                                   
+>>>>>>> 01081ea06ea6a339461d90fcdb79d7701d47dbf9
                                                 <?php     } ?>
                                                    
                                                 </div>
@@ -620,7 +625,7 @@
                                                     </div>
                                                 </div>
                                                 
-                                            </li>
+                                           </li>
                                             </a> 
                                             <?php
                                         }
