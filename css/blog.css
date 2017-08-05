@@ -326,6 +326,11 @@ float: left;}
 	
 }
 @media screen and (max-width: 991px) {
+	.em-py3 {
+    width: 10%;
+    float: left;
+}
+	.em-py2{width: 90%;}
 	.header-left-menu ul{padding-bottom: 0px;}
 	.date_blog_right{width: 85%;}
 	.date_blog_left{width: 15%; padding-right: 8px;}
@@ -338,8 +343,23 @@ float: left;}
 	.all-comments ul li .c-user-img img{width:60px; height:60px;}
 	.all-comments ul li .c-user-comments{width:82%;}
 }
+@media screen and (max-width: 639px) {
+
+	.em-py3 {
+    width: 15%;
+    float: left;
+}
+	.em-py2{width: 85%;}
+
+}
 @media screen and (max-width: 767px) {
+	.fifth_part_py h4{font-size: 13px;}
+	.test_py ol {
+    list-style-type: disc;
+    padding: 0px 15px;
+}
 		.main-comtai h1{padding: 25px 0px 0px !important; font-size: 20px;	}
+	}
 
 	.blog header h2.logo{
 		display: block;
@@ -377,8 +397,11 @@ float: left;}
     padding: 47px 0px 0px !important;
     font-size: 20px;
 }	
+
+ol li h4{font-size: 16px;}
 }
 @media screen and (max-width: 479px) {
+	.test_py{font-size: 12px;}
 	.term_desc{padding: 20px 0px 23px !important;}
 	.term_desc{width:90%!important; }
 	.term_desc h3{font-size: 18px;}
@@ -395,5 +418,17 @@ float: left;}
 			text-align: center;}*/
 }
 
+@media screen and (max-width: 479px) {
+
+ol li h4 {
+    font-size: 15px;
+    line-height: 1.5;
+}
+	.em-py3 {
+    width: 20%;
+    float: left;
+}
+	.em-py2{width: 80%;}
 
 
+}
