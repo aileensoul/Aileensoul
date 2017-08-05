@@ -1656,7 +1656,16 @@
                     }
 </script>
 
-
+<script type="text/javascript">
+    
+     $(document).on('keydown', function (e) {
+                if (e.keyCode === 27) {
+                //$( "#bidmodal" ).hide();
+                $('#query').modal('hide');
+                //$('.modal-post').show();
+                }
+                });
+</script>
 
 
                 <!-- all popup close close using esc start -->

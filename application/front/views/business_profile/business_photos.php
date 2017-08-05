@@ -259,10 +259,10 @@
 
 
                                     <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
-                                        <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+                                        <a href="#" onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>);" style="cursor: pointer;">
 
                                         <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
-                                            <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+                                            <a onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
                                             <?php } ?>
 
                                       
@@ -991,6 +991,23 @@
 </div>
 </section>
 <!-- Bid-modal-2  -->
+
+<!-- Bid-modal for this modal appear or not start -->
+        <div class="modal fade message-box" id="query" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bid-modal for this modal appear or not  Popup Close -->
+
+
+        
 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
     <div class="modal-dialog modal-lm">
         <div class="modal-content">
@@ -2574,39 +2591,83 @@
 </script>
 <!-- contact person script start -->
 <script type="text/javascript">
-    function contact_person(clicked_id) {
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
-            data: 'toid=' + clicked_id,
-            success: function (data) {
-                //   alert(data);
-                $('#contact_per').html(data);
+                    
+  function contact_person_query(clicked_id, status) { 
 
-            }
-        });
-    }
+   
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
+                            data: 'toid=' + clicked_id + '&status=' + status,
+                            success: function (data) { //alert(data);
+                              // return data;
+                               contact_person_model(clicked_id, status, data);
+                            }
+                        });
+                    }
+
+                    
 </script>
-<!-- contact person script end -->
+
+                <script type="text/javascript">
+
+
+                    function contact_person_model(clicked_id, status, data) {
+
+                        if(data == 1){
+
+                            if (status == 'pending') {
+
+                            $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+
+                        } else if (status == 'confirm') {
+
+                            $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                            $('#bidmodal').modal('show');
+
+                        }else{ 
+                           contact_person(clicked_id); 
+                        }
+
+                }else{
+
+                      $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
+                      $('#query').modal('show');
+                            
+                }
+                        
+                       
+
+                    }
+                </script>
 
 
 <script type="text/javascript">
+                    function contact_person(clicked_id) {
+                        
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
+                            data: 'toid=' + clicked_id,
+                            success: function (data) {
+                                //   alert(data);
+                                $('#contact_per').html(data);
 
-
-    function contact_person_model(clicked_id, status) {
-
-        if (status == 'pending') {
-
-            $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
-
-        } else if (status == 'confirm') {
-
-            $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-            $('#bidmodal').modal('show');
-
-        }
-
-    }
+                            }
+                        });
+                    }
 </script>
+
+<script type="text/javascript">
+    
+     $(document).on('keydown', function (e) {
+                if (e.keyCode === 27) {
+                //$( "#bidmodal" ).hide();
+                $('#query').modal('hide');
+                //$('.modal-post').show();
+                }
+                });
+</script>
+
 
