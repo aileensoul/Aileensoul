@@ -221,7 +221,7 @@ can easy to find you.</p>
 
     <div class="second circle-1">
       <strong></strong>
-      <a href="#" class="edit_profile_job">Edit Profile
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>"  class="edit_profile_job">Edit Profile
       </a>
     </div>
 
@@ -1255,9 +1255,9 @@ $(document).ready(function(){
    * - listening to `circle-animation-progress` event and display the animation progress: from 0 to 100%
    */
   $('.second.circle-1').circleProgress({
-    value: 0.75
+    value: <?php echo $count_profile_value;?>
   }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('strong').html(Math.round(75 * progress) + '<i>%</i>');
+    $(this).find('strong').html(Math.round(<?php echo $count_profile;?> * progress) + '<i>%</i>');
   });
 
   
