@@ -119,13 +119,27 @@ class Job extends MY_Controller {
                 $this->data['lname1'] = $userdata[0]['lname'];
                 $this->data['email1'] = $userdata[0]['email'];
                 $this->data['phnno1'] = $userdata[0]['phnno'];
-                $this->data['language2'] = $userdata[0]['language'];
+                //$this->data['language2'] = $userdata[0]['language'];
                 $this->data['dob1'] = $userdata[0]['dob'];
                 $this->data['gender1'] = $userdata[0]['gender'];
             }
         }
 
       //echo "<pre>"; print_r($this->data['dob1']); die();
+
+    //Retrieve Language data Start
+     
+        $language_know = explode(',', $userdata[0]['language']); 
+   // echo $language_know;die();
+        foreach($language_know as $lan){
+     $contition_array = array('language_id' => $lan,'status' => 1);
+     $languagedata = $this->common->select_data_by_condition('language',$contition_array, $data = 'language_id,language_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     //echo "<pre>";print_r(  $languagedata);
+     $detailes[] = $languagedata[0]['language_name'];
+  } 
+
+   $this->data['language2'] = implode(',', $detailes); 
+ //Retrieve Language data End
 
         $skildata = explode(',', $userdata[0]['language']);
         $this->data['selectdata'] = $skildata;
@@ -219,12 +233,32 @@ class Job extends MY_Controller {
         $this->form_validation->set_rules('fname', 'Firstname', 'required');
         $this->form_validation->set_rules('lname', 'Lastname', 'required');
         $this->form_validation->set_rules('email', 'Store  email', 'required|valid_email');
-        $this->form_validation->set_rules('language[]', 'Language', 'required');
+        $this->form_validation->set_rules('language', 'Language', 'required');
         $this->form_validation->set_rules('dob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
 
         $language = $this->input->post('language');
 
+        $language = explode(',',$language); 
+        // Language  start   
+      
+      if(count($language) > 0){ 
+          foreach($language as $lan){
+
+     $contition_array = array('language_name' => trim($lan),'status' => 1);
+     $languagedata = $this->common->select_data_by_condition('language',$contition_array, $data = 'language_id,language_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($languagedata)
+     {
+         $language_know[] = $languagedata[0]['language_id'];
+     }
+        // print_r($language_know);
+          
+          }
+          $language1 = implode(',',$language_know); 
+      }
+       // Language  End   
+
+//echo "<pre>";print_r( $language1);die();
           $bod = $this->input->post('dob');
                 //echo $bod;
         $bod = str_replace('/', '-', $bod);
@@ -260,14 +294,14 @@ class Job extends MY_Controller {
                     'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
-                    'language' => implode(",", $language),
+                    'language' => $language1,
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
                     'user_id' => $userid,
                     'modified_date' => date('Y-m-d h:i:s', time())
                 );
                 
-              // echo "hi"; echo "<pre>"; print_r($data);die();
+             //echo "<pre>"; print_r($data);die();
 
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 if ($updatedata) {
@@ -284,7 +318,7 @@ class Job extends MY_Controller {
                     'lname' => ucfirst($this->input->post('lname')),
                     'email' => $this->input->post('email'),
                     'phnno' => $this->input->post('phnno'),
-                    'language' => implode(",", $language),
+                    'language' => $language1,
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
                     'status' => 1,
@@ -293,7 +327,7 @@ class Job extends MY_Controller {
                     'user_id' => $userid,
                     'job_step' => 1
                 );
-               //echo "hello"; echo "<pre>"; print_r($data);die();
+             //  echo "<pre>"; print_r($data);die();
 
 
                 $insert_id = $this->common->insert_data_getid($data, 'job_reg');

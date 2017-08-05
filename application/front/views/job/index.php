@@ -242,7 +242,7 @@ $gender = form_error('gender');
 
    
                                     <label>Languages Known:<span class="red">*</span></label> 
-                                     <input id="lan" name="language" placeholder="Select a Language" style="width: 100%"  tabindex="8">
+                                     <input id="lan" name="language" value="<?php if($language2){echo $language2;} ?>" placeholder="Select a Language" style="width: 100%"  tabindex="8">
 
 
 <?php echo form_error('lan'); ?>
@@ -455,7 +455,7 @@ $( "#searchplace" ).autocomplete({
             minLength: 2,
             source: function( request, response ) { 
                 // delegate back to autocomplete, but extract the last term
-                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+                $.getJSON("<?php echo base_url();?>general/get_language", { term : extractLast( request.term )},response);
             },
             focus: function() {
                 // prevent value inserted on focus
