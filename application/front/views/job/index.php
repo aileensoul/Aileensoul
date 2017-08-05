@@ -226,9 +226,9 @@
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php if($jobdata[0]['job_step'] == 10){ ?>
+<?php //if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
-<?php } ?>
+<?php //} ?>
 <!-- END HEADER -->
 <style type="text/css">
    
