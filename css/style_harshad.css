@@ -475,7 +475,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
         -webkit-transform: scale(1.6);
     }
 }*/
-.edit_profile_progress{display:none;}
+.edit_profile_progress{/*display:none;*/}
 .fresher_radio{padding:6px 8px;}
 
 

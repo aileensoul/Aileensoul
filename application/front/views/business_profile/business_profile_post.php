@@ -826,14 +826,18 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                        <input id="file-1" type="file" class="file" name="file-1[]"  multiple class="file" data-multiple-caption="{count} files selected" style="display: none;">
                                                     </div></div>
 
 
                                                 <label for="file-1">
-                                                    <i class=" fa fa-camera upload_icon" > Photo</i>
-                                                    <i class=" fa fa-video-camera upload_icon" > Video </i> 
+                                                    <i class=" fa fa-camera upload_icon" > Photo</i></label>
+													<label for="file-1">
+                                                    <i class=" fa fa-video-camera upload_icon" > Video </i> </label>
+													<label for="file-1">
                                                     <i class="fa fa-music upload_icon" > Audio </i>
+													</label>
+													<label for="file-1">
                                                     <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
                                                 </label>
 

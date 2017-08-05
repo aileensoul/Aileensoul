@@ -8,9 +8,9 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
-<?php if($jobdata[0]['job_step'] == 10){ ?>
+<?php //if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
-<?php } ?>
+<?php //} ?>
 <!-- END HEADER -->
 <div class="js">
 <body class="page-container-bg-solid page-boxed">
