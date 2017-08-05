@@ -258,8 +258,14 @@ input:focus:-ms-input-placeholder {
 	.all-comments ul li .c-user-comments{width:82%;}
 }
 @media screen and (max-width: 767px) {
+	.blog header h2.logo{
+		display: block;
+    text-align: center;
+    font-size: 24px;
+}
+.blog header h2.logo a{font-size: 24px;}
 	.blog_header {
-    padding-top: 84px;
+    padding-top: 102px;
 }
 .btn-right{padding-top: 4px !important; padding-right: 0px!important}
 	.term_desc{padding: 20px 0px 80px !important;}
@@ -275,14 +281,16 @@ input:focus:-ms-input-placeholder {
 	.comment_foem button{padding: 7px 15px;}
 	.blog_post_outer.pr0{padding-right:15px;} 
 	.all-comments ul li .c-user-comments{width:80%;}
-	.btn2 , .btn3{padding: 8px 10px!important;}
-}
+/*	.btn2 , .btn3{padding: 8px 10px!important;}
+*/	.blog .main-inner header{padding: 5px 0px;}
+ }
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 479px) {
 	.blog_header ul li{padding: 1px 6px; font-size: 11px;}
 	.blog_header{padding-top: 118px;}
 	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;
 		}
+
 	/*	.loh_blog{width: 100%!important;
 			text-align: center;}*/
 }

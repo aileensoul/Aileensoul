@@ -1703,7 +1703,6 @@ margin-bottom: 15px;
 #jobseeker_regform input[type="submit"]:focus{color: white!important;}
     .message .btn:focus{color: white;}
         .message .btn:hover{color: white;}
-}
 .cv-form input[type=submit],
 .cv-form input[type=button],
 .cv-form button {

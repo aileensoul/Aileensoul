@@ -42,10 +42,11 @@
 ?>
  
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
 
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+
 
 </head>
 <body class="blog">
@@ -56,7 +57,7 @@
         <div class="col-md-4 col-sm-3">
           <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-8 col-sm-9">
+        <div class="col-md-8 col-sm-9 pt10">
             <div class="btn-right pull-right">
               <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
               <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
@@ -65,7 +66,7 @@
       </div>
     </div>
   </header>
-</div>
+
          <div class="blog_header">
           <div class="container">
             <div class="row"> 

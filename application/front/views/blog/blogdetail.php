@@ -35,14 +35,15 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
 </head>
-<body class="blog-detail">
+<body class="blog-detail blog">
+<div class="main-inner">
    <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-3 loh_blog">
+        <div class="col-md-4 col-sm-3 ">
           <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-8 col-sm-9  loh_blog">
+        <div class="col-md-8 col-sm-9  pt-10">
             <div class="btn-right pull-right pt10">
               <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
               <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
@@ -51,6 +52,7 @@
       </div>
     </div>
   </header>
+  </div>
 
 
          <div class="blog_header">
