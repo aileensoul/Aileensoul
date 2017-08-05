@@ -252,6 +252,7 @@ input:focus:-ms-input-placeholder {
 	
 }
 @media screen and (max-width: 991px) {
+	..header-left-menu ul{padding-bottom: 0px;}
 	.date_blog_right{width: 85%;}
 	.date_blog_left{width: 15%; padding-right: 8px;}
 	.blog-comment{font-size: 10px;}
