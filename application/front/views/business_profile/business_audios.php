@@ -414,9 +414,27 @@
                                     $businesscontacts1 = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
 
+                                    foreach ($businesscontacts1 as $keval => $ke) {
+                                       //echo "<pre>"; print_r($ke); die();
+                                      if($ke['contact_from_id'] == $userid){
+
+                                    $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }else{
+
+                                        $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition= array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }
+                                      if($contavl1){
+                                        $countconval[] = $contavl1;
+                                      }
+                                      
+                                    }
                                             ?>
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($businesscontacts1)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
                                         </li>
 
 

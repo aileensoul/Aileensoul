@@ -61,21 +61,19 @@ class General extends MY_Controller {
     //get search term
    $searchTerm = $_GET['term']; 
       if (!empty($searchTerm)) {
-           $contition_array = array('status' => 1,'type' => 1);
-     $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
-     $citylist = $this->common->select_data_by_search('skill', $search_condition,$contition_array, $data = 'skill as text', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+           $contition_array = array('status' => 1);
+     $search_condition = "(language_name LIKE '" . trim($searchTerm) . "%')";
+     $languagelist = $this->common->select_data_by_search('language', $search_condition,$contition_array, $data = 'language_name as text', $sortby = 'language_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
      }
-      foreach($citylist as $key => $value){
+      foreach($languagelist as $key => $value){
         //   $citydata[$key]['id'] = $value['id'];
-           $citydata[$key]['value'] = $value['text'];
+           $languagedata[$key]['value'] = $value['text'];
       }
       
-      $cdata = array_values($citydata);
+      $cdata = array_values($languagedata);
      echo json_encode($cdata);
 
     }
-
-
     
    
 }
