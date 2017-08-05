@@ -14449,6 +14449,7 @@ text-overflow: ellipsis;}
     margin: 0px 15px;
     display: inline-block;
 }
+.header2 #InboxFooter a:hover{color: #1b8ab9; text-decoration: underline;}
 .header2 #InboxFooter a{color: #1b8ab9;}
 .mob-inner-page {
     background: #fff;
