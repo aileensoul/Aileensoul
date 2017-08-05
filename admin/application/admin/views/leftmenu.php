@@ -30,6 +30,18 @@
                 </ul>
             </li>
             <!--End user Management-->
+             <!--Start user Management-->
+            <li <?php if ($this->uri->segment(1) == 'pages' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>Page Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('Pages/page'); ?>"><i class="fa fa-users"></i>List ALL Pages</a></li>
+                </ul>
+            </li>
+            <!--End user Management-->
+
 
              <!--Start Job Management-->
             <li <?php if ($this->uri->segment(1) == 'job' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>

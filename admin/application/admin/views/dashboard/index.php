@@ -56,6 +56,21 @@ echo $leftmenu;
                 </div>
             </div>
              <!-- end  User List box -->
+              <!-- start  User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo count($pages_list)?></h3>
+                        <p>ALL Pages</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php echo base_url('pages/page')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end  User List box -->
             <!-- start Job User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
