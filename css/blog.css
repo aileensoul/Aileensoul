@@ -235,77 +235,7 @@ input:-ms-input-placeholder {
 input:focus:-ms-input-placeholder {
     color: #1b8ab9;
 }
-@media screen and (max-width: 1280px) {
-	.all-comments ul li .c-user-comments{width:89%;}
-}
-@media screen and (max-width: 1200px) {
-	.blog_latest_post h3{font-size: 20px;}
-	.date_blog_left{width: 14%;}
-	.date_blog_right{width: 86%; cursor: pointer;}
-	.post_latest_right{width: 66%; line-height: 17px;}
-	.post_latest_left{width: 34%;}
-	.rifght_fname{font-size: 12px;}
-	.rifght_desc{font-size: 10px;}
-	.all-comments ul li .c-user-comments{width:85%;}
-}
-@media screen and (max-width: 1024px) {
-	
-}
-@media screen and (max-width: 991px) {
-	..header-left-menu ul{padding-bottom: 0px;}
-	.date_blog_right{width: 85%;}
-	.date_blog_left{width: 15%; padding-right: 8px;}
-	.blog-comment{font-size: 10px;}
-	.blog_mdate{font-size: 28px;}
-	.blog-comment-count{font-size: 18px;}
-	.common-form1{max-width:750px; float:none; margin:0 auto;}
-	.blog_moyear{font-size: 16px;}
-	.all-comments ul li .c-user-img{width:60px; height:60px;}
-	.all-comments ul li .c-user-img img{width:60px; height:60px;}
-	.all-comments ul li .c-user-comments{width:82%;}
-}
-@media screen and (max-width: 767px) {
-	.blog header h2.logo{
-		display: block;
-    text-align: center;
-    font-size: 24px;
-}
-.comment_box{margin-bottom: 80px;}
-.blog header h2.logo a{font-size: 24px;}
-	.blog_header {
-    padding-top: 102px;
-}
-.btn-right{padding-top: 4px !important; padding-right: 0px!important}
-	.term_desc{padding: 20px 0px 80px !important;}
-	.main-inner .middle-main{padding: 10px 0}
-	.date_blog_left{position: absolute; width: 80px; top: 10px; left: 25px;}
-	.social_icon_bloag li a{padding:4px; }
-	.date_blog_right{width: 100%;}
-	.common-form1 h3{margin:20px 0;}
-	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
-	.blog_post_outer{padding-right: 15px; }
-	.logo a h3{font-size: 22px;}
-	.user-midd-section{margin-top: 6px;}
-	.comment_foem button{padding: 7px 15px;}
-	.blog_post_outer.pr0{padding-right:15px;} 
-	.all-comments ul li .c-user-comments{width:80%;}
-/*	.btn2 , .btn3{padding: 8px 10px!important;}
-*/	.blog .main-inner header{padding: 5px 0px;}
- }
-@media screen and (max-width: 540px) {}
-@media screen and (max-width: 479px) {
-	.blog_header ul li{padding: 1px 6px; font-size: 11px;}
-	.blog_header{padding-top: 118px;}
-	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;
-		}
-		footer ul li a {
-    font-size: 11px;
-    padding: 5px 2px!important;
-}
 
-	/*	.loh_blog{width: 100%!important;
-			text-align: center;}*/
-}
 
 
 
@@ -376,3 +306,94 @@ float: left;}
 
 
 .custom-tp footer{background:#fff;}
+
+
+@media screen and (max-width: 1280px) {
+	.term_desc{width: 100% !important;}
+	.all-comments ul li .c-user-comments{width:89%;}
+}
+@media screen and (max-width: 1200px) {
+	.blog_latest_post h3{font-size: 20px;}
+	.date_blog_left{width: 14%;}
+	.date_blog_right{width: 86%; cursor: pointer;}
+	.post_latest_right{width: 66%; line-height: 17px;}
+	.post_latest_left{width: 34%;}
+	.rifght_fname{font-size: 12px;}
+	.rifght_desc{font-size: 10px;}
+	.all-comments ul li .c-user-comments{width:85%;}
+}
+@media screen and (max-width: 1024px) {
+	
+}
+@media screen and (max-width: 991px) {
+	.header-left-menu ul{padding-bottom: 0px;}
+	.date_blog_right{width: 85%;}
+	.date_blog_left{width: 15%; padding-right: 8px;}
+	.blog-comment{font-size: 10px;}
+	.blog_mdate{font-size: 28px;}
+	.blog-comment-count{font-size: 18px;}
+	.common-form1{max-width:750px; float:none; margin:0 auto;}
+	.blog_moyear{font-size: 16px;}
+	.all-comments ul li .c-user-img{width:60px; height:60px;}
+	.all-comments ul li .c-user-img img{width:60px; height:60px;}
+	.all-comments ul li .c-user-comments{width:82%;}
+}
+@media screen and (max-width: 767px) {
+		.main-comtai h1{padding: 25px 0px 0px !important; font-size: 20px;	}
+
+	.blog header h2.logo{
+		display: block;
+    text-align: center;
+    font-size: 24px;
+}
+.term_desc h3{font-size: 20px;}
+.second_paret_ts h3{ font-size: 20px; }
+.second_paret_ts ol li h4{ font-size: 15px;	  }
+	.term_desc{width: 80% !important;}
+.comment_box{margin-bottom: 80px;}
+.blog header h2.logo a{font-size: 24px;}
+	.blog_header {
+    padding-top: 102px;
+}
+.btn-right{padding-top: 4px !important; padding-right: 0px!important}
+	.term_desc{padding: 20px 0px 80px !important;}
+	.main-inner .middle-main{padding: 10px 0}
+	.date_blog_left{position: absolute; width: 80px; top: 10px; left: 25px;}
+	.social_icon_bloag li a{padding:4px; }
+	.date_blog_right{width: 100%;}
+	.common-form1 h3{margin:20px 0;}
+	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
+	.blog_post_outer{padding-right: 15px; }
+	.logo a h3{font-size: 22px;}
+	.user-midd-section{margin-top: 6px;}
+	.comment_foem button{padding: 7px 15px;}
+	.blog_post_outer.pr0{padding-right:15px;} 
+	.all-comments ul li .c-user-comments{width:80%;}
+/*	.btn2 , .btn3{padding: 8px 10px!important;}
+*/	.blog .main-inner header{padding: 5px 0px;}
+ }
+@media screen and (max-width: 540px) {
+	.main-comtai h1 {
+    padding: 47px 0px 0px !important;
+    font-size: 20px;
+}	
+}
+@media screen and (max-width: 479px) {
+	.term_desc{padding: 20px 0px 23px !important;}
+	.term_desc{width:90%!important; }
+	.term_desc h3{font-size: 18px;}
+	.blog_header ul li{padding: 1px 6px; font-size: 11px;}
+	.blog_header{padding-top: 118px;}
+	.all-comments ul li .c-user-comments{width:100%; padding-top:10px;
+		}
+		footer ul li a {
+    font-size: 11px;
+    padding: 5px 2px!important;
+}
+
+	/*	.loh_blog{width: 100%!important;
+			text-align: center;}*/
+}
+
+
+
