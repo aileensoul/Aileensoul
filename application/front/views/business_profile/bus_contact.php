@@ -729,11 +729,11 @@
                                 </div>
 
 
-<?php }  else { ?>
+<?php }  ?>
 
                                 
                                
-                                <div class="art-img-nn">
+                                <div class="art-img-nn" id="viewmsg" style="display: none">
                                     <div class="art_no_post_img">
 
                                         <img src="<?php echo base_url('img/bui-no.png') ?>">
@@ -745,7 +745,7 @@
                                 </div>
                             
 
-<?php } ?>
+
 
 
                             <div class="col-md-1">
@@ -830,6 +830,22 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
             <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){ //alert("hii");
+
+    var nb = $('div.profile-job-post-detail').length;
+    //alert(nb);
+    if (nb == 0){
+   document.getElementById('viewmsg').style.display = 'block';
+    }
+
+    });</script>
+
+
 
             <!-- script for business autofill -->
             <script>
@@ -1466,6 +1482,9 @@
                 }
                 });
 </script>
+
+
+
 
 
 
