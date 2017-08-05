@@ -927,9 +927,13 @@
 
 <!-- end onload popup  -->
 <script type="text/javascript">
-    $(window).load(function(){        
-		$('#onload-Modal').modal('show').fadeIn("slow");
-		//$('#onload-Modal').fancybox().trigger('click'); 
+    jQuery(document).ready(function ($) {
+        if (screen.width > 767) {
+            $(window).load(function(){        
+                        $('#onload-Modal').modal('show').fadeIn("slow");
+                        //$('#onload-Modal').fancybox().trigger('click'); 
+            }); 
+        }
     }); 
 	$(document).ready(function () {
         $("body").click(function (event) {

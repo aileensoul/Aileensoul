@@ -476,6 +476,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
     }
 }*/
 .edit_profile_progress{display:none;}
+.fresher_radio{padding:6px 8px;}
 
 
 @media screen and (max-width: 1200px) {
@@ -497,6 +498,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.header ul li a{padding-top:11px !important;}
 	#notificationLink span{top:7px !important;}
 	.backdiv-mob{display:block;}
+	#onload-Modal{/*display:none !important;*/}
 }
 @media screen and (max-width: 540px) {}
 @media screen and (max-width: 479px) {
