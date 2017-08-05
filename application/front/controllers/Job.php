@@ -119,12 +119,20 @@ class Job extends MY_Controller {
                 $this->data['lname1'] = $userdata[0]['lname'];
                 $this->data['email1'] = $userdata[0]['email'];
                 $this->data['phnno1'] = $userdata[0]['phnno'];
-                //$this->data['language2'] = $userdata[0]['language'];
+                $this->data['pincode1'] = $userdata[0]['pincode'];
+                $this->data['address1'] = $userdata[0]['address'];
                 $this->data['dob1'] = $userdata[0]['dob'];
                 $this->data['gender1'] = $userdata[0]['gender'];
             }
         }
 
+ //Retrieve City data Start   
+ $contition_array = array('status' => '1','city_id' => $userdata[0]['city_id']);
+        $citytitle = $this->common->select_data_by_condition('cities', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        $this->data['city_title'] = $citytitle[0]['city_name'];
+ //Retrieve City data End
+     
       //echo "<pre>"; print_r($this->data['dob1']); die();
 
     //Retrieve Language data Start
@@ -206,8 +214,9 @@ class Job extends MY_Controller {
 
         $this->data['city_data']= array_values($loc);
 
+       
 
-
+//echo "<pre>"; print_r( $this->data['city_data']);die();
         $this->data['demo'] = array_values($result1);
         
 
@@ -236,11 +245,14 @@ class Job extends MY_Controller {
         $this->form_validation->set_rules('language', 'Language', 'required');
         $this->form_validation->set_rules('dob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
+        $this->form_validation->set_rules('city', 'City', 'required');
+        $this->form_validation->set_rules('pincode', 'Pincode', 'required');
+        $this->form_validation->set_rules('address', 'Address', 'required');
 
+         // Language  start   
         $language = $this->input->post('language');
-
         $language = explode(',',$language); 
-        // Language  start   
+       
       
       if(count($language) > 0){ 
           foreach($language as $lan){
@@ -258,7 +270,18 @@ class Job extends MY_Controller {
       }
        // Language  End   
 
-//echo "<pre>";print_r( $language1);die();
+ // City  start   
+        $city = $this->input->post('city'); 
+       if($city != " "){ 
+     $contition_array = array('city_name' => $city, 'status' => '1');
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $citydata = $this->common->select_data_by_condition('cities',$contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($citydata){
+         $citytitle = $citydata[0]['city_id'];
+           }
+      }
+ // City  End   
+
           $bod = $this->input->post('dob');
                 //echo $bod;
         $bod = str_replace('/', '-', $bod);
@@ -297,11 +320,14 @@ class Job extends MY_Controller {
                     'language' => $language1,
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
+                    'city_id' =>  $citytitle,
+                    'pincode' =>  $this->input->post('pincode'),
+                    'address' =>   $this->input->post('address'),
                     'user_id' => $userid,
                     'modified_date' => date('Y-m-d h:i:s', time())
                 );
-                
-             //echo "<pre>"; print_r($data);die();
+                  
+           // echo "<pre>"; print_r($data);die();
 
                 $updatedata = $this->common->update_data($data, 'job_reg', 'user_id', $userid);
                 if ($updatedata) {
@@ -321,13 +347,16 @@ class Job extends MY_Controller {
                     'language' => $language1,
                     'dob' => date('Y-m-d', strtotime($bod)),
                     'gender' => $this->input->post('gender'),
+                    'city_id' =>  $citytitle,
+                    'pincode' => $this->input->post('pincode'),
+                    'address' =>  $this->input->post('address'),
                     'status' => 1,
                     'is_delete' => 0,
                     'created_date' => date('Y-m-d h:i:s', time()),
                     'user_id' => $userid,
                     'job_step' => 1
                 );
-             //  echo "<pre>"; print_r($data);die();
+            //   echo "<pre>"; print_r($data);die();
 
 
                 $insert_id = $this->common->insert_data_getid($data, 'job_reg');
