@@ -475,12 +475,17 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
         -webkit-transform: scale(1.6);
     }
 }*/
-.edit_profile_progress{/*display:none;*/}
+.edit_profile_progress{display:none;}
 .fresher_radio{padding:6px 8px;}
 .fileContainer {
     overflow: hidden;
     position: relative;
+	
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
 }
+.fileContainer i{padding:0 !important; margin:0 !important;}
 
 .fileContainer [type=file] {
     cursor: inherit;
@@ -501,6 +506,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .fileContainer [type=file] {
     cursor: pointer;
 }
+.fileContainer:hover{background: #d9d9d9 none repeat scroll 0 0;}
 
 
 

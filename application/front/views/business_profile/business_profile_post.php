@@ -826,8 +826,9 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
-                                                    </div></div>
+                                                    <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                    </div>
+												</div>
 
 
                                                 <label for="file-1">
@@ -836,12 +837,24 @@
                                                     <i class="fa fa-music upload_icon" > Audio </i>
                                                     <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
                                                 </label>
-												
+											<!---  safari upload  >
 												<label class="fileContainer">
 													<i class=" fa fa-camera upload_icon" > Photo</i>
-													<input type="file"/>
+													<input type="file"  / >
 												</label>
-
+												<label class="fileContainer">
+													<i class=" fa fa-video-camera upload_icon" > Video </i>
+													<input type="file"  / >
+												</label>
+												<label class="fileContainer">
+													<i class="fa fa-music upload_icon" > Audio </i>
+													<input type="file"  / >
+												</label>
+												<label class="fileContainer">
+													<i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
+													<input type="file"  / >
+												</label -->
+											
 
                                             </li>
                                         </ul>
