@@ -4093,6 +4093,9 @@ $files[] = $_FILES;
      if($job_add_edu[0]['board_secondary'] != ''){
         $count++;
     }
+    if($job_add_edu[0]['school_secondary'] != ''){
+        $count++;
+    }
      if($job_add_edu[0]['percentage_secondary'] != ''){
         $count++;
     }
@@ -4173,9 +4176,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($workdata[0]['work_certificate'] != ''){
         $count++;
     } 
-     
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+     $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
   // $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0','fname !=' => '','lname !=' => '','email !=' => '','keyskill !=' => '','experience !=' => '','work_job_title !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','work_job_industry !=' => '','work_job_city !=' => '');
@@ -4908,8 +4911,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $count++;
     } 
      
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+      $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
               
@@ -5279,8 +5283,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $count++;
     } 
      
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+     $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
 

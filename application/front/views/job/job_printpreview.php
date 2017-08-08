@@ -194,7 +194,7 @@ if ($returnpage == 'recruiter') {
 
                 </div>
                 <!-- text head end -->
-                    <div class="edit_profile_progress">
+                    <div class="edit_profile_progress" style="display: block;">
         <div class="progre_bar_text">
             <p>Please fill-up your full profile then 
 you can find better job and Recruiter
