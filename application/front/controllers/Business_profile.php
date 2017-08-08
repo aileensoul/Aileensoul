@@ -4067,7 +4067,7 @@ class Business_profile extends MY_Controller {
         $artdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $slugid = $artdata[0]['business_slug'];
 
-        if ($id == $slug_id || $id == '') {
+        if ($id == $slugid || $id == '') {
 
 
 

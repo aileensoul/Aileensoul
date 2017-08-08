@@ -274,7 +274,7 @@
                                                         <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
                                                         <?php } ?>>
                                                         <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                                            <br> (<?php echo (count($businessfollowerdata)); ?>)
+                                                            <br> (<?php echo (count($flubuscount)); ?>)
                                                         </a>
                                                     </li>
                                                     <li  
