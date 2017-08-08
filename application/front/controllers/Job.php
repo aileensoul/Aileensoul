@@ -4593,6 +4593,189 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
         $this->data['demo'] = array_values($result1);
 
+        //For Counting Profile data start
+    $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+
+    $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
+
+    // echo '<pre>';
+    // print_r($job_reg);
+    // exit;
+
+    $count = 0;
+
+    if($job_reg[0]['fname'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['lname'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['email'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['keyskill'] != ''){
+        $count++;
+    }
+     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+        $count++;
+    }
+    if($job_reg[0]['work_job_title'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['work_job_industry'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['work_job_city'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['phnno'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['language'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['dob'] != '0000-00-00'){
+        $count++;
+    }
+    if($job_reg[0]['gender'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['city_id'] != '0'){
+        $count++;
+    }
+    if($job_reg[0]['pincode'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['address'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_name'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_duration'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_description'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_as'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_duration'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_organization'] != ''){
+        $count++;
+    }
+
+     $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
+    $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  
+
+     if($job_add_edu[0]['board_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['school_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['edu_certificate_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['board_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_secondary'] != ''){
+        $count++;
+    }
+
+     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['board_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['stream_higher_secondary'] != ''){
+        $count++;
+    }
+      if($job_add_edu[0]['school_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
+        $count++;
+    }
+
+$contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+// echo '<pre>';
+//     print_r($jobgrad);
+//     exit;
+     if($jobgrad[0]['degree'] != ''){
+        $count++;
+    } if($jobgrad[0]['stream'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['university'] != ''){
+        $count++;
+    } if($jobgrad[0]['college'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['grade'] != ''){
+        $count++;
+    } if($jobgrad[0]['percentage'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['pass_year'] != ''){
+        $count++;
+    } if($jobgrad[0]['edu_certificate'] != ''){
+        $count++;
+    }
+
+  $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
+  $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  // echo '<pre>';
+  //   print_r($workdata);
+  //   exit;
+
+   if($workdata[0]['experience_year'] != ''){
+        $count++;
+    } if($workdata[0]['experience_month'] != ''){
+        $count++;
+    }
+     if($workdata[0]['jobtitle'] != ''){
+        $count++;
+    } if($workdata[0]['companyname'] != ''){
+        $count++;
+    }
+     if($workdata[0]['companyemail'] != ''){
+        $count++;
+    } if($workdata[0]['companyphn'] != ''){
+        $count++;
+    }
+     if($workdata[0]['work_certificate'] != ''){
+        $count++;
+    } 
+     
+      $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
+//For Counting Profile data End
+
 
 
 
@@ -4733,7 +4916,7 @@ public function job_applied_post() {
                 // echo "<pre>"; print_r($this->data['postdetail']); die();
 
 
-                 //For Counting Profile data start
+    //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());

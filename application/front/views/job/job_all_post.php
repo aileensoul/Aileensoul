@@ -106,6 +106,7 @@
                         </div>
                      </div>
                   </div>
+                  <div class="edi_origde">
                    <div class="edit_profile_progress" style="display: block;">
         <div class="progre_bar_text">
             <p>Please fill-up your full profile then 
@@ -125,6 +126,7 @@ can easy to find you.</p>
   </div>
          </div>
         </div> 
+        </div>
                </div>
             </div>
             <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right animated fadeInUp">
