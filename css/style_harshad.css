@@ -195,7 +195,7 @@ scrollbar[orient="vertical"] {
 
 /***  harshad  ***/
 /*.profile-text textarea{height:100px;}*/
-.modal.message-box span.mes{padding:10px 25px 0;}
+.modal.message-box span.mes{padding:10px 34px 0;}
 .cover .modal-close{line-height:32px !important;}
 #popup-form input[type="submit"]{margin:15px 1px 10px 0;}
 .custom-c .middle-section{background:#f3f3f3;}
@@ -217,7 +217,7 @@ scrollbar[orient="vertical"] {
 
 .flw_msg_btn ul li button.bg_following{margin-bottom:0;}
 
-.common-form fieldset.marital-status input, .common-form fieldset.gender-custom input {margin:-2px 0 0 !important; height:18px; }
+.common-form fieldset.marital-status input, .common-form fieldset.gender-custom input {margin:0px 0 0 !important; height:35px; }
 .common-form fieldset .radio_check_text{padding-right:20px;}
 
 /*.select2-container-multi .select2-choices .select2-search-choice {box-shadow:none !important; height:29px; line-height:13px !important; padding:0 !important;}
