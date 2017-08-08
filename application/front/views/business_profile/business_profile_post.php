@@ -1637,12 +1637,15 @@
                                                                                     <?php } ?>
                                                                                 </div>
                                                                                 <div class="comment-name">
+
+                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
                                                                                     <b title=" <?php echo $companyname; ?>">  
                                                                                         <?php
                                                                                         echo $companyname;
                                                                                         echo '</br>';
                                                                                         ?>
                                                                                     </b>
+                                                                                    </a>
                                                                                 </div>
                                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                                                     <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">

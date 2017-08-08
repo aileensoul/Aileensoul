@@ -2629,12 +2629,12 @@ class Business_profile extends MY_Controller {
 
                     }
                     $return_html .= '</div>
-                                            <div class="comment-name">
+                                            <div class="comment-name"><a href="' . base_url('business_profile/business_profile_manage_post/' . $slugname1) . '">
                                                 <b title="' . $companyname . '">';
                     $return_html .= $companyname;
                     $return_html .= '</br>';
 
-                    $return_html .= '</b>
+                    $return_html .= '</b></a>
                                             </div>
                                             <div class="comment-details" id="showcomment' . $rowdata['business_profile_post_comment_id'] . '">';
                     $new_product_comment = $this->common->make_links($rowdata['comments']);

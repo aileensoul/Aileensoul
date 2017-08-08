@@ -1987,6 +1987,8 @@
                                                                             <?php
                                                                             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
+                                                                            $slug_id = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_slug;
+
                                                                             $business_user = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->company_name;
                                                                             ?>
                                                                             <?php if ($business_userimage) { ?>
@@ -2021,11 +2023,11 @@
 
                                                                         </div>
                                                                         <div class="comment-name">
-
-                                                                            <b>  <?php
+                                                                           
+                                                                            <b>  <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slug_id); ?>"> <?php
                                                                                 echo ucfirst(strtolower($companyname));
                                                                                 echo '</br>';
-                                                                                ?>
+                                                                                ?></a>
                                                                             </b>
                                                                         </div>
                                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
