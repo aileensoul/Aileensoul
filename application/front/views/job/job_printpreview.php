@@ -1475,7 +1475,7 @@ if ($returnpage == 'recruiter') {
                             </div>
 
                         </div>
-     <div class="edit_pr_bar edit_profile_progress">
+     <div class="edit_pr_bar edit_profile_progress hidden-xs">
         <div class="progre_bar_text">
             <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
         </div>

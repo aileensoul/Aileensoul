@@ -15025,6 +15025,7 @@ left: 5px;
         margin-left: 16px;
         margin-right: 16px;
     }
+
 }
 @media (min-width: 1280px) {
     .container {
@@ -15034,6 +15035,11 @@ left: 5px;
     #InboxContainer:before {right:27px;}
 }
 @media screen and (max-width: 1200px) {
+    .circle-1 strong{font-size: 27px;   top: 31px;}
+    .edit_profile_job{bottom: 32px;}
+    .edit_pr_bar .circles{padding-left: 0px;}
+    .circle-1 canvas{width: 130px;}
+    .edit_pr_bar{width: 19%!important}
     .post-design-top{float: left;}
     .action-buttons {
         height: 25px;
@@ -15041,6 +15047,8 @@ left: 5px;
         padding: 5px 7px;
         width: 25px;
     }
+    .job_edit_menu{width: 22.5% !important;}
+    .job_edit_pr{padding-left: 225px;}
     .comment-name {
         width: 85%;
     }
