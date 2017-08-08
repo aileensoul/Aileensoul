@@ -236,7 +236,7 @@
                                             $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
                                         }
                                         if ($businessdata1[0]['other_industrial']) {
-                                            echo ucfirst(strtolower($businessdata1[0]['other_industrial']));
+                                            echo ucwords($businessdata1[0]['other_industrial']);
                                         }
                                         ?>
 
@@ -1444,9 +1444,9 @@
                                                                         <?php
                                                                         if ($category) {
 
-                                                                            echo ucfirst(strtolower($category));
+                                                                            echo $category;
                                                                         } else {
-                                                                            echo ucfirst(strtolower($businessdata[0]['other_industrial']));
+                                                                            echo ucwords($businessdata[0]['other_industrial']);
                                                                         }
                                                                         ?>
 
