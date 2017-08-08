@@ -4460,7 +4460,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($postdata);die();
-         $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
+         $contition_array = array('status' => '1','type' => '4');
         $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
        
@@ -4502,26 +4502,48 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                     $recommendata1[] = $data1;
 
                }
-
-$work_job_title=$jobdata[0]['work_job_title'];
+//echo "<pre>";print_r( $recommendata1);die();
+ // Retrieve data according to city match start   
 $work_job_city=$jobdata[0]['work_job_city'];
-$work_job_industry=$jobdata[0]['work_job_industry'];
-
-        foreach ($postdata as $post) {
-
 
             $work_city=explode(',',$work_job_city);
-            //echo "<pre>";print_r($work_city);
+      
+                foreach ($work_city as $city)
+                {
+                    $data='*';
+                    $contition_array = array('FIND_IN_SET("'.$city.'",city)!='=>'0'); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_city[] = $data1;
+                }       
+        // Retrieve data according to city match End   
+
+ // Retrieve data according to industry match start   
+$work_job_industry=$jobdata[0]['work_job_industry'];
+  foreach ($postdata as $post) {
+
+                    $data='*';
+                    $contition_array = array('industry_type'=>$work_job_industry); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_industry[] = $data1;
+
+    }
+ // Retrieve data according to industry match End   
+
+// Retrieve data according to Job Title match start   
+$work_job_title=$jobdata[0]['work_job_title'];
+
+      
                 foreach ($postdata as $post)
                 {
-                    // $data='*';
-                    // $search_condition = "(fname LIKE '%$work_job_title%')";
-                    // $contition_array = array('is_delete' => '0');
-                    // $this->data['users'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
-                }
-         
-        }
-      // die();
+                     $data='*';
+                    $contition_array = array('post_name'=>$work_job_title); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_title[] = $data1;
+
+                }       
+        // Retrieve data according to  Job Title match End   
+        //echo "<pre>";print_r($recommendata_industry);
+     // die();
 
                  if (count($recommendata) == 0) {
                 
@@ -4533,8 +4555,21 @@ $work_job_industry=$jobdata[0]['work_job_industry'];
                 $unique = $recommendata;
                //   $unique = array_filter(array_map('trim', $unique));
             }
+             elseif (count($recommendata_city) == 0) {
+                $unique = $recommendata_city;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
+             elseif (count($recommendata_industry) == 0) {
+                $unique = $recommendata_industry;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
+             elseif (count($recommendata_industry) == 0) {
+                $unique = $recommendata_title;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
             else {
-                $unique = array_merge($recommendata1, $recommendata);
+                $unique = array_merge($recommendata1, $recommendata,$recommendata_city,$recommendata_industry,$recommendata_title);
+              // echo "<pre>";print_r($unique);die();
                   //$unique = array_filter(array_map('trim', $unique));
             }
         
@@ -4542,6 +4577,7 @@ $work_job_industry=$jobdata[0]['work_job_industry'];
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $qbc  = array_filter($qbc);
+               //echo "<pre>";print_r($qbc);die();
                  $this->data['postdetail'] = $qbc;
                  
                
