@@ -285,15 +285,16 @@
                                   <fieldset class="full-width" <?php if ($skills) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">Skills<span style="color:red">*</span>:</label>
 
+                                    <input id="skills2" name="skills" tabindex="7" size="90" placeholder="Enter SKills">
 
-                                    <select class="skill_other full-width" name="skills[]" tabindex="2" id="skills" multiple="multiple">
+                                    <!-- <select class="skill_other full-width" name="skills[]" tabindex="2" id="skills" multiple="multiple">
 
                                       <option></option>
 
-                                 <?php foreach ($skill as $ski) { ?>
-                                  <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
-                                 <?php } ?>
-                                    </select> 
+                                 <?php //foreach ($skill as $ski) { ?>
+                                  <option value="<?php //echo $ski['skill_id']; ?>"><?php// echo $ski['skill']; ?></option>
+                                 <?php //} ?>
+                                    </select>  -->
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
                                  
