@@ -501,6 +501,8 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
     top: 0;
 }
 
+.profile-box-left .edi_origde{}
+
 /* Example stylistic flourishes */
 
 .fileContainer [type=file] {
