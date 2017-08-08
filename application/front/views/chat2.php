@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         if ($user['user_id'] == $toid) {
                                             echo "active";
                                         }
-                                        ?>" onclick="new_chat(<?php echo $user['user_id'] ?>);" id="user_list_<?php echo $user['user_id'] ?>">
+                                        ?>" onclick="new_chat(<?php echo $user['user_id'] ?>, <?php echo $user['profile_id'] ?>);" id="user_list_<?php echo $user['user_id'] ?>_<?php echo $user['profile_id'] ?>">
                                             <?php
                                             $filepath = FCPATH . $this->config->item('user_thumb_upload_path') . $user['user_image'];
 
@@ -104,13 +104,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     }
                                 } else {
                                     $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
+
+                                    // from job
+                                    if ($message_from_profile == 1) {
+                                        $contition_array = array('user_id' => $toid, 'is_delete' => '0', 'status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'job_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['job_id'];
+                                    }
+
+                                    // from recruiter
+                                    if ($message_from_profile == 2) {
+                                        $contition_array = array('user_id' => $toid, 'is_delete' => '0', 're_status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 'rec_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['rec_id'];
+                                    }
+
+                                    // from freelancer hire
+                                    if ($message_from_profile == 3) {
+                                        $contition_array = array('user_id' => $toid, 'is_delete' => '0', 'status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = 'reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['reg_id'];
+                                    }
+                                    // from freelancer post
+                                    if ($message_from_profile == 4) {
+                                        $contition_array = array('user_id' => $toid, 'is_delete' => '0', 'status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'freelancer_post_reg_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['freelancer_post_reg_id'];
+                                    }
+
+                                    // from business
+                                    if ($message_from_profile == 5) {
+                                        $contition_array = array('user_id' => $toid, 'business_profile.is_deleted' => '0', 'status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_profile_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['business_profile_id'];
+                                    }
+
+                                    // from artistic
+                                    if ($message_from_profile == 6) {
+                                        $contition_array = array('user_id' => $toid, 'is_delete' => '0', 'status' => '1');
+                                        $message_from_profile_id1 = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $message_from_profile_id1 = $this->data['message_from_profile_id'] = $message_from_profile_id1[0]['art_id'];
+                                    }
+
+
+
                                     if ($lstusrdata) {
                                         ?>
                                         <li class="clearfix <?php
                                         if ($lstusrdata[0]['user_id'] == $toid) {
                                             echo "active  last" . $id;
                                         }
-                                        ?>" onclick="new_chat(<?php echo $id ?>);" id="user_list_<?php echo $id ?>">
+                                        ?>" onclick="new_chat(<?php echo $id ?>,<?php echo $message_from_profile_id1 ?>);" id="user_list_<?php echo $id ?>_<?php echo $message_from_profile_id1 ?>">
                                             <?php if ($last_user_data['user_image']) { ?>
                                                 <div class="chat_heae_img">
                                                     <img src="<?php echo $last_user_data['user_image']; ?>" alt="" height="50px" weight="50px">
@@ -148,12 +192,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         if ($user['user_id'] != $toid) {
                                             ?>
-                                                    <!--<a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>">-->
+                                                                                <!--<a href="<?php echo base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile; ?>">-->
                                             <li class="clearfix <?php
                                             if ($user['user_id'] == $toid) {
                                                 echo "active";
                                             }
-                                            ?>" onclick="new_chat(<?php echo $user['user_id'] ?>);" id="user_list_<?php echo $user['user_id'] ?>">
+                                            ?>" onclick="new_chat(<?php echo $user['user_id'] ?>,<?php echo $user['profile_id'] ?>);" id="user_list_<?php echo $user['user_id'] ?>_<?php echo $user['profile_id'] ?>">
 
                                                 <?php
                                                 if ($message_from_profile == 2) {
@@ -415,7 +459,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 $i = 0;
                                 foreach ($smiley_table as $key => $value) {
                                     ?>
-                                                                    <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                                                                                <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
                                     <?php
                                     $i++;
                                 }
@@ -616,7 +660,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             });
 
 
-                            //            $.getJSON('<?php // echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id       ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+                            //            $.getJSON('<?php // echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id              ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
                             //                callback();
                             //            });
                         }
@@ -624,6 +668,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     var append_chat_data = function (chat_data) {
                         chat_data.forEach(function (data) {
+                            
                             var is_me = data.guid == getCookie('user_guid');
                             var userid = '<?php echo $userid; ?>';
                             var curuser = data.message_from;
@@ -716,10 +761,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             var offset = 52560000; // 100 years min
                             request_timestamp = parseInt(Date.now() / 1000 - offset);
                         }
-                        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' . $message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
+
+//                        var id = <?php echo $toid ?>;
+//                        var message_from_profile = <?php echo $message_from_profile ?>;
+//                        var message_to_profile = <?php echo $message_to_profile ?>;
+//                        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+//                        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+
+                        var userlist_id = $('#userlist li.active').attr('id');
+                        var res1 = userlist_id.split("_");
+                        var id = res1[2];
+
+                        var message_from_profile = <?php echo $message_from_profile ?>;
+                        var message_to_profile = <?php echo $message_to_profile ?>;
+                        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+                        var message_to_profile_id = res1[3];
+                        
+//                        alert(message_from_profile_id);
+//                        alert(message_to_profile_id);
+
+                        $.getJSON('<?php echo base_url() . 'api/get_messages/' ?>' + id + '/' + message_from_profile + '/' + message_to_profile + '/' + message_from_profile_id + '/' + message_to_profile_id + '?timestamp=' + request_timestamp, function (data) {
                             //alert(data.id);
                             append_chat_data(data);
-
+                            
                             var newIndex = data.length - 1;
                             if (typeof (data[newIndex]) != 'undefined') {
                                 request_timestamp = data[newIndex].timestamp;
@@ -833,11 +897,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             var offset = 52560000; // 100 years min
                             request_timestamp = parseInt(Date.now() / 1000 - offset);
                         }
-                        var id = <?php echo $toid ?>;
+
+//                        var id = <?php echo $toid ?>;
+//                        var message_from_profile = <?php echo $message_from_profile ?>;
+//                        var message_to_profile = <?php echo $message_to_profile ?>;
+//                        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+//                        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+
+                        var userlist_id = $('#userlist li.active').attr('id');
+                        var res1 = userlist_id.split("_");
+                        var id = res1[2];
+
                         var message_from_profile = <?php echo $message_from_profile ?>;
                         var message_to_profile = <?php echo $message_to_profile ?>;
                         var message_from_profile_id = <?php echo $message_from_profile_id ?>;
-                        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+                        var message_to_profile_id = res1[3];
 
                         $.ajax({
                             type: 'POST',
@@ -862,11 +936,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             var offset = 52560000; // 100 years min
                             request_timestamp = parseInt(Date.now() / 1000 - offset);
                         }
-                        var id = <?php echo $toid ?>;
+
+//                        var id = <?php echo $toid ?>;
+//                        var message_from_profile = <?php echo $message_from_profile ?>;
+//                        var message_to_profile = <?php echo $message_to_profile ?>;
+//                        var message_from_profile_id = <?php echo $message_from_profile_id ?>;
+//                        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+
+                        var userlist_id = $('#userlist li.active').attr('id');
+                        var res1 = userlist_id.split("_");
+                        var id = res1[2];
+
                         var message_from_profile = <?php echo $message_from_profile ?>;
                         var message_to_profile = <?php echo $message_to_profile ?>;
                         var message_from_profile_id = <?php echo $message_from_profile_id ?>;
-                        var message_to_profile_id = <?php echo $message_to_profile_id ?>;
+                        var message_to_profile_id = res1[3];
+
 
                         $.ajax({
                             type: 'POST',
@@ -880,7 +965,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     $('.last' + id).hide();
                                     document.getElementById('chat').style.display = 'none';
                                 }
-
                             }
                         });
 
@@ -1120,18 +1204,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
                 </script>
                 <script type="text/javascript">
-                    function new_chat(from) {
+                    function new_chat(toid, to_profile_id) {
 
                         $('#userlist li').removeClass('active');
-                        $('#userlist li#user_list_' + from).addClass('active');
-
+                        $('#userlist li#user_list_' + toid + '_' + to_profile_id).addClass('active');
+                      
                         if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
                             var offset = 52560000; // 100 years min
                             request_timestamp = parseInt(Date.now() / 1000 - offset);
                         }
-                        alert(from);
-                        $.getJSON('<?php echo base_url() . 'api/get_click_messages/'+ from +'/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' . $message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
-                            //alert(data.id);
+                        $.getJSON('<?php echo base_url() . 'api/get_click_messages/' ?>' + toid + '<?php echo '/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' ?>' + to_profile_id + '?timestamp=' + request_timestamp, function (data) {
+                            $("#received").html('');
                             append_chat_data(data);
 
                             var newIndex = data.length - 1;
@@ -1142,3 +1225,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
 
                 </script>
+
+                

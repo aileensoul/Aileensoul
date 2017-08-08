@@ -74,6 +74,17 @@ class Chat_model extends CI_Model {
         return array_reverse($query->result_array());
     }
     
+    function get_messages1($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
+        $where = '((message_from="' . $userid . '" AND message_to ="' . $id . '") OR (message_to="' . $userid . '" AND message_from ="' . $id . '")) AND ((message_from_profile = "' . $message_from_profile . '" AND message_to_profile ="' . $message_to_profile . '" ) OR (message_from_profile = "' . $message_to_profile . '" AND message_to_profile ="' . $message_from_profile . '" )) AND ((message_from_profile_id="' . $message_from_profile_id . '"AND message_to_profile_id ="' . $message_to_profile_id . '") OR (message_to_profile_id="' . $message_from_profile_id . '" AND message_from_profile_id ="' . $message_to_profile_id . '"))';
+        $where .= 'AND is_message_from_delete !="' . $userid . '" AND is_message_to_delete !="' . $userid . '"';
+        $this->db->where($where);
+
+        $this->db->order_by('timestamp', 'DESC');
+        $query = $this->db->get('messages');
+    
+        return array_reverse($query->result_array());
+    }
+    
     function last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id) {
         // khyati start 
         

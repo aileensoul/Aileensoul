@@ -12,11 +12,11 @@ class Api extends CI_Controller {
     }
 
     public function send_message($id = '', $message_from_profile = '', $message_from_profile_id = '', $message_to_profile = '', $message_to_profile_id = '') {
-        $directions = json_decode($_POST['json'],true);
+        $directions = json_decode($_POST['json'], true);
 
         $userid = $this->session->userdata('aileenuser');
 
-      $message = $directions['message']; 
+        $message = $directions['message'];
         //$this->input->post('message', null);
         //$message = $this->common->make_links($message);
         $message = str_replace('"', '', $message);
@@ -37,7 +37,7 @@ class Api extends CI_Controller {
         //$message_from_profile_id = $this->input->post('message_from_profile_id');
 
         $this->Chat_model->add_message($message, $nickname, $guid, $userid, $id, $message_from_profile, $message_from_profile_id, $message_to_profile, $message_to_profile_id);
-       $this->_setOutput($message); 
+        $this->_setOutput($message);
     }
 
     public function get_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
@@ -101,40 +101,36 @@ class Api extends CI_Controller {
             }
             $update_data1 = $this->common->update_data($update_data, 'messages', 'id', $data['id']);
         }
-        
-         $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
-         
-      
-            if (preg_match('/<img/', $messages[0]['message'])) {
-                $messages = str_replace("\\", "", $messages[0]['message']);
-            } else {
-                $messages_new = $this->common->make_links($messages[0]['message']);
-                $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
-            }
-          
-       
+
+        $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
+
+
+        if (preg_match('/<img/', $messages[0]['message'])) {
+            $messages = str_replace("\\", "", $messages[0]['message']);
+        } else {
+            $messages_new = $this->common->make_links($messages[0]['message']);
+            $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+        }
+
+
 
         if ($update_data1) {
-             echo json_encode(
-                        array(
-                            "history" => 1,
-                            "message" => $messages
-                           
-                ));
+            echo json_encode(
+                    array(
+                        "history" => 1,
+                        "message" => $messages
+            ));
         } else {
-             echo json_encode(
-                        array(
-                            "history" => 2,
-                            "message" => $messages,
-                            
-                ));
+            echo json_encode(
+                    array(
+                        "history" => 2,
+                        "message" => $messages,
+            ));
         }
-        
-        
     }
-    
-     public function last_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
-      $userid = $this->session->userdata('aileenuser');
+
+    public function last_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
+        $userid = $this->session->userdata('aileenuser');
         $timestamp = $this->input->post('timestamp');
         $id = $this->input->post('id');
         $message_from_profile = $this->input->post('message_from_profile');
@@ -143,20 +139,40 @@ class Api extends CI_Controller {
         $message_to_profile_id = $this->input->post('message_to_profile_id');
 
         $messages = $this->Chat_model->last_messages($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
-         
-      echo '<pre>'; print_r($messages); die();
-            if (preg_match('/<img/', $messages[0]['message'])) {
-                $messages = str_replace("\\", "", $messages[0]['message']);
-            } else {
-                $messages_new = $this->common->make_links($messages[0]['message']);
-                $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
-            }
-          
-       
-echo  $messages; 
-    
+
+        echo '<pre>';
+        print_r($messages);
+        die();
+        if (preg_match('/<img/', $messages[0]['message'])) {
+            $messages = str_replace("\\", "", $messages[0]['message']);
+        } else {
+            $messages_new = $this->common->make_links($messages[0]['message']);
+            $messages = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+        }
+
+
+        echo $messages;
     }
-    
+
+    public function get_click_messages($id = '', $message_from_profile = '', $message_to_profile = '', $message_from_profile_id = '', $message_to_profile_id = '') {
+        $userid = $this->session->userdata('aileenuser');
+        $timestamp = $this->input->get('timestamp', null);
+        $messages = $this->Chat_model->get_messages1($timestamp, $userid, $id, $message_from_profile, $message_to_profile, $message_from_profile_id, $message_to_profile_id);
+   
+        $i = 0;
+        foreach ($messages as $mes) {
+            if (preg_match('/<img/', $mes['message'])) {
+                $messages[$i]['message'] = str_replace("\\", "", $mes['message']);
+            } else {
+                $messages_new = $this->common->make_links($mes['message']);
+                $messages[$i]['message'] = nl2br(htmlspecialchars_decode(htmlentities($messages_new, ENT_QUOTES, 'UTF-8')));
+            }
+            $i++;
+        }
+
+        $this->_setOutput($messages);
+    }
+
     private function _setOutput($data) {
         header('Cache-Control: no-cache, must-revalidate');
         header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
