@@ -2261,7 +2261,7 @@ class Job extends MY_Controller {
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski);
+     $contition_array = array('skill' => $ski,'type' => 3);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
      if($skilldata){
@@ -4460,7 +4460,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo "<pre>"; print_r($postdata);die();
-         $contition_array = array('status' => '1','type' => '4');
+         $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
         $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
        
@@ -4502,7 +4502,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                     $recommendata1[] = $data1;
 
                }
-//echo "<pre>";print_r( $recommendata1);die();
+
  // Retrieve data according to city match start   
 $work_job_city=$jobdata[0]['work_job_city'];
 
@@ -6765,7 +6765,7 @@ public function delete_workexp()
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski);
+     $contition_array = array('skill' => $ski,'type' => 3);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
      if($skilldata){
