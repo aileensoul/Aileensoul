@@ -110,23 +110,17 @@ if ($this->session->flashdata('success')) {
 
                                 </fieldset>
 
-
-
-
                                 </form>
                             </div>    
                         </div>
                     </div>
                     <!-- middle section end -->
 
-
                 </div>
             </div>
         </div>
     </section>
     <!-- END CONTAINER -->
-
-
 
 </body>
 </html>
