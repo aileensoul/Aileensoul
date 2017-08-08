@@ -666,8 +666,8 @@ if($userid){?>
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
-    <ul class="">
-    <li class="active2">
+    <ul class="khyati">
+<!--    <li class="active2">
         <a href="http://localhost/aileensoul/business_profile/business_resume/zalak-infotech-pvt-ltd" onclick="not_active(1422)">
             <div class="notification-database">
                 <div class="notification-pic">
@@ -800,7 +800,7 @@ if($userid){?>
                 </div>
             </div>
         </a>
-    </li>
+    </li>-->
 </ul>
 </div>
 
@@ -1660,6 +1660,8 @@ if($userid){?>
             });
 
         }
+        
+         
 
         function notheader()
         {
@@ -1673,8 +1675,12 @@ if($userid){?>
                 data: '',
                 success: function (data) {
                     //    alert(data);
-                    $('#' + 'notificationsBody').html(data);
-
+                    $('.' + 'khyati').html(data);
+//$("#notification_main_in").mCustomScrollbar({
+//                scrollButtons:{
+//                    enable:true
+//                }
+//            });
                 }
 
 

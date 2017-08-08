@@ -1039,7 +1039,7 @@ array(
         // $notification .= '</div>';
         //   $notification .= '</div></div></li>';
        
-        $notification = '<ul class="">';
+        //$notification = '<ul class="">';
         $i = 0;
         foreach ($totalnotification as $total) {
 //1     
@@ -1655,7 +1655,7 @@ array(
                 break;
             }
         }
-        $notification .= '</div> </ul>';
+      //  $notification .= '</div> </ul>';
 
         $notification .= '<div id="notificationFooter">';
         $notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
@@ -2736,5 +2736,146 @@ array(
             'not_active' => 2
         );     
             $updatedata = $this->common->update_data($data, 'notification', 'not_id', $not_id);
+        }
+        
+        public function not_view() {
+    $data = '<ul class="">
+        <li class=""><a href="http://localhost/aileensoul/chat/abc/93/6/6/184" class="clearfix msg_dot" style="padding:0px!important;"><div class="notification-database"><div class="notification-pic"><div class="post-img-div">ZP</div></div><div class="notification-data-inside"><h6>Zalak</h6><div class="msg_desc_a">z4</div><div class="data_noti_msg"><span class="day-text2">1 hour ago</span></div></div></div></a></li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/zalak-infotech-pvt-ltd" onclick="not_active(1422)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">Z</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Zalak Infotech Pvt Ltd</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/zalak-infotech-pvt-ltd" onclick="not_active(1387)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">Z</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Zalak Infotech Pvt Ltd</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">1 week ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/60" onclick="not_active(1366)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/hemstechnosys-pvt-ltd" onclick="not_active(1270)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">H</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  HEMSTECHNOSYS PVT. LTD.</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/rout-digital-duniya" onclick="not_active(1195)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/index3.jpg">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  ROUT DIGITAL DUNIYA</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/abhinandan-hosiery" onclick="not_active(1154)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/65" onclick="not_active(1151)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/66" onclick="not_active(1150)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/67" onclick="not_active(1149)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="">
+        <a href="http://localhost/aileensoul/artistic/artistic_profile/318" onclick="not_active(1126)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">DP</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Dhruti Panchal</b> <span class="noti-msg-y"> Started following you in artistic.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">1 month ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>';
+    echo $data;
         }
 }

@@ -97,6 +97,8 @@ $(window).load(function(){
 <!-- style for span id=notification_count end-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
+<link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/style.css')?>">
+  <link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.css')?>">
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php // echo base_url('js/script.js');  ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js');  ?>"></script> -->
@@ -647,19 +649,38 @@ $(window).load(function(){
               <span id="notification_count"></span>
           </a></li> -->
                                         <!-- general notification start -->
-                                        <li id="notification_li">
+<!--                                        <li id="notification_li">
                                             <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
 
                                                 <span id="notification_count"></span>
 
                                             </a><div id="notificationContainer">
-                                                <div id="notificationTitle">Notifications</div>
+                                                <div id="notificationTitle">Notddifications</div>
 
                                                 <div id="notificationsBody" class="notifications">
 
 
                                                 </div>
-                                        </li>
+                                        </li>-->
+                                     <li id="notification_li">
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+
+                                        <span id="notification_count"></span>
+
+                                    </a><div id="notificationContainer">
+                                        <div id="notificationTitle">Notddifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+
+                                             <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                            
+<div>
+    <ul class="khyati">
+        
+    </ul></div>
+
+                                    </div>
+
+                                        </div>
+                                </li>
                                         <!-- general notification end -->
                                         <?php
                                         $userid = $this->session->userdata('aileenuser');
@@ -994,19 +1015,40 @@ $(window).load(function(){
               <span id="notification_count"></span>
           </a></li> -->
                                     <!-- general notification start -->
-                                    <li id="notification_li">
+                                   <!--  <li id="notification_li">
                                         <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
 
                                             <span id="notification_count"></span>
 
                                         </a><div id="notificationContainer">
-                                            <div id="notificationTitle">Notifications</div>
+                                            <div id="notificationTitle">Notifssications</div>
 
                                             <div id="notificationsBody" class="notifications">
 
 
                                             </div>
-                                    </li>
+                                    </li> -->
+
+                                     <li id="notification_li">
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+
+                                        <span id="notification_count"></span>
+
+                                    </a><div id="notificationContainer">
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+
+                                             <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                            
+<div>
+    <ul class="khyati">
+        
+    </ul></div>
+
+                                    </div>
+
+                                        </div>
+                                </li>
+
                                     <!-- general notification end -->
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
@@ -1184,8 +1226,8 @@ $(window).load(function(){
             data: '',
             success: function (data) {
                 //    alert(data);
-                $('#' + 'notificationsBody').html(data);
-
+                $('.' + 'khyati').html(data);
+               
             }
 
 
@@ -1329,3 +1371,5 @@ for (i = 0; i < dropdowns.length; i++) {
 
 </script>
 
+ <!-- <script src="../z2/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> -->
+ <script type="text/javascript" src="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.concat.min.js'); ?>"></script>

@@ -3217,7 +3217,7 @@ class Chat extends MY_Controller {
         // last user if $id is null
         $contition_array = array('id !=' => '');
         $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-        $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
+        $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
         if ($id) {
             $toid = $this->data['toid'] = $id;
@@ -3226,7 +3226,7 @@ class Chat extends MY_Controller {
         } else {
             $toid = $this->data['toid'] = $lastchat[0]['message_from'];
         }
-
+echo $toid; die(); 
         //20-7@nkit
         if ($message_from_profile == 1) {
             $loginuser = $this->common->select_data_by_id('job_reg', 'user_id', $userid, $data = 'fname as first_name,lname as last_name,user_id');
