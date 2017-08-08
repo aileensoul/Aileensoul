@@ -2382,7 +2382,7 @@ array(
         if ($user_message) {
             $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '/abc/' . $user_message[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">See All</a></div>';
         } else {
-            $notmsg .= '<div class=""><div id="InboxFooter"><a>No Messages</a></div></div>';
+            $notmsg .= '<div class=""><div id="InboxFooter"><a class="no_msg_h">No Messages</a></div></div>';
         }
         echo $notmsg;
     }
