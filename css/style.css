@@ -450,9 +450,10 @@ a:focus {
     display: inline-block;
  
 }
-
+.dropdown_hover .dropdown-content_hover a:hover{color: white; background-color: #1b8ab9;}
+.select2-drop{z-index: 0!important;}
 .header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
-.header2 ul li a#InboxLink{padding:12px 20px 4px;}
+.header2 ul li a#InboxLink{padding:12px 12px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -14948,6 +14949,8 @@ float: right; position:relative;}
 }
 
 /*progressbar*/
+/*.edi_origde{width: 60%;
+margin: 0 auto;}*/
 .edit_profile_progress{
  
     width: 100%; background-color: white; border:1px solid #1b8ab9; border-radius: 3px; margin: 30px 0px; padding: 10px 0px 0px;}

@@ -4093,6 +4093,9 @@ $files[] = $_FILES;
      if($job_add_edu[0]['board_secondary'] != ''){
         $count++;
     }
+    if($job_add_edu[0]['school_secondary'] != ''){
+        $count++;
+    }
      if($job_add_edu[0]['percentage_secondary'] != ''){
         $count++;
     }
@@ -4173,9 +4176,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($workdata[0]['work_certificate'] != ''){
         $count++;
     } 
-     
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+     $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
   // $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0','fname !=' => '','lname !=' => '','email !=' => '','keyskill !=' => '','experience !=' => '','work_job_title !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','work_job_industry !=' => '','work_job_city !=' => '');
@@ -4435,6 +4438,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
         $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+
         if($job_deactive)
         {
              redirect('job/');
@@ -4444,7 +4448,10 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-       // echo "<pre>"; print_r($jobdata[0]['other_skill']);
+
+       
+
+      // echo "<pre>"; print_r($jobdata);die();
            $job_skill = $this->data['jobdata'][0]['keyskill'];
             $postuserarray = explode(',', $job_skill);
 // post detail
@@ -4452,7 +4459,8 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 //        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-         $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
+        //echo "<pre>"; print_r($postdata);die();
+         $contition_array = array('status' => '1','type' => '4');
         $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
        
@@ -4494,6 +4502,48 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                     $recommendata1[] = $data1;
 
                }
+//echo "<pre>";print_r( $recommendata1);die();
+ // Retrieve data according to city match start   
+$work_job_city=$jobdata[0]['work_job_city'];
+
+            $work_city=explode(',',$work_job_city);
+      
+                foreach ($work_city as $city)
+                {
+                    $data='*';
+                    $contition_array = array('FIND_IN_SET("'.$city.'",city)!='=>'0'); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_city[] = $data1;
+                }       
+        // Retrieve data according to city match End   
+
+ // Retrieve data according to industry match start   
+$work_job_industry=$jobdata[0]['work_job_industry'];
+  foreach ($postdata as $post) {
+
+                    $data='*';
+                    $contition_array = array('industry_type'=>$work_job_industry); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_industry[] = $data1;
+
+    }
+ // Retrieve data according to industry match End   
+
+// Retrieve data according to Job Title match start   
+$work_job_title=$jobdata[0]['work_job_title'];
+
+      
+                foreach ($postdata as $post)
+                {
+                     $data='*';
+                    $contition_array = array('post_name'=>$work_job_title); 
+                    $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    $recommendata_title[] = $data1;
+
+                }       
+        // Retrieve data according to  Job Title match End   
+        //echo "<pre>";print_r($recommendata_industry);
+     // die();
 
                  if (count($recommendata) == 0) {
                 
@@ -4505,8 +4555,21 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                 $unique = $recommendata;
                //   $unique = array_filter(array_map('trim', $unique));
             }
+             elseif (count($recommendata_city) == 0) {
+                $unique = $recommendata_city;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
+             elseif (count($recommendata_industry) == 0) {
+                $unique = $recommendata_industry;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
+             elseif (count($recommendata_industry) == 0) {
+                $unique = $recommendata_title;
+               //   $unique = array_filter(array_map('trim', $unique));
+            }
             else {
-                $unique = array_merge($recommendata1, $recommendata);
+                $unique = array_merge($recommendata1, $recommendata,$recommendata_city,$recommendata_industry,$recommendata_title);
+              // echo "<pre>";print_r($unique);die();
                   //$unique = array_filter(array_map('trim', $unique));
             }
         
@@ -4514,6 +4577,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $qbc  = array_filter($qbc);
+               //echo "<pre>";print_r($qbc);die();
                  $this->data['postdetail'] = $qbc;
                  
                
@@ -4590,147 +4654,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
         $this->data['demo'] = array_values($result1);
 
-
-
-
-
-        $this->load->view('job/job_all_post', $this->data);
-    }
-
-    //job seeker Job All Post controller end
-    //job seeker Apply post at all post page & save post page controller Start
-    public function job_apply_post() {  //echo $para2; die();
-        //echo "falguni"; die();
-        $id = $_POST['post_id'];
-        $para = $_POST['allpost'];
-        $notid = $_POST['userid'];
-
-        $userid = $this->session->userdata('aileenuser');
-
-          //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
-
-        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        if($job_deactive)
-        {
-             redirect('job/');
-        }
-     //if user deactive profile then redirect to job/index untill active profile End
-
-        $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
-        $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        $app_id = $userdata[0]['app_id'];
-
-        if ($userdata) {
-
-            $contition_array = array('job_delete' => 1);
-            $jobdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-            $data = array(
-                'job_delete' => 0,
-                'modify_date'=> date('Y-m-d h:i:s', time()),
-                
-            );
-
-
-            $updatedata = $this->common->update_data($data, 'job_apply', 'app_id', $app_id);
-
-
-            // insert notification
-
-            $data = array(
-                'not_type' => 3,
-                'not_from_id' => $userid,
-                'not_to_id' => $notid,
-                'not_read' => 2,
-                'not_from' => 2,
-                'not_product_id' => $app_id,
-                'not_active' => 1
-
-
-            );
-
-            $updatedata = $this->common->insert_data_getid($data, 'notification');
-            // end notoification
-
-
-
-            if ($updatedata) {
-
-                if ($para == 'all') {
-                    $applypost = 'Applied';
-                }
-            }
-            echo $applypost;
-        } else {
-
-            $data = array(
-                'post_id' => $id,
-                'user_id' => $userid,
-                'status' => 1,
-                'created_date' => date('Y-m-d h:i:s', time()),
-                'modify_date'=> date('Y-m-d h:i:s', time()),
-                'is_delete' => 0,
-                'job_delete' => 0
-            );
-
-
-            $insert_id = $this->common->insert_data_getid($data, 'job_apply');
-
-
-            // insert notification
-
-            $data = array(
-                'not_type' => 3,
-                'not_from_id' => $userid,
-                'not_to_id' => $notid,
-                'not_read' => 2,
-                'not_from' => 2,
-                'not_product_id' => $insert_id,
-                'not_active' => 1,
-                'not_created_date' => date('Y-m-d H:i:s')
-            );
-
-            $updatedata = $this->common->insert_data_getid($data, 'notification');
-            // end notoification
-
-
-            if ($insert_id) {
-
-                $applypost = 'Applied';
-            }
-            echo $applypost;
-        }
-    }
-
-   
-
-public function job_applied_post() {
-        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-  //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
-
-        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        if($job_deactive)
-        {
-             redirect('job/');
-        }
-     //if user deactive profile then redirect to job/index untill active profile End
-                    $join_str[0]['table'] = 'job_apply';
-                    $join_str[0]['join_table_id'] = 'job_apply.post_id';
-                    $join_str[0]['from_table_id'] = 'rec_post.post_id';
-                    $join_str[0]['join_type'] = '';
-                    $contition_array = array('job_apply.job_delete' => 0,'rec_post.is_delete' => 0,'job_apply.user_id' => $userid);
-                
-                 $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, 'rec_post.*,job_apply.app_id,job_apply.user_id as userid,job_apply.modify_date', $sortby = 'job_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
-        
-                // echo "<pre>"; print_r($this->data['postdetail']); die();
-
-
-                 //For Counting Profile data start
+        //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -4908,8 +4832,332 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $count++;
     } 
      
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+      $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
+//For Counting Profile data End
+
+
+
+
+
+        $this->load->view('job/job_all_post', $this->data);
+    }
+
+    //job seeker Job All Post controller end
+    //job seeker Apply post at all post page & save post page controller Start
+    public function job_apply_post() {  //echo $para2; die();
+        //echo "falguni"; die();
+        $id = $_POST['post_id'];
+        $para = $_POST['allpost'];
+        $notid = $_POST['userid'];
+
+        $userid = $this->session->userdata('aileenuser');
+
+          //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+
+        $contition_array = array('post_id' => $id, 'user_id' => $userid, 'is_delete' => 0);
+        $userdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $app_id = $userdata[0]['app_id'];
+
+        if ($userdata) {
+
+            $contition_array = array('job_delete' => 1);
+            $jobdata = $this->common->select_data_by_condition('job_apply', $contition_array, $data = 'app_id', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+            $data = array(
+                'job_delete' => 0,
+                'modify_date'=> date('Y-m-d h:i:s', time()),
+                
+            );
+
+
+            $updatedata = $this->common->update_data($data, 'job_apply', 'app_id', $app_id);
+
+
+            // insert notification
+
+            $data = array(
+                'not_type' => 3,
+                'not_from_id' => $userid,
+                'not_to_id' => $notid,
+                'not_read' => 2,
+                'not_from' => 2,
+                'not_product_id' => $app_id,
+                'not_active' => 1
+
+
+            );
+
+            $updatedata = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
+
+
+
+            if ($updatedata) {
+
+                if ($para == 'all') {
+                    $applypost = 'Applied';
+                }
+            }
+            echo $applypost;
+        } else {
+
+            $data = array(
+                'post_id' => $id,
+                'user_id' => $userid,
+                'status' => 1,
+                'created_date' => date('Y-m-d h:i:s', time()),
+                'modify_date'=> date('Y-m-d h:i:s', time()),
+                'is_delete' => 0,
+                'job_delete' => 0
+            );
+
+
+            $insert_id = $this->common->insert_data_getid($data, 'job_apply');
+
+
+            // insert notification
+
+            $data = array(
+                'not_type' => 3,
+                'not_from_id' => $userid,
+                'not_to_id' => $notid,
+                'not_read' => 2,
+                'not_from' => 2,
+                'not_product_id' => $insert_id,
+                'not_active' => 1,
+                'not_created_date' => date('Y-m-d H:i:s')
+            );
+
+            $updatedata = $this->common->insert_data_getid($data, 'notification');
+            // end notoification
+
+
+            if ($insert_id) {
+
+                $applypost = 'Applied';
+            }
+            echo $applypost;
+        }
+    }
+
+   
+
+public function job_applied_post() {
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+  //if user deactive profile then redirect to job/index untill active profile start
+         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+
+        $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if($job_deactive)
+        {
+             redirect('job/');
+        }
+     //if user deactive profile then redirect to job/index untill active profile End
+                    $join_str[0]['table'] = 'job_apply';
+                    $join_str[0]['join_table_id'] = 'job_apply.post_id';
+                    $join_str[0]['from_table_id'] = 'rec_post.post_id';
+                    $join_str[0]['join_type'] = '';
+                    $contition_array = array('job_apply.job_delete' => 0,'rec_post.is_delete' => 0,'job_apply.user_id' => $userid);
+                
+                 $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, 'rec_post.*,job_apply.app_id,job_apply.user_id as userid,job_apply.modify_date', $sortby = 'job_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
+        
+                // echo "<pre>"; print_r($this->data['postdetail']); die();
+
+
+    //For Counting Profile data start
+    $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
+
+    $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
+
+    // echo '<pre>';
+    // print_r($job_reg);
+    // exit;
+
+    $count = 0;
+
+    if($job_reg[0]['fname'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['lname'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['email'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['keyskill'] != ''){
+        $count++;
+    }
+     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+        $count++;
+    }
+    if($job_reg[0]['work_job_title'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['work_job_industry'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['work_job_city'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['phnno'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['language'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['dob'] != '0000-00-00'){
+        $count++;
+    }
+    if($job_reg[0]['gender'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['city_id'] != '0'){
+        $count++;
+    }
+    if($job_reg[0]['pincode'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['address'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_name'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_duration'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['project_description'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_as'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_duration'] != ''){
+        $count++;
+    }
+    if($job_reg[0]['training_organization'] != ''){
+        $count++;
+    }
+
+     $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
+    $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  
+
+     if($job_add_edu[0]['board_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['school_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['edu_certificate_primary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['board_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_secondary'] != ''){
+        $count++;
+    }
+
+     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['board_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['stream_higher_secondary'] != ''){
+        $count++;
+    }
+      if($job_add_edu[0]['school_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
+        $count++;
+    }
+     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
+        $count++;
+    }
+
+$contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+// echo '<pre>';
+//     print_r($jobgrad);
+//     exit;
+     if($jobgrad[0]['degree'] != ''){
+        $count++;
+    } if($jobgrad[0]['stream'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['university'] != ''){
+        $count++;
+    } if($jobgrad[0]['college'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['grade'] != ''){
+        $count++;
+    } if($jobgrad[0]['percentage'] != ''){
+        $count++;
+    }
+     if($jobgrad[0]['pass_year'] != ''){
+        $count++;
+    } if($jobgrad[0]['edu_certificate'] != ''){
+        $count++;
+    }
+
+  $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
+  $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  // echo '<pre>';
+  //   print_r($workdata);
+  //   exit;
+
+   if($workdata[0]['experience_year'] != ''){
+        $count++;
+    } if($workdata[0]['experience_month'] != ''){
+        $count++;
+    }
+     if($workdata[0]['jobtitle'] != ''){
+        $count++;
+    } if($workdata[0]['companyname'] != ''){
+        $count++;
+    }
+     if($workdata[0]['companyemail'] != ''){
+        $count++;
+    } if($workdata[0]['companyphn'] != ''){
+        $count++;
+    }
+     if($workdata[0]['work_certificate'] != ''){
+        $count++;
+    } 
+     
+      $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
               
@@ -5279,8 +5527,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $count++;
     } 
      
-     $this->data['count_profile']= $count;
-     $this->data['count_profile_value']= ($count/100);
+     $count_profile=($count*100)/52;
+     $this->data['count_profile']=  $count_profile;
+     $this->data['count_profile_value']= ($count_profile/100);
 //For Counting Profile data End
 
 
