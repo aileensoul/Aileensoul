@@ -15491,7 +15491,18 @@ text-align: center;}
     }
 }
 @media screen and (max-width: 767px) {
-
+  .mob-comment {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 18px;
+    }
+       .mob-comment button {
+        background: none;
+        color: #1b8ab9;
+        padding: 0px 0 7px;
+        font-size: 22px;
+    }
     .action-button #message_count{right:175px;}
     .hidden-mob {
         display: none;
@@ -15902,7 +15913,7 @@ text-align: center;}
         font-size: 15px;
     }
     .cmy_2 {
-        width: 68%;
+        width: 100%;
     }
     .two-images {
         height: 250px;
@@ -16285,12 +16296,7 @@ overflow: hidden;
     .post-design-desc {
         font-style: 12px;
     }
-    .mob-comment {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+  
     .mob-plr0 {
         padding-left: 0;
         padding-right: 0;
@@ -16498,12 +16504,7 @@ overflow: hidden;
     .notification-data-inside h6 {
         font-size: 12px;
     }
-    .mob-comment button {
-        background: none;
-        color: #1b8ab9;
-        padding: 0px 0 7px;
-        font-size: 22px;
-    }
+ 
     .user_lst li .follow-li-text a {
         font-size: 16px;
     }
@@ -16616,12 +16617,7 @@ overflow: hidden;
         padding: 6px 7px;
         margin-top: 10px;
     }
-    .mob-comment button {
-        background: none;
-        color: #1b8ab9;
-        padding: 0px 0 6px;
-        font-size: 22px;
-    }
+
     .editable_text {
         padding-right: 45px;
     }
