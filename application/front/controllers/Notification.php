@@ -1657,8 +1657,8 @@ array(
         }
       //  $notification .= '</div> </ul>';
 
-        $notification .= '<div id="notificationFooter">';
-        $notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
+        //$notification .= '<div id="notificationFooter">';
+        //$notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
 
         echo $notification;
     }

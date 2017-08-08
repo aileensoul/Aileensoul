@@ -10443,7 +10443,12 @@ fieldset .add_post_btns:hover {
     background-color: #f3f9fb;
 }
 /*.job-post-detail .post-design-box {border:none;}*/
-
+#notification_main_in .khyati li a{padding: 0px!important;}
+#notificationTitle .see_link a:hover{text-decoration-line: underline; color: #1b8ab9;}
+#notificationTitle .see_link a{color: black;
+font-size: 15px;
+float: right;
+padding: 4px !important;}
 .butt_rec {
     background: #1b8ab9 !important;
     color: #fff !important;
