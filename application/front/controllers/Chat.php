@@ -3219,14 +3219,6 @@ class Chat extends MY_Controller {
         $search_condition = "(message_from = '$userid' OR message_to = '$userid') AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
         $lastchat = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
-        if ($id) {
-            $toid = $this->data['toid'] = $id;
-        } elseif ($lastchat[0]['message_from'] == $userid) {
-            $toid = $this->data['toid'] = $lastchat[0]['message_to'];
-        } else {
-            $toid = $this->data['toid'] = $lastchat[0]['message_from'];
-        }
-echo $toid; die(); 
         //20-7@nkit
         if ($message_from_profile == 1) {
             $loginuser = $this->common->select_data_by_id('job_reg', 'user_id', $userid, $data = 'fname as first_name,lname as last_name,user_id');
@@ -3256,57 +3248,13 @@ echo $toid; die();
         $this->data['logfname'] = $loginuser[0]['first_name'];
         $this->data['loglname'] = $loginuser[0]['last_name'];
 
-        // last message user fetch
-
-        $contition_array = array('id !=' => '');
-        $search_condition = "(message_from = '$id' OR message_to = '$id')  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
-        $lastuser = $this->common->select_data_by_search('messages', $search_condition, $contition_array, $data = 'messages.message_from,message_to,id', $sortby = 'id', $orderby = 'DESC', $limit = '1', $offset = '', $join_str = '', $groupby = '');
-
-        if ($lastuser[0]['message_from'] == $userid) {
-            $lstusr = $this->data['lstusr'] = $lastuser[0]['message_to'];
-        } else {
-            $lstusr = $this->data['lstusr'] = $lastuser[0]['message_from'];
-        }
-
-        // last user first name last name
-        if ($lstusr) {
-
-            //20-7@nkit
-            if ($message_from_profile == 1) {
-                $lastuser = $this->common->select_data_by_id('job_reg', 'user_id', $lstusr, $data = 'fname as first_name,lname as last_name,user_id');
-            }
-
-            if ($message_from_profile == 2) {
-                $lastuser = $this->common->select_data_by_id('recruiter', 'user_id', $lstusr, $data = 'rec_firstname as first_name,rec_lastname as last_name,user_id');
-            }
-
-            if ($message_from_profile == 3) {
-                $lastuser = $this->common->select_data_by_id('freelancer_hire_reg', 'user_id', $lstusr, $data = 'username as last_name,fullname as first_name,user_id');
-            }
-
-            if ($message_from_profile == 4) {
-                $lastuser = $this->common->select_data_by_id('freelancer_post_reg', 'user_id', $lstusr, $data = 'freelancer_post_fullname as first_name,freelancer_post_username as last_name,user_id');
-            }
-
-            if ($message_from_profile == 5) {
-                $lastuser = $this->common->select_data_by_id('business_profile', 'user_id', $lstusr, $data = 'company_name as first_name,user_id');
-            }
-
-            if ($message_from_profile == 6) {
-                $lastuser = $this->common->select_data_by_id('art_reg', 'user_id', $lstusr, $data = 'art_name as first_name,art_lastname as last_name,user_id');
-            }
-
-//            $lastuser = $this->common->select_data_by_id('user', 'user_id', $lstusr, $data = 'first_name,last_name');
-
-            $this->data['lstfname'] = $lastuser[0]['first_name'];
-            $this->data['lstlname'] = $lastuser[0]['last_name'];
-        }
+  
         // slected user chat to
 
         $contition_array = array('is_delete' => '0', 'status' => '1');
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_to != '$userid'))  AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
 
-        //20-7-2017@nkit
+//        //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str1[0]['table'] = 'messages';
             $join_str1[0]['join_table_id'] = 'messages.message_to_profile_id';
@@ -3361,7 +3309,7 @@ echo $toid; die();
         $contition_array = array('is_delete' => '0', 'status' => '1');
         $search_condition = "((message_from = '$id' OR message_to = '$id') && (message_from != '$userid')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
 
-        //20-7-2017@nkit
+//        //20-7-2017@nkit
         if ($message_from_profile == 1) {
             $join_str2[0]['table'] = 'messages';
             $join_str2[0]['join_table_id'] = 'messages.message_from_profile_id';
@@ -3415,7 +3363,7 @@ echo $toid; die();
         $selectuser = $this->aasort($selectuser, "id");
 
         // replace name of message_to in user_id in select user
-
+//
         $return_arraysel = array();
         $i = 0;
         foreach ($selectuser as $k => $sel_list) {
@@ -3442,7 +3390,7 @@ echo $toid; die();
                     $return['first_name'] = $sel_list['first_name'];
                     $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
-                    $return['message'] = $sel_list['message'];
+                   $return['message'] = $sel_list['message'];
 
                     $i++;
                     if ($i == 1)
@@ -3457,7 +3405,7 @@ echo $toid; die();
         $contition_array = array('is_delete' => '0', 'status' => '1', 'message_to !=' => $userid);
         $search_condition = "((message_from = '$userid') && (message_to != '$id')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
 
-        //20-7-2017@nkit
+//        //20-7-2017@nkit
         if ($message_from_profile == 2) {
             $join_str3[0]['table'] = 'messages';
             $join_str3[0]['join_table_id'] = 'messages.message_to_profile_id';
@@ -3621,6 +3569,7 @@ echo $toid; die();
 
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
+       
         // uniq array of fromlist  
         foreach ($userlist as $k => $v) {
             foreach ($userlist as $key => $value) {
@@ -3637,11 +3586,74 @@ echo $toid; die();
             $return_arraysel = array();
         }
 
-//echo '<pre>';print_r($userlist);
-//echo '<pre>';print_r($return_arraysel); die();
-        $this->data['userlist'] = array_merge($return_arraysel, $userlist);
-        echo '<pre>'; print_r($this->data['userlist']); 
-echo "hello"; die();
+
+      $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
+      $userlist = $this->aasort($userlist, "id");
+//      echo '<pre>'; print_r($userlist); die();
+                     foreach ($userlist as $user) {
+                    if ($user['user_id'] != $toid) {
+
+                        $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                        $usrsrch .= '<li class="clearfix">';
+                        if ($user['user_id'] == $toid) {
+                            $usrsrch .= 'class ="active"';
+                        }
+                      
+                            $usrsrch .= '<div class="chat_heae_img">';
+                            if ($message_from_profile == 2) {
+                                $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $user['user_image'];
+                            }
+                            if ($message_from_profile == 1) {
+                                $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $user['user_image'];
+                            }
+                            if ($message_from_profile == 4) {
+                                $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $user['user_image'];
+                            }
+                            if ($message_from_profile == 3) {
+                                $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $user['user_image'];
+                            }
+                            if ($message_from_profile == 5) {
+                                $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $user['user_image'];
+                            }
+                            if ($message_from_profile == 6) {
+                                $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
+                            }
+                              if ($user_image && (file_exists($image_path)) == 1) {
+                            $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
+                            $usrsrch .= '</div>';
+                       } else { 
+                                                                    $a = $user['first_name'];
+                                                                    $b = $user['last_name'];
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $bcr = substr($b, 0, 1);
+                                                                 
+                                                    $usrsrch .= '<div class="post-img-div">';
+                                                    $usrsrch .= '' . ucwords($acr) .  ucwords($bcr) .'';
+                                                    $usrsrch .= '</div>';
+                                                }
+                        $usrsrch .= '<div class="about">';
+                        $usrsrch .= '<div class="name">';
+                        $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';
+                        $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;
+    color: #003;    max-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">';
+                        $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
+                        $usrsrch .= '</div>';
+                        $usrsrch .= '</div>';
+                        $usrsrch .= '</li></a>';
+                    }
+                }
+        
+       echo $usrsrch;
     }
 
 }
