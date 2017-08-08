@@ -6483,7 +6483,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
             //echo "<pre>"; print_r($artdata); die();
             if ($this->data['artdata'][0]['art_post']) {
-                $editpost = '<div><a>';
+                $editpost = '<div><a class="ft-15 t_artd">';
                 $editpost .= $this->common->make_links($artdata[0]['art_post']) . "<br>";
                 $editpost .= '</a></div>';
             }
