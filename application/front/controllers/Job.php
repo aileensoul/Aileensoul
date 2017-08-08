@@ -4179,6 +4179,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      $count_profile=($count*100)/52;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
+//  print_r( $this->data['count_profile']);
+    // echo "<br>";
+    // print_r( $this->data['count_profile_value']);die();
 //For Counting Profile data End
 
   // $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0','fname !=' => '','lname !=' => '','email !=' => '','keyskill !=' => '','experience !=' => '','work_job_title !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','fname !=' => '','work_job_industry !=' => '','work_job_city !=' => '');
@@ -4654,7 +4657,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
 
         $this->data['demo'] = array_values($result1);
 
-        //For Counting Profile data start
+       //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -4751,6 +4754,9 @@ $work_job_title=$jobdata[0]['work_job_title'];
      if($job_add_edu[0]['board_secondary'] != ''){
         $count++;
     }
+    if($job_add_edu[0]['school_secondary'] != ''){
+        $count++;
+    }
      if($job_add_edu[0]['percentage_secondary'] != ''){
         $count++;
     }
@@ -4831,13 +4837,13 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($workdata[0]['work_certificate'] != ''){
         $count++;
     } 
-     
-      $count_profile=($count*100)/52;
+     $count_profile=($count*100)/52;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
+//  print_r( $this->data['count_profile']);
+    // echo "<br>";
+    // print_r( $this->data['count_profile_value']);die();
 //For Counting Profile data End
-
-
 
 
 
@@ -4977,7 +4983,7 @@ public function job_applied_post() {
                 // echo "<pre>"; print_r($this->data['postdetail']); die();
 
 
-    //For Counting Profile data start
+  //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -5074,6 +5080,9 @@ public function job_applied_post() {
      if($job_add_edu[0]['board_secondary'] != ''){
         $count++;
     }
+    if($job_add_edu[0]['school_secondary'] != ''){
+        $count++;
+    }
      if($job_add_edu[0]['percentage_secondary'] != ''){
         $count++;
     }
@@ -5154,10 +5163,12 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($workdata[0]['work_certificate'] != ''){
         $count++;
     } 
-     
-      $count_profile=($count*100)/52;
+     $count_profile=($count*100)/52;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
+//  print_r( $this->data['count_profile']);
+    // echo "<br>";
+    // print_r( $this->data['count_profile_value']);die();
 //For Counting Profile data End
 
               
@@ -5349,7 +5360,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $contition_array = array('job_apply.job_delete' => 1, 'job_apply.user_id' => $userid, 'job_apply.job_save' => 2);
         $postdetail = $this->data['postdetail'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'rec_post.*,job_apply.app_id,job_apply.user_id as userid', $sortby = 'job_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-        //For Counting Profile data start
+//For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -5446,6 +5457,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($job_add_edu[0]['board_secondary'] != ''){
         $count++;
     }
+    if($job_add_edu[0]['school_secondary'] != ''){
+        $count++;
+    }
      if($job_add_edu[0]['percentage_secondary'] != ''){
         $count++;
     }
@@ -5526,10 +5540,12 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
      if($workdata[0]['work_certificate'] != ''){
         $count++;
     } 
-     
      $count_profile=($count*100)/52;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
+//  print_r( $this->data['count_profile']);
+    // echo "<br>";
+    // print_r( $this->data['count_profile_value']);die();
 //For Counting Profile data End
 
 
