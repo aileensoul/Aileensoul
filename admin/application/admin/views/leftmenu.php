@@ -70,7 +70,7 @@
             </li>
             <!--End Recruiter Management-->
             
-             <!--Start Job Management-->
+             <!--Start Freelancer hire Management-->
             <li <?php if ($this->uri->segment(1) == 'freelancer_hire' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
                     <i class="fa fa-briefcase margin-r-5"></i> <span>Freelancer Hire</span>
@@ -80,7 +80,7 @@
                     <li><a href="<?php echo base_url('freelancer_hire/user'); ?>"><i class="fa fa-users"></i>List Freelancer Hire User</a></li>
                 </ul>
             </li>
-            <!--End Job Management-->
+            <!--End Freelancer Hire Management-->
 
 
             <!--Start Blog-->
