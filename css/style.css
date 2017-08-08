@@ -450,6 +450,8 @@ a:focus {
     display: inline-block;
  
 }
+
+.header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
 .header2 ul li a#InboxLink{padding:12px 20px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {

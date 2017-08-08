@@ -876,7 +876,7 @@ class Chat extends MY_Controller {
             $join_str1[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str1[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
-            $seltousr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
+            $seltousr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id, business_profile_id as profile_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str1, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str1[0]['table'] = 'messages';
@@ -931,7 +931,7 @@ class Chat extends MY_Controller {
             $join_str2[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str2[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
-            $selfromusr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
+            $selfromusr = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id, business_profile_id as profile_id', $sortby = 'messages.id', $orderby = 'DESC', $limit = '', $offset = '', $join_str2, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str2[0]['table'] = 'messages';
@@ -960,6 +960,7 @@ class Chat extends MY_Controller {
                     $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
+                    $return['profile_id'] = $sel_list['profile_id'];
 
                     unset($return['message_to']);
 
@@ -974,6 +975,7 @@ class Chat extends MY_Controller {
                     $return['last_name'] = $sel_list['last_name'];
                     $return['user_image'] = $sel_list['user_image'];
                     $return['message'] = $sel_list['message'];
+                    $return['profile_id'] = $sel_list['profile_id'];
 
                     $i++;
                     if ($i == 1)
@@ -1027,7 +1029,7 @@ class Chat extends MY_Controller {
             $join_str3[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str3[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
-            $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
+            $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_to,company_name as first_name,business_user_image as user_image ,message,user_id,business_profile_id as profile_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str3, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str3[0]['table'] = 'messages';
@@ -1061,6 +1063,7 @@ class Chat extends MY_Controller {
                 $return['last_name'] = $to_list['last_name'];
                 $return['user_image'] = $to_list['user_image'];
                 $return['message'] = $to_list['message'];
+                $return['profile_id'] = $to_list['profile_id'];
               
                 unset($return['message_to']);
                 array_push($return_arrayto, $return);
@@ -1110,7 +1113,7 @@ class Chat extends MY_Controller {
             $join_str4[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str4[0]['join_type'] = '';
             $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1');
-            $fromlist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
+            $fromlist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'messages.id,message_from,company_name as first_name,business_user_image as user_image ,message,user_id,business_profile_id as profile_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
         if ($message_from_profile == 6) {
             $join_str4[0]['table'] = 'messages';
@@ -1144,6 +1147,7 @@ class Chat extends MY_Controller {
                 $return['last_name'] = $from_list['last_name'];
                 $return['user_image'] = $from_list['user_image'];
                 $return['message'] = $from_list['message'];
+                $return['profile_id'] = $from_list['profile_id'];
 
                 unset($return['message_from']);
                 array_push($return_arrayfrom, $return);
