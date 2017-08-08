@@ -1475,7 +1475,7 @@ if ($returnpage == 'recruiter') {
                             </div>
 
                         </div>
-
+</div>
 <?php 
 if(!($returnpage))
         {
@@ -1494,14 +1494,19 @@ if(!($returnpage))
             {
 
     ?>
-    <img src="<?php echo base_url("img/p3.png"); ?>">
+    <div class="true_progtree">
+    <img src="<?php echo base_url("img/true.png"); ?>">
+    </div>
+    <div class="tr_text">
+        Successfully Completed
+    </div>
     <?php
     }
         else
     {
         ?>
-   
-    <div>
+  
+        <div>
       <strong></strong>
       <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
       </a>

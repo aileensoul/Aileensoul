@@ -10442,6 +10442,12 @@ fieldset .add_post_btns:hover {
 .notification-database .active {
     background-color: #f3f9fb;
 }
+.true_progtree{
+    position: absolute;
+top: 52px;
+left: 48px;
+}
+.tr_text{padding: 10px 0px; color: #1b8ab9;}
 /*.job-post-detail .post-design-box {border:none;}*/
 #notification_main_in .khyati li a{padding: 0px!important;}
 #notificationTitle .see_link a:hover{text-decoration-line: underline; color: #1b8ab9;}
