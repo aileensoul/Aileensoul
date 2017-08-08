@@ -7885,9 +7885,6 @@ body.modal-open {
     text-align: center;
 }
 .modal.message-box span.mes {
-    padding: 40px 34px 28px;
-}
-.modal.message-box span.mes {
     font-size: 20px;
     line-height: normal;
     color: #232323;
