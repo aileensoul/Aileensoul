@@ -4438,6 +4438,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
         $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
+
         if($job_deactive)
         {
              redirect('job/');
@@ -4447,7 +4448,10 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 // job seeker detail
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-       // echo "<pre>"; print_r($jobdata[0]['other_skill']);
+
+       
+
+      // echo "<pre>"; print_r($jobdata);die();
            $job_skill = $this->data['jobdata'][0]['keyskill'];
             $postuserarray = explode(',', $job_skill);
 // post detail
@@ -4455,6 +4459,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 //        echo "<pre>"; print_r($contition_array);die();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+        //echo "<pre>"; print_r($postdata);die();
          $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
         $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
@@ -4497,6 +4502,26 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                     $recommendata1[] = $data1;
 
                }
+
+$work_job_title=$jobdata[0]['work_job_title'];
+$work_job_city=$jobdata[0]['work_job_city'];
+$work_job_industry=$jobdata[0]['work_job_industry'];
+
+        foreach ($postdata as $post) {
+
+
+            $work_city=explode(',',$work_job_city);
+            //echo "<pre>";print_r($work_city);
+                foreach ($postdata as $post)
+                {
+                    // $data='*';
+                    // $search_condition = "(fname LIKE '%$work_job_title%')";
+                    // $contition_array = array('is_delete' => '0');
+                    // $this->data['users'] = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
+                }
+         
+        }
+      // die();
 
                  if (count($recommendata) == 0) {
                 

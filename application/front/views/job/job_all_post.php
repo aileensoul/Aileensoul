@@ -1136,7 +1136,7 @@ can easy to find you.</p>
 });
  </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script> 
 <script type="text/javascript" src="<?php echo base_url('js/progressloader.js'); ?>"></script>
 
 <script type="text/javascript">
