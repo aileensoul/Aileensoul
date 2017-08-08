@@ -5007,6 +5007,8 @@ $( document ).on( 'keydown', function ( e ) {
 
 if(document.getElementById('bidmodal-limit').style.display === "block"){ 
         $('#bidmodal-limit').modal('hide');
+    $("#test-upload-product").prop("readonly", false);
+        
         $('#myModal3').model('show');
  }else if(document.getElementById('myModal3').style.display === "block"){ 
         document.getElementById('myModal3').style.display === "none";
