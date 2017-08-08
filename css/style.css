@@ -14949,8 +14949,8 @@ float: right; position:relative;}
 }
 
 /*progressbar*/
-.edi_origde{width: 60%;
-margin: 0 auto;}
+/*.edi_origde{width: 60%;
+margin: 0 auto;}*/
 .edit_profile_progress{
  
     width: 100%; background-color: white; border:1px solid #1b8ab9; border-radius: 3px; margin: 30px 0px; padding: 10px 0px 0px;}
