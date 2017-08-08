@@ -620,7 +620,7 @@
 													<img src="slicing/latsgo.png">
 												</div>
 												<div data-animation="animated fadeInUpBig" class="text_sl_head main_6_sl"> 
-													<span class="mian_4_hed"> demo@gmail.com</span>
+													<span class="mian_4_hed"><?php echo  $userdata[0]['first_name']. " " .$userdata[0]['last_name']; ?></span>
 													<p>Welcome In Aileensoul</p>
 													<p>
 														<a class="btn-go" href="">Let's Go</a>
