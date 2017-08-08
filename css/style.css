@@ -450,9 +450,10 @@ a:focus {
     display: inline-block;
  
 }
-
+.dropdown_hover .dropdown-content_hover a:hover{color: white; background-color: #1b8ab9;}
+.select2-drop{z-index: 0!important;}
 .header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
-.header2 ul li a#InboxLink{padding:12px 20px 4px;}
+.header2 ul li a#InboxLink{padding:12px 12px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -7882,6 +7883,9 @@ body.modal-open {
 }
 .modal.message-box .modal-body {
     text-align: center;
+}
+.modal.message-box span.mes {
+    padding: 40px 34px 28px;
 }
 .modal.message-box span.mes {
     font-size: 20px;
