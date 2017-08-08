@@ -27,26 +27,7 @@
         }
     });
 
-    $(document).ready(function ()
-    {
-        $("#addcontactLink").click(function ()
-        {
-//$("#notificationLink").hide();
 
-            $("#Frnd_reqContainer").hide();
-            $("#Frnd_req_count").hide();
-            $(".dropdown-menu").hide();
-
-            $("#notificationContainer").hide();
-            $("#notification_count").hide();
-            $("#dropdown-content_hover").hide();
-
-            $("#InboxContainer").fadeToggle(300);
-            $("#Inbox_count").fadeOut("slow");
-            return false;
-        });
-
-    });
 
     $(document).ready(function ()
     {

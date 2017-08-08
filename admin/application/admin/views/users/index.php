@@ -216,7 +216,7 @@ echo $leftmenu;
                         </button>
 
                         <a class="btn btn-success btn-xs" href="<?php echo base_url('user_manage/edit/'.$user['user_id'] ); ?>">
-                         <i class="fa fa-fw fa-eye"></i>
+                         <i class="fa fa-fw fa-pencil"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
                         <i class="fa fa-fw fa-eye"></i>

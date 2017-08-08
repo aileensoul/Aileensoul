@@ -79,12 +79,156 @@
 </style>
 <!-- css for date picker end-->
 
+<!-- This style is used for autocomplete start -->
+ <style type="text/css">
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ui-front {
+  z-index: 100;
+}
+
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+.ui-menu .ui-menu {
+  position: absolute;
+}
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+  margin: -1px;
+}
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+}
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+  color: #222222;
+}
+.ui-widget-content a {
+  color: #222222;
+}
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
+}
+.ui-widget-header a {
+  color: #222222;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999;
+  background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+  </style>
+<!-- This style is used for autocomplete End -->
+
 <!-- start header -->
 <?php echo $header; ?>
 
-<?php if($jobdata[0]['job_step'] == 10){ ?>
+<?php //if($jobdata[0]['job_step'] == 10){ ?>
 <?php echo $job_header2_border; ?>
-<?php } ?>
+<?php //} ?>
 <!-- END HEADER -->
 <style type="text/css">
    
@@ -159,6 +303,9 @@ $phnno = form_error('phnno');
 $language = form_error('lan');
 $dob = form_error('dob');
 $gender = form_error('gender');
+$city1 = form_error('city1');
+$pincode_error = form_error('pincode_error');
+
 ?>
 
 
@@ -242,13 +389,44 @@ $gender = form_error('gender');
 
    
                                     <label>Languages Known:<span class="red">*</span></label> 
-                                     <input id="lan" name="language" placeholder="Select a Language" style="width: 100%"  tabindex="8">
+                                     <input id="lan" name="language" value="<?php if($language2){echo $language2.',';} ?>" placeholder="Select a Language" style="width: 100%"  tabindex="8">
 
 
 <?php echo form_error('lan'); ?>
 
         
                                 </fieldset>
+
+                                <fieldset id="erroe_nn" <?php if ($city) { ?> class="error-msg" <?php } ?>>
+
+                                    <label>City:<span class="red">*</span></label> 
+                                     <input id="city" name="city" value="<?php if($city_title){echo $city_title;} ?>" placeholder="Select City" style="width: 100%"  tabindex="8">
+
+<?php echo form_error('city1'); ?>
+      
+                                </fieldset>
+
+                                 <fieldset <?php if ($pincode_error) { ?> class="error-msg" <?php } ?>>
+                                    <label>Pincode :<span class="red">*</span></label>
+                                    <input type="text" tabindex="4" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
+                                    if ($pincode1) {
+                                        echo $pincode1;
+                                    }
+                                    ?>"/> <span id="pincode-error"> </span>
+                                           <?php echo form_error('pincode_error'); ?>
+                                </fieldset>
+
+                                <fieldset class="full-width">
+                                    <label>Postal Address: <span class="red">*</span> </label>
+
+                                    <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;" onpaste="OnPaste_StripFormatting(this, event);"><?php
+                                        if ($address1) {
+                                            echo $address1;
+                                        }
+                                        ?></textarea>
+                                    <?php echo form_error('address'); ?>
+                                </fieldset>
+
 
 
  <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
@@ -280,7 +458,7 @@ $gender = form_error('gender');
 
 <!-- Calender JS Start-->
 
-<script src="<?php echo base_url('js/jquery.js'); ?>"></script>
+<!-- <script src="<?php//echo base_url('js/jquery.js'); ?>"></script> -->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
  -->
@@ -289,9 +467,9 @@ $gender = form_error('gender');
 
 
 
- <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
- <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
- <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+ <!-- <script src="<?php //echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php //echo base_url('js/jquery-ui.min.js'); ?>"></script> -->
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
  
 
@@ -402,13 +580,45 @@ $( "#searchplace" ).autocomplete({
    
 </script>
 <script>
+   // var data1= <?php //echo json_encode($city_data); ?>;
+   // //alert(data);
+   
+           
+   // $(function() {
+   //     // alert('hi');
+   // $( "#searchplace1" ).autocomplete({
+   //      source: function( request, response ) {
+   //          var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+   //          response( $.grep( data1, function( item ){
+   //              return matcher.test( item.label );
+   //          }) );
+   //    },
+   //     minLength: 1,
+   //     select: function(event, ui) {
+   //         event.preventDefault();
+   //         $("#searchplace1").val(ui.item.label);
+   //         $("#selected-tag").val(ui.item.label);
+   //         // window.location.href = ui.item.value;
+   //     }
+   //     ,
+   //     focus: function(event, ui) {
+   //         event.preventDefault();
+   //         $("#searchplace1").val(ui.item.label);
+   //     }
+   // });
+   // });
+     
+</script>
+
+<!-- FOr city data fetch start -->
+<script>
    var data1= <?php echo json_encode($city_data); ?>;
    //alert(data);
    
            
    $(function() {
        // alert('hi');
-   $( "#searchplace1" ).autocomplete({
+   $( "#city" ).autocomplete({
         source: function( request, response ) {
             var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             response( $.grep( data1, function( item ){
@@ -418,22 +628,20 @@ $( "#searchplace" ).autocomplete({
        minLength: 1,
        select: function(event, ui) {
            event.preventDefault();
-           $("#searchplace1").val(ui.item.label);
+           $("#city").val(ui.item.label);
            $("#selected-tag").val(ui.item.label);
            // window.location.href = ui.item.value;
        }
        ,
        focus: function(event, ui) {
            event.preventDefault();
-           $("#searchplace1").val(ui.item.label);
+           $("#city").val(ui.item.label);
        }
    });
    });
      
 </script>
-
-
-
+<!-- FOr city data fetch End -->
 
 <!--new script for language start-->
  <script>
@@ -455,7 +663,7 @@ $( "#searchplace" ).autocomplete({
             minLength: 2,
             source: function( request, response ) { 
                 // delegate back to autocomplete, but extract the last term
-                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+                $.getJSON("<?php echo base_url();?>general/get_language", { term : extractLast( request.term )},response);
             },
             focus: function() {
                 // prevent value inserted on focus
@@ -683,8 +891,22 @@ if(mm<10) {
                         },
                         
                
-               
-                'language[]': {
+                language: {
+
+                    required: true,
+
+                },
+                 city: {
+
+                    required: true,
+
+                },
+                 pincode: {
+
+                    required: true,
+
+                },
+                 address: {
 
                     required: true,
 
@@ -727,9 +949,24 @@ if(mm<10) {
 
               
                
-                'language[]': {
+                language: {
 
                     required: "Language  Is Required.",
+
+                },
+                 city: {
+
+                    required: "City  Is Required.",
+
+                },
+                 pincode: {
+
+                    required: "Pincode  Is Required.",
+
+                },
+                 address: {
+
+                    required: "Address  Is Required.",
 
                 },
                 dob: {
@@ -886,6 +1123,31 @@ else
 </script>
 
 
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED START -->
+ <script type="text/javascript">
+            var _onPaste_StripFormatting_IEPaste = false;
+            function OnPaste_StripFormatting(elem, e) {
+               // alert(456);
+                if (e.originalEvent && e.originalEvent.clipboardData && e.originalEvent.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.originalEvent.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (e.clipboardData && e.clipboardData.getData) {
+                    e.preventDefault();
+                    var text = e.clipboardData.getData('text/plain');
+                    window.document.execCommand('insertText', false, text);
+                } else if (window.clipboardData && window.clipboardData.getData) {
+                    // Stop stack overflow
+                    if (!_onPaste_StripFormatting_IEPaste) {
+                        _onPaste_StripFormatting_IEPaste = true;
+                        e.preventDefault();
+                        window.document.execCommand('ms-pasteTextOnly', false);
+                    }
+                    _onPaste_StripFormatting_IEPaste = false;
+                }
+            }
+        </script>
+<!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->  
 
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}

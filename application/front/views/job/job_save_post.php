@@ -209,7 +209,25 @@
             <?php } ?>
             </div>
 
+    <div class="edit_profile_progress">
+        <div class="progre_bar_text">
+            <p>Please fill-up your full profile then 
+you can find better job and Recruiter
+can easy to find you.</p>
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
 
+
+    <div class="second circle-1">
+      <strong></strong>
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>"  class="edit_profile_job">Edit Profile
+      </a>
+    </div>
+
+  </div>
+         </div>
+        </div> 
           
         </div>
 
@@ -1223,3 +1241,35 @@ $(document).ready(function(){
 });
 //For Scroll page at perticular position js End
 </script>
+<script type="text/javascript" src="<?php echo base_url('js/progressloader.js'); ?>"></script>
+
+<script type="text/javascript">
+    /* Examples */
+(function($) {
+ 
+
+  /*
+   * Example 2:
+   *
+   * - default gradient
+   * - listening to `circle-animation-progress` event and display the animation progress: from 0 to 100%
+   */
+  $('.second.circle-1').circleProgress({
+    value: <?php echo $count_profile_value;?>
+  }).on('circle-animation-progress', function(event, progress) {
+    $(this).find('strong').html(Math.round(<?php echo $count_profile;?> * progress) + '<i>%</i>');
+  });
+
+  
+})(jQuery);
+
+</script>
+<style type="text/css">
+ 
+@media (max-height: 600px), (max-width: 480px) {
+  .credits {
+    position: inherit;
+  }
+}
+
+</style>

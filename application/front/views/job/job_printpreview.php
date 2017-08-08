@@ -194,6 +194,25 @@ if ($returnpage == 'recruiter') {
 
                 </div>
                 <!-- text head end -->
+                    <div class="edit_profile_progress">
+        <div class="progre_bar_text">
+            <p>Please fill-up your full profile then 
+you can find better job and Recruiter
+can easy to find you.</p>
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
+
+
+    <div class="second circle-1">
+      <strong></strong>
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
+      </a>
+    </div>
+
+  </div>
+         </div>
+        </div> 
             </div>
             <div class="col-md-8 col-sm-12 mob-clear">
                 <div class="">
@@ -252,75 +271,7 @@ if ($returnpage == 'recruiter') {
                                                         </span>
                                                     </li>
 
-                                                    <?php
-                                                    if ($returnpage == 'recruiter') {
-
-                                                        if ($job[0]['marital_status']) 
-                                                        {
-                                                    ?>
-                                                    <li> <b>Marital Status </b><span> <?php echo $job[0]['marital_status']; ?></span>
-                                                    </li>
-                                                    <?php
-                                                        }else {
-                                                            echo "";
-                                                        }
-                                                    } 
-
-                                                    else
-                                                    {
                                                    
-                                                    ?>
-                                                    <li> <b>Marital Status </b>
-                                                    <span> 
-                                                    <?php 
-                                                        if($job[0]['marital_status'])
-                                                        {
-                                                    echo $job[0]['marital_status'];
-                                                        }
-                                                        else
-                                                         echo PROFILENA;
-                                                      
-                                                        }
-                                                        ?>
-                                                    </span>                                               </li>
-
-                                                     <?php
-                                                    if ($returnpage == 'recruiter') {
-
-                                                        if ($job[0]['nationality']) 
-                                                        {
-                                                    ?>
-                                                    <li> <b>Nationality </b><span>  
-                                                    <?php
-                                                    $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
-                                                            echo $cache_time;
-                                                            ?></span>
-                                                    </li>
-                                                    <?php
-                                                        }else {
-                                                            echo "";
-                                                        }
-                                                    } 
-
-                                                    else
-                                                    {
-                                                   
-                                                    ?>
-                                                    <li> <b>Nationality </b>
-                                                    <span> 
-                                                    <?php 
-                                                        if($job[0]['nationality'])
-                                                        {
-                                                            $cache_time = $this->db->get_where('nation', array('nation_id' => $job[0]['nationality']))->row()->nation_name;
-                                                            echo $cache_time;
-                                                        }
-                                                        else
-                                                         echo PROFILENA;
-                                                      
-                                                        }
-                                                        ?>
-                                                    </span>                                               </li>
-
                                                      
                                                      <?php
                                                     if ($returnpage == 'recruiter') {
@@ -452,71 +403,7 @@ if ($returnpage == 'recruiter') {
                                                         ?>
                                                     </span>                                               </li>
 
-
-
-                                                </ul>
-                                            </div>
-
-        <?php if($returnpage != 'recruiter' && ($job[0]['country_id'] == "0" || $job[0]['country_id'] == ""))
-        {
-            ?>
-            <div class="profile-job-post-title-inside clearfix">
-                </div>
-                                            <div class="profile-job-post-title clearfix">
-                                                <div class="profile-job-profile-button clearfix">
-                                                    <div class="profile-job-details">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="details_all_tital"> Address
-                                                                </p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                 <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                        <div class="text-center">
-                                                            <a href="<?php echo base_url('job/job_address_update');?>">Click Here To fill Up Address Detail</a>
-                                                        </div>
-                                                        </ul>
-                                                </div>
-                                            </div>
-           
-            <?php 
-        }
-            else
-            {
-                if($job[0]['country_id'] || ($returnpage == 'recruiter'&& $job[0]['country_id']))
-                {
-        ?>
-                                            <div class="profile-job-post-title-inside clearfix">
-                                            </div>
-                                            <div class="profile-job-post-title clearfix">
-                                                <div class="profile-job-profile-button clearfix">
-                                                    <div class="profile-job-details">
-                                                        <ul>
-                                                            <li>
-                                                                <p class="details_all_tital"> Address</p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="profile-job-profile-menu">
-                                                    <ul class="clearfix">
-                                                        <div class="text-center">
-                                                            <h5 class="head_title">Present Address</h5>
-                                                        </div>
-                                                        <li> <b> Country</b> <span><?php
-                                                            $cache_time = $this->db->get_where('countries', array('country_id' => $job[0]['country_id']))->row()->country_name;
-                                                            echo $cache_time;
-                                                            ?></span>
-                                                        </li>
-                                                        <li> <b>State </b><span><?php
-                                                                $cache_time = $this->db->get_where('states', array('state_id' => $job[0]['state_id']))->row()->state_name;
-                                                                echo $cache_time;
-                                                            ?> </span>
-                                                        </li>
-                                                        <?php
+                                                     <?php
                                                         if ($returnpage == 'recruiter') {
 
                                                             if ($job[0]['city_id']) {
@@ -545,6 +432,7 @@ if ($returnpage == 'recruiter') {
                                                             }
                                                         }
                                                         ?>
+
                                                         <?php
                                                         if ($returnpage == 'recruiter') {
 
@@ -573,88 +461,45 @@ if ($returnpage == 'recruiter') {
                                                         ?>
                                                             </span>
                                                         </li>
+
+                                                        <?php
+                                                        if ($returnpage == 'recruiter') {
+
+                                                            if ($job[0]['address']) {
+                                                        ?>
                                                         <li> <b>Address </b><span><pre><?php echo $job[0]['address']; ?></pre></span>
                                                         </li>
-                                                    </ul>
-                                                    <ul class="clearfix">
-                                                        <div class="text-center">
-                                                            <h5 class="head_title">Permenant Address</h5>
-                                                        </div>
-                                                        <li> <b> Country</b> <span><?php
-                                                                $cache_time = $this->db->get_where('countries', array('country_id' => $job[0]['country_permenant']))->row()->country_name;
-                                                                echo $cache_time;
-                                                                ?></span>
-                                                        </li>
-                                                        <li> <b>State </b><span><?php
-                                                                $cache_time = $this->db->get_where('states', array('state_id' => $job[0]['state_permenant']))->row()->state_name;
-                                                                echo $cache_time;
-                                                                ?> </span>
-                                                        </li>
-<?php
-if ($returnpage == 'recruiter') {
-
-    if ($job[0]['city_permenant']) {
-        ?>
-                                                                <li><b> City</b> <span><?php
-                                                                        $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_permenant']))->row()->city_name;
-                                                                        echo $cache_time;
-                                                                        ?></span> </li>
-                                                                        <?php
+                                                        <?php
                                                                     } else {
                                                                         echo "";
                                                                     }
-                                                                } else {
-                                                                    if ($job[0]['city_permenant']) {
+                                                                } 
+                                                                else 
+                                                                {
+                                                                    if ($job[0]['address']) {
                                                                         ?>
-                                                                <li><b> City</b> <span><?php
-                                                                $cache_time = $this->db->get_where('cities', array('city_id' => $job[0]['city_permenant']))->row()->city_name;
-                                                                echo $cache_time;
-                                                                ?></span> </li>
+
+                                                                         <li> <b>Address </b><span><pre><?php echo $job[0]['address']; ?></pre></span>
+                                                                        </li>
                                                                         <?php
-                                                                    } else {
-                                                                        ?>
-                                                                <li><b> City</b> <span>
+                                                                        }else {
+                                                                ?>
+                                                                <li> <b>Address </b><span>
                                                                 <?php
                                                                 echo PROFILENA;
                                                             }
                                                         }
                                                         ?>
-                                                        <?php
-                                                        if ($returnpage == 'recruiter') {
-
-                                                            if ($job[0]['pincode_permenant']) {
-                                                                ?>
-                                                                    </span>
-                                                                </li>
-                                                                <li> <b>Pincode </b><span><?php echo $job[0]['pincode_permenant']; ?></span>
-                                                                </li>
-                                                                <?php
-                                                            } else {
-                                                                echo "";
-                                                            }
-                                                        } else {
-                                                            if ($job[0]['pincode_permenant']) {
-                                                                ?>
-                                                                <li> <b>Pincode </b><span><?php echo $job[0]['pincode_permenant']; ?></span>
-                                                                </li>
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
-                                                                <li><b> Pincode</b> <span>
-                                                                        <?php
-                                                                        echo PROFILENA;
-                                                                    }
-                                                                }
-                                                                ?>
                                                             </span>
                                                         </li>
-                                                        <li> <b>Address </b><span><pre> <?php echo $job[0]['address_permenant']; ?></pre></span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                    <?php
-                            }
-                        }
+
+
+
+                                                </ul>
+                                            </div>
+                                            </div>
+
+       <?php
                   if($returnpage != 'recruiter' && ($job_edu[0]['board_primary'] == "" && $job_edu[0]['board_secondary'] == "" && $job_edu[0]['board_higher_secondary'] == "" && $job_graduation[0]['degree'] == "" ))
                  
         {
@@ -1687,6 +1532,10 @@ if ($returnpage == 'recruiter') {
         </div>
     </div>
     <!-- Model Popup Close -->
+    <?php
+ 
+?>
+
 </body>
 </html>
 <!-- script for skill textbox automatic start-->
@@ -2309,3 +2158,36 @@ cache: true
 
 
 </script>
+<script type="text/javascript" src="<?php echo base_url('js/progressloader.js'); ?>"></script>
+
+
+<script type="text/javascript">
+    /* Examples */
+(function($) {
+ 
+
+  /*
+   * Example 2:
+   *
+   * - default gradient
+   * - listening to `circle-animation-progress` event and display the animation progress: from 0 to 100%
+   */
+  $('.second.circle-1').circleProgress({
+    value: <?php echo $count_profile_value;?>
+  }).on('circle-animation-progress', function(event, progress) {
+    $(this).find('strong').html(Math.round(<?php echo $count_profile;?> * progress) + '<i>%</i>');
+  });
+
+  
+})(jQuery);
+
+</script>
+<style type="text/css">
+ 
+@media (max-height: 600px), (max-width: 480px) {
+  .credits {
+    position: inherit;
+  }
+}
+
+</style>

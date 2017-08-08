@@ -474,10 +474,11 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         $skill1[] = $cache_time;
                                     }
                                     $listFinal = implode(', ', $skill1);
-                                    if ($artisticdata[0]['other_skill']) {
-                                        echo $artisticdata[0]['other_skill'];
-                                    } else if($listFinal) {
+                                    if (!$artisticdata[0]['other_skill']) {
                                         echo $listFinal;
+                                        
+                                    } else if(!$listFinal) {
+                                        echo $artisticdata[0]['other_skill'];
                                     }else{
                                         echo $listFinal . ',' . $artisticdata[0]['other_skill']; 
                                     }
@@ -2003,7 +2004,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
                             else {
                             ?>
-                        <div class="art_no_post_avl">
+                        <div class="art_no_post_avl" id="no_post_avl">
          <h3> Post</h3>
           <div class="art-img-nn">
          <div class="art_no_post_img">
@@ -5157,6 +5158,8 @@ $('#postedit').on('click', function () {
             $(".file-preview-frame").hide();
 //            $('#progress_div').fadeOut('5000').remove();
             document.getElementById("progress_div").style.display = "none";
+            document.getElementById("no_post_avl").style.display = "none";
+
             //$('.job-contact-frnd div:first').remove();
             $(".art-all-post").prepend(response.responseText);
             // second header class add for scroll

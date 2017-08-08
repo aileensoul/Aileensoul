@@ -160,7 +160,7 @@
     font-weight: normal;
     font-style: normal;
 
-}.
+}
 
 
 
@@ -1703,7 +1703,6 @@ margin-bottom: 15px;
 #jobseeker_regform input[type="submit"]:focus{color: white!important;}
     .message .btn:focus{color: white;}
         .message .btn:hover{color: white;}
-}
 .cv-form input[type=submit],
 .cv-form input[type=button],
 .cv-form button {
@@ -4111,8 +4110,8 @@ display: inline-block;
         font-family:arial;
     }
     .addcontact-text span{color:#404040; font-size:13px;}
-    #addcontactBody li:hover{background-color:e9f4f8; }
-        #addcontactBody li:hover .addcontact-text{}
+/*    #addcontactBody li:hover{background-color:e9f4f8; }
+        #addcontactBody li:hover .addcontact-text{}*/
     .addcontact-text span{
         display: block;
         line-height: 1;
@@ -9625,13 +9624,13 @@ border-bottom: 1px solid #d9d9d9;}
 }
 .art_no_post_text{
     line-height: 40px;
-color: #ebebeb;
+color: #cccccc;
 font-size: 32px;
 padding-top: 30px;}
 .art_no_post_text1{color: #ccc;
 font-size: 32px;}
 /*no post foun end*/
-
+.follow_left_box_main_btn .bg_following{margin-bottom: 0px;}
 .bui_res_i2{height: 166px;
 width: 223px;
 position: relative;}

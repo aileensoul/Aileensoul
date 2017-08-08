@@ -2,7 +2,7 @@
 
 <html class="blog_cl">
  <head>
-  <title>Aileensoul Blog</title>
+  <title>Official Aileensoul Blog</title>
    <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
   <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -41,22 +41,24 @@
 }
 ?>
  
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
- <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
- 
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
+
+
+
 </head>
 <body class="blog">
-
-  <header>
+<div class="main-inner">
+   <header>
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-3">
           <h2 class="logo"><a href="<?php echo base_url(); ?>">Aileensoul</a></h2>
         </div>
-        <div class="col-md-8 col-sm-9">
-            <div class="btn-right pull-right pt10">
+        <div class="col-md-8 col-sm-9 pt10">
+            <div class="btn-right pull-right">
               <a href="<?php echo base_url('login'); ?>" class="btn2">Login</a>
               <a href="<?php echo base_url('registration'); ?>" class="btn3">Create an account</a>
             </div>
@@ -175,12 +177,12 @@ if(count($blog_detail) == 0 )
   if($this->input->get('q') || $this->uri->segment(2) == 'tag')
   {?>
 <div class="job-saved-box">
-                            <h3>
+                            
 
-                            <div class="blog-tag">
-                            <div class="tag-line"><span>Search result of </span> <?php echo $search_keyword; ?></div>
-                            </div>
-                           </h3>
+                            <div class="blog-tag" style="margin-bottom: 0px;">
+                           <!--  <div class="tag-line"><span>Search result of </span> <?php echo $search_keyword; ?></div>
+                           -->  </div>
+                         
                             <div class="contact-frnd-post">
                                 
 
@@ -309,7 +311,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
                 <span  class="social_fb"></span>
                 </a> -->
 
-               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/'.$blog['blog_slug']); ?>" title="<?php echo $title; ?>" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
+               <a class="fbk" url_encode="<?php echo $url; ?>" url="<?php echo base_url('blog/'.$blog['blog_slug']); ?>" title="Facebook" summary="<?php echo $summary; ?>" image="<?php echo $image; ?>"> 
                 <span  class="social_fb"></span>
                 </a>
               
@@ -319,7 +321,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
                 <!--  <a href="https://plus.google.com/share?url=<?php //echo $url; ?>&prefilltext=<?php //echo  $blog['description'];?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php //echo $url; ?>&prefilltext=<?php //echo  $blog['description'];?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
                 <span  class="social_gp"></span>
                 </a> -->
-                <a href="https://plus.google.com/share?url=<?php echo $url; ?>" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                <a href="https://plus.google.com/share?url=<?php echo $url; ?>" title="Google +" onclick="javascript:window.open('https://plus.google.com/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
                 <span  class="social_gp"></span>
                 </a>
               
@@ -328,14 +330,14 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
                 
                 <!-- <a href="https://www.linkedin.com/cws/share?url=<?php //echo $url; ?>&amp;title=<?php// echo $blog['title'];?>&summary=<?php //echo $blog['description']; ?>&image=<?php //echo $image; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php //echo $url; ?>&amp;title=<?php //echo $blog['title'];?>&summary=<?php //echo $blog['description']; ?>&image=<?php //echo $image; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a> -->
 
-                 <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
+                 <a href="https://www.linkedin.com/cws/share?url=<?php echo $url; ?>" title="linkedin"  onclick="javascript:window.open('https://www.linkedin.com/cws/share?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_lk"></span></a>
               
             </li>
             <li>
             
                <!--  <a href="https://twitter.com/intent/tweet?text="<?php //echo  $blog['description'];?>" &url=<?php //echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?text=<?php //echo  $blog['description'];?> &url=<?php //echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a> -->
 
-                 <a href="https://twitter.com/intent/tweet?url=<?php echo $url; ?>"  onclick="javascript:window.open('https://twitter.com/intent/tweet?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
+                 <a href="https://twitter.com/intent/tweet?url=<?php echo $url; ?>"  title="twitter" onclick="javascript:window.open('https://twitter.com/intent/tweet?url=<?php echo $url; ?>','','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><span  class="social_tw"></span></a>
             
             </li>
 
@@ -391,7 +393,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
           <div class="post_inside_data">
           <div class="post_latest_left">
             <div class="lateaqt_post_img">
-              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" ></a>
+              <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <img src="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image']) ?>" alt=""></a>
 
             </div>
           </div>  
@@ -476,7 +478,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-4 col-xs-12">
-                            © 2017 | by Aileensoul
+                              <span style="font-weight: normal;">  © 2017 | by Aileensoul</span>
                         </div>
                     </div>
                 </div>

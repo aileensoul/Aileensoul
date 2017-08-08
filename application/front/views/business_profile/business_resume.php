@@ -238,14 +238,15 @@
                             ?>
 
 
-                            <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
-                                <a href="#" onclick="return contact_person(<?php echo $businessdata1[0]['user_id']; ?>);" style="cursor: pointer;">
+                                 <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
+                                <a href="#" onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>);" style="cursor: pointer;">
 
                                 <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
-                                    <a onclick="return contact_person_model(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
+                                    <a onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
                                     <?php } ?>
 
-                                                <?php
+
+                                      <?php
                                                 //print_r($contactperson[0]['status']) ; die();
 
                                                 if ($contactperson[0]['status'] == 'cancel') {
@@ -389,10 +390,29 @@
                                     $search_condition = "((contact_from_id = ' $userid') OR (contact_to_id = '$userid'))";
                                     $businesscontacts1 = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
+                                    foreach ($businesscontacts1 as $keval => $ke) {
+                                       //echo "<pre>"; print_r($ke); die();
+                                      if($ke['contact_from_id'] == $userid){
+
+                                    $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }else{
+
+                                        $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
+                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition= array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+                                      }
+                                      if($contavl1){
+                                        $countconval[] = $contavl1;
+                                      }
+                                      
+                                    }
+
 
                                             ?>
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($businesscontacts1)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
                                         </li>
 
 
@@ -984,6 +1004,21 @@
                 </div>
                 <!-- Model Popup Close -->
 
+                <!-- Bid-modal for this modal appear or not start -->
+        <div class="modal fade message-box" id="query" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bid-modal for this modal appear or not  Popup Close -->
+
+
                 <!-- Bid-modal-2  -->
                 <div class="modal fade message-box" id="bidmodal-2" role="dialog">
                     <div class="modal-dialog modal-lm">
@@ -1508,20 +1543,8 @@
 
                         });
                     });
+                    </script>
 
-                    function contact_person(clicked_id) {
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
-                            data: 'toid=' + clicked_id,
-                            success: function (data) {
-                                //   alert(data);
-                                $('#contact_per').html(data);
-
-                            }
-                        });
-                    }
-                </script>
                 <script>
                     function picpopup() {
 
@@ -1564,14 +1587,33 @@
 
                 <!-- scroll page script end -->
 
+<script type="text/javascript">
+                    
+  function contact_person_query(clicked_id, status) { 
 
+   
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
+                            data: 'toid=' + clicked_id + '&status=' + status,
+                            success: function (data) { //alert(data);
+                              // return data;
+                               contact_person_model(clicked_id, status, data);
+                            }
+                        });
+                    }
+
+                    
+</script>
 
                 <script type="text/javascript">
 
 
-                    function contact_person_model(clicked_id, status) {
+                    function contact_person_model(clicked_id, status, data) {
 
-                        if (status == 'pending') {
+                        if(data == 1){
+
+                            if (status == 'pending') {
 
                             $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
@@ -1581,10 +1623,50 @@
                             $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
 
+                        }else{ 
+                           contact_person(clicked_id); 
                         }
+
+                }else{
+
+                      $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
+                      $('#query').modal('show');
+                            
+                }
+                        
+                       
 
                     }
                 </script>
+
+
+<script type="text/javascript">
+                    function contact_person(clicked_id) {
+                        
+                        $.ajax({
+                            type: 'POST',
+                            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
+                            data: 'toid=' + clicked_id,
+                            success: function (data) {
+                                //   alert(data);
+                                $('#contact_per').html(data);
+
+                            }
+                        });
+                    }
+</script>
+
+<script type="text/javascript">
+    
+     $(document).on('keydown', function (e) {
+                if (e.keyCode === 27) {
+                //$( "#bidmodal" ).hide();
+                $('#query').modal('hide');
+                //$('.modal-post').show();
+                }
+                });
+</script>
+
 
                 <!-- all popup close close using esc start -->
                 <script type="text/javascript">
@@ -1603,4 +1685,6 @@
                     });
 
                 </script>
-                <!-- all popup close close using esc end
+                <!-- all popup close close using esc end -->
+
+
