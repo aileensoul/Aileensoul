@@ -193,7 +193,7 @@
                                 ?>
                                 <li>
                                
-                                No contacts available...
+                                No contact request available
                               
                                 </li>
 

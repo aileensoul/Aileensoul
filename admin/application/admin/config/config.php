@@ -521,6 +521,7 @@ $config['free_hire_profile_main_max_height'] = '5000';
 
 // FREELANCER HIRE PROFILE THUMBS
 $config['free_hire_profile_thumb_upload_path'] = 'uploads/freelancer_hire_profile/thumbs/';
+$config['free_hire_profile_thumb_insert_path'] = '../uploads/freelancer_hire_profile/thumbs/';
 $config['free_hire_profile_thumb_width'] = '160';
 $config['free_hire_profile_thumb_height'] = '160';
 

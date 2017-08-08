@@ -2671,6 +2671,8 @@ border-top: none;
     width: 100%
 }
 /* job-post*/
+.edit_pr_bar{width: 23%!important; display: inline-block; margin: 0px !important;}
+.job_edit_menu{width: 18.5% !important;}
 .post-design-box .post-design-desc a.content_link:hover{text-decoration: underline;}
 .post-design-box .post-design-desc a.content_link { color: #707070; }
 .profile-job-post-detail .profile-job-post-title .profile-job-profile-menu ul {
@@ -2884,10 +2886,7 @@ border-top: none;
 }
 .profile-text a {
     color: #8c8c8c;
-    font-size: 19px;
-    /*padding-right: 44px;*/
-    
-    padding-top: 5px;
+    font-size: 15px;
     cursor: pointer;
 }
 .profile-text {
@@ -2902,8 +2901,9 @@ border-top: none;
     color: #000;
 }
 .profile-head-text {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
+    line-height: 25px;
 }
 .profile-head-text a {
     font-size: 23px;
@@ -14953,16 +14953,16 @@ float: right; position:relative;}
 margin: 0 auto;}*/
 .edit_profile_progress{
  
-    width: 100%; background-color: white; border:1px solid #1b8ab9; border-radius: 3px; margin: 30px 0px; padding: 10px 0px 0px;}
+    width: 100%; background-color: white; border:1px solid #d9d9d9; border-radius: 3px; margin: 30px 0px; padding: 10px 0px 0px;}
 .progre_bar_text p{color: #1b8ab9;
 font-size: 13px;
 font-weight: 600;
 text-align: center;}
 
 .edit_profile_progress:hover{
-       -webkit-box-shadow: 0px 2px 8px -3px rgba(27,138,185,1);
-    -moz-box-shadow: 0px 2px 8px -3px rgba(27,138,185,1);
-    box-shadow: 0px 2px 8px -3px rgba(27,138,185,1);
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+
 }
 .progre_bar_text{padding: 0px 17px;}
 .count_main_progress{}
@@ -14980,10 +14980,13 @@ bottom: 52px;
 left: 51px;
 
 }
+
+.edit_pr_bar .circles{ padding-left: 48px; }
 .circles{
     padding-left: 20px;
 padding-top: 14px;
 }
+
 
 .circle-1 canvas {
   vertical-align: middle;
@@ -15006,7 +15009,7 @@ left: 5px;
 .chat-header a:hover{color:#156f95;}
 
 
-
+.job_edit_pr{padding-left: 245px;}
 
 
 /***  media query  ***/
@@ -15022,6 +15025,7 @@ left: 5px;
         margin-left: 16px;
         margin-right: 16px;
     }
+
 }
 @media (min-width: 1280px) {
     .container {
@@ -15031,6 +15035,11 @@ left: 5px;
     #InboxContainer:before {right:27px;}
 }
 @media screen and (max-width: 1200px) {
+    .circle-1 strong{font-size: 27px;   top: 31px;}
+    .edit_profile_job{bottom: 32px;}
+    .edit_pr_bar .circles{padding-left: 0px;}
+    .circle-1 canvas{width: 130px;}
+    .edit_pr_bar{width: 19%!important}
     .post-design-top{float: left;}
     .action-buttons {
         height: 25px;
@@ -15038,6 +15047,8 @@ left: 5px;
         padding: 5px 7px;
         width: 25px;
     }
+    .job_edit_menu{width: 22.5% !important;}
+    .job_edit_pr{padding-left: 225px;}
     .comment-name {
         width: 85%;
     }
@@ -15667,7 +15678,7 @@ text-align: center;}
     }
     #paddingtop_fixed
     {
-        padding-top: 80px !important;
+        padding-top:74px !important;
     }
     .dropdown-menu {
         left: inherit !important;

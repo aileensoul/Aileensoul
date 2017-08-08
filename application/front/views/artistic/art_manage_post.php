@@ -5007,6 +5007,8 @@ $( document ).on( 'keydown', function ( e ) {
 
 if(document.getElementById('bidmodal-limit').style.display === "block"){ 
         $('#bidmodal-limit').modal('hide');
+    $("#test-upload-product").prop("readonly", false);
+        
         $('#myModal3').model('show');
  }else if(document.getElementById('myModal3').style.display === "block"){ 
         document.getElementById('myModal3').style.display === "none";
@@ -5125,14 +5127,26 @@ $('#postedit').on('click', function () {
         <script type="text/javascript">
 
     jQuery(document).ready(function ($) {
+
+
 //  var bar = $('#bar');
 //  var percent = $('#percent');
+
 
     var bar = $('.progress-bar');
     var percent = $('.sr-only');
     var options = {
     beforeSend: function () { 
     // Replace this with your loading gif image
+
+    var data = $('.profile-job-post-detail').length;
+
+if(data == 0){
+           
+            document.getElementById("no_post_avl").style.display = "none";
+           }
+
+           
     document.getElementById("progress_div").style.display = "block";
     var percentVal = '0%';
     bar.width(percentVal)
@@ -5158,7 +5172,8 @@ $('#postedit').on('click', function () {
             $(".file-preview-frame").hide();
 //            $('#progress_div').fadeOut('5000').remove();
             document.getElementById("progress_div").style.display = "none";
-            document.getElementById("no_post_avl").style.display = "none";
+
+        
 
             //$('.job-contact-frnd div:first').remove();
             $(".art-all-post").prepend(response.responseText);

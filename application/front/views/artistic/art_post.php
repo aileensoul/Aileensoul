@@ -1706,6 +1706,22 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
       <footer>
          <?php echo $footer; ?>
       </footer>
+
+
+
+       <!-- Bid-modal  -->
+                    <div class="modal fade message-box biderror" id="bidmodal-limit" role="dialog">
+                        <div class="modal-dialog modal-lm deactive">
+                            <div class="modal-content">
+                                <button type="button" class="modal-close" data-dismiss="modal" id="common-limit">&times;</button>       
+                                <div class="modal-body">
+                                    <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                                    <span class="mes"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Model Popup Close -->
       <!-- Bid-modal  -->
       <div class="modal fade message-box biderror" id="bidmodal" role="dialog"  >
          <div class="modal-dialog modal-lm" >
@@ -3738,8 +3754,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
            $("#test-upload_product").prop("readonly", true);
            //    alert(msg);
            //my_form.text_num.value = maxLen - my_form.my_text.value.length;
-           $('#post .mes').html("<div class='pop_content'>" + msg + "</div>");
-           $('#post').modal('show');
+           $('.biderror .mes').html("<div class='pop_content'>" + msg + "</div>");
+           $('#bidmodal-limit').modal('show');
            // Reached the Maximum length so trim the textarea
            my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
        } else { //alert("1");
@@ -4275,6 +4291,43 @@ $('#postedit').on('click', function () {
     $(".upload-image-form").ajaxForm(options);
     return false;
     });
+</script>
+
+
+<script type="text/javascript">
+
+  $('#common-limit').on('click', function(){
+        $('#myModal').modal('show');
+    $("#test-upload_product").prop("readonly", false);
+
+    });
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    
+ 
+
+
+$( document ).on( 'keydown', function ( e ) {
+    if ( e.keyCode === 27 ) {
+        //$( "#bidmodal" ).hide();
+
+if(document.getElementById('bidmodal-limit').style.display === "block"){ 
+        $('#bidmodal-limit').modal('hide');
+    $("#test-upload_product").prop("readonly", false);
+        
+        $('#myModal').model('show');
+ }else if(document.getElementById('myModal').style.display === "block"){ 
+        document.getElementById('myModal').style.display === "none";
+
+ }
+
+    }
+});  
 </script>
 
  <!-- post upload using javascript end -->

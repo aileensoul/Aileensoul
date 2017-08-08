@@ -11255,7 +11255,7 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</li>';
             }
         } else {
-            $contactdata = 'No contacts available...';
+            $contactdata = 'No contact request available...';
         }
         echo $contactdata;
     }

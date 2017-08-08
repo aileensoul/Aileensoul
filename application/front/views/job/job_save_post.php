@@ -190,8 +190,8 @@
 
 </div> 
         <div class="middle-part container padding_set_res">
-    <div class="job-menu-profile mob-none">
-        <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h5 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h5></a>
+    <div class="job-menu-profile job_edit_menu mob-none">
+        <a  href="<?php echo site_url('job/job_printpreview/' . $jobdata[0]['user_id']); ?>"><h3 class="profile-head-text"> <?php echo $jobdata[0]['fname'] . ' ' . $jobdata[0]['lname']; ?></h3></a>
         <!-- text head start -->
 
         <div class="profile-text" >
@@ -209,30 +209,14 @@
             <?php } ?>
             </div>
 
-    <div class="edit_profile_progress" style="display: block;">
-        <div class="progre_bar_text">
-            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
-        </div>
-        <div class="count_main_progress">
-            <div class="circles">
-
-
-    <div class="second circle-1">
-      <strong></strong>
-      <a href="<?php echo base_url('job/job_basicinfo_update')?>"  class="edit_profile_job">Edit Profile
-      </a>
-    </div>
-
-  </div>
-         </div>
-        </div> 
+    
           
         </div>
 
         <!-- text head end -->
 
 
-    <div class="col-md-8 col-sm-12 mob-clear">
+    <div class="col-md-7 col-sm-12 mob-clear">
     <div class="">
         <div class="common-form">
             <div class="job-saved-box">
@@ -557,6 +541,23 @@
 
     </div>
 </div>
+<div class="edit_profile_progress edit_pr_bar" >
+        <div class="progre_bar_text">
+            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
+
+
+    <div class="second circle-1">
+      <strong></strong>
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>"  class="edit_profile_job">Edit Profile
+      </a>
+    </div>
+
+  </div>
+         </div>
+        </div> 
 </div>
 
 

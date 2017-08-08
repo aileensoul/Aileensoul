@@ -438,7 +438,7 @@
 		</div>
 	</footer> -->
         
-<?php //if($userdata[0]['user_slider'] == 1){?>
+<?php if($userdata[0]['user_slider'] == 1){?>
 	<div id="onload-Modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="main_sl">
@@ -620,7 +620,7 @@
 													<img src="slicing/latsgo.png">
 												</div>
 												<div data-animation="animated fadeInUpBig" class="text_sl_head main_6_sl"> 
-													<span class="mian_4_hed"> demo@gmail.com</span>
+													<span class="mian_4_hed"><?php echo  $userdata[0]['first_name']. " " .$userdata[0]['last_name']; ?></span>
 													<p>Welcome In Aileensoul</p>
 													<p>
 														<a class="btn-go" href="">Let's Go</a>
@@ -663,7 +663,7 @@
 			</div>
 		</div>
 	</div>
-<?php //} ?>
+<?php } ?>
 
 	
 	<!--  how it work popup  -->
