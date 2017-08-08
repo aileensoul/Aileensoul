@@ -123,7 +123,7 @@ if ($returnpage == 'recruiter') {
 <?php // echo form_close();  ?>
                                    </div>-->
                 </div>
-                <div class="job-menu-profile mob-block">
+                <div class="job-menu-profile  mob-block">
                     <a  href="<?php echo site_url('job/job_printpreview/' . $job[0]['user_id']); ?>">
                         <h5 class="profile-head-text"> <?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?></h5>
                     </a>
@@ -159,7 +159,7 @@ if ($returnpage == 'recruiter') {
             </div>
         </div>
         <div class="middle-part container res-job-print  ">
-            <div class="job-menu-profile mob-none">
+            <div class="job-menu-profile job_edit_menu mob-none">
                 <a  href="javascript: void(0);" title="<?php echo $job[0]['fname'] . ' ' . $job[0]['lname']; ?>">
                     <h3 class="profile-head-text">
                         <!--  <?php echo ucfirst($job[0]['fname']); ?> -->
@@ -194,25 +194,9 @@ if ($returnpage == 'recruiter') {
 
                 </div>
                 <!-- text head end -->
-                    <div class="edit_profile_progress" style="display: block;">
-        <div class="progre_bar_text">
-            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
-        </div>
-        <div class="count_main_progress">
-            <div class="circles">
-
-
-    <div class="second circle-1">
-      <strong></strong>
-      <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
-      </a>
-    </div>
-
-  </div>
-         </div>
-        </div> 
+                   
             </div>
-            <div class="col-md-8 col-sm-12 mob-clear">
+            <div class="col-md-7 col-sm-12 mob-clear">
                 <div class="">
                     <div class="common-form">
                         <div class="job-saved-box">
@@ -1487,11 +1471,33 @@ if ($returnpage == 'recruiter') {
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+
                         </div>
+     <div class="edit_pr_bar edit_profile_progress">
+        <div class="progre_bar_text">
+            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
+
+
+    <div class="second circle-1">
+      <strong></strong>
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
+      </a>
+    </div>
+
+  </div>
+         </div>
+        </div> 
                     </div>
+
                 </div>
+
             </div>
+
         </div>
         <div class="clearfix"></div>
     </section>
