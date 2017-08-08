@@ -452,8 +452,6 @@ public function edit_insert($id){
                 $user_image = $imgdata['file_name'];
             }
     
-    
-    
 }
 
  $data = array(
