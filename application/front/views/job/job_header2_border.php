@@ -229,7 +229,7 @@
 $(document).ready(function(){
     $('.dropdown_hover').click(function(event){
         event.stopPropagation();
-         $(".dropdown-content_hover").slideToggle("fast");
+         $(".dropdown-content_hover").fadeToggle("fast");
     });
     $(".dropdown-content_hover").on("dropdown_hover", function (event) {
        //event.stopPropagation();
@@ -242,7 +242,7 @@ $(document).on("dropdown_hover", function () {
 
 $(document).ready(function() {
      $("body").click(function(event) {
-        $(".dropdown-content_hover").hide(600);
+        $(".dropdown-content_hover").fadeOut(600);
         // event.stopPropagation();
     });
  

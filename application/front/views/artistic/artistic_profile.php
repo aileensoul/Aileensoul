@@ -598,7 +598,18 @@ if ($artisticdata[0]['art_bestofmine']) {
 
 
    if (in_array($ext, $allowespdf)) { ?>
+
+<?php if (!file_exists($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine'])) {
+   echo "Pdf not available."
+
+    ?>
+
+
+<?php }else{ //echo "12"; die(); ?>
+
         <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
+
+<?php }?>
          <?php
          } ?>  
                                                    </div>
@@ -619,7 +630,12 @@ if ($artisticdata[0]['art_bestofmine']) {
                  <span> 
                  
                  <?php if($artisticdata[0]['art_portfolio']){?>
+
+
+
                  <?php echo $this->common->make_links($artisticdata[0]['art_portfolio']); ?>
+
+
                  <?php } else{
 
                             echo PROFILENA;
@@ -664,21 +680,29 @@ if ($artisticdata[0]['art_bestofmine']) {
 
 
     <?php 
-    $allowed = array('gif', 'png', 'jpg');
+   
     $allowespdf = array('pdf');
-    $allowesvideo = array('mp4', '3gp');
-    $allowesaudio = array('mp3');
+   
 
     $filename = $artisticdata[0]['art_bestofmine'];
 
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 
-    if (in_array($ext, $allowed)) {
-        ?>
-              <img src="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">
-         <?php } elseif (in_array($ext, $allowespdf)) { ?>
+    if (in_array($ext, $allowespdf)) { ?>
+
+<?php if (!file_exists($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine'])) {
+   echo "Pdf not available."
+
+    ?>
+
+
+<?php }else{ ?>
+
         <a href="<?php echo base_url($this->config->item('art_portfolio_main_upload_path') . $artisticdata[0]['art_bestofmine']) ?>">PDF</a>
+<?php }?>
+
+
          <?php
          } ?>
                     </div>

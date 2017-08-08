@@ -217,7 +217,7 @@
 $(document).ready(function(){
     $('.dropdown_hover').click(function(event){
         event.stopPropagation();
-         $(".dropdown-content_hover").slideToggle("fast");
+         $(".dropdown-content_hover").fadeToggle("fast");
     });
     $(".dropdown-content_hover").on("dropdown_hover", function (event) {
         event.stopPropagation();

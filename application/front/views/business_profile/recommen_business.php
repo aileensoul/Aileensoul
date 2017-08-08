@@ -155,10 +155,10 @@
                                                 <?php
                                                 if ($businessdata[0]['business_user_image']) {
                                                     ?>
-                                                    <div class="post-img-profile"> 
+                                                   
                                                         
 <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) { //echo "1"; die();
                                                                 $a = $businessdata[0]['company_name'];
                                                                 $acr = substr($a, 0, 1);
                                                                 ?>
@@ -166,14 +166,14 @@
                                                                     <?php echo ucfirst(strtolower($acr)) ?>
                                                                 </div> 
                                                                 <?php
-                                                            } else {
+                                                            } else { //echo "2";
                                                                 ?>
 
                                     <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
 
                                     <?php }?>
-                                                    </div>
-                                                <?php } else { ?>
+                                                  
+                                                <?php } else { //echo "3"; die(); ?>
                                                     <div class="post-img-profile">  
                                                          <?php 
                                           $a = $businessdata[0]['company_name'];
@@ -235,7 +235,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business animated fadeInUp" style="height: 150%;">
+                    <div class="col-md-7 col-sm-12 col-md-push-4 custom-right-business animated fadeInUp">
                         <div class="common-form">
                             <div class="job-saved-box">
                                 <h3 style="background-color: #fff; text-align: center; color: #003;">
@@ -586,22 +586,34 @@
                                                                             <div class="post-design-desc">
                                                                                 <div>
                                                                                     <div id="editpostdata5" style="display:block;">
-                                                                                        <a style="margin-bottom: 0px; font-size: 16px">
-                                                                                            <?php echo  ucfirst(strtolower($p['product_name'])); ?>
+                                                                                        <a style="margin-bottom: 0px; font-size: 16px"><b>
+                                                                                            <?php echo  ucfirst(strtolower($p['product_name'])); ?></b>
                                                                                         </a>
                                                                                     </div>
-                                                                                    <div id="editpostbox5" style="display:none;">
+                                                                                    <div id="editpostbox" style="display:none;">
                                                                                         <input type="text" id="editpostname5" name="editpostname" placeholder="Product Name" value="zalak">
                                                                                     </div>
                                                                                 </div>
-                                                                                <div id="editpostdetails5" style="display:block;">
-                                                                                    <span class="showmore">  <?php echo  ucfirst(strtolower($p['product_description'])); ?>
-                                                                                    </span>
+                                                                                <div id="editpostdetails" style="display:block;">
+                                                                                    <div id="<?php echo "khyati" . $p['business_profile_post_id']; ?>" style="display:block;">
+                                                            <?php
+                                                            $small = substr($p['product_description'], 0, 180);
+                                                            echo $this->common->make_links($small);
+                                                            if (strlen($p['product_description']) > 180) {
+                                                                echo '... <span id="kkkk" onClick="khdiv(' . $p['business_profile_post_id'] . ')">View More</span>';
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <div id="<?php echo "khyatii" . $p['business_profile_post_id']; ?>" style="display:none;">
+                                                            <?php
+                                                            echo $p['product_description'];
+                                                            ?>
+                                                        </div>
                                                                                 </div>
-                                                                                <div id="editpostdetailbox5" style="display:none;">
+                                                                                <div id="editpostdetailbox" style="display:none;">
                                                                                     <div contenteditable="true" id="editpostdesc5" placeholder="Product Description" class="textbuis  editable_text" name="editpostdesc"></div>
                                                                                 </div>
-                                                                                <button class="fr" id="editpostsubmit5" style="display:none;margin: 5px 0; border-radius: 3px;" onclick="edit_postinsert(5)">Save
+                                                                                <button class="fr" id="editpostsubmit" style="display:none;margin: 5px 0; border-radius: 3px;" onclick="edit_postinsert(5)">Save
                                                                                 </button>
                                                                             </div>
                                                                         </div>
@@ -623,7 +635,7 @@
                                                                                         ?>
                                                                                         <div class="one-image" >
                                                                                             <a href="<?php echo base_url('business_profile/postnewpage/' . $p['business_profile_post_id']) ?>">
-                                                                                                <img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[0]['image_name']) ?>" > 
+                                                                                                <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" > 
                                                                                             </a>
                                                                                         </div>
                                                                                     <?php } elseif (in_array($ext, $allowespdf)) { ?>
@@ -997,25 +1009,25 @@
                                                                                                     $business_userid = $this->db->get_where('business_profile_post', array('business_profile_post_id' => $pdata['business_profile_post_id'], 'status' => 1))->row()->user_id;
                                                                                                     if ($pdata['user_id'] == $userid || $business_userid == $userid) {
                                                                                                         ?>                                     
-                                                                                                        <span role="presentation" aria-hidden="true"> · 
-                                                                                                        </span>
-                                                                                                        <div class="comment-details-menu">
-                                                                                                            <input type="hidden" name="post_delete"  id="post_delete<?php echo $pdata['business_profile_post_comment_id']; ?>" value= "<?php echo $pdata['business_profile_post_id']; ?>">
-                                                                                                            <a id="<?php echo $pdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
-                                                                                                                <span class="<?php echo 'insertcomment' . $pdata['business_profile_post_comment_id']; ?>">
-                                                                                                                </span>
-                                                                                                            </a>
-                                                                                                        </div>
-                                                                                                    <?php } ?>                                   
-                                                                                                    <span role="presentation" aria-hidden="true"> · 
-                                                                                                    </span>
-                                                                                                    <div class="comment-details-menu">
-                                                                                                        <p>
-                                                                                                            <?php
-                                                                                                            echo date('d-M-Y', strtotime($pdata['created_date']));
-                                                                                                            echo '</br>';
-                                                                                                            ?>
-                                                                                                        </p>
+                                         <span role="presentation" aria-hidden="true"> · 
+                                         </span>
+                                            <div class="comment-details-menu">
+                                  <input type="hidden" name="post_delete"  id="post_delete<?php echo $pdata['business_profile_post_comment_id']; ?>" value= "<?php echo $pdata['business_profile_post_id']; ?>">
+                                        <a id="<?php echo $pdata['business_profile_post_comment_id']; ?>"   onClick="comment_delete(this.id)"> Delete
+                                         <span class="<?php echo 'insertcomment' . $pdata['business_profile_post_comment_id']; ?>">
+                                             </span>
+                                            </a>
+                                    </div>
+                                 <?php } ?>                                   
+                                     <span role="presentation" aria-hidden="true"> · 
+                                     </span>
+                                     <div class="comment-details-menu">
+                                         <p>
+                                                 <?php
+                                                                                    echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($pdata['created_date'])));
+                                                                                    echo '</br>';
+                                                                                    ?>
+                                     </p>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2957,3 +2969,35 @@
 
 </script>
 <!-- all popup close close using esc end-->
+
+
+ <script type="text/javascript">
+
+                function khdiv(abc) {
+
+                    document.getElementById('khyati' + abc).style.display = 'none';
+                        document.getElementById('khyatii' + abc).style.display = 'block';
+
+                $.ajax({
+                type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/edit_more_insert" ?>',
+                        data: 'business_profile_post_id=' + abc,
+                        dataType: "json",
+                        success: function (data) {
+
+                        document.getElementById('editpostdata' + abc).style.display = 'block';
+                        document.getElementById('editpostbox' + abc).style.display = 'none';
+                        //  document.getElementById('editpostdetails' + abc).style.display = 'block';
+                        document.getElementById('editpostdetailbox' + abc).style.display = 'none';
+                        document.getElementById('editpostsubmit' + abc).style.display = 'none';
+                        document.getElementById('khyati' + abc).style.display = 'none';
+                        document.getElementById('khyatii' + abc).style.display = 'block';
+                        //alert(data.description);
+                        $('#' + 'editpostdata' + abc).html(data.title);
+                        // $('#' + 'editpostdetails' + abc).html(data.description);
+                        $('#' + 'khyatii' + abc).html(data.description);
+                        }
+                });
+                }
+
+            </script>

@@ -918,6 +918,723 @@ if($userid){?>
     </header>
 
     <!-- header end -->
+    <!-- header2 start -->
+    <script>
+
+    $(document).ready(function () {
+        $("#addcontactBody").click(function (event) {
+            $("#addcontactContainer").show();
+            event.stopPropagation();
+        });
+
+        $("body").click(function (event) {
+            $("#addcontactContainer").hide(600);
+            event.stopPropagation();
+        });
+    });
+</script>
+<script type="text/javascript" >
+
+// 
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            $("#addcontactContainer").hide();
+        }
+    });
+
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            $("#InboxContainer").hide();
+        }
+    });
+
+
+
+    $(document).ready(function ()
+    {
+        $(".dropdown_hover").click(function ()
+        {
+            $("#addcontactContainer").hide();
+            // return false;
+        });
+    });
+
+    $(document).ready(function ()
+    {
+        $("#addcontactLink").click(function ()
+        {
+//$("#addcontactLink").hide();
+
+            $("#InboxContainer").hide();
+            $("#Inbox_count").hide();
+            $(".dropdown-menu").hide();
+            $("#dropdown-content_hover").hide();
+
+
+
+            $("#Frnd_reqContainer").hide();
+            $("#Frnd_req_count").hide();
+            $("#addcontactContainer").fadeToggle(300);
+            $("#addcontact_count").fadeOut("slow");
+            return false;
+        });
+
+    });
+
+//Document Click
+
+
+</script>
+
+<?php if (($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post')) { ?>
+
+
+    <header>
+        <div class="bg-search">
+            <div class="header2 headerborder animated fadeInDownBig">
+                <div class="container">
+                    <div class="row">
+
+                        <?php echo $business_search; ?>
+                        <div class="col-sm-6 col-md-6 col-xs-12  h2-smladd mob-width">
+                            <div class="search-mob-block">
+                                <div class="">
+                                    <a href="#search">
+                                        <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                    </a>
+                                </div>
+                                <div id="search">
+                                    <button type="button" class="close">×</button>
+                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
+                                        <div class="new-search-input">
+                                           <input type="text" id="tags1" name="skills" placeholder="Find Your Business">
+                                             <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
+                                            <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="">
+
+
+                                <ul class="" id="dropdownclass">
+
+
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a class="bus-h" href="<?php echo base_url('business_profile/business_profile_post'); ?>"><span class="bu_home"></span></a>
+                                    </li>
+                                    <!-- Friend Request Start-->
+
+                                    <li id="add_contact">
+                                        <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return Notification_contact();">
+                                           <!--  <span class="hidden-xs">Contact Request &nbsp;</span>  -->
+                                            <span class="bu_req"></span>
+
+                                            <span id="addcontact_count"></span>
+
+                                        </a>
+                                        <div id="addcontactContainer">
+                                            <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+
+                                            <div id="addcontactBody" class="notifications">
+
+
+                                            </div>
+
+                                        </div>
+                                    </li>  
+
+                                    <li id="Inbox_link">
+                                        <?php if ($message_count) { ?>
+                                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
+                                        <?php } ?>
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+
+                                            <span id="message_count"></span>
+                                        </a>
+
+                                        <div id="InboxContainer">
+                                            <div id="InboxBody" class="Inbox">
+                                                <div id="notificationTitle">Messages</div>
+
+                                                <div id="notificationsmsgBody" class="notificationsmsg">
+                                                    
+                                                   <div>
+    <ul class="">
+   
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/rout-digital-duniya" onclick="not_active(1195)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/index3.jpg" class="mCS_img_loaded">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  ROUT DIGITAL DUNIYA</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    
+</ul>
+</div> 
+                                                </div>
+                                            </div>
+                                    </li> 
+                              
+                                    
+    
+                                    <li>
+
+
+                                        <div class="dropdown_hover">
+                                            <span id="art_profile" >Business Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                            <div class="dropdown-content_hover" id="dropdown-content_hover">
+                                                <span class="my_account">
+                                                    <div class="my_S">Account</div>
+
+                                                </span>
+                                                <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"><span class="h2-img h2-srrt"></span>View Profile</a> 
+                                                <a href="<?php echo base_url('business_profile/business_information_update'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
+
+                                                <?php
+                                                $userid = $this->session->userdata('aileenuser');
+                                                ?>
+
+                                                <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Friend Request End-->
+
+                                    <!-- END USER LOGIN DROPDOWN -->
+                                </ul>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </header>
+    <?php
+} else {
+    ?>
+    <header>
+        <div class="bg-search">
+            <div class="header2">
+                <div class="container">
+                    <div class="row">
+
+                        <?php echo $business_search; ?>
+                        <div class="col-sm-6 col-md-6 col-xs-12  h2-smladd mob-width">
+                            <div class="search-mob-block">
+                                <div class="">
+                                    <a href="#search">
+                                        <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                                    </a>
+                                </div>
+                                <div id="search">
+                                    <button type="button" class="close">×</button>
+                                   <form action=<?php echo base_url('search/business_search') ?> method="get">
+                                        <div class="new-search-input">
+                                            <input type="text" id="tags1" name="skills" placeholder="Find Your Business">
+                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Your Location">
+                                            <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="">
+
+
+                                <ul class="" id="dropdownclass">
+
+
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_post') { ?> class="active" <?php } ?>><a class="bus-h" href="<?php echo base_url('business_profile/business_profile_post'); ?>"><span class="bu_home"></span></a>
+                                    </li>
+                                    <!-- Friend Request Start-->
+
+                                    <li id="add_contact">
+                                        <a class="action-button shadow animate" href="javascript:void(0)" id="addcontactLink" onclick = "return Notification_contact();">
+                                           <!--  <span class="hidden-xs">Contact Request &nbsp;</span>  -->
+                                            <span class="bu_req"></span>
+
+                                            <span id="addcontact_count"></span>
+
+                                        </a>
+                                        <div id="addcontactContainer">
+                                            <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+                                            <div id="addcontactBody" class="notifications">
+                                            </div>
+                                        </div>
+                                    </li>  
+<!--                                    <li id="Inbox_link">
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+                                            <span id="message_count"></span>
+                                        </a>
+                                        <div id="InboxContainer">
+                                            <div id="InboxBody" class="Inbox">
+                                                <div id="notificationTitle">Messages</div>
+                                                <div id="notificationsmsgBody" class="notificationsmsg">
+                                                    
+                                                </div>
+                                            </div>
+                                    </li>   -->
+                                    <li id="Inbox_link">
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="InboxLink" onclick = "return getmsgNotification();"><em class="hidden-xs"></em> <i class="img-msg"></i>
+
+                                         <span id="message_count"></span>
+
+                                    </a><div id="InboxContainer">
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+
+                                             <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                            
+<div>
+    <ul class="">
+        <li class=""><a href="http://localhost/aileensoul/chat/abc/93/6/6/184" class="clearfix msg_dot" style="padding:0px!important;"><div class="notification-database"><div class="notification-pic"><div class="post-img-div">ZP</div></div><div class="notification-data-inside"><h6>Zalak</h6><div class="msg_desc_a">z4</div><div class="data_noti_msg"><span class="day-text2">1 hour ago</span></div></div></div></a></li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/zalak-infotech-pvt-ltd" onclick="not_active(1422)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">Z</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Zalak Infotech Pvt Ltd</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/zalak-infotech-pvt-ltd" onclick="not_active(1387)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">Z</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Zalak Infotech Pvt Ltd</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">1 week ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/60" onclick="not_active(1366)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/hemstechnosys-pvt-ltd" onclick="not_active(1270)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">H</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  HEMSTECHNOSYS PVT. LTD.</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/rout-digital-duniya" onclick="not_active(1195)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/index3.jpg">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  ROUT DIGITAL DUNIYA</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/business_profile/business_resume/abhinandan-hosiery" onclick="not_active(1154)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y">Started following you in business profile.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/65" onclick="not_active(1151)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/66" onclick="not_active(1150)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="active2">
+        <a href="http://localhost/aileensoul/notification/business_post/67" onclick="not_active(1149)">
+            <div class="notification-database">
+                <div class="notification-pic"><img src="http://localhost/aileensoul/uploads/business_profile/thumbs/images.png">
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Abhinandan Hosiery</b> <span class="noti-msg-y"> Likes your post in business profile. </span> </h6>
+                    <div><i class="clockimg"></i><span class="day-text">3 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li class="">
+        <a href="http://localhost/aileensoul/artistic/artistic_profile/318" onclick="not_active(1126)">
+            <div class="notification-database">
+                <div class="notification-pic">
+                    <div class="post-img-div">DP</div>
+                </div>
+                <div class="notification-data-inside">
+                    <h6><b>  Dhruti Panchal</b> <span class="noti-msg-y"> Started following you in artistic.</span></h6>
+                    <div><i class="clockimg"></i><span class="day-text">1 month ago</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+</div>
+
+                                    </div>
+
+                                        </div>
+                                </li>
+                                
+                                
+                                    <li>
+
+
+                                        <div class="dropdown_hover">
+                                            <span id="art_profile" >Business Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                            <div class="dropdown-content_hover" id="dropdown-content_hover">
+                                                <span class="my_account">
+                                                    <div class="my_S">Account</div>
+
+                                                </span>
+                                                <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"><span class="h2-img h2-srrt"></span>View Profile</a> 
+                                                <a href="<?php echo base_url('business_profile/business_information_update'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
+
+                                                <?php
+                                                $userid = $this->session->userdata('aileenuser');
+                                                ?>
+
+                                                <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Friend Request End-->
+
+                                    <!-- END USER LOGIN DROPDOWN -->
+                                </ul>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    </header>
+
+
+<?php } ?>
+
+
+<!-- Bid-modal  -->
+<div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+    <div class="modal-dialog modal-lm deactive">
+        <div class="modal-content">
+            <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+            <div class="modal-body">
+                <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                <span class="mes"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model Popup Close -->
+
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $('.dropdown_hover').click(function (event) {
+            event.stopPropagation();
+            $(".dropdown-content_hover").slideToggle("fast");
+        });
+        $(".dropdown-content_hover").on("dropdown_hover", function (event) {
+            event.stopPropagation();
+        });
+    });
+
+    $(document).on("dropdown_hover", function () {
+        $(".dropdown-content_hover").hide();
+    });
+
+    $(document).ready(function () {
+        $("body").click(function (event) {
+            $(".dropdown-content_hover").hide();
+            event.stopPropagation();
+        });
+
+    });
+</script>
+
+
+<script type="text/javascript">
+
+    function deactivate(clicked_id) {
+        $('.biderror .mes').html("<div class='pop_content'> Are you sure you want to deactive your business profile?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='deactivate_profile(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+
+    function deactivate_profile(clicked_id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "business_profile/deactivate" ?>',
+            data: 'id=' + clicked_id,
+            success: function (data) {
+                window.location = "<?php echo base_url() ?>dashboard";
+
+            }
+        });
+
+
+
+    }
+</script>
+
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+
+    function Notification_contact() {
+
+        contactperson();
+        update_contact_count();
+
+    }
+
+    function contactperson() {
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/contact_notification",
+            type: "POST",
+            success: function (data) {
+
+                $('#addcontactBody').html(data);
+
+            }
+        });
+
+    }
+
+
+    function update_contact_count() {
+
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/update_contact_count",
+            type: "POST",
+            success: function (data) {
+
+                //$('#addcontactBody').html(data);
+                
+            }
+        });
+
+
+    }
+
+    function contactapprove(toid, status) {
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/contact_approve",
+            type: "POST",
+            data: 'toid=' + toid + '&status=' + status,
+            success: function (data) {
+
+                $('#addcontactBody').html(data);
+
+
+            }
+        });
+
+    }
+
+</script>
+<!-- script for update all read notification end -->
+
+
+<!-- all popup close close using esc start -->
+<script type="text/javascript">
+
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            //$( "#bidmodal" ).hide();
+            $('#bidmodal').modal('hide');
+        }
+    });
+
+
+    $(document).on('keydown', function (e) {
+        if (e.keyCode === 27) {
+            $("#dropdown-content_hover").hide();
+        }
+    });
+
+
+</script>
+<!-- all popup close close using esc end-->
+
+
+<script type="text/javascript" charset="utf-8">
+
+    function addmsg1(type, msg)
+    {
+        if (msg == 0)
+        { //alert(1234);
+            $("#message_count").html('');
+            $("#message_count").removeAttr("style");
+            $('#InboxLink').removeClass('msg_notification_available');
+        } else
+        {
+            $('#message_count').html(msg);
+           // $('#message_count').css({"background": "#FF4500" , "padding" : "4px 6px 4px 5.5px"});
+            $('#InboxLink').addClass('msg_notification_available');
+            $('#message_count').addClass('count_add');
+            
+            //alert("welcome");
+        }
+    }
+    function waitForMsg1()
+    {
+        $.ajax({
+            type: "GET",
+            url: "<?php echo base_url(); ?>notification/select_msg_noti/6",
+            async: true,
+            cache: false,
+            timeout: 50000,
+
+            success: function (data) {
+                addmsg1("new", data);
+                setTimeout(
+                        waitForMsg1,
+                        10000
+                        );
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    };
+
+    $(document).ready(function () {
+        waitForMsg1();
+    });
+    $(document).ready(function () {
+        $menuLeft = $('.pushmenu-left');
+        $nav_list = $('#nav_list');
+
+        $nav_list.click(function () {
+            $(this).toggleClass('active');
+            $('.pushmenu-push').toggleClass('pushmenu-push-toright');
+            $menuLeft.toggleClass('pushmenu-open');
+        });
+    });
+
+</script>
+<!-- script for fetch all unread message notification end-->
+
+ 
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+    function getmsgNotification() {
+        msgNotification();
+     //   msgheader();
+    }
+
+    function msgNotification() {
+        // first click alert('here'); 
+        $.ajax({
+            url: "<?php echo base_url(); ?>notification/update_msg_noti/6",
+            type: "POST",
+            //data: {uid: 12341234}, //this sends the user-id to php as a post variable, in php it can be accessed as $_POST['uid']
+            success: function (data) {
+                data = JSON.parse(data);
+                //alert(data);
+                //update some fields with the updated data
+                //you can access the data like 'data["driver"]'
+            }
+        });
+    }
+//    function msgheader()
+//    {
+//        // $("#fad" + clicked_id).fadeOut(6000);
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
+//            data: 'message_from_profile=5&message_to_profile=5',
+//            success: function (data) {
+//                $('#' + 'notificationsmsgBody').html(data);
+//            }
+//        });
+//
+//    }
+</script>
+<!--  commen script harshad  -->
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+     document.getElementById('tags1').value = null;
+     document.getElementById('searchplace1').value = null;
+
+    });
+</script>
+    <!-- header2 end -->
 
     <!-- script for update all read notification start-->
     <script type="text/javascript">

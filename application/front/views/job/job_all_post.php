@@ -109,9 +109,7 @@
                   <div class="edi_origde">
                    <div class="edit_profile_progress" style="display: block;">
         <div class="progre_bar_text">
-            <p>Please fill-up your full profile then 
-you can find better job and Recruiter
-can easy to find you.</p>
+            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
         </div>
         <div class="count_main_progress">
             <div class="circles">
@@ -1136,7 +1134,7 @@ can easy to find you.</p>
 });
  </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script> 
 <script type="text/javascript" src="<?php echo base_url('js/progressloader.js'); ?>"></script>
 
 <script type="text/javascript">
