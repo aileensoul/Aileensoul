@@ -115,7 +115,7 @@
 
 
                             <fieldset <?php if ($lname) { ?> class="error-msg" <?php } ?>>
-                                <label>Last Name<spanclass="red">*</span>:</label>
+                                <label>Last Name<span class="red">*</span>:</label>
                                 <input type="text" tabindex="2" name="lname" id="lname" placeholder="Enter Last Name" value="<?php if ($lastname1) {
     echo $lastname1;
 } else {

@@ -43,8 +43,13 @@ class Dashboard extends MY_Controller {
         $data="user_id";
         $this->data['user_list'] = $get_users = $this->common->select_data_by_condition('ailee_user', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
         
-        // For pages Data
+        //For Count Freelancer hire Register User Data
+        $condition_array = array('is_delete' => 0);
+        $data="reg_id";
+        $this->data['freelancer_hire_list'] = $get_users = $this->common->select_data_by_condition('freelancer_hire_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
+
         
+        // For pages Data
         $data="page_id";
         $this->data['pages_list'] = $get_users = $this->common->select_data_by_condition('ailee_pages', $condition_array=array(), $data, $short_by, $order_by, $limit, $offset, $join_str = array());
        

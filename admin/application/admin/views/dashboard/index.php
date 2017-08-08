@@ -59,7 +59,7 @@ echo $leftmenu;
               <!-- start  User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-green">
                     <div class="inner">
                         <h3><?php echo count($pages_list)?></h3>
                         <p>ALL Pages</p>
@@ -99,6 +99,23 @@ echo $leftmenu;
                         <i class="fa fa-users"></i>
                     </div>
                     <a href="<?php echo base_url('recruiter/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end Job User List box -->
+             
+             
+              <!-- start Freelancer hire User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo count($freelancer_hire_list)?></h3>
+                        <p>Freelancer Hire User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php echo base_url('freelancer_hire/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
              <!-- end Job User List box -->

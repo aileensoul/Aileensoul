@@ -4019,9 +4019,9 @@ $files[] = $_FILES;
     if($job_reg[0]['keyskill'] != ''){
         $count++;
     }
-     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
-        $count++;
-    }
+    //  if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+    //     $count++;
+    // }
     if($job_reg[0]['work_job_title'] != ''){
         $count++;
     }
@@ -4073,84 +4073,18 @@ $files[] = $_FILES;
 
      $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
     $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   
 
-     if($job_add_edu[0]['board_primary'] != ''){
+     if($job_add_edu[0]['board_primary'] != '' || $job_add_edu[0]['board_secondary'] != ''  || $job_add_edu[0]['board_higher_secondary'] != '' || $jobgrad[0]['degree'] != '' ){
         $count++;
     }
-     if($job_add_edu[0]['school_primary'] != ''){
+     if(($job_add_edu[0]['board_primary'] != '' && $job_add_edu[0]['edu_certificate_primary'] != '') || ($job_add_edu[0]['board_secondary'] != '' && $job_add_edu[0]['edu_certificate_secondary'] != '')  || ($job_add_edu[0]['board_higher_secondary'] != '' && $job_add_edu[0]['edu_certificate_higher_secondary'] != '') || ($jobgrad[0]['degree'] != ''  && $jobgrad[0]['grade'] != '' && $jobgrad[0]['edu_certificate'] != '')){
         $count++;
     }
-     if($job_add_edu[0]['percentage_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_secondary'] != ''){
-        $count++;
-    }
-    if($job_add_edu[0]['school_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_secondary'] != ''){
-        $count++;
-    }
-
-     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['stream_higher_secondary'] != ''){
-        $count++;
-    }
-      if($job_add_edu[0]['school_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
-        $count++;
-    }
-
-$contition_array = array('user_id' => $userid);
-$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-// echo '<pre>';
-//     print_r($jobgrad);
-//     exit;
-     if($jobgrad[0]['degree'] != ''){
-        $count++;
-    } if($jobgrad[0]['stream'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['university'] != ''){
-        $count++;
-    } if($jobgrad[0]['college'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['grade'] != ''){
-        $count++;
-    } if($jobgrad[0]['percentage'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['pass_year'] != ''){
-        $count++;
-    } if($jobgrad[0]['edu_certificate'] != ''){
-        $count++;
-    }
+   
 
   $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
   $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4158,25 +4092,11 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
   //   print_r($workdata);
   //   exit;
 
-   if($workdata[0]['experience_year'] != ''){
-        $count++;
-    } if($workdata[0]['experience_month'] != ''){
+   if(($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience') || ($workdata[0]['experience_year'] != '' && $workdata[0]['companyemail'] != '' && $workdata[0]['companyphn'] != '' && $workdata[0]['work_certificate'] != '')){
         $count++;
     }
-     if($workdata[0]['jobtitle'] != ''){
-        $count++;
-    } if($workdata[0]['companyname'] != ''){
-        $count++;
-    }
-     if($workdata[0]['companyemail'] != ''){
-        $count++;
-    } if($workdata[0]['companyphn'] != ''){
-        $count++;
-    }
-     if($workdata[0]['work_certificate'] != ''){
-        $count++;
-    } 
-     $count_profile=($count*100)/52;
+
+     $count_profile=($count*100)/23;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
 //  print_r( $this->data['count_profile']);
@@ -4657,7 +4577,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
 
         $this->data['demo'] = array_values($result1);
 
-       //For Counting Profile data start
+     //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -4680,9 +4600,9 @@ $work_job_title=$jobdata[0]['work_job_title'];
     if($job_reg[0]['keyskill'] != ''){
         $count++;
     }
-     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
-        $count++;
-    }
+    //  if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+    //     $count++;
+    // }
     if($job_reg[0]['work_job_title'] != ''){
         $count++;
     }
@@ -4734,84 +4654,18 @@ $work_job_title=$jobdata[0]['work_job_title'];
 
      $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
     $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   
 
-     if($job_add_edu[0]['board_primary'] != ''){
+     if($job_add_edu[0]['board_primary'] != '' || $job_add_edu[0]['board_secondary'] != ''  || $job_add_edu[0]['board_higher_secondary'] != '' || $jobgrad[0]['degree'] != '' ){
         $count++;
     }
-     if($job_add_edu[0]['school_primary'] != ''){
+     if(($job_add_edu[0]['board_primary'] != '' && $job_add_edu[0]['edu_certificate_primary'] != '') || ($job_add_edu[0]['board_secondary'] != '' && $job_add_edu[0]['edu_certificate_secondary'] != '')  || ($job_add_edu[0]['board_higher_secondary'] != '' && $job_add_edu[0]['edu_certificate_higher_secondary'] != '') || ($jobgrad[0]['degree'] != ''  && $jobgrad[0]['grade'] != '' && $jobgrad[0]['edu_certificate'] != '')){
         $count++;
     }
-     if($job_add_edu[0]['percentage_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_secondary'] != ''){
-        $count++;
-    }
-    if($job_add_edu[0]['school_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_secondary'] != ''){
-        $count++;
-    }
-
-     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['stream_higher_secondary'] != ''){
-        $count++;
-    }
-      if($job_add_edu[0]['school_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
-        $count++;
-    }
-
-$contition_array = array('user_id' => $userid);
-$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-// echo '<pre>';
-//     print_r($jobgrad);
-//     exit;
-     if($jobgrad[0]['degree'] != ''){
-        $count++;
-    } if($jobgrad[0]['stream'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['university'] != ''){
-        $count++;
-    } if($jobgrad[0]['college'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['grade'] != ''){
-        $count++;
-    } if($jobgrad[0]['percentage'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['pass_year'] != ''){
-        $count++;
-    } if($jobgrad[0]['edu_certificate'] != ''){
-        $count++;
-    }
+   
 
   $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
   $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4819,25 +4673,11 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
   //   print_r($workdata);
   //   exit;
 
-   if($workdata[0]['experience_year'] != ''){
-        $count++;
-    } if($workdata[0]['experience_month'] != ''){
+   if(($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience') || ($workdata[0]['experience_year'] != '' && $workdata[0]['companyemail'] != '' && $workdata[0]['companyphn'] != '' && $workdata[0]['work_certificate'] != '')){
         $count++;
     }
-     if($workdata[0]['jobtitle'] != ''){
-        $count++;
-    } if($workdata[0]['companyname'] != ''){
-        $count++;
-    }
-     if($workdata[0]['companyemail'] != ''){
-        $count++;
-    } if($workdata[0]['companyphn'] != ''){
-        $count++;
-    }
-     if($workdata[0]['work_certificate'] != ''){
-        $count++;
-    } 
-     $count_profile=($count*100)/52;
+
+     $count_profile=($count*100)/23;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
 //  print_r( $this->data['count_profile']);
@@ -4983,7 +4823,7 @@ public function job_applied_post() {
                 // echo "<pre>"; print_r($this->data['postdetail']); die();
 
 
-  //For Counting Profile data start
+ //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
 
     $job_reg   = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'fname,lname,email,experience,keyskill,work_job_title,work_job_industry,work_job_city,phnno,language,dob,gender,city_id,pincode,address,project_name,project_duration,project_description,training_as,training_duration,training_organization', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby=array());
@@ -5006,9 +4846,9 @@ public function job_applied_post() {
     if($job_reg[0]['keyskill'] != ''){
         $count++;
     }
-     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
-        $count++;
-    }
+    //  if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+    //     $count++;
+    // }
     if($job_reg[0]['work_job_title'] != ''){
         $count++;
     }
@@ -5060,84 +4900,18 @@ public function job_applied_post() {
 
      $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
     $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   
 
-     if($job_add_edu[0]['board_primary'] != ''){
+     if($job_add_edu[0]['board_primary'] != '' || $job_add_edu[0]['board_secondary'] != ''  || $job_add_edu[0]['board_higher_secondary'] != '' || $jobgrad[0]['degree'] != '' ){
         $count++;
     }
-     if($job_add_edu[0]['school_primary'] != ''){
+     if(($job_add_edu[0]['board_primary'] != '' && $job_add_edu[0]['edu_certificate_primary'] != '') || ($job_add_edu[0]['board_secondary'] != '' && $job_add_edu[0]['edu_certificate_secondary'] != '')  || ($job_add_edu[0]['board_higher_secondary'] != '' && $job_add_edu[0]['edu_certificate_higher_secondary'] != '') || ($jobgrad[0]['degree'] != ''  && $jobgrad[0]['grade'] != '' && $jobgrad[0]['edu_certificate'] != '')){
         $count++;
     }
-     if($job_add_edu[0]['percentage_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_secondary'] != ''){
-        $count++;
-    }
-    if($job_add_edu[0]['school_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_secondary'] != ''){
-        $count++;
-    }
-
-     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['stream_higher_secondary'] != ''){
-        $count++;
-    }
-      if($job_add_edu[0]['school_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
-        $count++;
-    }
-
-$contition_array = array('user_id' => $userid);
-$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-// echo '<pre>';
-//     print_r($jobgrad);
-//     exit;
-     if($jobgrad[0]['degree'] != ''){
-        $count++;
-    } if($jobgrad[0]['stream'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['university'] != ''){
-        $count++;
-    } if($jobgrad[0]['college'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['grade'] != ''){
-        $count++;
-    } if($jobgrad[0]['percentage'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['pass_year'] != ''){
-        $count++;
-    } if($jobgrad[0]['edu_certificate'] != ''){
-        $count++;
-    }
+   
 
   $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
   $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5145,25 +4919,11 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
   //   print_r($workdata);
   //   exit;
 
-   if($workdata[0]['experience_year'] != ''){
-        $count++;
-    } if($workdata[0]['experience_month'] != ''){
+   if(($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience') || ($workdata[0]['experience_year'] != '' && $workdata[0]['companyemail'] != '' && $workdata[0]['companyphn'] != '' && $workdata[0]['work_certificate'] != '')){
         $count++;
     }
-     if($workdata[0]['jobtitle'] != ''){
-        $count++;
-    } if($workdata[0]['companyname'] != ''){
-        $count++;
-    }
-     if($workdata[0]['companyemail'] != ''){
-        $count++;
-    } if($workdata[0]['companyphn'] != ''){
-        $count++;
-    }
-     if($workdata[0]['work_certificate'] != ''){
-        $count++;
-    } 
-     $count_profile=($count*100)/52;
+
+     $count_profile=($count*100)/23;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
 //  print_r( $this->data['count_profile']);
@@ -5383,9 +5143,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
     if($job_reg[0]['keyskill'] != ''){
         $count++;
     }
-     if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
-        $count++;
-    }
+    //  if($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience'){
+    //     $count++;
+    // }
     if($job_reg[0]['work_job_title'] != ''){
         $count++;
     }
@@ -5437,84 +5197,18 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
      $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
     $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $contition_array = array('user_id' => $userid);
+$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
   
 
-     if($job_add_edu[0]['board_primary'] != ''){
+     if($job_add_edu[0]['board_primary'] != '' || $job_add_edu[0]['board_secondary'] != ''  || $job_add_edu[0]['board_higher_secondary'] != '' || $jobgrad[0]['degree'] != '' ){
         $count++;
     }
-     if($job_add_edu[0]['school_primary'] != ''){
+     if(($job_add_edu[0]['board_primary'] != '' && $job_add_edu[0]['edu_certificate_primary'] != '') || ($job_add_edu[0]['board_secondary'] != '' && $job_add_edu[0]['edu_certificate_secondary'] != '')  || ($job_add_edu[0]['board_higher_secondary'] != '' && $job_add_edu[0]['edu_certificate_higher_secondary'] != '') || ($jobgrad[0]['degree'] != ''  && $jobgrad[0]['grade'] != '' && $jobgrad[0]['edu_certificate'] != '')){
         $count++;
     }
-     if($job_add_edu[0]['percentage_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_primary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_secondary'] != ''){
-        $count++;
-    }
-    if($job_add_edu[0]['school_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_secondary'] != ''){
-        $count++;
-    }
-
-     if($job_add_edu[0]['edu_certificate_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['board_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['stream_higher_secondary'] != ''){
-        $count++;
-    }
-      if($job_add_edu[0]['school_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['percentage_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['pass_year_higher_secondary'] != ''){
-        $count++;
-    }
-     if($job_add_edu[0]['edu_certificate_higher_secondary'] != ''){
-        $count++;
-    }
-
-$contition_array = array('user_id' => $userid);
-$jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-// echo '<pre>';
-//     print_r($jobgrad);
-//     exit;
-     if($jobgrad[0]['degree'] != ''){
-        $count++;
-    } if($jobgrad[0]['stream'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['university'] != ''){
-        $count++;
-    } if($jobgrad[0]['college'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['grade'] != ''){
-        $count++;
-    } if($jobgrad[0]['percentage'] != ''){
-        $count++;
-    }
-     if($jobgrad[0]['pass_year'] != ''){
-        $count++;
-    } if($jobgrad[0]['edu_certificate'] != ''){
-        $count++;
-    }
+   
 
   $contition_array = array('user_id' => $userid, 'experience !=' => 'Fresher', 'status' => 1);
   $workdata = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -5522,25 +5216,11 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
   //   print_r($workdata);
   //   exit;
 
-   if($workdata[0]['experience_year'] != ''){
-        $count++;
-    } if($workdata[0]['experience_month'] != ''){
+   if(($job_reg[0]['experience'] != '' && $job_reg[0]['experience'] != 'Experience') || ($workdata[0]['experience_year'] != '' && $workdata[0]['companyemail'] != '' && $workdata[0]['companyphn'] != '' && $workdata[0]['work_certificate'] != '')){
         $count++;
     }
-     if($workdata[0]['jobtitle'] != ''){
-        $count++;
-    } if($workdata[0]['companyname'] != ''){
-        $count++;
-    }
-     if($workdata[0]['companyemail'] != ''){
-        $count++;
-    } if($workdata[0]['companyphn'] != ''){
-        $count++;
-    }
-     if($workdata[0]['work_certificate'] != ''){
-        $count++;
-    } 
-     $count_profile=($count*100)/52;
+
+     $count_profile=($count*100)/23;
      $this->data['count_profile']=  $count_profile;
      $this->data['count_profile_value']= ($count_profile/100);
 //  print_r( $this->data['count_profile']);

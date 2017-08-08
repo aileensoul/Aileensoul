@@ -1284,6 +1284,20 @@ class Recruiter extends MY_Controller {
         
         $this->data['de'] = array_values($res);
 
+         //skill data fetch
+        $contition_array = array('status' => 'publish');
+        $jobtitle= $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        foreach ($jobtitle as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $title[] = $val1;
+              }
+          }
+        foreach ($title as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+      $this->data['jobtitle'] = array_values($result1);
 
         $this->load->view('recruiter/add_post', $this->data);
     }
@@ -1426,14 +1440,62 @@ class Recruiter extends MY_Controller {
 
              // echo "hi"; die();
             $this->load->view('recruiter/add_post',$this->data);
+
+
+        $jobtitle = $this->input->post('post_name'); 
+      
+      $skills = $this->input->post('skills');
+      $skills = explode(',',$skills);
+
+      // job title start   
+        if($jobtitle != " "){ 
+     $contition_array = array('name' => $jobtitle);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $jobdata = $this->common->select_data_by_condition('job_title',$contition_array, $data = 'title_id,name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($jobdata){
+         $jobtitle = $jobdata[0]['title_id'];
+           }else{
+                 $data = array(
+                    'name' => ucfirst($this->input->post('post_name')),
+                    'status' => 'publish',
+                 );
+      $jobtitle = $this->common->insert_data_getid($data, 'job_title');
+           }
+      }
+
+
+       // skills  start   
+      
+      if(count($skills) > 0){ 
+          
+          foreach($skills as $ski){
+     $contition_array = array('skill' => $ski,'type' => 4);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($skilldata){
+         $skill[] = $skilldata[0]['skill_id'];
+           }else{
+                 $data = array(
+                    'skill' => $ski,
+                    'status' => '1',
+                    'type' => 4,
+                    'user_id' => $userid,
+                 );
+      $skill[] = $this->common->insert_data_getid($data, 'skill');
+           }
+          }
+          
+          $skills = implode(',',$skill); 
+      }
+
        // } else {
 
 
             //echo "hello"; die();
             $data = array(
-                'post_name' => trim($this->input->post('post_name')),
+                'post_name' => $jobtitle,
                 'post_description' => trim($this->input->post('post_desc')),
-                'post_skill' => implode(",", $this->input->post('skills')),
+                'post_skill' => $skills,
                 'post_position' => $this->input->post('position_no'),
                  
                  'post_last_date' => date('Y-m-d', strtotime($bod)),
@@ -1467,7 +1529,7 @@ class Recruiter extends MY_Controller {
                 'user_id' => $userid,
                 'status' => 1,
             );
-          //  echo "<pre>"; print_r($data); die(); 
+            echo "<pre>"; print_r($data); die(); 
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
            // echo "<pre>"; print_r($insert_id); die(); 

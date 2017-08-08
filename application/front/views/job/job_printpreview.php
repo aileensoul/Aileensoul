@@ -1475,23 +1475,50 @@ if ($returnpage == 'recruiter') {
                             </div>
 
                         </div>
+
+<?php 
+if(!($returnpage))
+        {
+?>
      <div class="edit_pr_bar edit_profile_progress hidden-xs">
         <div class="progre_bar_text">
             <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+
         </div>
         <div class="count_main_progress">
             <div class="circles">
 
 
     <div class="second circle-1">
+    <?php if($count_profile == 100) 
+            {
+
+    ?>
+    <img src="<?php echo base_url("img/p3.png"); ?>">
+    <?php
+    }
+        else
+    {
+        ?>
+   
+    <div>
       <strong></strong>
       <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
       </a>
+      </div>
+      <?php
+        }
+        ?>
+
     </div>
+
 
   </div>
          </div>
         </div> 
+<?php
+        }
+?>
                     </div>
 
                 </div>
