@@ -62,6 +62,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- loop start -->
                         <div id="userlist">
                           
+                         <!--   <li class="clearfix">
+                      <a href="">
+                  
+                      
+                          <div class="chat_heae_img">           
+                        <img src="" alt="" height="50px" weight="50px">
+                          </div>
+                                                    
+                                               
+                                             
+                  <div class="about">
+                   <div class="name">
+                        khyati raval<br></div>
+                        <div class="status" style=" width: 145px;
+    color: #003;    max-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+">
+                       
+                       </div>
+                       </div>
+                       </a></li> -->
+
                         </div>
                         <!-- loop end -->
                     </ul>
@@ -677,7 +701,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                  setTimeout(
                         chatmsg,
-                       500
+                       5000000000000000000
                         );
                 },
              error: function (XMLHttpRequest, textStatus, errorThrown) {

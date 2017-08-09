@@ -3627,7 +3627,7 @@ class Chat extends MY_Controller {
                             
                               if ($user['user_image'] && (file_exists($image_path)) == 1) {
                             $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
-                            $usrsrch .= '</div>';
+                            //$usrsrch .= '</div>';
                        } else { 
                                                                     $a = $user['first_name'];
                                                                     $b = $user['last_name'];
@@ -3638,6 +3638,7 @@ class Chat extends MY_Controller {
                                                     $usrsrch .= '' . ucwords($acr) .  ucwords($bcr) .'';
                                                     $usrsrch .= '</div>';
                                                 }
+                                                $usrsrch .= '</div>';
                         $usrsrch .= '<div class="about">';
                         $usrsrch .= '<div class="name">';
                         $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';
