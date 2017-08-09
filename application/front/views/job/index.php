@@ -434,7 +434,7 @@ $pincode_error = form_error('pincode_error');
                                     
 
                               <!--<input type="reset">-->
-                                    <input type="submit"  id="next" name="next" value="Next" tabindex="10">
+                                    <input type="submit"  id="next" name="next" value="Save" tabindex="10">
 
 
                                 </fieldset>

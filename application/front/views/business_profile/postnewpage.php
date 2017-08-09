@@ -1057,7 +1057,7 @@
                                     <!-- all comment end -->
                                 </div>
                                 <div class="post-design-commnet-box col-md-12">
-                                    <div class="post-design-proo-img"> 
+                                    <div class="post-design-proo-img  hidden-mob"> 
                                         <?php
                                         $userid = $this->session->userdata('aileenuser');
                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
@@ -1097,8 +1097,14 @@
 
                                     <div class="col-md-12 inputtype-comment cmy_2">
                                         <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
+                                   
+ <div class="mob-comment">
+              <button  id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
+              
+               </div>
+
                                     </div>
-                                    <div class="comment-edit-butn">        
+                                    <div class="comment-edit-butn  hidden-mob">        
                                         <button id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button>
                                     </div>
 

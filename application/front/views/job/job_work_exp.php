@@ -100,7 +100,7 @@
                            
                     <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>    -->     
                              <fieldset class="hs-submit full-width left_nest">
-                              <input type="submit" id="next" tabindex="2" name="next" value="Next">
+                              <input type="submit" id="next" tabindex="2" name="next" value="Save">
                            </fieldset>
                            <?php echo form_close(); ?>
                        
@@ -303,7 +303,7 @@
                               <input type="submit"  id="previous" name="previous" value="previous">-->
 
                                 <fieldset class="hs-submit full-width"> 
-                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Next"  >
+                           <input style="" type="submit"  tabindex="8" id="next" name="next" value="Save"  >
                                  </fieldset>
                            <!--<input type="submit"  id="add_workexp" name="add_workexp" value="Add More Work Expierence">--> 
                            <?php
@@ -427,7 +427,7 @@
                               <input type="button" id="btnRemove" value=" - " disabled="disabled">
                            </div>
                            <fieldset class="hs-submit full-width"> 
-                              <input style="" type="submit" id="next" name="next" value="Next" onclick="document.getElementById('experience1')[0].style.display = 'block';">
+                              <input style="" type="submit" id="next" name="next" value="Save" onclick="document.getElementById('experience1')[0].style.display = 'block';">
                            </fieldset>
                            <?php echo form_close(); ?> 
                         
