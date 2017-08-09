@@ -1235,6 +1235,8 @@ class Recruiter extends MY_Controller {
         $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
+         //skill data fetch
+
         $contition_array = array('status' => '1', 'type' => '1');
 
         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
@@ -1284,7 +1286,7 @@ class Recruiter extends MY_Controller {
         
         $this->data['de'] = array_values($res);
 
-         //skill data fetch
+         //jobtitle data fetch
         $contition_array = array('status' => 'publish');
         $jobtitle= $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         
@@ -1443,12 +1445,10 @@ class Recruiter extends MY_Controller {
              // echo "hi"; die();
             $this->load->view('recruiter/add_post',$this->data);
 
-
+// job title start  
         $jobtitle = $this->input->post('post_name'); 
       
      
-
-      // job title start   
         if($jobtitle != " "){ 
      $contition_array = array('name' => $jobtitle);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
@@ -1464,11 +1464,11 @@ class Recruiter extends MY_Controller {
            }
       }
 
- $skills = $this->input->post('skills');
-      $skills = explode(',',$skills);
+ 
      // echo "<pre>";print_r( $skills);die();
        // skills  start   
-      
+      $skills = $this->input->post('skills');
+      $skills = explode(',',$skills);
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
@@ -1911,7 +1911,23 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
 
  $postdatas=$this->data['postdata'] = $this->common->select_data_by_id('rec_post', 'post_id', $id, $data = '*', $join_str = array());
 
+//Selected Job titlre fetch
+  $contition_array = array('status' => 'publish','title_id' => $postdatas[0]['post_name']);
+  $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        $this->data['work_title'] = $jobtitle[0]['name'];
 
+//Selected skill fetch
+  $work_skill = explode(',', $postdatas[0]['post_skill']); 
+     
+        foreach($work_skill as $skill){
+     $contition_array = array('skill_id' => $skill);
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     $detailes[] = $skilldata[0]['skill'];
+  } 
+
+   $this->data['work_skill'] = implode(',', $detailes); 
+   
 //echo "<pre>"; print_r($postdatas);die();
 
         //for getting state data
@@ -2026,6 +2042,20 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         //$this->data['city_data']= array_values($loc);
         $this->data['de'] = $loc;
 
+         //jobtitle data fetch
+        $contition_array = array('status' => 'publish');
+        $jobtitle= $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        foreach ($jobtitle as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $title[] = $val1;
+              }
+          }
+        foreach ($title as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+      $this->data['jobtitle'] = array_values($result1);
 
         
 
@@ -2068,11 +2098,60 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         $this->form_validation->set_rules('city', 'City', 'required');
         $this->form_validation->set_rules('currency', 'Currency', 'required');
 
-       
+        // job title start  
+        $jobtitle = $this->input->post('post_name'); 
+      
+     
+        if($jobtitle != " "){ 
+     $contition_array = array('name' => $jobtitle);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $jobdata = $this->common->select_data_by_condition('job_title',$contition_array, $data = 'title_id,name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($jobdata){
+         $jobtitle = $jobdata[0]['title_id'];
+           }else{
+                 $data = array(
+                    'name' => ucfirst($this->input->post('post_name')),
+                    'status' => 'publish',
+                 );
+      $jobtitle = $this->common->insert_data_getid($data, 'job_title');
+           }
+      }
+ // job title ENd
+ 
+     // echo "<pre>";print_r( $skills);die();
+       // skills  start   
+      $skills = $this->input->post('skills');
+      $skills = explode(',',$skills);
+      if(count($skills) > 0){ 
+          
+          foreach($skills as $ski){
+     $contition_array = array('skill' => $ski,'type' => 4);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+ //echo "<pre>";print_r($skilldata);
+     if($skilldata){
+         $skill1[] = $skilldata[0]['skill_id'];
+      //echo "<pre>";print_r($skill1);die();
+           }else{
+                 $data = array(
+                    'skill' => $ski,
+                    'status' => '1',
+                    'type' => 4,
+                    'user_id' => $userid,
+                 );
+      $skill1[] = $this->common->insert_data_getid($data, 'skill');
+           }
+          }
+          
+         
+      }
+       $skills = implode(',',$skill1); 
+        // skills  End   
+
         $data = array(
-            'post_name' => trim($this->input->post('post_name')),
+            'post_name' => $jobtitle,
             'post_description' => trim($this->input->post('post_desc')),
-            'post_skill' => implode(",", $skill),
+            'post_skill' =>  $skills,
             'post_position' => trim($this->input->post('position')),
              'post_last_date' => date('Y-m-d', strtotime($bod)),
             'country' => $this->input->post('country'),
@@ -2104,7 +2183,7 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
             'modify_date' => date('y-m-d h:i:s')
         );
 
-        //echo "<pre>"; print_r($data); die(); 
+       // echo "<pre>"; print_r($data); die(); 
         $update = $this->common->update_data($data, 'rec_post', 'post_id', $id);
 
 

@@ -1986,10 +1986,15 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                                            
                                                 <div id="content" class="col-md-12 inputtype-comment cmy_2">
                                                     <div contenteditable="true" class="editable_text" type="text" name="<?php echo $row['art_post_id']; ?>"  id="<?php echo "post_comment" . $row['art_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $row['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
+
+                                                      <div class="mob-comment">
+                            <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
+                            
+                           </div>
                                                 </div>    
         <?php echo form_error('post_comment'); ?>
 
-                                                <div class="comment-edit-butn">   
+                                              <div class=" comment-edit-butn hidden-mob" >  
                                                     <button  id="<?php echo $row['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                                 </div>
                                             
