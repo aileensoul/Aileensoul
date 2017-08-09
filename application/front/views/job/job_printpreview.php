@@ -1475,6 +1475,7 @@ if ($returnpage == 'recruiter') {
                             </div>
 
                         </div>
+                        </div>
 
 <?php 
 if(!($returnpage))

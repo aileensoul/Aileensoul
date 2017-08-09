@@ -397,17 +397,45 @@
                                           <div class="bestofmine_image_higher_secondary" style="color:#f00; display: block;"></div>
                                           <?php
                                                 if ($edu_certificate_higher_secondary1) {
+                                                   ?>
+                                                   
+                                             <?php
                                                    $ext = explode('.',$edu_certificate_higher_secondary1);
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
+                                                    <div>
+
                                                          <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id'].'/higher-secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         </div>
+                                                          <div>
+
+                                                         <div style="float: left;" id="higher_secondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input  type="button" style="display: none;" value="Delete" id="delete_job_edu" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
+                                                </div>
+                                             </div>
+</div>
                                                       <?php
                                                       }
                                                       else
                                                       {
                                                     ?>
+                                              
+                                              <div class="dele_highrt">
                                                <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
+                                              
+                                              
+                                              <div style="float: left;" id="higher_secondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input  type="button" id="delete_job_edu" style="display: none;" value="Delete" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
+                                                </div>
+                                             
+                                             </div>
+                                             </div>
+
                                              <?php
                                                 }
                                              }
@@ -415,18 +443,7 @@
 
                                        </fieldset>
 
-                                       <?php if($edu_certificate_higher_secondary1)
-                                                 {
-                                          ?>
-                                           <div style="float: left;" id="higher_secondary_certi">
-                                                <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
-                                                </div>
-                                             </div>
-
-                                          <?php
-                                                }
-                                          ?>
+                                     <!--  -->
                                           <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
 
                                        <div class="fr job_education_submitbox">
