@@ -84,7 +84,7 @@
                                   <fieldset class="full-width">
                                          <label>Duration (in Month)</label>
 
-                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Enter Duration"   value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>" />
+                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Enter Duration" maxlength="2"   value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>" />
                                         
                                   </fieldset>
 
@@ -112,7 +112,7 @@
                                <fieldset class="full-width">
                                          <label>Duration (in Month)</label>
 
-                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Enter Duration"  value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>"/>
+                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Enter Duration"   value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>" maxlength="2"/>
                                         
                                   </fieldset>
 
@@ -414,6 +414,19 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
      // return regexpr.test(value);
 },"space are not allow in the begining");
 
+$.validator.addMethod("regdigit", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+},"Only digit alloewd");
+
 
                             $("#jobseeker_regform").validate({
 
@@ -431,14 +444,15 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
                                        //regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
                                     project_duration:{
-                                     maxlength: 2,
+                                
+                                        regdigit:/^\+?\d+$/,
                                     },
                                     training_as:{
                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                         regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
                                     training_duration:{
-                                      maxlength: 2,
+                                      regdigit:/^[\d ]$/,
                                     },
                                     training_organization:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
@@ -450,13 +464,13 @@ $.validator.addMethod("regx2", function(value, element, regexpr) {
 
                                     project_duration: {
 
-                                      maxlength: "Duration Is Not More Than Two Digit",
+                                    //  maxlength: "Duration Is Not More Than Two Digit",
 
                                     },
 
                                     training_duration: {
 
-                                         maxlength: "Duration Is Not More Than Two Digit",
+                                      //   maxlength: "Duration Is Not More Than Two Digit",
 
                                     },
 

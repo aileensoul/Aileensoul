@@ -636,7 +636,7 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
                 </span>
                 </li>
 
-                  <?php }else{?> <li> No Education </li> <?php }?>
+                  <?php }?>
                                                                 
                                <li><b>E-mail</b><span>
                                     <?php
