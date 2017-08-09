@@ -497,6 +497,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var $field = $('#message');
         var data = $('#message').html();
+        alert(data);
+         txt = txt.replace(/&nbsp;/gi, " ");
+        var kkk = check_perticular(data);
+        alert(kkk);
         if (check_perticular(data) == true) {
             return false;
         }
@@ -699,7 +703,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         if(val == ""){
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url() . "chat/userajax/" . $toid . '/' . $message_from_profile . '/' . $message_to_profile ?>',
+                url: '<?php echo base_url() . "chat/userajax/" . $message_from_profile . '/' . $message_to_profile . '/' . $toid ?>',
                 dataType: 'json',
                 data: '',
                 success: function (data) { //alert(data);
@@ -718,7 +722,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }; 
             };
        
-   
 </script>
 
 <!-- user search list 20-4 end -->

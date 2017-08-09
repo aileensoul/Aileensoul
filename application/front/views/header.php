@@ -241,7 +241,7 @@ $(window).load(function(){
 
 </script>
 <!-- script for fetch all unread notification end-->
-</script>
+
 
 <!-- scrpt for fatch a;; conatct notification end -->
 

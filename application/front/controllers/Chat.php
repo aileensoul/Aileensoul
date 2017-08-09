@@ -2984,8 +2984,8 @@ class Chat extends MY_Controller {
         }
     }
     
-    public function userajax($id = '', $message_from_profile = '', $message_to_profile = '', $not_id = ''){
-       
+    public function userajax($message_from_profile = '', $message_to_profile = '',$id = '', $not_id = ''){
+      echo $message_from_profile;  echo $message_to_profile; echo $id; die();
        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         // update notification read code end 
@@ -3589,7 +3589,7 @@ class Chat extends MY_Controller {
 
       $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
       $userlist = $this->aasort($userlist, "id");
-     
+     echo '<pre>'; print_r($userlist); die();
                      foreach ($userlist as $user) {
                     if ($user['user_id'] != $toid) {
 

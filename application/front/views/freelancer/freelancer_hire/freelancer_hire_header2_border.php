@@ -248,10 +248,40 @@ $(document).ready(function() {
  
 <!-- script for update all read notification start-->
 <script type="text/javascript">
+    
+     $(document).ready(function () {
+      
+   var segment = '<?php echo "" . $this->uri->segment(1) . "" ?>';
+   if(segment != "chat"){ chatmsg(); };
+           });  // khyati chnages  start
+ function chatmsg()
+    {             
+             // khyati chnages  start
+       
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url() . "chat/userajax/3/4" ?>',
+                dataType: 'json',
+                data: '',
+                success: function (data) { //alert(data);
+
+                    $('#userlist').html(data.leftbar);
+                    $('.khyati2').html(data.headertwo);
+                    
+                 setTimeout(
+                        chatmsg,
+                       500
+                        );
+                },
+             error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }           
+            });
+          
+            };
 
     function getmsgNotification() {
         msgNotification();
-        msgheader();
+        //msgheader();
     }
 
     function msgNotification() {
