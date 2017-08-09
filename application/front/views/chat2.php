@@ -667,14 +667,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "chat/userajax/" . $toid . '/' . $message_from_profile . '/' . $message_to_profile ?>',
-
+                dataType: 'json',
                 data: '',
                 success: function (data) { //alert(data);
 //                    $('input').each(function () {
 //                    });
 
-                    $('#userlist').html(data);
-                    $('.' + 'khyati2').html(data);
+                    $('#userlist').html(data.leftbar);
+                    $('.khyati2').html(data.headertwo);
                 }
             });
        

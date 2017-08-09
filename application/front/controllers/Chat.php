@@ -3653,8 +3653,104 @@ class Chat extends MY_Controller {
                         $usrsrch .= '</li></a>';
                     }
                 }
+                
+                
+                // notification message start 
+                
+                 foreach ($userlist as $msg) {
+
+            if ($message_from_profile == 2) {
+                $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/job_profile/thumbs/' . $msg['user_image'];
+                $profile_url = base_url() . 'job/job_printpreview/' . $id . '?page=recruiter';
+            }
+
+            if ($message_from_profile == 1) {
+                $image_path = FCPATH . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/recruiter_profile/thumbs/' . $msg['user_image'];
+                $profile_url = base_url() . 'recruiter/rec_profile/' . $id . '?page=job';
+            }
+            if ($message_from_profile == 4) {
+                $image_path = FCPATH . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/freelancer_hire_profile/thumbs/' . $msg['user_image'];
+                $profile_url = base_url() . 'freelancer/freelancer_post_profile/' . $id . '?page=freelancer_hire';
+            }
+            if ($message_from_profile == 3) {
+                $image_path = FCPATH . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/freelancer_post_profile/thumbs/' . $msg['user_image'];
+                $profile_url = base_url() . 'freelancer/freelancer_hire_profile/' . $id . '?page=freelancer_post';
+            }
+            if ($message_from_profile == 5) {
+                $image_path = FCPATH . 'uploads/business_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/business_profile/thumbs/' . $msg['user_image'];
+                $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $id, $data = 'business_slug');
+                $profile_url = base_url() . 'business_profile/business_profile_manage_post/' . $busdata[0]['business_slug'];
+            }
+            if ($message_from_profile == 6) {
+                $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
+                $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $msg['user_image'];
+                $profile_url = base_url() . 'artistic/art_manage_post/' . $id;
+            }
+
+
+            $contition_array = array('not_product_id' => $msg['id'], 'not_type' => "2");
+            $data = array(' notification.*');
+            $not = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'not_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = "", $groupby = '');
+            $notmsg .= '<li class="';
+            if ($not[0]['not_active'] == 1 && ($this->uri->segment(3) != $msg['user_id'])) {
+                $notmsg .= 'active2';
+            }
+            $notmsg .= '">';
+            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
+            $notmsg .= '<div class="notification-database"><div class="notification-pic">';
+
+                                        
+                 if ($msg['user_image'] && (file_exists($image_path)) == 1){   
+                $notmsg .= '<img src="' . $user_image . '" >';
+                } else { 
+                    $a = $msg['first_name'];
+                    $b = $msg['last_name'];
+                    $acr = substr($a, 0, 1);
+                    $bcr = substr($b, 0, 1);
+                                                               
+                    $notmsg .= '<div class="post-img-div">';
+                    $notmsg .= '' . ucwords($acr) . ucwords($bcr) .''; 
+                    $notmsg .= '</div>';
+                                                   
+                                                    }
+
+            $notmsg .= '</div><div class="notification-data-inside">';
+//            $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
+            $notmsg .= '<h6>' . ucwords($msg['first_name']) . '</h6>';
+            $notmsg .= '<div class="msg_desc_a">';
+
+            $message = str_replace('\\r', '', $msg['message']); 
+             $message = str_replace('\\t', '', $message); 
+               $message = str_replace('\\', '', $message);
+               $message = str_replace('%26amp;', '&', $message);
+              
         
-       echo $usrsrch;
+            $notmsg .= '' . $message . '';
+            $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';
+//            $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">'. $not[0]['not_created_date'] . '</span></div>';
+            $notmsg .= '</div></div></a></li>';
+        }
+        $notmsg .= '</div>';
+        // if ($user_message) {
+        //     $notmsg .= '<div id="InboxFooter"><a href="' . base_url('chat') . '/abc/' . $user_message[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">See All</a></div>';
+        // } else {
+        //     $notmsg .= '<div class=""><div id="InboxFooter"><a class="no_msg_h">No Messages</a></div></div>';
+        // }
+      //  echo $notmsg;
+                // notification message end
+        
+      //echo $usrsrch;
+      
+      echo json_encode(
+                        array(
+                            "leftbar" => $usrsrch,
+                            "headertwo" => $notmsg,
+                ));
     }
 
 }
