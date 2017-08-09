@@ -507,7 +507,7 @@ class Chat extends MY_Controller {
         $this->load->view('chat', $this->data);
     }
 
-    public function abc($id = '', $message_from_profile = '', $message_to_profile = '', $not_id = '') {
+    public function abc($message_from_profile = '', $message_to_profile = '', $id = '', $not_id = '') {
         $this->data['id'] = $id;
         $this->chat_search($id, $message_from_profile, $message_to_profile);
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
@@ -1937,7 +1937,7 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                     
                        
                                 $username = substr($user['first_name'] . ' ' . $user['last_name'], 0, 25); 
@@ -2420,7 +2420,8 @@ class Chat extends MY_Controller {
                                                 }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
+//                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">'; 
                              $username = substr($user['first_name'] . ' ' . $user['last_name'], 0, 25); 
                                                $usrsrch .= '' .  $username . ''; 
                                                                 if (strlen($user['first_name'] . ' ' . $user['last_name']) > 15) {
@@ -2506,7 +2507,8 @@ class Chat extends MY_Controller {
                                                 }
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . '<br></a> </div>';
+               $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $lstusrdata[0]['user_id'] . '">';
+               //     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . '<br></a> </div>';
                     $usrsrch .= '<div class="status' . $lstusrdata[0]['user_id'] . '" style=" width: 145px;    max-height: 25px;
     color: #003;
     white-space: nowrap;
@@ -2526,8 +2528,8 @@ class Chat extends MY_Controller {
                 }
                 foreach ($userlist as $user) {
                     if ($user['user_id'] != $toid) {
-
-                        $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                       $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
+                    //    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
                         $usrsrch .= '<li class="clearfix">';
                         if ($user['user_id'] == $toid) {
                             $usrsrch .= 'class ="active"';
@@ -2985,7 +2987,7 @@ class Chat extends MY_Controller {
     }
     
     public function userajax($message_from_profile = '', $message_to_profile = '',$id = '', $not_id = ''){
-      echo $message_from_profile;  echo $message_to_profile; echo $id; die();
+      
        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         // update notification read code end 
@@ -3589,11 +3591,11 @@ class Chat extends MY_Controller {
 
       $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
       $userlist = $this->aasort($userlist, "id");
-     echo '<pre>'; print_r($userlist); die();
+    
                      foreach ($userlist as $user) {
                     if ($user['user_id'] != $toid) {
 
-                        $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
+                        $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                         $usrsrch .= '<li class="clearfix';
                         if ($user['user_id'] == $id) {
                             $usrsrch .= ' active';
@@ -3703,7 +3705,8 @@ class Chat extends MY_Controller {
                 $notmsg .= 'active2';
             }
             $notmsg .= '">';
-            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
+            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $msg['user_id'] . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
+//            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
                                         
