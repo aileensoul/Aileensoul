@@ -15002,6 +15002,7 @@ text-align: center;}
   position: relative;
   text-align: center;
   line-height: 1.2;
+  height:214px;
 }
 .edit_profile_job{
     position: absolute;
@@ -15019,6 +15020,10 @@ padding-top: 14px;
 
 .circle-1 canvas {
   vertical-align: middle;
+  width:175px;
+  height:175px;
+  border:1px solid transparent;
+  display:black;
 }
 
 .circle-1 strong {
