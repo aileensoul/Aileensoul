@@ -3007,8 +3007,9 @@ border-top: none;
 .profile-job-details ul li p {
     margin-bottom: 0;
     display: inline-block;
-    font-size: 13px; 
+    font-size: 15px; font-weight: 600;
 }
+.profile-job-details ul li .lction{font-weight: normal; font-size: 13px;}
 .profile-job-details {
     font-size: 18px;
 }
