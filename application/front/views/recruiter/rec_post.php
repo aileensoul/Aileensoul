@@ -334,13 +334,13 @@ if ($returnpage == 'job') {
                 ?>
 
             <div class="fr lction">
-            <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+            <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
             <?php if($cityname){
             echo $cityname .', ';}?>
             <?php 
              echo $countryname; ?> 
-            </i></p>
+            </p>
                   
             </div>
              <?php
