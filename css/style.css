@@ -16272,6 +16272,7 @@ padding-top: 7px !important;}
     .people-list .search input{width:95%;}
 }
 @media screen and (max-width: 479px) {
+    .mob-comment{right: 0;}
     .padd_set .change-password{padding: 0;}
   .post-design-box .post-design-desc .editable_text{width: 80%;}
   .post-design-box .post-design-desc .fr{padding: 6px 10px;}
@@ -16382,14 +16383,14 @@ padding-top: 7px !important;}
         font-size: 12px;
     }
     .cmy_2 {
-        width: 87%;
+        width: 100%;
         padding-right: 0;
     }
     .post-design-name ul li .post_dot {
         font-size: 14px;
     }
     .cmy_2 {
-        width: 87%;
+    
         padding-right: 0;
         position: relative;
     }
@@ -16758,7 +16759,7 @@ font-size: 12px;
         width: 100%;
     }
     .cmy_2 {
-        width: 84%;
+        width: 100%;
     }
     .two-images {
         height: 120px;

@@ -1403,7 +1403,7 @@
                                     $art_last = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
 
                                     ?>
-                                    <div class="post-design-proo-img">
+                                    <div class="post-design-proo-img  hidden-mob">
                                         <?php if ($art_userimage) { ?>
                                             <img src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage); ?>" name="image_src" id="image_src" />
                                             <?php
@@ -1433,9 +1433,17 @@
                                     <div class="">
                                         <div id="content" class="col-md-12 inputtype-comment cmy_2" >
                                             <div contenteditable="true"  class="editable_text edt_2" name="<?php echo $art_data[0]['art_post_id']; ?>"  id="<?php echo "post_comment" . $art_data[0]['art_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $art_data[0]['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);" ></div>
+                                      
+   <div class="mob-comment">
+                            <button id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
+                            
+                           </div>
+
                                         </div>
                                         <?php echo form_error('post_comment'); ?>
-                                        <div class=" comment-edit-butn">   
+                                      
+
+                                        <div class=" comment-edit-butn hidden-mob">   
                                             <button id="<?php echo $art_data[0]['art_post_id']; ?>" onClick="insert_comment(this.id)">Comment</button> 
                                         </div>
                                     </div>
