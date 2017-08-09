@@ -658,15 +658,20 @@ if($experiance[0]['experience_year'] != ''){ ?>
                                                     }
                                                  ?></span>
                                            </li>
+
+                                  <?php
+                                      if ($row['phnno']) {
+                                    ?>
                                     <li><b>Mobile Number</b><span>
                                         <?php
-                                          if ($row['phnno']) {
+                                         
                                                echo $row['phnno'];
-                                                     } else {
-                                                        echo PROFILENA;
-                                                         }
+                                                  
                                                      ?></span>
                                                                 </li>
+                                          <?php
+                                            }
+                                            ?>
                                                             </ul>
                                                         </div>
                                                         <div class="profile-job-profile-button clearfix">
