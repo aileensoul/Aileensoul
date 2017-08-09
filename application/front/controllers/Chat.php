@@ -2985,7 +2985,7 @@ class Chat extends MY_Controller {
     }
     
     public function userajax($id = '', $message_from_profile = '', $message_to_profile = '', $not_id = ''){
-        
+       
        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         // update notification read code end 
@@ -3594,10 +3594,11 @@ class Chat extends MY_Controller {
                     if ($user['user_id'] != $toid) {
 
                         $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
-                        $usrsrch .= '<li class="clearfix">';
-                        if ($user['user_id'] == $toid) {
-                            $usrsrch .= 'class ="active"';
+                        $usrsrch .= '<li class="clearfix';
+                        if ($user['user_id'] == $id) {
+                            $usrsrch .= ' active';
                         }
+                           $usrsrch .= '">';
                       
                             $usrsrch .= '<div class="chat_heae_img">';
                             if ($message_from_profile == 2) {
