@@ -1149,6 +1149,18 @@ else
         </script>
 <!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->  
 
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
+<script type="text/javascript">
+$(document).ready(function () {
+                    var input = $("#fname");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+</script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  
+
+
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}
 </style>

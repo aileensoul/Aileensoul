@@ -3609,9 +3609,44 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this D
          });
    });
    //for Degree certificate End
+
    
    //script for only jpg png image upload start
 </script>
+
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
+<script type="text/javascript">
+$(document).ready(function () {
+                    var input = $("#board_primary");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+$(document).ready(function () {
+                    var input = $("#board_secondary");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+$(document).ready(function () {
+                    var input = $("#board_higher_secondary");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+$(document).ready(function () {
+                    var input = $("#college1");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+</script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  
+
+
 <style type="text/css">
    #stream1-error{margin-right: 0px;}
    #university1-error{margin-right: 0px;}

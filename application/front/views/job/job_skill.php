@@ -518,3 +518,15 @@ if ($this->session->flashdata('success')) {
     });
 </script>
 <!--new script for skill end-->
+
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
+<script type="text/javascript">
+$(document).ready(function () {
+                    var input = $("#job_title");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+</script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  

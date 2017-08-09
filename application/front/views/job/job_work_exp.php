@@ -1679,3 +1679,14 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this E
           }
 //DELETE WORK EXPERIENCE CERTIFICATE END
 </script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
+<script type="text/javascript">
+$(document).ready(function () {
+                    var input = $("#jobtitle");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+</script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->

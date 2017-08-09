@@ -507,3 +507,15 @@ return e.which !== 32;
             }
         </script>
 <!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->
+
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
+<script type="text/javascript">
+$(document).ready(function () {
+                    var input = $("#project_name");
+                    var len = input.val().length;
+                    input[0].focus();
+                    input[0].setSelectionRange(len, len);
+                });
+
+</script>
+<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  
