@@ -313,7 +313,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                         <?php } ?>
                      </li>
                      <li>
-                        <a href="<?php echo base_url('chat/abc/'.$artisticdata[0]['user_id'].'/6/6'); ?>">Message</a>
+                        <a href="<?php echo base_url('chat/abc/6/6/' . $artisticdata[0]['user_id']); ?>">Message</a>
                      </li>
                   </ul>
                </div>

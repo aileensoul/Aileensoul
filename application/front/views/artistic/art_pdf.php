@@ -350,7 +350,7 @@ if ($status == 0 || $status == " ") {
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url('chat/abc/' . $artisticdata[0]['user_id'].'/6/6'); ?>">Message</a></li>
+                            <a href="<?php echo base_url('chat/abc/6/6/' . $artisticdata[0]['user_id']); ?>">Message</a></li>
 
                     </ul>
                 
