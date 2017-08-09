@@ -3009,7 +3009,7 @@ border-top: none;
     display: inline-block;
     font-size: 15px; font-weight: 600;
 }
-.profile-job-details ul li .lction{font-weight: normal; font-size: 13px;}
+.profile-job-details ul li .lction p{font-weight: normal; font-size: 13px;}
 .profile-job-details {
     font-size: 18px;
 }
