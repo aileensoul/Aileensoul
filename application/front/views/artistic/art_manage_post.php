@@ -474,14 +474,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         $skill1[] = $cache_time;
                                     }
                                     $listFinal = implode(', ', $skill1);
-                                    if (!$artisticdata[0]['other_skill']) {
                                         echo $listFinal;
                                         
-                                    } else if(!$listFinal) {
-                                        echo $artisticdata[0]['other_skill'];
-                                    }else{
-                                        echo $listFinal . ',' . $artisticdata[0]['other_skill']; 
-                                    }
                                     ?>   
                                 </td>
                             </tr>
