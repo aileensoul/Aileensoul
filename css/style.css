@@ -10442,8 +10442,19 @@ fieldset .add_post_btns:hover {
 .notification-database .active {
     background-color: #f3f9fb;
 }
+.true_progtree{
+    position: absolute;
+top: 52px;
+left: 48px;
+}
+.tr_text{padding: 10px 0px; color: #1b8ab9;}
 /*.job-post-detail .post-design-box {border:none;}*/
-
+#notification_main_in .khyati li a{padding: 0px!important;}
+#notificationTitle .see_link a:hover{text-decoration-line: underline; color: #1b8ab9;}
+#notificationTitle .see_link a{color: black;
+font-size: 15px;
+float: right;
+padding: 4px !important;}
 .butt_rec {
     background: #1b8ab9 !important;
     color: #fff !important;
@@ -15487,7 +15498,18 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 767px) {
-
+  .mob-comment {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 18px;
+    }
+       .mob-comment button {
+        background: none;
+        color: #1b8ab9;
+        padding: 0px 0 7px;
+        font-size: 22px;
+    }
     .action-button #message_count{right:175px;}
     .hidden-mob {
         display: none;
@@ -15897,7 +15919,7 @@ padding-top: 7px !important;}
         font-size: 15px;
     }
     .cmy_2 {
-        width: 68%;
+        width: 100%;
     }
     .two-images {
         height: 250px;
@@ -16279,12 +16301,7 @@ padding-top: 7px !important;}
     .post-design-desc {
         font-style: 12px;
     }
-    .mob-comment {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+  
     .mob-plr0 {
         padding-left: 0;
         padding-right: 0;
@@ -16492,12 +16509,7 @@ padding-top: 7px !important;}
     .notification-data-inside h6 {
         font-size: 12px;
     }
-    .mob-comment button {
-        background: none;
-        color: #1b8ab9;
-        padding: 0px 0 7px;
-        font-size: 22px;
-    }
+ 
     .user_lst li .follow-li-text a {
         font-size: 16px;
     }
@@ -16610,12 +16622,7 @@ padding-top: 7px !important;}
         padding: 6px 7px;
         margin-top: 10px;
     }
-    .mob-comment button {
-        background: none;
-        color: #1b8ab9;
-        padding: 0px 0 6px;
-        font-size: 22px;
-    }
+
     .editable_text {
         padding-right: 45px;
     }

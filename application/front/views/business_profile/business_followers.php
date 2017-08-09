@@ -434,7 +434,7 @@
                                         ?> 
 
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($businessfollowerdata)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($flubuscount)); ?>)</a>
                                         </li>
 
 
@@ -444,8 +444,22 @@
                                         $businessregid = $businessdata1[0]['business_profile_id'];
                                         $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
                                         $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                                        //echo "<pre>"; print_r($followerotherdata); die();
+                                        foreach ($followerotherdata as $followkey) {
+
+                      $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
+                      $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                      if($busaval){ //echo "hii"; die();
+
+                      $countdata[] =  $busaval;
+                         }
+                       $count = count($countdata);
+                     }
+
+
                                         ?> 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($followerotherdata)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo (count($count)); ?>)</a>
                                         </li>
 
                                     <?php } ?>
@@ -556,7 +570,14 @@
 
                             <?php if (count($userlist) > 0) { ?>
 
-                                <?php foreach ($userlist as $user) { ?>
+                                <?php foreach ($userlist as $user) { 
+
+               $contition_array = array('business_profile_id' => $user['follow_from'], 'status' => '1', 'is_deleted' => '0');
+              $followdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        //echo '<pre>';  print_r($followdata); die();
+                            if(count($followdata) > 0){
+                                    ?>
                                     <div class="job-contact-frnd ">
 
                                         <div class="profile-job-post-detail clearfix">
@@ -677,13 +698,13 @@
 
 
                                         </div>
-                                    <?php } ?>
+                                    
                                 </div>
 
 
-                            <?php } else { ?>
+                            <?php } } }  ?>
 
-                               <div class="art-img-nn">
+                               <div class="art-img-nn" id= "art-blank" style="display: none">
                                     <div class="art_no_post_img">
 
                                         <img src="<?php echo base_url('img/bui-no.png') ?>">
@@ -694,7 +715,7 @@
                                     </div>
                                 </div>
 
-                            <?php } ?>
+                            
 
                             <div class="col-md-1">
                             </div>
@@ -766,6 +787,18 @@
 
 
             <!-- script for skill textbox automatic start (option 2)-->
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+    var nb = $('div.job-contact-frnd').length;
+    //alert(nb);
+    if (nb == 0){
+    document.getElementById('art-blank').style.display = 'block';
+    }
+
+    });</script>
+
 
 
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>

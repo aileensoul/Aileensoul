@@ -1227,7 +1227,7 @@ class Recruiter extends MY_Controller {
 
         $contition_array = array('status' => '1');
 
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_id,degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
         $contition_array = array('status' => '1');
@@ -1298,6 +1298,8 @@ class Recruiter extends MY_Controller {
             $result1[$key]['value'] = $value;
         }
       $this->data['jobtitle'] = array_values($result1);
+
+
 
         $this->load->view('recruiter/add_post', $this->data);
     }
@@ -1444,8 +1446,7 @@ class Recruiter extends MY_Controller {
 
         $jobtitle = $this->input->post('post_name'); 
       
-      $skills = $this->input->post('skills');
-      $skills = explode(',',$skills);
+     
 
       // job title start   
         if($jobtitle != " "){ 
@@ -1463,7 +1464,9 @@ class Recruiter extends MY_Controller {
            }
       }
 
-
+ $skills = $this->input->post('skills');
+      $skills = explode(',',$skills);
+     // echo "<pre>";print_r( $skills);die();
        // skills  start   
       
       if(count($skills) > 0){ 
@@ -1472,8 +1475,10 @@ class Recruiter extends MY_Controller {
      $contition_array = array('skill' => $ski,'type' => 4);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+ //echo "<pre>";print_r($skilldata);
      if($skilldata){
-         $skill[] = $skilldata[0]['skill_id'];
+         $skill1[] = $skilldata[0]['skill_id'];
+      //echo "<pre>";print_r($skill1);die();
            }else{
                  $data = array(
                     'skill' => $ski,
@@ -1481,13 +1486,15 @@ class Recruiter extends MY_Controller {
                     'type' => 4,
                     'user_id' => $userid,
                  );
-      $skill[] = $this->common->insert_data_getid($data, 'skill');
+      $skill1[] = $this->common->insert_data_getid($data, 'skill');
            }
           }
           
-          $skills = implode(',',$skill); 
+         
       }
-
+       $skills = implode(',',$skill1); 
+//echo "<pre>";print_r($skills);die();
+       //die();
        // } else {
 
 
@@ -1529,7 +1536,7 @@ class Recruiter extends MY_Controller {
                 'user_id' => $userid,
                 'status' => 1,
             );
-            echo "<pre>"; print_r($data); die(); 
+            //echo "<pre>"; print_r($data); die(); 
             $insert_id = $this->common->insert_data_getid($data, 'rec_post');
 
            // echo "<pre>"; print_r($insert_id); die(); 

@@ -74,7 +74,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" /> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css" rel="stylesheet" /> 
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
 
@@ -634,7 +634,7 @@
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
@@ -1191,6 +1191,88 @@ if(mm<10) {
 
 </script>
 
+<script>
+    // job title script start
+   var jobdata = <?php echo json_encode($jobtitle); ?>;
+   
+   $(function () {
+    
+       $("#post_name").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(jobdata, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#post_name").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#post_name").val(ui.item.label);
+           }
+       });
+   });
+   
+</script>
+
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        
+        $( "#skills2" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_skill", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 20) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( ", " );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+
+  
+ 
+        });
+    });
+</script>
+
 <script type="text/javascript">
                         function check() {
                             var keyword = $.trim(document.getElementById('tags1').value);
@@ -1668,86 +1750,3 @@ if (clicked_id == 4) {
    });
 </script>
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-    // job title script start
-   var jobdata = <?php echo json_encode($jobtitle); ?>;
-   
-   $(function () {
-    
-       $("#post_name").autocomplete({
-           source: function (request, response) {
-               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-               response($.grep(jobdata, function (item) {
-                   return matcher.test(item.label);
-               }));
-           },
-           minLength: 1,
-           select: function (event, ui) {
-               event.preventDefault();
-               $("#post_name").val(ui.item.label);
-               $("#selected-tag").val(ui.item.label);
-               // window.location.href = ui.item.value;
-           }
-           ,
-           focus: function (event, ui) {
-               event.preventDefault();
-               $("#post_name").val(ui.item.label);
-           }
-       });
-   });
-   
-</script>
-
- <script>
-    $(function() {
-        function split( val ) {
-            return val.split( /,\s*/ );
-        }
-        function extractLast( term ) { 
-            return split( term ).pop();
-        }
-        
-        $( "#skills2" ).bind( "keydown", function( event ) {
-            if ( event.keyCode === $.ui.keyCode.TAB &&
-                $( this ).autocomplete( "instance" ).menu.active ) {
-                event.preventDefault();
-            }
-        })
-        .autocomplete({
-            minLength: 2,
-            source: function( request, response ) { 
-                // delegate back to autocomplete, but extract the last term
-                $.getJSON("<?php echo base_url();?>general/get_skill", { term : extractLast( request.term )},response);
-            },
-            focus: function() {
-                // prevent value inserted on focus
-                return false;
-            },
-            select: function( event, ui ) {
-               
-                var terms = split( this.value );
-                if(terms.length <= 20) {
-                    // remove the current input
-                    terms.pop();
-                    // add the selected item
-                    terms.push( ui.item.value );
-                    // add placeholder to get the comma-and-space at the end
-                    terms.push( "" );
-                    this.value = terms.join( ", " );
-                    return false;
-                }else{
-                    var last = terms.pop();
-                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
-                    $(this).effect("highlight", {}, 1000);
-                    $(this).attr("style","border: solid 1px red;");
-                    return false;
-                }
-            }
-
-  
- 
-        });
-    });
-</script>

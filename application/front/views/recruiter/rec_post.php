@@ -319,7 +319,10 @@ if ($returnpage == 'job') {
      
               <li>
               <a class="post_title" href="javascript:void(0)" title="Post Title">
-               <?php echo $post['post_name'] ?> </a>     </li>
+               <?php 
+                                              $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+                                             echo  $cache_time;?>  </a>     
+              </li>
      
              <li>  
              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
@@ -632,7 +635,10 @@ if ($returnpage == 'job') {
                
                                            <li>
                                             <a class="post_title" href="javascript:void(0)" title="Post Title">
-                                             <?php echo $post['post_name'] ?> </a> 
+                                             <?php 
+                                              $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+                                             echo  $cache_time;?> 
+                                            </a> 
                                             </li>
                   
                                              <li> 
