@@ -284,12 +284,17 @@
                                                                     <?php } ?> 
                                                                     
                                                                
-<?php if($row['experience'] != 'Fresher'){ ?>
-  <?php 
+<?php 
+
 $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience', 'status' => '1');
 
         //echo "<pre>"; print_r($other_skill);
-            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  //echo  $experiance[0]['experience'];
+
+if($experiance[0]['experience_year'] != ''){ ?>
+  <?php 
+
             
 
             $total_work_year=0;
@@ -343,20 +348,26 @@ $contition_array =array('user_id' => $row['iduser'], 'experience' => 'Experience
             }   ?>
                </span>
                 </li>
-             <?php } else{ ?>
+             <?php } else{ 
+
+              if($row['experience'] == 'Fresher')
+              {
+              ?>
               <li> <b> Total Experience</b>
               <span><?php echo $row['experience']; ?></span>
                 </li>
-            <?php   } ?>
+            <?php   } //if complete
+            }//else complete
+            ?>
                                          <?php
-                   $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
-                  $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
+                  //  $countryname = $this->db->get_where('countries', array('country_id' => $row['country_id']))->row()->country_name;
+                  // $cityname = $this->db->get_where('cities', array('city_id' => $row['city_id']))->row()->city_name;
                                             ?>
-                      <li><b>Location</b> <span>
-                <?php  if($cityname){echo $cityname;echo ', ';}
-                                             echo $countryname;
+                    <!--   <li><b>Location</b> <span>
+                <?php  //if($cityname){echo $cityname;echo ', ';}
+                                             //echo $countryname;
                                               ?> 
-                                   </span></li>
+                                   </span></li> -->
 
 
             <?php if($row['board_primary'] && $row['board_secondary'] && $row['board_higher_secondary'] && $row['degree']){ ?>

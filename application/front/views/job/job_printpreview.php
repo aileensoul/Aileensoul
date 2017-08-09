@@ -1489,33 +1489,37 @@ if(!($returnpage))
             <div class="circles">
 
 
-    <div class="second circle-1">
+   
     <?php if($count_profile == 100) 
             {
 
     ?>
+<div class="second circle-1 complete_profile">
     <div class="true_progtree">
     <img src="<?php echo base_url("img/true.png"); ?>">
     </div>
     <div class="tr_text">
         Successfully Completed
     </div>
+</div>
     <?php
     }
         else
     {
         ?>
-  
-        <div>
+
+  <div class="second circle-1">
+  <div>
       <strong></strong>
       <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
       </a>
+      </div>
       </div>
       <?php
         }
         ?>
 
-    </div>
+   
 
 
   </div>
