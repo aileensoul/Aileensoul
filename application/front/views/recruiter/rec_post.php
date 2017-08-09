@@ -317,7 +317,7 @@ if ($returnpage == 'job') {
                   Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                </li>
      
-              <li>
+              <li class="fw">
               <a class="post_title" href="javascript:void(0)" title="Post Title">
                <?php 
                                               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
@@ -334,13 +334,13 @@ if ($returnpage == 'job') {
                 ?>
 
             <div class="fr lction">
-            <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+            <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
             <?php if($cityname){
             echo $cityname .', ';}?>
             <?php 
              echo $countryname; ?> 
-            </i></p>
+            </p>
                   
             </div>
              <?php
@@ -354,7 +354,7 @@ if ($returnpage == 'job') {
             <?php   $out = strlen($post['re_comp_name']) > 40 ? substr($post['re_comp_name'],0,40)."..." : $post['re_comp_name'];
              echo $out;?> </a>
               </li>
-              <li><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucfirst(strtolower($post['rec_firstname'])).''.ucfirst(strtolower($post['rec_lastname'])); ?> </a></li>
+              <li class="fw"><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucfirst(strtolower($post['rec_firstname'])).''.ucfirst(strtolower($post['rec_lastname'])); ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>
@@ -633,7 +633,7 @@ if ($returnpage == 'job') {
                                            Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                           </li>
                
-                                           <li>
+                                           <li class="fw">
                                             <a class="post_title" href="javascript:void(0)" title="Post Title">
                                              <?php 
                                               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
@@ -652,10 +652,10 @@ if ($returnpage == 'job') {
                                                        <div class="fr lction">
                   
                     
-                                                      <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+                                                      <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
                                                           <?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
-                                                        </i></p>
+                                                        </p>
                                                        
                                                       </div>
                                                       <?php   }    ?>
@@ -666,7 +666,7 @@ if ($returnpage == 'job') {
                                                             echo $out;
                                                      ?> </a>
                                                 </li>
-                                                <li><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucfirst(strtolower($post['rec_firstname'])) . ' '.ucfirst(strtolower($post['rec_lastname'])) ; ?> </a></li>
+                                                <li ><a class="display_inline" title="Recruiter Name" href="javascript:void(0)"> <?php echo ucfirst(strtolower($post['rec_firstname'])) . ' '.ucfirst(strtolower($post['rec_lastname'])) ; ?> </a></li>
                                                 <!-- vishang 14-4 end -->    
                                             </ul>
                                         </div>

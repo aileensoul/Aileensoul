@@ -1234,7 +1234,10 @@
                                         <div class="fifty_val">                   
                                             <input size=1 value=50 name=text_num class="text_num" readonly> 
                                         </div>
-                                        <div class="padding-left camera_in camer_h" ><i class=" fa fa-camera " ></i> </div>
+                                     <div class="camera_in padding-left padding_les_left camer_h">
+                                                <i class=" fa fa-camera" >
+                                                </i> 
+                                            </div>
                                     </div>
 
 
@@ -1521,10 +1524,9 @@
                                                     </div>
 
 
-                                                    <?php if ($row['product_name'] || $row['product_description']) { ?>
-
+                                                 
                                                         <div class="post-design-desc ">
-                                                        <?php } ?>                          
+                                                                               
                                                         <div class="ft-15 t_artd">
                                                             <div id="<?php echo 'editpostdata' . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                 <a  ><?php echo $this->common->make_links($row['product_name']); ?></a>
@@ -1565,12 +1567,8 @@
                                                             echo $row['product_description'];
                                                             ?>
                                                         </div>
-                                                        <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-
-                                                                                                                                                                                                                                                                                                                    <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>
-                                                                                                                                                                                                                                                                                                                    </textarea> 
-                                                            -->
-                                                            <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
+                                                        <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">                                                                                                 <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>                                                    </textarea> 
+                                                            -->                                                           <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text" placeholder="Description of Your Product"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>
 
 
 
@@ -1582,9 +1580,7 @@
 
 
                                                     </div> 
-                                                    <?php if ($row['product_name'] || $row['product_description']) { ?>
-                                                    </div>
-                                                <?php } ?>
+                                                    
 
 
 

@@ -453,7 +453,7 @@ a:focus {
 .dropdown_hover .dropdown-content_hover a:hover{color: white; background-color: #1b8ab9;}
 .select2-drop{z-index: 0!important;}
 .header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
-.header2 ul li a#InboxLink{padding:12px 12px 4px;}
+.header2 ul li a#InboxLink{padding:12px 20px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -1869,7 +1869,7 @@ fieldset.full-width {
 }
 /*.mid-bar ul li a { font-size: 22px; border: 1px solid #000033; background-color: #000033; color: white; display:  block; padding: 12px 20px; border-radius: 4px; line-height: normal; font-weight: normal; }
 */
-
+.bestofmine_image_secondary{position: relative;}
 .mid-bar ul li a:hover {
     background: #1b8ab9;
     color: #fff;
@@ -3003,10 +3003,13 @@ border-top: none;
     text-decoration: none;
     
 }
+.job_work_experience_main_div h6{padding: 10px 0px 2px; font-size: 17px;}
 .profile-job-details ul li p {
     margin-bottom: 0;
     display: inline-block;
+    font-size: 15px; font-weight: 600;
 }
+.profile-job-details ul li .lction p{font-weight: normal; font-size: 13px;}
 .profile-job-details {
     font-size: 18px;
 }
@@ -8193,10 +8196,10 @@ input:-moz-placeholder {
     font-size: 17px !important;
     padding: 10px 25px !important;
 }
-.details_all_tital {
+/*.details_all_tital {
     font-weight: 700;
     font-size: 20px;
-}
+}*/
 .margin_btm {
     margin-bottom: 0px!important;
 }
@@ -9280,7 +9283,9 @@ label.cameraButton:hover {
     padding: 6px 12px 6px!important;
     font-size: 13px!important;
 }
+#jobseeker_regform input#btnAdd:focus{color: white!important}
 #btnAdd {
+    color: white !important;
     padding: 6px 12px 6px!important;
     min-width: 49px!important;
 }
@@ -13752,7 +13757,7 @@ end zalak 9-6 css*/
 .three_img_right {
     padding-right: 2px !important;
 }
-bui_images_view_more a:hover {
+.bui_images_view_more a:hover {
     text-decoration: underline;
 }
 .manage_images_view_more a:hover {
@@ -13768,6 +13773,7 @@ bui_images_view_more a:hover {
     font-size: 15px!important;
     width: 82%;
 }
+
 .post-design-box .post-design-desc .textbuis {
     font-size: 13px;
 }
@@ -14827,7 +14833,7 @@ header.animated {
     text-align:center;
 }
 .edit-post-custom{position:relative;}
-#text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 20px;}
+#text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 24px;}
 /***  add contact ripple effect  ***/
 
 
@@ -14965,8 +14971,8 @@ float: right; position:relative;}
 margin: 0 auto;}*/
 .edit_profile_progress{
  
-    width: 100%; background-color: white; border:1px solid #d9d9d9; border-radius: 3px; margin: 30px 0px; padding: 10px 0px 0px;}
-.progre_bar_text p{color: #1b8ab9;
+    width: 100%; background-color: white; border:1px solid #d9d9d9; border-radius: 3px; margin: 15px 0px; padding: 10px 0px 0px;}
+.progre_bar_text p{color: #000;
 font-size: 13px;
 font-weight: 600;
 text-align: center;}
@@ -16739,6 +16745,7 @@ font-size: 12px;
     }
     .profile-job-details ul li p {
         font-size: 13px;
+        font-weight: 600;
         padding-right: 8px;
         line-height: 10px;padding-left: 4px;
     }

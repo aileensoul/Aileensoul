@@ -4114,7 +4114,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
         
    
            }
-            document.getElementById('myModal').style.display = "none";
+            //document.getElementById('myModal').style.display = "none";
             }
     });
 
@@ -4321,10 +4321,10 @@ if(document.getElementById('bidmodal-limit').style.display === "block"){
     $("#test-upload_product").prop("readonly", false);
         
         $('#myModal').model('show');
- }else if(document.getElementById('myModal').style.display === "block"){ 
+ }
         document.getElementById('myModal').style.display === "none";
 
- }
+ 
 
     }
 });  
