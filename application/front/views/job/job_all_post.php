@@ -116,9 +116,30 @@
 
 
     <div class="second circle-1">
+       <?php if($count_profile == 100) 
+            {
+
+    ?>
+      <div class="true_progtree">
+    <img src="<?php echo base_url("img/true.png"); ?>">
+    </div>
+    <div class="tr_text">
+        Successfully Completed
+    </div>
+    <?php
+    }
+        else
+    {
+        ?>
+   
+    <div>
       <strong></strong>
-      <a href="<?php echo base_url('job/job_basicinfo_update')?>"  class="edit_profile_job">Edit Profile
+      <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
       </a>
+      </div>
+      <?php
+        }
+        ?>
     </div>
 
   </div>

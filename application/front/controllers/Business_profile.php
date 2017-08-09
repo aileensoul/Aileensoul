@@ -2629,12 +2629,12 @@ class Business_profile extends MY_Controller {
 
                     }
                     $return_html .= '</div>
-                                            <div class="comment-name">
+                                            <div class="comment-name"><a href="' . base_url('business_profile/business_profile_manage_post/' . $slugname1) . '">
                                                 <b title="' . $companyname . '">';
                     $return_html .= $companyname;
                     $return_html .= '</br>';
 
-                    $return_html .= '</b>
+                    $return_html .= '</b></a>
                                             </div>
                                             <div class="comment-details" id="showcomment' . $rowdata['business_profile_post_comment_id'] . '">';
                     $new_product_comment = $this->common->make_links($rowdata['comments']);
@@ -4067,7 +4067,7 @@ class Business_profile extends MY_Controller {
         $artdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         $slugid = $artdata[0]['business_slug'];
 
-        if ($id == $slug_id || $id == '') {
+        if ($id == $slugid || $id == '') {
 
 
 

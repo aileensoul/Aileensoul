@@ -10100,7 +10100,7 @@ fieldset .add_post_btns:hover {
     font-size: 11px;
     color: #999;
     padding-top: 0px;
-    line-height: 1px;
+    line-height: 10px;
 }
 .notificationsmsg li {
     border-bottom: 1px solid #efefef;
@@ -10442,8 +10442,19 @@ fieldset .add_post_btns:hover {
 .notification-database .active {
     background-color: #f3f9fb;
 }
+.true_progtree{
+    position: absolute;
+top: 52px;
+left: 48px;
+}
+.tr_text{padding: 10px 0px; color: #1b8ab9;}
 /*.job-post-detail .post-design-box {border:none;}*/
-
+#notification_main_in .khyati li a{padding: 0px!important;}
+#notificationTitle .see_link a:hover{text-decoration-line: underline; color: #1b8ab9;}
+#notificationTitle .see_link a{color: black;
+font-size: 15px;
+float: right;
+padding: 4px !important;}
 .butt_rec {
     background: #1b8ab9 !important;
     color: #fff !important;
@@ -15216,12 +15227,10 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
-.all-list ul li .list-box{width: 172px;}
+	.all-list ul li .list-box{width: 172px;}
     .pt120 {padding-top: 100px;}
- 
-     .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
-    
-  .contact-list .list-title{font-size: 18px;}
+	.cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
+    .contact-list .list-title{font-size: 18px;}
     .cls-ve{position: absolute; top: 23px; z-index: 10;right:15px;}
     .email-verify{padding-left: 0px;}
     .profile-text1 .vert_email{font-size: 12px;}
@@ -15475,9 +15484,7 @@ padding-top: 7px !important;}
     .custom-right {
         margin-left: 4%;
     }
-      .ves_c{width: 100%;
-display: block;
-text-align: center;}
+      .ves_c{width: 100%; display: block; text-align: center;}
 }
 @media screen and (max-width: 800px) {
     .custom-right {
@@ -15510,16 +15517,15 @@ text-align: center;}
     .search-mob-block {
         display: block;
     }
-     .mob-width {
+    .mob-width {
         width: 100%;
         position: absolute;
     }
 
     .all-list ul li .list-box{width: 157px;}
-        .pt_mn{padding-top: 40px;}
-        .pt1201     {padding-top: 120px;}
-  
-        .pt120{padding-top:20px;}
+    .pt_mn{padding-top: 40px;}
+    .pt1201{padding-top: 120px;}
+	.pt120{padding-top:20px;}
     .logo{padding:0;}
     .h2-smladd {/*margin-top: -45px;*/}
     .logo h2{padding:2px 0;}
@@ -16063,7 +16069,7 @@ text-align: center;}
         font-size: 16px;
         padding: 7px;
     }
-      .job_con #InboxContainer::before{right: 144px;}
+    .job_con #InboxContainer::before{right: 144px;}
     .profile-text1 .alert.alert-warning{width:100%; float:left;}
     .email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}
@@ -16078,19 +16084,18 @@ text-align: center;}
 }
 @media screen and (max-width: 640px) {
     .job_reg_page_fprm{width: 90%;}
-     .pt_mn2{padding-top: 20px !important;}
-    }
+    .pt_mn2{padding-top: 20px !important;}
     .profile-text1{width: 100%; /*top:40px;*/}
     .profile-text1 .as-p{margin-bottom: 0px;   font-size: 11px; }
     .post-design-box .post-design-desc .fr{right: 0; padding: 6px 16px;}
 } 
 @media screen and (max-width: 639px) {
-.dot_free{
-    width: 55%;
-text-overflow: ellipsis;
-white-space: nowrap;
-overflow: hidden;
-}
+	.dot_free{
+		width: 55%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
     .cover-pic{bottom: 62%; right: -10%;}
     .cls-ve{/*top: 18px;*/}
     .right-side-menu {
@@ -16806,15 +16811,10 @@ font-size: 12px;
 
 @media screen and (max-width: 320px) {
     .main_raio [type="radio"]:checked + .point_radio, .main_raio [type="radio"]:not(:checked) + .point_radio{padding-left: 20px;}
-.how-it-popup{width: 97%;}
+	.how-it-popup{width: 97%;}
     .header2 ul li.active a{padding: 9px 0px 9px;}
-    .created_date {
-    font-size: 8px;
-    letter-spacing: 0.5px;
-}
-
-.profile-job-details .post_title{font-size: 9px;}
-
+    .created_date {font-size: 8px; letter-spacing: 0.5px;}
+	.profile-job-details .post_title{font-size: 9px;}
 }
 /***  all keyframe css  ***/
 
@@ -16827,7 +16827,6 @@ font-size: 12px;
 }
 
 /* Move it (define the animation) */
-
 @-moz-keyframes marquee-main {
     0% {
         -moz-transform: translateX(70%);
@@ -16864,9 +16863,6 @@ font-size: 12px;
         transform: translateX(0%);
     }
 }
-
-
-
 @keyframes bounce_floatBarsG {
     0% {
         transform: scale(1);
