@@ -541,44 +541,64 @@
 
     </div>
 </div>
-<div class="edit_profile_progress edit_pr_bar" >
+
+<?php
+            if($count_profile == 100)
+            {
+?>
+     <div class="edit_profile_progress edit_pr_bar complete_profile">
         <div class="progre_bar_text">
             <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+
         </div>
         <div class="count_main_progress">
             <div class="circles">
 
 
-    <div class="second circle-1">
-        <?php if($count_profile == 100) 
-            {
-
-    ?>
-      <div class="true_progtree">
+<div class="second circle-1 ">
+    <div class="true_progtree">
     <img src="<?php echo base_url("img/true.png"); ?>">
     </div>
     <div class="tr_text">
         Successfully Completed
     </div>
+</div>
+</div>
+</div>
+</div>
     <?php
     }
-        else
+       
+ else
     {
         ?>
-   
-    <div>
+
+ <div class="edit_profile_progress edit_pr_bar">
+        <div class="progre_bar_text">
+            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
+  <div class="second circle-1">
+  <div>
       <strong></strong>
       <a href="<?php echo base_url('job/job_basicinfo_update')?>" class="edit_profile_job">Edit Profile
       </a>
       </div>
-      <?php
-        }
-        ?>
-    </div>
+      </div>
+     
+
+   
+
 
   </div>
          </div>
         </div> 
+         <?php
+        }
+        ?>
+
 </div>
 
 
@@ -1257,6 +1277,11 @@ $(document).ready(function(){
 //  $(document).load().scrollTop(1000);
      
     $('html,body').animate({scrollTop:265}, 100);
+
+    $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
+
+// Disable progress bar when 100% complete End
+
 
 });
 //For Scroll page at perticular position js End

@@ -1478,6 +1478,7 @@ if ($returnpage == 'recruiter') {
                         </div>
 
 <?php 
+
 if(!($returnpage))
         {
             if($count_profile == 100)
