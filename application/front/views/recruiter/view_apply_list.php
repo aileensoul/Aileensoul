@@ -623,7 +623,8 @@ $contition_array = array('user_id' => $row['userid']);
 
      ?>
 
-            <a  class="button invite_border" href="<?php echo base_url('chat/abc/' . $row['userid'].'/2/1'); ?>">Message</a>
+            <!--<a  class="button invite_border" href="<?php// echo base_url('chat/abc/' . $row['userid'].'/2/1'); ?>">Message</a>-->
+            <a  class="button invite_border" href="<?php echo base_url('chat/abc/2/1'  . $row['userid']); ?>">Message</a>
 
             <?php  $contition_array = array('invite_user_id' => $row['userid'], 'post_id' => $postid);
         $userdata = $this->common->select_data_by_condition('user_invite', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

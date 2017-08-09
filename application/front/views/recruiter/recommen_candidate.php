@@ -685,7 +685,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
  if (!$data) {
      ?> 
                      
-    <a href="<?php echo base_url('chat/abc/' . $row['iduser'].'/2/1'); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/2/1'  . $row['iduser']); ?>">Message</a> 
 
 <!--                     <a href="#">Invite</a>-->
 
@@ -696,7 +696,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                 <?php
             } else {
                  ?>
-    <a href="<?php echo base_url('chat/abc/' . $row['iduser'].'/2/1'); ?>">Message</a> 
+    <a href="<?php echo base_url('chat/abc/2/1'  . $row['iduser']); ?>">Message</a> 
 
     <a class="saved">Saved</a> 
                                                         <?php } }

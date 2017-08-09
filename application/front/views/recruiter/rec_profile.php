@@ -251,9 +251,9 @@
                            
                            if($returnpage == "job"){ ?>
                                
-                           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/1/2'); ?>">Message</a>
+                           <a href="<?php echo base_url('chat/abc/1/2'  . $this->uri->segment(3)); ?>">Message</a>
                       <?php     }else{ ?>
-                           <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/2/1'); ?>">Message</a>
+                           <a href="<?php echo base_url('chat/abc/2/1'  . $this->uri->segment(3)); ?>">Message</a>
                                
                      <?php      }?>
                      
