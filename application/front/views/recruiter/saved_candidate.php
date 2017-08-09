@@ -396,133 +396,136 @@
                                           
                                             <div class="profile-job-profile-menu">
                                                 <ul class="clearfix">
-                 <?php $contition_array = array('user_id' => $rec['userid'], 'type' => 3, 'status' => 1);
-        unset($other_skill);
-        //echo "<pre>"; print_r($other_skill);
-            $other_skill = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            //echo "<pre>"; print_r($other_skill);
-             ?>            
 
-                                         <li> <b> Skill</b> <span>
-                                                        <?php
-                        
-                         $aud = $rec['keyskill'];
-                         $aud_res = explode(',', $aud);
-                         
+         <?php 
+                                                                            if ($rec['work_job_title']) {
+                                                                                $contition_array = array('status' => 'publish', 'title_id' => $rec['work_job_title']);
+                                                                                $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                ?>
+                                                                            <li> <b> Job Title</b> <span>
+    <?php echo $jobtitle[0]['name']; ?>
+                                                                                </span>
+                                                                            </li>
 
-                         if(!$rec['keyskill']){
-                          echo "otherskill";
+<?php } ?>
 
-                          foreach ($other_skill as $sk) {
-                         $sk2[] = $sk['skill']; 
-                         
-                          }
-                       $otherfinal = implode(', ', $sk2);
-                       echo $otherfinal;
-                       $otherfinal=null;
-                        unset($sk2);
+  <?php
+                                                                    if ($rec['keyskill']) {$detailes = array();
+                                                                        $work_skill = explode(',', $rec['keyskill']);
+                                                                        foreach ($work_skill as $skill) {
+                                                                            $contition_array = array('skill_id' => $skill);
+                                                                            $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                                                            $detailes[] = $skilldata[0]['skill'];
+                                                                        }
+                                                                        ?>
+                                                                            <li> <b> Skills</b> <span>
+                                                                        <?php echo implode(',', $detailes); ?>
+                                                                                </span>
+                                                                            </li>
+                                                                            <?php } ?>
 
-                         }else if(!$other_skill){
-                          //echo "skill";
+                                                                            <?php
+                                                                            if ($rec['work_job_industry']) {
+                                                                                $contition_array = array('industry_id' => $rec['work_job_industry']);
+                                                                                $industry = $this->common->select_data_by_condition('job_industry', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                                ?>
+                                                                            <li> <b> Industry</b> <span>
+    <?php echo $industry[0]['industry_name']; ?>
+                                                                                </span>
+                                                                            </li>
+                                                                    <?php } ?>
+                                                                    <?php
+                                                                    if ($rec['work_job_city']) { $cities = array();
+                                                                        $work_city = explode(',', $rec['work_job_city']);
+                                                                        foreach ($work_city as $city) {
+                                                                            $contition_array = array('city_id' => $city);
+                                                                            $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                                                            if ($citydata) { 
+                                                                                $cities[] = $citydata[0]['city_name'];
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                            <li> <b> Preferred Cites</b> <span>
+    <?php echo implode(',', $cities); ?>                                                        
+                                                                                </span>
+                                                                            </li>
+                                                                    <?php } ?> 
+    <?php 
 
-
-                          foreach ($aud_res as $skill) {
-
-                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                        $skillsss[] = $cache_time;
-                    }
-
-                    $listskill = implode(', ', $skillsss);
-
-
-
-                    echo $listskill;
-                    $listskill ==null;
-                     unset($skillsss);
-                         }else if($rec['keyskill'] && $other_skill){
-
-                         // echo "helll000";
-                          foreach ($aud_res as $skillboth) {
-
-                  $cache_time = $this->db->get_where('skill', array('skill_id' => $skillboth))->row()->skill;
-                        $skilldddd[] = $cache_time;
-                    }
-                    $listFinal = implode(', ', $skilldddd);
-                   // echo $listFinal;
-
-                                  foreach ($other_skill as $osil) {
-                         $skill2[] = $osil['skill']; 
-                         
-                          }
-                       $listFinalother = implode(', ', $skill2);
-                      // echo $listFinalother;
-
-
-                    echo $listFinal .',' . $listFinalother; 
-                    //$listFinal==null;
-                   // $listFinalother==null;
-                     unset($skill2);
-                     unset($skilldddd);
-                  }
-                 // var_dump($otherskill);
-                 //$otherskill=null;
-                                   ?>
-
-                     </span>
-                   </li>
-
-                  <?php if($rec['experience'] != 'Fresher'){?>
-<?php 
 $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience', 'status' => '1');
 
-        
-            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = ''); 
+        //echo "<pre>"; print_r($other_skill);
+  $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  //echo  $experiance[0]['experience'];
+
+if($experiance[0]['experience_year'] != ''){ ?>
+  <?php 
+
+            
+
             $total_work_year=0;
             $total_work_month=0;
-
             foreach ($experiance as $work1) {
 
             $total_work_year+=$work1['experience_year'];
             $total_work_month+=$work1['experience_month'];
             }
-            ?>
-            <li> <b> Total Experience</b>
+             ?>
+          <li> <b> Total Experience</b>
               <span>
-              <?php
+                   <?php
               if($total_work_month == '12 month' && $total_work_year =='0 year'){
                 echo "1 year";
             }
-            elseif($total_work_year !='0 year' && $total_work_month == '12 month'){
+             elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
                  $month = explode(' ', $total_work_year);
+                 //print_r($month);
                                                 $year=$month[0];
-                                                $years=$year + 1;
-                                                echo $years." Years";
+                                                $y=0;
+                                                for($i=0;$i<=$y;$i++)
+                                                {
+                                                   if($total_work_month >= 12)
+                                                   {
+                                                      $year=$year + 1;
+                                                      $total_work_month = $total_work_month - 12;
+                                                      $y++;
+                                               
+                                                   }
+                                                   else
+                                                   {
+                                                      $y=0;
+                                                   }
+                                                }
+
+                                                
+                                                 echo $year; echo "&nbsp"; echo "Year";
+                                                 echo "&nbsp";
+                                                 if($total_work_month != 0)
+                                                 {
+                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                }
+
+            
             }
             else{
-             echo $total_work_year; echo "&nbsp"; echo "Year";
+                echo $total_work_year; echo "&nbsp"; echo "Year";
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
             }   ?>
                </span>
                 </li>
-                <?php } else {?>
-                <li> <b> Total Experience</b>
-              <span> <?php echo $rec['experience']; ?>  </span>
+             <?php } else{ 
+
+              if($rec['experience'] == 'Fresher')
+              {
+              ?>
+              <li> <b> Total Experience</b>
+              <span><?php echo $rec['experience']; ?></span>
                 </li>
-                <?php }?>
-             
-
-                                                                 <?php
-                                                                $countryname = $this->db->get_where('countries', array('country_id' => $rec['country_id']))->row()->country_name;
-                                                                $cityname = $this->db->get_where('cities', array('city_id' => $rec['city_id']))->row()->city_name;
-                                                                ?>
-
-                <li><b>Location</b> <span>
-               <?php  if($cityname){echo $cityname;echo ', ';}
-                                             echo $countryname;
-                                              ?> 
-                
-                     </span></li>
+            <?php   } //if complete
+            }//else complete
+            ?>                                                              
+                                                        
 
  <?php if($rec['board_primary'] && $rec['board_secondary'] && $rec['board_higher_secondary'] && $rec['degree']){ ?>
             <li>
@@ -801,7 +804,7 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                 </span>
                 </li>
 
-                  <?php }else{?> <li> No Education </li> <?php }?>
+                  <?php }?>
  
                                                               <li><b>E-mail</b><span>
                                                                     <?php
@@ -814,17 +817,21 @@ $contition_array =array('user_id' => $rec['userid'], 'experience' => 'Experience
                                                                     ?></span>
                                                                 </li>
 
+                                                                <?php
+                                                                 if($rec['phnno'])
+                                                                    {
+                                                                    ?>
                                                                 <li><b>Mobile Number</b><span>
                                                                     <?php
-                                                                     if($rec['phnno'])
-                                                                    {
+                                                                    
                                                                           echo $rec['phnno'];
-                                                                    }
-                                                                    else{
-                                                                        echo PROFILENA;
-                                                                    }
+                                                                    
+                                                                    
                                                                     ?></span>
                                                                 </li>
+                                                                <?php
+                                                                    }
+                                                                    ?>
 
 
 

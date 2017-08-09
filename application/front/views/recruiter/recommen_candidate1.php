@@ -680,7 +680,7 @@ if($experiance[0]['experience_year'] != ''){ ?>
                 </span>
                 </li>
 
-                  <?php }else{?> <li> No Education </li> <?php }?>
+                  <?php }?>
                                                                 
                                
 

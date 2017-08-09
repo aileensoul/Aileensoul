@@ -582,7 +582,7 @@ $contition_array = array('user_id' => $row['userid']);
                 </span>
                 </li>
 
-                  <?php }else{?> <li> No Education </li> <?php }?>
+                  <?php }?>
 
 
 
