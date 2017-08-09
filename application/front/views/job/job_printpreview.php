@@ -1538,8 +1538,7 @@ if(!($returnpage))
 <?php
         }
 ?>
-                    </div>
-
+                   
                 </div>
 
             </div>
@@ -2202,6 +2201,8 @@ cache: true
         //  $(document).load().scrollTop(1000);
 
         $('html,body').animate({scrollTop: 265}, 100);
+
+        $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
 
     });
     //For Scroll page at perticular position js End

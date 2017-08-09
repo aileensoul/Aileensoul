@@ -2759,7 +2759,7 @@ foreach ($recdata1 as $ke => $arr) {
     }
 
 //Remove Save candidate by search controller start
-    public function remove_candidate($saveid) {
+    public function remove_candidate() {
          $this->recruiter_apply_check(); 
 //echo $saveid;die();
          $this->recruiter_apply_check(); 
@@ -2883,13 +2883,15 @@ foreach ($recdata1 as $ke => $arr) {
 
 
 //save search user controller start
-    public function save_search_user($id, $save_id) { //echo $id; echo $save_id; die();
+    public function save_search_user() { //echo $id; echo $save_id; die();
          $this->recruiter_apply_check(); 
 
         $id = $_POST['user_id'];
 
        // echo $id; die();
-        $save_id = $_POST['save_id'];
+            $save_id = $_POST['save_id'];
+      
+     
 
         $userid = $this->session->userdata('aileenuser');
 
