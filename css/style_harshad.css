@@ -507,10 +507,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .profile-box-left .edi_origde .progre_bar_text p{text-align:left; color:#4c4c4c;}
 
 /* Example stylistic flourishes */
-
-.fileContainer [type=file] {
-    cursor: pointer;
-}
+.fileContainer [type=file] {cursor: pointer;}
 .fileContainer:hover{background: #d9d9d9 none repeat scroll 0 0;}
 
 
