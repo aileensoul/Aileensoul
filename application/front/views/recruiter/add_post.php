@@ -888,18 +888,13 @@ if(mm<10) {
                             regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             
                         },
-                          'skills[]': {
+                          skills: {
                             
-                          require_from_group: [1, ".skill_other"] 
+                         required: true,
                           //required:true 
                         }, 
 
-                        other_skill: {
-                            
-                           require_from_group: [1, ".skill_other"],
-                         regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                            // required:true 
-                        },
+                      
                        position_no:{
                             required: true,
                              number:true,
@@ -988,16 +983,12 @@ if(mm<10) {
 
                             required: "Job title  Is Required."
                         },
-                          'skills[]': {
+                          skills: {
 
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-
+                            required: "Skill  Is Required."
                         },
 
-                        other_skill: {
-
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-                        },
+                      
                          position_no:{
                           required: "You Have TO Select Minimum 1 Candidate"
                         },

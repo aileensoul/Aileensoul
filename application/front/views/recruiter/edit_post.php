@@ -3,7 +3,7 @@
     <!-- END HEAD -->
     <!-- start header -->
       <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.2.0/select2.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 
@@ -85,6 +85,147 @@
 <?php echo $header; ?>
    <?php echo $recruiter_header2_border; ?>
     <!-- END HEADER -->
+<style type="text/css">
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ui-front {
+  z-index: 100;
+}
+
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+.ui-menu .ui-menu {
+  position: absolute;
+}
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+  margin: -1px;
+}
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+}
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+  color: #222222;
+}
+.ui-widget-content a {
+  color: #222222;
+}
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
+}
+.ui-widget-header a {
+  color: #222222;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999;
+  background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+  </style>
     <body class="page-container-bg-solid page-boxed">
 
       <section>
@@ -135,7 +276,7 @@
 
                     <fieldset class="full-width">
                         <label>Job Title:<span style="color:red">*</span></label>
-                        <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder=" Position [Ex:- Sr. Engineer, Jr. Engineer]" value="<?php echo $postdata[0]['post_name']; ?>"/>
+                        <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder=" Position [Ex:- Sr. Engineer, Jr. Engineer]" value="<?php echo $work_title; ?>"/>
                         <span id="fullname-error"></span>
                         <?php echo form_error('post_name'); ?>
                     </fieldset>
@@ -144,15 +285,16 @@
                     <fieldset class="full-width">
                         <label class="control-label">Skills:<span style="color:red">*</span></label>
                         
+                           <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  class="full-width " tabindex="2">
 
-                        <select  name="skills[]" id ="skils" multiple="multiple" tabindex="2"  style="width: 100%;" class="skill_other full-width ">
+                        <!-- <select  name="skills[]" id ="skils" multiple="multiple" tabindex="2"  style="width: 100%;" class="skill_other full-width ">
                         <option></option>
                       <?php 
 
-                      foreach ($skill as $ski) { ?>
-                         <option value="<?php echo $ski['skill_id']; ?>"><?php echo $ski['skill']; ?></option>
-                        <?php } ?>
-                      </select>
+                      //foreach ($skill as $ski) { ?>
+                         <option value="<?php //echo $ski['skill_id']; ?>"><?php //echo $ski['skill']; ?></option>
+                        <?php//} ?>
+                      </select> -->
                               
 
                         <?php echo form_error('skills'); ?>
@@ -603,17 +745,8 @@
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 
-<script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script>
-<script type="text/javascript">
-//select2 autocomplete start for skill
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/3.2.0/select2.js"></script>
 
-var complex = <?php echo json_encode($selectdata); ?>;
-
-//alert(complex);
-
-$('#skils').select2().select2('val', complex)
-//select2 autocomplete End for skill
-</script>
 
 <script type="text/javascript">
 //select2 autocomplete start for skill
@@ -959,18 +1092,13 @@ jQuery.noConflict();
                              regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                             
                         },
-                          'skills[]': {
+                          skills: {
                             
-                          require_from_group: [1, ".skill_other"] 
+                         required: true,
                           //required:true 
                         }, 
 
-                        other_skill: {
-                            
-                           require_from_group: [1, ".skill_other"],
-                           regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                            // required:true 
-                        },
+                        
                         position:{
                             required: true,
                              number:true,
@@ -1058,16 +1186,11 @@ jQuery.noConflict();
 
                             required: "Jobtitle  Is Required."
                         },
-                          'skills[]': {
+                           skills: {
 
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-
+                            required: "Skill  Is Required."
                         },
 
-                        other_skill: {
-
-                            require_from_group: "You must either fill out 'Keyskills' or 'Other Skills'"
-                        },
                         position:{
                           required: "You Have TO Select Minimum 1 Candidate"
                         },
@@ -1269,6 +1392,88 @@ jQuery.noConflict();
    });
     })(jQuery);
 
+</script>
+
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        
+        $( "#skills2" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_skill", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 20) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( ", " );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+
+  
+ 
+        });
+    });
+</script>
+
+<script>
+    // job title script start
+   var jobdata = <?php echo json_encode($jobtitle); ?>;
+   
+   $(function () {
+    
+       $("#post_name").autocomplete({
+           source: function (request, response) {
+               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+               response($.grep(jobdata, function (item) {
+                   return matcher.test(item.label);
+               }));
+           },
+           minLength: 1,
+           select: function (event, ui) {
+               event.preventDefault();
+               $("#post_name").val(ui.item.label);
+               $("#selected-tag").val(ui.item.label);
+               // window.location.href = ui.item.value;
+           }
+           ,
+           focus: function (event, ui) {
+               event.preventDefault();
+               $("#post_name").val(ui.item.label);
+           }
+       });
+   });
+   
 </script>
 
 
