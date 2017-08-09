@@ -293,28 +293,41 @@
                                                                             </li>
                                                                     <?php } ?>
                                                                     <?php
-                                                                    if ($p['work_job_city']) {
+                                                           if ($p['work_job_city']) {
                                                                         $work_city = explode(',', $p['work_job_city']);
-                                                                        foreach ($work_city as $city) {
+                                                                $cities2 = array();         foreach ($work_city as $city) {
+
+                                                                          
                                                                             $contition_array = array('city_id' => $city);
-                                                                            $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-                                                                            if ($citydata) {
-                                                                                $cities[] = $citydata[0]['city_name'];
+                                                                            $citydata1 = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+
+                                                                           
+
+                                                                            if ($citydata1) {
+                                                                                $cities2[] = $citydata1[0]['city_name'];
+
                                                                             }
+                                                                            // echo "<pre>";print_r($cities1);
                                                                         }
                                                                         ?>
                                                                             <li> <b> Preferred Cites</b> <span>
-    <?php echo implode(',', $cities); ?>                                                        
+    <?php echo implode(',', $cities2); ?>                                                        
                                                                                 </span>
                                                                             </li>
                                                                     <?php } ?> 
 
-      <?php if($p['experience'] != 'Fresher'){ ?>
     <?php 
-       $contition_array =array('user_id' => $p['iduser'], 'experience' => 'Experience', 'status' => '1');
 
-       $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  $contition_array =array('user_id' => $p['iduser'], 'experience' => 'Experience', 'status' => '1');
 
+        //echo "<pre>"; print_r($other_skill);
+  $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  //echo  $experiance[0]['experience'];
+
+if($experiance[0]['experience_year'] != ''){ ?>
+  <?php 
+
+            
 
             $total_work_year=0;
             $total_work_month=0;
@@ -323,16 +336,14 @@
             $total_work_year+=$work1['experience_year'];
             $total_work_month+=$work1['experience_month'];
             }
-
-                  ?>
-                 <li> <b> Total Experience </b>
-               <span>
-               <?php
-               
+             ?>
+          <li> <b> Total Experience</b>
+              <span>
+                   <?php
               if($total_work_month == '12 month' && $total_work_year =='0 year'){
                 echo "1 year";
             }
-            elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
+             elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
                  $month = explode(' ', $total_work_year);
                  //print_r($month);
                                                 $year=$month[0];
@@ -367,20 +378,30 @@
             echo "&nbsp";
             echo $total_work_month; echo "&nbsp"; echo "Month";
             }   ?>
+               </span>
+                </li>
+             <?php } else{ 
 
-                
-              </span> </li> <?php } ?>
+              if($p['experience'] == 'Fresher')
+              {
+              ?>
+              <li> <b> Total Experience</b>
+              <span><?php echo $p['experience']; ?></span>
+                </li>
+            <?php   } //if complete
+            }//else complete
+            ?>
 
       <?php
-             $countryname = $this->db->get_where('countries', array('country_id' => $p['country_id']))->row()->country_name;
-              $cityname = $this->db->get_where('cities', array('city_id' => $p['city_id']))->row()->city_name;
+             // $countryname = $this->db->get_where('countries', array('country_id' => $p['country_id']))->row()->country_name;
+             //  $cityname = $this->db->get_where('cities', array('city_id' => $p['city_id']))->row()->city_name;
          ?>
 
 
-             <li><b>Location</b> 
+             <!-- <li><b>Location</b> 
 
-       <span> <?php if($cityname){echo $cityname;echo ', ';}
-                         echo $countryname; ?></span></li>
+       <span> <?php //if($cityname){echo $cityname;echo ', ';}
+                        // echo $countryname; ?></span></li> -->
 
           <?php if($p['board_primary'] && $p['board_secondary'] && $p['board_higher_secondary'] && $p['degree']){ ?>
             <li>
@@ -672,15 +693,18 @@
            ?></span>
    </li>
 
+<?php if($p['phnno']){
+  ?>
   <li><b>Mobile Number</b>
        <span> 
-        <?php if($p['phnno']){
-             echo $p['phnno']; } 
-             else{
-               echo PROFILENA;
-             }
-         ?></span>
+          <?php
+             echo $p['phnno']; 
+             ?>
+          </span>
      </li>
+  <?php
+    }
+    ?>
 
 
 

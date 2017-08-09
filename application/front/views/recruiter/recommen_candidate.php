@@ -1050,7 +1050,9 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
             <script type="text/javascript">
                   function save_user(abc)
                         {
+
            var saveid = document.getElementById("hideenuser" + abc);
+         
                 $.ajax({
         type: 'POST',
         url: '<?php echo base_url() . "recruiter/save_search_user" ?>',
