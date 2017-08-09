@@ -352,7 +352,11 @@ $(document).ready(function() {
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
             data: 'message_from_profile=6&message_to_profile=6',
             success: function (data) {
+<<<<<<< HEAD
+              $('#' + 'notificationsmsgBody').html(data);
+=======
                 $('.' + 'khyati2').html(data);
+>>>>>>> 21826727fe83271c06c11521a10d87b0b7400666
             }
         });
 
