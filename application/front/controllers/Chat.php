@@ -3585,11 +3585,11 @@ class Chat extends MY_Controller {
         if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
-
+     
 
       $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
       $userlist = $this->aasort($userlist, "id");
-//      echo '<pre>'; print_r($userlist); die();
+     
                      foreach ($userlist as $user) {
                     if ($user['user_id'] != $toid) {
 
@@ -3624,7 +3624,8 @@ class Chat extends MY_Controller {
                                 $image_path = FCPATH . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                                 $user_image = base_url() . 'uploads/artistic_profile/thumbs/' . $user['user_image'];
                             }
-                              if ($user_image && (file_exists($image_path)) == 1) {
+                            
+                              if ($user['user_image'] && (file_exists($image_path)) == 1) {
                             $usrsrch .= '<img src="' . $user_image . '" alt="' . $user['user_image'] . '" height="50px" weight="50px">';
                             $usrsrch .= '</div>';
                        } else { 
