@@ -13838,7 +13838,7 @@ bui_images_view_more a:hover {
     min-height: 50px;
 }
 /*End*/
-
+.header2 ul.khyati2 li{border-right: 1px solid transparent;}
 .clear {
     clear: both;
 }
