@@ -673,8 +673,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //                    $('input').each(function () {
 //                    });
 
-
                     $('#userlist').html(data);
+                    $('.' + 'khyati2').html(data);
                 }
             });
        

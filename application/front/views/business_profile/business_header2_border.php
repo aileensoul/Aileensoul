@@ -496,7 +496,7 @@
 
     function getmsgNotification() {
         msgNotification();
-        msgheader();
+       // msgheader();
     }
 
     function msgNotification() {
@@ -521,7 +521,7 @@
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
             data: 'message_from_profile=5&message_to_profile=5',
             success: function (data) {
-                $('.' + 'khyati2').html(data);
+               // $('.' + 'khyati2').html(data);
             }
         });
 
