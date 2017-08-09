@@ -3,14 +3,6 @@
     font-weight: 500;
     font-size: 13px;
 }
-.profile-job-details ul li p {
-    margin-bottom: 0;
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 500 !important;
-    font-family: arial;
-
-}
 .cont_req button{font-size: 12px; width: 100px;}
 .action-button #message_count{/*line-height: 10px;*/}
 .cancel_req_busi{margin:5px 4px;}
@@ -456,6 +448,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
 .business_data_table .business_data_td1{width:50px;}
 .buisness-menu::before{bottom:58px;}
+#text_num{right:21%;}
 
 
 
