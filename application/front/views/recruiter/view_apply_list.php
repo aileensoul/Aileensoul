@@ -214,15 +214,20 @@ if ($user_data) {
                                     </li> -->
 
 
-  <?php if($row['experience'] != 'Fresher'){ ?>
   <?php 
+
 $contition_array =array('user_id' => $row['userid'], 'experience' => 'Experience', 'status' => '1');
 
         //echo "<pre>"; print_r($other_skill);
-            $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  $experiance = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+  
+
+if($experiance[0]['experience_year'] != ''){ ?>
+  <?php 
+
             
 
-           $total_work_year=0;
+            $total_work_year=0;
             $total_work_month=0;
             foreach ($experiance as $work1) {
 
@@ -236,23 +241,35 @@ $contition_array =array('user_id' => $row['userid'], 'experience' => 'Experience
               if($total_work_month == '12 month' && $total_work_year =='0 year'){
                 echo "1 year";
             }
-            elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
+             elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
                  $month = explode(' ', $total_work_year);
+                 //print_r($month);
                                                 $year=$month[0];
-
-                                                $years=$year + 1;
-                                                $total_work_month = $total_work_month - 12;
-                                                if ($total_work_month == 0) {
-                                                echo $years." Years"; 
-                                                  
-                                                }
-                                                else
+                                                $y=0;
+                                                for($i=0;$i<=$y;$i++)
                                                 {
-                                               echo $years; echo "&nbsp"; echo "Year";
-            echo "&nbsp";
-            echo $total_work_month; echo "&nbsp"; echo "Month";
-
+                                                   if($total_work_month >= 12)
+                                                   {
+                                                      $year=$year + 1;
+                                                      $total_work_month = $total_work_month - 12;
+                                                      $y++;
+                                               
+                                                   }
+                                                   else
+                                                   {
+                                                      $y=0;
+                                                   }
                                                 }
+
+                                                
+                                                 echo $year; echo "&nbsp"; echo "Year";
+                                                 echo "&nbsp";
+                                                 if($total_work_month != 0)
+                                                 {
+                                                   echo $total_work_month; echo "&nbsp"; echo "Month";
+                                                }
+
+            
             }
             else{
                 echo $total_work_year; echo "&nbsp"; echo "Year";
@@ -260,19 +277,26 @@ $contition_array =array('user_id' => $row['userid'], 'experience' => 'Experience
             echo $total_work_month; echo "&nbsp"; echo "Month";
             }   ?>
                </span>
-                </li>   <?php } else{ ?>
+                </li>
+             <?php } else{ 
+
+              if($row['experience'] == 'Fresher')
+              {
+              ?>
               <li> <b> Total Experience</b>
               <span><?php echo $row['experience']; ?></span>
                 </li>
-            <?php   } ?>
+            <?php   } //if complete
+            }//else complete
+            ?>
 
-                                 <li><b> Location</b> <span>
+                                <!--  <li><b> Location</b> <span>
 
-                                 <?php if($row['city_permenant']) { ?>
-                                 <?php $cache_time  =  $this->db->get_where('cities',array('city_id' => $row['city_permenant']))->row()->city_name;  
-                                          echo $cache_time; ?>
-                                       <?php }else{ echo PROFILENA; }?>                   
-                                    </span> </li>
+                                 <?php //if($row['city_permenant']) { ?>
+                                 <?php// $cache_time  =  //$this->db->get_where('cities',array('city_id' => $row['city_permenant']))->row()->city_name;  
+                                         // echo $cache_time; ?>
+                                       <?php// }else{ echo PROFILENA; }?>                   
+                                    </span> </li> -->
 <?php
 
 $contition_array = array('user_id' => $row['userid']);
@@ -569,22 +593,20 @@ $contition_array = array('user_id' => $row['userid']);
      ?></span>
      </li>
 
-
+     <?php
+              if($row['phnno'])
+                {
+      ?>
                <li><b>Mobile Number</b>
                       <span>
 
-                      <?php
-                      if($row['phnno'])
-                      {
+                  <?php    
                    echo $row['phnno'];
-                 }
-                     else
-                      {
-                                             echo PROFILENA;
-
-                        
-                        }?></span>
+               ?></span>
                </li>
+      <?php
+            }
+          ?>
 
 
                </ul>

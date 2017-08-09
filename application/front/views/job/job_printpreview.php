@@ -1480,8 +1480,10 @@ if ($returnpage == 'recruiter') {
 <?php 
 if(!($returnpage))
         {
+            if($count_profile == 100)
+            {
 ?>
-     <div class="edit_pr_bar edit_profile_progress hidden-xs">
+     <div class="edit_pr_bar edit_profile_progress hidden-xs complete_profile">
         <div class="progre_bar_text">
             <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
 
@@ -1490,12 +1492,7 @@ if(!($returnpage))
             <div class="circles">
 
 
-   
-    <?php if($count_profile == 100) 
-            {
-
-    ?>
-<div class="second circle-1 complete_profile">
+<div class="second circle-1 ">
     <div class="true_progtree">
     <img src="<?php echo base_url("img/true.png"); ?>">
     </div>
@@ -1503,12 +1500,23 @@ if(!($returnpage))
         Successfully Completed
     </div>
 </div>
+</div>
+</div>
+</div>
     <?php
     }
-        else
+       
+ else
     {
         ?>
 
+ <div class="edit_pr_bar edit_profile_progress hidden-xs">
+        <div class="progre_bar_text">
+            <p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+
+        </div>
+        <div class="count_main_progress">
+            <div class="circles">
   <div class="second circle-1">
   <div>
       <strong></strong>
@@ -1516,9 +1524,7 @@ if(!($returnpage))
       </a>
       </div>
       </div>
-      <?php
-        }
-        ?>
+     
 
    
 
@@ -1526,6 +1532,9 @@ if(!($returnpage))
   </div>
          </div>
         </div> 
+         <?php
+        }
+        ?>
 <?php
         }
 ?>
