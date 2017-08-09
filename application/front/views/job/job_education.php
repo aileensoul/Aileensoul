@@ -410,7 +410,7 @@
                                                          </div>
                                                           <div>
 
-                                                         <div style="float: left;" id="higher_secondary_certi">
+                                                         <div style="float: left;" id="higher_secondary_certi" class="tsecondary_certi">
                                                 <div class="hs-submit full-width fl">
                                                 <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
                                                    <input  type="button" style="display: none;" value="Delete" id="delete_job_edu" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
@@ -427,7 +427,7 @@
                                                <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_higher_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
                                               
                                               
-                                              <div style="float: left;" id="higher_secondary_certi">
+                                              <div style="float: left;" id="higher_secondary_certi" class="tsecondary_certi">
                                                 <div class="hs-submit full-width fl">
                                                    <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
                                                    <input  type="button" id="delete_job_edu" style="display: none;" value="Delete" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
