@@ -667,7 +667,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var usrid = '<?php echo $toid; ?>';
 
             // khyati chnages  start
-
+       
+        if(val != ""){
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "chat/userlisttwo/" . $message_from_profile . '/' . $message_to_profile ?>',
@@ -677,10 +678,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('input').each(function () {
                     });
 
-
                     $('#userlist').html(data);
                 }
             });
+            }else{
+            
+            chatmsg();
+            }
         });
     });
     
@@ -688,7 +692,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           chatmsg();
            });  // khyati chnages  start
  function chatmsg()
-    {
+    {             
+         var val = $('#user_search').val();
+            // khyati chnages  start
+       
+        if(val == ""){
             $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "chat/userajax/" . $toid . '/' . $message_from_profile . '/' . $message_to_profile ?>',
@@ -701,13 +709,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                  setTimeout(
                         chatmsg,
-                       5000000000000000000
+                       500
                         );
                 },
              error: function (XMLHttpRequest, textStatus, errorThrown) {
             }           
             });
-            
+            }; 
             };
        
    
