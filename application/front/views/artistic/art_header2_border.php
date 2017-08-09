@@ -44,10 +44,14 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages</div>
+                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-                                                <div id="notificationsmsgBody" class="notificationsmsg">
-                                                </div>
+<div>
+    <ul class="khyati2">
+        
+    </ul></div>
+
                                             </div>
                                     </li> 
                  <!-- Friend Request End-->
@@ -348,7 +352,11 @@ $(document).ready(function() {
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
             data: 'message_from_profile=6&message_to_profile=6',
             success: function (data) {
+<<<<<<< HEAD
               $('#' + 'notificationsmsgBody').html(data);
+=======
+                $('.' + 'khyati2').html(data);
+>>>>>>> 21826727fe83271c06c11521a10d87b0b7400666
             }
         });
 
