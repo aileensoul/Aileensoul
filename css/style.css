@@ -3003,6 +3003,17 @@ border-top: none;
     text-decoration: none;
     
 }
+.dele_highrt{margin-top: 15px;  }
+.dele_highrt img{float: left;}
+.tsecondary_certi{float: left;
+    margin-left: -12px;
+    background: #1b8ab9;
+    color: white;
+    padding: 3px 5px 1px;
+    border-radius: 100%;
+    margin-top: -10px;
+    cursor: pointer;}
+    #higher_secondary_certi i{color: white; cursor: pointer; font-size: 12px;}
 .job_work_experience_main_div h6{padding: 10px 0px 2px; font-size: 17px;}
 .profile-job-details ul li p {
     margin-bottom: 0;

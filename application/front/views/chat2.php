@@ -497,11 +497,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var $field = $('#message');
         var data = $('#message').html();
-        alert(data);
-         txt = txt.replace(/&nbsp;/gi, " ");
-        var kkk = check_perticular(data);
-        alert(kkk);
-        if (check_perticular(data) == true) {
+        data = data.replace(/&nbsp;/gi, " ");
+         if (check_perticular(data) == true) {
             return false;
         }
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
@@ -908,7 +905,7 @@ function myFunction() {
     document.getElementById("mychat_dropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+// Close the dropdown if the user clicks outs#submitide of it
 window.onclick = function(event) {
   if (!event.target.matches('.chatdropbtn')) {
 
