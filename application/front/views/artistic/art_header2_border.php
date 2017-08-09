@@ -215,7 +215,7 @@ $(document).on("dropdown_hover", function () {
 $(document).ready(function() {
      $("body").click(function(event) {
         $(".dropdown-content_hover").hide();
-        event.stopPropagation();
+        //event.stopPropagation();
     });
  
 });

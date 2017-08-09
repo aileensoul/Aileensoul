@@ -547,6 +547,16 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
         $userdata = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
+        $work_skill = explode(',', $userdata[0]['art_skill']); 
+        
+    
+        foreach($work_skill as $skill){
+     $contition_array = array('skill_id' => $skill);
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     $detailes[] = $skilldata[0]['skill'];
+  } 
+
+   $this->data['work_skill'] = implode(',', $detailes); 
 
         $contition_array = array('status' => 1, 'type' => 2);
         $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = 'skill', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -660,8 +670,34 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              redirect('artistic/');
         }
      //if user deactive profile then redirect to artistic/index untill active profile End
-        $skill = $this->input->post('skills');
-        $otherskill = $this->input->post('other_skill');
+      //  $skill = $this->input->post('skills');
+        //$otherskill = $this->input->post('other_skill');
+
+          $skills = $this->input->post('skills');
+          $skills = explode(',',$skills); 
+
+          if(count($skills) > 0){ 
+          
+          foreach($skills as $ski){
+     $contition_array = array('skill' => $ski,'type' => 6);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     if($skilldata){
+         $skill[] = $skilldata[0]['skill_id'];
+           }else{
+                 $data = array(
+                    'skill' => $ski,
+                    'status' => '1',
+                    'type' => 3,
+                    'user_id' => $userid,
+                 );
+      $skill[] = $this->common->insert_data_getid($data, 'skill');
+           }
+          }
+          
+          $skills = implode(',',$skill); 
+      }
+
 
 
         $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
@@ -670,8 +706,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
             $data = array(
                 'art_yourart' => $this->input->post('artname'),
-                'other_skill' => $this->input->post('other_skill'),
-                'art_skill' => implode(',', $skill),
+                //'other_skill' => $this->input->post('other_skill'),
+                'art_skill' => $skills,
                 'art_desc_art' => $this->input->post('desc_art'),
                 'art_inspire' => $this->input->post('inspire'),
                 'modified_date' => date('Y-m-d', time()),
@@ -681,8 +717,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
             $data = array(
                 'art_yourart' => $this->input->post('artname'),
-                'other_skill' => $this->input->post('other_skill'),
-                'art_skill' => implode(',', $skill),
+                //'other_skill' => $this->input->post('other_skill'),
+                'art_skill' => $skills,
                 'art_desc_art' => $this->input->post('desc_art'),
                 'art_inspire' => $this->input->post('inspire'),
                 'modified_date' => date('Y-m-d', time()),

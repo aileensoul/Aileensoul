@@ -56,6 +56,26 @@ class General extends MY_Controller {
 
     }
 
+
+    public function get_artskill($id="") {
+  
+    //get search term
+   $searchTerm = $_GET['term']; 
+      if (!empty($searchTerm)) {
+           $contition_array = array('status' => 1,'type' => 2);
+     $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $citylist = $this->common->select_data_by_search('skill', $search_condition,$contition_array, $data = 'skill as text', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     }
+      foreach($citylist as $key => $value){
+        //   $citydata[$key]['id'] = $value['id'];
+           $citydata[$key]['value'] = $value['text'];
+      }
+      
+      $cdata = array_values($citydata);
+     echo json_encode($cdata);
+
+    }
+
      public function get_language($id="") {
   
     //get search term
