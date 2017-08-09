@@ -129,7 +129,7 @@
 
 <!--                                        <input type="reset">
                                         <input type="submit"  id="previous" name="previous" value="previous">-->
-                                        <input type="submit"  id="next" name="next" value="Next" tabindex="7">
+                                        <input type="submit"  id="next" name="next" value="Save" tabindex="7">
                                  
                                     
                                 </fieldset>

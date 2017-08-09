@@ -224,7 +224,7 @@ if ($this->session->flashdata('success')) {
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills: </label>
-    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills" id="cities" size="90">
+    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90">
   </fieldset>
 
 
@@ -242,7 +242,7 @@ if ($this->session->flashdata('success')) {
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites: </label>
     <!--<input id="cities2"  value="<?php// echo $work_city.','; ?>" name="cities" id="cities" size="90">-->
-    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities" id="cities" size="90">
+    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90">
   </fieldset>
           
 
@@ -250,7 +250,7 @@ if ($this->session->flashdata('success')) {
                                 <fieldset class="hs-submit full-width">
 <!--                                    <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" tabindex="3" value="next">
+                                    <input type="submit"  id="next" name="next" tabindex="3" value="Save">
 
 
                                 </fieldset>

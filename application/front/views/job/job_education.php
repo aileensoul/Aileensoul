@@ -177,7 +177,7 @@
                                                      ?>">
                                              <br>
 
-                                             <button class="submit_btn" tabindex="6">Submit</button>
+                                             <button class="submit_btn" tabindex="6">Save</button>
                                              <fieldset class="hs-submit full-width" style="">
                                                 <!--input type="button" tabindex="7" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="return next_page()"-->
                                              </fieldset>
@@ -301,7 +301,7 @@
                                                   echo $edu_certificate_secondary1;
                                                   }
                                                  ?>">
-                                          <button class="submit_btn" tabindex="7">Submit</button>
+                                          <button class="submit_btn" tabindex="7">Save</button>
                                           <br>
                                           <fieldset class="hs-submit full-width" style="">
                                              <!--input type="button" id="next" name="next" tabindex="8" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page1()"-->
@@ -435,7 +435,7 @@
                                                  echo $edu_certificate_higher_secondary1;
                                              }
                                              ?>">
-                                          <button class="submit_btn" tabindex="9">Submit</button>
+                                          <button class="submit_btn" tabindex="9">Save</button>
                                           <br>
                                           <fieldset class="hs-submit full-width" style="">
                                              <!--input type="button" tabindex="10" id="next" name="next" value="Next" style="font-size: 16px;min-width: 120px;" onclick="next_page2()"-->
@@ -693,7 +693,7 @@
                                           ?>
                                        
                                        <div class="fr img_remove">
-                                          <input  style="font-size: 14px;" class="job_edu_graduation_submit_btn" tabindex="8" type="Submit"  id="next" name="next" value="Submit">
+                                          <input  style="font-size: 14px;" class="job_edu_graduation_submit_btn" tabindex="8" type="Submit"  id="next" name="next" value="Save">
                                           <!--<input type="submit"  id="add_edu" name="add_edu" value="Add More Education">--> 
                                        </div>
                                        <div class="display_inline_block" >
@@ -869,7 +869,7 @@
                                           <input type="button" id="btnRemove" class="job_edu_graduation_removebtn" value=" - "   />
                                        </div>
                                        <div class="fr job_edu_graduation_submitposition">
-                                          <input type="Submit"  id="next" name="next" value="Submit" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
+                                          <input type="Submit"  id="next" name="next" value="Save" class="job_edu_graduation_submitbtn" style="padding: 5px 9px;margin-right: 0px;">
                                        </div>
                                        <br>
                                        <?php
