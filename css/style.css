@@ -10100,7 +10100,7 @@ fieldset .add_post_btns:hover {
     font-size: 11px;
     color: #999;
     padding-top: 0px;
-    line-height: 1px;
+    line-height: 10px;
 }
 .notificationsmsg li {
     border-bottom: 1px solid #efefef;
