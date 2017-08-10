@@ -957,31 +957,31 @@
 
                                             <?php if ($singlearray2[0]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <video  controls>
+                                                    <audio controls>
 
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
 
                                             <?php if ($singlearray2[1]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <video  controls>
+                                                    <audio  controls>
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[2]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <video  controls>
+                                                    <audio  controls>
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
                                         </tr>
@@ -989,29 +989,29 @@
 
                                             <?php if ($singlearray2[3]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <video  controls>
+                                                    <audio  controls>
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[4]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <video  controls>
+                                                    <audio  controls>
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[5]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <video  controls>
+                                                    <audio  controls>
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
-                                                    </video>
+                                                    </audio>
                                                 </td>
                                             <?php } ?>
                                         </tr>
@@ -1126,12 +1126,12 @@
 
                     $contition_array = array('follow_type' => 2, 'follow_status' => 1);
 
-                    $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') AND (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
+                    $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') OR (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
 
                     $followperson = $this->common->select_data_by_search('follow', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
 
-                    $contition_array = array('contact_type' => 2);
+                    $contition_array = array('contact_type' => 2, 'status' => 'confirm');
 
                     $search_condition = "((contact_from_id  = '$userid' AND contact_to_id = ' $other_user_id') OR (contact_from_id  = '$other_user_id' AND contact_to_id = '$userid'))";
 
