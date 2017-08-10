@@ -104,12 +104,12 @@
  <?php echo form_open_multipart(base_url('profile/edit_profile'), array('id' => 'basicinfo','name' => 'basicinfo','class' => "clearfix common-form_border")); ?>
                     <fieldset class="">
                       <label >First Name </label>
-                      <input name="first_name" type="text" placeholder="Firstname..." id="first_name" value="<?php echo $userdata[0]['first_name']?>" onblur="return full_name();"/><span id="fullname-error"></span><?php echo form_error('first_name'); ?>
+                      <input name="first_name" type="text" placeholder="Firstname..." id="first_name" value="<?php // echo ucfirst($userdata[0]['first_name'])?>" onblur="return full_name();"/><span id="fullname-error"></span><?php echo form_error('first_name'); ?>
 
                     </fieldset>
                     <fieldset class="">
                       <label>Last Name</label>
-                                  <input name="last_name" placeholder="Lastname...." type="text" id="last_name" value="<?php echo $userdata[0]['last_name']?>" onblur="return full_name();"/><span id="fullname-error"></span>
+                                  <input name="last_name" placeholder="Lastname...." type="text" id="last_name" value="<?php echo ucfirst($userdata[0]['last_name'])?>" onblur="return full_name();"/><span id="fullname-error"></span>
  <?php echo form_error('last_name'); ?>
 
                     </fieldset>
