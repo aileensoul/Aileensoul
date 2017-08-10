@@ -684,7 +684,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 success: function (data) { //alert(data);
 
                     $('#userlist').html(data.leftbar);
-                    $('.khyati2').html(data.headertwo);
+                    $('.notification_data_in_h2').html(data.headertwo);
                     
                  setTimeout(
                         chatmsg,
