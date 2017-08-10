@@ -48,7 +48,7 @@
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
-    <ul class="khyati2">
+    <ul class="notification_data_in_h2">
         
     </ul></div>
 
@@ -134,7 +134,7 @@
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
-    <ul class="khyati2">
+    <ul class="notification_data_in_h2">
         
     </ul></div>
 
@@ -345,7 +345,7 @@ $(document).ready(function() {
                 success: function (data) { //alert(data);
 
                     $('#userlist').html(data.leftbar);
-                    $('.khyati2').html(data.headertwo);
+                    $('.notification_data_in_h2').html(data.headertwo);
                     
                  setTimeout(
                         chatmsg,
