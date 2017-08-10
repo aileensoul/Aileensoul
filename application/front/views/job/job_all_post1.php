@@ -158,7 +158,11 @@
                     
                               <li class="text_overflow">
                      <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" class="post_title" >
-              <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+              <?php 
+
+              $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+              echo  $cache_time; 
+             // echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                       <li>   
 
@@ -471,7 +475,10 @@
 
                               <li class="text_overflow">
                   <a href="<?php echo base_url('recruiter/rec_profile/' . $post['user_id'].'?page=job'); ?>" class="display_inline post_title">
-              <?php echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
+              <?php 
+               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+              echo  $cache_time;
+              // echo ucwords(text2link($post['post_name'])); ?> </a>                                        </li>
 
                                                                     <li>   
                         <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
