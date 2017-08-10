@@ -4069,8 +4069,8 @@ display: inline-block;
 #addcontactTitle a:hover{color: #1b8ab9; text-decoration: underline;}
     #addcontactBody {
         padding: 0px 0px 0px 0px !important;
-        overflow-y: scroll;
-        height: 284px;
+/*        overflow-y: scroll;
+        height: 284px;*/
     }
     #addcontactBody ul, #addcontactBody li {
         padding-right: 0px;
