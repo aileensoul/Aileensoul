@@ -173,10 +173,10 @@ When Aileensoul.com is threatened with suit or sued by a third party, Aileensoul
         
         <div class="col-md-6 col-sm-8 pull-right col-xs-12">
           <ul>
-            <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
-            <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
-            
-            <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
+            <li><a href="<?php echo base_url('about_us'); ?>" target="_blank">About Us</a>|</li>
+            <li><a href="<?php echo base_url('contact_us'); ?>" target="_blank">Contact Us</a>|</li>
+            <li><a href="<?php echo base_url('blog'); ?>" target="_blank">Blog</a>|</li>
+            <li><a href="<?php echo base_url('feedback'); ?>" target="_blank">Send Us Feedback</a></li>
           </ul>
         </div>
 		<div class="col-md-6 col-sm-4">
