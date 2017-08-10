@@ -113,13 +113,19 @@
 
                                         </a>
                                         <div id="addcontactContainer">
+                                          <div id="addcontactBody" class="notifications">
+
                                             <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-                                            <div id="addcontactBody" class="notifications">
+<div>
+    <ul class="notification_data_in_con">
+        
+    </ul></div>
 
-
-                                            </div>
-
+                                                </div>
+                                          
+</div>
                                         </div>
                                     </li>  
 
@@ -227,9 +233,19 @@
 
                                         </a>
                                         <div id="addcontactContainer">
+                                          <div id="addcontactBody" class="notifications">
+
                                             <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
-                                            <div id="addcontactBody" class="notifications">
-                                            </div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+
+<div>
+    <ul class="notification_data_in_con">
+        
+    </ul></div>
+
+                                                </div>
+                                          
+</div>
                                         </div>
                                     </li>  
                                     <li id="Inbox_link">
@@ -379,7 +395,7 @@
             type: "POST",
             success: function (data) {
 
-                $('#addcontactBody').html(data);
+                $('.notification_data_in_con').html(data);
 
             }
         });
@@ -411,7 +427,7 @@
             data: 'toid=' + toid + '&status=' + status,
             success: function (data) {
 
-                $('#addcontactBody').html(data);
+                $('.notification_data_in_con').html(data);
 
 
             }

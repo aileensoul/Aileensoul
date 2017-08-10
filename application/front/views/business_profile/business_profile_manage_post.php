@@ -592,7 +592,8 @@
                                                     </li>
 
                                                     <li>
-                                                        <a  href="<?php echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+                                                        <a  href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id'] . '5/5/'); ?>">Message</a></li>
+                                                        <!--<a  href="<?php //echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>-->
                                                         <!--<a  href="<?php echo base_url('business_profile/business_chat_user/' . $businessdata1[0]['user_id']); ?>">Message</a></li>-->
                                                 <?php } ?>
 
@@ -825,7 +826,7 @@
                                     }
                                     ?>
                                     <?php
-                                    $allowesvideo = array('mp4', 'webm');
+                                    $allowesvideo = array('mp4', 'webm', 'MP4');
 
                                     foreach ($multiplevideo as $mke => $mval) {
 
@@ -957,7 +958,7 @@
 
                                             <?php if ($singlearray2[0]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <audio controls>
+                                                    <audio controls="false">
 
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
@@ -968,7 +969,7 @@
 
                                             <?php if ($singlearray2[1]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -977,7 +978,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[2]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -989,7 +990,7 @@
 
                                             <?php if ($singlearray2[3]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -998,7 +999,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[4]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -1007,7 +1008,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[5]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -1604,7 +1605,7 @@
                                                             <?php
                                                             $allowed = array('jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
                                                             $allowespdf = array('pdf');
-                                                            $allowesvideo = array('mp4', 'webm');
+                                                            $allowesvideo = array('mp4', 'webm', 'MP4');
                                                             $allowesaudio = array('mp3');
                                                             $filename = $businessmultiimage[0]['image_name'];
                                                             $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -4112,7 +4113,7 @@
                 var ext = vfirstname.split('.').pop();
                 var ext1 = vname.split('.').pop();
                 var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
-                var allowesvideo = ['mp4', 'webm', 'qt', 'mov'];
+                var allowesvideo = ['mp4', 'webm', 'qt', 'mov','MP4'];
                 var allowesaudio = ['mp3'];
                 var allowespdf = ['pdf'];
                 var foundPresent = $.inArray(ext, allowedExtensions) > - 1;

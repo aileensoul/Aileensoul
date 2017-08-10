@@ -2318,7 +2318,7 @@ class Business_profile extends MY_Controller {
 
                 $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
                 $allowespdf = array('pdf');
-                $allowesvideo = array('mp4', 'webm');
+                $allowesvideo = array('mp4', 'webm', 'MP4');
                 $allowesaudio = array('mp3');
                 $filename = $businessmultiimage[0]['image_name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -10818,7 +10818,7 @@ class Business_profile extends MY_Controller {
         
 
 
-                $contactdata .= '<ul id="' . $contact['contact_id'] . '">';
+                //$contactdata .= '<ul id="' . $contact['contact_id'] . '">';
 
                 if ($contact['contact_to_id'] == $userid) {
 
@@ -10928,22 +10928,19 @@ class Business_profile extends MY_Controller {
 
                     }
                 }
-                $contactdata .= '</ul>';
+                //$contactdata .= '</ul>';
             }
         } else {
 
-            $contactdata = '<ul>';
-            $contactdata .= '<li>';
-            $contactdata .= '<div class="addcontact-left">';
-            $contactdata .= '<a href="#">';
-            $contactdata .= '<div class="addcontact-text">';
-            $contactdata .= 'No Contact Request available...';
-            $contactdata .= '</div>';
-            $contactdata .= '</a>';
-            $contactdata .= '</div>';
-            $contactdata .= '</div>';
-            $contactdata .= '</li>';
-            $contactdata .= '</ul>';
+            $contactdata = '<div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="http://localhost/aileensoul/img/No_Contact_Request.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Contact request Available.
+                                                </div>
+                             </div>';
+           
         }
         echo $contactdata;
     }

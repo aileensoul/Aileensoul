@@ -336,8 +336,15 @@
                                              Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                           </li>
                                           <li>
-                                             <a href="#" title="<?php echo ucwords($post['post_name']); ?> " class=" post_title" >
-                                             <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   
+                                          <?php
+                                                $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+                                            ?>
+                                             <a href="javascript:void(0);" title="<?php echo  $cache_time; ?> " class=" post_title" >
+
+                                             <?php 
+
+                                           
+                                             echo  $cache_time;  ?> </a>   
                                           </li>
                                           <li>
                                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
@@ -455,8 +462,6 @@
 
 
             $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
-            echo   $currency;
-            echo $post['post_description'];
 
           if($post['min_sal'] || $post['max_sal']) {
           echo $post['min_sal']." - ".$post['max_sal'].' '. $currency . ' '. $post['salary_type']; } 
