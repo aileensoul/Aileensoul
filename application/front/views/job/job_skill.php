@@ -219,12 +219,12 @@ if ($this->session->flashdata('success')) {
 
                    <fieldset class="full-width">
                                     <label >Job Title :</label>
-                                     <input type="search" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager">
+                                     <input type="search" tabindex="6" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills: </label>
-    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90">
+    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90" tabindex="7">
   </fieldset>
 
 
@@ -242,7 +242,7 @@ if ($this->session->flashdata('success')) {
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites: </label>
     <!--<input id="cities2"  value="<?php// echo $work_city.','; ?>" name="cities" id="cities" size="90">-->
-    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90">
+    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90" tabindex="9">
   </fieldset>
           
 

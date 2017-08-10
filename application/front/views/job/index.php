@@ -316,7 +316,7 @@ $pincode_error = form_error('pincode_error');
                                         echo $fname1;
                                     } else {
                                         echo $job[0]['first_name'];
-                                    } ?>"/> <span id="fname-error"> </span>
+                                    } ?>" maxlength="35"/> <span id="fname-error"> </span>
 <?php echo form_error('fname'); ?>
                                 </fieldset>
 
@@ -326,7 +326,7 @@ $pincode_error = form_error('pincode_error');
     echo $lname1;
 } else {
     echo $job[0]['last_name'];
-} ?>"/> <span id="lname-error"> </span>
+} ?>" maxlength="35"/> <span id="lname-error"> </span>
 <?php echo form_error('lname'); ?>
                                 </fieldset>
 
@@ -336,7 +336,7 @@ $pincode_error = form_error('pincode_error');
     echo $email1;
 } else {
     echo $job[0]['user_email'];
-} ?>"/> <span id="email-error"> </span>
+} ?>" maxlength="255"/> <span id="email-error"> </span>
                                         <?php echo form_error('email'); ?>
                                 </fieldset>
 
@@ -344,7 +344,7 @@ $pincode_error = form_error('pincode_error');
                                     <label>Phone Number :</label>
                                     <input type="text" name="phnno" id="phnno" tabindex="4" placeholder="Enter Phone Number" value="<?php if ($phnno1) {
                                             echo $phnno1;
-                                        } ?>" /> <span id="phnno-error"> </span>
+                                        } ?>" maxlength="15"/> <span id="phnno-error"> </span>
                                         <?php echo form_error('phnno'); ?>
                                 </fieldset>
 
@@ -400,7 +400,7 @@ $pincode_error = form_error('pincode_error');
                                 <fieldset id="erroe_nn" <?php if ($city) { ?> class="error-msg" <?php } ?>>
 
                                     <label>City:<span class="red">*</span></label> 
-                                     <input id="city" name="city" value="<?php if($city_title){echo $city_title;} ?>" placeholder="Select City" style="width: 100%"  tabindex="8">
+                                     <input id="city" name="city" value="<?php if($city_title){echo $city_title;} ?>" placeholder="Select City" style="width: 100%"  tabindex="8" maxlength="255">
 
 <?php echo form_error('city1'); ?>
       
@@ -412,14 +412,14 @@ $pincode_error = form_error('pincode_error');
                                     if ($pincode1) {
                                         echo $pincode1;
                                     }
-                                    ?>"/> <span id="pincode-error"> </span>
+                                    ?>" maxlength="15"/> <span id="pincode-error"> </span>
                                            <?php echo form_error('pincode_error'); ?>
                                 </fieldset>
 
                                 <fieldset class="full-width">
                                     <label>Postal Address: <span class="red">*</span> </label>
 
-                                    <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" style="resize: none;" onpaste="OnPaste_StripFormatting(this, event);"><?php
+                                    <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" maxlength="4000" style="resize: none;" onpaste="OnPaste_StripFormatting(this, event);"><?php
                                         if ($address1) {
                                             echo $address1;
                                         }
