@@ -694,7 +694,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a class="fl" href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
@@ -702,7 +702,7 @@
                                                     ?>
 
                                                     
-                                               <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
+                                               <img class="fl" src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
                                              <?php
                                                 }//else end
                                                 ?>
@@ -717,7 +717,8 @@
 
                                            <div style="float: left;" id="graduation_certi">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
+                                              
+                                                   <input  type="button" class="datad_delete"   value="" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
                                                 </div>
                                              </div>
 
