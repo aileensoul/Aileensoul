@@ -119,7 +119,7 @@
                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>"><span class="bu_home"></a>
                                     </li>
                                 <!-- Friend Request Start-->
-                                  <li id="Inbox_link">
+                                  <<li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -139,7 +139,7 @@
     </ul></div>
 
                                             </div>
-                                    </li>  
+                                    </li> 
                  <!-- Friend Request End-->
 <li>
   <div class="dropdown_hover">

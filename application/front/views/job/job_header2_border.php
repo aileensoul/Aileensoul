@@ -155,7 +155,7 @@
                                 <!-- Friend Request Start-->
 <!-- <h3>hello</h3> -->                     
                         
-                                     <li id="Inbox_link " class="job_con">
+                                   <li id="Inbox_link " class="job_con">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -166,9 +166,14 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages</div>
+                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-                                                <div id="notificationsmsgBody" class="notificationsmsg">
+<div>
+    <ul class="notification_data_in_h2">
+        
+    </ul></div>
+
                                                 </div>
                                             </div>
                                     </li> 
