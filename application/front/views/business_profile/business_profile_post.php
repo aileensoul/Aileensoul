@@ -3485,7 +3485,7 @@
     var ext = vfirstname.split('.').pop();
     var ext1 = vname.split('.').pop();
     var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
-    var allowesvideo = ['mp4', 'webm'];
+    var allowesvideo = ['mp4', 'webm', 'MP4'];
     var allowesaudio = ['mp3'];
     var allowespdf = ['pdf'];
     var foundPresent = $.inArray(ext, allowedExtensions) > - 1;

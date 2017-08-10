@@ -825,7 +825,7 @@
                                     }
                                     ?>
                                     <?php
-                                    $allowesvideo = array('mp4', 'webm');
+                                    $allowesvideo = array('mp4', 'webm', 'MP4');
 
                                     foreach ($multiplevideo as $mke => $mval) {
 
