@@ -6,6 +6,9 @@ echo $head;
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+<style>
+	.edit_profile_job{display:none;}
+</style>
 <!-- start header -->
 <?php echo $header; ?>
 <!-- END HEADER -->
@@ -2261,6 +2264,7 @@ cache: true
         $('html,body').animate({scrollTop: 265}, 100);
 
         $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
+        $('.edit_profile_job').fadeIn('slow').delay(5000);
 
     });
     //For Scroll page at perticular position js End
