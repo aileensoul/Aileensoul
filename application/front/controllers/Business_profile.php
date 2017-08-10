@@ -1517,7 +1517,7 @@ class Business_profile extends MY_Controller {
 
 
         if (count($otherdata) == 0) {
-            $notfound = '<div class="art_no_post_avl">
+            $notfound = '<div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
@@ -1719,7 +1719,7 @@ class Business_profile extends MY_Controller {
                 $datacount = "count";
 
 
-                $notfound = '<div class="art_no_post_avl">
+                $notfound = '<div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
@@ -1737,7 +1737,7 @@ class Business_profile extends MY_Controller {
 
             $datacount = "count";
 
-            $notfound = '<div class="art_no_post_avl">
+            $notfound = '<div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
@@ -6314,7 +6314,7 @@ class Business_profile extends MY_Controller {
                 $datacount = "count";
 
 
-                $notfound = '<div class="art_no_post_avl">
+                $notfound = '<div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
@@ -6332,7 +6332,7 @@ class Business_profile extends MY_Controller {
 
             $datacount = "count";
 
-            $notfound = '<div class="art_no_post_avl">
+            $notfound = '<div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
