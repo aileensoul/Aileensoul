@@ -455,6 +455,8 @@
 
 
             $currency = $this->db->get_where('currency', array('currency_id' => $post['post_currency']))->row()->currency_name;
+            echo   $currency;
+            echo $post['post_description'];
 
           if($post['min_sal'] || $post['max_sal']) {
           echo $post['min_sal']." - ".$post['max_sal'].' '. $currency . ' '. $post['salary_type']; } 
