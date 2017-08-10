@@ -2318,7 +2318,7 @@ class Business_profile extends MY_Controller {
 
                 $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
                 $allowespdf = array('pdf');
-                $allowesvideo = array('mp4', 'webm');
+                $allowesvideo = array('mp4', 'webm', 'MP4');
                 $allowesaudio = array('mp3');
                 $filename = $businessmultiimage[0]['image_name'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
