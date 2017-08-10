@@ -56,7 +56,7 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link"> <a href="<?php echo base_url('chat/abc/2/1'); ?>">See All</a></span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
@@ -145,7 +145,7 @@
                                 <!-- Friend Request Start-->
 
                                </li>
-                                <li id="Inbox_link">
+                                  <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -156,14 +156,18 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages</div>
+                                                <div id="notificationTitle">Messages<span class="see_link"> <a href="<?php echo base_url('chat/abc/2/1'); ?>">See All</a></span></div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-                                                <div id="notificationsmsgBody" class="notificationsmsg">
+<div>
+    <ul class="notification_data_in_h2">
+        
+    </ul></div>
+
                                                 </div>
                                             </div>
                                     </li> 
-
-                                  <li>
+                                    <li>
   
 <div class="dropdown_hover">
   <span id="art_profile">Recruiter Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>

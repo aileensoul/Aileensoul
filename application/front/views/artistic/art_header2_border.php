@@ -44,7 +44,9 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link">
+                                           <a href="<?php echo base_url('chat/abc/6/6'); ?>">ee All</a>
+                                                </span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
@@ -130,7 +132,9 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link">
+                                                 <a href="<?php echo base_url('chat/abc/6/6'); ?>">See All</a>
+                                                </span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
