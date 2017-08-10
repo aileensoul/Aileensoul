@@ -1586,7 +1586,7 @@
                                                     </div> 
                                                     
 
-
+</div>
 
                                                 <div class="post-design-mid col-md-12" >  
 
