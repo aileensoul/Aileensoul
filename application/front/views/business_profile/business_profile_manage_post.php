@@ -1082,7 +1082,7 @@
 
                                             <a title="click to open" href="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray3[0]['image_name']) ?>">
 
-                                            <div class="pdf_img">
+                                            <div class="pdf_img2">
                                                     <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
                                                 </div></a>
 
@@ -1126,7 +1126,7 @@
 
                     $contition_array = array('follow_type' => 2, 'follow_status' => 1);
 
-                    $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') OR (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
+                    $search_condition = "((follow_from  = '$loginuser' AND follow_to  = ' $other_user') AND (follow_from  = '$other_user' AND follow_to  = '$loginuser'))";
 
                     $followperson = $this->common->select_data_by_search('follow', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
