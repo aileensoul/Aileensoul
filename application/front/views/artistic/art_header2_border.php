@@ -44,11 +44,13 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link">
+                                           <a href="<?php echo base_url('chat/abc/6/6'); ?>">ee All</a>
+                                                </span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
-    <ul class="khyati2">
+    <ul class="notification_data_in_h2">
         
     </ul></div>
 
@@ -119,7 +121,7 @@
                                     <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'art_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('artistic/art_post'); ?>"><span class="bu_home"></a>
                                     </li>
                                 <!-- Friend Request Start-->
-                                  <li id="Inbox_link">
+                                  <<li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -130,16 +132,18 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link">
+                                                 <a href="<?php echo base_url('chat/abc/6/6'); ?>">See All</a>
+                                                </span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
-    <ul class="khyati2">
+    <ul class="notification_data_in_h2">
         
     </ul></div>
 
                                             </div>
-                                    </li>  
+                                    </li> 
                  <!-- Friend Request End-->
 <li>
   <div class="dropdown_hover">
@@ -345,7 +349,7 @@ $(document).ready(function() {
                 success: function (data) { //alert(data);
 
                     $('#userlist').html(data.leftbar);
-                    $('.khyati2').html(data.headertwo);
+                    $('.notification_data_in_h2').html(data.headertwo);
                     
                  setTimeout(
                         chatmsg,

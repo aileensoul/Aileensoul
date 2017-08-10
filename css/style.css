@@ -15006,7 +15006,7 @@ text-align: center;}
 }
 .edit_profile_job{
     position: absolute;
-bottom: 52px;
+bottom: 90px;
 left: 51px;
 
 }
@@ -15035,8 +15035,7 @@ left: 5px;
   line-height: 40px;
   font-size: 30px;
 }
-
-    
+   
 /*end progres*/
 .messagedelete .fa{color:#777;}
 .messagedelete:hover .fa{color:#1b8ab9;}

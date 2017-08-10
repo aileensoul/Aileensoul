@@ -75,11 +75,11 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                                <div id="notificationTitle">Messages<span class="see_link"> <a href="<?php echo base_url('chat/abc/4/3'); ?>">See All</a></span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
-    <ul class="khyati2">
+    <ul class="notification_data_in_h2">
         
     </ul></div>
  </div>
@@ -156,7 +156,7 @@
       <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>"><span class="bu_home"></a>
                                     </li>
                                     
-                                     <li id="Inbox_link">
+                                    <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
@@ -167,9 +167,14 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages</div>
+                                                <div id="notificationTitle">Messages<span class="see_link"> <a href="<?php echo base_url('chat/abc/4/3'); ?>">See All</a></span></div>
+<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-                                                <div id="notificationsmsgBody" class="notificationsmsg">
+<div>
+    <ul class="notification_data_in_h2">
+        
+    </ul></div>
+
                                                 </div>
                                             </div>
                                     </li> 
@@ -392,7 +397,7 @@ $(document).ready(function() {
                 success: function (data) { //alert(data);
 
                     $('#userlist').html(data.leftbar);
-                    $('.khyati2').html(data.headertwo);
+                    $('.notification_data_in_h2').html(data.headertwo);
                     
                  setTimeout(
                         chatmsg,
@@ -432,7 +437,7 @@ $(document).ready(function() {
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
             data: 'message_from_profile=4&message_to_profile=3',
             success: function (data) {
-                $('.' + 'khyati2').html(data);
+                $('.' + 'notification_data_in_h2').html(data);
             }
         });
 
