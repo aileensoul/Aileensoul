@@ -1078,7 +1078,11 @@
                                         <div class="image_profile">
 
 
-                                            <a href="<?php echo base_url('business_profile/creat_pdf/' . $singlearray3[0]['image_id']) ?>"><div class="pdf_img">
+                                            <!-- <a href="<?php echo base_url('business_profile/creat_pdf/' . $singlearray3[0]['image_id']) ?>"> -->
+
+                                            <a title="click to open" href="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray3[0]['image_name']) ?>">
+
+                                            <div class="pdf_img">
                                                     <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
                                                 </div></a>
 
@@ -1618,7 +1622,11 @@
 
                                                                 <!-- one pdf start -->
                                                                 <div>
-                                                                    <a href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                    <!-- <a href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"> -->
+
+                                                                    <a title="click to open" href="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>">
+
+                                                                    <div class="pdf_img">
                                                                             <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
                                                                         </div></a>
                                                                 </div>
@@ -3936,10 +3944,10 @@
                         $('.' + 'nofoundpost').html(data.notfound);
                         $('.' + 'not_available').remove();
                         $('.' + 'image_profile').remove();
-                        $('.' + 'dataconpdf').html(data.notpdf);
-                        $('.' + 'dataconvideo').html(data.notvideo);
-                        $('.' + 'dataconaudio').html(data.notaudio);
-                        $('.' + 'dataconphoto').html(data.notphoto);
+                        //$('.' + 'dataconpdf').html(data.notpdf);
+                        //$('.' + 'dataconvideo').html(data.notvideo);
+                        //$('.' + 'dataconaudio').html(data.notaudio);
+                        //$('.' + 'dataconphoto').html(data.notphoto);
                         }
 
 
