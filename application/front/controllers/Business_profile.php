@@ -10932,18 +10932,15 @@ class Business_profile extends MY_Controller {
             }
         } else {
 
-            $contactdata = '<ul>';
-            $contactdata .= '<li>';
-            $contactdata .= '<div class="addcontact-left">';
-            $contactdata .= '<a href="#">';
-            $contactdata .= '<div class="addcontact-text">';
-            $contactdata .= 'No Contact Request available...';
-            $contactdata .= '</div>';
-            $contactdata .= '</a>';
-            $contactdata .= '</div>';
-            $contactdata .= '</div>';
-            $contactdata .= '</li>';
-            $contactdata .= '</ul>';
+            $contactdata = '<div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="http://localhost/aileensoul/img/free-no1.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Contact request Available.
+                                                </div>
+                             </div>';
+           
         }
         echo $contactdata;
     }
