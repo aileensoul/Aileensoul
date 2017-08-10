@@ -625,6 +625,29 @@ public function check_login() {
     }
 //login validation end
  
+//User password checking controller start
+
+    public function check_pass() {
+
+        $oldpass = md5($this->input->post('oldpassword'));
+
+        $userid = $this->session->userdata('aileenuser');
+
+        $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '1');
+        $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = 'user_password', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $userpass = $userdata[0]['user_password'];
+
+        if ($oldpass == $userpass) {
+            echo 'true';
+            die();
+        } else {
+            echo 'false';
+            die();
+        }
+    }
+
+//User password checking controller End        
 
 
 

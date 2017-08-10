@@ -99,3 +99,76 @@
 </html>
 
 
+<script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+      $(document).ready(function () { 
+  
+ $.validator.addMethod( "notEqualTo", function( value, element, param ) {
+     return this.optional( element ) || !$.validator.methods.equalTo.call( this, value, element, param );
+ }, "Your old password and new password are same" );
+               
+        $("#regform").validate({
+
+                    rules: {
+                      
+                        oldpassword: {
+
+                            required: true,
+                            //pattern: /^[A-Za-z]{0,}$/
+                            remote: {
+                                    url: "<?php echo site_url() . 'registration/check_pass' ?>",
+                                    type: "post",
+                                    data: {
+                                        oldpassword: function () {
+
+                                            return $("#oldpassword").val();
+                                        },
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                    },
+                                },
+                        },
+                        password1: {
+
+                          required: true,
+                             //pattern: /^[A-Za-z]{0,}$/
+                           notEqualTo:'#oldpassword',
+                        },
+                        
+                           
+                        password2: {
+                    required: true,
+                    equalTo: "#password1",
+                }
+                       
+                    },
+
+                    messages: {
+
+                      
+                        oldpassword: {
+
+                            required: "Old Password Is Required.",
+                            remote: "Your old password does not match"
+                            
+                        },
+                        password1: {
+                            required: "New Password Is Required.",
+                          
+                        },
+                         
+                        
+                        password2: {
+                            required: "Confirm Password Is Required.",
+                            equalTo: "Value Is Not Same Like New Password",
+                        }
+                 
+                    },
+                    
+                  //  submitHandler: submitRegisterForm
+
+                });
+                
+                   });
+                   
+                   </script>
