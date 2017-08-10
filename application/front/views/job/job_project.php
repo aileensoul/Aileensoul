@@ -84,7 +84,7 @@
                                   <fieldset class="full-width">
                                          <label>Duration (in Month)</label>
 
-                                          <input type="number" name="project_duration" tabindex="2"  id="project_duration" placeholder="Enter Duration" maxlength="2"   value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>" />
+                                          <input type="text" name="project_duration" tabindex="2"  id="project_duration" placeholder="Enter Duration" maxlength="2"   value="<?php if($project_duration1){ echo $project_duration1; } else { echo $job[0]['project_duration']; }?>" />
                                         
                                   </fieldset>
 
@@ -112,7 +112,7 @@
                                <fieldset class="full-width">
                                          <label>Duration (in Month)</label>
 
-                                          <input type="number" name="training_duration" tabindex="5"  id="training_duration" placeholder="Enter Duration"   value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>" maxlength="2"/>
+                                          <input type="text" name="training_duration" tabindex="5"  id="training_duration" placeholder="Enter Duration"   value="<?php if($training_duration1){ echo $training_duration1; } else { echo $job[0]['training_duration']; }?>" maxlength="2"/>
                                         
                                   </fieldset>
 
@@ -445,14 +445,14 @@ $.validator.addMethod("regdigit", function(value, element, regexpr) {
                                     },
                                     project_duration:{
                                 
-                                        regdigit:/^\+?\d+$/,
+                                        regdigit:/^[0-9]*$/,
                                     },
                                     training_as:{
                                        regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                                         regx2:/^[^-\s][a-zA-Z0-9_\s-]+$/
                                     },
                                     training_duration:{
-                                      regdigit:/^[\d ]$/,
+                                      regdigit:/^[0-9]*$/,
                                     },
                                     training_organization:{
                                       regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
