@@ -274,7 +274,7 @@
                                                         <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
                                                         <?php } ?>>
                                                         <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
-                                                            <br> (<?php echo (count($flubuscount)); ?>)
+                                                            <br> (<?php echo ($flubuscount); ?>)
                                                         </a>
                                                     </li>
                                                     <li  
@@ -1277,7 +1277,11 @@
                                                                     <?php } elseif (in_array($ext, $allowespdf)) { ?>
                                                                         <!-- one pdf start -->
                                                                         <div>
-                                                                            <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_id']) ?>"><div class="pdf_img">
+                                                                            <!-- <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_name']) ?>">
+ -->
+                                                                            <a title="click to open" href="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>">
+
+                                                                            <div class="pdf_img">
                                                                                     <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
                                                                                 </div>
                                                                             </a>
@@ -1833,7 +1837,7 @@
                             if (count($businessprofiledatapost) > 0) {
                                 if (count($count) == count($businessprofiledatapost)) {
                                     ?>
-                                    <div class="art_no_post_avl">
+                                    <div class="art_no_post_avl" id="art_no_post_avl">
                                         <h3>Business Post</h3>
                                         <div class="art-img-nn">
                                             <div class="art_no_post_img">
@@ -1849,7 +1853,7 @@
                                 }
                             } else {
                                 ?>
-                                <div class="art_no_post_avl">
+                                <div class="art_no_post_avl" id="art_no_post_avl">
                                     <h3>Business Post</h3>
                                     <div class="art-img-nn">
                                         <div class="art_no_post_img">
@@ -4146,6 +4150,8 @@
     var options = {
     beforeSend: function () {
     // Replace this with your loading gif image
+
+
     document.getElementById("progress_div").style.display = "block";
     var percentVal = '0%';
     bar.width(percentVal)
@@ -4161,6 +4167,7 @@
             var percentVal = '100%';
             bar.width(percentVal)
                     percent.html(percentVal);
+
             },
             complete: function (response) {
             // Output AJAX response to the div container
@@ -4175,12 +4182,16 @@
             $(".business-all-post").prepend(response.responseText);
             // second header class add for scroll
             var nb = $('.post-design-box').length;
+            //alert(nb);
             if (nb == 0) {
             $("#dropdownclass").addClass("no-post-h2");
-            } else {
+            } else { 
+           document.getElementById("art_no_post_avl").style.display = "none";
+
             $("#dropdownclass").removeClass("no-post-h2");
             }
             $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
+
             }
     };
     // Submit the form

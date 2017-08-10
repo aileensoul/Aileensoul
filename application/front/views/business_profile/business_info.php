@@ -370,7 +370,7 @@
 </script>
 
 
-<script>
+<!-- <script>
    jQuery.noConflict();
    
    (function ($) {
@@ -441,7 +441,7 @@
    
    })(jQuery);
    
-</script>
+</script> -->
 
 <script type="text/javascript">
                         function check() {

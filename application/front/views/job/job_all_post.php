@@ -1321,9 +1321,10 @@
 
 // Disable progress bar when 100% complete Start
    $(document).ready(function () {
-
-        $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
-
+		$('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
+		$('.edit_profile_job').fadeIn('slow').delay(5000);
+		$('.tr_text').fadeIn('slow').delay(500);
+		$('.true_progtree img').fadeIn('slow').delay(500);
     });
 // Disable progress bar when 100% complete End
 
