@@ -957,7 +957,7 @@
 
                                             <?php if ($singlearray2[0]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <audio controls>
+                                                    <audio controls="false">
 
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
@@ -968,7 +968,7 @@
 
                                             <?php if ($singlearray2[1]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -977,7 +977,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[2]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -989,7 +989,7 @@
 
                                             <?php if ($singlearray2[3]['image_name']) { ?>
                                                 <td class="image_profile"> 
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -998,7 +998,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[4]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -1007,7 +1007,7 @@
                                             <?php } ?>
                                             <?php if ($singlearray2[5]['image_name']) { ?>
                                                 <td class="image_profile">
-                                                    <audio  controls>
+                                                    <audio  controls="false">
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
