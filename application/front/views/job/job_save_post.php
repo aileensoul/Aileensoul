@@ -383,7 +383,8 @@
                                                 </li>
                      <li>
                <a  class=" post_title" href="#" title="Post Title" >
-               <?php echo ucwords($this->common->make_links($post['post_name'])); ?> </a>   </li>
+               <?php $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+              echo  $cache_time;  ?> </a>   </li>
 
              <li>   
              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
