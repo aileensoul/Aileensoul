@@ -1261,7 +1261,7 @@
                                                                     $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
 
                                                                     $allowespdf = array('pdf');
-                                                                    $allowesvideo = array('mp4', 'webm', 'qt', 'mov');
+                                                                    $allowesvideo = array('mp4', 'webm', 'qt', 'mov', 'MP4');
                                                                     $allowesaudio = array('mp3');
                                                                     $filename = $businessmultiimage[0]['image_name'];
                                                                     $ext = pathinfo($filename, PATHINFO_EXTENSION);
