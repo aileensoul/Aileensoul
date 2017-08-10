@@ -450,6 +450,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .buisness-menu::before{bottom:58px;}
 #text_num{right:21%;}
 .edit_profile_progress{/*display:none;*/}
+.edit_profile_job{/*display:none;*/}
 
 
 @media screen and (max-width: 1200px) {

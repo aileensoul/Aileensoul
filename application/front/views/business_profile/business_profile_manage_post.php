@@ -1232,7 +1232,7 @@
                                         <textarea id= "test-upload_product" placeholder="Post Your Product...."  onKeyPress=check_length(this.form); onKeyup=check_length(this.form); onKeyDown=check_length(this.form); 
                                                   name=my_text rows=4 cols=30 class="post_product_name" style="position: relative;" tabindex="1"></textarea>
                                         <div class="fifty_val">                   
-                                            <input size=1 value=50 name=text_num class="text_num" readonly> 
+                                            <input size=1 value=50 name=text_num tabindex="-600" class="text_num" readonly> 
                                         </div>
                                      <div class="camera_in padding-left padding_les_left camer_h">
                                                 <i class=" fa fa-camera" >
@@ -1541,10 +1541,10 @@
                                                                     $a = strlen($counter);
                                                                     ?>
 
-                                                                    <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a); ?>" name=text_num readonly>
+                                                                    <input size=1 id="text_num" class="text_num"  tabindex="-500" value="<?php echo (50 - $a); ?>" name=text_num readonly>
 
                                                                 <?php } else { ?>
-                                                                    <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+                                                                    <input size=1 id="text_num" class="text_num"  tabindex="-500" value=50 name=text_num readonly> 
 
                                                                 <?php } ?>
 

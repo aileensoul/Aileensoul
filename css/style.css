@@ -3013,7 +3013,7 @@ border-top: none;
     border-radius: 100%;
     margin-top: -10px;
     cursor: pointer;}
-    #higher_secondary_certi i{color: white; cursor: pointer; font-size: 12px;}
+    .tsecondary_certi i{color: white; cursor: pointer; font-size: 12px;}
 .job_work_experience_main_div h6{padding: 10px 0px 2px; font-size: 17px;}
 .profile-job-details ul li p {
     margin-bottom: 0;
@@ -9283,11 +9283,11 @@ label.cameraButton:hover {
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }*/
 .img_work_exp {
-    height: 100px;
+ /*   height: 100px;
     width: 100px;
     display: inline-block;
     margin-bottom: 10px;
-    margin-top: -26px;
+    margin-top: -26px;*/
 }
 .common-form fieldset #email{/*text-transform: lowercase;*/}
 .delete_btn {
@@ -14995,19 +14995,22 @@ text-align: center;}
 }
 .progre_bar_text{padding: 0px 17px;}
 .count_main_progress{}
-   .circle-1 {
+.circle-1 {
   width: 175px;
   margin: 6px 6px 20px;
   display: inline-block;
   position: relative;
   text-align: center;
   line-height: 1.2;
-  height:214px;
+  height:175px;
+}
+.complete_profile .circle-1{
+	height:200px;
 }
 .edit_profile_job{
     position: absolute;
-bottom: 90px;
-left: 51px;
+	bottom: 55px;
+	left: 51px;
 
 }
 
