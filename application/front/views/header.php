@@ -686,7 +686,7 @@ $(window).load(function(){
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
-    <ul class="khyati">
+    <ul class="notification_data_in">
         
     </ul></div>
 
@@ -1053,7 +1053,7 @@ $(window).load(function(){
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
-    <ul class="khyati">
+    <ul class="notification_data_in">
         
     </ul></div>
 
@@ -1239,7 +1239,7 @@ $(window).load(function(){
             data: '',
             success: function (data) {
                 //    alert(data);
-                $('.' + 'khyati').html(data);
+                $('.' + 'notification_data_in').html(data);
                
             }
 
