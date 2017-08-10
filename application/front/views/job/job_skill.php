@@ -219,18 +219,18 @@ if ($this->session->flashdata('success')) {
 
                    <fieldset class="full-width">
                                     <label >Job Title :</label>
-                                     <input type="search" tabindex="6" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255">
+                                     <input type="search" tabindex="1" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
     <label for="skills"> Skills: </label>
-    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90" tabindex="7">
+    <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90" tabindex="2">
   </fieldset>
 
 
                                 <fieldset class="full-width main_select_data">
                                     <label>Industry <font  color="red">*</font>:</label>
-                                    <select name="industry" id="industry">
+                                    <select name="industry" id="industry" tabindex="3">
                                         <option value="">Select industry</option>
                                         <?php foreach ($industry as $indu) { ?>
                                             <option value="<?php echo $indu['industry_id']; ?>" <?php if($indu['industry_id'] == $work_industry){ echo "selected"; } ?>><?php echo $indu['industry_name']; ?></option>
@@ -242,7 +242,7 @@ if ($this->session->flashdata('success')) {
                              <fieldset class="full-width fresher_select main_select_data" >
     <label for="cities">Preferred Cites: </label>
     <!--<input id="cities2"  value="<?php// echo $work_city.','; ?>" name="cities" id="cities" size="90">-->
-    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90" tabindex="9">
+    <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90" tabindex="4">
   </fieldset>
           
 
@@ -250,7 +250,7 @@ if ($this->session->flashdata('success')) {
                                 <fieldset class="hs-submit full-width">
 <!--                                    <input type="reset">
                                     <input type="submit"  id="previous" name="previous" value="previous">-->
-                                    <input type="submit"  id="next" name="next" tabindex="3" value="Save">
+                                    <input type="submit"  id="next" name="next" tabindex="5" value="Save">
 
 
                                 </fieldset>

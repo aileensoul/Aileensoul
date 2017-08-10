@@ -344,7 +344,7 @@ $pincode_error = form_error('pincode_error');
                                     <label>Phone Number :</label>
                                     <input type="text" name="phnno" id="phnno" tabindex="4" placeholder="Enter Phone Number" value="<?php if ($phnno1) {
                                             echo $phnno1;
-                                        } ?>" maxlength="15"/> <span id="phnno-error"> </span>
+                                        } ?>" maxlength="15" tabindex="4"/> <span id="phnno-error"> </span>
                                         <?php echo form_error('phnno'); ?>
                                 </fieldset>
 
@@ -354,7 +354,7 @@ $pincode_error = form_error('pincode_error');
                                 <fieldset <?php if ($dob) { ?> class="error-msg" <?php } ?>>
                                     <label>Date of Birth:<span class="red">*</span></label>
                                 
-                                 <input type="hidden" id="datepicker">
+                                 <input type="hidden" id="datepicker" tabindex="5">
                                     <!-- <input type="text" name="dob" id="datepicker" placeholder="dd-MM-yyyy" tabindex="9"  autocomplete="off" value="<?php
                                     // if($dob1){
                                        // echo date('d/m/Y',strtotime($dob1));}
@@ -371,11 +371,11 @@ $pincode_error = form_error('pincode_error');
                                
                                 <fieldset class="gender-custom" <?php if ($gender) { ?> class="error-msg" <?php } ?>>
                                     <label>Gender:<span class="red">*</span></label>
-                                    <input type="radio" name="gender" value="male" id="gender" tabindex="9" <?php if($gender1){if($gender1 == 'male') { echo 'checked' ; }}
+                                    <input type="radio" name="gender" value="male" id="gender" tabindex="6" <?php if($gender1){if($gender1 == 'male') { echo 'checked' ; }}
                                     else { if($job[0]['user_gender'] == 'M'){ echo 'checked' ; }}
                                        
                                     ?>><span class="radio_check_text pl5">Male</span>
-                                    <input type="radio" name="gender" value="female" id="gender" tabindex="9" <?php  if($gender1){if($gender1 == 'female') { echo 'checked' ; }}
+                                    <input type="radio" name="gender" value="female" id="gender" tabindex="7" <?php  if($gender1){if($gender1 == 'female') { echo 'checked' ; }}
                                     else { if($job[0]['user_gender'] == 'F'){echo 'checked' ; }}
                                        
                                     ?> ><span class="radio_check_text pl5">Female</span>
@@ -400,7 +400,7 @@ $pincode_error = form_error('pincode_error');
                                 <fieldset id="erroe_nn" <?php if ($city) { ?> class="error-msg" <?php } ?>>
 
                                     <label>City:<span class="red">*</span></label> 
-                                     <input id="city" name="city" value="<?php if($city_title){echo $city_title;} ?>" placeholder="Select City" style="width: 100%"  tabindex="8" maxlength="255">
+                                     <input id="city" name="city" value="<?php if($city_title){echo $city_title;} ?>" placeholder="Select City" style="width: 100%"  tabindex="9" maxlength="255">
 
 <?php echo form_error('city1'); ?>
       
@@ -408,7 +408,7 @@ $pincode_error = form_error('pincode_error');
 
                                  <fieldset <?php if ($pincode_error) { ?> class="error-msg" <?php } ?>>
                                     <label>Pincode :<span class="red">*</span></label>
-                                    <input type="text" tabindex="4" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
+                                    <input type="text" tabindex="10" name="pincode" id="pincode" placeholder="Enter Pincode" value="<?php
                                     if ($pincode1) {
                                         echo $pincode1;
                                     }
@@ -419,7 +419,7 @@ $pincode_error = form_error('pincode_error');
                                 <fieldset class="full-width">
                                     <label>Postal Address: <span class="red">*</span> </label>
 
-                                    <textarea name ="address" tabindex="5" id="address" rows="4" cols="50" placeholder="Enter Address" maxlength="4000" style="resize: none;" onpaste="OnPaste_StripFormatting(this, event);"><?php
+                                    <textarea name ="address" tabindex="11" id="address" rows="4" cols="50" placeholder="Enter Address" maxlength="4000" style="resize: none;" onpaste="OnPaste_StripFormatting(this, event);"><?php
                                         if ($address1) {
                                             echo $address1;
                                         }
@@ -434,7 +434,7 @@ $pincode_error = form_error('pincode_error');
                                     
 
                               <!--<input type="reset">-->
-                                    <input type="submit"  id="next" name="next" value="Save" tabindex="10">
+                                    <input type="submit"  id="next" name="next" value="Save" tabindex="12">
 
 
                                 </fieldset>
