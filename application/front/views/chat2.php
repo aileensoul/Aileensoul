@@ -348,7 +348,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var guid = getCookie('user_guid');
 
             var json_data = {"toid": id, "message_from_profile": message_from_profile, "message_to_profile": message_to_profile, "message_from_profile_id": message_from_profile_id, "message_to_profile_id": message_to_profile_id, "message": message, "nickname": nickname, "guid": guid};
-            $.ajax({
+           
+    $.ajax({
                 type: 'POST',
                 url: '<?php echo base_url() . "api/send_message" ?>',
                 data: {json: JSON.stringify(json_data)},

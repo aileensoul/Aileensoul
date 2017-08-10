@@ -18,7 +18,7 @@ class Chat_model extends CI_Model {
             'guid' => (string) $guid,
             'timestamp' => time() + 92,
         );
-
+//echo '<pre>'; print_r($data1); die();
         $this->db->insert('messages', $data1);
         $msg_insert_id = $this->db->insert_id();
 

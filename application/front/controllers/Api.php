@@ -16,7 +16,7 @@ class Api extends CI_Controller {
 
         $userid = $this->session->userdata('aileenuser');
 
-        $message = $directions['message'];
+       $message = $directions['message']; 
         //$this->input->post('message', null);
         //$message = $this->common->make_links($message);
         $message = str_replace('"', '', $message);
