@@ -10818,7 +10818,7 @@ class Business_profile extends MY_Controller {
         
 
 
-                $contactdata .= '<ul id="' . $contact['contact_id'] . '">';
+                //$contactdata .= '<ul id="' . $contact['contact_id'] . '">';
 
                 if ($contact['contact_to_id'] == $userid) {
 
@@ -10928,7 +10928,7 @@ class Business_profile extends MY_Controller {
 
                     }
                 }
-                $contactdata .= '</ul>';
+                //$contactdata .= '</ul>';
             }
         } else {
 
