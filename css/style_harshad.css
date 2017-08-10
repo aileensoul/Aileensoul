@@ -449,7 +449,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .business_data_table .business_data_td1{width:50px;}
 .buisness-menu::before{bottom:58px;}
 #text_num{right:21%;}
-
+.edit_profile_progress{display:none;}
 
 
 @media screen and (max-width: 1200px) {
