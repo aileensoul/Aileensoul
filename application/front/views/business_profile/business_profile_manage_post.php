@@ -1477,7 +1477,17 @@
                                                             </li> 
 
                                                         </ul> 
-                                                    </div>  
+                                                    </div>
+
+
+                                                    <?php 
+
+                                                $userid = $this->session->userdata('aileenuser');
+
+
+                                                if($userid == $row['posted_user_id'] || $row['user_id'] == $userid){
+
+                                                ?>  
                                                     <div class="dropdown2">
                                                         <a onClick="myFunction1(<?php echo $row['business_profile_post_id']; ?>)" class="dropbtn2 dropbtn2 fa fa-ellipsis-v"></a>
                                                         <div id="<?php echo "myDropdown" . $row['business_profile_post_id']; ?>" class="dropdown-content2">
@@ -1528,7 +1538,7 @@
                                                         </div>
                                                     </div>
 
-
+                                                    <?php }?>
                                                  
                                                         <div class="post-design-desc ">
                                                                                
