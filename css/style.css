@@ -14995,19 +14995,22 @@ text-align: center;}
 }
 .progre_bar_text{padding: 0px 17px;}
 .count_main_progress{}
-   .circle-1 {
+.circle-1 {
   width: 175px;
   margin: 6px 6px 20px;
   display: inline-block;
   position: relative;
   text-align: center;
   line-height: 1.2;
-  height:214px;
+  height:175px;
+}
+.complete_profile .circle-1{
+	height:200px;
 }
 .edit_profile_job{
     position: absolute;
-bottom: 90px;
-left: 51px;
+	bottom: 55px;
+	left: 51px;
 
 }
 
