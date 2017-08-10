@@ -1340,7 +1340,7 @@ if(num==5)
 
 //DELETE JOB WORK EXP CLONE START
    function delete_job_work(work_id,certificate) {
-   
+
       $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this Work Experience?</h2><a id="delete" class="mesg_link btn" >OK</a><button data-fancybox-close="" class="btn">Cancel</button></div>');
   
     $('.message #delete').on('click', function () {

@@ -5821,7 +5821,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $work_id = $_POST['work_id'];
          $certificate= $_POST['certificate'];
 
-       // $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $work_id);
+        $delete_data = $this->common->delete_data('job_add_workexp', 'work_id', $work_id);
 
         //FOR DELETE IMAGE AND PDF IN FOLDER START
             $path='uploads/job_work/main/'.$certificate;
