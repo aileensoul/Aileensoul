@@ -142,32 +142,48 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_primary/'.$jobdata[0]['edu_id'].'/primary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                    <div class="dele_highrt">
+                                                         <a class="fl" href="<?php echo base_url('job/creat_pdf_primary/'.$jobdata[0]['edu_id'].'/primary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red;" aria-hidden="true"></i></a>
+                                                      <div style="float: left;" id="primary_certi" class="tsecondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                  <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input  type="button" id="delete_job_edu" value="Delete" style="display: none;" onClick="delete_primary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_primary1; ?>')">
+                                                </div>
+                                             </div>
+                                             </div>
+
                                                       <?php
                                                       }
                                                       else
                                                       {
                                                     ?>
-
-                                             <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
+                                           <div class="dele_highrt">
+                                             <img class="fl" src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_primary1) ?>"  style="width:100px;height:100px;" class="job_education_certificate_img" >
+                                               <div style="float: left;" id="primary_certi" class="tsecondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                  <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input  type="button" id="delete_job_edu" value="Delete" style="display: none;" onClick="delete_primary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_primary1; ?>')">
+                                                </div>
+                                             </div>
+                                           </div> 
                                              <?php
                                                 }
                                              }
                                                  ?>
                                           </fieldset>
 
-                                          <?php if($edu_certificate_primary1)
+                                         <!--  <?php if($edu_certificate_primary1)
                                                  {
                                           ?>
                                            <div style="float: left;" id="primary_certi">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_primary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_primary1; ?>')">
+                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete" onClick="delete_primary('<?php echo $jobdata[0]['edu_id']; ?>','<?php //echo $edu_certificate_primary1; ?>')">
                                                 </div>
                                              </div>
 
                                           <?php
                                                 }
-                                          ?>
+                                          ?> -->
                                          <!--  <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                           <div class="fr job_education_submitbox">
                                              <input type="hidden" name="image_hidden_primary" value="<?php
@@ -268,13 +284,33 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_secondary/'.$jobdata[0]['edu_id'].'/secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                   <div class="dele_highrt">
+                                                         <a class="fl" href="<?php echo base_url('job/creat_pdf_secondary/'.$jobdata[0]['edu_id'].'/secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; " aria-hidden="true"></i></a>
+
+                                                <div style="float: left;" id="secondary_certi" class="tsecondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input id="delete_job_edu"  type="button" style="display: none;" value="Delete" onClick="delete_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_secondary1; ?>')">
+                                                </div>
+                                             </div>
+
+                                             </div>
                                                       <?php
                                                       }
                                                       else
                                                       {
                                                     ?>
+                                                     <div class="dele_highrt">
                                               <img src="<?php echo base_url($this->config->item('job_edu_thumb_upload_path')  . $edu_certificate_secondary1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img ">
+
+                                                <div style="float: left;" id="secondary_certi" class="tsecondary_certi">
+                                                <div class="hs-submit full-width fl">
+                                                   <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
+                                                   <input id="delete_job_edu"  type="button" style="display: none;" value="Delete" onClick="delete_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_secondary1; ?>')">
+                                                </div>
+                                             </div>
+</div>
+
                                              <?php
                                                 }
                                              }
@@ -282,7 +318,7 @@
 
                                        </fieldset>
 
-                                        <?php if($edu_certificate_secondary1)
+                                       <!--  <?php if($edu_certificate_secondary1)
                                                  {
                                           ?>
                                            <div style="float: left;" id="secondary_certi">
@@ -293,7 +329,7 @@
 
                                           <?php
                                                 }
-                                          ?>
+                                          ?> -->
                                              <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden" name="image_hidden_secondary" value="<?php
@@ -404,19 +440,20 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                    <div>
+                                                       <div class="dele_highrt">
+                                                         <a class="fl" href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id'].'/higher-secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red;" aria-hidden="true"></i></a>
+                                                         
+                                                    
 
-                                                         <a href="<?php echo base_url('job/creat_pdf_higher_secondary/'.$jobdata[0]['edu_id'].'/higher-secondary') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
-                                                         </div>
-                                                          <div>
-
-                                                         <div style="float: left;" id="higher_secondary_certi" class="tsecondary_certi">
+                                                          <div style="float: left;" id="higher_secondary_certi" class="tsecondary_certi">
                                                 <div class="hs-submit full-width fl">
                                                 <label for="delete_job_edu"><i class="fa fa-times" aria-hidden="true"></i></label>
                                                    <input  type="button" style="display: none;" value="Delete" id="delete_job_edu" onClick="delete_higher_secondary('<?php echo $jobdata[0]['edu_id']; ?>','<?php echo $edu_certificate_higher_secondary1; ?>')">
                                                 </div>
                                              </div>
+
 </div>
+
                                                       <?php
                                                       }
                                                       else
@@ -663,6 +700,8 @@
                                                       else
                                                       {
                                                     ?>
+
+                                                    
                                                <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
                                              <?php
                                                 }//else end
