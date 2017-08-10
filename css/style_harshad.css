@@ -450,14 +450,20 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .buisness-menu::before{bottom:58px;}
 #text_num{right:21%;}
 .edit_profile_progress{/*display:none;*/}
-.edit_profile_job{/*display:none;*/}
+.edit_profile_job{display:none;}
+.tr_text{display:none;}
+.true_progtree img{display:none;}
 
 
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
+	.circle-1 canvas{height:130px;}
+	.circle-1{width:164px; height:140px;}
+	.edit_profile_job{left:45px; bottom:45px;}
 }
 @media screen and (max-width: 1024px) {
 	#notificationLink span{top:5px;}
+	.post-img-user{height: 118px; line-height: 1; padding: 40px 0; width: 109px;}
 }
 @media screen and (max-width: 991px) {
 	.tab-none{display:none;}

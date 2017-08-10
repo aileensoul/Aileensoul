@@ -12,6 +12,149 @@
 <?php echo $job_header2_border; ?>
 <?php //} ?>
 <!-- END HEADER -->
+<!-- This style is used for autocomplete start -->
+ <style type="text/css">
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ui-front {
+  z-index: 100;
+}
+
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+.ui-menu .ui-menu {
+  position: absolute;
+}
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+  margin: -1px;
+}
+
+/* Component containers
+----------------------------------*/
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 1em;
+}
+.ui-widget-content {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+  color: #222222;
+}
+.ui-widget-content a {
+  color: #222222;
+}
+.ui-widget-header {
+  border: 1px solid #aaaaaa;
+  background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+  color: #222222;
+  font-weight: bold;
+}
+.ui-widget-header a {
+  color: #222222;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #555555;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999;
+  background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa;
+  background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+  font-weight: normal;
+  color: #212121;
+}
+
+  </style>
+<!-- This style is used for autocomplete End -->
 <div class="js">
 <body class="page-container-bg-solid page-boxed">
    <div id="preloader"></div>
@@ -694,7 +837,7 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a class="fl" href="<?php echo base_url('job/creat_pdf_graduation/'.$jobgrad[$x]['job_graduation_id'].'/graduation') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
@@ -702,7 +845,7 @@
                                                     ?>
 
                                                     
-                                               <img src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
+                                               <img class="fl" src="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $edu_certificate1) ?>" style="width:100px;height:100px;" class="job_education_certificate_img">
                                              <?php
                                                 }//else end
                                                 ?>
@@ -717,7 +860,8 @@
 
                                            <div style="float: left;" id="graduation_certi">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
+                                              
+                                                   <input  type="button" class="datad_delete"   value="" onClick="delete_graduation('<?php echo $jobgrad[$x]['job_graduation_id']; ?>','<?php echo $edu_certificate1; ?>')">
                                                 </div>
                                              </div>
 
