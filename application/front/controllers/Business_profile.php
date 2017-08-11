@@ -11432,7 +11432,7 @@ class Business_profile extends MY_Controller {
             $nomsg = '<div class="art-img-nn">
                                     <div class="art_no_post_img">
 
-                                        <img src="'.base_url('img/bui-no.png').'">
+                                        <img src="'.base_url('img/No_Contact_Request.png').'">
 
                                     </div>
                                     <div class="art_no_post_text">
