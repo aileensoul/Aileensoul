@@ -14875,7 +14875,7 @@ header.animated {
     text-align:center;
 }
 .edit-post-custom{position:relative;}
-#text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 24px;}
+.text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 24px;}
 /***  add contact ripple effect  ***/
 
 
@@ -15074,6 +15074,27 @@ left: 5px;
 
 
 .job_edit_pr{padding-left: 245px;}
+
+
+
+.post-design-desc  #editpostdata a{font-weight: 600}
+.chat_heae_img{border:1px solid #d9d9d9;}
+.banner-img .cover-pic .fr:hover{background-color: #156f95!important;border:1px solid #1b8ab9;}
+.banner-img .cover-pic .cancel-result:hover{background-color: #fff!important;color: #1b8ab9;border:1px solid #1b8ab9;}
+.custom-row  div#row2 {background-color: #fff;}
+.dropdown-content2 a{color: #787878!important;}
+
+.dropdown-content2 a:hover{color: white!important;}
+
+.dropdown-content2 a:hover .h4-img{background: url(../img/icon_delete_white.png) no-repeat;background-size:100%;}
+
+.dropdown-content2 a:hover .h3-img{background:url(../img/icon_edit_profile_white.png) no-repeat;background-size:100%;}
+
+.dropdown-content2 a:hover .h2-img{background: :url(../img/icon_view_profile_white.png) no-repeat,background-size:100%;}
+
+.profile-job-profile-button div.buisness-profile-pic-candidate{margin-left: 17px!important;}
+
+
 
 
 /***  media query  ***/
