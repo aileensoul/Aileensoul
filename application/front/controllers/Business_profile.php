@@ -11152,7 +11152,7 @@ $clistuser = $this->common->select_data_by_condition('contact_person', $contitio
 
             }else{
 
-         $contactdataview .= '<img src="'.echo base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']);.'" height="50px" width="50px" alt="" >';
+         $contactdataview .= '<img src="'. base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']).'" height="50px" width="50px" alt="" >';
             }
 
         $contactdataview .= '</a>';
