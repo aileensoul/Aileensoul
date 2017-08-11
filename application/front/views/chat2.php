@@ -205,6 +205,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     $i++;
                                 }
                                 ?>
+                                  
                             </div>
                         </div>
                     </div>
@@ -731,12 +732,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- script for selact smily for message start-->
 <script type="text/javascript">
     function followclose(clicked_id)
-    {
+    { 
+//        var MyDiv1 = document.getElementById(clicked_id);
+//       var data = MyDiv1.innerHTML;
+     
         var img = document.getElementById(clicked_id);
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
         var img = img.src;
         $('#message').append("<img  src=" + img + " height='25' width='25' >");
+        //$('#message').append(data);
 
     }
 </script>
