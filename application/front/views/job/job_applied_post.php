@@ -249,7 +249,14 @@
                     <li>
     <a title="Post Title" class=" post_title" href="#" >
                      <?php $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
-                            echo  $cache_time;  
+                          
+                                   if($cache_time){
+                                        echo  $cache_time;
+                                      }else{
+                                          echo $post['post_name'];
+                                      }
+                                           
+                                             
                         ?> </a>   </li>
 
                     <li>   

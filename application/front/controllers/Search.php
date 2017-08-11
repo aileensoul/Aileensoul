@@ -2345,6 +2345,12 @@ foreach ($resul as $key => $value) {
 
 //die();
             //echo "<pre>"; print_r($recskillpost);
+
+            //For get titleid  to search by post name
+              $cache_time = $this->db->get_where('job_title', array('name' => $search_job))->row()->title_id;
+
+           // echo $cache_time;
+
             $this->data['rec_skill'] = $recskillpost;
             //  echo "<pre>"; print_r( $this->data['rec_skill']);  die();
             //$contion_array = array('post_name=' => $search_job );
@@ -2359,10 +2365,26 @@ foreach ($resul as $key => $value) {
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
-            $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' )";
+            //if post name is null then $cache time is not pass to search condition Strat 
+            if($cache_time == "")
+            {
+                 $search_condition = "(rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+                    rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
+
+                // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
+           
+            }
+            else
+            {
+                $search_condition = "(rec_post.post_name LIKE '%$cache_time%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+                    rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
+
+               // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
+            }
+            //if post name is null then $cache time is not pass to search condition ENd 
 
             $results = $recpostdata['data'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-            //echo "<pre>"; print_r($results);die();
+          // echo "<pre>"; print_r($results);die();
             //     $search_condition = "(rec_firstname LIKE '%$search_job%' or rec_lastname LIKE '%$search_job%')";
             // $contion_array = array('post_name=' => $search_job );
             //    $resultsrecruiter = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
@@ -2399,7 +2421,7 @@ foreach ($resul as $key => $value) {
             $unique=array();
             foreach ($unique1 as $value){
                 
-                $unique[$value['user_id']]=$value;
+                $unique[$value['post_id']]=$value;
             }
 
             // echo "<pre>"; print_r($new1); die();
@@ -2442,6 +2464,8 @@ foreach ($resul as $key => $value) {
                 }
             }
 
+              $cache_time = $this->db->get_where('job_title', array('name' => $search_job))->row()->title_id;
+
             //echo "<pre>"; print_r($recskillpost);
             $this->data['rec_skill'] = $recskillpost;
             //  echo "<pre>"; print_r( $this->data['rec_skill']);  die();
@@ -2457,10 +2481,28 @@ foreach ($resul as $key => $value) {
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.max_month,rec_post.max_year,rec_post.created_date';
 
-            $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%')";
+             //if post name is null then $cache time is not pass to search condition Strat 
+            if($cache_time == "")
+            {
+                 $search_condition = "(rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+                    rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
+
+                // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
+           
+            }
+            else
+            {
+                $search_condition = "(rec_post.post_name LIKE '%$cache_time%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+                    rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
+
+               // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
+            }
+            //if post name is null then $cache time is not pass to search condition ENd 
+
+            // $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%')";
 
             $results = $recpostdata['data'] = $this->common->select_data_by_search('rec_post', $search_condition, $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-            // echo "<pre>"; print_r($results);die();
+            //echo "<pre>"; print_r($results);die();
             //     $search_condition = "(rec_firstname LIKE '%$search_job%' or rec_lastname LIKE '%$search_job%' or re_comp_name LIKE '%$search_job%')";
             // $contion_array = array('post_name=' => $search_job,);
             //    $resultsrecruiter = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str=array(), $groupby = '');
@@ -2494,7 +2536,7 @@ foreach ($resul as $key => $value) {
             $unique=array();
             foreach ($unique1 as $value){
                 
-                $unique[$value['user_id']]=$value;
+                $unique[$value['post_id']]=$value;
             }
         }
 
