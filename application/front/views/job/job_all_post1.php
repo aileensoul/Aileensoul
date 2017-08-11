@@ -1,3 +1,4 @@
+
 <!-- start head -->
 <?php echo $head; ?>
 
@@ -612,7 +613,7 @@
                    <div class="profile-job-details col-md-12">
                                                                 <ul>
                                <li class="fr">
-                                        Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
+                                        Created Date 11: <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                     </li>
 
                               <li class="text_overflow">
