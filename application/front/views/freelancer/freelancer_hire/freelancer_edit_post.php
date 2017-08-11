@@ -812,7 +812,22 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
      // return regexpr.test(value);
 }, "Only space, only number and only special characters are not allow");
 
-
+$.validator.addMethod("required1", function(value, element, regexpr) {   
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                $('.day').addClass('error'); 
+                $('.month').addClass('error'); 
+                $('.year').addClass('error'); 
+                return false;
+            }
+            else
+            {
+              return true;
+            }
+           
+     // return regexpr.test(value);
+}, "Last Date of apply is required.");
 
 // for date validtaion start
 
@@ -886,7 +901,7 @@ if(mm<10) {
                            
                         },
                         last_date:{
-                          required:true,
+                            required1:"Last Date of apply is required.",
                           isValid: 'Last date should be grater than and equal to today date'
                         },
                         currency:{

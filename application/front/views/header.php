@@ -681,7 +681,7 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-                                        <div id="notificationTitle">Notddifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
 
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             

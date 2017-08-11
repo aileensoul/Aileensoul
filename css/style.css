@@ -4310,7 +4310,7 @@ display: inline-block;
 .notification-data-inside {
     margin-left: 65px;
     margin-top: -55px;
-    padding-right: 12px;
+    padding-right: 10px;
 }
 .notification-data-inside h6 {
 /*    font-weight: 600;*/
@@ -8977,7 +8977,7 @@ fieldset .add_post_btns {
 .profile-job-details .post_title {
     font-size: 17px;
     font-weight: 600;
-    width: 72%;
+    width: 60%;
     word-break: break-word;
     word-wrap: break-word !important;
     word-break: break-word !important;
@@ -10508,7 +10508,7 @@ left: 48px;
 #notification_main_in .khyati li a{padding: 0px!important;}
 #notificationTitle .see_link a:hover{text-decoration-line: underline; color: #1b8ab9;}
 #notificationTitle .see_link a{color: black;
-font-size: 15px;
+font-size: 14px;
 float: right;
 padding: 4px !important;}
 .butt_rec {
@@ -15104,6 +15104,13 @@ left: 5px;
 
 
 
+.header .mCSB_container ul{width:100%; float:left;}
+.header .mCSB_container ul li{width:100%; border-right:none;}
+.header .mCSB_container ul li a{padding-left:0; padding:0 10px 0 0 !important; width: 100%; letter-spacing:0;}
+.header .mCSB_container .day-text{padding-top:1px;}
+.header2 ul.notification_data_in_h2 li{border-right:0px !important;}
+.header2 ul.notification_data_in_h2 li .data_noti_msg{margin-top:2px; width:100%; float:left;}
+
 
 /***  media query  ***/
 
@@ -16603,10 +16610,10 @@ padding-top: 7px !important;}
     .profile-job-details .display_inline {
         font-size: 12px;
         line-height: 1;
-        font-weight: 600;
+        /*font-weight: 600;*/
     }
     .alert {
-        font-size: 16px;
+      font-size: 16px;
       font-size: 16px;
    
     padding-left: 5px !important;
@@ -16730,6 +16737,8 @@ margin-left: 7px !important;}
     right: 131px;
 }
     .profile-job-details .display_inline{font-size: 10px;}
+    .profile-job-details .job_companyname {font-size: 10px;}
+    .profile-job-details ul li .lction p {font-size: 10px;}
     .created_date{font-size: 10px;}
     #acon::before{right: 125px!important;}
     .header2 ul li a#addcontactLink{padding: 6px 2px !important;}

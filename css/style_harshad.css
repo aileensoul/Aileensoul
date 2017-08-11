@@ -494,7 +494,12 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .complete_profile .circle-1{height:214px;}
 
 /*zalak 11-8*/
+.post-design-commnet-box .editable_text {
+    min-height: 39px !important;
+}
 
+.clonedInput h6{padding: 5px 0px;}
+.comment-edit-butn button{padding: 8px 10px;}
 #notificationContainer{overflow: hidden; border-radius: 3px;}
 .post-design-pro-img_follow{padding: 11px 5px 0px 5px;}
 .progress-bar{background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;}
@@ -537,6 +542,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.edit_profile_progress{display:none;}
 }
 @media screen and (max-width: 767px) {
+  .designation_rec{width: 50%!important;}
 	.common-form1 h3{margin:20px 0;}
 	.job-search-box1 fieldset{padding-left:0; padding-right:5px;}
 	.experience_year{margin-right:33px;}
@@ -551,6 +557,11 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.post-img-user{font-size: 20px; height: 67px; line-height: 1; padding: 24px 0; width: 69px;}
 }
 @media screen and (max-width: 479px) {
+  .designation_rec {
+  width: 39% !important;
+}
+.search_button button{width: 78px;
+padding: 5px 8px; font-size: 12px;}
   .floatBarsG{width: 20px; height: 20px;}
   #floatBarsG {
     position: absolute;
