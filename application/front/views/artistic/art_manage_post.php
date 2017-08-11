@@ -1351,10 +1351,10 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
 
                                 ?>
 
-                            <input size=1 id="text_num" class="text_num" tabindex="-501" value="<?php echo (50 - $a);?>" name=text_num readonly>
+                            <input size=1 id="text_num_<?php echo $row['art_post_id'] ?>" class="text_num" tabindex="-501" value="<?php echo (50 - $a);?>" name=text_num readonly>
 
                            <?php }else{?>
-                           <input size=1 id="text_num" tabindex="-502" class="text_num" value=50 name=text_num readonly> 
+                           <input size=1 id="text_num_<?php echo $row['art_post_id'] ?>" tabindex="-502" class="text_num" value=50 name=text_num readonly> 
 
                             <?php }?>
             </div>
@@ -4788,25 +4788,18 @@ $(document).ready(function(){
  function check_lengthedit(abc)
    { 
        maxLen = 50;
-
        var product_name = document.getElementById("editpostname" +abc).value;
-     
        if (product_name.length > maxLen) { 
            text_num = maxLen - product_name.length;
            var msg = "You have reached your maximum limit of characters allowed";
-
            $("#editpostname" + abc).prop("readonly", true);
-           
            $('#postedit .mes').html("<div class='pop_content'>" + msg + "</div>");
            $('#postedit').modal('show');
-        
            var substrval = product_name.substring(0, maxLen);
            $('#editpostname' + abc).val(substrval);
-         
        } else { 
            text_num = maxLen - product_name.length;
-
-           document.getElementById("text_num").value = text_num;
+           document.getElementById("text_num_" + abc).value = text_num;
        }
    }
 </script>
