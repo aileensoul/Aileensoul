@@ -425,9 +425,11 @@
             url: "<?php echo base_url(); ?>business_profile/contact_approve",
             type: "POST",
             data: 'toid=' + toid + '&status=' + status,
-            success: function (data) {
+            dataType: "json",
+            success: function (data) { //alert(data.acceptcount);
 
-                $('.notification_data_in_con').html(data);
+                $('.notification_data_in_con').html(data.contactdata);
+                $('.acceptcount').html(data.acceptcount);
 
 
             }
