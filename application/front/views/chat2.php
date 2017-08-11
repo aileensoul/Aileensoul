@@ -198,7 +198,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 $i = 0;
                                 foreach ($smiley_table as $key => $value) {
                                     ?>
-                                    <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                    <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" alt='<img src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>  height="25" width="25">' height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                    
+                                  
                                     <?php
                                     $i++;
                                 }
