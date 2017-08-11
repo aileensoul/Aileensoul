@@ -1267,8 +1267,6 @@ $(window).load(function(){
                 allOptions.toggle();
             });
 
-
-
         }
 
 
