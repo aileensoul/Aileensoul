@@ -875,6 +875,10 @@ if(mm<10) {
    //pattern validation at salary end//
 
             $(document).ready(function () { 
+           
+        $.validator.addMethod("regnum", function(value, element, regexpr) {          
+     return regexpr.test(value);
+   }, "Please enter a valid pasword.");      
 
                 $("#artpost").validate({
                   //ignore: [],
@@ -891,7 +895,7 @@ if(mm<10) {
                           skills: {
                             
                          required: true,
-                          //required:true 
+                         regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                         }, 
 
                       
@@ -963,7 +967,7 @@ if(mm<10) {
                         minsal:{
                             //number:true,
                             maxlength:11,
-                             pattern: /^([1-9]\d*)(\\d+)?$/
+                             pattern: /^([0-9]\d*)(\\d+)?$/
 
                         },
                         maxsal:{
@@ -971,8 +975,8 @@ if(mm<10) {
                              number:true,
                               min: 0,
                              greaterThan: "#minsal",
-                            maxlength:11
-                          //  pattern: /^([1-9]\d*)(\\d+)?$/
+                            maxlength:11,
+                          pattern: /^([0-9]\d*)(\\d+)?$/
                         },
                        
                      },
