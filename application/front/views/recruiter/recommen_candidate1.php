@@ -343,7 +343,7 @@ if($experiance[0]['experience_year'] != ''){ ?>
               if($total_work_month == '12 month' && $total_work_year =='0 year'){
                 echo "1 year";
             }
-             elseif($total_work_year !='0 year' && $total_work_month >= '12 month'){
+             else{
                  $month = explode(' ', $total_work_year);
                  //print_r($month);
                                                 $year=$month[0];
@@ -373,11 +373,7 @@ if($experiance[0]['experience_year'] != ''){ ?>
 
             
             }
-            else{
-                echo $total_work_year; echo "&nbsp"; echo "Year";
-            echo "&nbsp";
-            echo $total_work_month; echo "&nbsp"; echo "Month";
-            }   ?>
+               ?>
                </span>
                 </li>
              <?php } else{ 
