@@ -5641,7 +5641,7 @@ form {
 .text_num {
     font-size: 20px;
     border: none;
-    width: 30px;
+    width: 30px !important;
     padding: 5px;
     height: 30px;
     color: #999;
@@ -14875,7 +14875,7 @@ header.animated {
     text-align:center;
 }
 .edit-post-custom{position:relative;}
-.text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 24px;}
+.text_num{position: absolute; right: 20%; top: 7px; background-color:transparent;  width: 24px !important;}
 /***  add contact ripple effect  ***/
 
 
