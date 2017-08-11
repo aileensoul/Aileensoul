@@ -2055,7 +2055,7 @@
                                                                                 echo $this->common->make_links($small);
 
                                                                                 if (strlen($rowdata['comments']) > 180) {
-                                                                                    echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">See More</span>';
+                                                                                    echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">view More</span>';
                                                                                 }
                                                                                 ?>
                                                                             </div>

@@ -24,8 +24,9 @@
 
 <!-- END HEADER -->
 <body>
-        <div class="padd_set">
-        <div class="container">
+          <div class="user-midd-section" id="paddingtop_fixed">
+     
+      <div class="container">
         <div class="row">
         <div class="col-md-12">
                 

@@ -1652,16 +1652,17 @@
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
-                                                                                    <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
-                                                                                        <?php
-                                                                                        $small = substr($rowdata['comments'], 0, 180);
-                                                                                        echo $this->common->make_links($small);
 
-                                                                                        if (strlen($rowdata['comments']) > 180) {
-                                                                                            echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">See More</span>';
-                                                                                        }
-                                                                                        ?>
-                                                                                    </div>
+                     <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
+                            <?php
+                                $small = substr($rowdata['comments'], 0, 180);
+                                echo $this->common->make_links($small); echo "&nbsp;" ?>
+
+                               <?php if (strlen($rowdata['comments']) > 180) {
+                                echo '<span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">...View More</span>';
+                                }
+                                 ?>
+                     </div>
 
                                                                                     <div id="<?php echo "seemore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
                                                                                         <?php
@@ -4221,6 +4222,8 @@
 
 </script>
 <!-- 180 words more than script end-->
+
+
 
 <script type="text/javascript">
 

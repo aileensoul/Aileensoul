@@ -8866,12 +8866,12 @@ class Business_profile extends MY_Controller {
 
                 $small = substr($rowdata['comments'], 0, 180);
 
-                $fourdata .= '' . $this->common->make_links($small) . '';
+                $fourdata .= '' . $this->common->make_links($small) . '&nbsp;';
 
                 // echo $this->common->make_links($small);
 
                 if (strlen($rowdata['comments']) > 180) {
-                    $fourdata .= '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">See More</span>';
+                    $fourdata .= '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">View More</span>';
                 }
 
                 $fourdata .= '</div>';
@@ -11432,7 +11432,7 @@ class Business_profile extends MY_Controller {
             $nomsg = '<div class="art-img-nn">
                                     <div class="art_no_post_img">
 
-                                        <img src="'.base_url('img/bui-no.png').'">
+                                        <img src="'.base_url('img/No_Contact_Request.png').'">
 
                                     </div>
                                     <div class="art_no_post_text">

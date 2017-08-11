@@ -749,7 +749,7 @@
                                 <div class="art-img-nn" id="viewmsg" style="display: none">
                                     <div class="art_no_post_img">
 
-                                        <img src="<?php echo base_url('img/bui-no.png') ?>">
+                                        <img src="<?php echo base_url('img/No_Contact_Request.png') ?>">
 
                                     </div>
                                     <div class="art_no_post_text">
