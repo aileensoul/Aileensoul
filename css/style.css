@@ -3272,7 +3272,7 @@ margin: 10px;}
     text-align: center;
 }
 .change-password-box {
-    width: 500px;
+    width: 100%;
     margin: auto;
 }
 .change-password-box fieldset {
