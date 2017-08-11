@@ -6913,11 +6913,12 @@ padding: 8px 7px;
 }
 .image_profile {
  position: relative;
-
+ margin-bottom: 10px;
  overflow:hidden;
     height: 120px;
     float: left;
     width: 120px;
+    padding: 20px;
     margin: 1px;
 }
 .image_profile img {

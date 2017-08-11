@@ -48,7 +48,7 @@
             "@context": "http://schema.org",
             "@type": "Organization",
             "name": "Aileensoul",
-            "url": "https://www.aileensoul.com",
+            "url": "https://www.aileensoul.com/",
             "sameAs": [
             "https://www.facebook.com/aileensouldotcom/",
             "https://twitter.com/aileen_soul",
@@ -114,7 +114,7 @@
                                                 <div class="carousel-caption">
                                                     <img src="img/job1.png">
                                                     <div class="carousel-text">
-                                                        <h3>Job Profile</h3>
+                                                        <h1>Job Profile</h1>
                                                         <p>Find best job options and connect with recruiters.</p>
                                                     </div>
                                                 </div>
@@ -123,7 +123,7 @@
                                                 <div class="carousel-caption">
                                                     <img src="img/rec.png">
                                                     <div class="carousel-text">
-                                                        <h3>Recruiter Profile</h3>
+                                                        <h1>Recruiter Profile</h1>
                                                         <p>Hire quality employees here.</p>
                                                     </div>
                                                 </div>
@@ -132,7 +132,7 @@
                                                 <div class="carousel-caption">
                                                     <img src="img/freelancer.png">
                                                     <div class="carousel-text">
-                                                        <h3>Freelance Profile</h3>
+                                                        <h1>Freelance Profile</h1>
                                                         <p>Hire freelancers and also find freelance work.</p>
                                                     </div>
                                                 </div>
@@ -141,7 +141,7 @@
                                                 <div class="carousel-caption">
                                                     <img src="img/business.png">
                                                     <div class="carousel-text">
-                                                        <h3>Business Profile</h3>
+                                                        <h1>Business Profile</h1>
                                                         <p>Grow your business network.</p>
                                                     </div>
                                                 </div>
@@ -150,7 +150,7 @@
                                                 <div class="carousel-caption">
                                                     <img src="img/art.png">
                                                     <div class="carousel-text">
-                                                        <h3>Artistic Profile</h3>
+                                                        <h1>Artistic Profile</h1>
                                                         <p> Show your art & talent to the world.</p>
                                                     </div>
                                                 </div>
