@@ -11094,20 +11094,34 @@ class Business_profile extends MY_Controller {
             }
         } else {
 
-            $contactdata = '<ul>';
-            $contactdata .= '<li>';
-            $contactdata .= '<div class="addcontact-left">';
-            $contactdata .= '<a href="#">';
-            $contactdata .= '<div class="addcontact-text">';
-            $contactdata .= 'Not data available...';
-            $contactdata .= '</div>';
-            $contactdata .= '</a>';
-            $contactdata .= '</div>';
-            $contactdata .= '</div>';
-            $contactdata .= '</li>';
-            $contactdata .= '</ul>';
+            $contactdata = '<div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="http://localhost/aileensoul/img/No_Contact_Request.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Contact request Available.
+                                                </div>
+                             </div>';
         }
-        echo $contactdata;
+
+$contition_array = array('contact_type' => 2, 'status' => 'confirm');
+
+$search_condition = "(contact_from_id = '$userid' OR contact_to_id = '$userid')";
+
+$contactpersonc = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+
+$countdata = count($contactpersonc);
+
+    $contactpersonc = $countdata;
+
+        echo json_encode(
+                array(
+                    "contactdata" => $contactdata,
+                    "acceptcount" => $contactpersonc,
+        ));
+
+
+        //echo $contactdata;
     }
 
     public function contact_list() {

@@ -342,9 +342,13 @@
                                              <a href="javascript:void(0);" title="<?php echo  $cache_time; ?> " class=" post_title" >
 
                                              <?php 
-
+                                             if($cache_time){
+                                             echo  $cache_time;
+                                             }else{
+                                              echo $post['post_name'];
+                                             }
                                            
-                                             echo  $cache_time;  ?> </a>   
+                                               ?> </a>   
                                           </li>
                                           <li>
                                              <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name;
@@ -652,7 +656,21 @@
                                           
                                           echo $cache_time;
                                           ?></a></li>
-                                       <li><?php echo $post['post_name']; ?></li>
+                                     <li>
+                                          <?php
+                                                $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
+                                            ?>
+                                             <a href="javascript:void(0);" title="<?php echo  $cache_time; ?> " class=" post_title" >
+
+                                             <?php 
+                                             if($cache_time){
+                                             echo  $cache_time;
+                                             }else{
+                                              echo $post['post_name'];
+                                             }
+                                               ?> 
+                                               </a>   
+                                          </li>
                                     </ul>
                                  </div>
                               </div>
