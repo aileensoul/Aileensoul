@@ -474,6 +474,10 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .mob-progressbar .mob-edit-pro .fa{padding-right:5px;}
 .temp .mob-edit-pro a{pointer-events: none; cursor: default;}
 .temp .mob-edit-pro .fa{display:none;}
+.circle-1{height:175px;}
+.complete_profile .circle-1{height:214px;}
+
+
 @media screen and (min-width: 768px) {
 	.mob-progressbar.temp{display:none !important;}
 }
@@ -510,6 +514,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.job-menu-profile{margin-top:20px; padding-bottom:10px;}
 	.right_left_box_design{padding:9px 12px 12px 12px !important;}
 	.mob-progressbar{display:block;}
+	.edit_profile_progress{display:none;}
 }
 @media screen and (max-width: 767px) {
 	.common-form1 h3{margin:20px 0;}
