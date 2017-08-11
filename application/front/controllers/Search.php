@@ -2436,7 +2436,7 @@ foreach ($resul as $key => $value) {
 
             // $search_place = $this->input->get('searchplace');
             // print_r($search_place); die();
-
+            $cache_time1 = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -2444,7 +2444,7 @@ foreach ($resul as $key => $value) {
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($artdata['data']); 
-            $contition_array = array('status' => '1', 'city' => $cache_time, 'rec_post.user_id !=' => $userid,'post_last_date >=' => $date,'rec_post.is_delete'=>0);
+            $contition_array = array('status' => '1', 'city' => $cache_time1, 'rec_post.user_id !=' => $userid,'post_last_date >=' => $date,'rec_post.is_delete'=>0);
 
 
             $recdata = $userdata['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -2467,6 +2467,8 @@ foreach ($resul as $key => $value) {
             }
 
               $cache_time = $this->db->get_where('job_title', array('name' => $search_job))->row()->title_id;
+                 
+
 
             //echo "<pre>"; print_r($recskillpost);
             $this->data['rec_skill'] = $recskillpost;
@@ -2479,7 +2481,7 @@ foreach ($resul as $key => $value) {
             $join_str[0]['from_table_id'] = 'rec_post.user_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3,'post_last_date >=' => $date,'rec_post.is_delete'=>0);
+            $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3,'post_last_date >=' => $date,'rec_post.is_delete'=>0,'city' => $cache_time1);
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process,rec_post.max_month,rec_post.max_year,rec_post.created_date,rec_post.industry_type,rec_post.emp_type,rec_post.salary_type,rec_post.degree_name';
 
