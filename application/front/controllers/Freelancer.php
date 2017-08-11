@@ -3629,7 +3629,7 @@ class Freelancer extends MY_Controller {
 
 //Remove save candidate controller End
 
-    public function freelancer_post_profile($id) {
+    public function freelancer_post_profile($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
 

@@ -1,31 +1,19 @@
-<!--start head -->
-
-<style type="text/css">
-    #popup-form img{display: none;}
-</style>
-
-<?php echo $head; ?>
-<link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-
-
-<!-- END HEAD -->
-<!-- start header -->
-<?php echo $header; ?>
-
-
-
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<!-- END HEADER -->
-
-<?php echo $business_header2_border ?>
-
-<body   class="page-container-bg-solid page-boxed">
-
-    <section>
-        <div class="container" id="paddingtop_fixed">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo $title; ?></title>
+        <?php echo $head; ?>
+        <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+    </head>
+    <body class="page-container-bg-solid page-boxed pushmenu-push">
+        <?php echo $header; ?>
+        <?php echo $business_header2_border ?>
+        <section>
+            <?php // echo $business_common; ?>
+            <div class="container" id="paddingtop_fixed">
             <div class="row" id="row1" style="display:none;">
                 <div class="col-md-12 text-center">
                     <div id="upload-demo" ></div>
@@ -88,9 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>   
-<div class="container tablate-container">
+            <div class="container tablate-container">
     <?php
     $userid = $this->session->userdata('aileenuser');
     if ($businessdata1[0]['user_id'] == $userid) {
@@ -363,10 +349,10 @@
                             $userid = $this->session->userdata('aileenuser');
                             if ($businessdata1[0]['user_id'] == $userid) {
                                 ?>     
-                                <ul class="current-user bpro-fw6">
+                            <ul class="current-user bpro-fw6" style="float:left;">
 
                                 <?php } else { ?>
-                                    <ul class="bpro-fw">
+                                    <ul class="bpro-fw" style="float:left;">
                                     <?php } ?>
 
 
@@ -544,237 +530,33 @@
         </div>
     </div>
 </div>
-
-
-</div>
-<div class="user-midd-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-
-                <!-- <div  class="add-post-button">
-               
-                    <a class="btn btn-3 btn-3b" href="<?php echo base_url('business_profile/business_profile_addpost'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Add Post</a>
-              </div> -->
-                <!-- <div  class="add-post-button">
-                  
-                    
-                      <a class="btn btn-3 btn-3b"href="<?php echo base_url('recruiter'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Recruiter</a>
-                </div> -->
-            </div>
-
-
-            <div class="col-md-8 col-sm-8">
-                <div class="common-form">
-                    <div class="job-saved-box">
-
-                        <h3>Contacts</h3>
-                        <div class="contact-frnd-post">
-
-                            <?php
-                            if (count($unique_user) > 0) {
-                                foreach ($unique_user as $user) {
-
-                                    if ($busuid == $user['contact_from_id']) {
-
-                                        $contition_array = array('user_id' => $user['contact_to_id'], 'is_delete' => '0');
-
-                                        $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                       
-
-                                        $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
-
-                                        $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
-
-                                        $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                      
-
-                                        //echo "<pre>"; print_r($clistuser); 
-                                    } else {
-
-                                        $contition_array = array('user_id' => $user['contact_from_id'], 'is_delete' => '0');
-
-                                        $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        
-
-                                        $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_from_id'], $data = '*', $join_str = array());
-
-                                        $contition_array = array('contact_to_id' => $login, 'contact_from_id' => $user['contact_from_id'], 'contact_type' => 2);
-
-                                        $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                      
-
-                                        //   echo '<pre>'; print_r($clistuser);
-                                    }
-
-                                    
-                                    ?>
-                                    <div class="job-contact-frnd">
-
-                                    <?php if($uservalid){?>
-                                        <div class="profile-job-post-detail clearfix" id="<?php echo "removecontact" . $cdata[0]['user_id']; ?>">
-                                            <div class="profile-job-post-title-inside clearfix">
-                                                <div class="profile-job-post-location-name">
-                                                    <div class="user_lst"><ul>
-
-                                                            <li class="fl">
-                                                                <div class="follow-img">
-                                                                    <?php if ($cdata[0]['business_user_image'] != '') { ?>
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']); ?>">
-
-
-                                                                            <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image'])) {
-                                                                $a = $cdata[0]['company_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-userlist">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
-
-                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']); ?>" height="50px" width="50px" alt="" >
-
-                       <?php }?>
-                                                                        </a>
-                                                                    <?php } else { ?>
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']); ?>">
-                                                                             <?php 
-                                          $a = $cdata[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-userlist">
-                                            <?php echo  ucfirst(strtolower($acr))?>
-                                            </div>
-                                                                        </a>
-                                                                    <?php } ?> 
-                                                                </div>
-                                                            </li>
-                                                            <li style="width: 67%">
-                                                                <div class="">
-                                                                    <div class="follow-li-text " style="padding: 0;">
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']); ?>"><?php echo ucfirst(strtolower($cdata[0]['company_name'])); ?></a>
-                                                                    </div>
-                                                                    <!-- category start -->
-                                                                    <div>
-
-                                                                        <?php $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
-
-
-                                                                        <a><?php
-                                                                            if ($category) {
-                                                                                echo $category;
-                                                                            } else {
-                                                                                echo $cdata[0]['other_industrial'];
-                                                                            }
-                                                                            ?></a>
-
-                                                                    </div>
-
-                                                                    <!--  category end -->
-
-                                                            </li>
-
-                                                            <li class="fr">
-
-
-                                                                <?php if ($login == $cdata[0]['user_id']) {
-                                                                    
-                                                                } else {
-                                                                    ?>
-
-            <?php if ($clistuser[0]['status'] == 'cancel') { ?>
-
-                                                                        <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-
-                                                                            <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
-                                                                                Add to contact
-                                                                            </button>
-                                                                        </div>  
-
-            <?php } elseif ($clistuser[0]['status'] == 'pending') { ?>
-
-                                                                        <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-                                                                            <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?>, 'pending')">
-                                                                                Cancel request
-                                                                            </button>
-                                                                        </div>     
-
-            <?php } else if ($clistuser[0]['status'] == 'confirm') { ?>
-
-                                                                        <div class="user_btn cont_req" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-                                                                            <button onclick="contact_person_cancle(<?php echo $cdata[0]['user_id']; ?>, 'confirm')">
-                                                                                In contacts
-                                                                            </button> 
-                                                                        </div>        
-
-            <?php } else if ($clistuser[0]['status'] == 'reject') { ?>
-
-                                                                        <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-                                                                            <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
-                                                                                Add to contact
-                                                                            </button>
-                                                                        </div>
-
-            <?php } else { ?>
-                                                                        <div class="user_btn" id="<?php echo "statuschange" . $cdata[0]['user_id']; ?>">
-                                                                            <button onclick="contact_person_menu(<?php echo $cdata[0]['user_id']; ?>)">
-                                                                                Add to contact
-                                                                            </button>
-                                                                        </div>
-
-                                                                    <?php } ?>
-
-        <?php } ?>
-
-
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-    <?php } }?>
-                                </div>
-
-
-<?php }  ?>
-
-                                
-                               
-                                <div class="art-img-nn" id="viewmsg" style="display: none">
-                                    <div class="art_no_post_img">
-
-                                        <img src="<?php echo base_url('img/No_Contact_Request.png') ?>">
-
+            <div class="user-midd-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="common-form">
+                                <div class="job-saved-box">
+                                    <h3>Contacts</h3>
+                                    <div class="contact-frnd-post">
+                                       <!-- AJAX DATA..... --> 
+                                        <div class="col-md-1"></div>
                                     </div>
-                                    <div class="art_no_post_text">
-                                        No Contacts Available.
-                                    </div>
+                                    <div class="fw" id="loader" style="text-align:center;"><img src="<?php echo base_url() ?>images/loader.gif" /></div>
                                 </div>
-                            
-
-
-
-
-                            <div class="col-md-1">
                             </div>
                         </div>
                     </div>
-
-                </div>
+                </div> 
             </div>
-            </section>
-            <footer>
-<?php echo $footer; ?>
-            </footer>      
+        </section>
+        <footer>
+            <?php echo $footer; ?>
+        </footer>
 
 
-<!-- Bid-modal for this modal appear or not start -->
+        <!-- Bid-modal for this modal appear or not start -->
         <div class="modal fade message-box" id="query" role="dialog">
             <div class="modal-dialog modal-lm">
                 <div class="modal-content">
@@ -787,715 +569,598 @@
             </div>
         </div>
         <!-- Bid-modal for this modal appear or not  Popup Close -->
-            <!-- Bid-modal  -->
-            <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
-                            <span class="mes"></span>
-                        </div>
+
+        
+        <!-- Bid-modal  -->
+        <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                        <span class="mes"></span>
                     </div>
                 </div>
             </div>
-            <!-- Model Popup Close -->
-
-            <!-- Bid-modal-2  -->
-            <div class="modal fade message-box" id="bidmodal-2" role="dialog">
-                <div class="modal-dialog modal-lm">
-                    <div class="modal-content">
-                        <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
-                        <div class="modal-body">
-                            <span class="mes">
-                                <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
-                                    <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                                    <input type="hidden" name="hitext" id="hitext" value="6">
-                                    <div class="popup_previred">
-                                        <img id="preview" src="#" alt="your image" /></div>
-                                       <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
-                                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
-<?php echo form_close(); ?>
-                                </div>
-                            </span>
-                        </div>
+        </div>
+        <!-- Model Popup Close -->
+        <!-- Bid-modal-2  -->
+        <div class="modal fade message-box" id="bidmodal-2" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>       
+                    <div class="modal-body">
+                        <span class="mes">
+                            <div id="popup-form">
+                                <?php echo form_open_multipart(base_url('business-profile/user-image-change'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
+                                <input type="hidden" name="hitext" id="hitext" value="13">
+                                <div class="popup_previred">
+                                    <img id="preview" src="#" alt="your image" /></div>
+                                   <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
+                                <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
+                                <?php echo form_close(); ?>
+                            </div>
+                        </span>
                     </div>
                 </div>
             </div>
-            <!-- Model Popup Close -->
+        </div>
+        <!-- Model Popup Close -->
+        <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+        <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+        <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+        <!-- script for business autofill -->
+        <script>
+                                                                            var base_url = '<?php echo base_url(); ?>';
+                                                                            var data = <?php echo json_encode($demo); ?>;
+                                                                            var data1 = <?php echo json_encode($city_data); ?>;
+                                                                            var slug = '<?php echo $slug_id; ?>';
+        </script>
+        <script type="text/javascript">
+        $(function () {
+    $("#tags").autocomplete({
+        source: function (request, response) {
+            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+            response($.grep(data, function (item) {
+                return matcher.test(item.label);
+            }));
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            event.preventDefault();
+            $("#tags").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+        }
+        ,
+        focus: function (event, ui) {
+            event.preventDefault();
+            $("#tags").val(ui.item.label);
+        }
+    });
+});
+$(function () {
+    $("#searchplace").autocomplete({
+        source: function (request, response) {
+            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+            response($.grep(data1, function (item) {
+                return matcher.test(item.label);
+            }));
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+        },
+        focus: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace").val(ui.item.label);
+        }
+    });
+});
+function checkvalue() {
+    var searchkeyword = $.trim(document.getElementById('tags').value);
+    var searchplace = $.trim(document.getElementById('searchplace').value);
+    if (searchkeyword == "" && searchplace == "") {
+        return false;
+    }
+}
+$(function () {
+    $("#tags1").autocomplete({
+        source: function (request, response) {
+            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+            response($.grep(data, function (item) {
+                return matcher.test(item.label);
+            }));
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            event.preventDefault();
+            $("#tag1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+        }
+        ,
+        focus: function (event, ui) {
+            event.preventDefault();
+            $("#tags1").val(ui.item.label);
+        }
+    });
+});
 
-            </body>
 
-            </html>
+$(function () {
+    $("#searchplace1").autocomplete({
+        source: function (request, response) {
+            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+            response($.grep(data1, function (item) {
+                return matcher.test(item.label);
+            }));
+        },
+        minLength: 1,
+        select: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+        }
+        ,
+        focus: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+        }
+    });
+});
 
 
-            <!-- script for skill textbox automatic start (option 2)-->
+function check() {
+    var keyword = $.trim(document.getElementById('tags1').value);
+    var place = $.trim(document.getElementById('searchplace1').value);
+    if (keyword == "" && place == "") {
+        return false;
+    }
+}
+
+$(document).ready(function () {
+    business_contacts(slug);
+
+    $(window).scroll(function () {
+        //if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+
+            var page = $(".page_number:last").val();
+            var total_record = $(".total_record").val();
+            var perpage_record = $(".perpage_record").val();
+            if (parseInt(perpage_record) <= parseInt(total_record)) {
+                var available_page = total_record / perpage_record;
+                available_page = parseInt(available_page, 10);
+                var mod_page = total_record % perpage_record;
+                if (mod_page > 0) {
+                    available_page = available_page + 1;
+                }
+                //if ($(".page_number:last").val() <= $(".total_record").val()) {
+                if (parseInt(page) <= parseInt(available_page)) {
+                    var pagenum = parseInt($(".page_number:last").val()) + 1;
+                    business_contacts(slug, pagenum);
+                }
+            }
+        }
+    });
+});
+var isProcessing = false;
+function business_contacts(slug, pagenum) {
+    if (isProcessing) {
+        /*
+         *This won't go past this condition while
+         *isProcessing is true.
+         *You could even display a message.
+         **/
+        return;
+    }
+    isProcessing = true;
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/ajax_bus_contact/" + slug + "?page=" + pagenum,
+        data: {total_record: $("#total_record").val()},
+        dataType: "html",
+        beforeSend: function () {
+            if (pagenum == 'undefined') {
+                //    $(".business-all-post").prepend('<p style="text-align:center;"><img class="loader" src="' + base_url + 'images/loading.gif"/></p>');
+            } else {
+                $('#loader').show();
+            }
+        },
+        complete: function () {
+            $('#loader').hide();
+        },
+        success: function (data) {
+            $('.loader').remove();
+            $('.contact-frnd-post').append(data);
+
+            // second header class add for scroll
+            var nb = $('.post-design-box').length;
+            if (nb == 0) {
+                $("#dropdownclass").addClass("no-post-h2");
+            } else {
+                $("#dropdownclass").removeClass("no-post-h2");
+            }
+            isProcessing = false;
+        }
+    });
+}
+
+function business_contacts_header(slug, pagenum) {
+    if (isProcessing) {
+        /*
+         *This won't go past this condition while
+         *isProcessing is true.
+         *You could even display a message.
+         **/
+        return;
+    }
+    isProcessing = true;
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/ajax_bus_contact/" + slug + "?page=" + pagenum,
+        data: {total_record: $("#total_record").val()},
+        dataType: "html",
+        beforeSend: function () {
+            if (pagenum == 'undefined') {
+                //    $(".business-all-post").prepend('<p style="text-align:center;"><img class="loader" src="' + base_url + 'images/loading.gif"/></p>');
+            } else {
+                $('#loader').show();
+            }
+        },
+        complete: function () {
+            $('#loader').hide();
+        },
+        success: function (data) {
+            $('.loader').remove();
+            $('.contact-frnd-post').html(data);
+
+            // second header class add for scroll
+            var nb = $('.post-design-box').length;
+            if (nb == 0) {
+                $("#dropdownclass").addClass("no-post-h2");
+            } else {
+                $("#dropdownclass").removeClass("no-post-h2");
+            }
+            isProcessing = false;
+        }
+    });
+}
 
 
-            <!-- script for skill textbox automatic end (option 2)-->
+function updateprofilepopup(id) {
+    $('#bidmodal-2').modal('show');
+}
 
-            <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-            <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-            <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+// UPLOAD COVER PIC START 
+function myFunction() {
+    document.getElementById("upload-demo").style.visibility = "hidden";
+    document.getElementById("upload-demo-i").style.visibility = "hidden";
+    document.getElementById('message1').style.display = "block";
+}
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+function showDiv() {
+    document.getElementById('row1').style.display = "block";
+    document.getElementById('row2').style.display = "none";
+}
 
-            <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+$uploadCrop = $('#upload-demo').croppie({
+    enableExif: true,
+    viewport: {
+        width: 1250,
+        height: 350,
+        type: 'square'
+    },
+    boundary: {
+        width: 1250,
+        height: 350
+    }
+});
 
+$('.upload-result').on('click', function (ev) {
+    $uploadCrop.croppie('result', {
+        type: 'canvas',
+        size: 'viewport'
+    }).then(function (resp) {
 
+        $.ajax({
+            url: base_url + "business_profile/ajaxpro",
+            type: "POST",
+            data: {"image": resp},
+            success: function (data) {
+                html = '<img src="' + resp + '" />';
+                if (html)
+                {
+                    window.location.reload();
+                }
 
-<script type="text/javascript">
+            }
+        });
 
-    $(document).ready(function(){ //alert("hii");
+    });
+});
 
-    var nb = $('div.profile-job-post-detail').length;
-    //alert(nb);
-    if (nb == 0){
-   document.getElementById('viewmsg').style.display = 'block';
+$('.cancel-result').on('click', function (ev) {
+    document.getElementById('row2').style.display = "block";
+    document.getElementById('row1').style.display = "none";
+    document.getElementById('message1').style.display = "none";
+});
+
+$('#upload').on('change', function () {
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $uploadCrop.croppie('bind', {
+            url: e.target.result
+        }).then(function () {
+            console.log('jQuery bind complete');
+        });
+    }
+    reader.readAsDataURL(this.files[0]);
+});
+
+$('#upload').on('change', function () {
+
+    var fd = new FormData();
+    fd.append("image", $("#upload")[0].files[0]);
+    files = this.files;
+    size = files[0].size;
+    if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)) {
+        picpopup();
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('row2').style.display = "block";
+        $("#upload").val('');
+        return false;
     }
 
-    });</script>
+    if (size > 4194304)
+    {
+        //show an alert to the user
+        alert("Allowed file size exceeded. (Max. 4 MB)")
+
+        document.getElementById('row1').style.display = "none";
+        document.getElementById('row2').style.display = "block";
+        //reset file upload control
+        return false;
+    }
+
+    $.ajax({
+
+        url: base_url + "business_profile/imagedata",
+        type: "POST",
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+        }
+    });
+});
 
 
+// UPLOAD COVER PIC START 
+// follow user script start 
 
-            <!-- script for business autofill -->
-            <script>
+// follow user script END 
+function followuser_two(clicked_id)
+{
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/follow_two",
+        data: 'follow_to=' + clicked_id,
+        success: function (data) {
+            $('.' + 'fr' + clicked_id).html(data);
+        }
+    });
+}
+// follow like script end 
 
-                                                                var data = <?php echo json_encode($demo); ?>;
+// Unfollow user script start 
+function unfollowuser_two(clicked_id)
+{
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/unfollow_two",
+        data: 'follow_to=' + clicked_id,
+        success: function (data) {
+            $('.' + 'fr' + clicked_id).html(data);
+        }
+    });
+}
+// follow like script end 
+
+// script for profile pic strat 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('preview').style.display = 'block';
+            $('#preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#profilepic").change(function () {
+    profile = this.files;
+    if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)) {
+        //alert('not an image');
+        $('#profilepic').val('');
+        picpopup();
+        return false;
+    } else {
+        readURL(this);
+    }
+});
+// script for profile pic end 
+
+//validation for edit email formate form
+$(document).ready(function () {
+    $("#userimage").validate({
+        rules: {
+            profilepic: {
+                required: true,
+            },
+        },
+        messages: {
+            profilepic: {
+                required: "Photo Required",
+            },
+        },
+    });
+});
+
+function picpopup() {
+    $('.biderror .mes').html("<div class='pop_content'>This is not valid file. Please Uplode valid Image File.");
+    $('#bidmodal').modal('show');
+}
+
+$(document).on('keydown', function (e) {
+    if (e.keyCode === 27) {
+        $('#bidmodal-2').modal('hide');
+    }
+});
+
+// scroll page script start 
+// For Scroll page at perticular position js Start 
+$(document).ready(function () {
+    $('html,body').animate({scrollTop: 330}, 100);
+});
+//For Scroll page at perticular position js End
+// scroll page script end 
+// contact person script start 
 
 
-                                                                $(function () {
-                                                                    // alert('hi');
-                                                                    $("#tags").autocomplete({
-                                                                        source: function (request, response) {
-                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                            response($.grep(data, function (item) {
-                                                                                return matcher.test(item.label);
-                                                                            }));
-                                                                        },
-                                                                        minLength: 1,
-                                                                        select: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                            $("#selected-tag").val(ui.item.label);
-                                                                            // window.location.href = ui.item.value;
-                                                                        }
-                                                                        ,
-                                                                        focus: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                        }
-                                                                    });
-                                                                });
+function contact_person_menu(clicked_id) {
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/contact_person_menu",
+        data: 'toid=' + clicked_id,
+        success: function (data) {
+            $('#' + 'statuschange' + clicked_id).html(data);
+        }
+    });
+}
+// contact person script end 
 
-            </script>
-
-            <script>
-
-                var data1 = <?php echo json_encode($city_data); ?>;
-                //alert(data);
-
-
-                $(function () {
-                    // alert('hi');
-                    $("#searchplace").autocomplete({
-                        source: function (request, response) {
-                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                            response($.grep(data1, function (item) {
-                                return matcher.test(item.label);
-                            }));
-                        },
-                        minLength: 1,
-                        select: function (event, ui) {
-                            event.preventDefault();
-                            $("#searchplace").val(ui.item.label);
-                            $("#selected-tag").val(ui.item.label);
-                            // window.location.href = ui.item.value;
-                        }
-                        ,
-                        focus: function (event, ui) {
-                            event.preventDefault();
-                            $("#searchplace").val(ui.item.label);
-                        }
-                    });
-                });
-
-            </script>
-
-             <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tag1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
-<script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($de); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
-            <script type="text/javascript">
-                function checkvalue() {
-                    //alert("hi");
-                    var searchkeyword = $.trim(document.getElementById('tags').value);
-                    var searchplace = $.trim(document.getElementById('searchplace').value);
-                    // alert(searchkeyword);
-                    // alert(searchplace);
-                    if (searchkeyword == "" && searchplace == "") {
-                        //alert('Please enter Keyword');
-                        return false;
-                    }
+function removecontactuser(clicked_id) {
+    var showdata = window.location.href.split("/").pop();
+    $.ajax({
+        type: 'POST',
+        url: base_url + "business_profile/removecontactuser",
+        dataType: 'json',
+        data: 'contact_id=' + clicked_id + '&showdata=' + showdata,
+        success: function (data) {
+            $('#' + 'statuschange' + clicked_id).html(data.contactdata);
+            if (data.notfound == 1) {
+                if (data.notcount == 0) {
+                    $('.' + 'contact-frnd-post').html(data.nomsg);
+                } else {
+                    $('#' + 'removecontact' + clicked_id).fadeOut(4000);
                 }
-            </script>
-
-          <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
-  <!-- end of business search auto fill -->
-
-            <script>
-                function updateprofilepopup(id) {
-                    $('#bidmodal-2').modal('show');
-                }
-            </script>
-            <script>
+            }
+        }
+    });
+}
 
-                //select2 autocomplete start for Location
-                $('#searchplace').select2({
-
-                    placeholder: 'Find Your Location',
-                    maximumSelectionLength: 1,
-                    ajax: {
-
-                        url: "<?php echo base_url(); ?>business_profile/location",
-                        dataType: 'json',
-                        delay: 250,
+function contact_person_cancle(clicked_id, status) {
+    if (status == 'confirm') {
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='removecontactuser(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    } else if (status == 'pending') {
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person_menu(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+    }
+}
 
-                        processResults: function (data) {
+$(document).on('keydown', function (e) {
+    if (e.keyCode === 27) {
+        //$( "#bidmodal" ).hide();
+        $('#query').modal('hide');
+        //$('.modal-post').show();
+    }
+});
 
-                            return {
 
-                                results: data
 
 
-                            };
+function contact_person_query(clicked_id, status) {
 
-                        },
-                        cache: true
-                    }
-                });
-                //select2 autocomplete End for Location
 
-            </script>
+    $.ajax({
+        type: 'POST',
+        //url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
+        url: base_url + "business_profile/contact_person_query",
 
-            <!-- cover image start -->
-            <script>
-                function myFunction() {
-                    document.getElementById("upload-demo").style.visibility = "hidden";
-                    document.getElementById("upload-demo-i").style.visibility = "hidden";
-                    document.getElementById('message1').style.display = "block";
+        data: 'toid=' + clicked_id + '&status=' + status,
+        success: function (data) { //alert(data);
+            // return data;
+            contact_person_model(clicked_id, status, data);
+        }
+    });
+}
 
 
 
-                }
 
 
-                function showDiv() {
-                    document.getElementById('row1').style.display = "block";
-                    document.getElementById('row2').style.display = "none";
-                }
-            </script>
 
 
+function contact_person_model(clicked_id, status, data) {
 
-            <script type="text/javascript">
-                $uploadCrop = $('#upload-demo').croppie({
-                    enableExif: true,
-                    viewport: {
-                        width: 1250,
-                        height: 350,
-                        type: 'square'
-                    },
-                    boundary: {
-                        width: 1250,
-                        height: 350
-                    }
-                });
+    if (data == 1) {
 
+        if (status == 'pending') {
 
+            $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
 
-                $('.upload-result').on('click', function (ev) {
-                    $uploadCrop.croppie('result', {
-                        type: 'canvas',
-                        size: 'viewport'
-                    }).then(function (resp) {
+        } else if (status == 'confirm') {
 
-                        $.ajax({
-                            url: "<?php echo base_url() ?>business_profile/ajaxpro",
-                            type: "POST",
-                            data: {"image": resp},
-                            success: function (data) {
-                                html = '<img src="' + resp + '" />';
-                                if (html)
-                                {
-                                    window.location.reload();
-                                }
-                            }
-                        });
+            $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+            $('#bidmodal').modal('show');
 
-                    });
-                });
-                $('.cancel-result').on('click', function (ev) {
-                    document.getElementById('row2').style.display = "block";
-                    document.getElementById('row1').style.display = "none";
-                    document.getElementById('message1').style.display = "none";
-                });
-                //aarati code start
-                $('#upload').on('change', function () {
+        } else {
+            contact_person(clicked_id);
+        }
 
+    } else {
 
+        $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
+        $('#query').modal('show');
 
-                    var reader = new FileReader();
+    }
 
-                    reader.onload = function (e) {
-                        $uploadCrop.croppie('bind', {
-                            url: e.target.result
-                        }).then(function () {
-                            console.log('jQuery bind complete');
-                        });
 
-                    }
-                    reader.readAsDataURL(this.files[0]);
 
+}
 
 
-                });
 
-                $('#upload').on('change', function () {
 
-                    var fd = new FormData();
-                    fd.append("image", $("#upload")[0].files[0]);
+function contact_person(clicked_id) {
 
-                    files = this.files;
-                    size = files[0].size;
+    $.ajax({
+        type: 'POST',
+        //url: '<?php echo base_url() . "business_profile/contact_person" ?>',
+        url: base_url + "business_profile/contact_person",
 
+        data: 'toid=' + clicked_id,
+        success: function (data) {
+            //   alert(data);
+            $('#contact_per').html(data);
 
-                    // pallavi code start for file type support
-                    if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)) {
-                        //alert('not an image');
-                        picpopup();
+        }
+    });
+}
 
-                        document.getElementById('row1').style.display = "none";
-                        document.getElementById('row2').style.display = "block";
-                        return false;
-                    }
-                    // file type code end
 
-                    if (size > 4194304)
-                    {
-                        //show an alert to the user
-                        alert("Allowed file size exceeded. (Max. 4 MB)")
-
-                        document.getElementById('row1').style.display = "none";
-                        document.getElementById('row2').style.display = "block";
-
-
-                        //reset file upload control
-                        return false;
-                    }
-
-                    $.ajax({
-
-                        url: "<?php echo base_url(); ?>business_profile/imagedata",
-                        type: "POST",
-                        data: fd,
-                        processData: false,
-                        contentType: false,
-                        success: function (response) {
-
-
-                        }
-                    });
-                });
-
-                //aarati code end
-            </script>
-            <!-- cover image end -->
-
-            <!-- follow user script start -->
-
-            <script type="text/javascript">
-                function followuser_two(clicked_id)
-                {
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/follow_two" ?>',
-                        data: 'follow_to=' + clicked_id,
-                        success: function (data) {
-
-                            $('.' + 'fr' + clicked_id).html(data);
-
-                        }
-                    });
-                }
-            </script>
-
-            <!--follow like script end -->
-
-            <!-- Unfollow user script start -->
-
-            <script type="text/javascript">
-                function unfollowuser_two(clicked_id)
-                {
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/unfollow_two" ?>',
-                        data: 'follow_to=' + clicked_id,
-                        success: function (data) {
-
-                            $('.' + 'fr' + clicked_id).html(data);
-
-                        }
-                    });
-                }
-            </script>
-
-            <!--follow like script end -->
-
-            <!-- script for profile pic strat -->
-            <script type="text/javascript">
-
-
-                function readURL(input) {
-                    if (input.files && input.files[0]) {
-                        var reader = new FileReader();
-
-                        reader.onload = function (e) {
-
-                            document.getElementById('preview').style.display = 'block';
-                            $('#preview').attr('src', e.target.result);
-                        }
-
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                }
-
-                $("#profilepic").change(function () {
-                    profile = this.files;
-                    //alert(profile);
-                    if (!profile[0].name.match(/.(jpg|jpeg|png|gif)$/i)) {
-                        //alert('not an image');
-                        $('#profilepic').val('');
-                        picpopup();
-                        return false;
-                    } else {
-                        readURL(this);
-                    }
-                });
-            </script>
-
-            <!-- script for profile pic end -->
-
-            <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-            <script type="text/javascript">
-
-                //validation for edit email formate form
-
-                $(document).ready(function () {
-
-                    $("#userimage").validate({
-
-                        rules: {
-
-                            profilepic: {
-
-                                required: true,
-
-                            },
-
-                        },
-
-                        messages: {
-
-                            profilepic: {
-
-                                required: "Photo Required",
-
-                            },
-
-                        },
-
-                    });
-                });
-            </script>
-            <script>
-                function picpopup() {
-
-
-                    $('.biderror .mes').html("<div class='pop_content'>This is not valid file. Please Uplode valid Image File.");
-                    $('#bidmodal').modal('show');
-                }
-            </script>
-
-            <script type="text/javascript">
-
-
-
-                $(document).on('keydown', function (e) {
-                    if (e.keyCode === 27) {
-                        //$( "#bidmodal" ).hide();
-                        $('#bidmodal-2').modal('hide');
-                    }
-                });
-
-            </script>  
-
-
-            <!-- scroll page script start -->
-            <script type="text/javascript">
-                //For Scroll page at perticular position js Start
-                $(document).ready(function () {
-
-                    //  $(document).load().scrollTop(1000);
-
-                    $('html,body').animate({scrollTop: 330}, 100);
-
-                });
-                //For Scroll page at perticular position js End
-            </script>
-
-            <!-- scroll page script end -->
-
-
-            <!-- contact person script start -->
-            
-
-
-            <script type="text/javascript">
-
-
-                function contact_person_menu(clicked_id) {
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/contact_person_menu" ?>',
-                        data: 'toid=' + clicked_id,
-                        success: function (data) {
-                            $('#' + 'statuschange' + clicked_id).html(data);
-
-                        }
-                    });
-
-                }
-            </script>
-
-            <!-- contact person script end -->
-
-            <script type="text/javascript">
-
-                function removecontactuser(clicked_id) {
-
-                    //var showdata = window.location.pathname;
-                    var showdata = window.location.href.split("/").pop();
-                    ;
-
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo base_url() . "business_profile/removecontactuser" ?>',
-                        dataType: 'json',
-                        data: 'contact_id=' + clicked_id + '&showdata=' + showdata,
-                        success: function (data) {
-                            $('#' + 'statuschange' + clicked_id).html(data.contactdata);
-
-
-                            if (data.notfound == 1) {
-
-                                if (data.notcount == 0) {
-
-                                    $('.' + 'contact-frnd-post').html(data.nomsg);
-
-                                } else {
-                                    $('#' + 'removecontact' + clicked_id).fadeOut(4000);
-                                }
-                            }
-
-
-                        }
-                    });
-
-                }
-            </script>
-
-
-            <script type="text/javascript">
-
-
-                function contact_person_cancle(clicked_id, status) {
-
-                    if (status == 'confirm') {
-                        $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='removecontactuser(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                        $('#bidmodal').modal('show');
-                    } else if (status == 'pending') {
-
-                        $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person_menu(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                        $('#bidmodal').modal('show');
-                    }
-                }
-
-                </script>
-
-                <script type="text/javascript">
-                    
-  function contact_person_query(clicked_id, status) { 
-
-   
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
-                            data: 'toid=' + clicked_id + '&status=' + status,
-                            success: function (data) { //alert(data);
-                              // return data;
-                               contact_person_model(clicked_id, status, data);
-                            }
-                        });
-                    }
-
-                    
-</script>
-
-                <script type="text/javascript">
-
-
-                    function contact_person_model(clicked_id, status, data) {
-
-                        if(data == 1){
-
-                            if (status == 'pending') {
-
-                            $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
-
-                        } else if (status == 'confirm') {
-
-                            $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
-
-                        }else{ 
-                           contact_person(clicked_id); 
-                        }
-
-                }else{
-
-                      $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
-                      $('#query').modal('show');
-                            
-                }
-                        
-                       
-
-                    }
-                </script>
-
-
-<script type="text/javascript">
-                    function contact_person(clicked_id) {
-                        
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
-                            data: 'toid=' + clicked_id,
-                            success: function (data) {
-                                //   alert(data);
-                                $('#contact_per').html(data);
-
-                            }
-                        });
-                    }
-</script>
-
-<script type="text/javascript">
-    
-     $(document).on('keydown', function (e) {
-                if (e.keyCode === 27) {
-                //$( "#bidmodal" ).hide();
-                $('#query').modal('hide');
-                //$('.modal-post').show();
-                }
-                });
-</script>
-
-
-
-
+        </script>
+    </body>
+</html>

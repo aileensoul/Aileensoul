@@ -1670,7 +1670,7 @@
                         if (count($finalsorting) > 0) {
                             if (count($count) == count($finalsorting)) {
                                 ?>
-                                <div class="art_no_post_avl">
+                                <div class="art_no_post_avl" id="no_post_avl_two">
                                     <h3>Artistic Post</h3>
                                     <div class="art-img-nn">
                                         <div class="art_no_post_img">
@@ -1688,7 +1688,7 @@
                         } else {
                             ?>
 
-                            <div class="art_no_post_avl">
+                            <div class="art_no_post_avl" id="no_post_avl_two">
                                 <h3>Artistic Post</h3>
                                 <div class="art-img-nn">
                                     <div class="art_no_post_img">
@@ -4087,6 +4087,9 @@
                                 var percentVal = '100%';
                                 bar.width(percentVal)
                                         percent.html(percentVal);
+                                        //document.getElementById("no_post_avl").style.display = "none";
+                                        document.getElementById("no_post_avl_two").style.display = "none";
+
                                 },
                                 complete: function (response) {
                                 // Output AJAX response to the div container
