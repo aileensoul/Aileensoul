@@ -376,14 +376,15 @@ if ($returnpage == 'job') {
 
 
                                 foreach ($aud_res as $skill) {
-                             if ($k != 0) {
-                                echo $comma;
-                            }
+                            
                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
-
-                            echo $cache_time;
-                                $k++;
+                            if($cache_time != " "){
+                                if ($k != 0) {
+                                echo $comma;
+                                 
+                            }echo $cache_time;
+                             $k++;  }
                             }
 
 
@@ -688,14 +689,16 @@ if ($returnpage == 'job') {
 
 
                                 foreach ($aud_res as $skill) {
-                             if ($k != 0) {
-                                echo $comma;
-                            }
+                             
                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
+                              if($cache_time != " "){
+                                if ($k != 0) {
+                                echo $comma;
+                                 
+                            }echo $cache_time;
+                             $k++;  }
 
-
-                            echo $cache_time;
-                                $k++;
+                               
                             }
 
 
