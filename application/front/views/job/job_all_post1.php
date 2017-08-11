@@ -303,15 +303,8 @@
               <?php 
 
               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
-              
-                                             if($cache_time){
-                                             echo  $cache_time;
-                                             }else{
-                                              echo $post['post_name'];
-                                             }
-                                           
-                                               ?>
-              </a>   </li>
+              echo  $cache_time; 
+             // echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
                                                       <li>   
 
