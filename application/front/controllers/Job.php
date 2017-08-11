@@ -2101,7 +2101,24 @@ class Job extends MY_Controller {
   //   echo '<pre>';     print_r($post); die();
         $contition_array = array('status' => 'publish','title_id' => $post[0]['work_job_title']);
         $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-    
+
+
+           //Job title data fetch start
+        $contition_array = array('status' => 'publish');
+        $jobtitle= $this->common->select_data_by_condition('job_title', $contition_array, $data = 'name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        
+        foreach ($jobtitle as $key1 => $value1) {
+              foreach ($value1 as $ke1 => $val1) {
+                 $title[] = $val1;
+              }
+          }
+        foreach ($title as $key => $value) {
+            $result1[$key]['label'] = $value;
+            $result1[$key]['value'] = $value;
+        }
+      $this->data['jobtitle'] = array_values($result1);
+          //Job title data fetch ENd
+
         $this->data['work_title'] = $jobtitle[0]['name'];
        $this->data['work_industry'] = $post[0]['work_job_industry'];
    //   echo $post[0]['keyskill'];

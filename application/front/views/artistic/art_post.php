@@ -1032,10 +1032,10 @@
                                                                             $a = strlen($counter);
                                                                             ?>
 
-                                                                            <input size=1 id="text_num" class="text_num" tabindex="-500" value="<?php echo (50 - $a); ?>" name=text_num readonly>
+                                                                            <input size=1 id="text_num_<?php echo $row['art_post_id'] ?>" class="text_num" tabindex="-500" value="<?php echo (50 - $a); ?>" name=text_num readonly>
 
                                                                         <?php } else { ?>
-                                                                            <input size=1 id="text_num" class="text_num" tabindex="-501" value=50 name=text_num readonly> 
+                                                                            <input size=1 id="text_num_<?php echo $row['art_post_id'] ?>" class="text_num" tabindex="-501" value=50 name=text_num readonly> 
 
                                                                         <?php } ?>
 
@@ -3663,7 +3663,7 @@
                         $('#editpostname' + abc).val(substrval);
                         } else {
                         text_num = maxLen - product_name.length;
-                        document.getElementById("text_num").value = text_num;
+                        document.getElementById("text_num_" + abc).value = text_num;
                         }
                         }
 

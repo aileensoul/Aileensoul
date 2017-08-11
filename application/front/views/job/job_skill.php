@@ -279,6 +279,8 @@ if ($this->session->flashdata('success')) {
 .common-form .edit_other_skill1{width: 93% !important;margin-top: 6px;}
 </style>
 
+<!-- <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ -->
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
@@ -290,7 +292,7 @@ if ($this->session->flashdata('success')) {
 <script>
     // job title script start
    var jobdata = <?php echo json_encode($jobtitle); ?>;
-   
+  // alert(jobdata);
    $(function () {
     
        $("#job_title").autocomplete({

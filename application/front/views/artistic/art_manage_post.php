@@ -4098,10 +4098,10 @@ if (size > 10485760)
                             $('.' + 'nofoundpost').html(data.notfound);
                             $('.' + 'not_available').remove();
                             $('.' + 'image_profile').remove();
-                            $('.' + 'dataconpdf').html(data.notpdf);
-                            $('.' + 'dataconvideo').html(data.notvideo);
-                            $('.' + 'dataconaudio').html(data.notaudio);
-                            $('.' + 'dataconphoto').html(data.notphoto);
+                           // $('.' + 'dataconpdf').html(data.notpdf);
+                           // $('.' + 'dataconvideo').html(data.notvideo);
+                            //$('.' + 'dataconaudio').html(data.notaudio);
+                            //$('.' + 'dataconphoto').html(data.notphoto);
 
 
                             // $('#autorefresh').delay(10000).load('<?php //echo base_url() //. "artistic/art_manage_post" ?>');
