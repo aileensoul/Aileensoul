@@ -1,3 +1,4 @@
+
 <!-- start head -->
 <?php echo $head; ?>
 
@@ -257,7 +258,7 @@
                                   }
                                   else
                                   {
-                                     echo '"' .  $keyword . '"'; echo  " and "; echo '"' .  $keyword1 . '"';
+                                     echo '"' .  $keyword . '"'; echo  " in "; echo '"' .  $keyword1 . '"';
                                   }
               ?>
                             </h3>

@@ -426,10 +426,18 @@
             type: "POST",
             data: 'toid=' + toid + '&status=' + status,
             dataType: "json",
-            success: function (data) { //alert(data.acceptcount);
-
+            success: function (data) { //alert(data.contactcount);
+            
                 $('.notification_data_in_con').html(data.contactdata);
-                $('.acceptcount').html(data.acceptcount);
+                $('.acceptcount').html(data.contactcount);
+                
+                var segment = '<?php echo $this->uri->segment(2); ?>';
+                if(segment == 'bus_contact'){
+                    var slug = '<?php echo $slug_id; ?>';
+                    $('.art-img-nn').hide();
+                    business_contacts_header(slug);
+                }
+                
 
 
             }

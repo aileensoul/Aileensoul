@@ -1947,7 +1947,7 @@ class Chat extends MY_Controller {
                                                                 }
                     $usrsrch .= '<br></a>';
                     $usrsrch .= '</div><div class="status" style=" width: 145px;
-    color: #003;    max-height: 25px;
+    color: #003;    max-height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2429,7 +2429,7 @@ class Chat extends MY_Controller {
                                                                 } 
                             
                      $usrsrch .= '<br></a> </div>';
-                    $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 25px;
+                    $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;    max-height: 20px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -2509,7 +2509,7 @@ class Chat extends MY_Controller {
                     $usrsrch .= '<div class="name">';
                $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $lstusrdata[0]['user_id'] . '">';
                //     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $lstusrdata[0]['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">' . $lstusrdata[0]['first_name'] . ' ' . $lstusrdata[0]['last_name'] . '<br></a> </div>';
-                    $usrsrch .= '<div class="status' . $lstusrdata[0]['user_id'] . '" style=" width: 145px;    max-height: 25px;
+                    $usrsrch .= '<div class="status' . $lstusrdata[0]['user_id'] . '" style=" width: 145px;    max-height: 20px;
     color: #003;
     white-space: nowrap;
     overflow: hidden;
@@ -2577,7 +2577,7 @@ class Chat extends MY_Controller {
                         $usrsrch .= '<div class="name">';
                         $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';
                         $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;
-    color: #003;    max-height: 25px;
+    color: #003;    max-height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -3646,7 +3646,7 @@ class Chat extends MY_Controller {
                         $usrsrch .= '<div class="name">';
                         $usrsrch .= '' . $user['first_name'] . ' ' . $user['last_name'] . '<br></div>';
                         $usrsrch .= '<div class="status' . $user['user_id'] . '" style=" width: 145px;
-    color: #003;    max-height: 25px;
+    color: #003;    max-height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

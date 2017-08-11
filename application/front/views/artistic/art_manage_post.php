@@ -1790,11 +1790,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                                       ?>
                                      </div>
                                      <div class="comment-name">
-                                     <b><?php
+
+
+                                     <b><a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>"><?php
                                             echo ucfirst(strtolower($artname));
                                              echo "&nbsp;";
                                               echo ucfirst(strtolower($artlastname));
-                                              ?></b><?php echo '</br>'; ?>
+                                              ?></a></b><?php echo '</br>'; ?>
                                     </div>
 
                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['artistic_post_comment_id']; ?>">
@@ -5154,6 +5156,7 @@ if(data == 0){
             var percentVal = '100%';
             bar.width(percentVal)
                     percent.html(percentVal);
+                    document.getElementById("no_post_avl").style.display = "none";
             },
             complete: function (response) {
             // Output AJAX response to the div container
