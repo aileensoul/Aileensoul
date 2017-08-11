@@ -120,7 +120,7 @@
                                 <div class="chat-num-messages"> Current Work</div>
                             </div>
                         </div>
-                        <div class="chat-history">
+                        <div class="chat-history  mCustomScrollbar light">
                             <ul  id="received" class="padding_less_right">
 
                             </ul>
@@ -192,8 +192,8 @@
                                 </div>
                                 <div class="chat-num-messages"></div>
                             </div>
-                        </div>
-                        <div class="chat-history">
+                        </div> 
+                        <div class="chat-history content mCustomScrollbar light" >
                             <ul  id="received" class="padding_less_right">
                             </ul>
                         </div>

@@ -394,7 +394,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
                 <div class="container pt20">
                     <div class="row">
 
-                        <div class="col-md-6 col-sm-8 pull-right col-xs-12">
+                        <div class="col-md-6 ft col-sm-8 pull-right col-xs-12">
                             <ul>
                                 <li><a href="<?php echo base_url('about_us'); ?>">About Us</a>|</li>
                                 <li><a href="<?php echo base_url('contact_us'); ?>">Contact Us</a>|</li>
@@ -402,9 +402,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog_
                                 <li><a href="<?php echo base_url('feedback'); ?>">Send Us Feedback</a></li>
                             </ul>
                         </div>
-                        <div class="col-md-6 col-sm-4 col-xs-12">
-                          <span style="font-weight: normal;">  © 2017 | by Aileensoul</span>
-                        </div>
+                        <div class="col-md-6 col-sm-4 col-xs-12" style="font-weight: normal;"> © 2017 | by Aileensoul </div>
                     </div>
                 </div>
             </footer>
