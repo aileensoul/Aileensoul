@@ -342,6 +342,7 @@ $( "#searchplace1" ).autocomplete({
 
                     number: true,
                     regx1:/^.{0,8}$/
+                      
 
                 },
 
