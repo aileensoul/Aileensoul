@@ -218,12 +218,12 @@ if ($this->session->flashdata('success')) {
 
 
                    <fieldset class="full-width">
-                                    <label >Job Title :</label>
+                                    <label >Job Title<font  color="red">*</font>:</label>
                                      <input type="search" tabindex="1" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
-    <label for="skills"> Skills: </label>
+    <label for="skills"> Skills<font  color="red">*</font>: </label>
     <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90" tabindex="2">
   </fieldset>
 
@@ -240,7 +240,7 @@ if ($this->session->flashdata('success')) {
 
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
-    <label for="cities">Preferred Cites: </label>
+    <label for="cities">Preffered loation for job<font  color="red">*</font>: </label>
     <!--<input id="cities2"  value="<?php// echo $work_city.','; ?>" name="cities" id="cities" size="90">-->
     <input id="cities2"  value="<?php echo $work_city; ?>" name="cities"  size="90" tabindex="4">
   </fieldset>
@@ -369,7 +369,7 @@ if ($this->session->flashdata('success')) {
 
                 industry: {
 
-                    required: "First name Is Required.",
+                    required: "Industry Is Required.",
 
                 },
 

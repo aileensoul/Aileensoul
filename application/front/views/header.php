@@ -1254,7 +1254,7 @@ $(window).load(function(){
 <script>
     jQuery(document).ready(function ($) {
         if (screen.width <= 767) {
-
+		
             $("ul.left-form-each").on("click", ".init", function () {
                 $(this).closest("ul").children('li:not(.init)').toggle();
             });
