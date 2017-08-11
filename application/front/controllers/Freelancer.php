@@ -2048,6 +2048,7 @@ class Freelancer extends MY_Controller {
         }
         $final_candidate = array_unique($final_candidate, SORT_REGULAR);
         $this->data['candidatefreelancer'] = $final_candidate;
+      //  echo count($this->data['candidatefreelancer']);die();
 
         //  echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
         //echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
