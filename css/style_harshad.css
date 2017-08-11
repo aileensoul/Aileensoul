@@ -482,6 +482,8 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 #notificationContainer{overflow: hidden; border-radius: 3px;}
 
 
+
+
 @media screen and (min-width: 768px) {
 	.mob-progressbar.temp{display:none !important;}
 }
@@ -526,7 +528,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.experience_year{margin-right:33px;}
 	header .header{/*padding-top:5px;*/}
 	.header ul li a{padding-top:11px !important;}
-	#notificationLink span{top:7px !important;}
+	#notificationLink span{top:10px !important;}
 	.backdiv-mob{display:block;}
 	#onload-Modal{/*display:none !important;*/}
 	.job-menu-profile{margin-top:0;}
@@ -535,11 +537,26 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	.post-img-user{font-size: 20px; height: 67px; line-height: 1; padding: 24px 0; width: 69px;}
 }
 @media screen and (max-width: 479px) {
+  .floatBarsG{width: 20px; height: 20px;}
+  #floatBarsG {
+    position: absolute;
+    width: 19%;
+    height: 28px;
+    margin-left: -117px;
+    left: 68%;
+    margin-top: -7%;
+    transform: scale(0.3);
+}
 	.experience_year{width:100%; margin-right:0; margin-bottom:15px;}
 	.experience_month{width:100%;}
 	#notificationLink span{margin-left:6px;}
 }
 @media screen and (max-width: 360px) {
+
 	.designation_rec_1{width: 75%;}
 	.bg-search .header2{margin-top:-7px;}
+}
+
+@media screen and (max-width: 320px){
+  .main-txt{width: 82%;}
 }
