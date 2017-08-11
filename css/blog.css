@@ -180,7 +180,7 @@ float: left;}
 font-family: robotoregular;}
 
 
-.blog_header{padding-top: 80px;}
+.blog_header{padding-top: 62px;}
 .post_latest_right{width: 70%; float: left; padding-left: 10px; height:67px; overflow:hidden;}
 .tag_name .span_tag a{color:#787878;}
 .tag_name:hover .span_tag a{color:#fff;}
@@ -353,6 +353,9 @@ float: left;}
 
 }
 @media screen and (max-width: 767px) {
+			.blog_header {
+    padding-top: 102px;
+}
 	.fifth_part_py h4{font-size: 13px;}
 	.test_py ol {
     list-style-type: disc;
@@ -371,14 +374,12 @@ float: left;}
 .second_paret_ts ol li h4{ font-size: 15px;	  }
 	.term_desc{width: 80% !important;}
 .comment_box{margin-bottom: 80px;}
-.blog header h2.logo a{font-size: 24px;}
-	.blog_header {
-    padding-top: 102px;
-}
-.btn-right{padding-top: 4px !important; padding-right: 0px!important}
+.blog header h2.logo a{font-size: 32px;}
+
+.btn-right{padding-top: 0px !important; padding-right: 0px!important}
 	.term_desc{padding: 20px 0px 80px !important;}
 	.main-inner .middle-main{padding: 10px 0}
-	.date_blog_left{position: absolute; width: 80px; top: 10px; left: 25px;}
+	.date_blog_left{position: absolute; width: 90px; top: 10px; left: 25px;}
 	.social_icon_bloag li a{padding:4px; }
 	.date_blog_right{width: 100%;}
 	.common-form1 h3{margin:20px 0;}
@@ -393,6 +394,7 @@ float: left;}
 */	.blog .main-inner header{padding: 5px 0px;}
  }
 @media screen and (max-width: 540px) {
+
 	.main-comtai h1 {
     padding: 47px 0px 0px !important;
     font-size: 20px;
