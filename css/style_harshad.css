@@ -498,6 +498,18 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
     min-height: 39px !important;
 }
 
+
+ 
+.all, .all-h, .header-icon-notification, .header-icon-notification-h
+{ display: inline-block; background: url(../img/index.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+ 
+.header ul li a .all:hover{ background-position: -0px -0px; width: 32px; height: 32px; }
+ .all { background-position: -32px -0px; width: 32px; height: 32px; }
+.header ul li a .header-icon-notification:hover{ background-position: -0px -32px; width: 32px; height: 32px; }
+.header-icon-notification{ background-position: -32px -32px; width: 32px; height: 32px; }
+
+
 .clonedInput h6{padding: 5px 0px;}
 .comment-edit-butn button{padding: 8px 10px;}
 #notificationContainer{overflow: hidden; border-radius: 3px;}

@@ -570,7 +570,7 @@ $(window).load(function(){
         <?php } else { ?>
 
                                             <li id="a_li">
-                                                <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"><span class="img-all"></span>
+                                                <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"><span class="all"></span>
                                                 </a>
 
                                                 <div id="acon">
@@ -676,7 +676,7 @@ $(window).load(function(){
                                                 </div>
                                         </li>-->
                                      <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
 
                                         <span id="notification_count"></span>
 
@@ -936,7 +936,7 @@ $(window).load(function(){
         <?php } else { ?>
 
                                         <li id="a_li">
-                                            <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"> <span class="img-all"></span>
+                                            <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"> <span class="all"></span>
                                             </a>
 
                                             <div id="acon">
@@ -1043,7 +1043,7 @@ $(window).load(function(){
                                     </li> -->
 
                                      <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
 
                                         <span id="notification_count"></span>
 
