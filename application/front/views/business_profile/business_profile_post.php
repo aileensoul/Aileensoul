@@ -932,7 +932,7 @@
                                                         </div>-->
 
                             <div class="bs-example">
-                                <div class="progress progress-striped" id="progress_div">
+                                <div class="progress " id="progress_div">
                                     <div class="progress-bar" style="width: 0%;">
                                         <span class="sr-only">0%</span>
                                     </div>
