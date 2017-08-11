@@ -11108,11 +11108,111 @@ $contition_array = array('contact_type' => 2, 'status' => 'confirm');
 
 $search_condition = "(contact_from_id = '$userid' OR contact_to_id = '$userid')";
 
-$contactpersonc = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+$contactpersonc = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
 $countdata = count($contactpersonc);
 
     $contactpersonc = $countdata;
+
+
+
+$contition_array = array('user_id' => $contactpersonc[0]['contact_from_id'], 'is_delete' => '0');
+
+$uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        
+
+$cdata = $this->common->select_data_by_id('business_profile', 'user_id', $contactpersonc[0]['contact_from_id'], $data = '*', $join_str = array());
+
+$contition_array = array('contact_to_id' => $login, 'contact_from_id' => $contactpersonc[0]['contact_from_id'], 'contact_type' => 2);
+
+$clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                      
+
+
+   $contactdataview = ' <div class="job-contact-frnd">
+
+                                <div class="profile-job-post-detail clearfix" id="'."removecontact" . $cdata[0]['user_id'].'"><div class="profile-job-post-title-inside clearfix">
+                                                <div class="profile-job-post-location-name">
+                                                    <div class="user_lst"><ul>
+
+                                                            <li class="fl">
+                                                                <div class="follow-img">';
+
+                                                    if ($cdata[0]['business_user_image'] != '') {
+
+         $contactdataview .= '<a href="'.base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']).'">';
+
+            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image'])) {
+                                                                $a = $cdata[0]['company_name'];
+                                                                $acr = substr($a, 0, 1);
+
+          $contactdataview .= '<div class="post-img-userlist">';
+          $contactdataview .= ucfirst(strtolower($acr));
+          $contactdataview .= '</div>';
+
+            }else{
+
+         $contactdataview .= '<img src="'.echo base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']);.'" height="50px" width="50px" alt="" >';
+            }
+
+        $contactdataview .= '</a>';
+
+       }else {
+
+
+           $contactdataview .= '<a href="'.base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']).'">';
+
+                                          $a = $cdata[0]['company_name'];
+                                          $acr = substr($a, 0, 1);
+               $contactdataview .= '<div class="post-img-userlist">';
+              $contactdataview .= ucfirst(strtolower($acr));
+             $contactdataview .= '</div>';
+
+            $contactdataview .= '</a>';
+       }
+        $contactdataview .= '</div></li>';
+
+        $contactdataview .= '  <li style="width: 67%">
+                                                                
+                                                                    <div class="follow-li-text " style="padding: 0;">';
+
+                          $contactdataview .=  '<a href="'.base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']).'">'.ucfirst(strtolower($cdata[0]['company_name'])).'</a>';
+
+        $contactdataview .= '</div>';
+
+
+         $contactdataview .= '<div>';
+
+                    $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
+
+
+        $contactdataview .= '<a>';
+                                 
+                                     if ($category) {
+
+                                          $contactdataview .= $category;
+                                    } else {
+                                      $contactdataview .= $cdata[0]['other_industrial'];
+                                        }
+        $contactdataview .= '</a></div>';
+
+        $contactdataview .= '</li>';
+
+       $contactdataview .=  '<li class="fr">';
+
+        $contactdataview .= '<div class="user_btn cont_req" id="'."statuschange" . $cdata[0]['user_id'].'">
+                    <button onclick="contact_person_cancle('.$cdata[0]['user_id'].', "confirm")">
+                            In contacts
+                            </button> 
+                             </div>';    
+
+
+       $contactdataview .= '</li>';
+
+   $contactdataview .= '<ul></div></div></div></div></div>';
+
+
+
 
         echo json_encode(
                 array(
