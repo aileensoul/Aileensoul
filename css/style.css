@@ -6919,6 +6919,7 @@ padding: 8px 7px;
     float: left;
     width: 120px;
     padding: 20px;
+    margin: 1px;
 }
 .image_profile img {
   
@@ -15183,7 +15184,7 @@ padding-top: 7px !important;}
     }*/
     #notificationLink span {
         top: 3px;
-        right: 5px;
+        /*right: 5px;*/
     }
     .profile-main-rec-box-menu {
         height: 41px;

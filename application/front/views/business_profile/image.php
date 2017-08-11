@@ -482,3 +482,4 @@ $('#searchplace').select2({
 
 
 <!-- only iamge upload validation end-->
+

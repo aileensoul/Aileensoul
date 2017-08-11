@@ -341,6 +341,15 @@ a:hover{
   -webkit-text-fill-color: transparent;
   
 }
+
+.carousel-fade .carousel-caption h1{/*	font-size: 34px;*/
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	margin-bottom:0;
+	color:#1b8ab9;
+	background: -webkit-linear-gradient(96deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;}
 .carousel-fade .carousel-caption p{
 	font-size:20px;
 	color:#2b2c2c;

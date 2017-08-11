@@ -235,7 +235,7 @@
                                                 if ($board_primary1) {
                                                     echo $board_primary1;
                                                 }
-                                                ?>">
+                                                ?>" maxlength="255">
                                           </fieldset>
                                           <fieldset class="full-width">
                                              <h6>School :<span class="red">*</span></h6>
@@ -243,7 +243,7 @@
                                                 if ($school_primary1) {
                                                     echo $school_primary1;
                                                 }
-                                                ?>">
+                                                ?>" maxlength="255">
                                           </fieldset>
                                           <fieldset class="full-width">
                                              <h6>Percentage :<span class="red">*</span></h6>
@@ -376,7 +376,7 @@
                                              if ($board_secondary1) {
                                                  echo $board_secondary1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>School :<span class="red">*</span></h6>
@@ -384,7 +384,7 @@
                                              if ($school_secondary1) {
                                                  echo $school_secondary1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>Percentage :<span class="red">*</span></h6>
@@ -522,7 +522,7 @@
                                              if ($board_higher_secondary1) {
                                                  echo $board_higher_secondary1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>Stream :<span class="red">*</span></h6>
@@ -530,7 +530,7 @@
                                              if ($stream_higher_secondary1) {
                                                  echo $stream_higher_secondary1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>School :<span class="red">*</span></h6>
@@ -538,7 +538,7 @@
                                              if ($school_higher_secondary1) {
                                                  echo $school_higher_secondary1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>Percentage :<span class="red">*</span></h6>
@@ -781,7 +781,7 @@
                                                 if ($college1) {
                                                  echo $college1;
                                                      }
-                                                     ?>">
+                                                     ?>" maxlength="255">
                                              <?php echo form_error('college'); ?>
                                              <!-- </fieldset>
                                                 <fieldset class="full-width"> -->
@@ -989,7 +989,7 @@
                                              if ($college1) {
                                                  echo $college1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="255">
                                           <?php echo form_error('college'); ?>    
                                           <!--    </fieldset>
                                              <fieldset class=""> -->
@@ -1000,7 +1000,7 @@
                                              if ($grade1) {
                                                  echo $grade1;
                                              }
-                                             ?>">
+                                             ?>" maxlength="3">
                                           <?php echo form_error('grade'); ?>
                                           <!-- </fieldset>
                                              <fieldset class=""> -->
@@ -1009,7 +1009,7 @@
                                              if ($percentage1) {
                                                  echo $percentage1;
                                              }
-                                             ?>" />
+                                             ?>" maxlength="5"/>
                                           <?php echo form_error('percentage'); ?>
                                           <!--    </fieldset>
                                              <fieldset class=""> -->

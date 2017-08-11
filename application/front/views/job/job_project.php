@@ -220,7 +220,7 @@
                                 <fieldset class="full-width">
                                          <label>Project Name (Title):</label>
 
-                                          <input type="text" tabindex="1" autofocus name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>"/>
+                                          <input type="text" tabindex="1" autofocus name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>" maxlength="255"/>
                                         
                                   </fieldset>
 
@@ -234,7 +234,7 @@
                                      <fieldset class="full-width">
                                          <label>Project Description</label>
 
-                                          <textarea name="project_description"  id="project_description" tabindex="3" onpaste="OnPaste_StripFormatting(this, event);" style="resize: none;" placeholder="Enter Project Description"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
+                                          <textarea name="project_description"  id="project_description" tabindex="3" onpaste="OnPaste_StripFormatting(this, event);" style="resize: none;" placeholder="Enter Project Description" maxlength="4000"><?php if($project_description1){ echo $project_description1; } else { echo $job[0]['project_description']; }?></textarea>
                                         
                                   </fieldset>
 
@@ -248,7 +248,7 @@
                              <fieldset class="full-width">
                                          <label>Intern / Trainee as</label>
 
-                                          <input type="text" tabindex="4" name="training_as"  id="training_as" placeholder="Intern / Trainee as" value="<?php if($training_as1){ echo $training_as1; } else { echo $job[0]['training_as']; }?>"/>
+                                          <input type="text" tabindex="4" name="training_as"  id="training_as" placeholder="Intern / Trainee as" value="<?php if($training_as1){ echo $training_as1; } else { echo $job[0]['training_as']; }?>" maxlength="255"/>
                                         
                               </fieldset>
 
@@ -262,7 +262,7 @@
                                    <fieldset class="full-width">
                                          <label>Name of Organization</label>
 
-                                          <input type="text" name="training_organization" tabindex="6"  id="training_organization" placeholder="Enter Name of Organization" value="<?php if($training_organization1){ echo $training_organization1; } else { echo $job[0]['training_organization']; }?>"/>
+                                          <input type="text" name="training_organization" tabindex="6"  id="training_organization" placeholder="Enter Name of Organization" value="<?php if($training_organization1){ echo $training_organization1; } else { echo $job[0]['training_organization']; }?>" maxlength="255"/>
                                         
                                   </fieldset>
 

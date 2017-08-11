@@ -350,7 +350,7 @@
                                     if ($jobtitle1) {
                                         echo $jobtitle1;
                                     }
-                                    ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
+                                    ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                                  <?php echo form_error('jobtitle'); ?>
                                  </span>
                                  <label style="   margin-top: 6px; ">Organization Name:<span class="red">*</span></label>
@@ -358,20 +358,20 @@
                                     if ($companyname1) {
                                         echo $companyname1;
                                     }
-                                    ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
+                                    ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyname-error"> </span> -->
                                  <?php echo form_error('companyname'); ?>
                                  <label style="  margin-top: 6px;  ">Organization Email:</label>
                                  <input type="text" name="companyemail[]" tabindex="4" id="companyemail" class="companyemail" placeholder="Enter Organization Email" value="<?php
                                     if ($companyemail1) {
                                         echo $companyemail1;
                                     }
-                                    ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
+                                    ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; <!-- <span id="companyemail-error"> </span> -->
                                  <label style="  margin-top: 6px;  ">Organization Phone:</label>
                                  <input type="text" name="companyphn[]" id="companyphn" class="companyphn" placeholder="Enter Organization Phone" tabindex="5" value="<?php
                                     if ($companyphn1) {
                                         echo $companyphn1;
                                     }
-                                    ?>"   />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                    ?>"  maxlength="15" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                  <?php echo form_error('companyphn'); ?>
                                  <label style="    margin-top: -14px; display: block;">Experience Certificate:</label>
                                  <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />
@@ -506,7 +506,7 @@
                                  if ($jobtitle1) {
                                      echo $jobtitle1;
                                  }
-                                 ?>"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
+                                 ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; <!-- <span id="jobtitle-error"> </span> -->
                               <?php echo form_error('jobtitle'); ?>
                              </span>
                               <label style=" margin-top: 6px;  ">Organization Name:<span class="red">*</span></label>
@@ -514,14 +514,14 @@
                                  if ($companyname1) {
                                      echo $companyname1;
                                  }
-                                 ?>"/>&nbsp;&nbsp;&nbsp; 
+                                 ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; 
                               <?php echo form_error('companyname'); ?>
                               <label style="   margin-top: 6px; ">Organization Email:</label>
                               <input type="text" name="companyemail[]" id="companyemail" class="companyemail" placeholder="Enter Organization Email" value="<?php
                                  if ($companyemail1) {
                                      echo $companyemail1;
                                  }
-                                 ?>"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
+                                 ?>" maxlength="255"/>&nbsp;&nbsp;&nbsp; <span id="companyemail-error"> </span>
                               <!--   </fieldset>
                                  <fieldset >  -->
                               <label style="  margin-top: 6px; ">Organization Phone:</label>
@@ -529,7 +529,7 @@
                                  if ($companyphn1) {
                                      echo $companyphn1;
                                  }
-                                 ?>"   />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
+                                 ?>"   maxlength="15"/>&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                               <?php echo form_error('companyphn'); ?>
                               <!--  </fieldset>
                                  <fieldset class="full-width"> -->

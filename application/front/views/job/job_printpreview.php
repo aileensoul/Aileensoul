@@ -2437,8 +2437,7 @@ cache: true
 		$('.edit_profile_job').fadeIn('slow').delay(5000);
 		$('.tr_text').fadeIn('slow').delay(500);
 		$('.true_progtree img').fadeIn('slow').delay(500);
-		
-		
+		$('.temp').fadeIn('fast').delay(5000).fadeOut('slow');
 		$('.progress .progress-bar').css("width",
             function() {
                 return $(this).attr("aria-valuenow") + "%";
@@ -2448,13 +2447,15 @@ cache: true
 
     });
     //For Scroll page at perticular position js End
-
+	
 
 </script>
+
 <script type="text/javascript" src="<?php echo base_url('js/progressloader.js'); ?>"></script>
 
 
 <script type="text/javascript">
+	
     /* Examples */
 (function($) {
  
@@ -2467,7 +2468,7 @@ cache: true
    */
   $('.second.circle-1').circleProgress({
     value: <?php echo $count_profile_value;?>
-  }).on('circle-animation-progress', function(event, progress) {
+	}).on('circle-animation-progress', function(event, progress) {
     $(this).find('strong').html(Math.round(<?php echo $count_profile;?> * progress) + '<i>%</i>');
   });
 

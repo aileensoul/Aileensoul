@@ -610,3 +610,15 @@
         });
     });
 </script>
+
+
+<!-- script for cursor pointer start -->
+
+ <script>
+    $(document).ready(function () {
+    var input = $("#companyname");
+    var len = input.val().length;
+    input[0].focus();
+    input[0].setSelectionRange(len, len);
+  });
+</script>
