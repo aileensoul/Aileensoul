@@ -497,6 +497,8 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .post-design-commnet-box .editable_text {
     min-height: 39px !important;
 }
+
+.clonedInput h6{padding: 5px 0px;}
 .comment-edit-butn button{padding: 8px 10px;}
 #notificationContainer{overflow: hidden; border-radius: 3px;}
 .post-design-pro-img_follow{padding: 11px 5px 0px 5px;}

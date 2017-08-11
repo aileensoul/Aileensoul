@@ -3848,11 +3848,11 @@ $(document).ready(function () {
 
 
 <style type="text/css">
-   #stream1-error{margin-right: 0px;}
-   #university1-error{margin-right: 0px;}
-   #university1-error{margin-right: 0px;}
-   #college1-error{margin-right: 0px;}
-   #percentage1-error{margin-right: 0px;}
-   #pass_year1-error{margin-right: 0px;}
+   #stream1-error{margin-right: 34px;}
+   #university1-error{margin-right: 32px;}
+ /*  #university1-error{margin-right: 0px;}*/
+   #college1-error{margin-right:33px;}
+   #percentage1-error{margin-right: 33px;}
+   #pass_year1-error{margin-right: 32px;}
    #degree1-error{margin-right: 34px;}
 </style>
