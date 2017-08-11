@@ -28,6 +28,8 @@ class Job extends MY_Controller {
 
     public function index() {
 
+       $this->job_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('user_id' => $userid, 'status' => '0');
@@ -83,6 +85,9 @@ class Job extends MY_Controller {
     }
 
     public function job_basicinfo_update() {
+
+       $this->job_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
          //if user deactive profile then redirect to job/index untill active profile start
@@ -730,6 +735,9 @@ class Job extends MY_Controller {
     //job seeker address controller end
     //job seeker EDUCATION controller start
     public function job_education_update($postid=" ") {
+
+       $this->job_apply_check(); 
+
         $this->data['postid'] = $postid;
       
         $userid = $this->session->userdata('aileenuser');
@@ -1880,6 +1888,8 @@ class Job extends MY_Controller {
 //job seeker Project And Training / Internship controller start
     public function job_project_update() {
 
+         $this->job_apply_check(); 
+
         $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
@@ -2059,6 +2069,8 @@ class Job extends MY_Controller {
 //job seeker Project And Training / Internship controller end 
 //job seeker skill controller start
     public function job_skill_update() {
+
+       $this->job_apply_check(); 
         $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
@@ -2634,6 +2646,8 @@ class Job extends MY_Controller {
     //job seeker APPLY FOR controller end
 //job seeker WORK EXPERIENCE controller start
     public function job_work_exp_update() {
+
+       $this->job_apply_check(); 
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -3843,6 +3857,12 @@ $files[] = $_FILES;
     //job seeker PRINTDATA controller Start
     public function job_printpreview($id="") {
       
+      if($id == "")
+      {
+         $this->job_apply_check(); 
+      }
+      
+
         $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
@@ -4371,6 +4391,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
     //job seeker SAVE PDF Download controller end
      //job seeker Job All Post Start
     public function job_all_post() {
+
+        $this->job_apply_check(); 
+
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
@@ -4711,6 +4734,8 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
     //job seeker Apply post at all post page & save post page controller Start
     public function job_apply_post() {  //echo $para2; die();
         //echo "falguni"; die();
+       $this->job_apply_check(); 
+
         $id = $_POST['post_id'];
         $para = $_POST['allpost'];
         $notid = $_POST['userid'];
@@ -4818,6 +4843,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
    
 
 public function job_applied_post() {
+
+   $this->job_apply_check(); 
+
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
   //if user deactive profile then redirect to job/index untill active profile start
          $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
@@ -5044,6 +5072,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
     public function job_save() {
 
+
         $id = $_POST['post_id'];
 
 
@@ -5110,7 +5139,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 //job seeker Save post controller End
 //job seeker view all Saved post controller Start
     public function job_save_post() {
-
+       $this->job_apply_check(); 
 
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -6550,6 +6579,26 @@ public function delete_workexp()
     
 //THIS JOB REGISTRATION IS USED FOR FIRST TIME REGISTARTION VIEW END
 
+//THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE START
+ public function job_apply_check() 
+ {
+
+
+        $userid = $this->session->userdata('aileenuser');
+
+         $contition_array = array('user_id' => $userid, 'status' => '1', 'is_delete' => '0');
+         $apply_step  = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+     
+            if ($apply_step[0]['job_step'] == "") 
+            {
+               
+                  redirect('job/job_reg');
+                
+            } 
+            
+    }
+//THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE END
 public function temp(){
 
     $this->load->view('job/temp');
