@@ -601,7 +601,17 @@ $(window).load(function(){
         </script>
 
 
-       
+  
+  <!-- script for cursor pointer -->
+
+<script>
+$(document).ready(function () {
+var input = $("#artportfolio123");
+var len = input.val().length;
+input[0].focus();
+input[0].setSelectionRange(len, len);
+ });
+ </script>     
 
 </body>
 </html>
