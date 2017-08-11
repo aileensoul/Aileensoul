@@ -494,7 +494,10 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .complete_profile .circle-1{height:214px;}
 
 /*zalak 11-8*/
-
+.post-design-commnet-box .editable_text {
+    min-height: 39px !important;
+}
+.comment-edit-butn button{padding: 8px 10px;}
 #notificationContainer{overflow: hidden; border-radius: 3px;}
 .post-design-pro-img_follow{padding: 11px 5px 0px 5px;}
 .progress-bar{background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;}
