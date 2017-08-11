@@ -454,7 +454,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .tr_text{display:none;}
 .true_progtree img{display:none;}
 .edit_profile_progress{float:right;}
-.circle-1{height:175px;}
 .edit_profile_job{bottom:50px;}
 .mob-progressbar{display:none; padding:15px; border:1px solid #d9d9d9; border-radius:4px; margin-bottom:15px; background:#fff;}
 .mob-progressbar .progress { height: 30px; margin-top:5px; background:#e5e5e5; margin-bottom:6px;}
@@ -472,6 +471,13 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3bb0ac', endColorstr='#1b8ab9',GradientType=0 );
 }
 .mob-progressbar .mob-edit-pro{text-align:center;}
+.mob-progressbar .mob-edit-pro .fa{padding-right:5px;}
+.temp .mob-edit-pro a{pointer-events: none; cursor: default;}
+.temp .mob-edit-pro .fa{display:none;}
+@media screen and (min-width: 768px) {
+	.mob-progressbar.temp{display:none !important;}
+}
+.mob-progressbar.temp{display:none;}
 
 @media screen and (max-width: 1280px) {
 	.header2{width: 1140px;}
@@ -480,7 +486,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 @media screen and (max-width: 1200px) {
 	.experience_year{margin-right:34px;}
 	.circle-1 canvas{width:175px;}
-	
+	.circle-1{height:175px;}
 	.right_left_box_design{padding:17px 12px 12px 25px !important;}
 }
 
@@ -514,8 +520,11 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 	#notificationLink span{top:7px !important;}
 	.backdiv-mob{display:block;}
 	#onload-Modal{/*display:none !important;*/}
+	.job-menu-profile{margin-top:0;}
 }
-@media screen and (max-width: 540px) {}
+@media screen and (max-width: 640px) {
+	.post-img-user{font-size: 20px; height: 67px; line-height: 1; padding: 24px 0; width: 69px;}
+}
 @media screen and (max-width: 479px) {
 	.experience_year{width:100%; margin-right:0; margin-bottom:15px;}
 	.experience_month{width:100%;}

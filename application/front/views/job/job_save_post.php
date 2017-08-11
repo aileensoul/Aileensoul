@@ -359,6 +359,34 @@
 
 
     <div class="col-md-7 col-sm-12 mob-clear">
+		<div class="mob-progressbar <?php if($count_profile == 100){?>temp<?php } ?>">
+					<p>Please fill up your entire profile to get better job options and so that recruiter can find you easily.</p>
+					<p class="mob-edit-pro">
+
+            <?php if($count_profile == 100)
+              {
+            ?>
+            <a href="javascript:void(0);"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Successfully Completed</a>      
+            <?php
+              }
+              else
+              {
+             ?>
+
+			<a href="<?php echo base_url('job/job_basicinfo_update')?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile</a>
+
+            <?php
+              }
+            ?>
+					</p>
+					<div class="progress skill-bar ">
+						<div class="progress-bar progress-bar-custom" role="progressbar" aria-valuenow="<?php echo($count_profile);?>" aria-valuemin="0" aria-valuemax="100">
+							<span class="skill"><i class="val"><?php echo(round($count_profile));?>%</i></span>
+						</div>
+					</div>
+					
+					
+		</div>
     <div class="">
         <div class="common-form">
             <div class="job-saved-box">
@@ -1422,9 +1450,15 @@ $(document).ready(function(){
     $('html,body').animate({scrollTop:265}, 100);
 
     $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
+    $('.temp').fadeIn('fast').delay(5000).fadeOut('slow');
 	$('.edit_profile_job').fadeIn('slow').delay(5000);
 	$('.tr_text').fadeIn('slow').delay(500);
 	$('.true_progtree img').fadeIn('slow').delay(500);
+	$('.progress .progress-bar').css("width",
+        function() {
+            return $(this).attr("aria-valuenow") + "%";
+        }
+    )
 
 // Disable progress bar when 100% complete End
 
