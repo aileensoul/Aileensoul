@@ -448,7 +448,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
 .business_data_table .business_data_td1{width:50px;}
 .buisness-menu::before{bottom:58px;}
-#text_num{right:21%;}
+.text_num{right:21%;}
 .edit_profile_progress{/*display:none;*/}
 .edit_profile_job{display:none;}
 .tr_text{display:none;}
@@ -476,6 +476,10 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .temp .mob-edit-pro .fa{display:none;}
 .circle-1{height:175px;}
 .complete_profile .circle-1{height:214px;}
+
+/*zalak 11-8*/
+
+#notificationContainer{overflow: hidden; border-radius: 3px;}
 
 
 @media screen and (min-width: 768px) {
