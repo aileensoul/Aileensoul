@@ -379,7 +379,7 @@ if ($returnpage == 'job') {
                             
                             $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
 
-                            if($cache_time != " "){
+                            if($cache_time != " "){                                                                                                                                                                                                                                              
                                 if ($k != 0) {
                                 echo $comma;
                                  
