@@ -501,7 +501,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 
  
 .all, .all-h, .header-icon-notification, .header-icon-notification-h
-{ display: inline-block; background: url(../img/index.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+{display: inline-block; background: url(../img/index.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left;}
 
  
 .header ul li a .all:hover{ background-position: -0px -0px; width: 32px; height: 32px; }
@@ -509,9 +509,7 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .header ul li a .header-icon-notification:hover{ background-position: -0px -32px; width: 32px; height: 32px; }
 .header-icon-notification{ background-position: -32px -32px; width: 32px; height: 32px; }
 
-.edit_data{margin-top: -4px;
-display: inline-block;
-vertical-align: middle;}
+.edit_data{margin-top: -4px; display: inline-block; vertical-align: middle;}
 
 
 
@@ -522,6 +520,7 @@ vertical-align: middle;}
 .progress-bar{background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;}
 .header2 ul li a{padding:8px 12px;}
 .header2 ul li a#InboxLink{padding:12px 12px 4px;}
+.chat_nobcx .post-img-div{width:50px; height:50px; padding:16px 0;}
 
 
 @media screen and (min-width: 768px) {
