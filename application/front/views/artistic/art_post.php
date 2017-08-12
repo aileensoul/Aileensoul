@@ -4088,6 +4088,9 @@
                                 bar.width(percentVal)
                                         percent.html(percentVal);
 
+                                document.getElementById("no_post_avl_two").style.display = "none";
+                                        
+
                                 },
                                 complete: function (response) {
                                 // Output AJAX response to the div container
@@ -4109,7 +4112,6 @@
                                 }
                                 $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
 
-                                document.getElementById("no_post_avl_two").style.display = "none";
 
                                 }
                         };
