@@ -11750,7 +11750,7 @@ class Business_profile extends MY_Controller {
         } else {
             $return_html .= '<div class="art-img-nn">
                 <div class="art_no_post_img">
-                    <img src="' . base_url('img/bui-no.png') . '">
+                    <img src="' . base_url('img/No_Contact_Request.png') . '">
     </div>
     <div class="art_no_post_text">
         No Contacts Available.
@@ -11771,20 +11771,14 @@ class Business_profile extends MY_Controller {
 
 
         $contition_array = array('contact_type' => 2);
-
         $search_condition = "((contact_to_id = ' $to_id' AND contact_from_id = ' $userid') OR (contact_from_id = ' $to_id' AND contact_to_id = '$userid'))";
-
         $contactperson = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
         $contact_id = $contactperson[0]['contact_id'];
-
         $contition_array = array('user_id' => $userid, 'is_deleted' => 0, 'status' => 1);
-
         $businessdata1 = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
         //echo $businessdata1[0]['business_slug']; die();
-
         $data = array(
             'modify_date' => date('Y-m-d H:i:s'),
             'status' => 'cancel'
