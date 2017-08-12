@@ -260,7 +260,7 @@ $(window).load(function(){
 
     });
 	
-    $(document).ready(function () {
+    $(document).ready(function () { 
         $("body").click(function (event) {
             $("#acon").fadeOut("slow");
             // event.stopPropagation();
@@ -485,7 +485,7 @@ $(window).load(function(){
 
 
         <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                            <li id="a_li"><a class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
+                                            <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
 
                                                 <div id="acon">
                                                     <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
@@ -682,7 +682,7 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
 
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
@@ -852,7 +852,7 @@ $(window).load(function(){
 
 
         <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                        <li id="a_li"><a class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
+                                        <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
 
                                             <div id="acon">
                                                 <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
@@ -1049,7 +1049,7 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
 
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
@@ -1323,7 +1323,7 @@ for (i = 0; i < dropdowns.length; i++) {
         $("#alink").click(function ()
         {
 
-
+         
 //$("#notificationLink").hide();
             $("#acon").fadeToggle(300);
             $("#acont").fadeOut("slow");

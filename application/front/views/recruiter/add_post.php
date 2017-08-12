@@ -418,7 +418,7 @@
 
 
                                    <select name="emp_type" style="cursor:pointer;" class="keyskil" id="emp_type">
-                                        <option value="" selected option disabled>Emplyment Type</option>
+                                        <option value="" selected option disabled>Employment Type</option>
                                         <option value="Part Time">Part Time</option>
                                         <option value="Full Time">Full Time</option>
                                         <option value="Internship">Internship</option>
@@ -1383,10 +1383,9 @@ if(mm<10) {
     }
      if(clicked_id==5)
     { 
-
-        document.getElementById('acon').style.display = 'block';
-       
         
+        document.getElementById('acon').style.display = 'block';
+      
     }
        if(clicked_id==6)
     {
