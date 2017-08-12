@@ -1048,7 +1048,7 @@ var date_picker ='<?php echo date('Y-m-d',strtotime($job[0]['user_dob']));?>';
 var  date_picker_edit='<?php echo date('Y-m-d',strtotime($dob1));?>';
 
 
-if(date_picker_edit != "1970-01-01"){
+if(date_picker_edit != "1970-01-01" && date_picker_edit != "-0001-11-30"){
      $("#datepicker").dateDropdowns({
                     submitFieldName: 'dob',
                     submitFormat: "yyyy-mm-dd",

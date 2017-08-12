@@ -349,7 +349,9 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                     email: true,
                     lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                    remote: {
-                       url: "<?php echo site_url() . 'job/check_email' ?>",
+                       url: "<?php echo base_url() . 'job/check_email' ?>",
+                       //async is used for double click on submit avoid
+                       async:false,
                        type: "post",
                        data: {
                            email: function () {
