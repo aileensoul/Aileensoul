@@ -1262,11 +1262,11 @@ box-shadow: 2px 2px 17px 0.8px rgba(217,217,217,1);}
 .por_content ul li{padding:14px 10px; list-style-type:none; display: -webkit-flex; /* Safari */
     -webkit-align-items: center; /* Safari 7.0+ */
     display: flex;
-    align-items: center; border-bottom:1px solid #f3f3f3; margin:0;}
+    align-items: center; border-bottom:1px solid #f3f3f3; margin:0; width:100%; float:left;}
 .por_content ul li .sub-li li{display:inherit;}
 .por_content ul li:last-child{border-bottom:0;}
 .por_content ul li img{margin-right:5px; float:left; width:55px; height:55px;}
-.por_content ul li .pro-text{font-size:15px; font-weight:bold; width:220px;}
+.por_content ul li .pro-text{font-size:15px; font-weight:bold; width:220px; float:left;}
 .por_content ul li .pro-text .count{width:20px; float:left;}
 .por_content ul li .pro-text .text{float:left; width:90%;}
 .sub-text{padding:0 15px; font-size:12px; color:#000; width:100%; float:left;}

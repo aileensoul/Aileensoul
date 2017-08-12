@@ -146,7 +146,7 @@
                         $acr = substr($a, 0, 1);
                         ?>
                         <div class="post-img-user">
-                        <?php echo ucfirst(strtolower($acr)) ?>
+                            <?php echo ucfirst(strtolower($acr)) ?>
                         </div>
                     <?php } ?>
                     <?php
@@ -154,16 +154,16 @@
                     if ($businessdata1[0]['user_id'] == $userid) {
                         ?>                                                                                                                        <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
-                <?php } ?>
+                    <?php } ?>
                 </div>
 
                 <!-- <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                 <input type="hidden" name="hitext" id="hitext" value="5">
                 <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-<?php echo form_close(); ?>
+                <?php echo form_close(); ?>
         </div> -->
 
             </div>
@@ -211,10 +211,10 @@
 
                         if ($status == 0 || $status == " ") {
                             ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                              </div>
+                                                                                                                                                                                                  </div>
                         <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                              </div>
-    <?php } ?>
+                                                                                                                                                                                                  </div>
+                        <?php } ?>
                                   </div> 
                                   <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
                               </div>
@@ -223,7 +223,7 @@
 
 
                           </div> -->
-<?php } ?>
+                    <?php } ?>
 
 
                     <?php
@@ -248,10 +248,10 @@
                             ?>
 
 
-    <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
+                            <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
                                 <a href="#" onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>);" style="cursor: pointer;">
 
-                                    <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
+                                <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
                                     <a onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
                                     <?php } ?>
 
@@ -276,7 +276,7 @@
                                             </div> 
 
                                         </div>
-    <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
+                                    <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
                                         <div class="cance_req_main_box">   
                                             <div class="add-contact">
                                                 <div></div>
@@ -295,7 +295,7 @@
                                             </div> 
 
                                         </div>
-    <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
+                                    <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
                                         <div class="fw in_mian_chng">   
                                             <div class="in_your_contact">
 
@@ -314,7 +314,7 @@
                                             </div> 
 
                                         </div>
-    <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
+                                    <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
 
                                         <div>   
                                             <div class="add-contact">
@@ -332,7 +332,7 @@
                                             </div> 
 
                                         </div>
-    <?php } else { ?>
+                                    <?php } else { ?>
 
                                         <div>   
                                             <div class="add-contact">
@@ -350,12 +350,12 @@
                                             </div> 
 
                                         </div>
-    <?php } ?>
+                                    <?php } ?>
 
                                 </a>
                         </div>
 
-<?php } ?>
+                    <?php } ?>
                 </div>
                 <!-- PICKUP -->
                 <!-- menubar -->
@@ -372,9 +372,9 @@
                                 ?>     
                                 <ul class="current-user bpro-fw6">
 
-                                    <?php } else { ?>
+                                <?php } else { ?>
                                     <ul class="bpro-fw">
-<?php } ?>
+                                    <?php } ?>
 
 
 
@@ -393,7 +393,7 @@
                                         </li>
 
 
-                                    <?php
+                                        <?php
                                     } else {
 
                                         $userid = $businessdata1[0]['user_id'];
@@ -422,20 +422,20 @@
                                         </li>
 
 
-<?php } ?>
+                                    <?php } ?>
 
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     if ($businessdata1[0]['user_id'] == $userid) {
                                         ?> 
-                                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                                    </li> -->
+                                                                                                                                  <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                                        </li> -->
 
-                                           <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                            </li> -->
+                                               <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                                </li> -->
 
 
-<?php } ?>
+                                    <?php } ?>
 
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
@@ -447,24 +447,24 @@
                                         </li>
 
 
-    <?php
-} else {
+                                        <?php
+                                    } else {
 
-    $businessregid = $businessdata1[0]['business_profile_id'];
-    $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
-    $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $businessregid = $businessdata1[0]['business_profile_id'];
+                                        $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
+                                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-    foreach ($followerotherdata as $followkey) {
+                                        foreach ($followerotherdata as $followkey) {
 
-        $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
-        $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if ($busaval) { //echo "hii"; die();
-            $countdata[] = $busaval;
-        }
-        $count = count($countdata);
-    }
-    ?> 
+                                            $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
+                                            $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                            if ($busaval) { //echo "hii"; die();
+                                                $countdata[] = $busaval;
+                                            }
+                                            $count = count($countdata);
+                                        }
+                                        ?> 
                                         <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($count); ?>)</a>
                                         </li>
 
@@ -474,7 +474,7 @@
                                     $userid = $this->session->userdata('aileenuser');
                                     if ($businessdata1[0]['user_id'] == $userid) {
                                         ?>          
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($businessfollowingdata)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<span class="following_count"><?php echo (count($businessfollowingdata)); ?></span>)</a>
                                         </li>
                                         <?php
                                     } else {
@@ -482,7 +482,7 @@
                                         $contition_array = array('follow_from' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
                                         $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                                         ?>
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<span class="following_count"><?php echo (count($followerotherdata)); ?></span>)</a>
                                         </li>
                                     <?php } ?>
 
@@ -490,32 +490,32 @@
 
 
 
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
 
-                                    if ($businessdata1[0]['user_id'] != $userid) {
-                                        ?>
+                                if ($businessdata1[0]['user_id'] != $userid) {
+                                    ?>
 
                                     <div class="flw_msg_btn fr top_follow">
                                         <ul>
                                             <li>
                                                 <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
 
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
+                                                    <?php
+                                                    $userid = $this->session->userdata('aileenuser');
 
-                                    $contition_array = array('user_id' => $userid, 'status' => '1');
+                                                    $contition_array = array('user_id' => $userid, 'status' => '1');
 
-                                    $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                    $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                    $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
-                                    //echo "<pre>"; print_r($status); die();
+                                                    $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
+                                                    //echo "<pre>"; print_r($status); die();
 
 
-                                    $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
-                                    if ($logslug != $this->uri->segment(3)) {
-                                        if ($status == 0 || $status == " ") {
-                                            ?>
+                                                    $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+                                                    if ($logslug != $this->uri->segment(3)) {
+                                                        if ($status == 0 || $status == " ") {
+                                                            ?>
                                                             <div class="msg_flw_btn_1" id= "followdiv">
                                                                 <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                             </div>
@@ -523,7 +523,7 @@
                                                             <div class="msg_flw_btn_1" id= "unfollowdiv">
                                                                 <button class="bg_following"  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
                                                             </div>
-        <?php } ?>
+                                                        <?php } ?>
                                                     </div>         
 
 
@@ -532,12 +532,12 @@
                                                 <li>
                                                     <a  href="<?php echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
 
-    <?php } ?>
+                                            <?php } ?>
 
                                         </ul>   
                                     </div>
 
-<?php } ?>
+                                <?php } ?>
 
                         </div>
                     </div>
@@ -574,8 +574,8 @@
                         <h3> Following</h3>
                         <div class="contact-frnd-post">
 
-<?php if (count($userlist) > 0) { ?>
-    <?php foreach ($userlist as $user) { ?>
+                            <?php if (count($userlist) > 0) { ?>
+                                <?php foreach ($userlist as $user) { ?>
                                     <div class="job-contact-frnd" id="<?php echo "removefollow" . $user['follow_to']; ?>">
 
                                         <div class="profile-job-post-detail clearfix">
@@ -585,26 +585,26 @@
 
                                                             <li class="fl">
                                                                 <div class="follow-img">
-        <?php $slug = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_slug; ?>
+                                                                    <?php $slug = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_slug; ?>
 
-        <?php $companyname = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->company_name; ?>
+                                                                    <?php $companyname = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->company_name; ?>
 
-        <?php if ($this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_user_image != '') { ?>
+                                                                    <?php if ($this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_user_image != '') { ?>
 
 
 
 
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slug); ?>">
 
-                                                                        <?php
-                                                                        $imgdata = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_user_image;
+                                                                            <?php
+                                                                            $imgdata = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_user_image;
 
-                                                                        if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $imgdata)) {
-                                                                            $a = $companyname;
-                                                                            $acr = substr($a, 0, 1);
-                                                                            ?>
+                                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $imgdata)) {
+                                                                                $a = $companyname;
+                                                                                $acr = substr($a, 0, 1);
+                                                                                ?>
                                                                                 <div class="post-img-userlist">
-                                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
                                                                                 </div> 
                                                                                 <?php
                                                                             } else {
@@ -612,18 +612,18 @@
 
                                                                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to']))->row()->business_user_image); ?>" height="50px" width="50px" alt="" >
 
-                                                                                <?php } ?>
+                                                                            <?php } ?>
                                                                         </a>
-                                                                        <?php } else { ?>
+                                                                    <?php } else { ?>
                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slug); ?>">
                                                                             <?php
                                                                             $a = $companyname;
                                                                             $acr = substr($a, 0, 1);
                                                                             ?>
                                                                             <div class="post-img-userlist">
-                                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                <?php echo ucfirst(strtolower($acr)) ?>
                                                                             </div>
-                                                                    <?php } ?> 
+                                                                        <?php } ?> 
                                                                 </div>
                                                             </li>
                                                             <li class="folle_text">
@@ -638,21 +638,21 @@
                                                                     <!-- category start -->
                                                                     <div>
 
-        <?php
-        $categoryid = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->industriyal;
+                                                                        <?php
+                                                                        $categoryid = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->industriyal;
 
-        $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
-        $othercategory = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->other_industrial;
-        ?>
+                                                                        $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
+                                                                        $othercategory = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_to'], 'status' => 1))->row()->other_industrial;
+                                                                        ?>
 
 
                                                                         <a><?php
-                                                                        if ($category) {
-                                                                            echo $category;
-                                                                        } else {
-                                                                            echo $othercategory;
-                                                                        }
-                                                                        ?></a>
+                                                                            if ($category) {
+                                                                                echo $category;
+                                                                            } else {
+                                                                                echo $othercategory;
+                                                                            }
+                                                                            ?></a>
 
                                                                     </div>
 
@@ -660,25 +660,25 @@
 
 
                                                             </li>
-                                                                            <?php
-                                                                            $userid = $this->session->userdata('aileenuser');
+                                                            <?php
+                                                            $userid = $this->session->userdata('aileenuser');
 
-                                                                            if ($businessdata1[0]['user_id'] == $userid) {
-                                                                                ?>
+                                                            if ($businessdata1[0]['user_id'] == $userid) {
+                                                                ?>
 
                                                                 <li class="fr <?php echo "fruser" . $user['follow_to']; ?>">
 
 
 
-                                                                <?php
-                                                                $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'follow_to' => $user['follow_to']);
+                                                                    <?php
+                                                                    $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'follow_to' => $user['follow_to']);
 
-                                                                $status = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+                                                                    $status = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
 
 
-                                                                if ($status[0]['follow_status'] == 1) {
-                                                                    ?>
+                                                                    if ($status[0]['follow_status'] == 1) {
+                                                                        ?>
 
                                                                         <div class="user_btn" id= "unfollowdiv">
                                                                             <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_list(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
@@ -686,7 +686,7 @@
                                                                     <?php } ?>
                                                                 </li>
 
-                                                                <?php } else { ?>
+                                                            <?php } else { ?>
 
                                                                 <li class="fr">
 
@@ -710,7 +710,7 @@
 
                                                                     <?php } else if ($user['follow_to'] == $busdatauser[0]['business_profile_id']) { ?>
 
-            <?php } else { ?>
+                                                                    <?php } else { ?>
 
                                                                         <div class="user_btn_f follow_btn_<?php echo $user['follow_to']; ?>" id= "unfollowdiv">
                                                                             <button class="bg_following" id="<?php echo "unfollow" . $user['follow_to']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_to']; ?>)"><span>Following</span></button>
@@ -719,7 +719,7 @@
                                                                     <?php } ?>
                                                                 </li>
 
-        <?php } ?> 
+                                                            <?php } ?> 
 
                                                         </ul>
                                                     </div>
@@ -730,14 +730,14 @@
                                         </div>
 
                                     </div>
-    <?php } ?>
+                                <?php } ?>
 
-<?php } else { ?>
+                            <?php } else { ?>
 
                                 <div class="art-img-nn">
                                     <div class="art_no_post_img">
 
-                                        <img src="<?php echo base_url('img/bui-no.png') ?>">
+                                        <img src="<?php echo base_url('img/icon_no_following.png') ?>">
 
                                     </div>
                                     <div class="art_no_post_text">
@@ -745,7 +745,7 @@
                                     </div>
                                 </div>
 
-<?php } ?>
+                            <?php } ?>
                             <div class="col-md-1">
                             </div>
                         </div>
@@ -755,7 +755,7 @@
             </div>
             </section>
             <footer>
-<?php echo $footer; ?>
+                <?php echo $footer; ?>
             </footer>      
 
 
@@ -795,7 +795,7 @@
                         <div class="modal-body">
                             <span class="mes">
                                 <div id="popup-form">
-<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                     <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                     <input type="hidden" name="hitext" id="hitext" value="8">
                                     <div class="popup_previred">
@@ -1272,21 +1272,24 @@
                 function unfollowuser_list(clicked_id)
                 {
 
-
-
                     $.ajax({
                         type: 'POST',
                         url: '<?php echo base_url() . "business_profile/unfollow_following" ?>',
                         dataType: 'json',
                         data: 'follow_to=' + clicked_id,
+                        beforeSend: function (data) {
+                            document.getElementById('unfollow' + clicked_id).disabled = 'disabled';
+                        },
                         success: function (data) {
-
                             $('.' + 'frusercount').html(data.unfollow);
                             if (data.notcount == 0) {
                                 $('.' + 'contact-frnd-post').html(data.notfound);
                             } else {
                                 $('#' + 'removefollow' + clicked_id).fadeOut(4000);
                             }
+                            var following_count = $('.following_count').html();
+                            var update_following_count = following_count - 1;
+                            $('.following_count').html(update_following_count);
 
                         }
                     });

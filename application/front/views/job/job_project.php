@@ -220,7 +220,7 @@
                                 <fieldset class="full-width">
                                          <label>Project Name (Title):</label>
 
-                                          <input type="text" tabindex="1" autofocus name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>" maxlength="255"/>
+                                          <input type="text" tabindex="1" autofocus name="project_name"  id="project_name" placeholder="Enter Project Name" value="<?php if($project_name1){ echo $project_name1; } else { echo $job[0]['project_name']; }?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value"/>
                                         
                                   </fieldset>
 
@@ -665,14 +665,3 @@ return e.which !== 32;
         </script>
 <!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->
 
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
-<script type="text/javascript">
-$(document).ready(function () {
-                    var input = $("#project_name");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-
-</script>
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  

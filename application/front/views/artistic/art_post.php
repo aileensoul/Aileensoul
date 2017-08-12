@@ -4087,9 +4087,7 @@
                                 var percentVal = '100%';
                                 bar.width(percentVal)
                                         percent.html(percentVal);
-
-                                document.getElementById("no_post_avl_two").style.display = "none";
-                                        
+          
 
                                 },
                                 complete: function (response) {
@@ -4109,6 +4107,7 @@
                                 $("#dropdownclass").addClass("no-post-h2");
                                 } else {
                                 $("#dropdownclass").removeClass("no-post-h2");
+                                 document.getElementById("no_post_avl_two").style.display = "none";
                                 }
                                 $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
 
@@ -4132,20 +4131,23 @@
                     <script type="text/javascript">
 
 
+                        $( document ).on( 'keydown', function ( e ) {
+                        if ( e.keyCode === 27 ) {
+       
 
-
-                        $(document).on('keydown', function (e) {
-                        if (e.keyCode === 27) {
-                        //$( "#bidmodal" ).hide();
-
-                        if (document.getElementById('bidmodal-limit').style.display === "block"){
-                        $('#bidmodal-limit').modal('hide');
-                        $("#test-upload_product").prop("readonly", false);
-                        $('#myModal').model('show');
-                        }
+                    if(document.getElementById('bidmodal-limit').style.display === "block"){ 
+                    $('#bidmodal-limit').modal('hide');
+                     $("#test-upload_product").prop("readonly", false);
+        
+                       $('#myModal').model('show');
+                  }else if(document.getElementById('myModal').style.display === "block"){ 
                         document.getElementById('myModal').style.display === "none";
-                        }
-                        });
+
+                   }
+
+                }
+           });  
+
                     </script>
 
                     <!-- post upload using javascript end -->

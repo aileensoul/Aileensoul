@@ -111,6 +111,7 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#notification_count").html('');
+             $('#notification_count').css({"background-color": "#1b8ab9" , "padding": "5px 6px"});
             $('#notificationLink').removeClass('notification_available');
         } else
         {
@@ -484,7 +485,7 @@ $(window).load(function(){
 
 
         <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                            <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
+                                            <li id="a_li"><a class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
 
                                                 <div id="acon">
                                                     <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
@@ -851,7 +852,7 @@ $(window).load(function(){
 
 
         <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                        <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
+                                        <li id="a_li"><a class=" action-button shadow animate" onclick="return leave_page(5)"><span class="img-all"></span></a>
 
                                             <div id="acon">
                                                 <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>

@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+                <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/sprite_img.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -138,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png')?>"></a>
   <div id="mychat_dropdown" class="chatdropdown-content">
      <a href="javascript:void(0);" onClick="delete_history()">
-                              <span class="h4-img h2-srrt"></span>  Delete 
+                              <span class="h4-img h2-srrt"></span>  Delete All
                             </a>
   </div>
 </div>
@@ -740,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
         var img = img.src;
-        $('#message').append("<img  src=" + img + " height='25' width='25' >");
+        $('#message').append("<img  src=" + img + " height='21' width='21' >");
         //$('#message').append(data);
 
     }

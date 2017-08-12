@@ -1057,9 +1057,19 @@ if(mm<10) {
 } 
 
    var todaydate = dd+'/'+mm+'/'+yyyy;
+   var regEx = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+  if(!value.match(regEx))
+  {
+  
+    value=value.split("-");
+    var lastDate=value[2]+"/"+value[1]+"/"+value[0];
+    
+  }
+  else
+  {
+     var lastDate = value;
+  }
 
-   var lastDate = $("input[name=last_date]").val();
-    //alert(lastDate); alert(todaydate);
 
      lastDate=lastDate.split("/");
      var lastdata_new=lastDate[1]+"/"+lastDate[0]+"/"+lastDate[2];
@@ -1070,8 +1080,32 @@ if(mm<10) {
      var todaydate_new_one = new Date(todaydate_new).getTime();
      
 
+      $('.day').addClass('error'); 
+      $('.month').addClass('error'); 
+      $('.year').addClass('error'); 
+
     return lastdata_new_one >= todaydate_new_one;
+
+    
 }, "Last date should be grater than and equal to today date");
+
+$.validator.addMethod("required1", function(value, element, regexpr) {   
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                $('.day').addClass('error'); 
+                $('.month').addClass('error'); 
+                $('.year').addClass('error'); 
+                return false;
+            }
+            else
+            {
+              return true;
+            }
+           
+     // return regexpr.test(value);
+}, "Last Date of apply is required.");
+
 
 //date validation end
 
@@ -1152,7 +1186,7 @@ jQuery.noConflict();
                        
                         last_date: {
                             
-                            required: true,
+                             required1:"Last Date of apply is required.",
                             isValid: 'Last date should be grater than and equal to today date'
                             
                         },
@@ -1232,7 +1266,7 @@ jQuery.noConflict();
                       
                         last_date: {
 
-                            required: "Last date  Is Required."
+                           // required: "Last date  Is Required."
                         },
                         // minsal:{
                         //     le:"Minimum salary should be less than Maximum salary"
