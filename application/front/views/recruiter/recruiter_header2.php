@@ -121,11 +121,11 @@
 
 $(document).ready(function(){
     $('.dropdown_hover').click(function(event){
-        event.stopPropagation();
+      //  event.stopPropagation();
          $(".dropdown-content_hover").slideToggle("fast");
     });
     $(".dropdown-content_hover").on("dropdown_hover", function (event) {
-        event.stopPropagation();
+        //event.stopPropagation();
     });
 });
 
@@ -136,7 +136,7 @@ $(document).on("dropdown_hover", function () {
 $(document).ready(function() {
      $("body").click(function(event) {
         $(".dropdown-content_hover").hide();
-        event.stopPropagation();
+      // event.stopPropagation();
     });
  
 });
