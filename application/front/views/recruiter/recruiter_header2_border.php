@@ -144,16 +144,16 @@
 
                                 <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
                                 
-                               
-                                 <a href="javascript:void(0);" onclick="return leave_page(1)"><span class="bu_home"></a>
+
+                                 <a href="javascript:void(0);" onclick="return leave_page(1)"><span class="home-22x22-h"></span></a> 
                                  <?php }else{?>
 
-                                <a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="bu_home"></a>
+                               <a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="home-22x22-h"></span></a>
                                  <?php } ?>
                                    
 
 
-                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="home-22x22-h"></span></a>
+                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
 
                                    
                                 <!-- Friend Request Start-->
@@ -190,20 +190,17 @@
                                             
       </span>
 
-      <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="icon-view-profile edit_data"></span>
-      <span> View Profile </span></a>
-     <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><span class="icon-edit-profile edit_data"></span>  
-      <span>Edit Profile </span></a>
-
 
   <!-- View profile popup show on different page of Recruiter Start -->
 
        <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
 
-   <a onclick="return leave_page(2)"><span class="h2-img h2-srrt"></span>View Profile</a>
+   <a onclick="return leave_page(2)"><span class="icon-view-profile edit_data"></span>
+      <span> View Profile </span></a>
 
      <?php }else{?>
-       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="h2-img h2-srrt"></span>View Profile</a>
+       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="icon-view-profile edit_data"></span>
+      <span> View Profile </span></a>
       <?php } ?>
   <!-- View profile popup show on different page of Recruiter ENd -->
 
@@ -211,10 +208,14 @@
 <!-- Edit Profile popup show on different page of Recruiter Start -->
 <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
 
-   <a onclick="return leave_page(3)"><i class="fa fa-pencil" aria-hidden="true"></i>Edit Profile</a>
+   <a onclick="return leave_page(3)"><span class="icon-edit-profile edit_data"></span>  
+      <span>Edit Profile </span></a>
+
 
      <?php }else{?>
-  <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
+  <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><span class="icon-edit-profile edit_data"></span>  
+      <span>Edit Profile </span></a>
+
       <?php } ?>
     
 <!-- Edit Profile popup show on different page of Recruiter Start -->
