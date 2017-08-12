@@ -850,8 +850,9 @@
 
                                                                                 <div class="edit-comment-box">
                                                                                     <div class="inputtype-edit-comment">
-                                                                                        <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
-                                                                                        <span class="comment-edit-button"><button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>)">Save</button></span>
+                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['post_image_comment_id']; ?>"  id="editcommentimg<?php echo $rowdata['post_image_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commenteditimg(<?php echo $rowdata['post_image_comment_id']; ?>,<?php echo $artdata['image_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comment']; ?></div>
+                                                                                        <span class="comment-edit-button">
+        <button id="<?php echo "editsubmitimg" . $rowdata['post_image_comment_id']; ?>" style="display:none" onClick="edit_commentimg(<?php echo $rowdata['post_image_comment_id']; ?>,<?php echo $artdata['image_id']; ?>)">Save</button></span>
                                                                                     </div>
                                                                                 </div>
 
@@ -898,11 +899,12 @@
                                                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                                                         <div class="comment-details-menu">
                                                                                             <div id="<?php echo 'editcommentboximg' . $rowdata['post_image_comment_id']; ?>" style="display:block;">
-                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editboximg(this.id)" class="editbox">Edit
+
+                <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editboximg(this.id, <?php echo $artdata['image_id']; ?>)" class="editbox">Edit
                                                                                                 </a>
                                                                                             </div>
                                                                                             <div id="<?php echo 'editcancleimg' . $rowdata['post_image_comment_id']; ?>" style="display:none;">
-                                                                                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editcancleimg(this.id)">Cancel
+                                <a id="<?php echo $rowdata['post_image_comment_id']; ?>" onClick="comment_editcancleimg(this.id, <?php echo $artdata['image_id']; ?>)">Cancel
                                                                                                 </a>
                                                                                             </div>
                                                                                         </div>
@@ -954,7 +956,7 @@
                                                         </div>
 
                                                         <?php //  }    ?>
-                                                        <div class="post-design-commnet-box col-md-12">
+                                                        <div class="post-design-commnet-box col-md-12" id="<?php echo "box_comment" . $artdata['image_id']; ?>">
                                                             <?php
                                                             $userid = $this->session->userdata('aileenuser');
                                                             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
@@ -1296,8 +1298,8 @@
                                                                                                                                 </div>-->
                                                         <div class="edit-comment-box">
                                                             <div class="inputtype-edit-comment">
-                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
-                                                                <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>)">Save</button></span>
+                                                                <div contenteditable="true" style="display:none; min-height:37px !important; margin-top: 0px!important; margin-left: 1.5% !important; width: 81%;" class="editable_text" name="<?php echo $rowdata['artistic_post_comment_id']; ?>"  id="editcomment<?php echo $rowdata['artistic_post_comment_id']; ?>" placeholder="Enter Your Comment " value= ""  onkeyup="commentedit(<?php echo $rowdata['artistic_post_comment_id']; ?>,<?php echo $art_data[0]['art_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $rowdata['comments']; ?></div>
+                                                                <span class="comment-edit-button"><button id="<?php echo "editsubmit" . $rowdata['artistic_post_comment_id']; ?>" style="display:none" onClick="edit_comment(<?php echo $rowdata['artistic_post_comment_id']; ?>,<?php echo $art_data[0]['art_post_id']; ?>)">Save</button></span>
                                                             </div>
                                                         </div>
 
@@ -1340,11 +1342,11 @@
                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                 <div class="comment-details-menu">
                                                                     <div id="<?php echo 'editcommentbox' . $rowdata['artistic_post_comment_id']; ?>" style="display:block;">
-                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id)" class="editbox">Edit
+                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editbox(this.id,<?php echo $art_data[0]['art_post_id']; ?>)" class="editbox">Edit
                                                                         </a>
                                                                     </div>
                                                                     <div id="<?php echo 'editcancle' . $rowdata['artistic_post_comment_id']; ?>" style="display:none;">
-                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id)">Cancel
+                                                                        <a id="<?php echo $rowdata['artistic_post_comment_id']; ?>" onClick="comment_editcancle(this.id,<?php echo $art_data[0]['art_post_id']; ?>)">Cancel
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -1395,7 +1397,7 @@
 
                                 </div>
                                 <!-- 8-5 comment end -->
-                                <div class="post-design-commnet-box col-md-12">
+                                <div class="post-design-commnet-box col-md-12" id="<?php echo "box_hide" . $art_data[0]['art_post_id']; ?>">
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
@@ -1821,7 +1823,7 @@ $( "#searchplace1" ).autocomplete({
                             var post_delete = document.getElementById("post_delete");
                             $.ajax({
                                 type: 'POST',
-                                url: '<?php echo base_url() . "artistic/delete_comment" ?>',
+                                url: '<?php echo base_url() . "artistic/delete_comment_postnewpage" ?>',
                                 data: 'post_id=' + clicked_id + '&post_delete=' + post_delete.value,
                                 dataType: "json",
                                 success: function (data) { 
@@ -1843,7 +1845,7 @@ $( "#searchplace1" ).autocomplete({
                             var post_delete1 = document.getElementById("post_deletetwo");
                             $.ajax({
                                 type: 'POST',
-                                url: '<?php echo base_url() . "artistic/delete_commenttwo" ?>',
+                                url: '<?php echo base_url() . "artistic/delete_commenttwo_postnewpage" ?>',
                                 data: 'post_id=' + clicked_id + '&post_delete=' + post_delete1.value,
                                 dataType: "json",
                                 success: function (data) {
@@ -1942,7 +1944,7 @@ $( "#searchplace1" ).autocomplete({
                             if (x.style.display === 'block' && y.style.display === 'none') {
                                 $.ajax({
                                     type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                    url: '<?php echo base_url() . "artistic/insert_commentthree_postnewpage" ?>',
                                     data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
@@ -1960,7 +1962,7 @@ $( "#searchplace1" ).autocomplete({
 
                                 $.ajax({
                                     type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                    url: '<?php echo base_url() . "artistic/insert_comment_postnewpage" ?>',
                                     data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                     dataType: "json",
                                     success: function (data) {
@@ -2084,7 +2086,7 @@ $( "#searchplace1" ).autocomplete({
                                     if (x.style.display === 'block' && y.style.display === 'none') {
                                         $.ajax({
                                             type: 'POST',
-                                            url: '<?php echo base_url() . "artistic/insert_commentthree" ?>',
+                                            url: '<?php echo base_url() . "artistic/insert_commentthree_postnewpage" ?>',
                                             data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
@@ -2099,7 +2101,7 @@ $( "#searchplace1" ).autocomplete({
                                     } else {
                                         $.ajax({
                                             type: 'POST',
-                                            url: '<?php echo base_url() . "artistic/insert_comment" ?>',
+                                            url: '<?php echo base_url() . "artistic/insert_comment_postnewpage" ?>',
                                             data: 'post_id=' + clicked_id + '&comment=' + encodeURIComponent(txt),
                                             dataType: "json",
                                             success: function (data) {
@@ -2127,27 +2129,27 @@ $( "#searchplace1" ).autocomplete({
                     <!-- comment edit box start-->
                     <script type="text/javascript">
 
-                        function comment_editbox(clicked_id) {
+                        function comment_editbox(clicked_id,abc) {
                             document.getElementById('editcomment' + clicked_id).style.display = 'inline-block';
                             document.getElementById('showcomment' + clicked_id).style.display = 'none';
                             document.getElementById('editsubmit' + clicked_id).style.display = 'inline-block';
                             //document.getElementById('editbox' + clicked_id).style.display = 'none';
                             document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
                             document.getElementById('editcancle' + clicked_id).style.display = 'block';
-                            $('.post-design-commnet-box').hide();
+                            $($('#box_hide' + abc)).hide();
                         }
 
 
-                        function comment_editcancle(clicked_id) {
+                        function comment_editcancle(clicked_id,abc) {
                             document.getElementById('editcommentbox' + clicked_id).style.display = 'block';
                             document.getElementById('editcancle' + clicked_id).style.display = 'none';
                             document.getElementById('editcomment' + clicked_id).style.display = 'none';
                             document.getElementById('showcomment' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmit' + clicked_id).style.display = 'none';
 
-                            $('.post-design-commnet-box').show();
+                            $($('#box_hide' + abc)).show();
                         }
-                        function comment_editboxtwo(clicked_id) {
+                        function comment_editboxtwo(clicked_id,abc) {
 //                            alert('editcommentboxtwo' + clicked_id);
 //                            return false;
                             $('div[id^=editcommenttwo]').css('display', 'none');
@@ -2161,11 +2163,11 @@ $( "#searchplace1" ).autocomplete({
                             document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
                             document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
                             document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-                            $('.post-design-commnet-box').hide();
+                            $($('#box_hide' + abc)).hide();
                         }
 
 
-                        function comment_editcancletwo(clicked_id) {
+                        function comment_editcancletwo(clicked_id,abc) {
 
                             document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'block';
                             document.getElementById('editcancletwo' + clicked_id).style.display = 'none';
@@ -2173,7 +2175,7 @@ $( "#searchplace1" ).autocomplete({
                             document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
                             document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-                            $('.post-design-commnet-box').show();
+                            $($('#box_hide' + abc)).show();
                         }
                     </script>
                     <!--comment edit box end-->
@@ -2626,7 +2628,7 @@ $( "#searchplace1" ).autocomplete({
                                 z.style.visibility = 'show';
                                 $.ajax({
                                     type: 'POST',
-                                    url: '<?php echo base_url() . "artistic/fourcomment" ?>',
+                                    url: '<?php echo base_url() . "artistic/postnewpage_fourcomment" ?>',
                                     data: 'art_post_id=' + clicked_id,
                                     //alert(data);
                                     success: function (data) {
@@ -2709,7 +2711,7 @@ $( "#searchplace1" ).autocomplete({
                     </script>
                     <!-- comment edit insert start -->
                     <script type="text/javascript">
-                        function edit_comment(abc)
+                        function edit_comment(abc,clicked_id)
                         {
                             $("#editcomment" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -2739,7 +2741,7 @@ $( "#searchplace1" ).autocomplete({
                                     document.getElementById('editcommentbox' + abc).style.display = 'block';
                                     document.getElementById('editcancle' + abc).style.display = 'none';
                                     $('#' + 'showcomment' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
+                                    $('#box_hide' + clicked_id).show();
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -2749,7 +2751,7 @@ $( "#searchplace1" ).autocomplete({
                         }
                     </script>
                     <script type="text/javascript">
-                        function commentedit(abc)
+                        function commentedit(abc,clicked_id)
                         {
                             $("#editcomment" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -2787,7 +2789,7 @@ $( "#searchplace1" ).autocomplete({
                                             document.getElementById('editcommentbox' + abc).style.display = 'block';
                                             document.getElementById('editcancle' + abc).style.display = 'none';
                                             $('#' + 'showcomment' + abc).html(data);
-                                            $('.post-design-commnet-box').show();
+                                            $('#box_hide' + clicked_id).show();
                                         }
                                     });
                                 }
@@ -2799,7 +2801,7 @@ $( "#searchplace1" ).autocomplete({
                         }
                     </script>
                     <script type="text/javascript">
-                        function edit_commenttwo(abc)
+                        function edit_commenttwo(abc,clicked_id)
                         {
                             $("#editcommenttwo" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -2830,7 +2832,7 @@ $( "#searchplace1" ).autocomplete({
                                     document.getElementById('editcommentboxtwo' + abc).style.display = 'block';
                                     document.getElementById('editcancletwo' + abc).style.display = 'none';
                                     $('#' + 'showcommenttwo' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
+                                    $('#box_hide' + clicked_id).show();
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -2840,7 +2842,7 @@ $( "#searchplace1" ).autocomplete({
                         }
                     </script>
                     <script type="text/javascript">
-                        function commentedittwo(abc)
+                        function commentedittwo(abc,clicked_id)
                         {
                             $("#editcommenttwo" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -2885,7 +2887,7 @@ $( "#searchplace1" ).autocomplete({
                                             document.getElementById('editcancletwo' + abc).style.display = 'none';
 
                                             $('#' + 'showcommenttwo' + abc).html(data);
-                                            $('.post-design-commnet-box').show();
+                                            $('#box_hide' + clicked_id).show();
 
                                         }
                                     });
@@ -3413,46 +3415,46 @@ $( "#searchplace1" ).autocomplete({
                         }
 
 
-                        function comment_editboximg(clicked_id) {
+                        function comment_editboximg(clicked_id,abc) { //alert('#box_comment' + clicked_id);
                             document.getElementById('editcommentimg' + clicked_id).style.display = 'inline-block';
                             document.getElementById('showcommentimg' + clicked_id).style.display = 'none';
                             document.getElementById('editsubmitimg' + clicked_id).style.display = 'inline-block';
                             //document.getElementById('editbox' + clicked_id).style.display = 'none';
                             document.getElementById('editcommentboximg' + clicked_id).style.display = 'none';
                             document.getElementById('editcancleimg' + clicked_id).style.display = 'block';
-                            $('.post-design-commnet-box').hide();
+                            $('#box_comment' + abc).hide();
                         }
 
 
-                        function comment_editcancleimg(clicked_id) {
+                        function comment_editcancleimg(clicked_id,abc) {
                             document.getElementById('editcommentboximg' + clicked_id).style.display = 'block';
                             document.getElementById('editcancleimg' + clicked_id).style.display = 'none';
                             document.getElementById('editcommentimg' + clicked_id).style.display = 'none';
                             document.getElementById('showcommentimg' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmitimg' + clicked_id).style.display = 'none';
 
-                            $('.post-design-commnet-box').show();
+                            $('#box_comment' + abc).show();
                         }
 
-                        function comment_editboximgtwo(clicked_id) {
+                        function comment_editboximgtwo(clicked_id,abc) {
                             //                            alert('editcommentboxtwo' + clicked_id);
                             //                            return false;
-                            $('div[id^=editcommentimgtwo]').css('display', 'none');
-                            $('div[id^=showcommentimgtwo]').css('display', 'block');
-                            $('button[id^=editsubmitimgtwo]').css('display', 'none');
-                            $('div[id^=editcommentboximgtwo]').css('display', 'block');
-                            $('div[id^=editcancleimgtwo]').css('display', 'none');
+                            $('div[id^=editcommentimgtwo'+clicked_id+']').css('display', 'none');
+                            $('div[id^=showcommentimgtwo'+clicked_id+']').css('display', 'block');
+                            $('button[id^=editsubmitimgtwo'+clicked_id+']').css('display', 'none');
+                            $('div[id^=editcommentboximgtwo'+clicked_id+']').css('display', 'block');
+                            $('div[id^=editcancleimgtwo'+clicked_id+']').css('display', 'none');
 
                             document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'inline-block';
                             document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'none';
                             document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'inline-block';
                             document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'none';
                             document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'block';
-                            $('.post-design-commnet-box').hide();
+                             $('#box_comment' + abc).hide();
                         }
 
 
-                        function comment_editcancleimgtwo(clicked_id) {
+                        function comment_editcancleimgtwo(clicked_id,abc) {
 
                             document.getElementById('editcommentboximgtwo' + clicked_id).style.display = 'block';
                             document.getElementById('editcancleimgtwo' + clicked_id).style.display = 'none';
@@ -3460,7 +3462,7 @@ $( "#searchplace1" ).autocomplete({
                             document.getElementById('editcommentimgtwo' + clicked_id).style.display = 'none';
                             document.getElementById('showcommentimgtwo' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmitimgtwo' + clicked_id).style.display = 'none';
-                            $('.post-design-commnet-box').show();
+                             $('#box_comment' + abc).show();
                         }
 
                         function comment_deleteimg(clicked_id) {
@@ -3546,7 +3548,7 @@ $( "#searchplace1" ).autocomplete({
                             }
                         }
 
-                        function edit_commentimg(abc)
+                        function edit_commentimg(abc, clicked_id)
                         {
                             $("#editcommentimg" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -3578,7 +3580,7 @@ $( "#searchplace1" ).autocomplete({
                                     document.getElementById('editcommentboximg' + abc).style.display = 'block';
                                     document.getElementById('editcancleimg' + abc).style.display = 'none';
                                     $('#' + 'showcommentimg' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
+                                    $('#box_comment' + clicked_id).show();
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -3670,7 +3672,7 @@ $( "#searchplace1" ).autocomplete({
                             });
                         }
 
-                        function edit_commentimgtwo(abc)
+                        function edit_commentimgtwo(abc,clicked_id)
                         {
                             $("#editcommentimgtwo" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -3703,7 +3705,7 @@ $( "#searchplace1" ).autocomplete({
                                     document.getElementById('editcommentboximgtwo' + abc).style.display = 'block';
                                     document.getElementById('editcancleimgtwo' + abc).style.display = 'none';
                                     $('#' + 'showcommentimgtwo' + abc).html(data);
-                                    $('.post-design-commnet-box').show();
+                                    $('#box_comment' + clicked_id).show();
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -3730,7 +3732,7 @@ $( "#searchplace1" ).autocomplete({
 
                         }
 
-                        function commenteditimg(abc)
+                        function commenteditimg(abc,clicked_id)
                         {
                             $("#editcommentimg" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -3773,7 +3775,7 @@ $( "#searchplace1" ).autocomplete({
                                             document.getElementById('editcommentboximg' + abc).style.display = 'block';
                                             document.getElementById('editcancleimg' + abc).style.display = 'none';
                                             $('#' + 'showcommentimg' + abc).html(data);
-                                            $('.post-design-commnet-box').show();
+                                            $('#box_comment' + clicked_id).show();
                                         }
                                     });
                                 }
@@ -3784,7 +3786,7 @@ $( "#searchplace1" ).autocomplete({
                             });
                         }
 
-                        function commenteditimgtwo(abc)
+                        function commenteditimgtwo(abc,clicked_id)
                         {
                             $("#editcommentimgtwo" + abc).click(function () {
                                 $(this).prop("contentEditable", true);
@@ -3831,7 +3833,7 @@ $( "#searchplace1" ).autocomplete({
                                             document.getElementById('editcancleimgtwo' + abc).style.display = 'none';
 
                                             $('#' + 'showcommentimgtwo' + abc).html(data);
-                                            $('.post-design-commnet-box').show();
+                                            $('#box_comment' + clicked_id).show();
 
                                         }
                                     });

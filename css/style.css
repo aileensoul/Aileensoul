@@ -2343,7 +2343,7 @@ ul.business_pf_ct_person_detail li b {
     margin-top: -3px;
     font-size: 10px;
     top:10px;
-    line-height: 8px;
+    line-height: 9px;
     left: 15px;
 }
 #message_count {} #notificationLink:hover span {
@@ -4137,8 +4137,8 @@ display: inline-block;
         font-family:arial;
     }
     .addcontact-text span{color:#404040; font-size:13px;}
-/*    #addcontactBody li:hover{background-color:e9f4f8; }
-        #addcontactBody li:hover .addcontact-text{}*/
+    #addcontactBody li:hover{background-color:e9f4f8; }
+        #addcontactBody li:hover .addcontact-text{}
     .addcontact-text span{
         display: block;
         line-height: 1;
@@ -10697,6 +10697,8 @@ display: initial;}
     padding-left: 22px!important;
     padding: 13px;
 }
+   .common-form fieldset input:focus{   border: 1px solid #1b8ab9 !important;       
+        color: #1b8ab9!important;}
   .people-list .search input:focus .fa-search{color: #1b8ab9;}       
      .people-list .search input:focus{   border-bottom: 1px solid #1b8ab9 !important;       
         color: #1b8ab9!important;}
