@@ -351,7 +351,7 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
-                                                                                                                                                                        <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
+                                                                                                                                                                                        <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
 
                                                                                     <?php
                                                                                     $a = $userlist['company_name'];
@@ -375,7 +375,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);                ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);                 ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
@@ -826,9 +826,9 @@
 
 
                                                 <div class="col-md-12"> <div class="form-group">
-                                                    <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
                                                     </div>
-												</div>
+                                                </div>
 
 
                                                 <label for="file-1">
@@ -837,24 +837,24 @@
                                                     <i class="fa fa-music upload_icon" > Audio </i>
                                                     <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
                                                 </label>
-											<!---  safari upload  >
-												<label class="fileContainer">
-													<i class=" fa fa-camera upload_icon" > Photo</i>
-													<input type="file"  / >
-												</label>
-												<label class="fileContainer">
-													<i class=" fa fa-video-camera upload_icon" > Video </i>
-													<input type="file"  / >
-												</label>
-												<label class="fileContainer">
-													<i class="fa fa-music upload_icon" > Audio </i>
-													<input type="file"  / >
-												</label>
-												<label class="fileContainer">
-													<i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
-													<input type="file"  / >
-												</label -->
-											
+                                                <!---  safari upload  >
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-camera upload_icon" > Photo</i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-video-camera upload_icon" > Video </i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class="fa fa-music upload_icon" > Audio </i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
+                                                                <input type="file"  / >
+                                                        </label -->
+
 
                                             </li>
                                         </ul>
@@ -1181,9 +1181,9 @@
                                                                                 <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
 
-                                                                                                                                                                                    <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
-                                                                                                                                                                                        <span class="h2-img h2-srrt"></span> Contact Person
-                                                                                                                                                                                    </a> -->
+                                                                                                                                                                                                        <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
+                                                                                                                                                                                                            <span class="h2-img h2-srrt"></span> Contact Person
+                                                                                                                                                                                                        </a> -->
                                                                             <?php
                                                                         }
                                                                     }
@@ -1278,10 +1278,10 @@
                                                                         <!-- one pdf start -->
                                                                         <div>
                                                                             <!-- <a title="click to open" href="<?php echo base_url('business_profile/creat_pdf/' . $businessmultiimage[0]['image_name']) ?>">
- -->
+                                                                            -->
                                                                             <a title="click to open" href="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>">
 
-                                                                            <div class="pdf_img">
+                                                                                <div class="pdf_img">
                                                                                     <img src="<?php echo base_url('images/PDF.jpg') ?>" style="height: 100%; width: 100%;">
                                                                                 </div>
                                                                             </a>
@@ -1417,8 +1417,8 @@
                                                                             $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>               
-                                                                                            <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                                                                        </i>-->
+                                                                                                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                                                                            </i>-->
                                                                                 <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                             <?php } else { ?> 
                         <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1642,27 +1642,30 @@
                                                                                 </div>
                                                                                 <div class="comment-name">
 
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
-                                                                                    <b title=" <?php echo $companyname; ?>">  
-                                                                                        <?php
-                                                                                        echo $companyname;
-                                                                                        echo '</br>';
-                                                                                        ?>
-                                                                                    </b>
+                                                                                    <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname1); ?>">
+                                                                                        <b title=" <?php echo $companyname; ?>">  
+                                                                                            <?php
+                                                                                            echo $companyname;
+                                                                                            echo '</br>';
+                                                                                            ?>
+                                                                                        </b>
                                                                                     </a>
                                                                                 </div>
                                                                                 <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
 
-                     <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
-                            <?php
-                                $small = substr($rowdata['comments'], 0, 180);
-                                echo $this->common->make_links($small); echo "&nbsp;" ?>
+                                                                                    <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
+                                                                                        <?php
+                                                                                        $small = substr($rowdata['comments'], 0, 180);
+                                                                                        echo $this->common->make_links($small);
+                                                                                        echo "&nbsp;"
+                                                                                        ?>
 
-                               <?php if (strlen($rowdata['comments']) > 180) {
-                                echo '<span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">...View More</span>';
-                                }
-                                 ?>
-                     </div>
+                                                                                        <?php
+                                                                                        if (strlen($rowdata['comments']) > 180) {
+                                                                                            echo '<span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">...View More</span>';
+                                                                                        }
+                                                                                        ?>
+                                                                                    </div>
 
                                                                                     <div id="<?php echo "seemore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:none;">
                                                                                         <?php
@@ -1706,7 +1709,7 @@
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                                                                 </i>
-                                                                                            <?php } ?>
+                                                                                                <?php } ?>
                                                                                             <span>
                                                                                                 <?php
                                                                                                 if ($rowdata['business_comment_likes_count']) {
@@ -1747,7 +1750,7 @@
                                                                                                 </span>
                                                                                             </a>
                                                                                         </div>
-                                                                                    <?php } ?>                                   
+                    <?php } ?>                                   
                                                                                     <span role="presentation" aria-hidden="true"> · 
                                                                                     </span>
                                                                                     <div class="comment-details-menu">
@@ -1787,11 +1790,11 @@
                                                                         $acr = substr($a, 0, 1);
                                                                         ?>
                                                                         <div class="post-img-div">
-                                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                        <?php echo ucfirst(strtolower($acr)) ?>
                                                                         </div> 
-                                                                        <?php
-                                                                    } else {
-                                                                        ?>
+                    <?php
+                } else {
+                    ?>
 
                                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
 
@@ -1802,21 +1805,21 @@
                                                                     $acr = substr($a, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                <?php echo ucfirst(strtolower($acr)) ?>
                                                                     </div>
-                                                                <?php } ?>
+            <?php } ?>
                                                             </div>
 
                                                             <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                                                                 <div contenteditable="true" class="edt_2 editable_text" name="<?php echo $row['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $row['business_profile_post_id']; ?>" placeholder="Add a Comment ..." onClick="entercomment(<?php echo $row['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                                                        
- <div class="mob-comment">
-                            <button  id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
-                            
-                           </div>
+
+                                                                <div class="mob-comment">
+                                                                    <button  id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
+
+                                                                </div>
 
                                                             </div>
-                                                            <?php echo form_error('post_comment'); ?> 
+            <?php echo form_error('post_comment'); ?> 
                                                             <div class="comment-edit-butn  hidden-mob">       
                                                                 <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                                 </button>
@@ -1882,7 +1885,7 @@
 
         </section>
         <footer>
-            <?php echo $footer; ?>
+<?php echo $footer; ?>
         </footer>
         <!-- Bid-modal  -->
         <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1964,7 +1967,7 @@
 
 
                                                                     var data = <?php echo json_encode($demo);
-            ?>;
+?>;
                                                                     //alert(data);
                                                                     $(function () {
                                                                     // alert('hi');
@@ -2000,7 +2003,7 @@
     (function ($) {
 
     var data1 = <?php echo json_encode($city_data);
-            ?>;
+?>;
     //alert(data);
     $(function () {
     // alert('hi');
@@ -2425,7 +2428,7 @@
     //      z.style.display = 'block';
     //      $.ajax({ 
     //             type:'POST',
-    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                       ?>',
+    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                        ?>',
     //             data:'art_post_id='+clicked_id,
     //             //alert(data);
     //             success:function(data){
@@ -3775,6 +3778,11 @@
             $("#dropdownclass").addClass("no-post-h2");
             }
 
+            var total_post = $('.post-design-box').length;
+            if (total_post == 0){
+            $('.art_no_post_avl').show();
+            }
+
             }
     });
     }
@@ -4062,7 +4070,7 @@
     //document.getElementById('editpostdetails' + abc).style.display = 'block';
     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
     document.getElementById('editpostsubmit' + abc).style.display = 'none';
-     document.getElementById('khyati' + abc).style.display = 'block';
+    document.getElementById('khyati' + abc).style.display = 'block';
     } else {
     $.ajax({
     type: 'POST',
@@ -4168,9 +4176,9 @@
             var percentVal = '100%';
             bar.width(percentVal)
                     percent.html(percentVal);
-
             },
             complete: function (response) {
+                $('.art_no_post_avl').hide();
             // Output AJAX response to the div container
             document.getElementById('test-upload-product').value = '';
             document.getElementById('test-upload-des').value = '';
@@ -4186,20 +4194,17 @@
             //alert(nb);
             if (nb == 0) {
             $("#dropdownclass").addClass("no-post-h2");
-            } else { 
-           document.getElementById("art_no_post_avl").style.display = "none";
-
+            } else {
+            document.getElementById("art_no_post_avl").style.display = "none";
             $("#dropdownclass").removeClass("no-post-h2");
             }
             $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
-
             }
     };
     // Submit the form
     $(".upload-image-form").ajaxForm(options);
     return false;
-    });
-</script>
+    });</script>
 
 <!--
 <style>
@@ -4259,18 +4264,17 @@
 <script type="text/javascript">
     $('#file-1').on('click', function(e){
 
-		var a = document.getElementById('test-upload-product').value;
-		var b = document.getElementById('test-upload-des').value;
-		document.getElementById("artpostform").reset();
-		document.getElementById('test-upload-product').value = a;
-		document.getElementById('test-upload-des').value = b;
+    var a = document.getElementById('test-upload-product').value;
+    var b = document.getElementById('test-upload-des').value;
+    document.getElementById("artpostform").reset();
+    document.getElementById('test-upload-product').value = a;
+    document.getElementById('test-upload-des').value = b;
     });
-	
-	/*$(document).ready(function(){
-        $(".upload_icon").click(function(){
-          $("#file-1").trigger('click');
-        });
-	});*/
+    /*$(document).ready(function(){
+     $(".upload_icon").click(function(){
+     $("#file-1").trigger('click');
+     });
+     });*/
 </script>
 
 
