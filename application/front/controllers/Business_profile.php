@@ -11926,24 +11926,19 @@ class Business_profile extends MY_Controller {
 
     public function contact_count() {
 
-        $userid = $this->session->userdata('aileenuser');
+      $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('contact_to_id' => $userid, 'status' => 'pending', 'not_read' => '2');
-        $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        // $contactcount = count($contactperson);
-
-
+        $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'count(*) as total', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
         $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm', 'not_read' => '2');
-        $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        //$contactcount = count($contactperson);
-
-        $unique_user = array_merge($contactperson_req, $contactperson_con);
-
-        $contactcount = count($unique_user);
-
-
-
-        echo $contactcount;
+        $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'count(*) as total1', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+      
+        //$unique_user = array_merge($contactperson_req, $contactperson_con);
+        
+        $main_total = $contactperson_req[0]['total'] + $contactperson_con[0]['total1'];
+        
+        echo $main_total;
     }
 
     public function update_contact_count() {
