@@ -741,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
         var img = img.src;
-        $('#message').append("<img  src=" + img + " height='25' width='25' >");
+        $('#message').append("<img  src=" + img + " height='21' width='21' >");
         //$('#message').append(data);
 
     }

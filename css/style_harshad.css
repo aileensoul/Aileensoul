@@ -27,7 +27,7 @@ width: 25px; }
 */.dropdown .img-circle{border: 2px solid #d7ecf5; background:#d7ecf5;}
 .header ul li a i{color: #d7ecf5;}
 .dropdown_hover span i {
-    margin-right: -8px;
+    margin-right: -9px;
     padding-left: 6px;
     font-size: 18px;
 }
