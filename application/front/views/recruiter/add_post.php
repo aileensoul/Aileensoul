@@ -1383,9 +1383,10 @@ alert(clicked_id);
     }
      if(clicked_id==5)
     { 
+    
         document.getElementById('acon').style.display = 'block';
+        return false;
         
-          
     }
        if(clicked_id==6)
     {
