@@ -14551,7 +14551,7 @@ text-overflow: ellipsis;}
     width: auto;
     color: #1b8ab9;
 }
-#bidmodal {
+#bidmodal{
     z-index: 10003;
 }
 .alert.alert-danger {
@@ -16756,6 +16756,9 @@ padding-top: 7px !important;}
 }
 @media screen and (max-width: 360px) {
     .hout_noti{font-size: 11px;}
+    .action-button #message_count {
+    right: 163px;
+}
     .job-saved-box .notification-box ul li{padding: 0;}
     #notification_inside h6{font-size: 12px !important;}
     #notification_inside{   padding: 5px 5px 9px 1px !important;
