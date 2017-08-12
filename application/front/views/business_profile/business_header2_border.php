@@ -282,7 +282,7 @@
                                                     <div class="my_S">Account</div>
 
                                                 </span>
-                                                <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"<span class="icon-view-profile edit_data"></span>
+                                                <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"><span class="icon-view-profile edit_data"></span>
       <span> View Profile </span></a> 
                                                 <a href="<?php echo base_url('business_profile/business_information_update'); ?>">
                                                 <span class="icon-edit-profile edit_data"></span>  
