@@ -9,6 +9,7 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
         // echo $this->session->userdata('aileenuser');  echo "hello"; die();
 
+        
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
         $deleteuser = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');

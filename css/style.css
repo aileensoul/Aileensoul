@@ -4208,7 +4208,8 @@ display: inline-block;
 #notificationContainer {
     background-color: #fff;
    /* border: 1px solid rgba(100, 100, 100, .4);*/
-    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .45);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .45);
     overflow: visible;
     position: absolute;
     top: 25px;
@@ -4371,7 +4372,8 @@ li.active2 .notification-database:hover {
 #InboxContainer {
    border-radius: 5px;
 background-color: #fff;
--webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+box-shadow: 0 3px 8px rgba(0, 0, 0, .45);
+-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .45);
 overflow: visible;
 position: absolute;
 top: 25px;
@@ -5707,7 +5709,7 @@ form {
     font-size: 16px;
     resize: none;
 }
-#msg_block .input-group .comment{line-height: 1;}
+#msg_block .input-group .comment{line-height: 1.5; margin-top:10px; margin-bottom:10px;}
 .close-popup {
     color: #000000;
     background-color: #ffffff;
@@ -14975,9 +14977,7 @@ div .comment {
 .chat_nobcx .post-img-div{float:left;}
 .people-list .about{width:76%;}
 
-.ui-autocomplete {
-    max-width: 300px!important;
-}
+.ui-autocomplete { max-width: 300px!important;}
 
 .msg_right{max-width: 80%;
 float: right; position:relative;}
@@ -15079,11 +15079,7 @@ left: 5px;
 .messagedelete .fa{color:#777;}
 .messagedelete:hover .fa{color:#1b8ab9;}
 .chat-header a:hover{color:#156f95;}
-
-
 .job_edit_pr{padding-left: 245px;}
-
-
 
 .post-design-desc  #editpostdata a{font-weight: 600}
 .chat_heae_img{border:1px solid #d9d9d9;}
@@ -15091,17 +15087,22 @@ left: 5px;
 .banner-img .cover-pic .cancel-result:hover{background-color: #fff!important;color: #1b8ab9;border:1px solid #1b8ab9;}
 .custom-row  div#row2 {background-color: #fff;}
 .dropdown-content2 a{color: #787878!important;}
-
 .dropdown-content2 a:hover{color: white!important;}
-
 .dropdown-content2 a:hover .h4-img{background: url(../img/icon_delete_white.png) no-repeat;background-size:100%;}
-
 .dropdown-content2 a:hover .h3-img{background:url(../img/icon_edit_profile_white.png) no-repeat;background-size:100%;}
-
 .dropdown-content2 a:hover .h2-img{background: :url(../img/icon_view_profile_white.png) no-repeat,background-size:100%;}
-
 .profile-job-profile-button div.buisness-profile-pic-candidate{margin-left: 17px!important;}
 
+
+.all-box li img{border:none!important;}
+.header-left-menu ul{margin-bottom: -1px ;}
+.popup-img-in img{border:1px solid #d9d9d9 !important; }
+.notification-pic img{border:1px solid #d9d9d9 !important;}
+.about-content{width: 80% !important;line-height: 28px !important;}
+
+
+/***  harshad  ***/
+.chat_nobcx .post-img-div{width:42px; height:42px; padding:11px 0;}
 
 
 .header .mCSB_container ul{width:100%; float:left;}
