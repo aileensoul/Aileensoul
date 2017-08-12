@@ -68,12 +68,12 @@
       <a href="<?php echo site_url('artistic/artistic_profile'); ?>"><span class="icon-view-profile edit_data"></span>
       <span> View Profile </span></a>
      <a href="<?php echo base_url('artistic/art_basic_information_update'); ?>"><span class="icon-edit-profile edit_data"></span>  
-      <span>Edit Profile </span>/a>
+      <span>Edit Profile </span></a>
 
      <?php
       $userid = $this->session->userdata('aileenuser');
       ?>
- <a onClick="deactivate(<?php echo $userid; ?>)"<span class="icon-delete edit_data"></span>  <span>Deactive Profile</span></a>
+ <a onClick="deactivate(<?php echo $userid; ?>)"><span class="icon-delete edit_data"></span>  <span>Deactive Profile</span></a>
   </div>
 </div>
 </li>
