@@ -10804,10 +10804,10 @@ class Business_profile extends MY_Controller {
 
             $contactdata = '<div class="art-img-nn">
                                                 <div class="art_no_post_img">
-                                                    <img src="http://localhost/aileensoul/img/No_Contact_Request.png">
+                                                    <img src="'.base_url().'img/No_Contact_Request.png">
                                                 </div>
                                                 <div class="art_no_post_text_c">
-                                                    No Contact request Available.
+                                                    No Contact Request Available.
                                                 </div>
                              </div>';
         }
