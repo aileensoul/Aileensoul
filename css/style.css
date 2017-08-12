@@ -3925,17 +3925,18 @@ a:focus {
     }
      .all-list ul{
         display: inline-block;
+		padding:15px 0 10px;
      }
      .all-list ul li{
         padding:10px;
         display: inline-block;
         list-style-type: none;
         margin: 0;
-        float: left;
+        /*float: left;*/
      }
      .all-list ul li .list-box{
         width: 235px;
-        height: 255px;
+        height: 265px;
         background: #fff;
         border:1px solid #ddd;
         border-radius: 4px;
@@ -14800,7 +14801,10 @@ text-align: center;}
 }
 .header ul li.dropdown-user a {
     padding-top: 13px !important;
-   
+   color:#d7ecf5;
+}
+.header ul li.dropdown-user a:hover{
+	color:#fff;
 }
 
 .header ul li a {
