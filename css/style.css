@@ -1705,8 +1705,11 @@ margin-bottom: 15px;
     color: #fff;
     padding: 8px 20px;
 }
+input:focus, textarea:focus, select:focus{  border: 1px solid #1b8ab9 !important;
+    color: #1b8ab9!important;}
 #jobseeker_regform input:focus{   border: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
+    #jobseeker_regform input#submit:focus{border: none!important;}
     #industry:focus{   border: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
 
@@ -10691,6 +10694,7 @@ display: initial;}
     background-color: #fff;
     /* border-left: 1px solid #e4e5e7;*/
 }
+a.mesg_link:hover, a.mesg_link:focus{color: white;}
 .people-list .search {
     padding-top: 16px!important;
     padding-right: 0px!important;
@@ -15332,6 +15336,8 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 991px) {
+
+    input, textarea, select{font-size: 12px!important;}
     .all-list ul li .list-box{width: 172px;}
     .pt120 {padding-top: 100px;}
     .cover-pic {position: absolute !important; top: inherit; right: -4%; bottom: 48%; z-index: 99;}
@@ -16262,7 +16268,8 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 540px) {
-
+    .common-form1 h3{font-size: 15px;}
+    select{padding: 5px}
     .h2-smladd{margin-top: 0px;}
     .like_user_list_main_desc{width: 78%;}
     .cls-ve{top: 23px; /*right: 3px;*/}
